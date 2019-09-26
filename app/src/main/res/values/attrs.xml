@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2014 Chris Banes
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!--加载布局-->
+    <declare-styleable name="LoadingLayout">
+        <attr name="loadingView" format="reference" />
+        <attr name="errorView" format="reference" />
+        <attr name="retryView" format="reference" />
+        <attr name="emptyView" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewPager">
+        <attr name="orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--二维码扫描
+        corner_color 边角颜色，
+           scanner_color 扫描线颜色
+           possible_result_color 扫描点颜色
+           frame_color 扫描框边线颜色
+           mask_color 模糊区域颜色
+           label_text  框上方提示
+       -->
+    <declare-styleable name="ViewfinderView">
+        <attr name="corner_color" format="color" />
+        <attr name="laser_color" format="color" />
+        <attr name="frame_color" format="color" />
+        <attr name="mask_color" format="color" />
+        <attr name="result_point_color" format="color" />
+        <attr name="result_color" format="color" />
+        <attr name="label_text_color" format="color" />
+        <attr name="label_text" format="string" />
+        <attr name="label_text_size" format="float" />
+    </declare-styleable>
+
+    //圆形进度条
+    <declare-styleable name="CustomCircleProgressBar">
+        <attr name="outside_color" format="color" />
+        <attr name="outside_radius" format="dimension" />
+        <attr name="inside_color" format="color" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_width" format="dimension" />
+        <attr name="max_progress" format="integer" />
+        <attr name="progress" format="float" />
+        <attr name="direction">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+
+    //水波纹圆形进度条
+    <declare-styleable name="WaveProgress">
+        <!-- 是否开启抗锯齿 -->
+        <attr name="antiAlias" />
+        <!-- 深色水波动画时间 -->
+        <attr name="darkWaveAnimTime" format="integer" />
+        <!-- 浅色水波动画时间 -->
+        <attr name="lightWaveAnimTime" format="integer" />
+        <!-- 最大值 -->
+        <attr name="maxValue" />
+        <!-- 当前值 -->
+        <attr name="value" />
+        <attr name="valueColor" />
+        <attr name="valueSize" />
+        <!-- 绘制内容相应的提示语 -->
+        <attr name="hint" />
+        <attr name="hintSize" />
+        <attr name="hintColor" />
+        <!-- 背景色 -->
+        <attr name="bgColor" format="color|reference" />
+        <!-- 圆环宽度 -->
+        <attr name="circleWidth" format="dimension" />
+        <!-- 圆环颜色 -->
+        <attr name="circleColor" format="color|reference" />
+        <!-- 背景圆环颜色 -->
+        <attr name="bgCircleColor" format="color|reference" />
+        <!-- 锁定水波不随圆环进度改变，默认锁定在50%处 -->
+        <attr name="lockWave" format="boolean" />
+        <!-- 水波数量 -->
+        <attr name="waveNum" format="integer" />
+        <!-- 水波高度，峰值和谷值之和 -->
+        <attr name="waveHeight" format="dimension" />
+        <!-- 深色水波颜色 -->
+        <attr name="darkWaveColor" format="color|reference" />
+        <!-- 是否显示浅色水波 -->
+        <attr name="showLightWave" format="boolean" />
+        <!-- 浅色水波颜色 -->
+        <attr name="lightWaveColor" format="color|reference" />
+        <!-- 浅色水波的方向 -->
+        <attr name="lightWaveDirect" format="enum">
+            <enum name="L2R" value="0" />
+            <enum name="R2L" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+
+
+</resources>
