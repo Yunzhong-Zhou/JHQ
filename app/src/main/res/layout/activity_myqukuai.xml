@@ -89,7 +89,7 @@
             android:layout_marginRight="14dp"
             android:paddingTop="14dp"
             android:paddingBottom="6dp">
-            <com.cho.chocoin.view.LoadingLayout
+            <com.cfo.chocoin.view.LoadingLayout
                 android:id="@+id/loading_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -106,7 +106,7 @@
 
                 </com.liaoinstan.springview.widget.SpringView>
 
-            </com.cho.chocoin.view.LoadingLayout>
+            </com.cfo.chocoin.view.LoadingLayout>
         </LinearLayout>
 
 

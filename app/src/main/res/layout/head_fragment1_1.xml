@@ -26,7 +26,7 @@
                 android:layout_height="match_parent"
                 android:src="@mipmap/bg_fragment1_7" />
 
-            <com.cho.chocoin.view.WaveProgress
+            <com.cfo.chocoin.view.WaveProgress
                 android:id="@+id/wave_progress_bar"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
@@ -46,14 +46,14 @@
                 app:waveHeight="10dp"
                 app:waveNum="2" />
 
-            <com.cho.chocoin.view.wave.WaveProgress
+            <com.cfo.chocoin.view.wave.WaveProgress
                 android:id="@+id/waveProgress"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:layout_centerInParent="true" />
 
 
-            <com.cho.chocoin.view.MyArcView
+            <com.cfo.chocoin.view.MyArcView
                 android:id="@+id/myArcview"
                 android:layout_width="290dp"
                 android:layout_height="280dp"

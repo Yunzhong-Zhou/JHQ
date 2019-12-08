@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" />-->
-        <com.cho.chocoin.view.zxing.view.ViewfinderView
+        <com.cfo.chocoin.view.zxing.view.ViewfinderView
             android:id="@+id/viewfinder_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
