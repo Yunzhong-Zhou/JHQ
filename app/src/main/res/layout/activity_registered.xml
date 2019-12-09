@@ -38,41 +38,30 @@
                     android:gravity="center"
                     android:text="@string/registered_h9"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:id="@+id/title_right"
                     android:layout_width="29dp"
                     android:layout_height="22dp"
-                    android:onClick="onClick"
                     android:layout_marginRight="14dp"
+                    android:onClick="onClick"
                     android:src="@mipmap/ic_guoqi" />
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginRight="14dp"
-                    android:gravity="center_vertical"
-                    android:hint="@string/forgetpassword_h1"
-                    android:inputType="phone"
-                    android:paddingLeft="90dp"
-                    android:singleLine="true"
-                    android:textColor="@color/txt_white"
-                    android:textColorHint="@color/txt_white2"
-                    android:textSize="15sp"
-                    android:theme="@style/MyEditText" />
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -80,45 +69,64 @@
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:drawablePadding="8dp"
                         android:drawableRight="@mipmap/ic_down"
+                        android:drawablePadding="8dp"
                         android:gravity="center_vertical"
                         android:onClick="onClick"
                         android:text="+86"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/white"
                         android:textSize="15sp" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
 
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="25dp"
+                        android:layout_marginLeft="14dp"
                         android:background="@color/white2" />
 
                 </LinearLayout>
-            </RelativeLayout>
 
-            <RelativeLayout
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/forgetpassword_h1"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white2"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming">
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="14dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="25dp"
                     android:layout_marginRight="14dp"
+                    android:background="@color/transparent"
                     android:gravity="center_vertical"
                     android:hint="@string/registered_h2"
-                    android:phoneNumber="true"
+                    android:inputType="number"
                     android:singleLine="true"
-                    android:textColor="@color/txt_white"
-                    android:textColorHint="@color/txt_white2"
-                    android:textSize="15sp"
-                    android:theme="@style/MyEditText" />
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white2"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/textView1"
@@ -126,79 +134,91 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="25dp"
                     android:background="@drawable/btn_yzm_huise"
                     android:onClick="onClick"
-                    android:paddingBottom="6dp"
                     android:paddingLeft="14dp"
-                    android:paddingRight="14dp"
                     android:paddingTop="6dp"
+                    android:paddingRight="14dp"
+                    android:paddingBottom="6dp"
                     android:singleLine="true"
                     android:text="@string/app_sendcode"
-                    android:textColor="@color/blue"
-                    android:textSize="11sp" />
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/editText6"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming"
                 android:gravity="center_vertical"
                 android:hint="@string/registered_h11"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:singleLine="true"
-                android:textColor="@color/txt_white"
-                android:textColorHint="@color/txt_white2"
-                android:textSize="15sp"
-                android:theme="@style/MyEditText" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/white2"
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/editText3"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming"
                 android:gravity="center_vertical"
                 android:hint="@string/registered_h3"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:password="true"
                 android:singleLine="true"
-                android:textColor="@color/txt_white"
-                android:textColorHint="@color/txt_white2"
-                android:textSize="15sp"
-                android:theme="@style/MyEditText" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/white2"
+                android:textSize="15sp" />
 
 
             <EditText
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming"
                 android:gravity="center_vertical"
                 android:hint="@string/registered_h4"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:password="true"
                 android:singleLine="true"
-                android:textColor="@color/txt_white"
-                android:textColorHint="@color/txt_white2"
-                android:textSize="15sp"
-                android:theme="@style/MyEditText" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/white2"
+                android:textSize="15sp" />
 
 
             <EditText
                 android:id="@+id/editText5"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="44dp"
+                android:background="@drawable/yuanjiao_50_baisetouming"
                 android:gravity="center_vertical"
                 android:hint="@string/registered_h5"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:singleLine="true"
-                android:textColor="@color/txt_white"
-                android:textColorHint="@color/txt_white2"
-                android:textSize="15sp"
-                android:theme="@style/MyEditText" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/white2"
+                android:textSize="15sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -209,6 +229,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -238,16 +259,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="27dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/btn_img_login"
                 android:gravity="center"
                 android:onClick="onClick"
                 android:singleLine="true"
                 android:text="@string/registered_h8"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>

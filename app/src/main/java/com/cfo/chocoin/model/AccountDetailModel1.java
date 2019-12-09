@@ -8,41 +8,51 @@ import java.util.List;
  */
 public class AccountDetailModel1 implements Serializable {
     /**
-     * block_award_usable_money : 0
-     * block_award_money : 6
-     * wait_block_award_money : -6
-     * earning_list : [{"money":"2","created_at":"2019-06-06 15:35:48","title":"区块奖励","status":"完成"},{"money":"2","created_at":"2019-06-06 15:13:39","title":"区块奖励","status":"完成"}]
-     * expenditure_list : [{"block_award_money":"6.00","created_at":"2019-06-06 15:36:50","money":"6","title":"算力购买","status":"完成"}]
+     * common_usable_money : 708.04
+     * insurance_usable_money : 0.00
+     * win_money : 178.2
+     * commission_money : 0
+     * earning_list : [{"title":"充值","money":"1000.74","status":"完成","created_at":"2019-10-21 15:45:16"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:40:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:38:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:32:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:32:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:30:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:30:02"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:26:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:26:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:24:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:24:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:22:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:20:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:18:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:16:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:38:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:32:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:30:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:28:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:26:01"}]
+     * expenditure_list : [{"title":"转出","money":"100","status":"完成","created_at":"2019-10-22 11:41:42"},{"title":"转出","money":"100","status":"完成","created_at":"2019-10-22 11:37:01"},{"title":"提现","money":"100","status":"待审核","created_at":"2019-10-21 15:45:41"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 16:27:08"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 16:22:38"},{"title":"投保","money":"200","status":"完成","created_at":"2019-09-28 16:14:02"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 11:24:17"}]
      */
 
-    private String block_award_usable_money;
-    private String block_award_money;
-    private String wait_block_award_money;
+    private String common_usable_money;
+    private String insurance_usable_money;
+    private String win_money;
+    private String commission_money;
     private List<EarningListBean> earning_list;
     private List<ExpenditureListBean> expenditure_list;
 
-    public String getBlock_award_usable_money() {
-        return block_award_usable_money;
+    public String getCommon_usable_money() {
+        return common_usable_money;
     }
 
-    public void setBlock_award_usable_money(String block_award_usable_money) {
-        this.block_award_usable_money = block_award_usable_money;
+    public void setCommon_usable_money(String common_usable_money) {
+        this.common_usable_money = common_usable_money;
     }
 
-    public String getBlock_award_money() {
-        return block_award_money;
+    public String getInsurance_usable_money() {
+        return insurance_usable_money;
     }
 
-    public void setBlock_award_money(String block_award_money) {
-        this.block_award_money = block_award_money;
+    public void setInsurance_usable_money(String insurance_usable_money) {
+        this.insurance_usable_money = insurance_usable_money;
     }
 
-    public String getWait_block_award_money() {
-        return wait_block_award_money;
+    public String getWin_money() {
+        return win_money;
     }
 
-    public void setWait_block_award_money(String wait_block_award_money) {
-        this.wait_block_award_money = wait_block_award_money;
+    public void setWin_money(String win_money) {
+        this.win_money = win_money;
+    }
+
+    public String getCommission_money() {
+        return commission_money;
+    }
+
+    public void setCommission_money(String commission_money) {
+        this.commission_money = commission_money;
     }
 
     public List<EarningListBean> getEarning_list() {
@@ -63,32 +73,16 @@ public class AccountDetailModel1 implements Serializable {
 
     public static class EarningListBean {
         /**
-         * money : 2
-         * created_at : 2019-06-06 15:35:48
-         * title : 区块奖励
+         * title : 充值
+         * money : 1000.74
          * status : 完成
+         * created_at : 2019-10-21 15:45:16
          */
 
-        private String money;
-        private String created_at;
         private String title;
+        private String money;
         private String status;
-
-        public String getMoney() {
-            return money;
-        }
-
-        public void setMoney(String money) {
-            this.money = money;
-        }
-
-        public String getCreated_at() {
-            return created_at;
-        }
-
-        public void setCreated_at(String created_at) {
-            this.created_at = created_at;
-        }
+        private String created_at;
 
         public String getTitle() {
             return title;
@@ -98,44 +92,50 @@ public class AccountDetailModel1 implements Serializable {
             this.title = title;
         }
 
+        public String getMoney() {
+            return money;
+        }
+
+        public void setMoney(String money) {
+            this.money = money;
+        }
+
         public String getStatus() {
             return status;
         }
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
         }
     }
 
     public static class ExpenditureListBean {
         /**
-         * block_award_money : 6.00
-         * created_at : 2019-06-06 15:36:50
-         * money : 6
-         * title : 算力购买
+         * title : 转出
+         * money : 100
          * status : 完成
+         * created_at : 2019-10-22 11:41:42
          */
 
-        private String block_award_money;
-        private String created_at;
-        private String money;
         private String title;
+        private String money;
         private String status;
+        private String created_at;
 
-        public String getBlock_award_money() {
-            return block_award_money;
+        public String getTitle() {
+            return title;
         }
 
-        public void setBlock_award_money(String block_award_money) {
-            this.block_award_money = block_award_money;
-        }
-
-        public String getCreated_at() {
-            return created_at;
-        }
-
-        public void setCreated_at(String created_at) {
-            this.created_at = created_at;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
         public String getMoney() {
@@ -146,20 +146,20 @@ public class AccountDetailModel1 implements Serializable {
             this.money = money;
         }
 
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
         public String getStatus() {
             return status;
         }
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
         }
     }
 }

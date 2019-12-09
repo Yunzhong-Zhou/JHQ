@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text=""
-            android:textColor="@color/txt_white"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <ImageView

@@ -52,7 +52,7 @@ import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
  * 大厅
  */
 public class Fragment3 extends BaseFragment {
-    boolean isOver = false;
+//    boolean isOver = false;
     Fragment3Model model;
     int type = 1;
     private RecyclerView recyclerView;
@@ -128,9 +128,9 @@ public class Fragment3 extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         MyLogger.i(">>>>>>>>getUserVisibleHint()>>>" + getUserVisibleHint());
-        if (isOver) {
+        if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-                if (MainActivity.item == 2) {
+                if (MainActivity.item == 4) {
                     requestServer();
                 }
             }
@@ -261,6 +261,7 @@ public class Fragment3 extends BaseFragment {
         OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment3, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                MainActivity.isOver = true;
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
@@ -371,7 +372,7 @@ public class Fragment3 extends BaseFragment {
                 changeUI();
                 hideProgress();
 
-                isOver = true;
+                MainActivity.isOver = true;
             }
         }, true);
     }

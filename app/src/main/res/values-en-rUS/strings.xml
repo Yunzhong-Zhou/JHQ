@@ -123,8 +123,8 @@
     <!--登录-->
     <string name="login_h1">Mobile</string>
     <string name="login_h2">Password</string>
-    <string name="login_h3"><u>Sign Up</u></string>
-    <string name="login_h4">ForgetPWD?</string>
+    <string name="login_h3">Sign Up</string>
+    <string name="login_h4"><u>ForgetPWD?</u></string>
     <string name="login_h5">Sign in</string>
     <string name="login_h6">OtherSignin</string>
     <string name="login_h7">Sign in...</string>

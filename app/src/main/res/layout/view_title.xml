@@ -60,7 +60,7 @@
                 android:maxEms="4"
                 android:singleLine="true"
                 android:text="重庆"
-                android:textColor="@color/txt_white"
+                android:textColor="@color/white"
                 android:textSize="13sp"
                 android:visibility="gone" />
         </RelativeLayout>
@@ -81,7 +81,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:text="标题" />
 
             <EditText

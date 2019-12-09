@@ -97,12 +97,6 @@
             android:name="com.cfo.chocoin.activity.SuanLiListActivity"
             android:label="算力明细" />
         <activity
-            android:name="com.cfo.chocoin.activity.AccountDetailActivity1"
-            android:label="我的区块-账户详情" />
-        <activity
-            android:name="com.cfo.chocoin.activity.AccountDetailActivity2"
-            android:label="账户余额-账户详情" />
-        <activity
             android:name="com.cfo.chocoin.activity.PeriodDetailActivity"
             android:label="游戏详情" />
         <!--我的-->
@@ -127,6 +121,9 @@
         <activity
             android:name="com.cfo.chocoin.activity.MyQuKuaiActivity"
             android:label="我的区块" />
+        <activity
+            android:name="com.cfo.chocoin.activity.AccountDetailActivity"
+            android:label="我的钱包" />
         <activity
             android:name="com.cfo.chocoin.activity.RechargeActivity"
             android:label="充值" />

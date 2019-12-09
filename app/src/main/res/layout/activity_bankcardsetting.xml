@@ -341,6 +341,6 @@
             android:onClick="onClick"
             android:padding="12dp"
             android:text="确定"
-            android:textColor="@color/txt_white1" />
+            android:textColor="@color/white" />
     </LinearLayout>
 </ScrollView>

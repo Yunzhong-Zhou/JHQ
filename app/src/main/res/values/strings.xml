@@ -99,9 +99,9 @@
     <string name="app_refresh6">查看更多</string>
 
     <!--底部栏-->
-    <string name="fragment1">算力</string>
-    <string name="fragment2">区块</string>
-    <string name="fragment3">首页</string>
+    <string name="fragment1">学院</string>
+    <string name="fragment2">预测</string>
+    <string name="fragment3"></string>
     <string name="fragment4">充币</string>
     <string name="fragment5">我的</string>
 
@@ -123,8 +123,8 @@
     <!--登录-->
     <string name="login_h1">请输入手机号码</string>
     <string name="login_h2">请输入密码</string>
-    <string name="login_h3"><u>注册账号</u></string>
-    <string name="login_h4">忘记密码?</string>
+    <string name="login_h3">注册账号</string>
+    <string name="login_h4"><u>忘记密码?</u></string>
     <string name="login_h5">登录</string>
     <string name="login_h6">第三方登录</string>
     <string name="login_h7">正在登录...</string>
@@ -270,21 +270,23 @@
 
     <!--fragment5-->
     <string name="fragment5_h1">邀请码：</string>
-    <string name="fragment5_h2">充币</string>
-    <string name="fragment5_h3">流水</string>
-    <string name="fragment5_h4">提币</string>
-    <string name="fragment5_h5">账户可用</string>
-    <string name="fragment5_h6">我的算力</string>
-    <string name="fragment5_h7">激活奖励</string>
-    <string name="fragment5_h8">扫码转币</string>
-    <string name="fragment5_h9">充币记录</string>
-    <string name="fragment5_h10">提币记录</string>
-    <string name="fragment5_h11">在线留言</string>
-    <string name="fragment5_h12">我的竞猜</string>
-    <string name="fragment5_h13">公告通知</string>
-    <string name="fragment5_h14">分享有奖</string>
-    <string name="fragment5_h15">我的算力</string>
-    <string name="fragment5_h16">我的区块</string>
+    <string name="fragment5_h2">账户余额</string>
+    <string name="fragment5_h3">累计盈利</string>
+    <string name="fragment5_h4">累计佣金</string>
+    <string name="fragment5_h5">佣金</string>
+    <string name="fragment5_h6">充币</string>
+    <string name="fragment5_h7">划转</string>
+    <string name="fragment5_h8">转币</string>
+    <string name="fragment5_h9">推广</string>
+    <string name="fragment5_h10">我的钱包</string>
+    <string name="fragment5_h11">合约记录</string>
+    <string name="fragment5_h12">提现记录</string>
+    <string name="fragment5_h13">充币记录</string>
+    <string name="fragment5_h14">资料管理</string>
+    <string name="fragment5_h15">有奖邀请</string>
+    <string name="fragment5_h16">公告通知</string>
+    <string name="fragment5_h17">在线客服</string>
+    <string name="fragment5_h18">签到领现金</string>
 
     <!--个人资料-->
     <string name="myprofile_h1">资料管理</string>

@@ -260,7 +260,7 @@ public class PeriodDetailActivity extends BaseActivity {
 
 
 
-                    /*head1_linearLayout1.setBackgroundResource(R.drawable.yuanjiao_5_hongse);
+                    /*head1_linearLayout1.setBackgroundResource(R.drawable.yuanjiao_5_lvse);
                     head1_textView5.setTextColor(getResources().getColor(R.color.white));
                     head1_view1.setBackgroundResource(R.color.white);
                     head1_textView11.setTextColor(getResources().getColor(R.color.white1));

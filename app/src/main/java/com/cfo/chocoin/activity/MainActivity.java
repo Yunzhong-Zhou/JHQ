@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
     public static EasyNavigationBar navigationBar;
     private List<Fragment> fragments = new ArrayList<>();
 
-
+    public static boolean isOver = false;
     public static int item = 2;
     int isShowAd = 0;//是否显示弹窗
     //更新
@@ -90,7 +90,12 @@ public class MainActivity extends BaseActivity {
 
         mImmersionBar.reset().init();
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        item = 2;
+        isOver = false;
+    }
     @Override
     protected void initView() {
         navigationBar = findViewByID_My(R.id.navigationBar);
@@ -108,14 +113,14 @@ public class MainActivity extends BaseActivity {
         //未选中icon
         int[] normalIcon = {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};
         //选中时icon
-        int[] selectIcon = {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_1, R.mipmap.tab4_1, R.mipmap.tab5_1};
+        int[] selectIcon = {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_0, R.mipmap.tab4_1, R.mipmap.tab5_1};
 
         navigationBar.titleItems(tabText)//文字
                 .normalIconItems(normalIcon)//未选中
                 .selectIconItems(selectIcon)//选中
                 .normalTextColor(getResources().getColor(R.color.tab_black))//未选中字体颜色
-                .selectTextColor(getResources().getColor(R.color.tab_blue))//选中字体颜色
-                .tabTextTop(2)//Tab文字距Tab图标的距离
+                .selectTextColor(getResources().getColor(R.color.white))//选中字体颜色
+                .tabTextTop(4)//Tab文字距Tab图标的距离
                 .tabTextSize(10)//Tab文字大小
                 .fragmentList(fragments)
                 .anim(null)
@@ -129,7 +134,6 @@ public class MainActivity extends BaseActivity {
                     public boolean onTabClickEvent(View view, int position) {
                         switch (position) {
                             case 0:
-
                                 MainActivity.item = 0;
                                 mImmersionBar.reset()
 //                                        .fitsSystemWindows(true)

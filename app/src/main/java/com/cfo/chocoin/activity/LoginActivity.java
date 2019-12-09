@@ -248,7 +248,7 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.textView3:
                 //确认登录
-                if (match()) {
+                /*if (match()) {
                     textView3.setClickable(false);
                     this.showProgress(true, getString(R.string.login_h7));
                     params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
@@ -256,8 +256,8 @@ public class LoginActivity extends BaseActivity {
                     params.put("password", password);
                     params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestLogin(params);//登录
-                }
-//                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                }*/
+                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                 break;
             case R.id.imageView1:
                 editText1.setText("");

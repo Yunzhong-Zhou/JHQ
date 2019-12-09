@@ -1,12 +1,12 @@
 package com.cfo.chocoin.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cfo.chocoin.R;
@@ -27,8 +27,9 @@ import java.util.List;
 
 /**
  * Created by zyz on 2019/5/28.
+ * 我的钱包
  */
-public class AccountDetailActivity1 extends BaseActivity {
+public class AccountDetailActivity extends BaseActivity {
     int type = 1;
     private RecyclerView recyclerView;
     List<AccountDetailModel1.EarningListBean> list1 = new ArrayList<>();
@@ -39,15 +40,15 @@ public class AccountDetailActivity1 extends BaseActivity {
     CommonAdapter<AccountDetailModel1.ExpenditureListBean> mAdapter2;
     HeaderAndFooterWrapper mHeaderAndFooterWrapper2;
     //头部一
-    View headerView1;
-    LinearLayout head1_linearLayout;
+//    View headerView1;
+    RelativeLayout head1_relativeLayout;
     TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4;
 
-    //头部二-需要悬浮的布局
+   /* //头部二-需要悬浮的布局
     View headerView2;
     LinearLayout head2_linearLayout1, head2_linearLayout2;
     TextView head2_textView1, head2_textView2;
-    View head2_view1, head2_view2;
+    View head2_view1, head2_view2;*/
 
     //悬浮部分
     LinearLayout invis;
@@ -58,7 +59,7 @@ public class AccountDetailActivity1 extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accountdetail1);
+        setContentView(R.layout.activity_accountdetail);
     }
 
     @Override
@@ -89,15 +90,15 @@ public class AccountDetailActivity1 extends BaseActivity {
         view2 = findViewByID_My(R.id.view2);
 
         //头部一
-        headerView1 = View.inflate(AccountDetailActivity1.this, R.layout.head_accountdetail1_1, null);
-        head1_linearLayout = headerView1.findViewById(R.id.head1_linearLayout);
-        head1_textView1 = headerView1.findViewById(R.id.head1_textView1);
-        head1_textView2 = headerView1.findViewById(R.id.head1_textView2);
-        head1_textView3 = headerView1.findViewById(R.id.head1_textView3);
-        head1_textView4 = headerView1.findViewById(R.id.head1_textView4);
+//        headerView1 = View.inflate(AccountDetailActivity.this, R.layout.head_accountdetail_1, null);
+        head1_relativeLayout = findViewByID_My(R.id.head1_relativeLayout);
+        head1_textView1 = findViewByID_My(R.id.head1_textView1);
+        head1_textView2 = findViewByID_My(R.id.head1_textView2);
+        head1_textView3 = findViewByID_My(R.id.head1_textView3);
+        head1_textView4 = findViewByID_My(R.id.head1_textView4);
 
-        //头部二
-        headerView2 = View.inflate(AccountDetailActivity1.this, R.layout.head_accountdetail_2, null);
+        /*//头部二
+        headerView2 = View.inflate(AccountDetailActivity.this, R.layout.head_accountdetail_2, null);
         head2_linearLayout1 = headerView2.findViewById(R.id.head2_linearLayout1);
         head2_linearLayout2 = headerView2.findViewById(R.id.head2_linearLayout2);
         head2_linearLayout1.setOnClickListener(this);
@@ -105,13 +106,13 @@ public class AccountDetailActivity1 extends BaseActivity {
         head2_textView1 = headerView2.findViewById(R.id.head2_textView1);
         head2_textView2 = headerView2.findViewById(R.id.head2_textView2);
         head2_view1 = headerView2.findViewById(R.id.head2_view1);
-        head2_view2 = headerView2.findViewById(R.id.head2_view2);
+        head2_view2 = headerView2.findViewById(R.id.head2_view2);*/
 
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
-        final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(AccountDetailActivity1.this);
+        final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(AccountDetailActivity.this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
-        //listview 滑动监听
+        /*//listview 滑动监听
         recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -124,10 +125,10 @@ public class AccountDetailActivity1 extends BaseActivity {
                     headerView2.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
         //动态设置linearLayout的高度为屏幕高度的1/2
-        ViewGroup.LayoutParams lp = head1_linearLayout.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity1.this) / 3;
+        ViewGroup.LayoutParams lp = head1_relativeLayout.getLayoutParams();
+        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity.this) * 384 / 895;
     }
 
     @Override
@@ -150,13 +151,14 @@ public class AccountDetailActivity1 extends BaseActivity {
             public void onResponse(AccountDetailModel1 response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>账户详情1" + response);
-                head1_textView1.setText(response.getBlock_award_usable_money());
-                head1_textView2.setText(response.getWait_block_award_money());
-                head1_textView3.setText(response.getBlock_award_money());
+                head1_textView1.setText(response.getCommon_usable_money());
+                head1_textView2.setText(response.getInsurance_usable_money());
+                head1_textView3.setText(response.getWin_money());
+                head1_textView4.setText(response.getCommission_money());
 
                 list1 = response.getEarning_list();
                 mAdapter1 = new CommonAdapter<AccountDetailModel1.EarningListBean>
-                        (AccountDetailActivity1.this, R.layout.item_accountdetail, list1) {
+                        (AccountDetailActivity.this, R.layout.item_accountdetail, list1) {
                     @Override
                     protected void convert(ViewHolder holder, final AccountDetailModel1.EarningListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle() + "：+" + model.getMoney());//标题
@@ -167,12 +169,12 @@ public class AccountDetailActivity1 extends BaseActivity {
                     }
                 };
                 mHeaderAndFooterWrapper1 = new HeaderAndFooterWrapper(mAdapter1);
-                mHeaderAndFooterWrapper1.addHeaderView(headerView1);
-                mHeaderAndFooterWrapper1.addHeaderView(headerView2);
+//                mHeaderAndFooterWrapper1.addHeaderView(headerView1);
+//                mHeaderAndFooterWrapper1.addHeaderView(headerView2);
 
                 list2 = response.getExpenditure_list();
                 mAdapter2 = new CommonAdapter<AccountDetailModel1.ExpenditureListBean>
-                        (AccountDetailActivity1.this, R.layout.item_accountdetail, list2) {
+                        (AccountDetailActivity.this, R.layout.item_accountdetail, list2) {
                     @Override
                     protected void convert(ViewHolder holder, final AccountDetailModel1.ExpenditureListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle() + "：-" + model.getMoney());//标题
@@ -183,8 +185,8 @@ public class AccountDetailActivity1 extends BaseActivity {
                     }
                 };
                 mHeaderAndFooterWrapper2 = new HeaderAndFooterWrapper(mAdapter2);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView1);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView2);
+//                mHeaderAndFooterWrapper2.addHeaderView(headerView1);
+//                mHeaderAndFooterWrapper2.addHeaderView(headerView2);
 
                 changeUI();
                 hideProgress();
@@ -203,45 +205,56 @@ public class AccountDetailActivity1 extends BaseActivity {
                 type = 2;
                 changeUI();
                 break;
-            case R.id.head2_linearLayout1:
+            /*case R.id.head2_linearLayout1:
                 type = 1;
                 changeUI();
                 break;
             case R.id.head2_linearLayout2:
                 type = 2;
                 changeUI();
+                break;*/
+            case R.id.head1_linearLayout1:
+                //充值
+                Bundle bundle = new Bundle();
+                bundle.putInt("item",3);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle, true);
                 break;
-            case R.id.head1_textView4:
-                //购买算力
-                CommonUtil.gotoActivity(AccountDetailActivity1.this, BuyComputingPowerActivity.class, false);
+            case R.id.head1_linearLayout2:
+                //投保
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("item",0);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
+                break;
+            case R.id.head1_linearLayout3:
+                //提现
+                CommonUtil.gotoActivity(this,TakeCashActivity.class,false);
                 break;
         }
     }
-
     private void changeUI() {
         if (type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.blue));
+            textView1.setTextColor(getResources().getColor(R.color.green));
             textView2.setTextColor(getResources().getColor(R.color.black4));
-            head2_textView1.setTextColor(getResources().getColor(R.color.blue));
-            head2_textView2.setTextColor(getResources().getColor(R.color.black4));
+//            head2_textView1.setTextColor(getResources().getColor(R.color.blue));
+//            head2_textView2.setTextColor(getResources().getColor(R.color.black4));
 
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.INVISIBLE);
-            head2_view1.setVisibility(View.VISIBLE);
-            head2_view2.setVisibility(View.INVISIBLE);
+//            head2_view1.setVisibility(View.VISIBLE);
+//            head2_view2.setVisibility(View.INVISIBLE);
 
             recyclerView.setAdapter(mHeaderAndFooterWrapper1);
             mHeaderAndFooterWrapper1.notifyDataSetChanged();
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black4));
-            textView2.setTextColor(getResources().getColor(R.color.blue));
-            head2_textView1.setTextColor(getResources().getColor(R.color.black4));
-            head2_textView2.setTextColor(getResources().getColor(R.color.blue));
+            textView2.setTextColor(getResources().getColor(R.color.green));
+//            head2_textView1.setTextColor(getResources().getColor(R.color.black4));
+//            head2_textView2.setTextColor(getResources().getColor(R.color.blue));
 
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
-            head2_view1.setVisibility(View.INVISIBLE);
-            head2_view2.setVisibility(View.VISIBLE);
+//            head2_view1.setVisibility(View.INVISIBLE);
+//            head2_view2.setVisibility(View.VISIBLE);
 
             recyclerView.setAdapter(mHeaderAndFooterWrapper2);
             mHeaderAndFooterWrapper2.notifyDataSetChanged();
@@ -259,6 +272,6 @@ public class AccountDetailActivity1 extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.qukuai_h22));
+        titleView.setTitle("我的钱包");
     }
 }

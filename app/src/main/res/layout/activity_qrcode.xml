@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:padding="14dp"
                     android:text="@string/zxing_h25"
-                    android:textColor="@color/txt_white2"
+                    android:textColor="@color/white2"
                     android:textSize="14sp" />
             </LinearLayout>
 

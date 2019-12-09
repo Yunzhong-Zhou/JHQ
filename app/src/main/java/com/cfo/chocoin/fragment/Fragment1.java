@@ -110,9 +110,11 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-            if (MainActivity.item == 0) {
-                requestServer();
+        if (MainActivity.isOver) {
+            if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
+                if (MainActivity.item == 4) {
+                    requestServer();
+                }
             }
         }
     }
@@ -217,6 +219,7 @@ public class Fragment1 extends BaseFragment {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                MainActivity.isOver = true;
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
@@ -388,7 +391,7 @@ public class Fragment1 extends BaseFragment {
 
                 hideProgress();
 
-
+                MainActivity.isOver = true;
             }
         });
     }

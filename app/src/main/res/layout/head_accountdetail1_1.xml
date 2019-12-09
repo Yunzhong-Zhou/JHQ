@@ -155,7 +155,7 @@
             android:onClick="onClick"
             android:padding="12dp"
             android:text="@string/qukuai_h7"
-            android:textColor="@color/txt_white1"
+            android:textColor="@color/white"
             android:textSize="18sp" />
         <View
             android:layout_width="0dp"

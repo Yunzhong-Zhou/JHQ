@@ -12,20 +12,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
-import com.cfo.chocoin.activity.AccountDetailActivity1;
-import com.cfo.chocoin.activity.AccountDetailActivity2;
+import com.cfo.chocoin.activity.AccountDetailActivity;
+import com.cfo.chocoin.activity.BankCardSettingActivity;
 import com.cfo.chocoin.activity.InformationActivity;
 import com.cfo.chocoin.activity.MainActivity;
-import com.cfo.chocoin.activity.MyGameActivity;
-import com.cfo.chocoin.activity.MyPosterActivity;
 import com.cfo.chocoin.activity.MyProfileActivity;
-import com.cfo.chocoin.activity.MyQuKuaiActivity;
 import com.cfo.chocoin.activity.MyRechargeActivity;
 import com.cfo.chocoin.activity.MyTakeCashActivity;
 import com.cfo.chocoin.activity.OnlineServiceActivity;
 import com.cfo.chocoin.activity.QRCodeActivity;
 import com.cfo.chocoin.activity.ShareActivity;
-import com.cfo.chocoin.activity.SuanLiListActivity;
 import com.cfo.chocoin.activity.TakeCashActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment5Model;
@@ -45,10 +41,10 @@ import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
  */
 public class Fragment5 extends BaseFragment {
     RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6,textView7,textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14, linearLayout15;
+            linearLayout12;
     ImageView imageView1;
 
 
@@ -92,9 +88,11 @@ public class Fragment5 extends BaseFragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 //        MyLogger.i(">>>>>>>>setUserVisibleHint>>>" + isVisibleToUser);
-        if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-            if (MainActivity.item == 4) {
-                requestServer();
+        if (MainActivity.isOver) {
+            if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
+                if (MainActivity.item == 4) {
+                    requestServer();
+                }
             }
         }
     }
@@ -116,17 +114,17 @@ public class Fragment5 extends BaseFragment {
             }
         });
 
-
-        relativeLayout = findViewByID_My(R.id.relativeLayout);
-        relativeLayout.setOnClickListener(this);
         imageView1 = findViewByID_My(R.id.imageView1);
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
+        textView4.setOnClickListener(this);
         textView5 = findViewByID_My(R.id.textView5);
         textView6 = findViewByID_My(R.id.textView6);
+        textView7 = findViewByID_My(R.id.textView7);
+        textView8 = findViewByID_My(R.id.textView8);
 
 
         textView1.setText(localUserInfo.getNickname());
@@ -153,9 +151,6 @@ public class Fragment5 extends BaseFragment {
         linearLayout10 = findViewByID_My(R.id.linearLayout10);
         linearLayout11 = findViewByID_My(R.id.linearLayout11);
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
-        linearLayout13 = findViewByID_My(R.id.linearLayout13);
-        linearLayout14 = findViewByID_My(R.id.linearLayout14);
-        linearLayout15 = findViewByID_My(R.id.linearLayout15);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -169,21 +164,20 @@ public class Fragment5 extends BaseFragment {
         linearLayout10.setOnClickListener(this);
         linearLayout11.setOnClickListener(this);
         linearLayout12.setOnClickListener(this);
-        linearLayout13.setOnClickListener(this);
-        linearLayout14.setOnClickListener(this);
-        linearLayout15.setOnClickListener(this);
 
+        relativeLayout = findViewByID_My(R.id.relativeLayout);
+        relativeLayout.setOnClickListener(this);
 
-        LinearLayout linearLayout = findViewByID_My(R.id.linearLayout);
-        /*LinearLayout.LayoutParams sp_params = new LinearLayout.LayoutParams(
+        /*LinearLayout linearLayout = findViewByID_My(R.id.linearLayout);
+         *//*LinearLayout.LayoutParams sp_params = new LinearLayout.LayoutParams(
         RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
         sp_params.height = CommonUtil.getScreenHeight(getActivity()) / 4;
-        linearLayout.setLayoutParams(sp_params);*/
+        linearLayout.setLayoutParams(sp_params);*//*
 
         //动态设置linearLayout的高度为屏幕高度的1/4
         ViewGroup.LayoutParams lp = linearLayout.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(getActivity()) / 3;
+        lp.height = (int) CommonUtil.getScreenHeight(getActivity()) / 3;*/
 
     }
 
@@ -196,6 +190,7 @@ public class Fragment5 extends BaseFragment {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Center + string, new OkHttpClientManager.ResultCallback<Fragment5Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                MainActivity.isOver = true;
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
@@ -210,7 +205,7 @@ public class Fragment5 extends BaseFragment {
                 //邀请码
                 textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
-                textView3.setText(response.getGrade_title() + "");
+                textView3.setText("V"+response.getGrade());
 
                 //头像
                 localUserInfo.setUserImage(response.getHead());
@@ -223,12 +218,14 @@ public class Fragment5 extends BaseFragment {
                 else
                     imageView1.setImageResource(R.mipmap.headimg);
 
-
-                textView4.setText("" + response.getCommon_usable_money());//账户余额
-                textView5.setText("" + response.getInvest_usable_money());//我的算力
-                textView6.setText("" + response.getBlock_award_usable_money());//区块奖励
+//                textView5.setText("" + response.getCommon_usable_money());//余额
+//                textView6.setText("" + response.getInsurance_usable_money());//保额
+//                textView7.setText("" + response.getWin_money());//中奖
+//                textView8.setText("" + response.getCommission_money());//佣金
 
                 hideProgress();
+
+                MainActivity.isOver = true;
             }
         });
     }
@@ -240,15 +237,10 @@ public class Fragment5 extends BaseFragment {
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
                 break;
-           /* case R.id.textView:
+            case R.id.textView4:
                 //签到
-                localUserInfo.setIsnewcomer("1");
-                showProgress(true, getString(R.string.app_loading2));
-                String string2 = "?token=" + localUserInfo.getToken();
-                RequestVerified(string2, 2);
-
 //                CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
-                break;*/
+                break;
             case R.id.linearLayout1:
                 //充值
                 MainActivity.item = 3;
@@ -256,74 +248,48 @@ public class Fragment5 extends BaseFragment {
 //                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
             case R.id.linearLayout2:
-                //推广 - 改为流水
-                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
+                //转账
+                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
                 break;
             case R.id.linearLayout3:
                 //提现
                 CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
                 break;
             case R.id.linearLayout4:
-                //账户余额
-                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity2.class, false);
-
+                //推广
+                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout5:
-                //我的算力
-                MainActivity.item = 0;
-                MainActivity.navigationBar.selectTab(0);
-//                CommonUtil.gotoActivity(getActivity(), .class, false);
-
+                //我的钱包
+                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
                 break;
             case R.id.linearLayout6:
-                //我的区块
-                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity1.class, false);
-
+                //充币记录
+                CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
                 break;
             case R.id.linearLayout7:
-                //我的区块
-                CommonUtil.gotoActivity(getActivity(), MyQuKuaiActivity.class, false);
-
+                //提币记录
+                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
                 break;
             case R.id.linearLayout8:
-                //资料管理 - 扫码转币
-//                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
-                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
+                //银行卡邦定
+                CommonUtil.gotoActivity(getActivity(), BankCardSettingActivity.class, false);
                 break;
             case R.id.linearLayout9:
-                //我的充值
-                CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
-
+                //资料管理
+                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
                 break;
             case R.id.linearLayout10:
-                //我的提现
-                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
-
+                //有奖邀请
+//                CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
                 break;
             case R.id.linearLayout11:
-                //在线客服
-                CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
-
-                break;
-            case R.id.linearLayout12:
-                //我的游戏
-                CommonUtil.gotoActivity(getActivity(), MyGameActivity.class, false);
-
-                break;
-            case R.id.linearLayout13:
                 //公告通知
                 CommonUtil.gotoActivity(getActivity(), InformationActivity.class, false);
-
                 break;
-            case R.id.linearLayout14:
-                //分享有奖
-                CommonUtil.gotoActivity(getActivity(), MyPosterActivity.class, false);
-
-                break;
-            case R.id.linearLayout15:
-                //我的算力
-                CommonUtil.gotoActivity(getActivity(), SuanLiListActivity.class, false);
-
+            case R.id.linearLayout12:
+                //在线客服
+                CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
                 break;
 
         }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7007BC</color>
-    <color name="colorPrimaryDark">#7007BC</color>
-    <color name="colorAccent">#7007BC</color><!--加载圈的颜色-->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#4292B4</color><!--加载圈的颜色-->
 
     <color name="background">#F5F4F9</color>
     <color name="title_bg">#253e5d</color>
@@ -11,17 +11,16 @@
     <color name="default_text">#333333</color>
     <color name="xian">#80C6C6C7</color>
 
-    <color name="tab_black">#8C9FAD</color>
+    <color name="tab_black">#666666</color>
     <color name="tab_blue">#7007BC</color>
 
 
     <color name="white">#FFFFFF</color>
-    <color name="white1">#A6FFFFFF</color> 35%
+    <color name="white1">#BFFFFFFF</color> 25%
     <color name="white2">#66FFFFFF</color> 50%
-    <color name="white3">#33FFFFFF</color> 80%
+    <color name="white3">#40FFFFFF</color> 75%
+    <color name="white4">#1AFFFFFF</color> 90%
 
-
-    <color name="green">#01e216</color>
 
     <color name="bg_gray">#E6EAEC</color>
 
@@ -31,13 +30,14 @@
     <color name="qianblue">#44C7ED</color>
     <color name="purple">#7C08C5</color>
     <color name="red">#F81223</color>
+    <color name="green">#10A589</color>
     <color name="orange">#FD5542</color>
 
-    <color name="black">#000000</color>
+    <color name="black">#111111</color>
     <color name="black1">#333333</color>
-    <color name="black2">#BFBFBF</color>
-    <color name="black3">#A4A3A0</color>
-    <color name="black4">#CCC8C8</color>
+    <color name="black2">#555555</color>
+    <color name="black3">#777777</color>
+    <color name="black4">#999999</color>
     <color name="black5">#F2F2F2</color>
 
     <color name="pop_bg1">#eaeaea</color>
@@ -140,18 +140,9 @@
     <color name="bluegrey500">#607d8b</color>
     <color name="bluegrey700">#455a64</color>
 
-    <!-- 文本颜色 -->
-    <color name="txt_context3">#4278909c</color><!-- 次一级文本(白色底) -->
-    <color name="txt_context2">#8a78909c</color><!-- 文本内容(白色底) -->
-    <color name="txt_context1">#de263238</color><!-- 标题(白色底) -->
-    <color name="txt_white3">#42e6e6e6</color><!-- 次一级白色文本(彩色底) -->
-    <color name="txt_white2">#8af3f3f3</color><!-- 白色文本(彩色底) -->
-    <color name="txt_white1">#defafafa</color><!-- 白色标题(彩色底) -->
-    <color name="txt_white">#FFFFFF</color><!-- 白色 -->
-
-    <color name="txt_black2">#BFBFBF</color><!-- 黑色文本(彩色底) -->
+    <color name="txt_black2">#666666</color><!-- 黑色文本(彩色底) -->
     <color name="txt_black1">#333333</color><!-- 黑色文本(彩色底) -->
-    <color name="txt_black">#000000</color><!-- 黑色 -->
+    <color name="txt_black">#111111</color><!-- 黑色 -->
 
     <color name="txt_grey">#9e9e9e</color><!-- 灰色 -->
     <color name="txt_brown">#795548</color><!-- 土黄色 -->
@@ -166,13 +157,13 @@
 
     <!-- 透明色 -->
     <color name="transparent">#00000000</color><!--透明 -->
-    <color name="transparentblack1">#8a000000</color><!--黑色透明 -->
+    <color name="transparentblack1">#8a000000</color><!--黑色透明 80%-->
     <color name="transparentblack2">#65000000</color><!--黑色透明 -->
     <color name="transparentblack3">#42000000</color><!--黑色透明 -->
     <color name="transparentblack4">#20000000</color><!--黑色透明 -->
     <color name="transparentblack5">#12000000</color><!--黑色透明 -->
 
-    <color name="transparentwhite1">#33ffffff</color><!--白色透明80% -->
+    <color name="transparentwhite1">#1Affffff</color><!--白色透明90% -->
     <color name="transparentwhite2">#66ffffff</color><!--白色透明60% -->
     <color name="transparentwhite3">#B3ffffff</color><!--白色透明30% -->
     <color name="transparentwhite4">#ccffffff</color><!--白色透明20% -->

@@ -149,7 +149,7 @@
                         android:lineSpacingExtra="3dp"
                         android:padding="8dp"
                         android:text=""
-                        android:textColor="@color/txt_white1"
+                        android:textColor="@color/white"
                         android:textIsSelectable="true"
                         android:textSize="14sp" />
                 </LinearLayout>
