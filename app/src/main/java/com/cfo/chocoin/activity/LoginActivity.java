@@ -98,6 +98,7 @@ public class LoginActivity extends BaseActivity {
 
 //        mImmersionBar.reset().init();
 
+
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
@@ -106,6 +107,8 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+
         title_right = findViewByID_My(R.id.title_right);
         textView = findViewByID_My(R.id.textView);
         editText1 = findViewByID_My(R.id.editText1);
@@ -766,7 +769,7 @@ public class LoginActivity extends BaseActivity {
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
 
-        MyLogger.i(">>>>>"+IMGHOST + localUserInfo.getCountry_IMG());
+        MyLogger.i(">>>>>" + IMGHOST + localUserInfo.getCountry_IMG());
         if (!localUserInfo.getCountry_IMG().equals(""))
             Glide.with(LoginActivity.this)
                     .load(IMGHOST + localUserInfo.getCountry_IMG())

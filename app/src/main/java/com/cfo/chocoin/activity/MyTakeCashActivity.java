@@ -212,14 +212,14 @@ public class MyTakeCashActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        Drawable drawable1 = getResources().getDrawable(R.mipmap.down_blue);//选中-蓝色
+        Drawable drawable1 = getResources().getDrawable(R.mipmap.down_green);//选中-蓝色
         Drawable drawable2 = getResources().getDrawable(R.mipmap.down_black);//未选-灰色
         drawable1.setBounds(0, 0, drawable1.getMinimumWidth(), drawable1.getMinimumHeight());
         drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
         switch (v.getId()) {
             case R.id.linearLayout1:
-                textView1.setTextColor(getResources().getColor(R.color.blue));
-                textView2.setTextColor(getResources().getColor(R.color.black2));
+                textView1.setTextColor(getResources().getColor(R.color.green));
+                textView2.setTextColor(getResources().getColor(R.color.black3));
                 textView1.setCompoundDrawables(null, null, drawable1, null);
                 textView2.setCompoundDrawables(null, null, drawable2, null);
                 view1.setVisibility(View.VISIBLE);
@@ -227,8 +227,8 @@ public class MyTakeCashActivity extends BaseActivity {
                 showPopupWindow1(pop_view);
                 break;
             case R.id.linearLayout2:
-                textView1.setTextColor(getResources().getColor(R.color.black2));
-                textView2.setTextColor(getResources().getColor(R.color.blue));
+                textView1.setTextColor(getResources().getColor(R.color.black3));
+                textView2.setTextColor(getResources().getColor(R.color.green));
                 textView1.setCompoundDrawables(null, null, drawable2, null);
                 textView2.setCompoundDrawables(null, null, drawable1, null);
                 view1.setVisibility(View.INVISIBLE);

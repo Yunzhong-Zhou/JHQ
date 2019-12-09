@@ -15,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.cfo.chocoin.R;
-import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.LocalUserInfo;
 import com.cfo.chocoin.view.LoadingLayout;
 import com.cfo.chocoin.view.MyDefaultFooter;
@@ -150,7 +149,16 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
 
     protected void initContentView(int layoutResID) {
         titleView = (TitleView) super.findViewById(R.id.title_view);
-        super.findViewById(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.reset()
+//                .fitsSystemWindows(true)
+                .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
+//                .statusBarColor(R.color.black)
+                .titleBar(titleView)
+//                .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
+                .addTag("common")
+                .init();
+//        super.findViewById(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
 
         layout_body = (FrameLayout) super.findViewById(R.id.layout_body);
 

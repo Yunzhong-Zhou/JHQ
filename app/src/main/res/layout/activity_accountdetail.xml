@@ -22,13 +22,8 @@
                 <RelativeLayout
                     android:id="@+id/head1_relativeLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="384dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:src="@mipmap/bg_accountdetail" />
+                    android:layout_height="384dp"
+                    android:background="@mipmap/bg_accountdetail">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -79,7 +74,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="@string/qukuai_h12"
+                            android:text="@string/qianbao_h2"
                             android:textColor="@color/white"
                             android:textSize="15sp" />
 
@@ -124,7 +119,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="6dp"
-                                    android:text="可用保额"
+                                    android:text="@string/qianbao_h3"
                                     android:textColor="@color/white1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -156,7 +151,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="6dp"
-                                    android:text="累计中奖"
+                                    android:text="@string/qianbao_h4"
                                     android:textColor="@color/white1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -188,7 +183,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="6dp"
-                                    android:text="累计中心"
+                                    android:text="@string/qianbao_h5"
                                     android:textColor="@color/white1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -220,7 +215,7 @@
                                     android:drawableLeft="@mipmap/ic_accountdetail1"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
-                                    android:text="@string/qukuai_h18"
+                                    android:text="@string/qianbao_h6"
                                     android:textColor="@color/black1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -247,7 +242,7 @@
                                     android:drawableLeft="@mipmap/ic_accountdetail2"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
-                                    android:text="投保"
+                                    android:text="@string/qianbao_h7"
                                     android:textColor="@color/black1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -274,7 +269,7 @@
                                     android:drawableLeft="@mipmap/ic_accountdetail3"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
-                                    android:text="@string/qukuai_h19"
+                                    android:text="@string/qianbao_h8"
                                     android:textColor="@color/black1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -324,7 +319,7 @@
                                     android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:padding="14dp"
-                                    android:text="@string/qukuai_h8"
+                                    android:text="@string/qianbao_h9"
                                     android:textColor="@color/green"
                                     android:textSize="16sp" />
 
@@ -356,7 +351,7 @@
                                     android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:padding="14dp"
-                                    android:text="@string/qukuai_h9"
+                                    android:text="@string/qianbao_h10"
                                     android:textColor="@color/black4"
                                     android:textSize="16sp" />
 

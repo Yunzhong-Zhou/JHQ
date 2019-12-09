@@ -32,17 +32,17 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:drawablePadding="5dp"
-                    android:drawableRight="@mipmap/down_blue"
+                    android:drawableRight="@mipmap/down_green"
                     android:gravity="center"
                     android:text="@string/app_type_bizhong"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/green"
                     android:textSize="14sp" />
 
                 <View
                     android:id="@+id/view1"
                     android:layout_width="66dp"
                     android:layout_height="3dp"
-                    android:background="@drawable/yuanjiao_5_lanse" />
+                    android:background="@drawable/yuanjiao_5_lvse" />
             </LinearLayout>
 
             <LinearLayout
@@ -64,14 +64,14 @@
                     android:drawableRight="@mipmap/down_black"
                     android:gravity="center"
                     android:text="@string/app_type_zhuangtai"
-                    android:textColor="@color/black2"
+                    android:textColor="@color/black3"
                     android:textSize="14sp" />
 
                 <View
                     android:id="@+id/view2"
                     android:layout_width="66dp"
                     android:layout_height="3dp"
-                    android:background="@drawable/yuanjiao_5_lanse"
+                    android:background="@drawable/yuanjiao_5_lvse"
                     android:visibility="invisible" />
             </LinearLayout>
 

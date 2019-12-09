@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CHO</string>
+    <string name="app_name">CFO</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -166,20 +166,9 @@
     <string name="forgetpassword_h9">正在重置密码，请稍后...</string>
 
     <!--fragment1-->
-    <string name="fragment1_h1">总算力</string>
-    <string name="fragment1_h2">算力等级：</string>
-    <string name="fragment1_h3">兑换算力</string>
-    <string name="fragment1_h4">总产值</string>
-    <string name="fragment1_h5">已产</string>
-    <string name="fragment1_h6">兑换动态</string>
-    <string name="fragment1_h7">算力说明</string>
-    <string name="fragment1_h8">5级</string>
-    <string name="fragment1_h9">算力明细</string>
-    <string name="fragment1_h10">你的产值已用完</string>
-    <string name="fragment1_h11">已有</string>
-    <string name="fragment1_h12">个CHO存入失败</string>
-    <string name="fragment1_h13">升级算力</string>
-
+    <string name="fragment1_h1">基础知识</string>
+    <string name="fragment1_h2">进阶知识</string>
+    <string name="fragment1_h3">高阶知识</string>
     <!--fragment2-->
     <string name="fragment2_h1">待激活</string>
     <string name="fragment2_h2">竞猜</string>
@@ -250,10 +239,10 @@
     <string name="fragment4_h8">确定</string>
     <string name="fragment4_h9">充币提交成功</string>
     <string name="fragment4_h10">前往设置充币地址</string>
-    <string name="fragment4_h11">ETH充币</string>
-    <string name="fragment4_h12">CHO充币</string>
+    <string name="fragment4_h11">USDT</string>
+    <string name="fragment4_h12">澳元电汇</string>
     <string name="fragment4_h13">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。\n3.使用CHO充值，可享9.7折</string>
-    <string name="fragment4_h14">CNY充值</string>
+    <string name="fragment4_h14">USDT</string>
     <string name="fragment4_h15">金额</string>
     <string name="fragment4_h16">请输入充币金额</string>
     <string name="fragment4_h17">支付宝支付</string>
@@ -341,9 +330,9 @@
     <string name="password_h8">银行卡暂未设置，是否前往设置？</string>
 
     <!--地址管理-->
-    <string name="address_h1">ETH地址管理</string>
-    <string name="address_h2">ETH地址</string>
-    <string name="address_h3">请输入ETH地址</string>
+    <string name="address_h1">USDT地址管理</string>
+    <string name="address_h2">USDT地址</string>
+    <string name="address_h3">请输入USDT地址</string>
     <string name="address_h4">手机号</string>
     <string name="address_h5">请输入手机号</string>
     <string name="address_h6">验证码</string>
@@ -358,29 +347,20 @@
     <string name="address_h15">请输入CHO地址</string>
     <string name="address_h16">CHO地址管理</string>
 
-    <!--区块-->
-    <string name="qukuai_h1">我的区块</string>
-    <string name="qukuai_h2">区块数</string>
-    <string name="qukuai_h3">账户详情</string>
-    <string name="qukuai_h4">奖励余额</string>
-    <string name="qukuai_h5">未释放区块</string>
-    <string name="qukuai_h6">已释放区块</string>
-    <string name="qukuai_h7">兑换算力</string>
-    <string name="qukuai_h8">收入记录</string>
-    <string name="qukuai_h9">支出记录</string>
-    <string name="qukuai_h10">奖励个数：</string>
-    <string name="qukuai_h11">订单号：</string>
-    <string name="qukuai_h12">可用余币</string>
-    <string name="qukuai_h13">累计充币</string>
-    <string name="qukuai_h14">累计奖励</string>
-    <string name="qukuai_h15">累计佣金</string>
-    <string name="qukuai_h16">累计挖矿</string>
-    <string name="qukuai_h17">充币个数：</string>
-    <string name="qukuai_h18">充币</string>
-    <string name="qukuai_h19">提币</string>
-    <string name="qukuai_h20">生成区块</string>
-    <string name="qukuai_h21">已激活</string>
-    <string name="qukuai_h22">区块激活奖励</string>
+    <!--钱包-->
+    <string name="qianbao_h1">账户详情</string>
+    <string name="qianbao_h2">本金余额</string>
+    <string name="qianbao_h3">合约余额</string>
+    <string name="qianbao_h4">累计盈利</string>
+    <string name="qianbao_h5">累计佣金</string>
+    <string name="qianbao_h6">充币</string>
+    <string name="qianbao_h7">划转</string>
+    <string name="qianbao_h8">提币</string>
+    <string name="qianbao_h9">收入记录</string>
+    <string name="qianbao_h10">支出记录</string>
+    <string name="qianbao_h11">充币个数：</string>
+    <string name="qianbao_h12">订单号</string>
+    <string name="qianbao_h13">时间：</string>
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

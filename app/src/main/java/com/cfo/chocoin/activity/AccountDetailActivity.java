@@ -220,10 +220,10 @@ public class AccountDetailActivity extends BaseActivity {
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle, true);
                 break;
             case R.id.head1_linearLayout2:
-                //投保
+                //划转
                 Bundle bundle1 = new Bundle();
                 bundle1.putInt("item",0);
-                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
+//                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
                 break;
             case R.id.head1_linearLayout3:
                 //提现
@@ -272,6 +272,6 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("我的钱包");
+        titleView.setTitle(getString(R.string.qianbao_h1));
     }
 }

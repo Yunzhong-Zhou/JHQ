@@ -16,7 +16,6 @@ import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.PeriodDetailModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
-import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
 import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
@@ -390,7 +389,7 @@ public class PeriodDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_textView2:
                 //排行榜
-                CommonUtil.gotoActivity(PeriodDetailActivity.this, LeaderboardActivity.class, false);
+//                CommonUtil.gotoActivity(PeriodDetailActivity.this, LeaderboardActivity.class, false);
                 break;
             case R.id.head1_imageView1:
                 //竞猜规则

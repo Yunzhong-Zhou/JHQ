@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.activity.AccountDetailActivity;
-import com.cfo.chocoin.activity.BankCardSettingActivity;
 import com.cfo.chocoin.activity.InformationActivity;
+import com.cfo.chocoin.activity.InvitationRewardActivity;
 import com.cfo.chocoin.activity.MainActivity;
 import com.cfo.chocoin.activity.MyProfileActivity;
 import com.cfo.chocoin.activity.MyRechargeActivity;
@@ -22,7 +22,6 @@ import com.cfo.chocoin.activity.MyTakeCashActivity;
 import com.cfo.chocoin.activity.OnlineServiceActivity;
 import com.cfo.chocoin.activity.QRCodeActivity;
 import com.cfo.chocoin.activity.ShareActivity;
-import com.cfo.chocoin.activity.TakeCashActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment5Model;
 import com.cfo.chocoin.net.OkHttpClientManager;
@@ -248,12 +247,13 @@ public class Fragment5 extends BaseFragment {
 //                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
             case R.id.linearLayout2:
-                //转账
-                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
+                //划转
+
                 break;
             case R.id.linearLayout3:
-                //提现
-                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
+                //转币
+                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
                 break;
             case R.id.linearLayout4:
                 //推广
@@ -264,16 +264,16 @@ public class Fragment5 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
                 break;
             case R.id.linearLayout6:
-                //充币记录
-                CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
+                //合约记录
+
                 break;
             case R.id.linearLayout7:
                 //提币记录
                 CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
                 break;
             case R.id.linearLayout8:
-                //银行卡邦定
-                CommonUtil.gotoActivity(getActivity(), BankCardSettingActivity.class, false);
+                //充币记录
+                CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
                 break;
             case R.id.linearLayout9:
                 //资料管理
@@ -281,7 +281,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout10:
                 //有奖邀请
-//                CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
                 break;
             case R.id.linearLayout11:
                 //公告通知

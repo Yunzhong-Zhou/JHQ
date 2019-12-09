@@ -904,9 +904,9 @@ public class Fragment4 extends BaseFragment {
         textView5.setText(getString(R.string.fragment4_h6) + "0" + getString(R.string.app_ge));
 
         if (type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.blue));
-            textView2.setTextColor(getResources().getColor(R.color.black4));
-            textView_3.setTextColor(getResources().getColor(R.color.black4));
+            textView1.setTextColor(getResources().getColor(R.color.green));
+            textView2.setTextColor(getResources().getColor(R.color.black3));
+            textView_3.setTextColor(getResources().getColor(R.color.black3));
 
             textView_dazhe_1.setBackgroundResource(R.mipmap.bg_dazhe_1);
             textView_dazhe_2.setBackgroundResource(R.mipmap.bg_dazhe_0);
@@ -938,9 +938,9 @@ public class Fragment4 extends BaseFragment {
             linearLayout_unionpay.setVisibility(View.GONE);
 
         } else if (type == 2) {
-            textView1.setTextColor(getResources().getColor(R.color.black4));
-            textView2.setTextColor(getResources().getColor(R.color.blue));
-            textView_3.setTextColor(getResources().getColor(R.color.black4));
+            textView1.setTextColor(getResources().getColor(R.color.black3));
+            textView2.setTextColor(getResources().getColor(R.color.green));
+            textView_3.setTextColor(getResources().getColor(R.color.black3));
 
             textView_dazhe_1.setBackgroundResource(R.mipmap.bg_dazhe_0);
             textView_dazhe_2.setBackgroundResource(R.mipmap.bg_dazhe_1);
@@ -971,9 +971,9 @@ public class Fragment4 extends BaseFragment {
             linearLayout_unionpay.setVisibility(View.GONE);
 
         } else if (type == 3) {
-            textView1.setTextColor(getResources().getColor(R.color.black4));
-            textView2.setTextColor(getResources().getColor(R.color.black4));
-            textView_3.setTextColor(getResources().getColor(R.color.blue));
+            textView1.setTextColor(getResources().getColor(R.color.black3));
+            textView2.setTextColor(getResources().getColor(R.color.black3));
+            textView_3.setTextColor(getResources().getColor(R.color.green));
 
             textView_dazhe_1.setBackgroundResource(R.mipmap.bg_dazhe_0);
             textView_dazhe_2.setBackgroundResource(R.mipmap.bg_dazhe_0);

@@ -52,7 +52,7 @@ public class ForgetPasswordActivity extends BaseActivity {
         setContentView(R.layout.activity_forgetpassword);
 
 //        mImmersionBar.reset().init();
-//        findViewByID_My(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
 
     }
 

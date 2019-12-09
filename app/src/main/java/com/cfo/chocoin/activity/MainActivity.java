@@ -100,6 +100,8 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         navigationBar = findViewByID_My(R.id.navigationBar);
 
+        item = getIntent().getIntExtra("item", 2);
+
         fragments.add(new Fragment1());
         fragments.add(new Fragment2());
         fragments.add(new Fragment3());
@@ -180,9 +182,9 @@ public class MainActivity extends BaseActivity {
                 .mode(EasyNavigationBar.MODE_ADD)
                 .build();
 
-        item = 2;
+//        item = 2;
         MyLogger.i("》》》》》》》》》" + item);
-        navigationBar.selectTab(2);//设置显示的页面
+        navigationBar.selectTab(item);//设置显示的页面
 
 
         /*mBottomTabBar = findViewByID_My(R.id.bottom_tab_bar);

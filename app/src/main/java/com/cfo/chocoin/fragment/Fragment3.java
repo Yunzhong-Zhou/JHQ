@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
-import com.cfo.chocoin.activity.LeaderboardActivity;
 import com.cfo.chocoin.activity.MainActivity;
 import com.cfo.chocoin.activity.PastListActivity;
 import com.cfo.chocoin.base.BaseFragment;
@@ -440,7 +439,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.head1_textView2:
                 //排行榜
-                CommonUtil.gotoActivity(getActivity(), LeaderboardActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), LeaderboardActivity.class, false);
 
                 break;
             case R.id.head1_linearLayout3:

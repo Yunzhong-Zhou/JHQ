@@ -60,7 +60,7 @@ public class Pop_ListAdapter extends BaseAdapter {
         if (selectIndex == position) {
             holder.textView1.setSelected(true);
             holder.textView1.setPressed(true);
-            holder.textView1.setTextColor(context.getResources().getColor(R.color.blue));
+            holder.textView1.setTextColor(context.getResources().getColor(R.color.green));
 //            holder.textView1.setBackgroundColor(context.getResources().getColor(R.color.pop_bg6));
         } else {
             holder.textView1.setSelected(false);

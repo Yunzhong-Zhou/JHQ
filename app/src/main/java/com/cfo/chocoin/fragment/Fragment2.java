@@ -8,14 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.activity.MainActivity;
-import com.cfo.chocoin.activity.MyQuKuaiActivity;
 import com.cfo.chocoin.activity.SelectAddressActivity;
 import com.cfo.chocoin.activity.SetTransactionPasswordActivity;
 import com.cfo.chocoin.base.BaseFragment;
@@ -25,12 +22,10 @@ import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
-import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
 
 import org.json.JSONException;
@@ -40,8 +35,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -246,7 +239,7 @@ public class Fragment2 extends BaseFragment {
             public void onResponse(final Fragment2Model response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>区块" + response);
-                //待激活
+                /*//待激活
                 head1_textView1.setText(response.getBlock_wait_active_money());
                 //总区块
                 head1_textView3.setText(response.getBlock_money());
@@ -339,7 +332,7 @@ public class Fragment2 extends BaseFragment {
                         (getActivity(), R.layout.item_fragment2, list2) {
                     @Override
                     protected void convert(ViewHolder holder, final Fragment2Model model, int position) {
-                /*holder.setText(R.id.textView1, model.getMember_nickname());
+                *//*holder.setText(R.id.textView1, model.getMember_nickname());
                 holder.setText(R.id.textView2, "¥ " + model.getMoney());
                 holder.setText(R.id.textView3, model.getCreated_at());
                 holder.setText(R.id.textView4, model.getPackage_title());
@@ -348,14 +341,14 @@ public class Fragment2 extends BaseFragment {
                     Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
                             .centerCrop().into(imageView1);//加载图片
                 else
-                    imageView1.setImageResource(R.mipmap.headimg);*/
+                    imageView1.setImageResource(R.mipmap.headimg);*//*
 
                     }
                 };
                 mHeaderAndFooterWrapper2 = new HeaderAndFooterWrapper(mAdapter2);
                 mHeaderAndFooterWrapper2.addHeaderView(headerView1);
                 mHeaderAndFooterWrapper2.addHeaderView(headerView2);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView3);
+                mHeaderAndFooterWrapper2.addHeaderView(headerView3);*/
 
 
                 changeUI();
@@ -397,7 +390,7 @@ public class Fragment2 extends BaseFragment {
                 break;
             case R.id.head1_textView7:
                 //查看所有
-                CommonUtil.gotoActivity(getActivity(), MyQuKuaiActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), MyQuKuaiActivity.class, false);
                 break;
             case R.id.head1_linearLayout1:
                 //激活区块

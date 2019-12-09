@@ -104,7 +104,7 @@ public class RegisteredActivity extends BaseActivity {
         /*mImmersionBar.reset()
                 .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
                 .init();*/
-//        findViewByID_My(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
         /*// 定位初始化
         mLocationClient = new LocationClient(getApplicationContext());
         //声明LocationClient类

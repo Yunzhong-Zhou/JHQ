@@ -88,15 +88,6 @@
             android:name="com.cfo.chocoin.activity.PastListActivity"
             android:label="往期列表" />
         <activity
-            android:name="com.cfo.chocoin.activity.LeaderboardActivity"
-            android:label="排行榜" />
-        <activity
-            android:name="com.cfo.chocoin.activity.BuyComputingPowerActivity"
-            android:label="购买算力" />
-        <activity
-            android:name="com.cfo.chocoin.activity.SuanLiListActivity"
-            android:label="算力明细" />
-        <activity
             android:name="com.cfo.chocoin.activity.PeriodDetailActivity"
             android:label="游戏详情" />
         <!--我的-->
@@ -119,14 +110,8 @@
             android:name="com.cfo.chocoin.activity.ShareActivity"
             android:label="推广" />
         <activity
-            android:name="com.cfo.chocoin.activity.MyQuKuaiActivity"
-            android:label="我的区块" />
-        <activity
             android:name="com.cfo.chocoin.activity.AccountDetailActivity"
             android:label="我的钱包" />
-        <activity
-            android:name="com.cfo.chocoin.activity.RechargeActivity"
-            android:label="充值" />
         <activity
             android:name="com.cfo.chocoin.activity.MyRechargeActivity"
             android:label="我的充值" />
@@ -143,14 +128,14 @@
             android:name="com.cfo.chocoin.activity.TakeCashDetailActivity"
             android:label="提现详情" />
         <activity
+            android:name=".activity.InvitationRewardActivity"
+            android:label="有奖邀请" />
+        <activity
             android:name="com.cfo.chocoin.activity.OnlineServiceActivity"
             android:label="在线客服" />
         <activity
             android:name="com.cfo.chocoin.activity.InformationActivity"
             android:label="公告通知" />
-        <activity
-            android:name="com.cfo.chocoin.activity.MyGameActivity"
-            android:label="我的游戏" />
         <activity
             android:name="com.cfo.chocoin.activity.MyPosterActivity"
             android:label="我的海报" />

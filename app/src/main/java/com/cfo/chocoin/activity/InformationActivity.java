@@ -132,7 +132,7 @@ public class InformationActivity extends BaseActivity {
     private void changeUI() {
         switch (type) {
             case 1:
-                textView1.setTextColor(getResources().getColor(R.color.blue));
+                textView1.setTextColor(getResources().getColor(R.color.green));
                 textView2.setTextColor(getResources().getColor(R.color.black3));
                 view1.setVisibility(View.VISIBLE);
                 view2.setVisibility(View.INVISIBLE);
@@ -146,7 +146,7 @@ public class InformationActivity extends BaseActivity {
                 break;
             case 2:
                 textView1.setTextColor(getResources().getColor(R.color.black3));
-                textView2.setTextColor(getResources().getColor(R.color.blue));
+                textView2.setTextColor(getResources().getColor(R.color.green));
                 view1.setVisibility(View.INVISIBLE);
                 view2.setVisibility(View.VISIBLE);
 
