@@ -218,7 +218,7 @@
                                     android:layout_width="66dp"
                                     android:layout_height="3dp"
                                     android:visibility="visible"
-                                    android:background="@drawable/yuanjiao_5_lanse" />
+                                    android:background="@drawable/yuanjiao_5_lvse" />
                             </LinearLayout>
 
                             <View
@@ -266,7 +266,7 @@
                                     android:id="@+id/view2"
                                     android:layout_width="66dp"
                                     android:layout_height="3dp"
-                                    android:background="@drawable/yuanjiao_5_lanse"
+                                    android:background="@drawable/yuanjiao_5_lvse"
                                     android:visibility="invisible" />
                             </LinearLayout>
 

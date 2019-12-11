@@ -89,7 +89,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_next1"
+                        android:src="@mipmap/ic_next_black"
                         android:visibility="gone" />
 
                 </LinearLayout>
@@ -234,7 +234,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:text=""
                         android:textColor="@color/txt_black1" />
 
@@ -268,7 +268,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:text=""
                         android:textColor="@color/txt_black1" />
 
@@ -304,7 +304,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:text=""
                         android:textColor="@color/txt_black1" />
 
@@ -339,7 +339,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:text=""
 
                         android:textColor="@color/txt_black1" />
@@ -374,7 +374,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:textColor="@color/txt_black1" />
 
                 </LinearLayout>
@@ -405,7 +405,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next1"
+                        android:drawableRight="@mipmap/ic_next_black"
                         android:textColor="@color/txt_black1" />
 
                 </LinearLayout>

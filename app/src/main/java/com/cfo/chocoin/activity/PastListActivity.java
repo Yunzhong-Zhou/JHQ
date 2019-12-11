@@ -10,7 +10,6 @@ import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.PastListModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
-import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -102,7 +101,7 @@ public class PastListActivity extends BaseActivity {
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(PastListActivity.this, PeriodDetailActivity.class, bundle, false);
+//                                CommonUtil.gotoActivityWithData(PastListActivity.this, PeriodDetailActivity.class, bundle, false);
                             }
 
                             @Override

@@ -87,9 +87,6 @@
         <activity
             android:name="com.cfo.chocoin.activity.PastListActivity"
             android:label="往期列表" />
-        <activity
-            android:name="com.cfo.chocoin.activity.PeriodDetailActivity"
-            android:label="游戏详情" />
         <!--我的-->
         <activity
             android:name="com.cfo.chocoin.activity.MyProfileActivity"

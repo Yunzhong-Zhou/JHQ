@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,7 +21,6 @@ import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
-import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -32,7 +30,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -417,7 +414,7 @@ public class Fragment2 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>获取余额" + response);
 
-                dialog.contentView(R.layout.dialog_jihuoqukuai)
+                /*dialog.contentView(R.layout.dialog_jihuoqukuai)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
@@ -454,7 +451,7 @@ public class Fragment2 extends BaseFragment {
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
-                });
+                });*/
             }
         });
     }

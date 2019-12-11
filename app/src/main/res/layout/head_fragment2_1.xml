@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:drawablePadding="8dp"
-                android:drawableRight="@mipmap/ic_next"
+                android:drawableRight="@mipmap/ic_next_white"
                 android:gravity="right"
                 android:padding="14dp"
                 android:text="@string/fragment2_h2"

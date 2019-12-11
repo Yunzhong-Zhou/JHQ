@@ -3,32 +3,18 @@ package com.cfo.chocoin.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.ShareModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
+import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
-import com.bumptech.glide.Glide;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
-import com.xw.repo.BubbleSeekBar;
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
-import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -37,27 +23,7 @@ import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
  */
 public class ShareActivity extends BaseActivity {
     ShareModel model;
-    private RecyclerView recyclerView;
-    List<ShareModel.PerformanceListBean> list1 = new ArrayList<>();
-    CommonAdapter<ShareModel.PerformanceListBean> mAdapter1;
-    HeaderAndFooterWrapper mHeaderAndFooterWrapper1;
-    //头部一
-    View headerView1;
-    ImageView head1_imageView1;
-    TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4, head1_textView5, head1_textView6,
-            head1_textView7, head1_textView8, head1_textView9, head1_textView10, head1_textView11,
-            head1_textView12, head1_textView13,textView1_1,textView2_1,textView3_1,textView4_1,textView5_1,
-            textView6_1,textView7_1,textView8_1,textView9_1,textView10_1;
-    BubbleSeekBar seekBar;
-    ImageView imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9, imageView10, imageView1_1, imageView2_1, imageView3_1, imageView4_1, imageView5_1;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10;
-
-    //头部二-需要悬浮的布局
-    View headerView2;
-
-    //悬浮部分
-    LinearLayout invis;
-
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,84 +49,10 @@ public class ShareActivity extends BaseActivity {
             }
         });
 
-        //悬浮部分
-        invis = findViewByID_My(R.id.invis);
-
-        //头部一
-        headerView1 = View.inflate(ShareActivity.this, R.layout.head_share_1, null);
-        head1_imageView1 = headerView1.findViewById(R.id.head1_imageView1);
-        head1_textView1 = headerView1.findViewById(R.id.head1_textView1);
-        head1_textView2 = headerView1.findViewById(R.id.head1_textView2);
-        head1_textView3 = headerView1.findViewById(R.id.head1_textView3);
-        head1_textView4 = headerView1.findViewById(R.id.head1_textView4);
-        head1_textView5 = headerView1.findViewById(R.id.head1_textView5);
-        head1_textView6 = headerView1.findViewById(R.id.head1_textView6);
-        head1_textView7 = headerView1.findViewById(R.id.head1_textView7);
-        head1_textView8 = headerView1.findViewById(R.id.head1_textView8);
-        head1_textView9 = headerView1.findViewById(R.id.head1_textView9);
-        head1_textView10 = headerView1.findViewById(R.id.head1_textView10);
-        head1_textView11 = headerView1.findViewById(R.id.head1_textView11);
-        head1_textView12 = headerView1.findViewById(R.id.head1_textView12);
-        head1_textView13 = headerView1.findViewById(R.id.head1_textView13);
-        seekBar = headerView1.findViewById(R.id.seekBar);
-        imageView1 = headerView1.findViewById(R.id.imageView1);
-        imageView2 = headerView1.findViewById(R.id.imageView2);
-        imageView3 = headerView1.findViewById(R.id.imageView3);
-        imageView4 = headerView1.findViewById(R.id.imageView4);
-        imageView5 = headerView1.findViewById(R.id.imageView5);
-        imageView6 = headerView1.findViewById(R.id.imageView6);
-        imageView7 = headerView1.findViewById(R.id.imageView7);
-        imageView8 = headerView1.findViewById(R.id.imageView8);
-        imageView9 = headerView1.findViewById(R.id.imageView9);
-        imageView10 = headerView1.findViewById(R.id.imageView10);
-        imageView1_1 = headerView1.findViewById(R.id.imageView1_1);
-        imageView2_1 = headerView1.findViewById(R.id.imageView2_1);
-        imageView3_1 = headerView1.findViewById(R.id.imageView3_1);
-        imageView4_1 = headerView1.findViewById(R.id.imageView4_1);
-        imageView5_1 = headerView1.findViewById(R.id.imageView5_1);
-        textView1 = headerView1.findViewById(R.id.textView1);
-        textView2 = headerView1.findViewById(R.id.textView2);
-        textView3 = headerView1.findViewById(R.id.textView3);
-        textView4 = headerView1.findViewById(R.id.textView4);
-        textView5 = headerView1.findViewById(R.id.textView5);
-        textView6 = headerView1.findViewById(R.id.textView6);
-        textView7 = headerView1.findViewById(R.id.textView7);
-        textView8 = headerView1.findViewById(R.id.textView8);
-        textView9 = headerView1.findViewById(R.id.textView9);
-        textView10 = headerView1.findViewById(R.id.textView10);
-
-        textView1_1 = headerView1.findViewById(R.id.textView1_1);
-        textView2_1 = headerView1.findViewById(R.id.textView2_1);
-        textView3_1 = headerView1.findViewById(R.id.textView3_1);
-        textView4_1 = headerView1.findViewById(R.id.textView4_1);
-        textView5_1 = headerView1.findViewById(R.id.textView5_1);
-        textView6_1 = headerView1.findViewById(R.id.textView6_1);
-        textView7_1 = headerView1.findViewById(R.id.textView7_1);
-        textView8_1 = headerView1.findViewById(R.id.textView8_1);
-        textView9_1 = headerView1.findViewById(R.id.textView9_1);
-        textView10_1 = headerView1.findViewById(R.id.textView10_1);
-
-        //头部二
-        headerView2 = View.inflate(ShareActivity.this, R.layout.head_share_2, null);
-
-        //列表
-        recyclerView = findViewByID_My(R.id.recyclerView);
-        final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(ShareActivity.this);
-        recyclerView.setLayoutManager(mLinearLayoutManager);
-        //listview 滑动监听
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (mLinearLayoutManager.findFirstVisibleItemPosition() >= 1) {
-                    invis.setVisibility(View.VISIBLE);
-                    headerView2.setVisibility(View.GONE);
-                } else {
-                    invis.setVisibility(View.GONE);
-                    headerView2.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+        imageView = findViewByID_My(R.id.imageView);
+        //动态设置linearLayout的高度为屏幕高度的1/4
+        ViewGroup.LayoutParams lp = imageView.getLayoutParams();
+        lp.height = (int) CommonUtil.getScreenHeight(ShareActivity.this) / 4;
 
     }
 
@@ -185,7 +77,7 @@ public class ShareActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>分享" + response);
                 hideProgress();
                 model = response;
-                //头像
+                /*//头像
                 if (!response.getHead().equals(""))
                     Glide.with(ShareActivity.this).load(IMGHOST + response.getHead())
                             .centerCrop()
@@ -331,7 +223,7 @@ public class ShareActivity extends BaseActivity {
                 mHeaderAndFooterWrapper1 = new HeaderAndFooterWrapper(mAdapter1);
                 mHeaderAndFooterWrapper1.addHeaderView(headerView1);
                 mHeaderAndFooterWrapper1.addHeaderView(headerView2);
-                recyclerView.setAdapter(mHeaderAndFooterWrapper1);
+                recyclerView.setAdapter(mHeaderAndFooterWrapper1);*/
             }
 
         });
