@@ -169,6 +169,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/xian" />
+                <LinearLayout
+                    android:id="@+id/linearLayout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/myprofile_h12"
+                        android:textColor="@color/default_text" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text=""
+                        android:textColor="@color/black3" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/xian"
+                    android:visibility="visible" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout5"
@@ -244,77 +281,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/xian" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:onClick="onClick"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:visibility="visible">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:text="@string/myprofile_h12"
-                        android:textColor="@color/default_text" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next_black"
-                        android:text=""
-                        android:textColor="@color/txt_black1" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/xian"
-                    android:visibility="visible" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:gravity="center_vertical"
-                    android:onClick="onClick"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:text="@string/myprofile_h12"
-                        android:textColor="@color/default_text" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableRight="@mipmap/ic_next_black"
-                        android:text=""
-                        android:textColor="@color/txt_black1" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/xian"
-                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout7"
@@ -409,6 +375,41 @@
                         android:textColor="@color/txt_black1" />
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/xian"
+                    android:visibility="visible" />
+                <LinearLayout
+                    android:id="@+id/linearLayout11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/myprofile_h15"
+                        android:textColor="@color/default_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@mipmap/ic_next_black"
+                        android:text=""
+                        android:textColor="@color/txt_black1" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -417,12 +418,14 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
+
             <LinearLayout
                 android:id="@+id/linearLayout9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/btn_img1"
                 android:gravity="center_vertical"
                 android:onClick="onClick"

@@ -169,28 +169,13 @@
     <string name="fragment1_h1">基础知识</string>
     <string name="fragment1_h2">进阶知识</string>
     <string name="fragment1_h3">高阶知识</string>
+
     <!--fragment2-->
-    <string name="fragment2_h1">待激活</string>
-    <string name="fragment2_h2">竞猜</string>
-    <string name="fragment2_h3">总区块</string>
-    <string name="fragment2_h4">已激活</string>
-    <string name="fragment2_h5">已释放</string>
-    <string name="fragment2_h6">未释放</string>
-    <string name="fragment2_h7">生成区块</string>
-    <string name="fragment2_h8">我的区块</string>
-    <string name="fragment2_h9">查看所有</string>
-    <string name="fragment2_h10">区块数</string>
-    <string name="fragment2_h11">待激活</string>
-    <string name="fragment2_h12">已激活</string>
-    <string name="fragment2_h13">生成动态</string>
-    <string name="fragment2_h14">区块说明</string>
-    <string name="fragment2_h15">链号：</string>
-    <string name="fragment2_h16">可用余币：</string>
-    <string name="fragment2_h17">请输入区块数</string>
-    <string name="fragment2_h18">确定</string>
-    <string name="fragment2_h19">区块生成成功</string>
-    <string name="fragment2_h20">猜中</string>
-    <string name="fragment2_h21">区块</string>
+    <string name="fragment2_h1">上</string>
+    <string name="fragment2_h2">主</string>
+    <string name="fragment2_h3">量</string>
+    <string name="fragment2_h4">建议卖出</string>
+    <string name="fragment2_h5">建议买入</string>
 
     <!--fragment3-->
     <string name="fragment3_h1">合约余额</string>
@@ -227,6 +212,8 @@
     <string name="fragment3_h32">用户</string>
     <string name="fragment3_h33">合约数/USDT</string>
     <string name="fragment3_h34">收益率</string>
+    <string name="fragment3_h35">转出</string>
+
 
     <!--fragment4-->
     <string name="fragment4_h1">可用余币</string>
@@ -275,7 +262,8 @@
     <string name="fragment5_h15">有奖邀请</string>
     <string name="fragment5_h16">公告通知</string>
     <string name="fragment5_h17">在线客服</string>
-    <string name="fragment5_h18">签到领现金</string>
+    <string name="fragment5_h18">签到有奖</string>
+
 
     <!--个人资料-->
     <string name="myprofile_h1">资料管理</string>
@@ -289,9 +277,25 @@
     <string name="myprofile_h9">退出登录</string>
     <string name="myprofile_h10">头像</string>
     <string name="myprofile_h11">确认退出该账号吗？</string>
-    <string name="myprofile_h12">绑定银行卡</string>
+    <string name="myprofile_h12">服务码</string>
     <string name="myprofile_h13">修改成功</string>
     <string name="myprofile_h14">语言切换</string>
+    <string name="myprofile_h15">申请服务中心</string>
+    <string name="myprofile_h16">修改服务代码</string>
+    <string name="myprofile_h17">服务中心</string>
+    <string name="myprofile_h19">限量申请</string>
+    <string name="myprofile_h20">每个市仅开通三个服务中心</string>
+    <string name="myprofile_h21">5%分红</string>
+    <string name="myprofile_h22">可获得服务用户的盈利\n5%分红</string>
+    <string name="myprofile_h23">1个USDT/手</string>
+    <string name="myprofile_h24">可获得服务用户的交易\n手续费1个USDT/手</string>
+    <string name="myprofile_h25">经纪人支持</string>
+    <string name="myprofile_h26">平台将分配经纪人及讲\n师到服务中心</string>
+    <string name="myprofile_h27">用户引流</string>
+    <string name="myprofile_h28">通过线上推广的用户将导\n流到各个服务中心</string>
+    <string name="myprofile_h29">申请条件</string>
+    <string name="myprofile_h30">合约帐户余额不低于8万USDT，有100平以上办公室</string>
+    <string name="myprofile_h31">立刻申请</string>
 
     <!--修改登录密码-->
     <string name="changepassword_h1">修改登录密码</string>
@@ -361,6 +365,7 @@
     <string name="qianbao_h11">充币个数：</string>
     <string name="qianbao_h12">订单号</string>
     <string name="qianbao_h13">时间：</string>
+    <string name="qianbao_h14">币地址</string>
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

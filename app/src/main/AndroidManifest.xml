@@ -104,6 +104,12 @@
             android:name="com.cfo.chocoin.activity.SetAddressActivity"
             android:label="ETH地址管理和GUS地址管理" />
         <activity
+            android:name="com.cfo.chocoin.activity.ChangeServiceNumActivity"
+            android:label="修改服务代码" />
+        <activity
+            android:name="com.cfo.chocoin.activity.ServiceCenterActivity"
+            android:label="服务中心" />
+        <activity
             android:name="com.cfo.chocoin.activity.ShareActivity"
             android:label="推广" />
         <activity

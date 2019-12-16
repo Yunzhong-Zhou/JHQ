@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,12 +42,6 @@ public class AccountDetailActivity extends BaseActivity {
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
     TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4;
-
-   /* //头部二-需要悬浮的布局
-    View headerView2;
-    LinearLayout head2_linearLayout1, head2_linearLayout2;
-    TextView head2_textView1, head2_textView2;
-    View head2_view1, head2_view2;*/
 
     //悬浮部分
     LinearLayout invis;
@@ -89,24 +82,14 @@ public class AccountDetailActivity extends BaseActivity {
         view1 = findViewByID_My(R.id.view1);
         view2 = findViewByID_My(R.id.view2);
 
-        //头部一
-//        headerView1 = View.inflate(AccountDetailActivity.this, R.layout.head_accountdetail_1, null);
+
         head1_relativeLayout = findViewByID_My(R.id.head1_relativeLayout);
+        head1_relativeLayout.setPadding(0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
+
         head1_textView1 = findViewByID_My(R.id.head1_textView1);
         head1_textView2 = findViewByID_My(R.id.head1_textView2);
         head1_textView3 = findViewByID_My(R.id.head1_textView3);
         head1_textView4 = findViewByID_My(R.id.head1_textView4);
-
-        /*//头部二
-        headerView2 = View.inflate(AccountDetailActivity.this, R.layout.head_accountdetail_2, null);
-        head2_linearLayout1 = headerView2.findViewById(R.id.head2_linearLayout1);
-        head2_linearLayout2 = headerView2.findViewById(R.id.head2_linearLayout2);
-        head2_linearLayout1.setOnClickListener(this);
-        head2_linearLayout2.setOnClickListener(this);
-        head2_textView1 = headerView2.findViewById(R.id.head2_textView1);
-        head2_textView2 = headerView2.findViewById(R.id.head2_textView2);
-        head2_view1 = headerView2.findViewById(R.id.head2_view1);
-        head2_view2 = headerView2.findViewById(R.id.head2_view2);*/
 
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -126,9 +109,9 @@ public class AccountDetailActivity extends BaseActivity {
                 }
             }
         });*/
-        //动态设置linearLayout的高度为屏幕高度的1/2
+        /*//动态设置linearLayout的高度为屏幕高度的1/2
         ViewGroup.LayoutParams lp = head1_relativeLayout.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity.this) * 384 / 895;
+        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity.this) * 384 / 895;*/
     }
 
     @Override
@@ -197,6 +180,9 @@ public class AccountDetailActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.left_btn:
+                finish();
+                break;
             case R.id.linearLayout1:
                 type = 1;
                 changeUI();
@@ -272,6 +258,7 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.qianbao_h1));
+//        titleView.setTitle(getString(R.string.qianbao_h1));
+        titleView.setVisibility(View.GONE);
     }
 }
