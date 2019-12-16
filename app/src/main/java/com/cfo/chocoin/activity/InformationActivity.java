@@ -61,7 +61,6 @@ public class InformationActivity extends BaseActivity {
             @Override
             public void onRefresh() {
                 Request("?token=" + localUserInfo.getToken());
-
             }
 
             @Override

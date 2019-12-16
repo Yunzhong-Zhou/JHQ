@@ -70,7 +70,6 @@ public class SmsCodeListModel implements Serializable {
          * title : 中国
          * icon : /mobile-state-code/86.jpg
          */
-
         private String code;
         private String title;
         private String icon;

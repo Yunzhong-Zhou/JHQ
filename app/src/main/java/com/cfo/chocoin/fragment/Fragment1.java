@@ -39,7 +39,7 @@ public class Fragment1 extends BaseFragment {
     CommonAdapter<Fragment1Model> mAdapter2;
 
     //悬浮部分
-    LinearLayout invis, linearLayout1, linearLayout2, linearLayout3;
+    LinearLayout linearLayout1, linearLayout2, linearLayout3;
     TextView textView1, textView2, textView3;
     View view1, view2, view3;
 
@@ -101,7 +101,6 @@ public class Fragment1 extends BaseFragment {
         });
 
         //悬浮部分
-        invis = findViewByID_My(R.id.invis);
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
         linearLayout3 = findViewByID_My(R.id.linearLayout3);
@@ -161,7 +160,7 @@ public class Fragment1 extends BaseFragment {
                 /*//基础知识
                 list1 = response.getNewest_invest_list();
                 mAdapter1 = new CommonAdapter<Fragment1Model.NewestInvestListBean>
-                        (getActivity(), R.layout.item_fragment2, list1) {
+                        (getActivity(), R.layout.item_fragment1, list1) {
                     @Override
                     protected void convert(ViewHolder holder, final Fragment1Model.NewestInvestListBean model, int position) {
                         holder.setText(R.id.textView1, model.getMember_nickname());
@@ -228,7 +227,7 @@ public class Fragment1 extends BaseFragment {
 
     private void changeUI() {
         if (type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.yellow));
+            textView1.setTextColor(getResources().getColor(R.color.green));
             textView2.setTextColor(getResources().getColor(R.color.black3));
             textView3.setTextColor(getResources().getColor(R.color.black3));
             view1.setVisibility(View.VISIBLE);
@@ -240,7 +239,7 @@ public class Fragment1 extends BaseFragment {
 
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
-            textView2.setTextColor(getResources().getColor(R.color.yellow));
+            textView2.setTextColor(getResources().getColor(R.color.green));
             textView3.setTextColor(getResources().getColor(R.color.black3));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
@@ -251,7 +250,7 @@ public class Fragment1 extends BaseFragment {
         }else if (type == 3) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
             textView2.setTextColor(getResources().getColor(R.color.black3));
-            textView3.setTextColor(getResources().getColor(R.color.yellow));
+            textView3.setTextColor(getResources().getColor(R.color.green));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.VISIBLE);

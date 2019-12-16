@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,7 +20,6 @@ import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
-import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +33,9 @@ public class AccountDetailActivity extends BaseActivity {
     private RecyclerView recyclerView;
     List<AccountDetailModel1.EarningListBean> list1 = new ArrayList<>();
     CommonAdapter<AccountDetailModel1.EarningListBean> mAdapter1;
-    HeaderAndFooterWrapper mHeaderAndFooterWrapper1;
 
     List<AccountDetailModel1.ExpenditureListBean> list2 = new ArrayList<>();
     CommonAdapter<AccountDetailModel1.ExpenditureListBean> mAdapter2;
-    HeaderAndFooterWrapper mHeaderAndFooterWrapper2;
     //头部一
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
@@ -84,7 +82,7 @@ public class AccountDetailActivity extends BaseActivity {
 
 
         head1_relativeLayout = findViewByID_My(R.id.head1_relativeLayout);
-        head1_relativeLayout.setPadding(0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
+//        head1_relativeLayout.setPadding(0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
 
         head1_textView1 = findViewByID_My(R.id.head1_textView1);
         head1_textView2 = findViewByID_My(R.id.head1_textView2);
@@ -109,9 +107,9 @@ public class AccountDetailActivity extends BaseActivity {
                 }
             }
         });*/
-        /*//动态设置linearLayout的高度为屏幕高度的1/2
+        //动态设置linearLayout的高度为屏幕高度的1/2
         ViewGroup.LayoutParams lp = head1_relativeLayout.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity.this) * 384 / 895;*/
+        lp.height = (int) CommonUtil.getScreenHeight(AccountDetailActivity.this) * 384 / 895;
     }
 
     @Override
@@ -151,9 +149,6 @@ public class AccountDetailActivity extends BaseActivity {
 
                     }
                 };
-                mHeaderAndFooterWrapper1 = new HeaderAndFooterWrapper(mAdapter1);
-//                mHeaderAndFooterWrapper1.addHeaderView(headerView1);
-//                mHeaderAndFooterWrapper1.addHeaderView(headerView2);
 
                 list2 = response.getExpenditure_list();
                 mAdapter2 = new CommonAdapter<AccountDetailModel1.ExpenditureListBean>
@@ -164,12 +159,8 @@ public class AccountDetailActivity extends BaseActivity {
 //                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.getId());//流水号
                         holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
                         holder.setText(R.id.textView4, model.getStatus());//状态
-
                     }
                 };
-                mHeaderAndFooterWrapper2 = new HeaderAndFooterWrapper(mAdapter2);
-//                mHeaderAndFooterWrapper2.addHeaderView(headerView1);
-//                mHeaderAndFooterWrapper2.addHeaderView(headerView2);
 
                 changeUI();
                 hideProgress();
@@ -191,32 +182,30 @@ public class AccountDetailActivity extends BaseActivity {
                 type = 2;
                 changeUI();
                 break;
-            /*case R.id.head2_linearLayout1:
-                type = 1;
-                changeUI();
-                break;
-            case R.id.head2_linearLayout2:
-                type = 2;
-                changeUI();
-                break;*/
+
             case R.id.head1_linearLayout1:
                 //充值
                 Bundle bundle = new Bundle();
-                bundle.putInt("item",3);
-                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle, true);
+                bundle.putInt("item", 3);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class, bundle, true);
                 break;
             case R.id.head1_linearLayout2:
                 //划转
                 Bundle bundle1 = new Bundle();
-                bundle1.putInt("item",0);
+                bundle1.putInt("item", 0);
 //                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
                 break;
             case R.id.head1_linearLayout3:
                 //提现
-                CommonUtil.gotoActivity(this,TakeCashActivity.class,false);
+                CommonUtil.gotoActivity(this, TakeCashActivity.class, false);
+                break;
+            case R.id.head1_textView5:
+                //币地址
+                CommonUtil.gotoActivity(this, SelectAddressActivity.class, false);
                 break;
         }
     }
+
     private void changeUI() {
         if (type == 1) {
             textView1.setTextColor(getResources().getColor(R.color.green));
@@ -229,8 +218,8 @@ public class AccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.VISIBLE);
 //            head2_view2.setVisibility(View.INVISIBLE);
 
-            recyclerView.setAdapter(mHeaderAndFooterWrapper1);
-            mHeaderAndFooterWrapper1.notifyDataSetChanged();
+            recyclerView.setAdapter(mAdapter1);
+            mAdapter1.notifyDataSetChanged();
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black4));
             textView2.setTextColor(getResources().getColor(R.color.green));
@@ -242,8 +231,8 @@ public class AccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.INVISIBLE);
 //            head2_view2.setVisibility(View.VISIBLE);
 
-            recyclerView.setAdapter(mHeaderAndFooterWrapper2);
-            mHeaderAndFooterWrapper2.notifyDataSetChanged();
+            recyclerView.setAdapter(mAdapter2);
+            mAdapter2.notifyDataSetChanged();
         }
     }
 
@@ -258,7 +247,7 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-//        titleView.setTitle(getString(R.string.qianbao_h1));
-        titleView.setVisibility(View.GONE);
+        titleView.setTitle(getString(R.string.qianbao_h1));
+//        titleView.setVisibility(View.GONE);
     }
 }

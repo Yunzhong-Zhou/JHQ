@@ -27,7 +27,6 @@
         <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
     </style>
 
-
     <style name="dianCiRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/progressbar_dianci</item>
         <item name="android:minHeight">27dp</item>

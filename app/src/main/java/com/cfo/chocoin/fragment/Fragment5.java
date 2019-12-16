@@ -19,6 +19,7 @@ import com.cfo.chocoin.activity.MainActivity;
 import com.cfo.chocoin.activity.MyProfileActivity;
 import com.cfo.chocoin.activity.MyRechargeActivity;
 import com.cfo.chocoin.activity.MyTakeCashActivity;
+import com.cfo.chocoin.activity.NewcomerRewardActivity;
 import com.cfo.chocoin.activity.OnlineServiceActivity;
 import com.cfo.chocoin.activity.QRCodeActivity;
 import com.cfo.chocoin.activity.ShareActivity;
@@ -204,7 +205,7 @@ public class Fragment5 extends BaseFragment {
                 //邀请码
                 textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
-                textView3.setText("V"+response.getGrade());
+                textView3.setText(""+response.getGrade());
 
                 //头像
                 localUserInfo.setUserImage(response.getHead());
@@ -217,10 +218,10 @@ public class Fragment5 extends BaseFragment {
                 else
                     imageView1.setImageResource(R.mipmap.headimg);
 
-//                textView5.setText("" + response.getCommon_usable_money());//余额
-//                textView6.setText("" + response.getInsurance_usable_money());//保额
-//                textView7.setText("" + response.getWin_money());//中奖
-//                textView8.setText("" + response.getCommission_money());//佣金
+                textView5.setText("" + response.getCommon_usable_money());//余额
+                textView6.setText("" + response.getProfit_money());//盈利
+                textView7.setText("" + response.getCommission_money());//佣金
+//                textView8.setText("" + response.getCommission_money());//
 
                 hideProgress();
 
@@ -238,7 +239,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.textView4:
                 //签到
-//                CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
                 break;
             case R.id.linearLayout1:
                 //充值

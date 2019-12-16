@@ -45,6 +45,13 @@
     <string name="app_shi">h</string>
     <string name="app_fen">m</string>
     <string name="app_miao">s</string>
+    <string name="app_ri">日</string>
+    <string name="app_yi">一</string>
+    <string name="app_er">二</string>
+    <string name="app_san">三</string>
+    <string name="app_si">四</string>
+    <string name="app_wu">五</string>
+    <string name="app_liu">六</string>
 
     <!--筛选-->
     <string name="app_type_quanbu">全部</string>
@@ -425,6 +432,9 @@
     <string name="share_h26">暂未获取到推广链接</string>
     <string name="share_h27">分享</string>
     <string name="share_h28">CHO区块竞猜链，打造竞猜行业流通币，最公平的竞猜，50%的胜率，奖金翻倍，激活区块，2倍激活奖励，算力挖矿。</string>
+    <string name="share_h29">用户名</string>
+    <string name="share_h30">合约额</string>
+    <string name="share_h31">会员等级</string>
 
     <!--提币-->
     <string name="takecash_h1">提币</string>

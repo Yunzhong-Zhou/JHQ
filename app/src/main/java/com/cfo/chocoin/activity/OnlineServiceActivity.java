@@ -64,7 +64,6 @@ public class OnlineServiceActivity extends BaseActivity {
     ImageView imageView;
     int page = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

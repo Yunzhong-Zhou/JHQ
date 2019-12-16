@@ -67,13 +67,12 @@ public class GuideActivity extends Activity {
 
         //将要分页显示的View装入数组中
         LayoutInflater inflater = getLayoutInflater();
-        //从指定的XML文件加载视图
-        viewPics = (ViewGroup) inflater.inflate(R.layout.activity_guide, null);
+        //显示滑动图片的视图
+        setContentView(R.layout.activity_guide);
 
         //实例化小圆点的linearLayout和viewpager
-        viewPoints = (ViewGroup) viewPics.findViewById(R.id.viewGroup);
-        viewPager = (ViewPager) viewPics.findViewById(R.id.guidePages);
-
+        viewPoints = (ViewGroup) findViewById(R.id.viewGroup);
+        viewPager = (ViewPager) findViewById(R.id.guidePages);
 
         //全面屏 1080*2160 mipmap-h642dp-port-xxhdpi
         int[] images = {R.mipmap.background1, R.mipmap.background2, R.mipmap.background3, R.mipmap.background4};
@@ -109,9 +108,6 @@ public class GuideActivity extends Activity {
             //将imageviews添加到小圆点视图组
             viewPoints.addView(imageViews[i]);
         }
-
-        //显示滑动图片的视图
-        setContentView(viewPics);
 
         //设置viewpager的适配器和监听事件
         viewPager.setAdapter(new GuidePageAdapter());
