@@ -60,6 +60,8 @@
     <string name="app_type_ETH">ETH</string>
     <string name="app_type_CHO">CHO</string>
     <string name="app_type_CNY">CNY</string>
+    <string name="app_type_USDT">USDT</string>
+    <string name="app_type_AY">澳元</string>
     <string name="app_type_paixu">排序</string>
     <string name="app_type_leixing">类型</string>
     <string name="app_type_daishenhe">待审核</string>
@@ -226,28 +228,24 @@
     <string name="fragment4_h1">可用余币</string>
     <string name="fragment4_h2">充币地址</string>
     <string name="fragment4_h3">个数</string>
-    <string name="fragment4_h4">请输入充币个数</string>
-    <string name="fragment4_h5">请输入TXID(选填)</string>
-    <string name="fragment4_h6"><u>实际到账CHO：</u></string>
-    <string name="fragment4_h7">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。\n3.使用ETH充值，可享9.7折</string>
+    <string name="fragment4_h4">请输入USDT个数</string>
+    <string name="fragment4_h5">请输入电汇金额</string>
+    <string name="fragment4_h6">USDT价格：</string>
+    <string name="fragment4_h7">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
     <string name="fragment4_h8">确定</string>
     <string name="fragment4_h9">充币提交成功</string>
     <string name="fragment4_h10">前往设置充币地址</string>
     <string name="fragment4_h11">USDT</string>
     <string name="fragment4_h12">澳元电汇</string>
-    <string name="fragment4_h13">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。\n3.使用CHO充值，可享9.7折</string>
-    <string name="fragment4_h14">USDT</string>
+    <string name="fragment4_h13">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
+    <string name="fragment4_h14">请在提交后，查看充币地址</string>
     <string name="fragment4_h15">金额</string>
-    <string name="fragment4_h16">请输入充币金额</string>
-    <string name="fragment4_h17">支付宝支付</string>
-    <string name="fragment4_h18">支持花呗、信用卡，单笔限额5千</string>
-    <string name="fragment4_h19">微信支付</string>
-    <string name="fragment4_h20">支持信用卡，单笔限额5千</string>
+    <string name="fragment4_h16">电汇信息</string>
+    <string name="fragment4_h17">到账</string>
+    <string name="fragment4_h18">请在提交后，查看电汇账号</string>
+    <string name="fragment4_h19">输入电汇金额</string>
+    <string name="fragment4_h20"></string>
     <string name="fragment4_h21">正在前往充值...</string>
-    <string name="fragment4_h22">扫码支付</string>
-    <string name="fragment4_h23">支持微信、支付宝扫码，单笔限额2万</string>
-    <string name="fragment4_h24">银联支付</string>
-    <string name="fragment4_h25">网络转账、单笔限额50万</string>
     <string name="fragment4_h26">9.7折</string>
     <string name="fragment4_h27">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
 
@@ -377,19 +375,19 @@
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
     <string name="recharge_h2">可用余币：</string>
-    <string name="recharge_h3">兑换算力</string>
-    <string name="recharge_h4">输入算力</string>
-    <string name="recharge_h5">算力等级</string>
-    <string name="recharge_h6">算力产值</string>
-    <string name="recharge_h7">算力倍数</string>
-    <string name="recharge_h8">确定</string>
-    <string name="recharge_h9">请输入算力</string>
+    <string name="recharge_h3">电汇金额（澳元）</string>
+    <string name="recharge_h4">电汇处理中</string>
+    <string name="recharge_h5">电汇成功</string>
+    <string name="recharge_h6">取消电汇</string>
+    <string name="recharge_h7">银行名称</string>
+    <string name="recharge_h8">收款人姓名</string>
+    <string name="recharge_h9">收款人帐号</string>
     <string name="recharge_h10">充币详情</string>
-    <string name="recharge_h11">充币个数</string>
+    <string name="recharge_h11">充币个数(USDT)</string>
     <string name="recharge_h12">充币成功</string>
     <string name="recharge_h13">充币处理中</string>
     <string name="recharge_h14">充币地址</string>
-    <string name="recharge_h15">ETH价格</string>
+    <string name="recharge_h15">银行电汇SWIFT代码</string>
     <string name="recharge_h16">实际到账</string>
     <string name="recharge_h17">充币时间</string>
     <string name="recharge_h18">流水号</string>
@@ -397,16 +395,17 @@
     <string name="recharge_h20">充币个数：</string>
     <string name="recharge_h21">流水号：</string>
     <string name="recharge_h22">时间：</string>
-    <string name="recharge_h23">个CHO</string>
-    <string name="recharge_h24">CHO价格</string>
-    <string name="recharge_h25">算力兑换成功</string>
+    <string name="recharge_h23">银行代码ABA#</string>
+    <string name="recharge_h24">电汇失败</string>
+    <string name="recharge_h25">确定取消电汇？</string>
     <string name="recharge_h26">充币失败</string>
     <string name="recharge_h27">充币失败原因：</string>
     <string name="recharge_h28">取消充币</string>
     <string name="recharge_h29">确定取消充币？</string>
     <string name="recharge_h30">取消成功</string>
     <string name="recharge_h31">充值金额</string>
-    <string name="recharge_h32">CNY价格</string>
+    <string name="recharge_h32">个USDT</string>
+    <string name="recharge_h33">USDT价格</string>
 
     <!--推广-->
     <string name="share_h1">流水</string>
@@ -438,11 +437,11 @@
 
     <!--提币-->
     <string name="takecash_h1">提币</string>
-    <string name="takecash_h2"><u>ETH地址</u></string>
+    <string name="takecash_h2"><u>USDT地址</u></string>
     <string name="takecash_h3">可用余币：</string>
-    <string name="takecash_h4">ETH价格：</string>
+    <string name="takecash_h4">USDT价格：</string>
     <string name="takecash_h5">美元</string>
-    <string name="takecash_h6">手续费：</string>
+    <string name="takecash_h6">手机号码</string>
     <string name="takecash_h7">提币数量</string>
     <string name="takecash_h8">输入提币个数</string>
     <string name="takecash_h9">交易密码</string>
@@ -450,15 +449,15 @@
     <string name="takecash_h11">实际到账</string>
     <string name="takecash_h12">确定</string>
     <string name="takecash_h13">提币提交成功</string>
-    <string name="takecash_h14">ETH提币</string>
+    <string name="takecash_h14">手续费：</string>
     <string name="takecash_h15">CHO提币</string>
     <string name="takecash_h16">提币记录</string>
     <string name="takecash_h17"><u>CHO地址</u></string>
-    <string name="takecash_h18">提币个数</string>
+    <string name="takecash_h18">提币个数(USDT)</string>
     <string name="takecash_h19">提币成功</string>
     <string name="takecash_h20">提币处理中</string>
     <string name="takecash_h21">提币时间</string>
-    <string name="takecash_h22">ETH地址</string>
+    <string name="takecash_h22">提币地址</string>
     <string name="takecash_h23">CHO地址</string>
     <string name="takecash_h24">提币个数：</string>
     <string name="takecash_h25">提币详情</string>
@@ -590,7 +589,7 @@
 
     <!--扫码付款-->
     <string name="scavengingpayment_h1">转币个数</string>
-    <string name="scavengingpayment_h2">余币:</string>
+    <string name="scavengingpayment_h2">余币：</string>
     <string name="scavengingpayment_h3">确认转币</string>
     <string name="scavengingpayment_h4">请输入向对方转币的个数</string>
     <string name="scavengingpayment_h5">转币提交成功</string>
@@ -598,6 +597,16 @@
     <string name="scavengingpayment_h7">向</string>
     <string name="scavengingpayment_h8">转币</string>
     <string name="scavengingpayment_h9">转入</string>
+    <string name="scavengingpayment_h10">手续费：</string>
+    <string name="scavengingpayment_h11">转币确认</string>
+    <string name="scavengingpayment_h12">验证码已发送到：</string>
+    <string name="scavengingpayment_h13">合约建仓</string>
+    <string name="scavengingpayment_h13">可用币数：</string>
+    <string name="scavengingpayment_h14">合约数量</string>
+    <string name="scavengingpayment_h15">请输入合约数量</string>
+    <string name="scavengingpayment_h16">保险金</string>
+    <string name="scavengingpayment_h17">如何推动高质量发展？习近平总书记近几年曾在多个场合作出重要论述</string>
+
 
     <!--转账记录-->
     <string name="transferrecord_h1">转币记录</string>

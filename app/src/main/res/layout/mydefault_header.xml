@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/app_abheader_refresh"
-                android:textColor="#777777" />
+                android:textColor="@color/green" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_abheader_refreshtlastime"
-                    android:textColor="#777777"
+                    android:textColor="@color/green"
                     android:textSize="12sp" />
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/app_refresh4"
-                    android:textColor="#777777"
+                    android:textColor="@color/green"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>

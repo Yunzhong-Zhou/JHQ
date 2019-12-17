@@ -1,8 +1,10 @@
 package com.cfo.chocoin.activity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
+import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
@@ -36,6 +39,8 @@ public class ScavengingPaymentActivity extends BaseActivity {
     EditText editText1, editText2;
     ScavengingPaymentModel model;
     String money = "", password = "";
+
+    private TimeCount time = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +101,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                     model = response;
 //                    hk = response.getHk();
                     textView2.setText(response.getCommon_usable_money());//可用余额
-//                    account_type = response.getAccount_type_list().get(0).getCode();
-//                    textView2.setText(response.getUsable_interest_money() + "");
+                    textView3.setText(response.getTransfer_service_charge() + "");//手续费
                     //昵称
                     textView1.setText(response.getNickname());
                     //头像
@@ -185,11 +189,11 @@ public class ScavengingPaymentActivity extends BaseActivity {
             myToast(getString(R.string.scavengingpayment_h4));
             return false;
         }
-        password = editText2.getText().toString().trim();
+        /*password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             myToast(getString(R.string.scavengingpayment_h6));
             return false;
-        }
+        }*/
         return true;
     }
 
@@ -203,21 +207,108 @@ public class ScavengingPaymentActivity extends BaseActivity {
             case R.id.textView4:
                 //确认转账
                 if (match()) {
-                    textView4.setClickable(false);
-                    showProgress(true, getString(R.string.app_loading1));
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("token", localUserInfo.getToken());
-                    params.put("to_member_id", to_member_id + "");
-//                    params.put("account_type", account_type + "");
-                    params.put("money", money);
-                    params.put("trade_password", password);
-                    params.put("hk", model.getHk());
-                    RequestScavengingPayment(params);
+                    //弹出弹窗
+                    dialog = new BaseDialog(ScavengingPaymentActivity.this);
+                    dialog.contentView(R.layout.dialog_scavengingpayment)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.CENTER)
+                            .canceledOnTouchOutside(true)
+                            .dimAmount(0.8f)
+                            .show();
+                    TextView tv1 = dialog.findViewById(R.id.textView1);
+                    tv1.setText(money);
+                    final TextView tv2 = dialog.findViewById(R.id.textView2);
+                    final TextView tv3 = dialog.findViewById(R.id.textView3);
+                    tv2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //发送验证码
+                            if (time != null) {
+                                time.cancel();
+                            }
+                            time = new TimeCount(60000, 1000, tv2);//构造CountDownTimer对象
+
+                            ScavengingPaymentActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
+                            tv2.setClickable(false);
+                                /*String string = "?mobile=" + phonenum +
+                                        "&type=" + "10";//类型*/
+                            tv3.setText(getString(R.string.scavengingpayment_h12) + localUserInfo.getPhonenumber());
+
+                            HashMap<String, String> params = new HashMap<>();
+                            params.put("mobile", localUserInfo.getPhonenumber());
+                            params.put("type", "21");
+                            params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                            RequestCode(params, tv2, tv3);//获取验证码
+
+                        }
+                    });
+                    final EditText editText1 = dialog.findViewById(R.id.editText1);
+                    final EditText editText2 = dialog.findViewById(R.id.editText2);
+                    dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!editText1.getText().toString().trim().equals("")) {
+                                if (!editText2.getText().toString().trim().equals("")) {
+                                    CommonUtil.hideSoftKeyboard_fragment(v, ScavengingPaymentActivity.this);
+                                    dialog.dismiss();
+
+                                    textView4.setClickable(false);
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("to_member_id", to_member_id + "");
+                                    params.put("code", editText2.getText().toString().trim());
+                                    params.put("money", money);
+                                    params.put("trade_password", editText1.getText().toString().trim());
+                                    params.put("hk", model.getHk());
+                                    RequestScavengingPayment(params);
+                                } else {
+                                    myToast(getString(R.string.login_h12));
+                                }
+                            } else {
+                                myToast(getString(R.string.scavengingpayment_h6));
+                            }
+                        }
+                    });
+                    dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
                 } else {
 
                 }
                 break;
         }
+    }
+
+    //获取验证码
+    private void RequestCode(HashMap<String, String> params, final TextView tv, final TextView tv3) {
+        OkHttpClientManager.postAsyn(ScavengingPaymentActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                tv.setClickable(true);
+                tv3.setVisibility(View.GONE);
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                MyLogger.i(">>>>>>>>>验证码" + response);
+                tv.setClickable(true);
+                tv3.setVisibility(View.VISIBLE);
+                time.start();//开始计时
+                myToast(getString(R.string.app_sendcode_hint));
+            }
+        }, true);
+
     }
 
     public void onHttpResult() {
@@ -231,98 +322,25 @@ public class ScavengingPaymentActivity extends BaseActivity {
         titleView.setTitle(getString(R.string.zxing_h12));
     }
 
-    /*private void showPopupWindow1(View v) {
-        // 一个自定义的布局，作为显示的内容
-        final View contentView = LayoutInflater.from(ScavengingPaymentActivity.this).inflate(
-                R.layout.pop_list_fragment1, null);
-        final FixedPopupWindow popupWindow = new FixedPopupWindow(contentView,
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
-        contentView.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                int height = contentView.findViewById(R.id.pop_listView).getTop();
-                int height1 = contentView.findViewById(R.id.pop_listView).getBottom();
-                int y = (int) event.getY();
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (y < height) {
-                        popupWindow.dismiss();
-                    }
-                    if (y > height1) {
-                        popupWindow.dismiss();
-                    }
-                }
-                return true;
-            }
-        });
-        // 设置按钮的点击事件
-        ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView);
-        final List<String> list = new ArrayList<String>();
-        for (int i = 0; i < model.getAccount_type_list().size(); i++) {
-            list.add(model.getAccount_type_list().get(i).getTitle());
+    //获取验证码倒计时
+    class TimeCount extends CountDownTimer {
+        TextView tv;
+
+        public TimeCount(long millisInFuture, long countDownInterval, TextView tv) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            this.tv = tv;
         }
-        final Pop_ListAdapter adapter = new Pop_ListAdapter(ScavengingPaymentActivity.this, list);
-        adapter.setSelectItem(i1);
-        pop_listView.setAdapter(adapter);
-        pop_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                i1 = i;
-                adapter.setSelectItem(i);
-                adapter.notifyDataSetChanged();
-                account_type = model.getAccount_type_list().get(i).getCode();
-                textView3.setText(list.get(i).toString());
-                switch (i) {
-                    case 0:
-                        //利息
-                        textView2.setText(model.getUsable_interest_money() + "");
-                        break;
-                    case 1:
-                        //佣金
-                        textView2.setText(model.getUsable_commission_money() + "");
-                        break;
-                    case 2:
-                        //奖励
-                        textView2.setText(model.getUsable_award_money() + "");
-                        break;
-                    case 3:
-                        //预测
-                        textView2.setText(model.getUsable_forecast_money() + "");
-                        break;
-                    case 4:
-                        //充值
-                        textView2.setText(model.getUsable_top_up_money() + "");
-                        break;
-                    case 5:
-                        //购买
-                        textView2.setText(model.getUsable_buy_money() + "");
-                        break;
-                    case 6:
-                        //转币
-                        textView2.setText(model.getUsable_transfer_money() + "");
-                        break;
-                    case 7:
-                        //贷币
-                        textView2.setText(model.getUsable_loan_money() + "");
-                        break;
-                }
-                popupWindow.dismiss();
-            }
-        });
 
-        popupWindow.setTouchable(true);
-        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-                // 这里如果返回true的话，touch事件将被拦截
-                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
-            }
-        });
+        @Override
+        public void onFinish() {//计时完毕时触发
+            tv.setText(getString(R.string.app_reacquirecode));
+            tv.setClickable(true);
+        }
 
-        ColorDrawable dw = new ColorDrawable(this.getResources().getColor(R.color.transparent));
-        // 设置弹出窗体的背景
-        popupWindow.setBackgroundDrawable(dw);
-        // 设置好参数之后再show
-        popupWindow.showAsDropDown(v);
-    }*/
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            tv.setClickable(false);
+            tv.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
+        }
+    }
 }

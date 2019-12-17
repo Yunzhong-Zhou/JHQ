@@ -432,7 +432,7 @@ public class LoginActivity extends BaseActivity {
                 hideProgress();
                 tv.setClickable(true);
                 if (!info.equals("")) {
-                    showToast(info);
+                    myToast(info);
                 }
             }
 

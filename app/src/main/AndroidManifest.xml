@@ -145,6 +145,9 @@
             android:name="com.cfo.chocoin.activity.MyPosterActivity"
             android:label="我的海报" />
         <activity
+            android:name=".activity.TransferActivity"
+            android:label="划转" />
+        <activity
             android:name="com.cfo.chocoin.activity.QRCodeActivity"
             android:label="收款二维码" />
         <activity

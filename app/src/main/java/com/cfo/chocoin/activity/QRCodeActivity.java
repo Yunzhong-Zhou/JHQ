@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -44,9 +45,35 @@ public class QRCodeActivity extends BaseActivity {
     RelativeLayout relativeLayout;
     ImageView imageView1, imageView2;
     TextView textView1, textView2, textView3, textView4;
-    Handler handler = new Handler();
-    Uri uri = null;
 
+    Handler handler = new Handler();
+    private static final int MSG_SUCCESS = 0;// 获取成功的标识
+    private Handler mHandler = new Handler() {
+
+        public void handleMessage(Message msg) {// 此方法在ui线程运行
+            switch (msg.what) {
+                case MSG_SUCCESS:
+                    showToast(getString(R.string.zxing_h21));
+//                    textView.setClickable(true);
+                    /*if (file != null) {
+                        showToast("二维码已经保存到相册");
+                        textView.setClickable(true);
+
+                    } else {
+                        showToast("图片保存失败", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                textView.setClickable(true);
+                                dialog.dismiss();
+                                initData();
+                            }
+                        });
+                    }*/
+                    break;
+
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,10 +155,10 @@ public class QRCodeActivity extends BaseActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        printScreen(relativeLayout, "CHO_qrcode" + System.currentTimeMillis());
+                        printScreen(relativeLayout, "OFC_qrcode" + System.currentTimeMillis());
                     }
                 });
-                showToast(getString(R.string.zxing_h21));
+//                showToast(getString(R.string.zxing_h21));
                 break;
         }
     }
@@ -199,7 +226,7 @@ public class QRCodeActivity extends BaseActivity {
     /**
      * 截取图片存到本地
      */
-    public void printScreen(View view, String picName) {
+    public File printScreen(View view, String picName) {
         //图片地址
         //        String imgPath = FileUtil.getImageDownloadDir(MyPosterActivity.this) + picName + ".png";
 //        String imgPath = Environment.getExternalStorageDirectory() + "/" + picName + ".png";//文件根目录
@@ -209,14 +236,15 @@ public class QRCodeActivity extends BaseActivity {
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();
+        File file = null;
         if (bitmap != null) {
             try {
-                File f = new File(imgPath);
-                if (!f.exists()) {
-                    f.getParentFile().mkdirs();
-                    f.createNewFile();
+                file = new File(imgPath, picName + ".png");
+                if (!file.exists()) {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
                 }
-                FileOutputStream out = new FileOutputStream(f);
+                FileOutputStream out = new FileOutputStream(file);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
                 out.flush();
                 out.close();
@@ -237,7 +265,7 @@ public class QRCodeActivity extends BaseActivity {
                 }*/
                 // 通知图库更新
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    MediaScannerConnection.scanFile(this, new String[]{f.getAbsolutePath()}, null,
+                    MediaScannerConnection.scanFile(this, new String[]{file.getAbsolutePath()}, null,
                             new MediaScannerConnection.OnScanCompletedListener() {
                                 public void onScanCompleted(String path, Uri uri) {
                                     Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
@@ -246,10 +274,15 @@ public class QRCodeActivity extends BaseActivity {
                                 }
                             });
                 } else {
-                    String relationDir = f.getParent();
+                    String relationDir = file.getParent();
                     File file1 = new File(relationDir);
                     sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.fromFile(file1.getAbsoluteFile())));
                 }
+                mHandler.obtainMessage(MSG_SUCCESS)// 获取信息
+                        .sendToTarget(); //发送信息
+
+                MyLogger.i(">>>>>>" + file);
+                return file;
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -257,6 +290,7 @@ public class QRCodeActivity extends BaseActivity {
                 e.printStackTrace();
             }
         }
+        return null;
     }
 
     public void saveImageToGallery(Bitmap bitmap) {

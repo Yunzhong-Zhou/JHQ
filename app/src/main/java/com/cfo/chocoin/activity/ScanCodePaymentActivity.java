@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
+
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.RechargeDetailModel;
@@ -40,7 +40,6 @@ public class ScanCodePaymentActivity extends BaseActivity {
 
     TextView textView;
     File file = null;
-    private Thread mThread;
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
     private Handler mHandler = new Handler() {
 
@@ -129,13 +128,13 @@ public class ScanCodePaymentActivity extends BaseActivity {
                 /*//生成二维码
                 Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(response.getEwm_qrcode(), 480, 480);
                 imageView.setImageBitmap(mBitmap);*/
-                if (!response.getEwm_qrcode().equals(""))
+                /*if (!response.getEwm_qrcode().equals(""))
                     Glide.with(ScanCodePaymentActivity.this)
                             .load(OkHttpClientManager.IMGHOST + response.getEwm_qrcode())
                             .centerCrop()
                             .into(imageView);//加载图片
                 else
-                    imageView.setImageResource(R.mipmap.headimg);
+                    imageView.setImageResource(R.mipmap.headimg);*/
 
                 showToast(getString(R.string.zxing_h29));
             }
@@ -156,11 +155,6 @@ public class ScanCodePaymentActivity extends BaseActivity {
                         file = printScreen(linearLayout, "ScanQRCode" + System.currentTimeMillis());
                     }
                 };
-
-                if (mThread == null) {
-                    mThread = new Thread(runnable);
-                    mThread.start();// 线程启动
-                }
                 break;
 
         }

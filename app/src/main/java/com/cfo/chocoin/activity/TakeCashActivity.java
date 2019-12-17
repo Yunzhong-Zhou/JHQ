@@ -1,6 +1,7 @@
 package com.cfo.chocoin.activity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -31,22 +32,15 @@ import java.util.Map;
  */
 
 public class TakeCashActivity extends BaseActivity {
-    int money_type = 3;
-    LinearLayout linearLayout1, linearLayout2, linearLayout_3;
-    TextView textView1, textView2, textView_3;
-    View view1, view2, view_3;
+    LinearLayout linearLayout_addr;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
+    EditText editText1, editText2, editText3;
 
-    TextView textView3, textView4, textView5, textView6, textView7, textView8, textView9, textView10, textView11;
-    EditText editText1, editText2;
-    LinearLayout linearLayout3;
     String money = "", password = "", code = "";
     AvailableAmountModel model;
 
     String input_money = "";
-
-    LinearLayout linearLayout_addr, linearLayout_bank1, linearLayout_bank2;
-    TextView textView_bank_1, textView_bank_2, textView_bank_3;
-
+    private TimeCount time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +61,7 @@ public class TakeCashActivity extends BaseActivity {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                String string = "?token=" + localUserInfo.getToken()
-                        + "&money_type=" + money_type;
+                String string = "?token=" + localUserInfo.getToken();
                 RequestAvailableAmount(string);//获取可用币数
             }
 
@@ -77,29 +70,6 @@ public class TakeCashActivity extends BaseActivity {
 
             }
         });
-        linearLayout1 = findViewByID_My(R.id.linearLayout1);
-        linearLayout2 = findViewByID_My(R.id.linearLayout2);
-        linearLayout_3 = findViewByID_My(R.id.linearLayout_3);
-        linearLayout1.setOnClickListener(this);
-        linearLayout2.setOnClickListener(this);
-        linearLayout_3.setOnClickListener(this);
-
-        textView1 = findViewByID_My(R.id.textView1);
-        textView2 = findViewByID_My(R.id.textView2);
-        textView_3 = findViewByID_My(R.id.textView_3);
-
-        view1 = findViewByID_My(R.id.view1);
-        view2 = findViewByID_My(R.id.view2);
-        view_3 = findViewByID_My(R.id.view_3);
-
-        linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
-        linearLayout_bank1 = findViewByID_My(R.id.linearLayout_bank1);
-        linearLayout_bank2 = findViewByID_My(R.id.linearLayout_bank2);
-        linearLayout_bank1.setOnClickListener(this);
-        linearLayout_bank2.setOnClickListener(this);
-        textView_bank_1 = findViewByID_My(R.id.textView_bank_1);
-        textView_bank_2 = findViewByID_My(R.id.textView_bank_2);
-        textView_bank_3 = findViewByID_My(R.id.textView_bank_3);
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -109,14 +79,11 @@ public class TakeCashActivity extends BaseActivity {
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
+        time = new TimeCount(60000, 1000, textView8);//构造CountDownTimer对象
         textView9 = findViewByID_My(R.id.textView9);
-        textView10 = findViewByID_My(R.id.textView10);
-        textView10.setText(getString(R.string.takecash_h6) + "0" + getString(R.string.app_ge) + getString(R.string.app_type_CHO));
-
-        textView11 = findViewByID_My(R.id.textView11);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
-        linearLayout3 = findViewByID_My(R.id.linearLayout3);
+        editText3 = findViewByID_My(R.id.editText3);
         //输入监听
         editText1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -135,31 +102,16 @@ public class TakeCashActivity extends BaseActivity {
                     input_money = editText1.getText().toString().trim();
                     MyLogger.i(">>>>>输入币数>>>>>" + input_money);
                     //手续费 = 输入币数 * 手续费率 /100
-                    double service_money = Double.valueOf(input_money) * Double.valueOf(model.getWithdrawal_service_charge()) / 100;
+                    double service_money = Double.valueOf(model.getWithdrawal_service_charge());
                     MyLogger.i(">>>>>手续费>>>>>" + service_money);
-                    //实际到账 =  (输入币数 - 手续费)  *  cho_price  /  eth_price
-                    double real_money = (Double.valueOf(input_money) - service_money)
-                            * Double.valueOf(model.getCho_price())
-                            / Double.valueOf(model.getEth_price());
+                    //实际到账 =  (输入币数 - 手续费)
+                    double real_money = (Double.valueOf(input_money) - service_money);
                     MyLogger.i(">>>>>实际到账>>>>>" + real_money);
-                    double real_money3 = (Double.valueOf(input_money) - service_money)
-                            * Double.valueOf(model.getCny_price());
-                    if (money_type == 1) {
-                        textView7.setText(String.format("%.2f", real_money) + getString(R.string.app_ge) + getString(R.string.app_type_ETH));//实际到账
-                    } else if (money_type == 3) {
-                        textView7.setText("¥ " + String.format("%.2f", real_money3));//实际到账
-                    }
-                    //手续费
-                    textView10.setText(getString(R.string.takecash_h6)
-                            + String.format("%.2f", service_money)
-                            + getString(R.string.app_ge)
-                            + getString(R.string.app_type_CHO));
+
+                    textView6.setText("¥ " + String.format("%.2f", real_money));//实际到账
 
                 } else {
-                    textView7.setText("");//实际到账
-                    //手续费
-                    textView10.setText(getString(R.string.takecash_h6) + "0"
-                            + getString(R.string.app_ge) + getString(R.string.app_type_CHO));
+                    textView6.setText("0");//实际到账
                 }
             }
         });
@@ -171,7 +123,9 @@ public class TakeCashActivity extends BaseActivity {
         sp_params.height = CommonUtil.getScreenHeight(getActivity()) / 4;
         linearLayout.setLayoutParams(sp_params);*/
 
+
         //动态设置linearLayout的高度为屏幕高度的1/4
+        linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
         ViewGroup.LayoutParams lp = linearLayout_addr.getLayoutParams();
         lp.height = (int) CommonUtil.getScreenHeight(TakeCashActivity.this) / 4;
 
@@ -186,24 +140,12 @@ public class TakeCashActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.linearLayout1:
-                money_type = 1;
-                requestServer();
-                break;
-            case R.id.linearLayout2:
-                money_type = 2;
-                requestServer();
-                break;
-            case R.id.linearLayout_3:
-                money_type = 3;
-                requestServer();
-                break;
             case R.id.textView9:
                 if (match()) {
                     textView9.setClickable(false);
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("money_type", money_type + "");
+                    params.put("code", code);
                     params.put("trade_password", password);//交易密码（不能小于6位数）
                     params.put("input_money", money);//提现金额
                     params.put("token", localUserInfo.getToken());
@@ -211,77 +153,21 @@ public class TakeCashActivity extends BaseActivity {
                     RequestTakeCash(params);//提现
                 }
                 break;
-            case R.id.textView11:
-                CommonUtil.gotoActivity(TakeCashActivity.this, SelectAddressActivity.class);
+            case R.id.textView1:
+                CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class);
                 break;
-            case R.id.linearLayout_bank1:
-                CommonUtil.gotoActivity(TakeCashActivity.this, BankCardSettingActivity.class);
+            case R.id.textView8:
+                    /*String string = "?mobile=" + localUserInfo.getPhonenumber() +
+                            "&type=" + "5" +
+                            "&mobile_state_code=" + localUserInfo.getMobile_State_Code();*/
+                TakeCashActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
+                textView8.setClickable(false);
+                HashMap<String, String> params = new HashMap<>();
+                params.put("mobile", localUserInfo.getPhonenumber());
+                params.put("type", "20");
+                params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                RequestCode(params);//获取验证码
                 break;
-            case R.id.linearLayout_bank2:
-                CommonUtil.gotoActivity(TakeCashActivity.this, BankCardSettingActivity.class);
-                break;
-        }
-    }
-
-    private void changeUI() {
-        editText1.setText("");
-        textView7.setText("");
-        if (money_type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.blue));
-            textView2.setTextColor(getResources().getColor(R.color.black4));
-            textView_3.setTextColor(getResources().getColor(R.color.black4));
-
-            view1.setVisibility(View.VISIBLE);
-            view2.setVisibility(View.INVISIBLE);
-            view_3.setVisibility(View.INVISIBLE);
-
-            textView4.setText(getString(R.string.takecash_h2));
-            textView6.setVisibility(View.VISIBLE);
-            linearLayout3.setVisibility(View.VISIBLE);
-
-            linearLayout_addr.setVisibility(View.VISIBLE);
-            linearLayout_bank1.setVisibility(View.GONE);
-            linearLayout_bank2.setVisibility(View.GONE);
-
-        } else if (money_type == 2) {
-            textView1.setTextColor(getResources().getColor(R.color.black4));
-            textView2.setTextColor(getResources().getColor(R.color.blue));
-            textView_3.setTextColor(getResources().getColor(R.color.black4));
-
-            view1.setVisibility(View.INVISIBLE);
-            view2.setVisibility(View.VISIBLE);
-            view_3.setVisibility(View.INVISIBLE);
-
-            textView4.setText(getString(R.string.takecash_h17));
-            textView6.setVisibility(View.GONE);
-            linearLayout3.setVisibility(View.GONE);
-
-            linearLayout_addr.setVisibility(View.VISIBLE);
-            linearLayout_bank1.setVisibility(View.GONE);
-            linearLayout_bank2.setVisibility(View.GONE);
-
-        } else if (money_type == 3) {
-            textView1.setTextColor(getResources().getColor(R.color.black4));
-            textView2.setTextColor(getResources().getColor(R.color.black4));
-            textView_3.setTextColor(getResources().getColor(R.color.blue));
-
-            view1.setVisibility(View.INVISIBLE);
-            view2.setVisibility(View.INVISIBLE);
-            view_3.setVisibility(View.VISIBLE);
-
-            textView4.setText(getString(R.string.takecash_h2));
-            textView6.setVisibility(View.GONE);
-            linearLayout3.setVisibility(View.VISIBLE);
-
-            linearLayout_addr.setVisibility(View.GONE);
-            if (!model.getBank_card_account().equals("")) {
-                linearLayout_bank1.setVisibility(View.VISIBLE);
-                linearLayout_bank2.setVisibility(View.GONE);
-            } else {
-                linearLayout_bank1.setVisibility(View.GONE);
-                linearLayout_bank2.setVisibility(View.VISIBLE);
-            }
-
         }
     }
 
@@ -302,30 +188,22 @@ public class TakeCashActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>可用余额" + response);
 
                 model = response;
-                if (model.getWallet_addr() != null && !model.getWallet_addr().equals("")) {
+                if (model.getUsdt_wallet_addr() != null && !model.getUsdt_wallet_addr().equals("")) {
                     textView3.setVisibility(View.VISIBLE);
-                    textView11.setVisibility(View.GONE);
-                    textView3.setText(response.getWallet_addr());//地址
+                    textView1.setVisibility(View.GONE);
+                    textView3.setText(response.getUsdt_wallet_addr());//地址
                 } else {
                     textView3.setVisibility(View.GONE);
-                    textView11.setVisibility(View.VISIBLE);
+                    textView1.setVisibility(View.VISIBLE);
                 }
+                textView4.setText(getString(R.string.takecash_h3) + response.getCommon_usable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8)
                         + "(" + model.getMin_withdrawal_money() + "-" +
-                        model.getMax_withdrawal_money() + ")");
+                        model.getMax_withdrawal_money() + ")");//请输入提币个数
 
-                textView5.setText(getString(R.string.takecash_h3) + response.getCommon_usable_money() + " " + getString(R.string.app_type_CHO));//可用余额
-                textView6.setText(getString(R.string.takecash_h4) + "$" + response.getEth_price());//ETH价格
-                textView8.setText(response.getWithdrawal_service_charge() + "%");//手续费
-
-                if (!model.getBank_card_account().equals("")) {
-                    textView_bank_1.setText(model.getBank_title());
-                    textView_bank_2.setText(model.getBank_card_account());
-                    textView_bank_3.setText(model.getBank_card_proceeds_name());
-                }
-
-                changeUI();
-
+                textView5.setText(getString(R.string.takecash_h14) + response.getWithdrawal_service_charge()
+                        + getString(R.string.recharge_h32));//手续费
+                textView7.setText(localUserInfo.getPhonenumber());//手机号码
             }
         });
     }
@@ -368,7 +246,7 @@ public class TakeCashActivity extends BaseActivity {
                                         dialog.dismiss();
                                     }
                                 });
-                    }else if (info.contains(getString(R.string.password_h7))) {
+                    } else if (info.contains(getString(R.string.password_h7))) {
                         showToast(getString(R.string.password_h8),
                                 getString(R.string.password_h5), getString(R.string.password_h6),
                                 new View.OnClickListener() {
@@ -403,6 +281,28 @@ public class TakeCashActivity extends BaseActivity {
         }, true);
     }
 
+    private void RequestCode(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(TakeCashActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                textView8.setClickable(true);
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                time.start();
+                MyLogger.i(">>>>>>>>>发送验证码" + response);
+                myToast(getString(R.string.app_sendcode_hint));
+            }
+        }, true);
+
+    }
+
     private boolean match() {
         money = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(money)) {
@@ -414,6 +314,11 @@ public class TakeCashActivity extends BaseActivity {
             myToast(getString(R.string.takecash_h10));
             return false;
         }
+        code = editText3.getText().toString().trim();
+        if (TextUtils.isEmpty(code)) {
+            myToast(getString(R.string.login_h12));
+            return false;
+        }
         return true;
     }
 
@@ -422,8 +327,7 @@ public class TakeCashActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading2));
-        String string = "?token=" + localUserInfo.getToken()
-                + "&money_type=" + money_type;
+        String string = "?token=" + localUserInfo.getToken();
         RequestAvailableAmount(string);//获取可用币数
     }
 
@@ -432,4 +336,25 @@ public class TakeCashActivity extends BaseActivity {
         titleView.setTitle(getString(R.string.takecash_h1));
     }
 
+    //获取验证码倒计时
+    class TimeCount extends CountDownTimer {
+        TextView tv;
+
+        public TimeCount(long millisInFuture, long countDownInterval, TextView tv) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            this.tv = tv;
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+            tv.setText(getString(R.string.app_reacquirecode));
+            tv.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            tv.setClickable(false);
+            tv.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
+        }
+    }
 }

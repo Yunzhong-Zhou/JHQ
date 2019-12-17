@@ -182,7 +182,7 @@
                 android:paddingTop="14dp"
                 android:textColor="@color/txt_black1"
                 android:textColorHint="@color/txt_black2"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 

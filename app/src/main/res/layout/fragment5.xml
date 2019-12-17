@@ -59,7 +59,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:background="@drawable/yuanxing_huangsejianbian"
                                 android:gravity="center"
-                                android:text="V1"
+                                android:text=""
                                 android:textColor="@color/white"
                                 android:textSize="12.0sp" />
                         </RelativeLayout>
@@ -97,8 +97,8 @@
                             android:background="@mipmap/bg_fragment5_2"
                             android:drawableLeft="@mipmap/ic_fragment5_jinbi"
                             android:gravity="center"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="14dp"
+                            android:paddingRight="14dp"
                             android:text="@string/fragment5_h18"
                             android:textColor="@color/white"
                             android:textSize="15sp" />

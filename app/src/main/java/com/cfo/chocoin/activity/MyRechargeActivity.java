@@ -81,7 +81,7 @@ public class MyRechargeActivity extends BaseActivity {
                 //刷新
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&type=" + money_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -93,7 +93,7 @@ public class MyRechargeActivity extends BaseActivity {
                 page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&type=" + money_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -146,7 +146,13 @@ public class MyRechargeActivity extends BaseActivity {
                                 (MyRechargeActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + "：+" + model.getInput_money());//标题
+                                if (model.getType() == 1){
+                                    holder.setText(R.id.textView1, model.getType_title()+"：+" + model.getMoney());//标题
+                                }else {
+                                    holder.setText(R.id.textView1, "USDT：+" + model.getMoney() +
+                                            "("+model.getType_title()+"：+"+model.getInput_money()+")");//标题
+                                }
+
                                 holder.setText(R.id.textView2, model.getSn());//流水号
                                 holder.setText(R.id.textView3, MyRechargeActivity.this.getString(R.string.recharge_h22) + model.getCreated_at());//时间
                                 holder.setText(R.id.textView4, model.getStatus_title());//状态
@@ -254,7 +260,7 @@ public class MyRechargeActivity extends BaseActivity {
         this.showLoadingPage();
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&money_type=" + money_type
+                + "&type=" + money_type
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -295,9 +301,8 @@ public class MyRechargeActivity extends BaseActivity {
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_ETH));
-        list.add(getString(R.string.app_type_CHO));
-        list.add(getString(R.string.app_type_CNY));
+        list.add(getString(R.string.app_type_USDT));
+        list.add(getString(R.string.app_type_AY));
 
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyRechargeActivity.this, list);
         adapter.setSelectItem(i1);

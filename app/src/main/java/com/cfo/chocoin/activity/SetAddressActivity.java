@@ -96,7 +96,7 @@ public class SetAddressActivity extends BaseActivity {
                     HashMap<String, String> params = new HashMap<>();
 //                    params.put("qk", qk);
                     params.put("wallet_addr", addr);
-                    params.put("money_type", type + "");
+//                    params.put("money_type", type + "");
 //                    params.put("xrp_wallet_addr", xrp_wallet_addr);
                     params.put("code", code);//手机验证码
                     params.put("token", localUserInfo.getToken());

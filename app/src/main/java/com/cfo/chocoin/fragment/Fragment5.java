@@ -23,6 +23,7 @@ import com.cfo.chocoin.activity.NewcomerRewardActivity;
 import com.cfo.chocoin.activity.OnlineServiceActivity;
 import com.cfo.chocoin.activity.QRCodeActivity;
 import com.cfo.chocoin.activity.ShareActivity;
+import com.cfo.chocoin.activity.TransferActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment5Model;
 import com.cfo.chocoin.net.OkHttpClientManager;
@@ -206,6 +207,23 @@ public class Fragment5 extends BaseFragment {
                 textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
                 textView3.setText(""+response.getGrade());
+                switch (response.getGrade()){
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                }
 
                 //头像
                 localUserInfo.setUserImage(response.getHead());
@@ -249,7 +267,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout2:
                 //划转
-
+                CommonUtil.gotoActivity(getActivity(), TransferActivity.class, false);
                 break;
             case R.id.linearLayout3:
                 //转币

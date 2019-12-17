@@ -32,8 +32,8 @@
 
                     <com.joooonho.SelectableRoundedImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="62dp"
-                        android:layout_height="62dp"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="14dp"
                         android:background="@mipmap/headimg"
@@ -68,7 +68,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@mipmap/ic_cho" />
+                            android:src="@mipmap/ic_usdt_black" />
 
                         <EditText
                             android:id="@+id/editText1"
@@ -96,27 +96,58 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingBottom="14dp"
+                        android:gravity="center_vertical"
                         android:paddingTop="14dp">
 
                         <TextView
-                            android:id="@+id/textView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onClick"
                             android:text="@string/scavengingpayment_h2"
-                            android:textColor="@color/blue"
-                            android:textSize="15sp" />
+                            android:textColor="@color/green"
+                            android:textSize="13sp" />
 
                         <TextView
                             android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:gravity="right"
                             android:text="0"
-                            android:textColor="@color/blue"
-                            android:textSize="15sp" />
+                            android:textColor="@color/green"
+                            android:textSize="13sp" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onClick"
+                            android:text="@string/scavengingpayment_h10"
+                            android:textColor="@color/black3"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/black3"
+                            android:textSize="13sp" />
                     </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/btn_img1"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:padding="12dp"
+                        android:text="@string/scavengingpayment_h3"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
 
@@ -128,6 +159,7 @@
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingBottom="5dp"
+                    android:visibility="gone"
                     android:paddingTop="5dp">
 
                     <TextView
@@ -158,20 +190,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/btn_img1"
-                    android:gravity="center"
-                    android:onClick="onClick"
-                    android:padding="12dp"
-                    android:text="@string/scavengingpayment_h3"
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
             </LinearLayout>
 
         </ScrollView>

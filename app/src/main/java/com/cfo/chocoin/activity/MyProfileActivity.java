@@ -51,7 +51,7 @@ public class MyProfileActivity extends BaseActivity {
     ArrayList<String> listFileNames;
     ArrayList<File> listFiles;
     ImageView imageView1;
-    TextView textView1, textView2, textView3, textView4,textView5;
+    TextView textView1, textView2, textView3, textView4, textView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,7 +159,9 @@ public class MyProfileActivity extends BaseActivity {
 
             case R.id.linearLayout6:
                 //ETH地址管理
-                CommonUtil.gotoActivity(this, SelectAddressActivity.class, false);
+//                CommonUtil.gotoActivity(this, SelectAddressActivity.class, false);
+                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
+
                 break;
             case R.id.linearLayout10:
                 //修改服务码
@@ -247,6 +249,7 @@ public class MyProfileActivity extends BaseActivity {
             }
         });
     }
+
     //手机号国家代码集合
     private void RequestSmsCodeList(String string) {
         OkHttpClientManager.getAsyn(MyProfileActivity.this, URLs.Login + string, new OkHttpClientManager.ResultCallback<SmsCodeListModel>() {
@@ -268,6 +271,7 @@ public class MyProfileActivity extends BaseActivity {
         });
 
     }
+
     @Override
     protected void updateView() {
         titleView.setTitle(getString(R.string.myprofile_h1));

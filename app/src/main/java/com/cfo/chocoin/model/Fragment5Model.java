@@ -23,13 +23,13 @@ public class Fragment5Model implements Serializable {
     private String profit_money;
     private String commission_money;
     private String invite_code;
-    private String grade;
+    private int grade;
 
-    public String getGrade() {
+    public int getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
 

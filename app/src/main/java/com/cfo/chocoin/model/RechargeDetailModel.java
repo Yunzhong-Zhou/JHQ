@@ -7,100 +7,21 @@ import java.io.Serializable;
  */
 public class RechargeDetailModel implements Serializable {
     /**
-     * wechat : 84e3dd01b79e558168eea95a2b62654e_1
-     * alipay : 84e3dd01b79e558168eea95a2b62654e_2
-     * unionpay :
-     * ewm :
-     * ewm_qrcode :
-     * bank_title :
-     * bank_card_account :
-     * bank_card_proceeds_name :
-     * bank_address :
-     * top_up : {"wallet_addr":"","sn":"TU1566635781495610","money_type":3,"pay_type":1,"eth_price":"307.78","cho_price":"1","cny_price":"7","txid":"","input_money":"100","money":"14.29","status":1,"status_rejected_cause":"","created_at":"2019-08-24 16:36:21","updated_at":"2019-08-24 16:36:21","money_type_title":"CNY","status_title":"待审核","show_created_at":"08-24 16:36","show_updated_at":"08-24 16:36"}
+     * top_up : {"id":"536aa2b4cd74f61eec216b7f7809ca05","sn":"TU1576565271101529","type":1,"wallet_addr":"啊啊啊啊","input_money":"10","money":"10","status":1,"status_rejected_cause":"","created_at":"2019-12-17 14:47:51","updated_at":"2019-12-17 14:47:51","status_title":"待审核","show_created_at":"12-17 14:47","show_updated_at":"12-17 14:47"}
+     * aud_wire_transfer : {"bank_title":"xxx","bank_card_proceeds_name":"xxx","bank_card_account":"xxx","bank_swift_code":"xxx","bank_aba_code":"xxx"}
      */
+    private String id;
 
-    private String wechat;
-    private String alipay;
-    private String unionpay;
-    private String ewm;
-    private String ewm_qrcode;
-    private String bank_title;
-    private String bank_card_account;
-    private String bank_card_proceeds_name;
-    private String bank_address;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     private TopUpBean top_up;
-
-    public String getWechat() {
-        return wechat;
-    }
-
-    public void setWechat(String wechat) {
-        this.wechat = wechat;
-    }
-
-    public String getAlipay() {
-        return alipay;
-    }
-
-    public void setAlipay(String alipay) {
-        this.alipay = alipay;
-    }
-
-    public String getUnionpay() {
-        return unionpay;
-    }
-
-    public void setUnionpay(String unionpay) {
-        this.unionpay = unionpay;
-    }
-
-    public String getEwm() {
-        return ewm;
-    }
-
-    public void setEwm(String ewm) {
-        this.ewm = ewm;
-    }
-
-    public String getEwm_qrcode() {
-        return ewm_qrcode;
-    }
-
-    public void setEwm_qrcode(String ewm_qrcode) {
-        this.ewm_qrcode = ewm_qrcode;
-    }
-
-    public String getBank_title() {
-        return bank_title;
-    }
-
-    public void setBank_title(String bank_title) {
-        this.bank_title = bank_title;
-    }
-
-    public String getBank_card_account() {
-        return bank_card_account;
-    }
-
-    public void setBank_card_account(String bank_card_account) {
-        this.bank_card_account = bank_card_account;
-    }
-
-    public String getBank_card_proceeds_name() {
-        return bank_card_proceeds_name;
-    }
-
-    public void setBank_card_proceeds_name(String bank_card_proceeds_name) {
-        this.bank_card_proceeds_name = bank_card_proceeds_name;
-    }
-
-    public String getBank_address() {
-        return bank_address;
-    }
-
-    public void setBank_address(String bank_address) {
-        this.bank_address = bank_address;
-    }
+    private AudWireTransferBean aud_wire_transfer;
 
     public TopUpBean getTop_up() {
         return top_up;
@@ -110,55 +31,52 @@ public class RechargeDetailModel implements Serializable {
         this.top_up = top_up;
     }
 
+    public AudWireTransferBean getAud_wire_transfer() {
+        return aud_wire_transfer;
+    }
+
+    public void setAud_wire_transfer(AudWireTransferBean aud_wire_transfer) {
+        this.aud_wire_transfer = aud_wire_transfer;
+    }
+
     public static class TopUpBean {
         /**
-         * wallet_addr :
-         * sn : TU1566635781495610
-         * money_type : 3
-         * pay_type : 1
-         * eth_price : 307.78
-         * cho_price : 1
-         * cny_price : 7
-         * txid :
-         * input_money : 100
-         * money : 14.29
+         * id : 536aa2b4cd74f61eec216b7f7809ca05
+         * sn : TU1576565271101529
+         * type : 1
+         * wallet_addr : 啊啊啊啊
+         * input_money : 10
+         * money : 10
          * status : 1
          * status_rejected_cause :
-         * created_at : 2019-08-24 16:36:21
-         * updated_at : 2019-08-24 16:36:21
-         * money_type_title : CNY
+         * created_at : 2019-12-17 14:47:51
+         * updated_at : 2019-12-17 14:47:51
          * status_title : 待审核
-         * show_created_at : 08-24 16:36
-         * show_updated_at : 08-24 16:36
+         * show_created_at : 12-17 14:47
+         * show_updated_at : 12-17 14:47
          */
 
         private String id;
-        private String wallet_addr;
         private String sn;
-        private int money_type;
-        private int pay_type;
-        private int pay_detail_type;
-        private String eth_price;
-        private String cho_price;
-        private String cny_price;
-        private String txid;
+        private int type;
+        private String wallet_addr;
         private String input_money;
         private String money;
+        private String usdt_price;
         private int status;
         private String status_rejected_cause;
         private String created_at;
         private String updated_at;
-        private String money_type_title;
         private String status_title;
         private String show_created_at;
         private String show_updated_at;
 
-        public int getPay_detail_type() {
-            return pay_detail_type;
+        public String getUsdt_price() {
+            return usdt_price;
         }
 
-        public void setPay_detail_type(int pay_detail_type) {
-            this.pay_detail_type = pay_detail_type;
+        public void setUsdt_price(String usdt_price) {
+            this.usdt_price = usdt_price;
         }
 
         public String getId() {
@@ -169,14 +87,6 @@ public class RechargeDetailModel implements Serializable {
             this.id = id;
         }
 
-        public String getWallet_addr() {
-            return wallet_addr;
-        }
-
-        public void setWallet_addr(String wallet_addr) {
-            this.wallet_addr = wallet_addr;
-        }
-
         public String getSn() {
             return sn;
         }
@@ -185,52 +95,20 @@ public class RechargeDetailModel implements Serializable {
             this.sn = sn;
         }
 
-        public int getMoney_type() {
-            return money_type;
+        public int getType() {
+            return type;
         }
 
-        public void setMoney_type(int money_type) {
-            this.money_type = money_type;
+        public void setType(int type) {
+            this.type = type;
         }
 
-        public int getPay_type() {
-            return pay_type;
+        public String getWallet_addr() {
+            return wallet_addr;
         }
 
-        public void setPay_type(int pay_type) {
-            this.pay_type = pay_type;
-        }
-
-        public String getEth_price() {
-            return eth_price;
-        }
-
-        public void setEth_price(String eth_price) {
-            this.eth_price = eth_price;
-        }
-
-        public String getCho_price() {
-            return cho_price;
-        }
-
-        public void setCho_price(String cho_price) {
-            this.cho_price = cho_price;
-        }
-
-        public String getCny_price() {
-            return cny_price;
-        }
-
-        public void setCny_price(String cny_price) {
-            this.cny_price = cny_price;
-        }
-
-        public String getTxid() {
-            return txid;
-        }
-
-        public void setTxid(String txid) {
-            this.txid = txid;
+        public void setWallet_addr(String wallet_addr) {
+            this.wallet_addr = wallet_addr;
         }
 
         public String getInput_money() {
@@ -281,14 +159,6 @@ public class RechargeDetailModel implements Serializable {
             this.updated_at = updated_at;
         }
 
-        public String getMoney_type_title() {
-            return money_type_title;
-        }
-
-        public void setMoney_type_title(String money_type_title) {
-            this.money_type_title = money_type_title;
-        }
-
         public String getStatus_title() {
             return status_title;
         }
@@ -311,6 +181,62 @@ public class RechargeDetailModel implements Serializable {
 
         public void setShow_updated_at(String show_updated_at) {
             this.show_updated_at = show_updated_at;
+        }
+    }
+
+    public static class AudWireTransferBean {
+        /**
+         * bank_title : xxx
+         * bank_card_proceeds_name : xxx
+         * bank_card_account : xxx
+         * bank_swift_code : xxx
+         * bank_aba_code : xxx
+         */
+
+        private String bank_title;
+        private String bank_card_proceeds_name;
+        private String bank_card_account;
+        private String bank_swift_code;
+        private String bank_aba_code;
+
+        public String getBank_title() {
+            return bank_title;
+        }
+
+        public void setBank_title(String bank_title) {
+            this.bank_title = bank_title;
+        }
+
+        public String getBank_card_proceeds_name() {
+            return bank_card_proceeds_name;
+        }
+
+        public void setBank_card_proceeds_name(String bank_card_proceeds_name) {
+            this.bank_card_proceeds_name = bank_card_proceeds_name;
+        }
+
+        public String getBank_card_account() {
+            return bank_card_account;
+        }
+
+        public void setBank_card_account(String bank_card_account) {
+            this.bank_card_account = bank_card_account;
+        }
+
+        public String getBank_swift_code() {
+            return bank_swift_code;
+        }
+
+        public void setBank_swift_code(String bank_swift_code) {
+            this.bank_swift_code = bank_swift_code;
+        }
+
+        public String getBank_aba_code() {
+            return bank_aba_code;
+        }
+
+        public void setBank_aba_code(String bank_aba_code) {
+            this.bank_aba_code = bank_aba_code;
         }
     }
 }

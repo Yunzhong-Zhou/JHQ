@@ -7,88 +7,34 @@ import java.io.Serializable;
  */
 public class TakeCashDetailModel implements Serializable {
     /**
-     * wallet_addr : 啊啊啊啊
-     * sn : TU1559462920534856
-     * money_type : 1
-     * eth_price : 0.00
-     * cho_price : 0.00
-     * txid : 5265461848048145526746268281449922582446
-     * input_money : 8.46
-     * money : 8.46
-     * status : 2
+     * id : 2b8f007446b940cf4c1ff8c7
+     * sn : WL1576578237525550
+     * member_usdt_wallet_addr :
+     * service_charge_money : 1
+     * input_money : 10
+     * money : 9
+     * status : 1
      * status_rejected_cause :
-     * created_at : 2019-06-02 16:08:40
-     * updated_at : 2019-06-02 17:44:12
-     * money_type_title : 以太坊
-     * status_title : 通过
-     * show_created_at : 06-02 16:08
-     * show_updated_at : 06-02 17:44
+     * created_at : 2019-12-17 18:23:57
+     * updated_at : 2019-12-17 18:23:57
+     * status_title : 待审核
+     * show_created_at : 12-17 18:23
+     * show_updated_at : 12-17 18:23
      */
 
     private String id;
-    private String wallet_addr;
     private String sn;
-    private int money_type;
-    private String eth_price;
-    private String cho_price;
-    private String cny_price;
-    private String txid;
+    private String member_usdt_wallet_addr;
+    private String service_charge_money;
     private String input_money;
     private String money;
     private int status;
     private String status_rejected_cause;
     private String created_at;
     private String updated_at;
-    private String money_type_title;
     private String status_title;
     private String show_created_at;
     private String show_updated_at;
-    private String service_charge_money;
-
-    private String member_bank_card_account;
-    private String member_bank_card_proceeds_name;
-    private String member_bank_title;
-    private String member_bank_address;
-
-    public String getMember_bank_card_account() {
-        return member_bank_card_account;
-    }
-
-    public void setMember_bank_card_account(String member_bank_card_account) {
-        this.member_bank_card_account = member_bank_card_account;
-    }
-
-    public String getMember_bank_card_proceeds_name() {
-        return member_bank_card_proceeds_name;
-    }
-
-    public void setMember_bank_card_proceeds_name(String member_bank_card_proceeds_name) {
-        this.member_bank_card_proceeds_name = member_bank_card_proceeds_name;
-    }
-
-    public String getMember_bank_title() {
-        return member_bank_title;
-    }
-
-    public void setMember_bank_title(String member_bank_title) {
-        this.member_bank_title = member_bank_title;
-    }
-
-    public String getMember_bank_address() {
-        return member_bank_address;
-    }
-
-    public void setMember_bank_address(String member_bank_address) {
-        this.member_bank_address = member_bank_address;
-    }
-
-    public String getService_charge_money() {
-        return service_charge_money;
-    }
-
-    public void setService_charge_money(String service_charge_money) {
-        this.service_charge_money = service_charge_money;
-    }
 
     public String getId() {
         return id;
@@ -96,14 +42,6 @@ public class TakeCashDetailModel implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getWallet_addr() {
-        return wallet_addr;
-    }
-
-    public void setWallet_addr(String wallet_addr) {
-        this.wallet_addr = wallet_addr;
     }
 
     public String getSn() {
@@ -114,44 +52,20 @@ public class TakeCashDetailModel implements Serializable {
         this.sn = sn;
     }
 
-    public int getMoney_type() {
-        return money_type;
+    public String getMember_usdt_wallet_addr() {
+        return member_usdt_wallet_addr;
     }
 
-    public void setMoney_type(int money_type) {
-        this.money_type = money_type;
+    public void setMember_usdt_wallet_addr(String member_usdt_wallet_addr) {
+        this.member_usdt_wallet_addr = member_usdt_wallet_addr;
     }
 
-    public String getEth_price() {
-        return eth_price;
+    public String getService_charge_money() {
+        return service_charge_money;
     }
 
-    public void setEth_price(String eth_price) {
-        this.eth_price = eth_price;
-    }
-
-    public String getCho_price() {
-        return cho_price;
-    }
-
-    public void setCho_price(String cho_price) {
-        this.cho_price = cho_price;
-    }
-
-    public String getCny_price() {
-        return cny_price;
-    }
-
-    public void setCny_price(String cny_price) {
-        this.cny_price = cny_price;
-    }
-
-    public String getTxid() {
-        return txid;
-    }
-
-    public void setTxid(String txid) {
-        this.txid = txid;
+    public void setService_charge_money(String service_charge_money) {
+        this.service_charge_money = service_charge_money;
     }
 
     public String getInput_money() {
@@ -200,14 +114,6 @@ public class TakeCashDetailModel implements Serializable {
 
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
-    }
-
-    public String getMoney_type_title() {
-        return money_type_title;
-    }
-
-    public void setMoney_type_title(String money_type_title) {
-        this.money_type_title = money_type_title;
     }
 
     public String getStatus_title() {

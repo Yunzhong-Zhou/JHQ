@@ -141,7 +141,7 @@ public class MyTakeCashActivity extends BaseActivity {
                                 (MyTakeCashActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyTakeCashModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + "：-" + model.getInput_money());//标题
+                                holder.setText(R.id.textView1, getString(R.string.takecash_h18) + "：-" + model.getInput_money());//标题
                                 holder.setText(R.id.textView2, model.getSn());//流水号
                                 holder.setText(R.id.textView3, MyTakeCashActivity.this.getString(R.string.recharge_h22) + model.getCreated_at());//时间
                                 holder.setText(R.id.textView4, model.getStatus_title());//状态
@@ -290,9 +290,8 @@ public class MyTakeCashActivity extends BaseActivity {
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_ETH));
-        list.add(getString(R.string.app_type_CHO));
-        list.add(getString(R.string.app_type_CNY));
+        list.add(getString(R.string.app_type_USDT));
+        list.add(getString(R.string.app_type_AY));
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyTakeCashActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);

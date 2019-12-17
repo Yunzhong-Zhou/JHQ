@@ -83,10 +83,10 @@ public class BankPaymentActivity extends BaseActivity {
             public void onResponse(RechargeDetailModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>充值详情" + response);
-                textView1.setText(response.getTop_up().getMoney());//充值金额
+                /*textView1.setText(response.getTop_up().getMoney());//充值金额
                 textView2.setText(response.getBank_title());//银行
                 textView3.setText(response.getBank_card_account());//卡号
-                textView4.setText(response.getBank_card_proceeds_name());//账户
+                textView4.setText(response.getBank_card_proceeds_name());//账户*/
 
                 showToast(getString(R.string.zxing_h29));
             }

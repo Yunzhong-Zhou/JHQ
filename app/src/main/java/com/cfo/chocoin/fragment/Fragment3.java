@@ -91,7 +91,7 @@ public class Fragment3 extends BaseFragment {
         MyLogger.i(">>>>>>>>getUserVisibleHint()>>>" + getUserVisibleHint());
         if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-                if (MainActivity.item == 4) {
+                if (MainActivity.item == 2) {
                     requestServer();
                 }
             }
