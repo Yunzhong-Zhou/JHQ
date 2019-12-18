@@ -424,7 +424,7 @@ public class BankCardSettingActivity extends BaseActivity {
                                         @Override
                                         public void onClick(View view) {
                                             dialog.dismiss();
-                                            CommonUtil.gotoActivity(BankCardSettingActivity.this, SelectAddressActivity.class, false);
+                                            CommonUtil.gotoActivity(BankCardSettingActivity.this, SetAddressActivity.class, false);
                                         }
                                     }, new View.OnClickListener() {
                                         @Override

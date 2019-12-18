@@ -6,12 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.SmsCodeListModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.utils.LocalUserInfo;
-import com.bumptech.glide.Glide;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;

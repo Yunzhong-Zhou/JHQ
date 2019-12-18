@@ -8,17 +8,17 @@ import java.util.List;
  */
 public class AccountDetailModel1 implements Serializable {
     /**
-     * common_usable_money : 708.04
-     * insurance_usable_money : 0.00
-     * win_money : 178.2
+     * common_usable_money : 23.08
+     * contract_money : 10
+     * profit_money : 0
      * commission_money : 0
-     * earning_list : [{"title":"充值","money":"1000.74","status":"完成","created_at":"2019-10-21 15:45:16"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:40:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:38:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:32:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:32:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:30:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:30:02"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:28:02"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:26:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:26:02"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 16:24:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:24:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:22:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:20:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:18:01"},{"title":"保险返还","money":"0.4","status":"完成","created_at":"2019-09-28 16:16:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:38:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:36:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:34:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:32:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:30:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:28:01"},{"title":"保险返还","money":"0.2","status":"完成","created_at":"2019-09-28 11:26:01"}]
-     * expenditure_list : [{"title":"转出","money":"100","status":"完成","created_at":"2019-10-22 11:41:42"},{"title":"转出","money":"100","status":"完成","created_at":"2019-10-22 11:37:01"},{"title":"提现","money":"100","status":"待审核","created_at":"2019-10-21 15:45:41"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 16:27:08"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 16:22:38"},{"title":"投保","money":"200","status":"完成","created_at":"2019-09-28 16:14:02"},{"title":"投保","money":"100","status":"完成","created_at":"2019-09-28 11:24:17"}]
+     * earning_list : [{"title":"充币","money":"6.89","status":"完成","created_at":"2019-12-18 12:11:59"},{"title":"充币","money":"10","status":"完成","created_at":"2019-12-18 12:11:01"},{"title":"充币","money":"10","status":"完成","created_at":"2019-12-18 11:47:37"},{"title":"转入","money":"1","status":"完成","created_at":"2019-12-17 19:56:58"},{"title":"转入","money":"1","status":"完成","created_at":"2019-12-17 19:44:14"},{"title":"转入","money":"10","status":"完成","created_at":"2019-12-17 19:22:12"},{"title":"充币","money":"10","status":"完成","created_at":"2019-12-17 14:47:51"},{"title":"充币","money":"6.89","status":"完成","created_at":"2019-12-17 14:47:37"},{"title":"签到","money":"0.1","status":"完成","created_at":"2019-12-17 10:55:13"},{"title":"签到","money":"0.2","status":"完成","created_at":"2019-12-16 18:35:24"}]
+     * expenditure_list : [{"title":"转出","money":"1","status":"完成","created_at":"2019-12-18 15:47:56"},{"title":"申请合约","money":"5","status":"完成","created_at":"2019-12-18 15:43:45"},{"title":"提币","money":"10","status":"待审核","created_at":"2019-12-17 21:41:50"},{"title":"提币","money":"10","status":"待审核","created_at":"2019-12-17 18:23:57"},{"title":"转出","money":"2","status":"完成","created_at":"2019-12-17 17:52:55"}]
      */
 
     private String common_usable_money;
-    private String insurance_usable_money;
-    private String win_money;
+    private String contract_money;
+    private String profit_money;
     private String commission_money;
     private List<EarningListBean> earning_list;
     private List<ExpenditureListBean> expenditure_list;
@@ -31,20 +31,20 @@ public class AccountDetailModel1 implements Serializable {
         this.common_usable_money = common_usable_money;
     }
 
-    public String getInsurance_usable_money() {
-        return insurance_usable_money;
+    public String getContract_money() {
+        return contract_money;
     }
 
-    public void setInsurance_usable_money(String insurance_usable_money) {
-        this.insurance_usable_money = insurance_usable_money;
+    public void setContract_money(String contract_money) {
+        this.contract_money = contract_money;
     }
 
-    public String getWin_money() {
-        return win_money;
+    public String getProfit_money() {
+        return profit_money;
     }
 
-    public void setWin_money(String win_money) {
-        this.win_money = win_money;
+    public void setProfit_money(String profit_money) {
+        this.profit_money = profit_money;
     }
 
     public String getCommission_money() {
@@ -73,10 +73,10 @@ public class AccountDetailModel1 implements Serializable {
 
     public static class EarningListBean {
         /**
-         * title : 充值
-         * money : 1000.74
+         * title : 充币
+         * money : 6.89
          * status : 完成
-         * created_at : 2019-10-21 15:45:16
+         * created_at : 2019-12-18 12:11:59
          */
 
         private String title;
@@ -120,9 +120,9 @@ public class AccountDetailModel1 implements Serializable {
     public static class ExpenditureListBean {
         /**
          * title : 转出
-         * money : 100
+         * money : 1
          * status : 完成
-         * created_at : 2019-10-22 11:41:42
+         * created_at : 2019-12-18 15:47:56
          */
 
         private String title;

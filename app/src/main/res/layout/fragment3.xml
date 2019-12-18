@@ -39,12 +39,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
-                            android:drawableLeft="@mipmap/ic_fragment4_1"
+                            android:drawableLeft="@mipmap/ic_usdt_white"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:visibility="visible" />
 
                         <TextView
+                            android:id="@+id/tv_money"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
@@ -54,6 +55,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -112,9 +114,10 @@
                                 android:layout_height="12dp"
                                 android:layout_marginTop="4dp"
                                 android:layout_marginRight="4dp"
-                                android:src="@mipmap/ic_fragment4_1" />
+                                android:src="@mipmap/ic_usdt_white" />
 
                             <TextView
+                                android:id="@+id/tv_yingli"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
@@ -157,9 +160,10 @@
                                 android:layout_height="12dp"
                                 android:layout_marginTop="4dp"
                                 android:layout_marginRight="4dp"
-                                android:src="@mipmap/ic_fragment4_1" />
+                                android:src="@mipmap/ic_usdt_white" />
 
                             <TextView
+                                android:id="@+id/tv_bucang"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
@@ -180,51 +184,14 @@
 
                 </LinearLayout>
                 //中间布局
+
                 <!--布局1-->
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/ll_page1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="260dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginRight="6dp"
-                        android:background="@mipmap/bg" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginRight="6dp"
-                        android:background="@drawable/yuanjiao_10_huise_bottom">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/btn_img2"
-                            android:gravity="center"
-                            android:paddingLeft="6dp"
-                            android:paddingTop="2dp"
-                            android:paddingRight="6dp"
-                            android:paddingBottom="2dp"
-                            android:text="@string/fragment3_h31"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-                <!--布局2-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -245,7 +212,7 @@
                         android:layout_marginRight="6dp"
                         android:orientation="vertical">
 
-                        <View
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@mipmap/bg_fragment3_top_baise" />
@@ -284,6 +251,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -315,6 +283,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -354,6 +323,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -385,6 +355,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -424,6 +395,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -455,6 +427,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -494,6 +467,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_7"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -525,6 +499,7 @@
                                         android:textSize="12sp" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_8"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -567,6 +542,7 @@
                                         android:orientation="horizontal">
 
                                         <TextView
+                                            android:id="@+id/tv_page1_9"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
@@ -575,6 +551,7 @@
                                             android:textStyle="bold" />
 
                                         <ImageView
+                                            android:id="@+id/iv_page1_1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="8dp"
@@ -605,6 +582,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_page1_10"
                                         android:layout_width="120dp"
                                         android:layout_height="37dp"
                                         android:background="@mipmap/bg_fragment3_btn_lan"
@@ -615,6 +593,7 @@
                                         android:textStyle="bold" />
 
                                     <TextView
+                                        android:id="@+id/tv_page1_11"
                                         android:layout_width="120dp"
                                         android:layout_height="37dp"
                                         android:layout_marginTop="14dp"
@@ -631,12 +610,13 @@
 
                     </LinearLayout>
                 </RelativeLayout>
-                <!--布局3-->
+                <!--布局2-->
                 <RelativeLayout
+                    android:id="@+id/ll_page2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -657,7 +637,7 @@
                         android:layout_marginRight="6dp"
                         android:orientation="vertical">
 
-                        <View
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@mipmap/bg_fragment3_top_mise" />
@@ -711,6 +691,7 @@
                                 android:layout_height="wrap_content" />
 
                             <TextView
+                                android:id="@+id/tv_zhongzhi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -728,11 +709,50 @@
 
                     </LinearLayout>
                 </RelativeLayout>
+                <!--布局3-->
+                <LinearLayout
+                    android:id="@+id/ll_page3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@mipmap/bg_fragment3_1" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/yuanjiao_10_huise_bottom">
+
+                        <TextView
+                            android:id="@+id/tv_huazhuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/btn_img2"
+                            android:gravity="center"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="6dp"
+                            android:paddingBottom="4dp"
+                            android:text="@string/fragment3_h31"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
                 <!--选项栏-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="57dp"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:visibility="visible">
@@ -747,7 +767,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
                         <View
@@ -758,7 +778,7 @@
                         <LinearLayout
                             android:id="@+id/linearLayout1"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="center"
                             android:onClick="onClick"
                             android:orientation="vertical">
@@ -770,7 +790,6 @@
                                 android:layout_weight="1"
                                 android:drawablePadding="5dp"
                                 android:gravity="center"
-                                android:padding="14dp"
                                 android:text="@string/fragment3_h14"
                                 android:textColor="@color/white"
                                 android:textSize="17sp"
@@ -791,7 +810,7 @@
                         <LinearLayout
                             android:id="@+id/linearLayout2"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="center"
                             android:onClick="onClick"
                             android:orientation="vertical">
@@ -803,7 +822,6 @@
                                 android:layout_weight="1"
                                 android:drawablePadding="5dp"
                                 android:gravity="center"
-                                android:padding="14dp"
                                 android:text="@string/fragment3_h15"
                                 android:textColor="@color/white2"
                                 android:textSize="17sp"
@@ -825,7 +843,7 @@
                         <LinearLayout
                             android:id="@+id/linearLayout3"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="center"
                             android:onClick="onClick"
                             android:orientation="vertical">
@@ -837,7 +855,6 @@
                                 android:layout_weight="1"
                                 android:drawablePadding="5dp"
                                 android:gravity="center"
-                                android:padding="14dp"
                                 android:text="@string/fragment3_h16"
                                 android:textColor="@color/white2"
                                 android:textSize="17sp"
@@ -858,16 +875,115 @@
                     </LinearLayout>
 
                 </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/ll_type1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="14dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h32"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="14dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h33"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:paddingRight="30dp"
+                        android:paddingTop="14dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h34"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_type2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="14dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h6"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="14dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h17"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:paddingTop="14dp"
+                        android:paddingRight="30dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h18"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_type3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="13sp"
+                        android:paddingTop="14dp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h29"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="13sp"
+                        android:paddingTop="14dp"
+                        android:textColor="@color/white1"
+                        android:text="@string/fragment3_h30"/>
+
+                </LinearLayout>
+
                 <!--列表-->
                 <com.cfo.chocoin.view.LoadingLayout
                     android:id="@+id/loading_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent" />
 
                 </com.cfo.chocoin.view.LoadingLayout>
             </LinearLayout>

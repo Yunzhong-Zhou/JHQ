@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.activity.MainActivity;
 import com.cfo.chocoin.activity.RechargeDetailActivity;
-import com.cfo.chocoin.activity.SelectAddressActivity;
+import com.cfo.chocoin.activity.SetAddressActivity;
 import com.cfo.chocoin.activity.SetTransactionPasswordActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment4Model;
@@ -323,7 +323,7 @@ public class Fragment4 extends BaseFragment {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(getActivity(), SelectAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(getActivity(), SetAddressActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override

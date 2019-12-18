@@ -33,6 +33,20 @@ public class ServiceCenterActivity extends BaseActivity {
     }
 
     @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.left_btn:
+                finish();
+                break;
+            case R.id.tv_shenqing:
+                //申请
+                CommonUtil.gotoActivity(ServiceCenterActivity.this,SelectAddressActivity.class,false);
+                break;
+        }
+    }
+
+    @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);
     }

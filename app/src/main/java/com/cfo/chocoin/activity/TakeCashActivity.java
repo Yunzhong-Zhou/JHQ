@@ -238,7 +238,7 @@ public class TakeCashActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(TakeCashActivity.this, SelectAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -246,14 +246,14 @@ public class TakeCashActivity extends BaseActivity {
                                         dialog.dismiss();
                                     }
                                 });
-                    } else if (info.contains(getString(R.string.password_h7))) {
+                    } /*else if (info.contains(getString(R.string.password_h7))) {
                         showToast(getString(R.string.password_h8),
                                 getString(R.string.password_h5), getString(R.string.password_h6),
                                 new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(TakeCashActivity.this, SelectAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -261,7 +261,7 @@ public class TakeCashActivity extends BaseActivity {
                                         dialog.dismiss();
                                     }
                                 });
-                    } else {
+                    } */else {
                         showToast(info);
                     }
                 }

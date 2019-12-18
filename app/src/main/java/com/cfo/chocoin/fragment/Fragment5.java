@@ -24,6 +24,7 @@ import com.cfo.chocoin.activity.OnlineServiceActivity;
 import com.cfo.chocoin.activity.QRCodeActivity;
 import com.cfo.chocoin.activity.ShareActivity;
 import com.cfo.chocoin.activity.TransferActivity;
+import com.cfo.chocoin.activity.TransferListActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment5Model;
 import com.cfo.chocoin.net.OkHttpClientManager;
@@ -284,7 +285,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout6:
                 //合约记录
-
+                CommonUtil.gotoActivity(getActivity(), TransferListActivity.class, false);
                 break;
             case R.id.linearLayout7:
                 //提币记录

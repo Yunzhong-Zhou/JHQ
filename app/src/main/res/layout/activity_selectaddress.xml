@@ -19,72 +19,30 @@
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:onClick="onClick">
 
-            <LinearLayout
-                android:id="@+id/linearLayout1_0"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="26dp"
-                android:layout_marginRight="26dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/yuanjiao_5_baiseyinying"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:src="@mipmap/bg_address2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:gravity="center"
-                    android:text="@string/address_h13"
-                    android:textColor="@color/black2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout1_1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="26dp"
-                android:layout_marginRight="26dp"
-                android:layout_marginTop="26dp"
-                android:background="@drawable/yuanjiao_5_baiseyinying"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginRight="14dp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="5dp"
-                    android:text=""
-                    android:textColor="@color/black1"
-                    android:textIsSelectable="true"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
-
-
             <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao_25_huise"
+                android:gravity="center"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"
+                android:text="@string/address_h15"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textSize="17sp" />
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/bg_btn4"
-                android:gravity="center"
-                android:text="@string/address_h2"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_dalu" />
         </RelativeLayout>
 
         <View
@@ -96,71 +54,30 @@
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:onClick="onClick">
 
-            <LinearLayout
-                android:id="@+id/linearLayout2_0"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="26dp"
-                android:layout_marginRight="26dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/yuanjiao_5_baiseyinying"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:src="@mipmap/bg_address2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:gravity="center"
-                    android:text="@string/address_h13"
-                    android:textColor="@color/black2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2_1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="26dp"
-                android:layout_marginRight="26dp"
-                android:layout_marginTop="26dp"
-                android:background="@drawable/yuanjiao_5_baiseyinying"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginRight="14dp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="5dp"
-                    android:text=""
-                    android:textColor="@color/black1"
-                    android:textIsSelectable="true"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
-
             <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao_25_huise"
+                android:gravity="center"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"
+                android:text="@string/address_h16"
+                android:textColor="#50BEE8"
+                android:textStyle="bold"
+                android:textSize="17sp" />
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/bg_btn4"
-                android:gravity="center"
-                android:text="@string/address_h14"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_haiwai" />
         </RelativeLayout>
 
         <View

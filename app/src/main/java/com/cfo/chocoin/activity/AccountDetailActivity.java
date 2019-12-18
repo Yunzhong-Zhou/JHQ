@@ -133,8 +133,8 @@ public class AccountDetailActivity extends BaseActivity {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>账户详情1" + response);
                 head1_textView1.setText(response.getCommon_usable_money());
-                head1_textView2.setText(response.getInsurance_usable_money());
-                head1_textView3.setText(response.getWin_money());
+                head1_textView2.setText(response.getContract_money());
+                head1_textView3.setText(response.getProfit_money());
                 head1_textView4.setText(response.getCommission_money());
 
                 list1 = response.getEarning_list();
@@ -143,7 +143,7 @@ public class AccountDetailActivity extends BaseActivity {
                     @Override
                     protected void convert(ViewHolder holder, final AccountDetailModel1.EarningListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle() + "：+" + model.getMoney());//标题
-//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.getId());//流水号
+//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.get);//流水号
                         holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
                         holder.setText(R.id.textView4, model.getStatus());//状态
 
@@ -191,8 +191,9 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_linearLayout2:
                 //划转
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("item", 0);
+                CommonUtil.gotoActivity(this, TransferActivity.class, false);
+//                Bundle bundle1 = new Bundle();
+//                bundle1.putInt("item", 0);
 //                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
                 break;
             case R.id.head1_linearLayout3:
@@ -201,7 +202,7 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_textView5:
                 //币地址
-                CommonUtil.gotoActivity(this, SelectAddressActivity.class, false);
+                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
                 break;
         }
     }

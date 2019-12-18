@@ -146,7 +146,13 @@
             android:label="我的海报" />
         <activity
             android:name=".activity.TransferActivity"
-            android:label="划转" />
+            android:label="划转-创建合约" />
+        <activity
+            android:name="com.cfo.chocoin.activity.TransferListActivity"
+            android:label="合约记录" />
+        <activity
+            android:name="com.cfo.chocoin.activity.TransferDetailActivity"
+            android:label="合约详情" />
         <activity
             android:name="com.cfo.chocoin.activity.QRCodeActivity"
             android:label="收款二维码" />

@@ -245,8 +245,12 @@ public class Fragment1 extends BaseFragment {
             view2.setVisibility(View.VISIBLE);
             view3.setVisibility(View.INVISIBLE);
 
-            /*recyclerView.setAdapter(mAdapter2);
-            mAdapter2.notifyDataSetChanged();*/
+           /* if (list1.size()>0){
+                showContentPage();
+                recyclerView.setAdapter(mAdapter1);
+            }else {
+                showEmptyPage();
+            }*/
         }else if (type == 3) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
             textView2.setTextColor(getResources().getColor(R.color.black3));
@@ -255,8 +259,12 @@ public class Fragment1 extends BaseFragment {
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.VISIBLE);
 
-            /*recyclerView.setAdapter(mAdapter2);
-            mAdapter2.notifyDataSetChanged();*/
+            /*if (list2.size()>0){
+                showContentPage();
+                recyclerView.setAdapter(mAdapter2);
+            }else {
+                showEmptyPage();
+            }*/
         }
     }
 

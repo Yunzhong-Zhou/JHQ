@@ -71,9 +71,9 @@
     <string name="app_type_shengxu">升序</string>
     <string name="app_type_jinxingzhong">进行中</string>
     <string name="app_type_yiwancheng">已完成</string>
-    <string name="app_type_ansuanli">按算力</string>
+    <string name="app_type_anyingli">按盈利</string>
     <string name="app_type_anshijian">按时间</string>
-    <string name="app_type_daijihuo">待激活</string>
+    <string name="app_type_anjine">按金额</string>
     <string name="app_type_yiijihuo">已激活</string>
     <string name="app_type_yijiangli">已奖励</string>
     <string name="app_type_zhuanchu">转出</string>
@@ -222,6 +222,10 @@
     <string name="fragment3_h33">合约数/USDT</string>
     <string name="fragment3_h34">收益率</string>
     <string name="fragment3_h35">转出</string>
+    <string name="fragment3_h36">持平</string>
+    <string name="fragment3_h37">确认转出吗？</string>
+    <string name="fragment3_h38">转出成功</string>
+    <string name="fragment3_h39">确认终止交易吗？</string>
 
 
     <!--fragment4-->
@@ -352,9 +356,9 @@
     <string name="address_h11">地址设置成功</string>
     <string name="address_h12">币地址管理</string>
     <string name="address_h13">暂无币地址\n请添加</string>
-    <string name="address_h14">CHO地址</string>
-    <string name="address_h15">请输入CHO地址</string>
-    <string name="address_h16">CHO地址管理</string>
+    <string name="address_h14">选择地区</string>
+    <string name="address_h15">中国大陆用户</string>
+    <string name="address_h16">海外用户</string>
 
     <!--钱包-->
     <string name="qianbao_h1">账户详情</string>
@@ -408,7 +412,7 @@
     <string name="recharge_h33">USDT价格</string>
 
     <!--推广-->
-    <string name="share_h1">流水</string>
+    <string name="share_h1">推广</string>
     <string name="share_h2">复制邀请码：</string>
     <string name="share_h3">累计佣金</string>
     <string name="share_h4">个/手</string>
@@ -601,11 +605,33 @@
     <string name="scavengingpayment_h11">转币确认</string>
     <string name="scavengingpayment_h12">验证码已发送到：</string>
     <string name="scavengingpayment_h13">合约建仓</string>
-    <string name="scavengingpayment_h13">可用币数：</string>
     <string name="scavengingpayment_h14">合约数量</string>
     <string name="scavengingpayment_h15">请输入合约数量</string>
     <string name="scavengingpayment_h16">保险金</string>
     <string name="scavengingpayment_h17">如何推动高质量发展？习近平总书记近几年曾在多个场合作出重要论述</string>
+    <string name="scavengingpayment_h18">可用币数：</string>
+    <string name="scavengingpayment_h19">合约转入</string>
+    <string name="scavengingpayment_h20">转入成功</string>
+    <string name="scavengingpayment_h21">合约记录</string>
+    <string name="scavengingpayment_h22">合约额度</string>
+    <string name="scavengingpayment_h23">合约盈利</string>
+    <string name="scavengingpayment_h24">合约详情</string>
+    <string name="scavengingpayment_h25">合约状态</string>
+    <string name="scavengingpayment_h26">交易次数</string>
+    <string name="scavengingpayment_h27">盈利次数</string>
+    <string name="scavengingpayment_h28">开始时间</string>
+    <string name="scavengingpayment_h29">结束时间</string>
+    <string name="scavengingpayment_h30">交易记录</string>
+    <string name="scavengingpayment_h31">补仓记录</string>
+    <string name="scavengingpayment_h32">合约收益</string>
+    <string name="scavengingpayment_h33">合约类型</string>
+    <string name="scavengingpayment_h34">合约方向</string>
+    <string name="scavengingpayment_h35">合约杠杆</string>
+    <string name="scavengingpayment_h36">买入价格</string>
+    <string name="scavengingpayment_h37">平仓价格</string>
+    <string name="scavengingpayment_h38">交易单号</string>
+    <string name="scavengingpayment_h39">买入时间</string>
+    <string name="scavengingpayment_h40">平仓时间</string>
 
 
     <!--转账记录-->

@@ -75,11 +75,23 @@ public class URLs {
     /**
      * 首页
      */
-    public static final String Fragment3 = "/api/like-game/index";
+    public static final String Fragment3 = "/api/index";
     /**
-     * 游戏参与（加密）
+     * 终止合约
      */
-    public static final String Game_Add = "/api/like-game-participation/create";
+    public static final String Transfer_Cancel = "/api/contract/terminate";
+    /**
+     * 创建合约
+     */
+    public static final String Transfer_Add = "/api/contract/create";
+    /**
+     * 合约记录
+     */
+    public static final String Transfer_List = "/api/contract/record";
+    /**
+     * 合约详情
+     */
+    public static final String Transfer_Detail = "/api/contract/detail";
     /**
      * 往期列表
      */
@@ -123,13 +135,9 @@ public class URLs {
      */
     public static final String WalletAddress = "/api/member/set-wallet-addr";
     /**
-     * 账户详情1(我的余额进入)
+     * 账户详情
      */
-    public static final String AccountDetail2 = "/api/member/account";
-    /**
-     * 账户详情2(我的区块进入)
-     */
-    public static final String AccountDetail1 = "/api/member/account2";
+    public static final String AccountDetail1 = "/api/member/account";
     /**
      * 我的充值
      */

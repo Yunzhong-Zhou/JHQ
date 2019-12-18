@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.base.BaseActivity;
+import com.cfo.chocoin.model.SetAddressModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.utils.CommonUtil;
@@ -70,6 +71,26 @@ public class SetAddressActivity extends BaseActivity {
     protected void initData() {
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
 //        qk = getIntent().getStringExtra("qk");
+
+        request("?token=" + localUserInfo.getToken());
+    }
+    private void request(String string) {
+        OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.WalletAddress + string,
+                new OkHttpClientManager.ResultCallback<SetAddressModel>() {
+                    @Override
+                    public void onError(Request request, String info, Exception e) {
+                        hideProgress();
+                        if (!info.equals("")) {
+                            myToast(info);
+                        }
+                    }
+
+                    @Override
+                    public void onResponse(SetAddressModel response) {
+                        MyLogger.i(">>>>>>>>>地址" + response);
+                        hideProgress();
+                    }
+                });
     }
 
     @Override
@@ -159,7 +180,7 @@ public class SetAddressActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(SetAddressActivity.this, SelectAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
