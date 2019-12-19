@@ -116,14 +116,13 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>服务中心" + response);
                 hideProgress();
                 editText1.setText(response.getService_center().getCode());
-                /*if (response.getService_center_grade() == 0){
+                if (response.getService_center_grade() == 0){
                     //可编辑
                     editText1.setEnabled(true);
                 }else {
                     //不可编辑
                     editText1.setEnabled(false);
-                }*/
-
+                }
                 textView1.setText(response.getService_center().getAddr());//地址
                 textView2.setText(response.getService_center().getAddr_detail() + "  "
                         + response.getService_center().getArea() + "㎡");//地址
