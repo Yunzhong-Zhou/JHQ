@@ -167,9 +167,17 @@ public class URLs {
      */
     public static final String TakeCashDetail = "/api/withdrawal/detail";
     /**
-     * 我的游戏
+     * 服务中心
      */
-    public static final String MyGame = "/api/like-game-participation/record";
+    public static final String ServiceCenter = "/api/service-center/index";
+    /**
+     * 服务中心-列表
+     */
+    public static final String ServiceCenter_List = "/api/service-center/record";
+    /**
+     * 服务中心-修改
+     */
+    public static final String ServiceCenter_Change = "/api/member/service-code-update";
     /**
      * 我的推广
      */

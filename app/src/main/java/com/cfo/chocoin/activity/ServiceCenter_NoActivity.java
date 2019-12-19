@@ -12,36 +12,36 @@ import com.cfo.chocoin.utils.CommonUtil;
  * Created by zyz on 2019-12-14.
  * 服务中心
  */
-public class ServiceCenterActivity extends BaseActivity {
+public class ServiceCenter_NoActivity extends BaseActivity {
     LinearLayout headView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_servicecenter);
+        setContentView(R.layout.activity_servicecenter_no);
     }
 
     @Override
     protected void initView() {
         headView = findViewByID_My(R.id.headView);
-        headView.setPadding(0, (int) CommonUtil.getStatusBarHeight(ServiceCenterActivity.this), 0, 0);
+//        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+        CommonUtil.setMargins(headView, 0, (int) CommonUtil.getStatusBarHeight(ServiceCenter_NoActivity.this), 0, 0);
 
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.left_btn:
                 finish();
                 break;
             case R.id.tv_shenqing:
                 //申请
-                CommonUtil.gotoActivity(ServiceCenterActivity.this,SelectAddressActivity.class,false);
+                CommonUtil.gotoActivity(ServiceCenter_NoActivity.this, SelectAddressActivity.class, false);
                 break;
         }
     }

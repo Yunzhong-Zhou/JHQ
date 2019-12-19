@@ -305,6 +305,23 @@
     <string name="myprofile_h29">申请条件</string>
     <string name="myprofile_h30">合约帐户余额不低于8万USDT，有100平以上办公室</string>
     <string name="myprofile_h31">立刻申请</string>
+    <string name="myprofile_h32">申请审核中...</string>
+    <string name="myprofile_h33">服务码：</string>
+    <string name="myprofile_h34">服务人数</string>
+    <string name="myprofile_h35">服务业绩</string>
+    <string name="myprofile_h36">累计分红</string>
+    <string name="myprofile_h37">申请时间：</string>
+    <string name="myprofile_h38">查看更多</string>
+    <string name="myprofile_h39">服务中心列表</string>
+    <string name="myprofile_h40">提交申请</string>
+    <string name="myprofile_h41">省市区</string>
+    <string name="myprofile_h42">请选择省市区</string>
+    <string name="myprofile_h43">详细地址</string>
+    <string name="myprofile_h44">请输入详细地址</string>
+    <string name="myprofile_h45">面积</string>
+    <string name="myprofile_h46">请输入面积</string>
+    <string name="myprofile_h47">请上传办公室照片</string>
+    <string name="myprofile_h48">请输入服务码</string>
 
     <!--修改登录密码-->
     <string name="changepassword_h1">修改登录密码</string>
@@ -438,6 +455,8 @@
     <string name="share_h29">用户名</string>
     <string name="share_h30">合约额</string>
     <string name="share_h31">会员等级</string>
+    <string name="share_h32">经纪人体系</string>
+    <string name="share_h33">推广用户</string>
 
     <!--提币-->
     <string name="takecash_h1">提币</string>

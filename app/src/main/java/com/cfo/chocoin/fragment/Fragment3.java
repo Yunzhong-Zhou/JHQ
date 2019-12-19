@@ -275,68 +275,75 @@ public class Fragment3 extends BaseFragment {
                 //累计补仓
                 tv_bucang.setText(response.getCall_margin_money());
 
-                switch (response.getContract_status()) {
-                    case 1:
-                        //等待中
-                        if (response.getContract_trading() != null) {
-                            ll_page1.setVisibility(View.VISIBLE);
-                            ll_page2.setVisibility(View.GONE);
+                double money = Double.valueOf(response.getReality_money());
+                if (money >0){
+                    switch (response.getContract_status()) {
+                        case 1:
+                            //等待中
+                            if (response.getContract_trading() != null) {
+                                ll_page1.setVisibility(View.VISIBLE);
+                                ll_page2.setVisibility(View.GONE);
+                                ll_page3.setVisibility(View.GONE);
+
+                                tv_page1_1.setText(response.getContract_trading().getBourse_title());//合约交易
+                                tv_page1_2.setText(response.getContract_trading().getBourse_on_title());//合约类型
+                                tv_page1_3.setText(response.getContract_trading().getDirection_title());//合约方向
+                                tv_page1_4.setText(response.getContract_trading().getLever() + getString(R.string.app_bei));//合约杠杆
+                                tv_page1_5.setText(response.getContract_trading().getBuy_price());//买入价格
+                                tv_page1_6.setText(response.getContract_trading().getShow_buy_at());//买入时间
+                                tv_page1_7.setText(response.getContract_trading().getBuy_price());//平仓价格
+                                tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//平仓时间
+                                tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
+
+                            } else {
+                                ll_page1.setVisibility(View.GONE);
+                                ll_page2.setVisibility(View.GONE);
+                                ll_page3.setVisibility(View.VISIBLE);
+                            }
+                            break;
+                        case 2:
+                            //交易中
+                            ll_page1.setVisibility(View.GONE);
+                            ll_page2.setVisibility(View.VISIBLE);
                             ll_page3.setVisibility(View.GONE);
 
-                            tv_page1_1.setText(response.getContract_trading().getBourse_title());//合约交易
-                            tv_page1_2.setText(response.getContract_trading().getBourse_on_title());//合约类型
-                            tv_page1_3.setText(response.getContract_trading().getDirection_title());//合约方向
-                            tv_page1_4.setText(response.getContract_trading().getLever() + getString(R.string.app_bei));//合约杠杆
-                            tv_page1_5.setText(response.getContract_trading().getBuy_price());//买入价格
-                            tv_page1_6.setText(response.getContract_trading().getShow_buy_at());//买入时间
-                            tv_page1_7.setText(response.getContract_trading().getBuy_price());//平仓价格
-                            tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//平仓时间
-                            tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
+                            list4 = response.getBourse_matching_list();
+                            mAdapter4 = new CommonAdapter<Fragment3Model.BourseMatchingListBean>
+                                    (getActivity(), R.layout.item_fragment3_4, list4) {
+                                @Override
+                                protected void convert(ViewHolder holder, Fragment3Model.BourseMatchingListBean model, int position) {
+                                    holder.setText(R.id.textView1, model.getBourse_title());
+                                    holder.setText(R.id.textView2, model.getBourse_on_title());
+                                    TextView tv3 = holder.getView(R.id.textView3);
+                                    tv3.setText(model.getStatus_title());
+                                    if (model.getStatus() == 1) {
+                                        tv3.setTextColor(getResources().getColor(R.color.green));
+                                    } else {
+                                        tv3.setTextColor(getResources().getColor(R.color.red));
+                                    }
+                                    ImageView iv = holder.getView(R.id.imageView1);
+                                    if (!model.getBourse_icon().equals(""))
+                                        Glide.with(getActivity()).load(IMGHOST + model.getBourse_icon())
+                                                .centerCrop()
+//                            .placeholder(R.mipmap.headimg)//加载站位图
+//                            .error(R.mipmap.headimg)//加载失败
+                                                .into(iv);//加载图片
 
-                        } else {
+                                }
+                            };
+                            rv_jiaoyizhong.setAdapter(mAdapter4);
+                            break;
+                        default:
+                            //已结束
                             ll_page1.setVisibility(View.GONE);
                             ll_page2.setVisibility(View.GONE);
                             ll_page3.setVisibility(View.VISIBLE);
-                        }
-                        break;
-                    case 2:
-                        //交易中
-                        ll_page1.setVisibility(View.GONE);
-                        ll_page2.setVisibility(View.VISIBLE);
-                        ll_page3.setVisibility(View.GONE);
-
-                        list4 = response.getBourse_matching_list();
-                        mAdapter4 = new CommonAdapter<Fragment3Model.BourseMatchingListBean>
-                                (getActivity(), R.layout.item_fragment3_4, list4) {
-                            @Override
-                            protected void convert(ViewHolder holder, Fragment3Model.BourseMatchingListBean model, int position) {
-                                holder.setText(R.id.textView1, model.getBourse_title());
-                                holder.setText(R.id.textView2, model.getBourse_on_title());
-                                TextView tv3 = holder.getView(R.id.textView3);
-                                tv3.setText(model.getStatus_title());
-                                if (model.getStatus() == 1) {
-                                    tv3.setTextColor(getResources().getColor(R.color.green));
-                                } else {
-                                    tv3.setTextColor(getResources().getColor(R.color.red));
-                                }
-                                ImageView iv = holder.getView(R.id.imageView1);
-                                if (!model.getBourse_icon().equals(""))
-                                    Glide.with(getActivity()).load(IMGHOST + model.getBourse_icon())
-                                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                                            .into(iv);//加载图片
-
-                            }
-                        };
-                        rv_jiaoyizhong.setAdapter(mAdapter4);
-                        break;
-                    default:
-                        //已结束
-                        ll_page1.setVisibility(View.GONE);
-                        ll_page2.setVisibility(View.GONE);
-                        ll_page3.setVisibility(View.VISIBLE);
-                        break;
+                            break;
+                    }
+                }else {
+                    ll_page1.setVisibility(View.GONE);
+                    ll_page2.setVisibility(View.GONE);
+                    ll_page3.setVisibility(View.VISIBLE);
                 }
 
                 //合约动态
@@ -486,7 +493,7 @@ public class Fragment3 extends BaseFragment {
             if (list1.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter1);
-                mAdapter1.notifyDataSetChanged();
+//                mAdapter1.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }
@@ -507,7 +514,7 @@ public class Fragment3 extends BaseFragment {
             if (list2.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter2);
-                mAdapter2.notifyDataSetChanged();
+//                mAdapter2.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }
@@ -527,7 +534,7 @@ public class Fragment3 extends BaseFragment {
             if (list3.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter3);
-                mAdapter3.notifyDataSetChanged();
+//                mAdapter3.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }

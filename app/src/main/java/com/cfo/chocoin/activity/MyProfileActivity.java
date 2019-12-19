@@ -22,10 +22,11 @@ import com.cfo.chocoin.model.SmsCodeListModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.popupwindow.SelectLanguagePopupWindow;
-import com.cfo.chocoin.utils.ChooseImages_zyz;
 import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.FileUtil;
+import com.cfo.chocoin.utils.MyChooseImages;
 import com.cfo.chocoin.utils.MyLogger;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
@@ -36,8 +37,8 @@ import java.util.List;
 
 import id.zelory.compressor.Compressor;
 
-import static com.cfo.chocoin.utils.ChooseImages_zyz.REQUEST_CODE_CAPTURE_CAMEIA;
-import static com.cfo.chocoin.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
+import static com.cfo.chocoin.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
+import static com.cfo.chocoin.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
 
 /**
@@ -46,6 +47,7 @@ import static com.cfo.chocoin.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
  */
 
 public class MyProfileActivity extends BaseActivity {
+    MyProfileModel model;
     List<SmsCodeListModel.LangListBean> list = new ArrayList<>();
     //选择图片及上传
     ArrayList<String> listFileNames;
@@ -82,6 +84,20 @@ public class MyProfileActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        //刷新
+        setSpringViewMore(false);//不需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                requestInfo("?token=" + localUserInfo.getToken());
+            }
+
+            @Override
+            public void onLoadmore() {
+
+            }
+        });
+
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -113,6 +129,7 @@ public class MyProfileActivity extends BaseActivity {
             @Override
             public void onResponse(MyProfileModel response) {
                 MyLogger.i(">>>>>>>>>个人信息" + response);
+                model = response;
                 //头像
                 if (!response.getHead().equals(""))
                     Glide.with(MyProfileActivity.this)
@@ -131,7 +148,9 @@ public class MyProfileActivity extends BaseActivity {
                 //邀请码
                 textView3.setText(response.getInvite_code());
                 //等级
-                textView4.setText(response.getGrade_title());
+                textView4.setText(response.getGrade()+"");
+                //服务码
+                textView5.setText(response.getService_code());
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
@@ -149,7 +168,7 @@ public class MyProfileActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.linearLayout1:
                 //头像
-                ChooseImages_zyz.showPhotoDialog(MyProfileActivity.this);
+                MyChooseImages.showPhotoDialog(MyProfileActivity.this);
                 break;
 
             case R.id.linearLayout5:
@@ -188,7 +207,21 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout11:
                 //申请服务中心
-                CommonUtil.gotoActivity(this, ServiceCenterActivity.class, false);
+                switch (model.getService_center_status()){
+                    case 1:
+                        //待申请
+                        CommonUtil.gotoActivity(this, ServiceCenter_NoActivity.class, false);
+                        break;
+                    case 2:
+                        //审核中
+                        myToast(getString(R.string.myprofile_h32));
+                        break;
+                    case 3:
+                        //已通过
+                        CommonUtil.gotoActivity(this, ServiceCenter_YesActivity.class, false);
+                        break;
+                }
+
                 break;
             case R.id.linearLayout9:
                 //退出登录
@@ -289,7 +322,7 @@ public class MyProfileActivity extends BaseActivity {
                 case REQUEST_CODE_CAPTURE_CAMEIA:
                     //相机
                     uri = Uri.parse("");
-                    uri = Uri.fromFile(new File(ChooseImages_zyz.imagepath));
+                    uri = Uri.fromFile(new File(MyChooseImages.imagepath));
                     imagePath = uri.getPath();
                     break;
                 case REQUEST_CODE_PICK_IMAGE:

@@ -8,12 +8,14 @@ import java.io.Serializable;
 
 public class MyProfileModel implements Serializable {
     /**
-     * id : e860799fbb2244df57d53158908b2ef5
+     * id : 5f961028d7235607fd3763283e3fcbcf
      * mobile : 18306043086
-     * nickname : 阿斯顿马丁
-     * head : /head/95.png
-     * invite_code : 814578
-     * grade_title : 1级
+     * nickname : 18306043086
+     * head : /head/562.png
+     * invite_code : 703696
+     * grade : 1
+     * service_center_status : 3
+     * service_code : 604012
      */
 
     private String id;
@@ -21,7 +23,9 @@ public class MyProfileModel implements Serializable {
     private String nickname;
     private String head;
     private String invite_code;
-    private String grade_title;
+    private int grade;
+    private int service_center_status;
+    private String service_code;
 
     public String getId() {
         return id;
@@ -63,11 +67,27 @@ public class MyProfileModel implements Serializable {
         this.invite_code = invite_code;
     }
 
-    public String getGrade_title() {
-        return grade_title;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setGrade_title(String grade_title) {
-        this.grade_title = grade_title;
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getService_center_status() {
+        return service_center_status;
+    }
+
+    public void setService_center_status(int service_center_status) {
+        this.service_center_status = service_center_status;
+    }
+
+    public String getService_code() {
+        return service_code;
+    }
+
+    public void setService_code(String service_code) {
+        this.service_code = service_code;
     }
 }

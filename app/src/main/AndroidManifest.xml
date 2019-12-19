@@ -109,11 +109,23 @@
             android:name="com.cfo.chocoin.activity.ChangeServiceNumActivity"
             android:label="修改服务代码" />
         <activity
-            android:name="com.cfo.chocoin.activity.ServiceCenterActivity"
-            android:label="服务中心" />
+            android:name="com.cfo.chocoin.activity.ServiceCenter_NoActivity"
+            android:label="服务中心-未申请" />
+        <activity
+            android:name="com.cfo.chocoin.activity.ServiceCenter_YesActivity"
+            android:label="服务中心-申请通过" />
+        <activity
+            android:name="com.cfo.chocoin.activity.ServiceCenter_MoreActivity"
+            android:label="服务中心-列表" />
+        <activity
+            android:name="com.cfo.chocoin.activity.SetServiceCenterActivity"
+            android:label="服务中心-创建" />
         <activity
             android:name="com.cfo.chocoin.activity.ShareActivity"
             android:label="推广" />
+        <activity
+            android:name="com.cfo.chocoin.activity.SharePeopleActivity"
+            android:label="推广用户" />
         <activity
             android:name="com.cfo.chocoin.activity.AccountDetailActivity"
             android:label="我的钱包" />

@@ -27,9 +27,9 @@ import com.cfo.chocoin.model.HelpModel;
 import com.cfo.chocoin.model.OnlineServiceModel;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
-import com.cfo.chocoin.utils.ChooseImages_zyz;
 import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.FileUtil;
+import com.cfo.chocoin.utils.MyChooseImages;
 import com.cfo.chocoin.utils.MyLogger;
 import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
@@ -47,8 +47,8 @@ import java.util.List;
 
 import id.zelory.compressor.Compressor;
 
-import static com.cfo.chocoin.utils.ChooseImages_zyz.REQUEST_CODE_CAPTURE_CAMEIA;
-import static com.cfo.chocoin.utils.ChooseImages_zyz.REQUEST_CODE_PICK_IMAGE;
+import static com.cfo.chocoin.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
+import static com.cfo.chocoin.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
 
 /**
@@ -113,7 +113,7 @@ public class OnlineServiceActivity extends BaseActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChooseImages_zyz.showPhotoDialog(OnlineServiceActivity.this);
+                MyChooseImages.showPhotoDialog(OnlineServiceActivity.this);
             }
         });
 
@@ -389,7 +389,7 @@ public class OnlineServiceActivity extends BaseActivity {
                 case REQUEST_CODE_CAPTURE_CAMEIA:
                     //相机
                     uri = Uri.parse("");
-                    uri = Uri.fromFile(new File(ChooseImages_zyz.imagepath));
+                    uri = Uri.fromFile(new File(MyChooseImages.imagepath));
                     imagePath = uri.getPath();
                     break;
                 case REQUEST_CODE_PICK_IMAGE:
