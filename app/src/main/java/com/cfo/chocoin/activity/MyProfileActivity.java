@@ -148,7 +148,20 @@ public class MyProfileActivity extends BaseActivity {
                 //邀请码
                 textView3.setText(response.getInvite_code());
                 //等级
-                textView4.setText(response.getGrade()+"");
+                switch (response.getGrade()){
+                    case 1:
+                        textView4.setText("LP");
+                        break;
+                    case 2:
+                        textView4.setText("IB");
+                        break;
+                    case 3:
+                        textView4.setText("MIB");
+                        break;
+                    case 4:
+                        textView4.setText("PIB");
+                        break;
+                }
                 //服务码
                 textView5.setText(response.getService_code());
 

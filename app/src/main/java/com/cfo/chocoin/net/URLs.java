@@ -77,9 +77,13 @@ public class URLs {
      */
     public static final String Fragment3 = "/api/index";
     /**
-     * 终止合约
+     * 转出
      */
     public static final String Transfer_Cancel = "/api/contract/terminate";
+    /**
+     * 终止合约
+     */
+    public static final String Transfer_ZhongZhi = "/api/contract/make-terminate";
     /**
      * 创建合约
      */

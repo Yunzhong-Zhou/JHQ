@@ -1,14 +1,17 @@
 package com.cfo.chocoin.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.activity.MainActivity;
 import com.cfo.chocoin.base.BaseFragment;
@@ -18,6 +21,11 @@ import com.cfo.chocoin.net.URLs;
 import com.cfo.chocoin.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.loader.ImageLoader;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 
 import java.util.ArrayList;
@@ -30,6 +38,8 @@ import java.util.List;
  */
 
 public class Fragment1 extends BaseFragment {
+    Banner banner;
+    List<String> images = new ArrayList<>();
     int type = 1;
     private RecyclerView recyclerView;
     List<Fragment1Model.NewestInvestListBean> list1 = new ArrayList<>();
@@ -85,6 +95,7 @@ public class Fragment1 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+        banner = findViewByID_My(R.id.banner);
 //        findViewByID_My(R.id.headview).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
@@ -132,6 +143,43 @@ public class Fragment1 extends BaseFragment {
                 }
             }
         });*/
+
+        //banner
+        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+        images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
+        /*images.clear();
+        for (int i = 0; i < response.getBanner().size(); i++) {
+            images.add(OkHttpClientManager.IMGHOST+response.getBanner().get(i).getUrl());
+        }*/
+        //设置banner样式
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        //设置指示器位置（当banner模式中有指示器时）
+        banner.setIndicatorGravity(BannerConfig.CENTER);
+        //设置图片加载器
+        banner.setImageLoader(new GlideImageLoader());
+        //设置图片集合
+        banner.setImages(images);
+        //设置banner动画效果
+        banner.setBannerAnimation(Transformer.DepthPage);
+        //设置标题集合（当banner样式有显示title时）
+//        banner.setBannerTitles(titles);
+        //设置自动轮播，默认为true
+        banner.isAutoPlay(true);
+        //设置轮播时间
+        banner.setDelayTime(3000);
+        //banner设置方法全部调用完毕时最后调用
+        banner.start();
+
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("type", response.getBanner().get(position).getType());
+//                CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);
+            }
+        });
 
     }
 
@@ -280,5 +328,43 @@ public class Fragment1 extends BaseFragment {
         showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
+    }
+    /*@Override
+    public void onStart() {
+        super.onStart();
+        //开始轮播
+        banner.startAutoPlay();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        //结束轮播
+        banner.stopAutoPlay();
+    }*/
+
+    public class GlideImageLoader extends ImageLoader {
+        @Override
+        public void displayImage(Context context, Object path, ImageView imageView) {
+            /**
+             注意：
+             1.图片加载器由自己选择，这里不限制，只是提供几种使用方法
+             2.返回的图片路径为Object类型，由于不能确定你到底使用的那种图片加载器，
+             传输的到的是什么格式，那么这种就使用Object接收和返回，你只需要强转成你传输的类型就行，
+             切记不要胡乱强转！
+             */
+            //Glide 加载图片简单用法
+            Glide.with(context)
+                    .load(path)
+                    .into(imageView);
+
+            //Picasso 加载图片简单用法
+//            Picasso.with(context).load(path).into(imageView);
+
+            //用fresco加载图片简单用法，记得要写下面的createImageView方法
+//            Uri uri = Uri.parse((String) path);
+//            imageView.setImageURI(uri);
+        }
     }
 }

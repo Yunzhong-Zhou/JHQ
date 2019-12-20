@@ -132,6 +132,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:inputType="numberDecimal"
                         android:background="@color/transparent"
                         android:hint="@string/scavengingpayment_h15"
                         android:textColor="@color/black1"

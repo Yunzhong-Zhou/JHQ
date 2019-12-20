@@ -336,7 +336,7 @@ public class Fragment3Model implements Serializable {
         private String member_head;
         private String member_nickname;
         private String money;
-        private int yield_rate;
+        private double profit_money;
         private String created_at;
 
         public String getMember_head() {
@@ -363,12 +363,12 @@ public class Fragment3Model implements Serializable {
             this.money = money;
         }
 
-        public int getYield_rate() {
-            return yield_rate;
+        public double getProfit_money() {
+            return profit_money;
         }
 
-        public void setYield_rate(int yield_rate) {
-            this.yield_rate = yield_rate;
+        public void setProfit_money(double profit_money) {
+            this.profit_money = profit_money;
         }
 
         public String getCreated_at() {

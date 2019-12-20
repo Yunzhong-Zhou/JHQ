@@ -220,12 +220,13 @@
     <string name="fragment3_h31">转入</string>
     <string name="fragment3_h32">用户</string>
     <string name="fragment3_h33">合约数/USDT</string>
-    <string name="fragment3_h34">收益率</string>
+    <string name="fragment3_h34">收益</string>
     <string name="fragment3_h35">转出</string>
     <string name="fragment3_h36">持平</string>
     <string name="fragment3_h37">确认转出吗？</string>
     <string name="fragment3_h38">转出成功</string>
     <string name="fragment3_h39">确认终止交易吗？</string>
+    <string name="fragment3_h40">终止成功</string>
 
 
     <!--fragment4-->
@@ -651,6 +652,8 @@
     <string name="scavengingpayment_h38">交易单号</string>
     <string name="scavengingpayment_h39">买入时间</string>
     <string name="scavengingpayment_h40">平仓时间</string>
+    <string name="scavengingpayment_h41">补仓时间</string>
+    <string name="scavengingpayment_h42">补仓币数</string>
 
 
     <!--转账记录-->

@@ -89,6 +89,7 @@ public class SetAddressActivity extends BaseActivity {
                     public void onResponse(SetAddressModel response) {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
+                        editText1.setText(response.getUsdt_wallet_addr());
                     }
                 });
     }

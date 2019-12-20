@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical">
+
     <!--只需要刷新只写header-->
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
@@ -23,10 +24,10 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@color/white" />
+                    android:layout_height="200dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

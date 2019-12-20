@@ -81,6 +81,9 @@ dependencies {
     //图片点击放大
     implementation 'com.bm.photoview:library:1.4.1'
 
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
+
     //沉浸式
 //    implementation 'com.gyf.immersionbar:immersionbar:2.3.2-beta02'
     // 基础依赖包，必须要依赖

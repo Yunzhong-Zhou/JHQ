@@ -28,7 +28,7 @@ import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
  */
 public class ShareActivity extends BaseActivity {
     ShareModel model;
-    ImageView imageView, imageView1, imageView2;
+    ImageView imageView, imageView1, imageView2,imageView3;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
             textView10, textView11, textView12, textView13, textView14, textView15;
 
@@ -58,6 +58,7 @@ public class ShareActivity extends BaseActivity {
 
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        imageView3 = findViewByID_My(R.id.imageView3);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
@@ -114,7 +115,25 @@ public class ShareActivity extends BaseActivity {
                 textView1.setText(response.getNickname() + "");//昵称
                 textView2.setText(getString(R.string.share_h2) + response.getInvite_code());//邀请码
                 textView3.setText(response.getCommission_money() + "");//合约金额
-                textView4.setText(response.getGrade_title() + "");//等级
+//                textView4.setText(response.getGrade_title() + "");//等级
+                switch (response.getGrade()){
+                    case 1:
+                        //普通
+                        imageView3.setImageResource(R.mipmap.bg_share3_1);
+                        break;
+                    case 2:
+                        //IB
+                        imageView3.setImageResource(R.mipmap.bg_share3_2);
+                        break;
+                    case 3:
+                        //MIB
+                        imageView3.setImageResource(R.mipmap.bg_share3_3);
+                        break;
+                    case 4:
+                        //PIB
+                        imageView3.setImageResource(R.mipmap.bg_share3_4);
+                        break;
+                }
                 textView5.setText(response.getCommission_param().getContract_trading_service_charge() + "");//手续费
                 textView6.setText(response.getCommission_param().getContract_trading_profit() + "");//团队利益
                 textView7.setText(response.getCommission_param().getContract_trading_same_level() + "");//直推利益

@@ -207,22 +207,18 @@ public class Fragment5 extends BaseFragment {
                 //邀请码
                 textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
-                textView3.setText(""+response.getGrade());
                 switch (response.getGrade()){
                     case 1:
-
+                        textView3.setText("LP");
                         break;
                     case 2:
-
+                        textView3.setText("IB");
                         break;
                     case 3:
-
+                        textView3.setText("MIB");
                         break;
                     case 4:
-
-                        break;
-                    case 5:
-
+                        textView3.setText("PIB");
                         break;
                 }
 

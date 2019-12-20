@@ -355,12 +355,13 @@ public class Fragment3 extends BaseFragment {
                         holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                         holder.setText(R.id.textView2, model.getMoney());//合约数
                         TextView tv3 = holder.getView(R.id.textView3);
-                        if (model.getYield_rate() > 0) {
-                            tv3.setText("+" + model.getYield_rate());
+
+                        if (model.getProfit_money() > 0) {
+                            tv3.setText("+" + model.getProfit_money());
                             tv3.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
 
                         } else {
-                            tv3.setText("+" + model.getYield_rate());
+                            tv3.setText("+" + model.getProfit_money());
                             tv3.setBackgroundResource(R.drawable.yuanjiao_2_red);
                         }
                         ImageView iv = holder.getView(R.id.imageView1);
@@ -464,7 +465,7 @@ public class Fragment3 extends BaseFragment {
                             public void onClick(View v) {
                                 dialog.dismiss();
 //                                showProgress(true, getString(R.string.app_loading));
-                                requestCancel("?token=" + localUserInfo.getToken());
+                                requestZhongZhi("?token=" + localUserInfo.getToken());
                             }
                         }, new View.OnClickListener() {
                             @Override
@@ -562,6 +563,25 @@ public class Fragment3 extends BaseFragment {
         });
     }
 
+    private void requestZhongZhi(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Transfer_ZhongZhi + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                MyLogger.i(">>>>>>>>>终止合约" + response);
+                showToast(getString(R.string.fragment3_h40));
+                requestServer();
+            }
+        });
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

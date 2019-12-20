@@ -19,23 +19,16 @@ public class DirectMemberModel implements Serializable {
 
     public static class DirectRecommendListBean {
         /**
-         * head :
-         * nickname : 阿斯顿马丁
-         * created_at : 2018-11-08 17:22:30
+         * head : /head/133.png
+         * nickname : 158****9474
+         * contract_money : 0
+         * grade_title : 普通会员
          */
 
         private String head;
         private String nickname;
-        private String created_at;
-        private String amount_money;
-
-        public String getAmount_money() {
-            return amount_money;
-        }
-
-        public void setAmount_money(String amount_money) {
-            this.amount_money = amount_money;
-        }
+        private int contract_money;
+        private String grade_title;
 
         public String getHead() {
             return head;
@@ -53,12 +46,20 @@ public class DirectMemberModel implements Serializable {
             this.nickname = nickname;
         }
 
-        public String getCreated_at() {
-            return created_at;
+        public int getContract_money() {
+            return contract_money;
         }
 
-        public void setCreated_at(String created_at) {
-            this.created_at = created_at;
+        public void setContract_money(int contract_money) {
+            this.contract_money = contract_money;
+        }
+
+        public String getGrade_title() {
+            return grade_title;
+        }
+
+        public void setGrade_title(String grade_title) {
+            this.grade_title = grade_title;
         }
     }
 }

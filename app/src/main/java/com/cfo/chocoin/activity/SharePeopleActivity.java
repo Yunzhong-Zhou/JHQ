@@ -86,8 +86,8 @@ public class SharePeopleActivity extends BaseActivity {
                             @Override
                             protected void convert(ViewHolder holder, DirectMemberModel.DirectRecommendListBean model, int position) {
                                 holder.setText(R.id.textView1, model.getNickname());
-                                holder.setText(R.id.textView2, model.getAmount_money()+"");
-                                holder.setText(R.id.textView3, model.getCreated_at());
+                                holder.setText(R.id.textView2, model.getContract_money()+"");
+                                holder.setText(R.id.textView3, model.getGrade_title());
                                 ImageView imageView = holder.getView(R.id.imageView1);
                                 if (!model.getHead().equals(""))
                                     Glide.with(SharePeopleActivity.this).load(IMGHOST + model.getHead()).centerCrop().into(imageView);//加载图片
