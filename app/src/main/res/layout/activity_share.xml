@@ -311,6 +311,7 @@
                                 android:paddingLeft="8dp"
                                 android:paddingRight="8dp"
                                 android:text="@string/share_h2"
+                                android:textIsSelectable="true"
                                 android:textColor="@color/white1"
                                 android:textSize="10sp" />
 
@@ -760,7 +761,7 @@
                                     android:layout_width="10dp"
                                     android:layout_height="9dp"
                                     android:layout_marginTop="17dp"
-                                    android:src="@mipmap/ic_cho"
+                                    android:src="@mipmap/ic_usdt_black"
                                     android:visibility="visible" />
 
                                 <TextView

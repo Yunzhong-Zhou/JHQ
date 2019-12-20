@@ -47,7 +47,7 @@ public class TransferListActivity extends BaseActivity {
     private View view1, view2;
     private LinearLayout pop_view;
     int page = 1;
-    String money_type = "", status = "";
+    String sort = "desc", status = "";
     int i1 = 0;
     int i2 = 0;
 
@@ -69,7 +69,7 @@ public class TransferListActivity extends BaseActivity {
                 //刷新
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&sort=" + sort
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -81,7 +81,7 @@ public class TransferListActivity extends BaseActivity {
                 page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&sort=" + sort
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -248,7 +248,7 @@ public class TransferListActivity extends BaseActivity {
         this.showLoadingPage();
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&money_type=" + money_type
+                + "&sort=" + sort
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -288,9 +288,8 @@ public class TransferListActivity extends BaseActivity {
         ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView1);
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
-        list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_USDT));
-        list.add(getString(R.string.app_type_AY));
+        list.add(getString(R.string.app_type_jiangxu));
+        list.add(getString(R.string.app_type_shengxu));
         final Pop_ListAdapter adapter = new Pop_ListAdapter(TransferListActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);
@@ -301,9 +300,9 @@ public class TransferListActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
                 i1 = i;
                 if (i == 0) {
-                    money_type = "";
+                    sort = "desc";
                 } else {
-                    money_type = i + "";
+                    sort = "asc";
                 }
                 textView1.setText(list.get(i));
                 requestServer();
@@ -356,9 +355,9 @@ public class TransferListActivity extends BaseActivity {
         ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView2);
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_daishenhe));
-        list.add(getString(R.string.app_type_yitongguo));
-        list.add(getString(R.string.app_type_weitongguo));
+        list.add(getString(R.string.app_type_dengdaizhong));
+        list.add(getString(R.string.app_type_jiaoyizhong));
+        list.add(getString(R.string.app_type_yijieshu));
 
         final Pop_ListAdapter adapter = new Pop_ListAdapter(TransferListActivity.this, list);
         adapter.setSelectItem(i2);

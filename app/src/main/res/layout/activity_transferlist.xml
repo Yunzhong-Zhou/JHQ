@@ -34,7 +34,7 @@
                     android:drawablePadding="5dp"
                     android:drawableRight="@mipmap/down_green"
                     android:gravity="center"
-                    android:text="@string/app_type_anyingli"
+                    android:text="@string/app_type_paixu"
                     android:textColor="@color/green"
                     android:textSize="14sp" />
 
@@ -63,7 +63,7 @@
                     android:drawablePadding="5dp"
                     android:drawableRight="@mipmap/down_black"
                     android:gravity="center"
-                    android:text="@string/app_type_anjine"
+                    android:text="@string/app_type_zhuangtai"
                     android:textColor="@color/black3"
                     android:textSize="14sp" />
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CFO</string>
+    <string name="app_name">OFC</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -78,6 +78,9 @@
     <string name="app_type_yijiangli">已奖励</string>
     <string name="app_type_zhuanchu">转出</string>
     <string name="app_type_zhuanru">转入</string>
+    <string name="app_type_dengdaizhong">等待中</string>
+    <string name="app_type_jiaoyizhong">交易中</string>
+    <string name="app_type_yijieshu">已结束</string>
 
     <!--刷新和加载-->
     <string name="app_loading">正在加载...</string>

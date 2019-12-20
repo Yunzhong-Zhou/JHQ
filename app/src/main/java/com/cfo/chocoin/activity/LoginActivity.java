@@ -17,11 +17,13 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.base.BaseActivity;
 import com.cfo.chocoin.model.LoginModel;
@@ -34,7 +36,6 @@ import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
 import com.cfo.chocoin.utils.permission.PermissionsActivity;
 import com.cfo.chocoin.utils.permission.PermissionsChecker;
-import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
@@ -165,6 +166,26 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+        editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                    if (match()) {
+                        textView3.setClickable(false);
+                        LoginActivity.this.showProgress(true, getString(R.string.login_h7));
+                        params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
+                        params.put("mobile", phonenum);
+                        params.put("password", password);
+                        params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                        RequestLogin(params);//登录
+                    }
+                }
+                return true;
+            }
+        });
+        View view1 = findViewByID_My(R.id.view1);
+        ViewGroup.LayoutParams lp = view1.getLayoutParams();
+        lp.height = (int) CommonUtil.getScreenHeight(this) / 5;
     }
 
     @Override

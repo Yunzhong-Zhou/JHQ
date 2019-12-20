@@ -136,7 +136,8 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:1.2.5'
 
     //极验-机器验证
-    implementation(name: 'geetest_sensebot_android_v4.1.2_20190605', ext: 'aar')
+//    implementation(name: 'geetest_sensebot_android_v4.1.2_20190605', ext: 'aar')
+    implementation 'com.geetest.sensebot:sensebot:4.1.8'
 
     //带气泡的进度条
     implementation 'com.xw.repo:bubbleseekbar:3.20-lite'

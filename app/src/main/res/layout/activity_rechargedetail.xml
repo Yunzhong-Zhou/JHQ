@@ -194,6 +194,7 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
+                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 
@@ -223,6 +224,7 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
+                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 
@@ -252,6 +254,7 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
+                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 
@@ -281,6 +284,7 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
+                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 
@@ -310,6 +314,7 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
+                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 

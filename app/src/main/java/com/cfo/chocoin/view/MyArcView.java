@@ -83,7 +83,7 @@ public class MyArcView extends View {
         mCirclePaint.setStrokeWidth(8);//设置画笔粗细
 
         //图片画笔
-        bitmap = ((BitmapDrawable) getResources().getDrawable(R.mipmap.ic_jindudian)).getBitmap();
+        bitmap = ((BitmapDrawable) getResources().getDrawable(R.mipmap.ic_launcher)).getBitmap();
         mBitPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBitPaint.setFilterBitmap(true);
         mBitPaint.setDither(true);

@@ -671,8 +671,10 @@ public class RegisteredActivity extends BaseActivity {
         gt3ConfigBean.setPattern(1);
         // 设置点击灰色区域是否消失，默认不消息
         gt3ConfigBean.setCanceledOnTouchOutside(false);
+        // 设置语言，参考API文档。如果为null则使用系统默认语言(TODO 若想设置语言立即生效，则init需要在setContentView之前)
+//        gt3ConfigBean.setLang(null);
         // 设置debug模式，开代理可调试 TODO 线上版本关闭
-        gt3ConfigBean.setDebug(false);
+//        gt3ConfigBean.setDebug(false);
         // 设置语言，如果为null则使用系统默认语言
         gt3ConfigBean.setLang(null);
         // 设置webview加载超时

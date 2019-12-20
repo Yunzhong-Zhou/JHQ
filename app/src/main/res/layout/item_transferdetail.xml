@@ -172,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
             android:text="0"
+            android:textIsSelectable="true"
             android:textColor="@color/black1"
             android:textSize="15sp" />
 

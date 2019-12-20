@@ -48,11 +48,11 @@ public class URLs {
      */
     public static final String Verified = "/api/member/certification";
 
-    //算力
+    //学院
     /**
-     * 算力
+     * 学院
      */
-    public static final String Fragment1= "/api/invest/index";
+    public static final String Fragment1= "/api/article/college";
     /**
      * 算力
      */

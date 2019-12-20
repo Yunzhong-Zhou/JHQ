@@ -14,22 +14,25 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cfo.chocoin.R;
 import com.cfo.chocoin.activity.MainActivity;
+import com.cfo.chocoin.activity.WebContentActivity;
 import com.cfo.chocoin.base.BaseFragment;
 import com.cfo.chocoin.model.Fragment1Model;
 import com.cfo.chocoin.net.OkHttpClientManager;
 import com.cfo.chocoin.net.URLs;
+import com.cfo.chocoin.utils.CommonUtil;
 import com.cfo.chocoin.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
-import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.cfo.chocoin.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -42,11 +45,14 @@ public class Fragment1 extends BaseFragment {
     List<String> images = new ArrayList<>();
     int type = 1;
     private RecyclerView recyclerView;
-    List<Fragment1Model.NewestInvestListBean> list1 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.NewestInvestListBean> mAdapter1;
+    List<Fragment1Model.ArticleCategory1Bean.ArticleListBean> list1 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean> mAdapter1;
 
-    List<Fragment1Model> list2 = new ArrayList<>();
-    CommonAdapter<Fragment1Model> mAdapter2;
+    List<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX> list2 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX> mAdapter2;
+
+    List<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX> list3 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX> mAdapter3;
 
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
@@ -144,15 +150,15 @@ public class Fragment1 extends BaseFragment {
             }
         });*/
 
-        //banner
+        /*//banner
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
         images.add("http://file02.16sucai.com/d/file/2014/0825/dcb017b51479798f6c60b7b9bd340728.jpg");
-        /*images.clear();
+        *//*images.clear();
         for (int i = 0; i < response.getBanner().size(); i++) {
             images.add(OkHttpClientManager.IMGHOST+response.getBanner().get(i).getUrl());
-        }*/
+        }*//*
         //设置banner样式
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置指示器位置（当banner模式中有指示器时）
@@ -179,7 +185,7 @@ public class Fragment1 extends BaseFragment {
 //                bundle.putInt("type", response.getBanner().get(position).getType());
 //                CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);
             }
-        });
+        });*/
 
     }
 
@@ -205,46 +211,105 @@ public class Fragment1 extends BaseFragment {
             public void onResponse(final Fragment1Model response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>学院" + response);
-                /*//基础知识
-                list1 = response.getNewest_invest_list();
-                mAdapter1 = new CommonAdapter<Fragment1Model.NewestInvestListBean>
+                //基础知识
+                list1 = response.getArticle_category_1().getArticle_list();
+                mAdapter1 = new CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean>
                         (getActivity(), R.layout.item_fragment1, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, final Fragment1Model.NewestInvestListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getCreated_at());
+                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory1Bean.ArticleListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getTitle());
+                        holder.setText(R.id.textView2, model.getCreated_at());
+                        holder.setText(R.id.textView3, model.getRead() + "");
                         ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
+                        if (!model.getCover().equals(""))
                             Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
+                                    .load(IMGHOST + model.getCover())
                                     .centerCrop()
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
                                     .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);
 
                     }
                 };
-
-                mAdapter2 = new CommonAdapter<Fragment1Model>
-                        (getActivity(), R.layout.item_fragment2, list2) {
+                mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
-                    protected void convert(ViewHolder holder, final Fragment1Model model, int position) {
-                        holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, "¥ " + model.getMoney());
-                        holder.setText(R.id.textView3, model.getCreated_at());
-                        holder.setText(R.id.textView4, model.getPackage_title());
+                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", list1.get(position).getUrl());
+                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        return false;
+                    }
+                });
+
+                list2 = response.getArticle_category_2().getArticle_list();
+                mAdapter2 = new CommonAdapter<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX>
+                        (getActivity(), R.layout.item_fragment1, list2) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory2Bean.ArticleListBeanX model, int position) {
+                        holder.setText(R.id.textView1, model.getTitle());
+                        holder.setText(R.id.textView2, model.getCreated_at());
+                        holder.setText(R.id.textView3, model.getRead() + "");
                         ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
-                                    .centerCrop().into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);
+                        if (!model.getCover().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getCover())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
 
                     }
-                };*/
+                };
+                mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", list2.get(position).getUrl());
+                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        return false;
+                    }
+                });
+
+                list3 = response.getArticle_category_3().getArticle_list();
+                mAdapter3 = new CommonAdapter<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX>
+                        (getActivity(), R.layout.item_fragment1, list3) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX model, int position) {
+                        holder.setText(R.id.textView1, model.getTitle());
+                        holder.setText(R.id.textView2, model.getCreated_at());
+                        holder.setText(R.id.textView3, model.getRead() + "");
+                        ImageView imageView1 = holder.getView(R.id.imageView1);
+                        if (!model.getCover().equals(""))
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getCover())
+                                    .centerCrop()
+//                                    .placeholder(R.mipmap.headimg)//加载站位图
+//                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+
+                    }
+                };
+                mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", list3.get(position).getUrl());
+                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        return false;
+                    }
+                });
 
                 changeUI();
 
@@ -282,8 +347,12 @@ public class Fragment1 extends BaseFragment {
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.INVISIBLE);
 
-            /*recyclerView.setAdapter(mAdapter1);
-            mAdapter1.notifyDataSetChanged();*/
+            if (list1.size() > 0) {
+                showContentPage();
+                recyclerView.setAdapter(mAdapter1);
+            } else {
+                showEmptyPage();
+            }
 
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
@@ -293,13 +362,13 @@ public class Fragment1 extends BaseFragment {
             view2.setVisibility(View.VISIBLE);
             view3.setVisibility(View.INVISIBLE);
 
-           /* if (list1.size()>0){
+            if (list2.size() > 0) {
                 showContentPage();
-                recyclerView.setAdapter(mAdapter1);
-            }else {
+                recyclerView.setAdapter(mAdapter2);
+            } else {
                 showEmptyPage();
-            }*/
-        }else if (type == 3) {
+            }
+        } else if (type == 3) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
             textView2.setTextColor(getResources().getColor(R.color.black3));
             textView3.setTextColor(getResources().getColor(R.color.green));
@@ -307,12 +376,12 @@ public class Fragment1 extends BaseFragment {
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.VISIBLE);
 
-            /*if (list2.size()>0){
+            if (list3.size() > 0) {
                 showContentPage();
-                recyclerView.setAdapter(mAdapter2);
-            }else {
+                recyclerView.setAdapter(mAdapter3);
+            } else {
                 showEmptyPage();
-            }*/
+            }
         }
     }
 
