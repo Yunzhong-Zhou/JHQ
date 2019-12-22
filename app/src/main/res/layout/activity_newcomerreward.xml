@@ -124,15 +124,14 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="￥"
-                                    android:textColor="@color/black1"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:src="@mipmap/ic_usdt_black"
+                                    android:layout_marginTop="3dp"/>
 
                                 <TextView
                                     android:id="@+id/textView1"
@@ -178,15 +177,14 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="￥"
-                                    android:textColor="@color/black1"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:src="@mipmap/ic_usdt_black"
+                                    android:layout_marginTop="3dp"/>
 
                                 <TextView
                                     android:id="@+id/textView2"
@@ -223,10 +221,10 @@
 
         <ImageView
             android:id="@+id/left_btn"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:onClick="onClick"
-            android:padding="16dp"
+            android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return1" />
 
@@ -241,8 +239,8 @@
 
         <ImageView
             android:id="@+id/right_btn"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:onClick="onClick"
             android:padding="13dp"
             android:scaleType="fitCenter"

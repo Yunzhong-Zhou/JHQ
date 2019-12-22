@@ -49,8 +49,8 @@
             android:hint="@string/onlineservice_hint"
             android:imeOptions="actionSend"
             android:singleLine="true"
-            android:textColor="@color/txt_black1"
-            android:textColorHint="@color/default_text"
+            android:textColor="@color/black1"
+            android:textColorHint="@color/black4"
             android:textSize="14sp"
             android:background="@color/transparent" />
 

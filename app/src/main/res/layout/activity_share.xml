@@ -464,7 +464,7 @@
                             android:drawableRight="@mipmap/ic_next_black"
                             android:gravity="center_vertical"
                             android:text="@string/share_h11"
-                            android:textColor="@color/black3"
+                            android:textColor="@color/black4"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -514,7 +514,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/share_h12"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -556,7 +556,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/share_h13"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -615,7 +615,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/share_h14"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -653,7 +653,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/share_h15"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -691,7 +691,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="@string/share_h16"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp" />
                         </LinearLayout>
 

@@ -234,7 +234,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:text="@string/fragment4_h12"
-                                    android:textColor="@color/black3"
+                                    android:textColor="@color/black4"
                                     android:textSize="16sp" />
 
                                 <TextView
@@ -303,7 +303,7 @@
                                 android:lineSpacingExtra="5dp"
                                 android:minLines="2"
                                 android:text="@string/fragment4_h14"
-                                android:textColor="@color/black2"
+                                android:textColor="@color/black4"
                                 android:textIsSelectable="true"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -324,7 +324,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/fragment4_h3"
-                                android:textColor="@color/default_text"
+                                android:textColor="@color/black1"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -334,8 +334,8 @@
                                 android:background="@color/transparent"
                                 android:hint="@string/fragment4_h4"
                                 android:inputType="numberDecimal"
-                                android:textColor="@color/black2"
-                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:textColorHint="@color/black4"
                                 android:textSize="15sp" />
 
                         </LinearLayout>
@@ -357,7 +357,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/fragment4_h15"
-                                android:textColor="@color/default_text"
+                                android:textColor="@color/black1"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -367,8 +367,8 @@
                                 android:background="@color/transparent"
                                 android:hint="@string/fragment4_h5"
                                 android:inputType="numberDecimal"
-                                android:textColor="@color/black2"
-                                android:textColorHint="@color/black3"
+                                android:textColor="@color/black1"
+                                android:textColorHint="@color/black4"
                                 android:textSize="15sp" />
                         </LinearLayout>
                         <!--到账-->
@@ -376,6 +376,7 @@
                             android:id="@+id/linearLayout_daozhang"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:background="@drawable/yuanjiao_5_baiseyinying"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
@@ -396,7 +397,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:gravity="right"
-                                android:textColor="@color/black2"
+                                android:textColor="@color/black1"
                                 android:textIsSelectable="true"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -418,7 +419,7 @@
                             android:layout_marginBottom="14dp"
                             android:lineSpacingExtra="5dp"
                             android:text="@string/fragment4_h7"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black4"
                             android:textSize="15sp" />
                     </LinearLayout>
 

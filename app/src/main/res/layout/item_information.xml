@@ -37,7 +37,7 @@
                     android:text="话题标题"
                     android:singleLine="true"
                     android:textSize="14sp"
-                    android:textColor="@color/txt_black1"/>
+                    android:textColor="@color/black1"/>
             </LinearLayout>
 
             <LinearLayout
@@ -53,7 +53,7 @@
                     android:text="爱生活、爱居家、爱折腾\n爱生活、爱居家、爱折腾"
                     android:maxLines="2"
                     android:textSize="12sp"
-                    android:textColor="@color/txt_black2"/>
+                    android:textColor="@color/black2"/>
             </LinearLayout>
 
         </LinearLayout>

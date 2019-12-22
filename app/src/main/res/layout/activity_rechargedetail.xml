@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/recharge_h11"
-                    android:textColor="@color/black2"
+                    android:textColor="@color/black3"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -145,7 +145,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/recharge_h14"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -184,7 +184,7 @@
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
                             android:text="@string/recharge_h7"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black3"
                             android:textSize="15sp" />
 
                         <TextView
@@ -214,7 +214,7 @@
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
                             android:text="@string/recharge_h8"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black3"
                             android:textSize="15sp" />
 
                         <TextView
@@ -244,7 +244,7 @@
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
                             android:text="@string/recharge_h9"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black3"
                             android:textSize="15sp" />
 
                         <TextView
@@ -274,7 +274,7 @@
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
                             android:text="@string/recharge_h15"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black3"
                             android:textSize="15sp" />
 
                         <TextView
@@ -304,7 +304,7 @@
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
                             android:text="@string/recharge_h23"
-                            android:textColor="@color/black2"
+                            android:textColor="@color/black3"
                             android:textSize="15sp" />
 
                         <TextView
@@ -338,7 +338,7 @@
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
                         android:text="@string/recharge_h33"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -367,7 +367,7 @@
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
                         android:text="@string/recharge_h16"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -395,7 +395,7 @@
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
                         android:text="@string/recharge_h17"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -423,7 +423,7 @@
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
                         android:text="@string/recharge_h18"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -452,7 +452,7 @@
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
                         android:text="@string/recharge_h19"
-                        android:textColor="@color/black2"
+                        android:textColor="@color/black3"
                         android:textSize="15sp" />
 
                     <TextView
@@ -474,7 +474,7 @@
                     android:layout_margin="14dp"
                     android:lineSpacingExtra="5dp"
                     android:text="error"
-                    android:textColor="@color/black2"
+                    android:textColor="@color/black3"
                     android:textSize="15sp" />
 
                 <TextView

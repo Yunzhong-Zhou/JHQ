@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h32"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h33"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h34"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h35"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h36"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -139,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h37"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h38"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -188,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h39"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView
@@ -213,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scavengingpayment_h40"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:textSize="15sp" />
 
         <TextView

@@ -33,7 +33,7 @@
                 android:paddingRight="14dp"
                 android:paddingBottom="14dp"
                 android:text="@string/myprofile_h41"
-                android:textColor="@color/default_text"
+                android:textColor="@color/black1"
                 android:visibility="visible" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:paddingBottom="14dp"
                 android:singleLine="true"
                 android:textColor="@color/black1"
-                android:textColorHint="@color/black3" />
+                android:textColorHint="@color/black4" />
 
             <EditText
                 android:id="@+id/editText7"
@@ -65,8 +65,8 @@
                 android:paddingTop="14dp"
                 android:paddingRight="24dp"
                 android:paddingBottom="14dp"
-                android:textColor="@color/txt_black1"
-                android:textColorHint="@color/txt_black2"
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -88,7 +88,7 @@
                 android:paddingRight="24dp"
                 android:paddingBottom="14dp"
                 android:text="@string/myprofile_h43"
-                android:textColor="@color/default_text" />
+                android:textColor="@color/black1" />
 
             <EditText
                 android:id="@+id/editText1"
@@ -103,7 +103,7 @@
                 android:paddingRight="24dp"
                 android:paddingBottom="14dp"
                 android:textColor="@color/black1"
-                android:textColorHint="@color/black3" />
+                android:textColorHint="@color/black4" />
         </LinearLayout>
 
         <LinearLayout
@@ -124,7 +124,7 @@
                 android:paddingRight="24dp"
                 android:paddingBottom="14dp"
                 android:text="@string/myprofile_h45"
-                android:textColor="@color/default_text" />
+                android:textColor="@color/black1" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -140,7 +140,7 @@
                 android:paddingRight="24dp"
                 android:paddingBottom="14dp"
                 android:textColor="@color/black1"
-                android:textColorHint="@color/black3" />
+                android:textColorHint="@color/black4" />
         </LinearLayout>
 
         <TextView

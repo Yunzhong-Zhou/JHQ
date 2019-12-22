@@ -25,7 +25,7 @@
                     android:layout_marginLeft="14dp"
                     android:layout_marginRight="14dp"
                     android:text="@string/onlineservice_h1"
-                    android:textColor="@color/txt_black"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
             </LinearLayout>

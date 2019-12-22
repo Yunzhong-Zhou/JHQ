@@ -119,7 +119,7 @@ public class SetServiceCenterActivity extends BaseActivity {
         });
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         textView1 = findViewByID_My(R.id.textView1);
-        textView2 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
         imageView1 = findViewByID_My(R.id.imageView1);

@@ -13,6 +13,7 @@ import com.cfo.chocoin.utils.CommonUtil;
  * 选择地址
  */
 public class SelectAddressActivity extends BaseActivity {
+    int type = 1;//1、服务中心 2、实名认证
     WalletAddressModel model;
 
     @Override
@@ -34,7 +35,7 @@ public class SelectAddressActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        type= getIntent().getIntExtra("type",1);
     }
 
     @Override
@@ -44,12 +45,20 @@ public class SelectAddressActivity extends BaseActivity {
             case R.id.relativeLayout1:
                 //大陆
                 bundle.putInt("type", 1);
-                CommonUtil.gotoActivityWithData(SelectAddressActivity.this, SetServiceCenterActivity.class, bundle, true);
+                if (type ==1){
+                    CommonUtil.gotoActivityWithData(SelectAddressActivity.this, SetServiceCenterActivity.class, bundle, true);
+                }else {
+                    CommonUtil.gotoActivityWithData(SelectAddressActivity.this, VerifiedActivity.class, bundle, true);
+                }
                 break;
             case R.id.relativeLayout2:
                 //海外
                 bundle.putInt("type", 2);
-                CommonUtil.gotoActivityWithData(SelectAddressActivity.this, SetServiceCenterActivity.class, bundle, true);
+                if (type ==1){
+                    CommonUtil.gotoActivityWithData(SelectAddressActivity.this, SetServiceCenterActivity.class, bundle, true);
+                }else {
+                    CommonUtil.gotoActivityWithData(SelectAddressActivity.this, VerifiedActivity.class, bundle, true);
+                }
                 break;
         }
     }

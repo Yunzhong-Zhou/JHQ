@@ -381,8 +381,8 @@ public class Fragment4 extends BaseFragment {
         if (type == 1) {
             //USDT - 显示充币地址-显示个数-隐藏金额-隐藏到账-隐藏USDT价格
             textView1.setTextColor(getResources().getColor(R.color.green));
-            textView2.setTextColor(getResources().getColor(R.color.black3));
-            textView_3.setTextColor(getResources().getColor(R.color.black3));
+            textView2.setTextColor(getResources().getColor(R.color.black4));
+            textView_3.setTextColor(getResources().getColor(R.color.black4));
 
             textView_dazhe_1.setBackgroundResource(R.mipmap.bg_dazhe_1);
             textView_dazhe_2.setBackgroundResource(R.mipmap.bg_dazhe_0);
@@ -410,9 +410,9 @@ public class Fragment4 extends BaseFragment {
 
         } else if (type == 2) {
             //澳元电汇- 显示电汇信息-隐藏个数-显示金额-显示到账-显示USDT价格
-            textView1.setTextColor(getResources().getColor(R.color.black3));
+            textView1.setTextColor(getResources().getColor(R.color.black4));
             textView2.setTextColor(getResources().getColor(R.color.green));
-            textView_3.setTextColor(getResources().getColor(R.color.black3));
+            textView_3.setTextColor(getResources().getColor(R.color.black4));
 
             textView_dazhe_1.setBackgroundResource(R.mipmap.bg_dazhe_0);
             textView_dazhe_2.setBackgroundResource(R.mipmap.bg_dazhe_1);

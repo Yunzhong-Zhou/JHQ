@@ -148,7 +148,7 @@ public class MyProfileActivity extends BaseActivity {
                 //邀请码
                 textView3.setText(response.getInvite_code());
                 //等级
-                switch (response.getGrade()){
+                switch (response.getGrade()) {
                     case 1:
                         textView4.setText("LP");
                         break;
@@ -197,8 +197,10 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout10:
                 //修改服务码
-                CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
-//                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
+                if (model.getGrade() >0) {
+                    CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
+                }
+                //                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
                 break;
             case R.id.linearLayout7:
                 //交易密码
@@ -220,7 +222,7 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout11:
                 //申请服务中心
-                switch (model.getService_center_status()){
+                switch (model.getService_center_status()) {
                     case 1:
                         //待申请
                         CommonUtil.gotoActivity(this, ServiceCenter_NoActivity.class, false);
@@ -233,6 +235,18 @@ public class MyProfileActivity extends BaseActivity {
                         //已通过
                         CommonUtil.gotoActivity(this, ServiceCenter_YesActivity.class, false);
                         break;
+                }
+
+                break;
+            case R.id.linearLayout13:
+                if (model.getAuth() ==1){
+                    //未认证
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("type",2);//1、服务中心 2、实名认证
+                    CommonUtil.gotoActivityWithData(this, SelectAddressActivity.class,bundle, false);
+                }else {
+                    //已认证
+                    myToast(getString(R.string.fragment5_h27));
                 }
 
                 break;

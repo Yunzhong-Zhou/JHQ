@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_fragment5"/>
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
@@ -77,7 +81,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Name"
                                 android:textColor="@color/white"
-                                android:textSize="25.0sp"
+                                android:textSize="23sp"
                                 android:textStyle="bold"/>
 
                             <TextView
@@ -449,7 +453,7 @@
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:paddingTop="14dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:paddingBottom="14dp">
 
                             <ImageView
@@ -477,7 +481,7 @@
                             android:layout_height="0.5dp"
                             android:layout_marginLeft="35dp"
                             android:layout_marginRight="35dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:background="@color/xian" />
                         <LinearLayout
                             android:id="@+id/linearLayout11"

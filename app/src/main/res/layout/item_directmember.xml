@@ -25,7 +25,7 @@
                 android:id="@+id/imageView1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@mipmap/headimg"
+                android:background="@mipmap/headimg"
                 app:sriv_oval="true" />
             <TextView
                 android:id="@+id/textView1"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="name"
-                android:textColor="@color/txt_black1"
+                android:textColor="@color/black1"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -45,7 +45,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:text="0"
-            android:textColor="@color/txt_black2"
+            android:textColor="@color/black1"
             android:textSize="12sp" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="0"
-            android:textColor="@color/txt_black2"
+            android:textColor="@color/black1"
             android:textSize="12sp" />
 
     </LinearLayout>

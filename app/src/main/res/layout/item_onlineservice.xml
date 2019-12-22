@@ -19,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="14dp"
             android:text="2017-09-15 12:12:12"
-            android:textColor="@color/txt_black2" />
+            android:textColor="@color/black2" />
         <!--自己-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                         android:lineSpacingExtra="3dp"
                         android:padding="8dp"
                         android:text=""
-                        android:textColor="@color/txt_black1"
+                        android:textColor="@color/black1"
                         android:textIsSelectable="true" />
 
                     <ImageView
@@ -92,7 +92,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="14dp"
             android:text="2017-09-15 12:12:12"
-            android:textColor="@color/txt_black2" />
+            android:textColor="@color/black2" />
         <!--对方-->
         <LinearLayout
             android:layout_width="match_parent"

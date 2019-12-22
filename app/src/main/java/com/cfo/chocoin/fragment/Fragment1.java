@@ -341,8 +341,8 @@ public class Fragment1 extends BaseFragment {
     private void changeUI() {
         if (type == 1) {
             textView1.setTextColor(getResources().getColor(R.color.green));
-            textView2.setTextColor(getResources().getColor(R.color.black3));
-            textView3.setTextColor(getResources().getColor(R.color.black3));
+            textView2.setTextColor(getResources().getColor(R.color.black4));
+            textView3.setTextColor(getResources().getColor(R.color.black4));
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.INVISIBLE);
@@ -355,9 +355,9 @@ public class Fragment1 extends BaseFragment {
             }
 
         } else if (type == 2) {
-            textView1.setTextColor(getResources().getColor(R.color.black3));
+            textView1.setTextColor(getResources().getColor(R.color.black4));
             textView2.setTextColor(getResources().getColor(R.color.green));
-            textView3.setTextColor(getResources().getColor(R.color.black3));
+            textView3.setTextColor(getResources().getColor(R.color.black4));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
             view3.setVisibility(View.INVISIBLE);
@@ -369,8 +369,8 @@ public class Fragment1 extends BaseFragment {
                 showEmptyPage();
             }
         } else if (type == 3) {
-            textView1.setTextColor(getResources().getColor(R.color.black3));
-            textView2.setTextColor(getResources().getColor(R.color.black3));
+            textView1.setTextColor(getResources().getColor(R.color.black4));
+            textView2.setTextColor(getResources().getColor(R.color.black4));
             textView3.setTextColor(getResources().getColor(R.color.green));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.INVISIBLE);

@@ -24,8 +24,17 @@ public class MyProfileModel implements Serializable {
     private String head;
     private String invite_code;
     private int grade;
+    private int auth;
     private int service_center_status;
     private String service_code;
+
+    public int getAuth() {
+        return auth;
+    }
+
+    public void setAuth(int auth) {
+        this.auth = auth;
+    }
 
     public String getId() {
         return id;

@@ -105,7 +105,7 @@
                                 android:paddingLeft="14dp"
                                 android:paddingRight="14dp"
                                 android:text="@string/fragment1_h2"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -140,7 +140,7 @@
                                 android:paddingLeft="14dp"
                                 android:paddingRight="14dp"
                                 android:text="@string/fragment1_h3"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 

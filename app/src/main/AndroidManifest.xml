@@ -189,6 +189,9 @@
         <activity
             android:name=".activity.NewcomerRewardActivity"
             android:label="签到有奖" />
+        <activity
+            android:name=".activity.VerifiedActivity"
+            android:label="实名认证" />
         <!--全面屏适配-->
         <meta-data
             android:name="android.max_aspect"

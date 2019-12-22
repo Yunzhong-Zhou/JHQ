@@ -28,7 +28,7 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
                 android:text="@string/app_prompt"
-                android:textColor="@color/txt_black"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -44,7 +44,7 @@
             android:lineSpacingExtra="5dp"
             android:paddingBottom="14dp"
             android:text=""
-            android:textColor="@color/txt_black1"
+            android:textColor="@color/black1"
             android:textSize="14sp" />
 
         <View

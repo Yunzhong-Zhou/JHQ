@@ -41,7 +41,9 @@ public class ServiceCenter_NoActivity extends BaseActivity {
                 break;
             case R.id.tv_shenqing:
                 //申请
-                CommonUtil.gotoActivity(ServiceCenter_NoActivity.this, SelectAddressActivity.class, false);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type",1);//1、服务中心 2、实名认证
+                CommonUtil.gotoActivityWithData(ServiceCenter_NoActivity.this, SelectAddressActivity.class,bundle, false);
                 break;
         }
     }

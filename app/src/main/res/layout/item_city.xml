@@ -10,6 +10,6 @@
         android:text="name"
         android:gravity="center_vertical"
         android:padding="10dp"
-        android:textColor="@color/txt_black1"/>
+        android:textColor="@color/black1"/>
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.cfo.chocoin.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,12 +21,20 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.liaoinstan.springview.widget.SpringView;
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 
 /**
@@ -37,6 +47,8 @@ public class Fragment2 extends BaseFragment {
     CommonAdapter<Fragment2Model> mAdapter1;
 
 
+
+    ConnectionFactory factory;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment2, container, false);
@@ -155,6 +167,25 @@ public class Fragment2 extends BaseFragment {
     protected void initData() {
 //        requestServer();
 
+        //连接设置
+        setupConnectionFactory();
+        //用于从线程中获取数据，更新ui
+        final Handler incomingMessageHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                String message = msg.getData().getString("msg");
+                MyLogger.i("test>>>>>>>", "msg:" + message);
+
+            }
+        };
+        //开启消费者线程
+        //subscribe(incomingMessageHandler);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                basicConsume(incomingMessageHandler);
+            }
+        }).start();
     }
 
     @Override
@@ -404,5 +435,57 @@ public class Fragment2 extends BaseFragment {
         lineChart.setData(lineData);
     }
 
+
+
+
+
+
+    /**
+     * 连接设置
+     */
+    private void setupConnectionFactory() {
+        factory =  new ConnectionFactory();
+        factory.setHost("221.122.37.70");
+        factory.setPort(5672);
+        factory.setUsername("user");
+        factory.setPassword("SZUI78*AAQa");
+        factory.setAutomaticRecoveryEnabled(true);// 设置连接恢复
+    }
+
+    /**
+     * 收消息（从发布者那边订阅消息）
+     */
+    private void basicConsume(final Handler handler){
+
+        try {
+            //连接
+            Connection connection = factory.newConnection() ;
+            //通道
+            final Channel channel = connection.createChannel() ;
+            //实现Consumer的最简单方法是将便捷类DefaultConsumer子类化。可以在basicConsume 调用上传递此子类的对象以设置订阅：
+            channel.basicConsume("myqueue" , false ,  new DefaultConsumer(channel){
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    super.handleDelivery(consumerTag, envelope, properties, body);
+
+                    String msg = new String(body) ;
+                    long deliveryTag = envelope.getDeliveryTag() ;
+                    channel.basicAck(deliveryTag , false);
+                    //从message池中获取msg对象更高效
+                    Message uimsg = handler.obtainMessage();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("msg", msg);
+                    uimsg.setData(bundle);
+                    handler.sendMessage(uimsg);
+
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

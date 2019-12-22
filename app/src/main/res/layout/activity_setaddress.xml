@@ -32,8 +32,8 @@
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
                 android:text="@string/address_h2"
-                android:textColor="@color/default_text"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
 
             <EditText
                 android:id="@+id/editText1"
@@ -47,8 +47,8 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:textColor="@color/txt_black1"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
         </LinearLayout>
 
 
@@ -71,8 +71,8 @@
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
                 android:text="@string/address_h4"
-                android:textColor="@color/default_text"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -86,8 +86,8 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:textColor="@color/txt_black1"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
         </LinearLayout>
 
 
@@ -110,8 +110,8 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:textColor="@color/default_text"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -125,8 +125,8 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:textColor="@color/txt_black1"
-                android:textColorHint="@color/txt_black2" />
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -164,7 +164,7 @@
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
                 android:text="@string/address_h8"
-                android:textColor="@color/default_text"
+                android:textColor="@color/black1"
                 android:textSize="14sp" />
 
             <EditText
@@ -180,8 +180,8 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:textColor="@color/txt_black1"
-                android:textColorHint="@color/txt_black2"
+                android:textColor="@color/black1"
+                android:textColorHint="@color/black4"
                 android:textSize="15sp" />
 
         </LinearLayout>

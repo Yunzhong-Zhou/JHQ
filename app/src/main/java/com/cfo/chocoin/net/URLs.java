@@ -44,9 +44,13 @@ public class URLs {
      */
     public static final String NewcomerReward= "/api/member/sign";
     /**
-     * 实名认证
+     * 实名认证1
      */
-    public static final String Verified = "/api/member/certification";
+    public static final String Verified1 = "/api/auth/load";
+    /**
+     * 实名认证2
+     */
+    public static final String Verified2 = "/api/auth/check";
 
     //学院
     /**
@@ -163,9 +167,9 @@ public class URLs {
      */
     public static final String MyTakeCash = "/api/withdrawal/record";
     /**
-     * 我的区块列表
+     * 有奖邀请
      */
-    public static final String MyQuKuai = "/api/block/record";
+    public static final String InvitationReward = "/api/index/share";
     /**
      * 提现详情
      */

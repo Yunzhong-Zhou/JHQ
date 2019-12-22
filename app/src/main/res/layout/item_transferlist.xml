@@ -21,7 +21,7 @@
             android:drawableLeft="@mipmap/ic_item_transferlist"
             android:drawablePadding="14dp"
             android:singleLine="true"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:text="num"
             />
         <TextView
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
-            android:textColor="@color/black3"
+            android:textColor="@color/black4"
             android:text="time"
             android:visibility="visible"/>
     </LinearLayout>

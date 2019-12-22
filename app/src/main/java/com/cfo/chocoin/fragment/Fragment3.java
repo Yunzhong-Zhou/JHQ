@@ -254,7 +254,7 @@ public class Fragment3 extends BaseFragment {
                 tv_money.setText(response.getReality_money());
                 //状态
                 switch (response.getResult()) {
-                    case 0:
+                    case -1:
                         //持平
                         tv_type.setText(getString(R.string.fragment3_h36));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);

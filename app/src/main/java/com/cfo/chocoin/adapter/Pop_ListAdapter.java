@@ -65,7 +65,7 @@ public class Pop_ListAdapter extends BaseAdapter {
         } else {
             holder.textView1.setSelected(false);
             holder.textView1.setPressed(false);
-            holder.textView1.setTextColor(context.getResources().getColor(R.color.black1));
+            holder.textView1.setTextColor(context.getResources().getColor(R.color.black3));
 //            holder.textView1.setBackgroundColor(context.getResources().getColor(R.color.pop_bg5));
         }
         return convertView;

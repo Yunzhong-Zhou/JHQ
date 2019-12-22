@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/scavengingpayment_h22"
-                        android:textColor="@color/black3"
+                        android:textColor="@color/black4"
                         android:textSize="12sp" />
 
                     <LinearLayout
@@ -90,7 +90,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
                                 android:text="@string/scavengingpayment_h23"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp"
                                 android:visibility="visible" />
                         </LinearLayout>
@@ -117,7 +117,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
                                 android:text="@string/scavengingpayment_h25"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="13sp"
                                 android:visibility="visible" />
                         </LinearLayout>
@@ -150,7 +150,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="35dp"
                                 android:text="@string/scavengingpayment_h26"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -176,7 +176,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/scavengingpayment_h28"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -211,7 +211,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="35dp"
                                 android:text="@string/scavengingpayment_h27"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -237,7 +237,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/scavengingpayment_h29"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -335,7 +335,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="@string/scavengingpayment_h31"
-                                android:textColor="@color/black3"
+                                android:textColor="@color/black4"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
                         </LinearLayout>

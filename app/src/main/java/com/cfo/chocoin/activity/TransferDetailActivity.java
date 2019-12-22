@@ -190,7 +190,7 @@ public class TransferDetailActivity extends BaseActivity {
         if (type == 1) {
             //交易记录
             textView_1.setTextColor(getResources().getColor(R.color.green));
-            textView_2.setTextColor(getResources().getColor(R.color.black3));
+            textView_2.setTextColor(getResources().getColor(R.color.black4));
 
             view_1.setVisibility(View.VISIBLE);
             view_2.setVisibility(View.INVISIBLE);
@@ -204,7 +204,7 @@ public class TransferDetailActivity extends BaseActivity {
 
         } else if (type == 2) {
             //交易记录
-            textView_1.setTextColor(getResources().getColor(R.color.black3));
+            textView_1.setTextColor(getResources().getColor(R.color.black4));
             textView_2.setTextColor(getResources().getColor(R.color.green));
 
             view_1.setVisibility(View.INVISIBLE);

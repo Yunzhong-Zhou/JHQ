@@ -39,6 +39,10 @@ android {
         }
     }*/
 
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -151,4 +155,6 @@ dependencies {
     //折线图
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    //长连接-RabbitMQ
+    implementation 'com.rabbitmq:amqp-client:5.8.0'
 }
