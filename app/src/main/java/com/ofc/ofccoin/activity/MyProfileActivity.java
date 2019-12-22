@@ -197,9 +197,7 @@ public class MyProfileActivity extends BaseActivity {
                 break;
             case R.id.linearLayout10:
                 //修改服务码
-                if (model.getGrade() >0) {
-                    CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
-                }
+                CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
                 //                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
                 break;
             case R.id.linearLayout7:
@@ -239,12 +237,12 @@ public class MyProfileActivity extends BaseActivity {
 
                 break;
             case R.id.linearLayout13:
-                if (model.getAuth() ==1){
+                if (model.getAuth() == 1) {
                     //未认证
                     Bundle bundle = new Bundle();
-                    bundle.putInt("type",2);//1、服务中心 2、实名认证
-                    CommonUtil.gotoActivityWithData(this, SelectAddressActivity.class,bundle, false);
-                }else {
+                    bundle.putInt("type", 2);//1、服务中心 2、实名认证
+                    CommonUtil.gotoActivityWithData(this, SelectAddressActivity.class, bundle, false);
+                } else {
                     //已认证
                     myToast(getString(R.string.fragment5_h27));
                 }

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/headview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FC">
+    android:background="#F5F7FC"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:layout_marginTop="100dp"
+        android:padding="14dp"
+        android:text="发消息"
+        android:gravity="center"
+        android:textColor="@color/white"/>
 
     <com.ofc.ofccoin.view.LoadingLayout
         android:id="@+id/loading_layout"
@@ -24,4 +35,4 @@
     </com.ofc.ofccoin.view.LoadingLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

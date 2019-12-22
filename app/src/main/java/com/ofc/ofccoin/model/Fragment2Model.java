@@ -8,29 +8,37 @@ import java.util.List;
  */
 public class Fragment2Model implements Serializable {
 
-    private List<MoneylistBean> moneylist;
+    /**
+     * symbol : btc
+     * response : [1.5770196E12,7168.75,7194.05,7156.5,7168,968.3623]
+     * type : kline
+     */
 
-    public List<MoneylistBean> getMoneylist() {
-        return moneylist;
+    private String symbol;
+    private String type;
+    private List<Double> response;
+
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setMoneylist(List<MoneylistBean> moneylist) {
-        this.moneylist = moneylist;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public static class MoneylistBean {
-        /**
-         * money : 1
-         */
+    public String getType() {
+        return type;
+    }
 
-        private int money;
+    public void setType(String type) {
+        this.type = type;
+    }
 
-        public int getMoney() {
-            return money;
-        }
+    public List<Double> getResponse() {
+        return response;
+    }
 
-        public void setMoney(int money) {
-            this.money = money;
-        }
+    public void setResponse(List<Double> response) {
+        this.response = response;
     }
 }

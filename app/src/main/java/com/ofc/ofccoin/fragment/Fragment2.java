@@ -8,7 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofccoin.R;
 import com.ofc.ofccoin.activity.MainActivity;
 import com.ofc.ofccoin.base.BaseFragment;
@@ -16,11 +21,6 @@ import com.ofc.ofccoin.model.Fragment2Model;
 import com.ofc.ofccoin.net.OkHttpClientManager;
 import com.ofc.ofccoin.net.URLs;
 import com.ofc.ofccoin.utils.MyLogger;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.liaoinstan.springview.widget.SpringView;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -46,9 +46,18 @@ public class Fragment2 extends BaseFragment {
     List<Fragment2Model> list1 = new ArrayList<>();
     CommonAdapter<Fragment2Model> mAdapter1;
 
+    List<String>stringList = new ArrayList<>();
 
-
+    private String userName = "user";
+    private String passWord = "SZUI78*AAQa";
+    private String virtualHost = "/";
+    private String hostName = "221.122.37.70";
+    private int portNum = 5672;
+    private String queueName = "bsTradingPoint";//接消息name
+    private String exchangeName = "BsTradingPoint";//发消息name
+    private String rountingKey = "key";
     ConnectionFactory factory;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment2, container, false);
@@ -114,6 +123,7 @@ public class Fragment2 extends BaseFragment {
             }
         });
 
+
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
         final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
@@ -161,25 +171,39 @@ public class Fragment2 extends BaseFragment {
             }
         });*/
 
+        TextView textView = findViewByID_My(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        basicPublish();//发消息
+                    }
+                }).start();
+            }
+        });
+
     }
 
     @Override
     protected void initData() {
 //        requestServer();
 
-        //连接设置
-        setupConnectionFactory();
         //用于从线程中获取数据，更新ui
         final Handler incomingMessageHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 String message = msg.getData().getString("msg");
                 MyLogger.i("test>>>>>>>", "msg:" + message);
-
+                myToast("收到消息"+message);
+                stringList.add(message);
             }
         };
+        //连接设置
+        setupConnectionFactory();
+
         //开启消费者线程
-        //subscribe(incomingMessageHandler);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -197,9 +221,22 @@ public class Fragment2 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-        showProgress(true, getString(R.string.app_loading));
+        /*showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
-        Request(string);
+        Request(string);*/
+
+        myToast("收到"+stringList.size()+"条数据");
+
+
+        /*BigDecimal bd = new BigDecimal("1.5770196E+12");
+        String str = bd.toPlainString();
+        MyLogger.i(">>>>>>"+str);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(Long.valueOf(str));
+        MyLogger.i(">>>>>>"+ simpleDateFormat.format(date));*/
+
+
     }
 
     private void Request(String string) {
@@ -219,116 +256,6 @@ public class Fragment2 extends BaseFragment {
             public void onResponse(final Fragment2Model response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>区块" + response);
-                /*//待激活
-                head1_textView1.setText(response.getBlock_wait_active_money());
-                //总区块
-                head1_textView3.setText(response.getBlock_money());
-                //已激活
-                head1_textView4.setText(response.getBlock_active_money());
-                //已奖励
-                head1_textView5.setText(response.getBlock_award_money());
-                //未奖励
-                head1_textView6.setText(response.getWait_block_award_money());
-
-                //参与记录
-                linearLayout_add1.removeAllViews();
-                if (response.getMy_block_list().size() > 0) {
-                    linearLayout_add1.setVisibility(View.VISIBLE);
-                    linearLayout_empty.setVisibility(View.GONE);
-                    for (int i = 0; i < response.getMy_block_list().size(); i++) {
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        LayoutInflater inflater = LayoutInflater.from(getActivity());
-                        View view = inflater.inflate(R.layout.item_myqukuai, null, false);
-                        view.setLayoutParams(lp);
-
-                        //进度条
-                        RatingBar add_ratingBar = view.findViewById(R.id.add_ratingBar);
-                        float max = Float.valueOf(response.getMy_block_list().get(i).getMoney());
-
-                        MyLogger.i(">>>>最大>" + (int) max + ">>>>>当前>" + Float.valueOf(response.getMy_block_list().get(i).getHas_money()));
-                        add_ratingBar.setNumStars((int) max);
-                        add_ratingBar.setRating(Float.valueOf(response.getMy_block_list().get(i).getHas_money()));
-
-                        LinearLayout add_ll1 = view.findViewById(R.id.add_ll1);
-                        TextView add_tv1 = view.findViewById(R.id.add_tv1);
-                        TextView add_tv2 = view.findViewById(R.id.add_tv2);
-                        TextView add_tv3 = view.findViewById(R.id.add_tv3);
-                        TextView add_tv4 = view.findViewById(R.id.add_tv4);
-                        TextView add_tv5 = view.findViewById(R.id.add_tv5);
-                        if (response.getMy_block_list().get(i).getStatus() == 2) {
-                            //已激活
-                            add_ll1.setBackgroundResource(R.drawable.yuanjiaobiankuang_10_huise);
-                            add_tv3.setTextColor(getResources().getColor(R.color.green));
-                        } else {
-                            add_ll1.setBackgroundResource(R.drawable.yuanjiao_10_huise);
-                            add_tv3.setTextColor(getResources().getColor(R.color.black1));
-                        }
-                        add_tv1.setText(getString(R.string.fragment2_h21) + (i + 1));
-                        add_tv2.setText(response.getMy_block_list().get(i).getCreated_at());
-                        add_tv3.setText(response.getMy_block_list().get(i).getStatus_title());
-                        add_tv4.setText(response.getMy_block_list().get(i).getMoney());
-                        add_tv5.setText(response.getMy_block_list().get(i).getHas_money());
-
-                        linearLayout_add1.addView(view);
-                    }
-                } else {
-                    linearLayout_add1.setVisibility(View.GONE);
-                    linearLayout_empty.setVisibility(View.VISIBLE);
-                }
-                //激活动态
-                list1 = response.getNewest_block_all();
-                mAdapter1 = new CommonAdapter<Fragment2Model.NewestBlockAllBean>
-                        (getActivity(), R.layout.item_fragment2, list1) {
-                    @Override
-                    protected void convert(ViewHolder holder, final Fragment2Model.NewestBlockAllBean model, int position) {
-                        holder.setText(R.id.textView1, model.getMember_nickname());
-                        holder.setText(R.id.textView2, model.getMoney() + getString(R.string.app_ge));
-                        holder.setText(R.id.textView3, model.getCreated_at());
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);
-
-                    }
-                };
-                mHeaderAndFooterWrapper1 = new HeaderAndFooterWrapper(mAdapter1);
-                mHeaderAndFooterWrapper1.addHeaderView(headerView1);
-                mHeaderAndFooterWrapper1.addHeaderView(headerView2);
-
-
-                //说明
-//                head3_textView.setText(response.getBlock_explain());
-                if (!response.getBlock_explain().equals("")){
-                    head3_textView.setText(response.getBlock_explain().replace("\\n", "\n"));
-                }
-                mAdapter2 = new CommonAdapter<Fragment2Model>
-                        (getActivity(), R.layout.item_fragment2, list2) {
-                    @Override
-                    protected void convert(ViewHolder holder, final Fragment2Model model, int position) {
-                *//*holder.setText(R.id.textView1, model.getMember_nickname());
-                holder.setText(R.id.textView2, "¥ " + model.getMoney());
-                holder.setText(R.id.textView3, model.getCreated_at());
-                holder.setText(R.id.textView4, model.getPackage_title());
-                ImageView imageView1 = holder.getView(R.id.imageView1);
-                if (!model.getMember_head().equals(""))
-                    Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
-                            .centerCrop().into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);*//*
-
-                    }
-                };
-                mHeaderAndFooterWrapper2 = new HeaderAndFooterWrapper(mAdapter2);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView1);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView2);
-                mHeaderAndFooterWrapper2.addHeaderView(headerView3);*/
 
                 hideProgress();
 
@@ -337,18 +264,8 @@ public class Fragment2 extends BaseFragment {
         });
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-        }
-    }
-
-
-
     /**
-     * 初始化图表
+     * ************************************初始化图表***********************************************
      */
     private void initChart(LineChart lineChart) {
         /***图表设置***/
@@ -423,11 +340,11 @@ public class Fragment2 extends BaseFragment {
      * @param name     曲线名称
      * @param color    曲线颜色
      */
-    public void showLineChart(List<Fragment2Model.MoneylistBean> dataList, String name, int color,LineChart lineChart) {
+    public void showLineChart(List<Fragment2Model> dataList, String name, int color, LineChart lineChart) {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < dataList.size(); i++) {
-            arrayList.add(new Entry(i, dataList.get(i).getMoney()));
-        }
+        /*for (int i = 0; i < dataList.size(); i++) {
+            arrayList.add(new Entry(i, dataList.get(i)));
+        }*/
         // 每一个LineDataSet代表一条线
         LineDataSet lineDataSet = new LineDataSet(arrayList, name);
         initLineDataSet(lineDataSet, color, LineDataSet.Mode.LINEAR);
@@ -436,41 +353,42 @@ public class Fragment2 extends BaseFragment {
     }
 
 
-
-
-
-
+    /**
+     * *************************************长连接**************************************************
+     */
     /**
      * 连接设置
      */
     private void setupConnectionFactory() {
-        factory =  new ConnectionFactory();
-        factory.setHost("221.122.37.70");
-        factory.setPort(5672);
-        factory.setUsername("user");
-        factory.setPassword("SZUI78*AAQa");
+        factory = new ConnectionFactory();
+        factory.setHost(hostName);
+        factory.setPort(portNum);
+        factory.setUsername(userName);
+        factory.setPassword(passWord);
         factory.setAutomaticRecoveryEnabled(true);// 设置连接恢复
+
     }
 
     /**
      * 收消息（从发布者那边订阅消息）
      */
-    private void basicConsume(final Handler handler){
-
+    private void basicConsume(final Handler handler) {
         try {
             //连接
-            Connection connection = factory.newConnection() ;
+            Connection connection = factory.newConnection();
             //通道
-            final Channel channel = connection.createChannel() ;
+            final Channel channel = connection.createChannel();
+
             //实现Consumer的最简单方法是将便捷类DefaultConsumer子类化。可以在basicConsume 调用上传递此子类的对象以设置订阅：
-            channel.basicConsume("myqueue" , false ,  new DefaultConsumer(channel){
+            //队列名称、
+            channel.basicConsume(queueName, false, new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     super.handleDelivery(consumerTag, envelope, properties, body);
 
-                    String msg = new String(body) ;
-                    long deliveryTag = envelope.getDeliveryTag() ;
-                    channel.basicAck(deliveryTag , false);
+                    String msg = new String(body);
+                    long deliveryTag = envelope.getDeliveryTag();
+                    channel.basicAck(deliveryTag, false);
                     //从message池中获取msg对象更高效
                     Message uimsg = handler.obtainMessage();
                     Bundle bundle = new Bundle();
@@ -488,4 +406,73 @@ public class Fragment2 extends BaseFragment {
         }
     }
 
+    /**
+     * 发消息
+     */
+    private void basicPublish(){
+
+        try {
+            //连接
+            Connection connection = factory.newConnection() ;
+            //通道
+            Channel channel = connection.createChannel() ;
+            //声明了一个交换和一个服务器命名的队列，然后将它们绑定在一起。
+            channel.exchangeDeclare(exchangeName , "fanout" , true) ;
+            String queueName = channel.queueDeclare().getQueue() ;
+            channel.queueBind(queueName , exchangeName , rountingKey) ;
+            //消息发布
+            byte[] msg = "hello word!".getBytes() ;
+            channel.basicPublish(exchangeName , rountingKey  ,null , msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+
+    }
+    /**
+     * 收消息
+     */
+    /*private void basicConsume(){
+
+        try {
+            //连接
+            Connection connection = factory.newConnection() ;
+            //通道
+            final Channel channel = connection.createChannel() ;
+            //声明了一个交换和一个服务器命名的队列，然后将它们绑定在一起。
+            channel.exchangeDeclare(exchangeName , "fanout" , true) ;
+            String queueName = channel.queueDeclare().getQueue() ;
+            Log.e("TAG" , queueName + " :queueName") ;
+            channel.queueBind(queueName , exchangeName , rountingKey) ;
+            //实现Consumer的最简单方法是将便捷类DefaultConsumer子类化。可以在basicConsume 调用上传递此子类的对象以设置订阅：
+            channel.basicConsume(queueName , false , "administrator" , new DefaultConsumer(channel){
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    super.handleDelivery(consumerTag, envelope, properties, body);
+
+                    String rountingKey = envelope.getRoutingKey() ;//路由密钥
+                    String contentType = properties.getContentType() ;//contentType字段，如果尚未设置字段，则为null。
+                    String msg = new String(body,"UTF-8") ;//接收到的消息
+                    long deliveryTag = envelope.getDeliveryTag() ;//交付标记
+
+                    Log.e("TAG" , rountingKey+"：rountingKey") ;
+                    Log.e("TAG" , contentType+"：contentType") ;
+                    Log.e("TAG" , msg+"：msg") ;
+                    Log.e("TAG" , deliveryTag+"：deliveryTag") ;
+                    Log.e("TAG" , consumerTag+"：consumerTag") ;
+                    Log.e("TAG" , envelope.getExchange()+"：exchangeName") ;
+
+                    channel.basicAck(deliveryTag , false);
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+
+    }*/
 }

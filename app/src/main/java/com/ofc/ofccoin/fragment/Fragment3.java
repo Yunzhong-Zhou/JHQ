@@ -256,16 +256,19 @@ public class Fragment3 extends BaseFragment {
                 switch (response.getResult()) {
                     case -1:
                         //持平
-                        tv_type.setText(getString(R.string.fragment3_h36));
-                        tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);
+                        tv_type.setVisibility(View.GONE);
+                       /* tv_type.setText(getString(R.string.fragment3_h36));
+                        tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);*/
                         break;
                     case 1:
                         //盈利
+                        tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h2));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_lvse);
                         break;
                     case 2:
                         //亏损
+                        tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h21));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_juse);
                         break;

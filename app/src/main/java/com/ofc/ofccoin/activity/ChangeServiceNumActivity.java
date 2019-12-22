@@ -115,7 +115,6 @@ public class ChangeServiceNumActivity extends BaseActivity {
             public void onResponse(ChangeServiceNumModel response) {
                 MyLogger.i(">>>>>>>>>服务中心" + response);
                 hideProgress();
-                editText1.setText(response.getService_center().getCode());
                 if (response.getService_center_grade() == 0){
                     //可编辑
                     editText1.setEnabled(true);
@@ -123,18 +122,22 @@ public class ChangeServiceNumActivity extends BaseActivity {
                     //不可编辑
                     editText1.setEnabled(false);
                 }
-                textView1.setText(response.getService_center().getAddr());//地址
-                textView2.setText(response.getService_center().getAddr_detail() + "  "
-                        + response.getService_center().getArea() + "㎡");//地址
-                textView3.setText(response.getService_center().getCode());//代码
+                if (response.getService_center() != null){
+                    editText1.setText(response.getService_center().getCode());
+                    textView1.setText(response.getService_center().getAddr());//地址
+                    textView2.setText(response.getService_center().getAddr_detail() + "  "
+                            + response.getService_center().getArea() + "㎡");//地址
+                    textView3.setText(response.getService_center().getCode());//代码
 
-                if (!response.getService_center().getPic1().equals(""))
-                    Glide.with(ChangeServiceNumActivity.this)
-                            .load(IMGHOST + response.getService_center().getPic1())
-                            .centerCrop()
+                    if (!response.getService_center().getPic1().equals(""))
+                        Glide.with(ChangeServiceNumActivity.this)
+                                .load(IMGHOST + response.getService_center().getPic1())
+                                .centerCrop()
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
+                                .into(imageView1);//加载图片
+                }
+
             }
         });
     }
