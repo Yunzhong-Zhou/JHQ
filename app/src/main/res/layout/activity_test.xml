@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey1">
 
-    <com.cfo.chocoin.view.WaveProgress
+    <com.ofc.ofccoin.view.WaveProgress
         android:id="@+id/wave_progress_bar"
         android:layout_width="170dp"
         android:layout_height="170dp"
@@ -23,7 +23,7 @@
         app:waveHeight="10dp"
         app:waveNum="2" />
 
-    <com.cfo.chocoin.view.MyArcView
+    <com.ofc.ofccoin.view.MyArcView
         android:id="@+id/myarcview"
         android:layout_width="290dp"
         android:layout_height="280dp"

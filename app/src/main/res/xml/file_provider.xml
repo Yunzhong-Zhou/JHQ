@@ -35,7 +35,7 @@
         path="." />
 
 
-    <external-path path="Android/data/com.cfo.chocoin/" name="files_root" />
+    <external-path path="Android/data/com.ofc.ofccoin/" name="files_root" />
     <external-path path="." name="external_storage_root" />
 
     <!--升级-->

@@ -431,7 +431,7 @@
                             android:background="@color/xian" />
                     </LinearLayout>
                     <!--列表-->
-                    <com.cfo.chocoin.view.LoadingLayout
+                    <com.ofc.ofccoin.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -440,7 +440,7 @@
                             android:id="@+id/recyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
-                    </com.cfo.chocoin.view.LoadingLayout>
+                    </com.ofc.ofccoin.view.LoadingLayout>
                 </LinearLayout>
 
             </LinearLayout>

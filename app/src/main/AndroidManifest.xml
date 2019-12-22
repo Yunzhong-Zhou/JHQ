@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.cfo.chocoin">
+    package="com.ofc.ofccoin">
 
     <!--网络权限问题-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -41,7 +41,7 @@
     <!-- 极光推送 -->
 
     <application
-        android:name="com.cfo.chocoin.MyApplication"
+        android:name="com.ofc.ofccoin.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -52,7 +52,7 @@
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity
-            android:name="com.cfo.chocoin.activity.HelloActivity"
+            android:name="com.ofc.ofccoin.activity.HelloActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,136 +61,136 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cfo.chocoin.utils.permission.PermissionsActivity"
+            android:name="com.ofc.ofccoin.utils.permission.PermissionsActivity"
             android:label="权限页" />
         <activity
-            android:name="com.cfo.chocoin.activity.GuideActivity"
+            android:name="com.ofc.ofccoin.activity.GuideActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="引导页" />
         <activity
-            android:name="com.cfo.chocoin.activity.SelectCountryActivity"
+            android:name="com.ofc.ofccoin.activity.SelectCountryActivity"
             android:label="选择国家" />
         <activity
-            android:name="com.cfo.chocoin.activity.MainActivity"
+            android:name="com.ofc.ofccoin.activity.MainActivity"
             android:label="主页" />
         <activity
-            android:name="com.cfo.chocoin.activity.LoginActivity"
+            android:name="com.ofc.ofccoin.activity.LoginActivity"
             android:label="登录" />
         <activity
-            android:name="com.cfo.chocoin.activity.ForgetPasswordActivity"
+            android:name="com.ofc.ofccoin.activity.ForgetPasswordActivity"
             android:label="忘记密码" />
         <activity
-            android:name="com.cfo.chocoin.activity.RegisteredActivity"
+            android:name="com.ofc.ofccoin.activity.RegisteredActivity"
             android:label="注册" />
         <activity
-            android:name="com.cfo.chocoin.activity.WebContentActivity"
+            android:name="com.ofc.ofccoin.activity.WebContentActivity"
             android:label="网页" />
 
         <activity
-            android:name="com.cfo.chocoin.activity.PastListActivity"
+            android:name="com.ofc.ofccoin.activity.PastListActivity"
             android:label="往期列表" />
         <!--我的-->
         <activity
-            android:name="com.cfo.chocoin.activity.MyProfileActivity"
+            android:name="com.ofc.ofccoin.activity.MyProfileActivity"
             android:label="资料管理" />
         <activity
-            android:name="com.cfo.chocoin.activity.SetTransactionPasswordActivity"
+            android:name="com.ofc.ofccoin.activity.SetTransactionPasswordActivity"
             android:label="修改交易密码" />
         <activity
-            android:name="com.cfo.chocoin.activity.ChangePasswordActivity"
+            android:name="com.ofc.ofccoin.activity.ChangePasswordActivity"
             android:label="修改登录密码" />
         <activity
-            android:name="com.cfo.chocoin.activity.SelectAddressActivity"
+            android:name="com.ofc.ofccoin.activity.SelectAddressActivity"
             android:label="地址管理" />
         <activity
-            android:name="com.cfo.chocoin.activity.SetAddressActivity"
+            android:name="com.ofc.ofccoin.activity.SetAddressActivity"
             android:label="ETH地址管理和GUS地址管理" />
         <activity
-            android:name="com.cfo.chocoin.activity.ChangeServiceNumActivity"
+            android:name="com.ofc.ofccoin.activity.ChangeServiceNumActivity"
             android:label="修改服务代码" />
         <activity
-            android:name="com.cfo.chocoin.activity.ServiceCenter_NoActivity"
+            android:name="com.ofc.ofccoin.activity.ServiceCenter_NoActivity"
             android:label="服务中心-未申请" />
         <activity
-            android:name="com.cfo.chocoin.activity.ServiceCenter_YesActivity"
+            android:name="com.ofc.ofccoin.activity.ServiceCenter_YesActivity"
             android:label="服务中心-申请通过" />
         <activity
-            android:name="com.cfo.chocoin.activity.ServiceCenter_MoreActivity"
+            android:name="com.ofc.ofccoin.activity.ServiceCenter_MoreActivity"
             android:label="服务中心-列表" />
         <activity
-            android:name="com.cfo.chocoin.activity.SetServiceCenterActivity"
+            android:name="com.ofc.ofccoin.activity.SetServiceCenterActivity"
             android:label="服务中心-创建" />
         <activity
-            android:name="com.cfo.chocoin.activity.ShareActivity"
+            android:name="com.ofc.ofccoin.activity.ShareActivity"
             android:label="推广" />
         <activity
-            android:name="com.cfo.chocoin.activity.SharePeopleActivity"
+            android:name="com.ofc.ofccoin.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
-            android:name="com.cfo.chocoin.activity.AccountDetailActivity"
+            android:name="com.ofc.ofccoin.activity.AccountDetailActivity"
             android:label="我的钱包" />
         <activity
-            android:name="com.cfo.chocoin.activity.MyRechargeActivity"
+            android:name="com.ofc.ofccoin.activity.MyRechargeActivity"
             android:label="我的充值" />
         <activity
-            android:name="com.cfo.chocoin.activity.RechargeDetailActivity"
+            android:name="com.ofc.ofccoin.activity.RechargeDetailActivity"
             android:label="充值详情" />
         <activity
-            android:name="com.cfo.chocoin.activity.TakeCashActivity"
+            android:name="com.ofc.ofccoin.activity.TakeCashActivity"
             android:label="提现" />
         <activity
-            android:name="com.cfo.chocoin.activity.MyTakeCashActivity"
+            android:name="com.ofc.ofccoin.activity.MyTakeCashActivity"
             android:label="我的提现" />
         <activity
-            android:name="com.cfo.chocoin.activity.TakeCashDetailActivity"
+            android:name="com.ofc.ofccoin.activity.TakeCashDetailActivity"
             android:label="提现详情" />
         <activity
-            android:name=".activity.InvitationRewardActivity"
+            android:name="com.ofc.ofccoin.activity.InvitationRewardActivity"
             android:label="有奖邀请" />
         <activity
-            android:name="com.cfo.chocoin.activity.OnlineServiceActivity"
+            android:name="com.ofc.ofccoin.activity.OnlineServiceActivity"
             android:label="在线客服" />
         <activity
-            android:name="com.cfo.chocoin.activity.InformationActivity"
+            android:name="com.ofc.ofccoin.activity.InformationActivity"
             android:label="公告通知" />
         <activity
-            android:name="com.cfo.chocoin.activity.MyPosterActivity"
+            android:name="com.ofc.ofccoin.activity.MyPosterActivity"
             android:label="我的海报" />
         <activity
-            android:name=".activity.TransferActivity"
+            android:name="com.ofc.ofccoin.activity.TransferActivity"
             android:label="划转-创建合约" />
         <activity
-            android:name="com.cfo.chocoin.activity.TransferListActivity"
+            android:name="com.ofc.ofccoin.activity.TransferListActivity"
             android:label="合约记录" />
         <activity
-            android:name="com.cfo.chocoin.activity.TransferDetailActivity"
+            android:name="com.ofc.ofccoin.activity.TransferDetailActivity"
             android:label="合约详情" />
         <activity
-            android:name="com.cfo.chocoin.activity.QRCodeActivity"
+            android:name="com.ofc.ofccoin.activity.QRCodeActivity"
             android:label="收款二维码" />
         <activity
-            android:name="com.cfo.chocoin.view.zxing.CaptureActivity"
+            android:name="com.ofc.ofccoin.view.zxing.CaptureActivity"
             android:label="扫一扫" />
         <activity
-            android:name="com.cfo.chocoin.activity.ScavengingPaymentActivity"
+            android:name="com.ofc.ofccoin.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
         <activity
-            android:name="com.cfo.chocoin.activity.TransferRecordActivity"
+            android:name="com.ofc.ofccoin.activity.TransferRecordActivity"
             android:label="转账记录" />
         <activity
-            android:name="com.cfo.chocoin.activity.BankCardSettingActivity"
+            android:name="com.ofc.ofccoin.activity.BankCardSettingActivity"
             android:label="绑定银行卡" />
         <activity
-            android:name="com.cfo.chocoin.activity.ScanCodePaymentActivity"
+            android:name="com.ofc.ofccoin.activity.ScanCodePaymentActivity"
             android:label="扫码支付" />
         <activity
-            android:name="com.cfo.chocoin.activity.BankPaymentActivity"
+            android:name="com.ofc.ofccoin.activity.BankPaymentActivity"
             android:label="银联支付" />
         <activity
-            android:name=".activity.NewcomerRewardActivity"
+            android:name="com.ofc.ofccoin.activity.NewcomerRewardActivity"
             android:label="签到有奖" />
         <activity
-            android:name=".activity.VerifiedActivity"
+            android:name="com.ofc.ofccoin.activity.VerifiedActivity"
             android:label="实名认证" />
         <!--全面屏适配-->
         <meta-data
@@ -214,7 +214,7 @@
         </service>
         <!--极光推送-->
         <receiver
-            android:name="com.cfo.chocoin.utils.jpush.MyReceiver"
+            android:name="com.ofc.ofccoin.utils.jpush.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -227,7 +227,7 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.cfo.chocoin.utils.jpush.MyJPushMessageReceiver">
+        <receiver android:name="com.ofc.ofccoin.utils.jpush.MyJPushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="${applicationId}"></category>
