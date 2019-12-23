@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.ofc.ofc.R;
-import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.calendarview.util.DateUtils;
 
 import java.text.SimpleDateFormat;
@@ -206,7 +205,7 @@ public class CalendarView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mColumnWidth = getWidth() / 7;
-        mRowHeight = getHeight() / 6;
+        mRowHeight = getHeight() / 6 + 10;
         mPaint.setTextSize(mTextSize);
 
         int year = mCalendar.get(Calendar.YEAR);
@@ -219,23 +218,24 @@ public class CalendarView extends View {
 
         //1号 如果为周日 行数减1
         boolean isfrist = false;
-        MyLogger.i(">>>>>"+week);
-        if (week == 7){
+        if (week == 7) {
             isfrist = true;
         }
+
         // 绘制每天
         for (int day = 1; day <= days; day++) {
             // 获取天在行、列的位置
             int column = (day + week - 1) % 7;
             int row = (day + week - 1) / 7;
 
-            if (isfrist){
+            if (isfrist) {
                 row--;
             }
             // 存储对应天
             mDays[row][column] = day;
 
             String dayStr = String.valueOf(day);
+
             float textWidth = mPaint.measureText(dayStr);
             int x = (int) (mColumnWidth * column + (mColumnWidth - textWidth) / 2);
             int y = (int) (mRowHeight * row + mRowHeight / 2 - (mPaint.ascent() + mPaint.descent()) / 2);
@@ -250,10 +250,10 @@ public class CalendarView extends View {
             } else {
                 // 否则绘制选择后的背景和文字颜色
                 drawBackground(canvas, mSelectDayBackground, column, row);
-                drawText(canvas, dayStr, mSelectTextColor, mSelectTextSize, x - 5, y + 5);  //已签
+                drawText(canvas, dayStr, mSelectTextColor, mSelectTextSize, x-5, y+5);  //已签
 
                 //底部添加已签文字
-                drawText2(canvas, yiqian, Color.RED, 24, x - 10, y + 60);
+                drawText2(canvas, yiqian, Color.RED, mTextSize - 10, x - 10, (int)(y+mTextSize*5/3));
             }
 
             // 判断 day2 是否在选择日期内
@@ -265,10 +265,10 @@ public class CalendarView extends View {
             } else {
                 // 否则绘制选择后的背景和文字颜色
                 drawBackground(canvas, mSelectDayBackground2, column, row);
-                drawText(canvas, dayStr, mSelectTextColor2, mSelectTextSize2, x - 5, y + 5);//未签
+                drawText(canvas, dayStr, mSelectTextColor2, mSelectTextSize2, x-5, y+5);//未签
 
                 //底部添加未签文字
-                drawText2(canvas, weiqian, mTextColor, 24, x - 10, y + 60);
+                drawText2(canvas, weiqian, mTextColor, mTextSize - 10, x - 10, (int)(y+mTextSize*5/3));
             }
 
 

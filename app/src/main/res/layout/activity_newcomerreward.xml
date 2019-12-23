@@ -89,8 +89,9 @@
                         <com.ofc.ofc.view.calendarview.widget.CalendarView
                             android:id="@+id/calendarView"
                             android:layout_width="match_parent"
-                            android:layout_height="280dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
+                            android:minHeight="300dp"
                             app:cv_dayBackground="@color/transparent"
                             app:cv_selectDayBackground="@drawable/yuanxing_hongse"
                             app:cv_selectTextColor="@color/white"
@@ -231,6 +232,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/fragment5_h18"
+            android:visibility="invisible"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
