@@ -101,7 +101,7 @@ public class NewcomerRewardActivity extends BaseActivity {
                     mCalendarView.setSelectDate(dates_y);
 
                     tv_qiandao.setClickable(false);
-                    showProgress(true, "签到中...");
+                    showProgress(true, getString(R.string.share_h39));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
                     requestAdd(params);
@@ -180,9 +180,11 @@ public class NewcomerRewardActivity extends BaseActivity {
                 }
                 MyLogger.i(">>>>>>>>>" + status);
                 if (status == 1){
+                    tv_qiandao.setText(getString(R.string.share_h34));
                     tv_qiandao.setClickable(true);
                     tv_qiandao.setBackgroundResource(R.mipmap.bg_newcomerreward2);
                 }else {
+                    tv_qiandao.setText(getString(R.string.share_h37));
                     tv_qiandao.setClickable(false);
                     tv_qiandao.setBackgroundResource(R.mipmap.bg_newcomerreward2_0);
                 }
@@ -220,6 +222,9 @@ public class NewcomerRewardActivity extends BaseActivity {
 
     //显示月份
     private void setCurDate() {
-        tv_time.setText(mCalendarView.getYear() + "年" + (mCalendarView.getMonth() + 1) + "月");
+        tv_time.setText(mCalendarView.getYear() +
+                getString(R.string.app_nian) +
+                (mCalendarView.getMonth() + 1) +
+                getString(R.string.app_yue));
     }
 }

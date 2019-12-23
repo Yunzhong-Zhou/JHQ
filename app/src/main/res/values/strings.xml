@@ -52,6 +52,8 @@
     <string name="app_si">四</string>
     <string name="app_wu">五</string>
     <string name="app_liu">六</string>
+    <string name="app_nian">年</string>
+    <string name="app_yue">月</string>
 
     <!--筛选-->
     <string name="app_type_quanbu">全部</string>
@@ -185,9 +187,16 @@
     <!--fragment2-->
     <string name="fragment2_h1">24H交易量</string>
     <string name="fragment2_h2">1H交易量</string>
-    <string name="fragment2_h3">量</string>
+    <string name="fragment2_h3">预测详情</string>
     <string name="fragment2_h4">建议卖出</string>
     <string name="fragment2_h5">建议买入</string>
+    <string name="fragment2_h6">建议卖出价格</string>
+    <string name="fragment2_h7">建议卖入价格</string>
+    <string name="fragment2_h8">当前价格</string>
+    <string name="fragment2_h9">支撑位</string>
+    <string name="fragment2_h10">压力位</string>
+    <string name="fragment2_h11">建议卖出时机</string>
+    <string name="fragment2_h12">建议买入时机</string>
 
     <!--fragment3-->
     <string name="fragment3_h1">合约余额</string>
@@ -473,6 +482,12 @@
     <string name="share_h31">会员等级</string>
     <string name="share_h32">经纪人体系</string>
     <string name="share_h33">推广用户</string>
+    <string name="share_h34">签到</string>
+    <string name="share_h35">今日获得</string>
+    <string name="share_h36">累计获得</string>
+    <string name="share_h37">已签</string>
+    <string name="share_h38">未签</string>
+    <string name="share_h39">签到中...</string>
 
     <!--提币-->
     <string name="takecash_h1">提币</string>

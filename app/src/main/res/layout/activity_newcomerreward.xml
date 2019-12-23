@@ -35,7 +35,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="50dp"
                         android:layout_marginRight="10dp"
@@ -89,18 +89,15 @@
                         <com.ofc.ofc.view.calendarview.widget.CalendarView
                             android:id="@+id/calendarView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="280dp"
                             android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:minHeight="250dp"
                             app:cv_dayBackground="@color/transparent"
                             app:cv_selectDayBackground="@drawable/yuanxing_hongse"
                             app:cv_selectTextColor="@color/white"
                             app:cv_selectDayBackground2="@drawable/yuanxing_huise"
-                            app:cv_selectTextColor2="@color/white"
+                            app:cv_selectTextColor2="@color/black1"
                             app:cv_textColor="@color/black1"
                             app:cv_textSize="15sp" />
-
 
                     </LinearLayout>
                     //头部
@@ -147,7 +144,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="今日获得"
+                                android:text="@string/share_h35"
                                 android:textColor="@color/black2"
                                 android:textSize="13sp" />
                         </LinearLayout>
@@ -161,7 +158,7 @@
                                 android:onClick="onClick"
                                 android:paddingRight="5dp"
                                 android:layout_marginTop="10dp"
-                                android:text="签到"
+                                android:text="@string/share_h34"
                                 android:textColor="@color/white"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
@@ -200,7 +197,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="累计获得"
+                                android:text="@string/share_h36"
                                 android:textColor="@color/black2"
                                 android:textSize="13sp" />
                         </LinearLayout>
