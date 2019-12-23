@@ -77,7 +77,7 @@
                                 android:src="@mipmap/ic_sanjiao_right" />
                         </LinearLayout>
 
-                        <com.ofc.ofccoin.view.calendarview.widget.WeekView
+                        <com.ofc.ofc.view.calendarview.widget.WeekView
                             android:id="@+id/weekView"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -86,7 +86,7 @@
                             app:wv_textColor="@color/red"
                             app:wv_textSize="16sp" />
 
-                        <com.ofc.ofccoin.view.calendarview.widget.CalendarView
+                        <com.ofc.ofc.view.calendarview.widget.CalendarView
                             android:id="@+id/calendarView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

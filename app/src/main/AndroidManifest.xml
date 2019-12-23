@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ofc.ofccoin">
+    package="com.ofc.ofc">
 
     <!--网络权限问题-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -41,7 +41,7 @@
     <!-- 极光推送 -->
 
     <application
-        android:name="com.ofc.ofccoin.MyApplication"
+        android:name="com.ofc.ofc.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -52,7 +52,7 @@
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity
-            android:name="com.ofc.ofccoin.activity.HelloActivity"
+            android:name="com.ofc.ofc.activity.HelloActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,136 +61,136 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ofc.ofccoin.utils.permission.PermissionsActivity"
+            android:name="com.ofc.ofc.utils.permission.PermissionsActivity"
             android:label="权限页" />
         <activity
-            android:name="com.ofc.ofccoin.activity.GuideActivity"
+            android:name="com.ofc.ofc.activity.GuideActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="引导页" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SelectCountryActivity"
+            android:name="com.ofc.ofc.activity.SelectCountryActivity"
             android:label="选择国家" />
         <activity
-            android:name="com.ofc.ofccoin.activity.MainActivity"
+            android:name="com.ofc.ofc.activity.MainActivity"
             android:label="主页" />
         <activity
-            android:name="com.ofc.ofccoin.activity.LoginActivity"
+            android:name="com.ofc.ofc.activity.LoginActivity"
             android:label="登录" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ForgetPasswordActivity"
+            android:name="com.ofc.ofc.activity.ForgetPasswordActivity"
             android:label="忘记密码" />
         <activity
-            android:name="com.ofc.ofccoin.activity.RegisteredActivity"
+            android:name="com.ofc.ofc.activity.RegisteredActivity"
             android:label="注册" />
         <activity
-            android:name="com.ofc.ofccoin.activity.WebContentActivity"
+            android:name="com.ofc.ofc.activity.WebContentActivity"
             android:label="网页" />
 
         <activity
-            android:name="com.ofc.ofccoin.activity.PastListActivity"
+            android:name="com.ofc.ofc.activity.PastListActivity"
             android:label="往期列表" />
         <!--我的-->
         <activity
-            android:name="com.ofc.ofccoin.activity.MyProfileActivity"
+            android:name="com.ofc.ofc.activity.MyProfileActivity"
             android:label="资料管理" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SetTransactionPasswordActivity"
+            android:name="com.ofc.ofc.activity.SetTransactionPasswordActivity"
             android:label="修改交易密码" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ChangePasswordActivity"
+            android:name="com.ofc.ofc.activity.ChangePasswordActivity"
             android:label="修改登录密码" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SelectAddressActivity"
+            android:name="com.ofc.ofc.activity.SelectAddressActivity"
             android:label="地址管理" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SetAddressActivity"
+            android:name="com.ofc.ofc.activity.SetAddressActivity"
             android:label="ETH地址管理和GUS地址管理" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ChangeServiceNumActivity"
+            android:name="com.ofc.ofc.activity.ChangeServiceNumActivity"
             android:label="修改服务代码" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ServiceCenter_NoActivity"
+            android:name="com.ofc.ofc.activity.ServiceCenter_NoActivity"
             android:label="服务中心-未申请" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ServiceCenter_YesActivity"
+            android:name="com.ofc.ofc.activity.ServiceCenter_YesActivity"
             android:label="服务中心-申请通过" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ServiceCenter_MoreActivity"
+            android:name="com.ofc.ofc.activity.ServiceCenter_MoreActivity"
             android:label="服务中心-列表" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SetServiceCenterActivity"
+            android:name="com.ofc.ofc.activity.SetServiceCenterActivity"
             android:label="服务中心-创建" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ShareActivity"
+            android:name="com.ofc.ofc.activity.ShareActivity"
             android:label="推广" />
         <activity
-            android:name="com.ofc.ofccoin.activity.SharePeopleActivity"
+            android:name="com.ofc.ofc.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
-            android:name="com.ofc.ofccoin.activity.AccountDetailActivity"
+            android:name="com.ofc.ofc.activity.AccountDetailActivity"
             android:label="我的钱包" />
         <activity
-            android:name="com.ofc.ofccoin.activity.MyRechargeActivity"
+            android:name="com.ofc.ofc.activity.MyRechargeActivity"
             android:label="我的充值" />
         <activity
-            android:name="com.ofc.ofccoin.activity.RechargeDetailActivity"
+            android:name="com.ofc.ofc.activity.RechargeDetailActivity"
             android:label="充值详情" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TakeCashActivity"
+            android:name="com.ofc.ofc.activity.TakeCashActivity"
             android:label="提现" />
         <activity
-            android:name="com.ofc.ofccoin.activity.MyTakeCashActivity"
+            android:name="com.ofc.ofc.activity.MyTakeCashActivity"
             android:label="我的提现" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TakeCashDetailActivity"
+            android:name="com.ofc.ofc.activity.TakeCashDetailActivity"
             android:label="提现详情" />
         <activity
-            android:name="com.ofc.ofccoin.activity.InvitationRewardActivity"
+            android:name="com.ofc.ofc.activity.InvitationRewardActivity"
             android:label="有奖邀请" />
         <activity
-            android:name="com.ofc.ofccoin.activity.OnlineServiceActivity"
+            android:name="com.ofc.ofc.activity.OnlineServiceActivity"
             android:label="在线客服" />
         <activity
-            android:name="com.ofc.ofccoin.activity.InformationActivity"
+            android:name="com.ofc.ofc.activity.InformationActivity"
             android:label="公告通知" />
         <activity
-            android:name="com.ofc.ofccoin.activity.MyPosterActivity"
+            android:name="com.ofc.ofc.activity.MyPosterActivity"
             android:label="我的海报" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TransferActivity"
+            android:name="com.ofc.ofc.activity.TransferActivity"
             android:label="划转-创建合约" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TransferListActivity"
+            android:name="com.ofc.ofc.activity.TransferListActivity"
             android:label="合约记录" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TransferDetailActivity"
+            android:name="com.ofc.ofc.activity.TransferDetailActivity"
             android:label="合约详情" />
         <activity
-            android:name="com.ofc.ofccoin.activity.QRCodeActivity"
+            android:name="com.ofc.ofc.activity.QRCodeActivity"
             android:label="收款二维码" />
         <activity
-            android:name="com.ofc.ofccoin.view.zxing.CaptureActivity"
+            android:name="com.ofc.ofc.view.zxing.CaptureActivity"
             android:label="扫一扫" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ScavengingPaymentActivity"
+            android:name="com.ofc.ofc.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
         <activity
-            android:name="com.ofc.ofccoin.activity.TransferRecordActivity"
+            android:name="com.ofc.ofc.activity.TransferRecordActivity"
             android:label="转账记录" />
         <activity
-            android:name="com.ofc.ofccoin.activity.BankCardSettingActivity"
+            android:name="com.ofc.ofc.activity.BankCardSettingActivity"
             android:label="绑定银行卡" />
         <activity
-            android:name="com.ofc.ofccoin.activity.ScanCodePaymentActivity"
+            android:name="com.ofc.ofc.activity.ScanCodePaymentActivity"
             android:label="扫码支付" />
         <activity
-            android:name="com.ofc.ofccoin.activity.BankPaymentActivity"
+            android:name="com.ofc.ofc.activity.BankPaymentActivity"
             android:label="银联支付" />
         <activity
-            android:name="com.ofc.ofccoin.activity.NewcomerRewardActivity"
+            android:name="com.ofc.ofc.activity.NewcomerRewardActivity"
             android:label="签到有奖" />
         <activity
-            android:name="com.ofc.ofccoin.activity.VerifiedActivity"
+            android:name="com.ofc.ofc.activity.VerifiedActivity"
             android:label="实名认证" />
         <!--全面屏适配-->
         <meta-data
@@ -205,16 +205,53 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <!--极光推送-->
-        <service
-            android:name="cn.jpush.android.service.PushService"
-            android:process=":multiprocess"
-            tools:node="replace">
-
+        <!--极光推送 开始-->
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="true"
+            tools:node="replace"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            tools:node="replace"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service android:name="com.ofc.ofc.utils.jpush.PushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
         </service>
-        <!--极光推送-->
+        <!--新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
         <receiver
-            android:name="com.ofc.ofccoin.utils.jpush.MyReceiver"
+            android:name="com.ofc.ofc.utils.jpush.MyJPushMessageReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.ofc.ofc.utils.jpush.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -227,12 +264,7 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.ofc.ofccoin.utils.jpush.MyJPushMessageReceiver">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-                <category android:name="${applicationId}"></category>
-            </intent-filter>
-        </receiver>
+        <!--极光推送  结束-->
 
         <!--7.0限制-私有目录被限制访问-->
         <!--exported:要求必须为false，为true则会报安全异常。

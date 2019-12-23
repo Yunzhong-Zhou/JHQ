@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.ofc.ofccoin"
+        applicationId "com.ofc.ofc"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 4
@@ -12,10 +12,16 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
         //极光推送
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "91ab6b59233b54b77f2a533c", //JPush上注册的包名对应的appkey.
+                JPUSH_APPKEY : "82d9fa3dcc6538fdf7ee11e8", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
@@ -136,8 +142,8 @@ dependencies {
     implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
 
     //极光推送
-    implementation 'cn.jiguang.sdk:jpush:3.1.6'
-    implementation 'cn.jiguang.sdk:jcore:1.2.5'
+    implementation 'cn.jiguang.sdk:jpush:3.4.1'
+    implementation 'cn.jiguang.sdk:jcore:2.2.4'
 
     //极验-机器验证
 //    implementation(name: 'geetest_sensebot_android_v4.1.2_20190605', ext: 'aar')

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/headview"
+    android:id="@+id/headView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_fragment3">
@@ -714,22 +714,21 @@
                 <LinearLayout
                     android:id="@+id/ll_page3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
                     android:orientation="vertical"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
                     android:visibility="visible">
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginRight="6dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:background="@mipmap/bg_fragment3_1" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="6dp"
-                        android:layout_marginRight="6dp"
+                        android:layout_height="80dp"
                         android:background="@drawable/yuanjiao_10_huise_bottom">
 
                         <TextView
@@ -737,8 +736,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp"
                             android:background="@drawable/btn_img2"
                             android:gravity="center"
                             android:paddingLeft="6dp"
@@ -754,9 +751,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
                     android:orientation="vertical"
                     android:visibility="visible">
 
@@ -965,7 +962,7 @@
                 </LinearLayout>
 
                 <!--列表-->
-                <com.ofc.ofccoin.view.LoadingLayout
+                <com.ofc.ofc.view.LoadingLayout
                     android:id="@+id/loading_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -976,7 +973,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
-                </com.ofc.ofccoin.view.LoadingLayout>
+                </com.ofc.ofc.view.LoadingLayout>
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>

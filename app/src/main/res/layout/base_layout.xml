@@ -7,7 +7,7 @@
     android:background="@mipmap/bg"
     android:orientation="vertical">
 
-    <com.ofc.ofccoin.view.TitleView
+    <com.ofc.ofc.view.TitleView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -20,7 +20,7 @@
 
     </FrameLayout>
 
-    <com.ofc.ofccoin.view.LoadingLayout
+    <com.ofc.ofc.view.LoadingLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,6 +38,6 @@
 
         </com.liaoinstan.springview.widget.SpringView>
 
-    </com.ofc.ofccoin.view.LoadingLayout>
+    </com.ofc.ofc.view.LoadingLayout>
 
 </LinearLayout>
