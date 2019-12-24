@@ -66,11 +66,11 @@ public class URLs {
     /**
      * 区块
      */
-    public static final String Fragment2 = "/api/block/index";
+    public static final String Fragment2 = "/api/forecast/record";
     /**
-     * 购买算力
+     * 预测详情
      */
-    public static final String BuyComputingPower = "/api/invest/create";
+    public static final String PredictionDetail = "/api/forecast/detail";
     /**
      * 购买区块
      */

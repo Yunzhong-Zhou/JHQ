@@ -531,7 +531,7 @@ public class CommonUtil {
      * @return
      */
     public static String timedate1(String time) {
-        SimpleDateFormat sdr = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdr = new SimpleDateFormat("MM/dd HH:mm");
         @SuppressWarnings("unused")
         long lcc = Long.valueOf(time);
         int i = Integer.parseInt(time);
@@ -547,7 +547,7 @@ public class CommonUtil {
      * @return
      */
     public static String timedate2(String time) {
-        SimpleDateFormat sdr = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH");
         @SuppressWarnings("unused")
         long lcc = Long.valueOf(time);
         int i = Integer.parseInt(time);
