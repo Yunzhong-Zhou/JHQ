@@ -34,8 +34,6 @@ import com.ofc.ofc.utils.CoupleChartGestureListener;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -256,10 +254,7 @@ public class PredictionDetailActivity extends BaseActivity implements CoupleChar
 
             @Override
             public void onResponse(PredictionDetailModel response) {
-                hideProgress();
                 MyLogger.i(">>>>>>>>>更多" + response);
-                JSONObject jObj;
-
                 list1 = response.getKline_list();
                 /*List<PredictionDetailModel.BSBean> list_bs1 = new ArrayList<>();
                 list_bs1 = response.getBS();*/
@@ -267,27 +262,27 @@ public class PredictionDetailActivity extends BaseActivity implements CoupleChar
                     page--;
                     myToast(getString(R.string.app_nomore));
                 } else {
-
-                    handler.post(new Runnable() {
+                    /*handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //反转数据
-                            Collections.reverse(list1);
-                            list.addAll(0, list1);
-                    /*Collections.reverse(list_bs1);
-                    list_bs.addAll(0, list_bs1);*/
 
-                            //重新加载数据
-                            showLineChart(list);
-
-                            //移动到指定位置
-                            cc.moveViewToX(list1.size());
-                            cc.notifyDataSetChanged();
                         }
-                    });
+                    });*/
+                    //反转数据
+                    Collections.reverse(list1);
+                    list.addAll(0, list1);
+//                    Collections.reverse(list_bs1);
+//                    list_bs.addAll(0, list_bs1);
 
+                    //重新加载数据
+                    showLineChart(list);
 
+                    //移动到指定位置
+                    cc.moveViewToX(list1.size());
+                    cc.notifyDataSetChanged();
                 }
+
+                hideProgress();
             }
         });
     }
@@ -585,6 +580,7 @@ public class PredictionDetailActivity extends BaseActivity implements CoupleChar
         /*MPPointF offsetDp = new MPPointF(0,50);
         candleSet.setIconsOffset(offsetDp);*/
 
+
         /**
          * 柱状图
          */
@@ -709,11 +705,11 @@ public class PredictionDetailActivity extends BaseActivity implements CoupleChar
 
     @Override
     public void edgeLoad(float x, boolean left) {
-//        MyLogger.i(">>>>>>>" + x + ">>>"+left+">>>>"+cc.getViewPortHandler().getTransX());
+        MyLogger.i(">>>>>>>" + x + ">>>" + left + ">>>>" + cc.getViewPortHandler().getTransX());
         if (left) {
             //加载更多数据的操作
             page = page + 1;
-            showProgress(true, getString(R.string.app_loading));
+            showProgress(false, getString(R.string.app_loading));
             String string = "?token=" + localUserInfo.getToken()
                     + "&page=" + page//当前页号
                     + "&count=" + "168"//页面行数

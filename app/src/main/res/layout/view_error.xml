@@ -24,7 +24,9 @@
         android:layout_height="wrap_content"
         android:drawableTop="@mipmap/empty_img"
         android:gravity="center"
+        android:drawablePadding="10dp"
+        android:padding="50dp"
         android:text="@string/app_reload1"
-        android:textColor="@color/black1" />
+        android:textColor="@color/black4" />
 
 </LinearLayout>

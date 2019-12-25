@@ -205,7 +205,7 @@ public class CalendarView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mColumnWidth = getWidth() / 7;
-        mRowHeight = getHeight() / 6 + 10;
+        mRowHeight = getHeight() / 6 ;
         mPaint.setTextSize(mTextSize);
 
         int year = mCalendar.get(Calendar.YEAR);

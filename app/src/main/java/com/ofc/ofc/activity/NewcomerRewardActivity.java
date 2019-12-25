@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.NewcomerRewardModel;
@@ -14,7 +15,6 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.calendarview.widget.CalendarView;
 import com.ofc.ofc.view.calendarview.widget.WeekView;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.text.SimpleDateFormat;
@@ -43,6 +43,8 @@ public class NewcomerRewardActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newcomerreward);
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        CommonUtil.setMargins(findViewByID_My(R.id.left_btn), 0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+
     }
 
     @Override

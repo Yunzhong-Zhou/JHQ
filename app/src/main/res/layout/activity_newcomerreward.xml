@@ -24,7 +24,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="76dp"
+                    android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@mipmap/bg_newcomerreward1" />
 
@@ -91,7 +91,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:minHeight="300dp"
+                            android:minHeight="310dp"
                             app:cv_dayBackground="@color/transparent"
                             app:cv_selectDayBackground="@drawable/yuanxing_hongse"
                             app:cv_selectTextColor="@color/white"
