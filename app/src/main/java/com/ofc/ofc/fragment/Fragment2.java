@@ -255,6 +255,7 @@ public class Fragment2 extends BaseFragment {
                             protected void convert(ViewHolder holder, final Fragment2Model model, int position) {
                                 LineChart lineChart = holder.getView(R.id.lineChart);
                                 initChart(lineChart);
+
                                 showLineChart(model.getKline_list(), "", getResources().getColor(R.color.black1), lineChart,
                                         holder.getView(R.id.textView3));
                                 //显示线条渐变色
@@ -266,6 +267,13 @@ public class Fragment2 extends BaseFragment {
                                 holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
 //                                holder.setText(R.id.textView6, model.get+"");//
                                 holder.setText(R.id.textView4, CommonUtil.timedate(model.getTrading_point().getTimestamp()+""));//时间
+
+                                /*Runnable runnable = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                    //这是新的线程，可在这儿处理耗时的操作，更新不了UI界面的操作的
+                                    }
+                                };*/
 
                                 TextView textView7 = holder.getView(R.id.textView7);
                                 if (model.getTrading_point().getStatus() == 1) {
@@ -334,8 +342,8 @@ public class Fragment2 extends BaseFragment {
         // 设置 是否可以缩放
         lineChart.setScaleEnabled(true);
         //设置XY轴动画效果
-        lineChart.animateY(2500);
-        lineChart.animateX(1500);
+        lineChart.animateY(1000);
+        lineChart.animateX(2500);
 
         lineChart.setAutoScaleMinMaxEnabled(true);//自适应最大最小值
 

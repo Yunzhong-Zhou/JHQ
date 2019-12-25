@@ -223,9 +223,10 @@ public class Fragment3 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-
-        showProgress(true, getString(R.string.app_loading));
-        request("?token=" + localUserInfo.getToken());
+        if (isAdded()) {
+            showProgress(true, getString(R.string.app_loading));
+            request("?token=" + localUserInfo.getToken());
+        }
     }
 
     @Override
@@ -279,7 +280,7 @@ public class Fragment3 extends BaseFragment {
                 tv_bucang.setText(response.getCall_margin_money());
 
                 double money = Double.valueOf(response.getReality_money());
-                if (money >0){
+                if (money > 0) {
                     switch (response.getContract_status()) {
                         case 1:
                             //等待中
@@ -343,7 +344,7 @@ public class Fragment3 extends BaseFragment {
                             ll_page3.setVisibility(View.VISIBLE);
                             break;
                     }
-                }else {
+                } else {
                     ll_page1.setVisibility(View.GONE);
                     ll_page2.setVisibility(View.GONE);
                     ll_page3.setVisibility(View.VISIBLE);
@@ -585,6 +586,7 @@ public class Fragment3 extends BaseFragment {
             }
         });
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -313,8 +313,8 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         // 设置 是否可以缩放
         cc.setScaleEnabled(true);
         //设置XY轴动画效果
-        cc.animateY(2500);
-        cc.animateX(1500);
+        cc.animateY(1000);
+        cc.animateX(2500);
         // 比例缩放
 //        cc.setPinchZoom(true);
         //取消描述
@@ -464,7 +464,9 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         bc.setScaleEnabled(true);
         //自适应最大最小值
         bc.setAutoScaleMinMaxEnabled(true);
-
+        //设置XY轴动画效果
+        bc.animateY(1000);
+        bc.animateX(2500);
 
         //不显示X轴
         XAxis xab = bc.getXAxis();

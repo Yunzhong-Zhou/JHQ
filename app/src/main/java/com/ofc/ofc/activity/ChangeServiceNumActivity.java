@@ -1,6 +1,10 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -28,10 +32,13 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  * 修改服务代码
  */
 public class ChangeServiceNumActivity extends BaseActivity {
-    LinearLayout headView;
+    LinearLayout headView,linearLayout;
     TextView textView1, textView2, textView3;
     ImageView imageView1;
     EditText editText1;
+
+    Handler handler = new Handler();
+    Runnable runnable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        linearLayout = findViewByID_My(R.id.linearLayout);
         headView = findViewByID_My(R.id.headView);
         headView.setPadding(0, (int) CommonUtil.getStatusBarHeight(ChangeServiceNumActivity.this), 0, 0);
         /*//动态设置linearLayout的高度为屏幕高度的1/3
@@ -51,6 +59,42 @@ public class ChangeServiceNumActivity extends BaseActivity {
         textView3 = findViewByID_My(R.id.textView3);
         imageView1 = findViewByID_My(R.id.imageView1);
         editText1 = findViewByID_My(R.id.editText1);
+
+        editText1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(final Editable s) {
+                if (runnable != null) {
+                    handler.removeCallbacks(runnable);
+                    Log.v("tag", "---" + s.toString());
+                }
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!editText1.getText().toString().trim().equals("")){
+                            showProgress(false, getString(R.string.app_loading1));
+                            HashMap<String, String> params = new HashMap<>();
+                            params.put("service_code", editText1.getText().toString().trim());
+                            params.put("token", localUserInfo.getToken());
+                            RequestSet(params);
+                        }else {
+//                            myToast(getString(R.string.myprofile_h48));
+                        }
+                    }
+                };
+                Log.v("tag", "(((((" + s.toString());
+                handler.postDelayed(runnable, 1000);
+            }
+        });
         editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -123,6 +167,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
                     editText1.setEnabled(false);
                 }
                 if (response.getService_center() != null){
+                    linearLayout.setVisibility(View.VISIBLE);
                     editText1.setText(response.getService_center().getCode());
                     textView1.setText(response.getService_center().getAddr());//地址
                     textView2.setText(response.getService_center().getAddr_detail() + "  "
@@ -136,6 +181,8 @@ public class ChangeServiceNumActivity extends BaseActivity {
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
                                 .into(imageView1);//加载图片
+                }else {
+                    linearLayout.setVisibility(View.GONE);
                 }
 
             }

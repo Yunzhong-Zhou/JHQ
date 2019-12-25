@@ -112,6 +112,7 @@ public class ChangePasswordActivity extends BaseActivity {
                 localUserInfo.setWalletaddr("");
                 localUserInfo.setEmail("");
                 localUserInfo.setUserImage("");
+
                 CommonUtil.gotoActivityWithFinishOtherAll(ChangePasswordActivity.this, LoginActivity.class, true);
                 finish();
             }
