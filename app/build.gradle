@@ -159,8 +159,8 @@ dependencies {
     implementation 'liji.library.dev:citypickerview:4.1.1'
 
     //折线图
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
+//    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation project(':MPChartLib')
     //长连接-RabbitMQ
     implementation 'com.rabbitmq:amqp-client:5.8.0'
 }

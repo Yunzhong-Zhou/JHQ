@@ -437,7 +437,7 @@ public class LoginActivity extends BaseActivity {
 //                        localUserInfo.setUserImage(jObj1.getString("head"));
 
                     hideProgress();
-                    CommonUtil.gotoActivityWithFinishOtherAll(LoginActivity.this, MainActivity.class, true);
+                    CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
 
                 }
             }

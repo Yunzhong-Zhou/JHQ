@@ -52,9 +52,9 @@ public class SetServiceCenterActivity extends BaseActivity {
     ArrayList<File> listFiles = new ArrayList<>();
     String img_type = "";
     int type = 1;
-    LinearLayout linearLayout1;
+    LinearLayout linearLayout1,linearLayout2;
     TextView textView1, textView2;
-    EditText editText1, editText2;
+    EditText editText,editText1, editText2;
     ImageView imageView1, imageView2, imageView3;
     String addr = "", addr_detail = "", area = "";
     //省市
@@ -118,8 +118,10 @@ public class SetServiceCenterActivity extends BaseActivity {
             }
         });
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
+        linearLayout2 = findViewByID_My(R.id.linearLayout2);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+        editText = findViewByID_My(R.id.editText);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
         imageView1 = findViewByID_My(R.id.imageView1);
@@ -133,8 +135,12 @@ public class SetServiceCenterActivity extends BaseActivity {
         if (type == 1) {
             //内地
             linearLayout1.setVisibility(View.VISIBLE);
+            linearLayout2.setVisibility(View.GONE);
+
         } else {
             linearLayout1.setVisibility(View.GONE);
+            linearLayout2.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -216,16 +222,26 @@ public class SetServiceCenterActivity extends BaseActivity {
                 myToast(getString(R.string.app_submit_true));
                 CommonUtil.gotoActivityWithFinishOtherAll(SetServiceCenterActivity.this, MyProfileActivity.class, true);
             }
-        }, true);
+        }, false);
 
     }
 
     private boolean match() {
-        addr = textView1.getText().toString().trim();
-        if (TextUtils.isEmpty(addr)) {
-            myToast(getString(R.string.myprofile_h42));
-            return false;
+        if (type == 1){
+            //内地
+            addr = textView1.getText().toString().trim();
+            if (TextUtils.isEmpty(addr)) {
+                myToast(getString(R.string.myprofile_h42));
+                return false;
+            }
+        }else {
+            addr = editText.getText().toString().trim();
+            if (TextUtils.isEmpty(addr)) {
+                myToast(getString(R.string.myprofile_h50));
+                return false;
+            }
         }
+
         addr_detail = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(addr_detail)) {
             myToast(getString(R.string.myprofile_h44));
@@ -236,10 +252,10 @@ public class SetServiceCenterActivity extends BaseActivity {
             myToast(getString(R.string.myprofile_h46));
             return false;
         }
-        if (listFiles.size() != 3) {
+        /*if (listFiles.size() != 3) {
             myToast(getString(R.string.myprofile_h47));
             return false;
-        }
+        }*/
         return true;
     }
 

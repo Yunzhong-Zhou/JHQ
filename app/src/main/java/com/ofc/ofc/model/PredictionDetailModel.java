@@ -17,7 +17,6 @@ public class PredictionDetailModel implements Serializable {
     private TradingPointBean trading_point;
     private KlineBean kline;
     private List<KlineListBean> kline_list;
-    private List<BSBean> BS;
 
     public TradingPointBean getTrading_point() {
         return trading_point;
@@ -43,13 +42,6 @@ public class PredictionDetailModel implements Serializable {
         this.kline_list = kline_list;
     }
 
-    public List<BSBean> getBS() {
-        return BS;
-    }
-
-    public void setBS(List<BSBean> BS) {
-        this.BS = BS;
-    }
 
     public static class TradingPointBean {
         /**
@@ -237,6 +229,15 @@ public class PredictionDetailModel implements Serializable {
         private double support;
         private String resistence;
         private String created_at;
+        private String status;
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
 
         public String getSymbol() {
             return symbol;
@@ -319,59 +320,4 @@ public class PredictionDetailModel implements Serializable {
         }
     }
 
-    public static class BSBean {
-        /**
-         * symbol : btcusdt
-         * status : 1
-         * timestamp : 1577109001
-         * price : 7589.9
-         * created_at : 2019-12-24 00:08:21
-         */
-
-        private String symbol;
-        private int status;
-        private String timestamp;
-        private double price;
-        private String created_at;
-
-        public String getSymbol() {
-            return symbol;
-        }
-
-        public void setSymbol(String symbol) {
-            this.symbol = symbol;
-        }
-
-        public int getStatus() {
-            return status;
-        }
-
-        public void setStatus(int status) {
-            this.status = status;
-        }
-
-        public String getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(String timestamp) {
-            this.timestamp = timestamp;
-        }
-
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-
-        public String getCreated_at() {
-            return created_at;
-        }
-
-        public void setCreated_at(String created_at) {
-            this.created_at = created_at;
-        }
-    }
 }

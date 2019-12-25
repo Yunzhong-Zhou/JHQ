@@ -21,6 +21,11 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.geetest.sdk.GT3ConfigBean;
+import com.geetest.sdk.GT3ErrorBean;
+import com.geetest.sdk.GT3GeetestUtils;
+import com.geetest.sdk.GT3Listener;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
@@ -32,11 +37,6 @@ import com.ofc.ofc.popupwindow.SelectLanguagePopupWindow;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
-import com.bumptech.glide.Glide;
-import com.geetest.sdk.GT3ConfigBean;
-import com.geetest.sdk.GT3ErrorBean;
-import com.geetest.sdk.GT3GeetestUtils;
-import com.geetest.sdk.GT3Listener;
 import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
@@ -262,12 +262,14 @@ public class RegisteredActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //用户注册协议
-                if (LocalUserInfo.getInstance(this).getLanguage_Type().equals("1")) {
+                /*if (LocalUserInfo.getInstance(this).getLanguage_Type().equals("1")) {
                     //英文
-                    register_agreement = HOST + "/wechat/article/detail?id=5c0b1d00748ba942a2428eef7b14be8b";
+                    register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 } else {
-                    register_agreement = HOST + "/wechat/article/detail?id=4bfc3e49c1e0304beb173f8cc1a6f3a2";
-                }
+                    register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
+                }*/
+                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654"+"&lang_type="
+                        + LocalUserInfo.getInstance(this).getLanguage_Type();
                 if (!register_agreement.equals("")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("url", register_agreement);
@@ -549,7 +551,6 @@ public class RegisteredActivity extends BaseActivity {
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
                     bundle.putInt("isShowAd", 1);
                     CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
-                    finish();
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
