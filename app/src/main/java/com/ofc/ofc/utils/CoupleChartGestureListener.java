@@ -9,7 +9,8 @@ import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 
 /**
- * 图表联动交互监听
+ * 图表联动交互监听-向左滑动是否到底监听
+ *
  */
 public class CoupleChartGestureListener implements OnChartGestureListener {
 

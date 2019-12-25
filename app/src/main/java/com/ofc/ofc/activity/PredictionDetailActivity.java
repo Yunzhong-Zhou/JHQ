@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,8 +22,6 @@ import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleDataSet;
 import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.listener.ChartTouchListener;
-import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.model.GradientColor;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
@@ -45,7 +44,7 @@ import java.util.List;
  * Created by zyz on 2019-12-23.
  * 预测详情
  */
-public class PredictionDetailActivity extends BaseActivity  implements CoupleChartGestureListener.OnEdgeListener {
+public class PredictionDetailActivity extends BaseActivity implements CoupleChartGestureListener.OnEdgeListener {
     PredictionDetailModel model;
     List<PredictionDetailModel.KlineListBean> list = new ArrayList<>();
 //    List<PredictionDetailModel.BSBean> list_bs = new ArrayList<>();
@@ -58,6 +57,10 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
 
     CandleStickChart cc;
     BarChart bc;
+    private CoupleChartGestureListener ccGesture;
+    private CoupleChartGestureListener bcGesture;
+
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +181,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
                 MyLogger.i(">>>>>>>>>预测详情" + response);
                 model = response;
                 //（开盘价- 收盘价）/开盘价
-                double zhangdie = (model.getKline().getOpen() - model.getKline().getClose()) / model.getKline().getOpen() *100;
+                double zhangdie = (model.getKline().getOpen() - model.getKline().getClose()) / model.getKline().getOpen() * 100;
                 textView2.setText(String.format("%.2f", zhangdie) + "%");
                 if (zhangdie > 0) {
                     //上涨
@@ -213,23 +216,31 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
                 //压力位
                 textView7.setText(model.getKline().getResistence() + " $");
                 //建议时机
-                textView8.setText(CommonUtil.timedate(model.getTrading_point().getTimestamp()+""));
+                textView8.setText(CommonUtil.timedate(model.getTrading_point().getTimestamp() + ""));
 
 
-                //反转数据
-                Collections.reverse(response.getKline_list());
-                list = response.getKline_list();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        //反转数据
+                        Collections.reverse(response.getKline_list());
+                        list = response.getKline_list();
                 /*Collections.reverse(response.getBS());
                 list_bs = response.getBS();*/
 
-                showLineChart(list);
-                cc.moveViewToX((list.size() - 1));//移动到最后一个值
-                bc.moveViewToX((list.size() - 1));//移动到最后一个值
+                        showLineChart(list);
+                        cc.moveViewToX((list.size() - 1));//移动到最后一个值
+                        bc.moveViewToX((list.size() - 1));//移动到最后一个值
+                    }
+                });
+
 
                 hideProgress();
             }
         });
     }
+
+    List<PredictionDetailModel.KlineListBean> list1 = new ArrayList<>();
 
     private void RequestMore(String string) {
         MyLogger.i(">>>" + string);
@@ -248,7 +259,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
                 hideProgress();
                 MyLogger.i(">>>>>>>>>更多" + response);
                 JSONObject jObj;
-                List<PredictionDetailModel.KlineListBean> list1 = new ArrayList<>();
+
                 list1 = response.getKline_list();
                 /*List<PredictionDetailModel.BSBean> list_bs1 = new ArrayList<>();
                 list_bs1 = response.getBS();*/
@@ -256,18 +267,25 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
                     page--;
                     myToast(getString(R.string.app_nomore));
                 } else {
-                    //反转数据
-                    Collections.reverse(list1);
-                    list.addAll(0, list1);
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //反转数据
+                            Collections.reverse(list1);
+                            list.addAll(0, list1);
                     /*Collections.reverse(list_bs1);
                     list_bs.addAll(0, list_bs1);*/
 
-                    //重新加载数据
-                    showLineChart(list);
+                            //重新加载数据
+                            showLineChart(list);
 
-                    //移动到指定位置
-                    cc.moveViewToX(list1.size());
-                    cc.notifyDataSetChanged();
+                            //移动到指定位置
+                            cc.moveViewToX(list1.size());
+                            cc.notifyDataSetChanged();
+                        }
+                    });
+
 
                 }
             }
@@ -316,7 +334,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         cc.animateY(1000);
         cc.animateX(2500);
         // 比例缩放
-//        cc.setPinchZoom(true);
+        cc.setPinchZoom(true);
         //取消描述
         cc.setDescription(null);
         //取消图例
@@ -393,7 +411,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         cc.getAxisRight().setEnabled(false);
 
 
-        cc.setOnChartGestureListener(new OnChartGestureListener() {
+        /*cc.setOnChartGestureListener(new OnChartGestureListener() {
             @Override
             public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
 //                MyLogger.i(">>>>>>>>>>开始" + me.getX());
@@ -443,7 +461,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
 //                MyLogger.i(">>>>>>>>>>onChartTranslate" + dY);
 
             }
-        });
+        });*/
 
         /**
          * 柱状图
@@ -462,6 +480,8 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         bc.setExtraBottomOffset(6);//设置底部外边缘偏移量 便于显示X轴
         //可缩放
         bc.setScaleEnabled(true);
+        // 比例缩放
+        bc.setPinchZoom(true);
         //自适应最大最小值
         bc.setAutoScaleMinMaxEnabled(true);
         //设置XY轴动画效果
@@ -508,6 +528,19 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         //不显示右侧Y轴
         bc.getAxisRight().setEnabled(false);
 
+
+        ccGesture = new CoupleChartGestureListener(this, cc, bc) {//设置成全局变量，后续要用到
+            @Override
+            public void chartDoubleTapped(MotionEvent me) {
+            }
+        };
+        cc.setOnChartGestureListener(ccGesture);//设置手势联动监听
+        bcGesture = new CoupleChartGestureListener(this, bc, cc) {
+            @Override
+            public void chartDoubleTapped(MotionEvent me) {
+            }
+        };
+        bc.setOnChartGestureListener(bcGesture);
     }
 
     /**
@@ -587,7 +620,7 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         //设置新的数据
         for (int i = 0; i < list.size(); i++) {
             //蜡烛图数据
-            switch (list.get(i).getStatus()){
+            switch (list.get(i).getStatus()) {
                 case "1":
                     //买入
                     candleEntrie.add(new CandleEntry(
@@ -654,7 +687,6 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
         cc.invalidate();
 
         Matrix matrix = new Matrix();
-
         matrix.postScale(6 * page, 1.0f);//以指定的比例对矩阵进行后期处理 M'= S（sx，sy）* M
         cc.setScaleMinima(1.0f, 1.0f);
         cc.getViewPortHandler().refresh(matrix, cc, false);
@@ -677,6 +709,17 @@ public class PredictionDetailActivity extends BaseActivity  implements CoupleCha
 
     @Override
     public void edgeLoad(float x, boolean left) {
+//        MyLogger.i(">>>>>>>" + x + ">>>"+left+">>>>"+cc.getViewPortHandler().getTransX());
+        if (left) {
+            //加载更多数据的操作
+            page = page + 1;
+            showProgress(true, getString(R.string.app_loading));
+            String string = "?token=" + localUserInfo.getToken()
+                    + "&page=" + page//当前页号
+                    + "&count=" + "168"//页面行数
+                    + "&symbol=" + symbol;
+            RequestMore(string);
+        }
 
     }
 }
