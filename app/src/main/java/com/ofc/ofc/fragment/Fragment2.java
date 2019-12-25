@@ -452,7 +452,7 @@ public class Fragment2 extends BaseFragment {
             floatList.add(Float.valueOf(data.getClose()));
 
             if (i == dataList.size() - 1) {
-                textView.setText(getString(R.string.fragment2_h2)+data.getVolume());//1H交易量
+                textView.setText(getString(R.string.fragment2_h2)+"  "+data.getVolume());//1H交易量
             }
         }
         //最大值
