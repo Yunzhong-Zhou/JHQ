@@ -2,7 +2,6 @@ package com.ofc.ofc.view.chart;
 
 import com.github.tifezh.kchartlib.chart.BaseKChartAdapter;
 import com.ofc.ofc.utils.CommonUtil;
-import com.ofc.ofc.utils.MyLogger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,11 +45,11 @@ public class KChartAdapter extends BaseKChartAdapter {
             date.setMinutes(cd.get(Calendar.MINUTE));*/
 
             String s = CommonUtil.timedate4(datas.get(position).Date);
-            MyLogger.i(">>>>>>"+s);
+//            MyLogger.i(">>>>>>" + s);
             String[] split = s.split("/");
             Date date = new Date();
-            date.setYear(Integer.parseInt(split[0]));
-            date.setMonth(Integer.parseInt(split[1]));
+            date.setYear(Integer.parseInt(split[0]) - 1900);
+            date.setMonth(Integer.parseInt(split[1]) - 1);
             date.setDate(Integer.parseInt(split[2]));
             date.setHours(Integer.parseInt(split[3]));
             date.setMinutes(Integer.parseInt(split[4]));
@@ -84,11 +83,11 @@ public class KChartAdapter extends BaseKChartAdapter {
 
     /**
      * 改变某个点的值
+     *
      * @param position 索引值
      */
-    public void changeItem(int position,KLineEntity data)
-    {
-        datas.set(position,data);
+    public void changeItem(int position, KLineEntity data) {
+        datas.set(position, data);
         notifyDataSetChanged();
     }
 

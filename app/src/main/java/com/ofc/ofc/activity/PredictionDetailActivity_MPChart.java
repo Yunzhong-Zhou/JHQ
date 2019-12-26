@@ -23,7 +23,6 @@ import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleDataSet;
 import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.model.GradientColor;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -600,12 +599,13 @@ public class PredictionDetailActivity_MPChart extends BaseActivity implements Co
         barSet.setHighLightColor(Color.WHITE);
         barSet.setHighlightEnabled(false);
         //柱状颜色
-        List<GradientColor> gradientColors = new ArrayList<>();
+        /*List<GradientColor> gradientColors = new ArrayList<>();
         gradientColors.add(new GradientColor(getResources().getColor(R.color.green)//开始颜色
                 , getResources().getColor(R.color.green)));//结束颜色
         gradientColors.add(new GradientColor(getResources().getColor(R.color.txt_red)
                 , getResources().getColor(R.color.txt_red)));
-        barSet.setGradientColors(gradientColors);
+        barSet.setGradientColors(gradientColors);*/
+        barSet.setColors(getResources().getColor(R.color.green), getResources().getColor(R.color.txt_red));
         barSet.setDrawValues(false);
 
     }
@@ -672,12 +672,21 @@ public class PredictionDetailActivity_MPChart extends BaseActivity implements Co
                     break;
             }
 
-
             //柱状图
-            barEntrie.add(new BarEntry(
-                    i,
-                    (float) list.get(i).getVolume()
-            ));
+            if (list.get(i).getClose() - list.get(i).getOpen() >0){
+                barEntrie.add(new BarEntry(
+                        i,
+                        (float) list.get(i).getVolume(),
+                        1
+                ));
+            }else {
+                barEntrie.add(new BarEntry(
+                        i,
+                        (float) list.get(i).getVolume(),
+                        2
+                ));
+            }
+
         }
 
         //设置数据

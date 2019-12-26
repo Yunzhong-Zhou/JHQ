@@ -240,7 +240,7 @@
     <string name="fragment3_h39">确认终止交易吗？</string>
     <string name="fragment3_h40">终止成功</string>
     <string name="fragment3_h41">取消终止交易</string>
-    <string name="fragment3_h42">确定取消终止吗</string>
+    <string name="fragment3_h42">确定取消终止吗？</string>
 
 
     <!--fragment4-->
@@ -480,7 +480,7 @@
     <string name="share_h20">立即申请</string>
     <string name="share_h26">暂未获取到推广链接</string>
     <string name="share_h27">分享</string>
-    <string name="share_h28">CHO区块竞猜链，打造竞猜行业流通币，最公平的竞猜，50%的胜率，奖金翻倍，激活区块，2倍激活奖励，算力挖矿。</string>
+    <string name="share_h28">OFC区块竞猜链，打造竞猜行业流通币，最公平的竞猜，50%的胜率，奖金翻倍，激活区块，2倍激活奖励，算力挖矿。</string>
     <string name="share_h29">用户名</string>
     <string name="share_h30">合约额</string>
     <string name="share_h31">会员等级</string>
@@ -508,22 +508,22 @@
     <string name="takecash_h12">确定</string>
     <string name="takecash_h13">提币提交成功</string>
     <string name="takecash_h14">手续费：</string>
-    <string name="takecash_h15">CHO提币</string>
+    <string name="takecash_h15">USDT提币</string>
     <string name="takecash_h16">提币记录</string>
-    <string name="takecash_h17"><u>CHO地址</u></string>
+    <string name="takecash_h17"><u>USDF地址</u></string>
     <string name="takecash_h18">提币个数(USDT)</string>
     <string name="takecash_h19">提币成功</string>
     <string name="takecash_h20">提币处理中</string>
     <string name="takecash_h21">提币时间</string>
     <string name="takecash_h22">提币地址</string>
-    <string name="takecash_h23">CHO地址</string>
+    <string name="takecash_h23">USDT地址</string>
     <string name="takecash_h24">提币个数：</string>
     <string name="takecash_h25">提币详情</string>
     <string name="takecash_h26">前往币地址设置</string>
     <string name="takecash_h27">提币失败</string>
     <string name="takecash_h28">提币失败原因：</string>
     <string name="takecash_h29">手续费</string>
-    <string name="takecash_h30">CNY提现</string>
+    <string name="takecash_h30">USDT提现</string>
     <string name="takecash_h31">暂无银行卡\n请添加</string>
     <string name="takecash_h32">银行名称</string>
     <string name="takecash_h33">银行卡号</string>
@@ -578,7 +578,7 @@
     <string name="game_h7">中奖</string>
     <string name="game_h8">进行中</string>
     <string name="game_h9">总值</string>
-    <string name="game_h10">已产(CHO)</string>
+    <string name="game_h10">已产(USDT)</string>
     <string name="game_h11">挖矿</string>
     <string name="game_h12">收益</string>
     <string name="game_h13">算力</string>
@@ -608,7 +608,7 @@
     <string name="zxing_h2">暂时无法开启闪光灯</string>
     <string name="zxing_h3">扫一扫</string>
     <string name="zxing_h4">正在扫描...</string>
-    <string name="zxing_h5">CHO扫码转币</string>
+    <string name="zxing_h5">扫码转币</string>
     <string name="zxing_h6">保存相册</string>
     <string name="zxing_h7">正在生成二维码</string>
     <string name="zxing_h8">您暂未开通支付功能，如需开通，请点击确认按钮</string>
