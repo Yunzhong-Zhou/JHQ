@@ -27,6 +27,9 @@ import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -311,6 +314,12 @@ public class Fragment3 extends BaseFragment {
                             ll_page2.setVisibility(View.VISIBLE);
                             ll_page3.setVisibility(View.GONE);
 
+                            if (response.getContract_make_terminate() ==1 ){
+                                tv_zhongzhi.setText(getString(R.string.fragment3_h28));
+                            }else {
+                                tv_zhongzhi.setText(getString(R.string.fragment3_h41));
+                            }
+
                             list4 = response.getBourse_matching_list();
                             mAdapter4 = new CommonAdapter<Fragment3Model.BourseMatchingListBean>
                                     (getActivity(), R.layout.item_fragment3_4, list4) {
@@ -332,7 +341,6 @@ public class Fragment3 extends BaseFragment {
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
                                                 .into(iv);//加载图片
-
                                 }
                             };
                             rv_jiaoyizhong.setAdapter(mAdapter4);
@@ -461,22 +469,41 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.tv_zhongzhi:
                 //终止
-                showToast(getString(R.string.fragment3_h39),
-                        getString(R.string.app_confirm),
-                        getString(R.string.app_cancel),
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
+                if (model.getContract_make_terminate() ==1 ) {
+                    showToast(getString(R.string.fragment3_h39),
+                            getString(R.string.app_confirm),
+                            getString(R.string.app_cancel),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
 //                                showProgress(true, getString(R.string.app_loading));
-                                requestZhongZhi("?token=" + localUserInfo.getToken());
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
+                                    requestZhongZhi("?token=" + localUserInfo.getToken());
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                }else {
+                    showToast(getString(R.string.fragment3_h42),
+                            getString(R.string.app_confirm),
+                            getString(R.string.app_cancel),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+//                                showProgress(true, getString(R.string.app_loading));
+                                    requestZhongZhi("?token=" + localUserInfo.getToken());
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                }
                 break;
         }
     }
@@ -561,7 +588,15 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(String response) {
                 MyLogger.i(">>>>>>>>>终止合约" + response);
-                showToast(getString(R.string.fragment3_h38));
+//                showToast(getString(R.string.fragment3_h38));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 requestServer();
             }
         });
@@ -581,7 +616,15 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(String response) {
                 MyLogger.i(">>>>>>>>>终止合约" + response);
-                showToast(getString(R.string.fragment3_h40));
+//                showToast(getString(R.string.fragment3_h40));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 requestServer();
             }
         });

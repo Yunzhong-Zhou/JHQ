@@ -16,6 +16,9 @@ import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -126,7 +129,15 @@ public class SetTransactionPasswordActivity extends BaseActivity {
             public void onResponse(String response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>设置交易密码" + response);
-                myToast(getString(R.string.settransactionpassword_h11));
+//                myToast(getString(R.string.settransactionpassword_h11));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 finish();
             }
         },true);

@@ -23,6 +23,9 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
@@ -129,7 +132,15 @@ public class ChangeServiceNumActivity extends BaseActivity {
             public void onResponse(String response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>添加服务中心" + response);
-                myToast(getString(R.string.app_submit_true));
+//                myToast(getString(R.string.app_submit_true));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 finish();
             }
         }, true);

@@ -32,6 +32,9 @@ import com.lljjcoder.citywheel.CityConfig;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -219,7 +222,15 @@ public class SetServiceCenterActivity extends BaseActivity {
             public void onResponse(String response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>添加服务中心" + response);
-                myToast(getString(R.string.app_submit_true));
+//                myToast(getString(R.string.app_submit_true));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 CommonUtil.gotoActivityWithFinishOtherAll(SetServiceCenterActivity.this, MyProfileActivity.class, true);
             }
         }, false);

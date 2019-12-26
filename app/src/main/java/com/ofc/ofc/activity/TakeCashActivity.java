@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.AvailableAmountModel;
@@ -19,7 +20,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
@@ -273,7 +273,15 @@ public class TakeCashActivity extends BaseActivity {
                 textView9.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>提现" + response);
-                myToast(getString(R.string.takecash_h13));
+//                myToast(getString(R.string.takecash_h13));
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
                 Bundle bundle = new Bundle();
                 bundle.putString("id", response.getId());
                 CommonUtil.gotoActivityWithData(TakeCashActivity.this, TakeCashDetailActivity.class, bundle, true);

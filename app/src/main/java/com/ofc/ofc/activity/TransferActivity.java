@@ -1,6 +1,10 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,9 +26,11 @@ import java.util.Map;
  * 划转
  */
 public class TransferActivity extends BaseActivity {
-    TextView textView1, textView2, textView3;
+    TextView textView1, textView2, textView3,textView4;
     EditText editText1;
 
+    Handler handler = new Handler();
+    Runnable runnable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +44,42 @@ public class TransferActivity extends BaseActivity {
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
-
+        textView4 = findViewByID_My(R.id.textView4);
         editText1 = findViewByID_My(R.id.editText1);
+
+        editText1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(final Editable s) {
+                if (runnable != null) {
+                    handler.removeCallbacks(runnable);
+                    Log.v("tag", "---" + s.toString());
+                }
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!editText1.getText().toString().trim().equals("")){
+                            double money = Double.valueOf(editText1.getText().toString().trim());
+                            textView4.setText(String.format("%.2f", (money*0.8)));
+                        }else {
+//                            myToast(getString(R.string.myprofile_h48));
+                            textView4.setText("0");
+                        }
+                    }
+                };
+                Log.v("tag", "(((((" + s.toString());
+                handler.postDelayed(runnable, 1000);
+            }
+        });
     }
 
     @Override

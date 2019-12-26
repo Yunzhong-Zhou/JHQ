@@ -23,6 +23,7 @@ public class Fragment3Model implements Serializable {
     private String reality_money;
     private int result;
     private int contract_status;
+    private int contract_make_terminate;
     private String profit_money;
     private String call_margin_money;
     private ContractTradingBean contract_trading;
@@ -30,6 +31,14 @@ public class Fragment3Model implements Serializable {
     private List<NewestContractListBean> newest_contract_list;
     private List<ContractTradingListBean> contract_trading_list;
     private List<ContractCallMarginListBean> contract_call_margin_list;
+
+    public int getContract_make_terminate() {
+        return contract_make_terminate;
+    }
+
+    public void setContract_make_terminate(int contract_make_terminate) {
+        this.contract_make_terminate = contract_make_terminate;
+    }
 
     public String getReality_money() {
         return reality_money;

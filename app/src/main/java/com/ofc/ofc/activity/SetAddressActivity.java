@@ -16,6 +16,9 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -200,7 +203,15 @@ public class SetAddressActivity extends BaseActivity {
                 textView4.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
-                myToast(getString(R.string.address_h11));
+//                myToast(getString(R.string.address_h11));
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    myToast(jObj.getString("msg"));
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 finish();
             }
         }, true);

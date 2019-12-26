@@ -239,6 +239,8 @@
     <string name="fragment3_h38">转出成功</string>
     <string name="fragment3_h39">确认终止交易吗？</string>
     <string name="fragment3_h40">终止成功</string>
+    <string name="fragment3_h41">取消终止交易</string>
+    <string name="fragment3_h42">确定取消终止吗</string>
 
 
     <!--fragment4-->
@@ -686,6 +688,7 @@
     <string name="scavengingpayment_h40">平仓时间</string>
     <string name="scavengingpayment_h41">补仓时间</string>
     <string name="scavengingpayment_h42">补仓币数</string>
+    <string name="scavengingpayment_h43">实际仓位：</string>
 
 
     <!--转账记录-->

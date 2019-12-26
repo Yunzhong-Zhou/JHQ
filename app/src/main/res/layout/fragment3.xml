@@ -191,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="140dp"
@@ -618,7 +618,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="140dp"
@@ -706,7 +706,7 @@
                                 android:paddingRight="24dp"
                                 android:paddingBottom="8dp"
                                 android:textColor="@color/black3"
-                                android:text="申请终止交易"
+                                android:text="@string/fragment3_h28"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
