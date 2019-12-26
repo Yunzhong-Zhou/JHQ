@@ -121,7 +121,7 @@ public class PredictionDetailModel implements Serializable {
         private double low;
         private double volume;
         private double support;
-        private String resistence;
+        private double resistence;
         private String created_at;
 
         public String getSymbol() {
@@ -188,11 +188,11 @@ public class PredictionDetailModel implements Serializable {
             this.support = support;
         }
 
-        public String getResistence() {
+        public double getResistence() {
             return resistence;
         }
 
-        public void setResistence(String resistence) {
+        public void setResistence(double resistence) {
             this.resistence = resistence;
         }
 

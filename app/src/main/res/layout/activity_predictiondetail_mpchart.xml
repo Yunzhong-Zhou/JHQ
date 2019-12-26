@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#031F2C"
     android:orientation="vertical">
 
@@ -283,20 +282,8 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <com.github.tifezh.kchartlib.chart.KChartView
-                    android:id="@+id/mKChartView"
-                    android:layout_width="match_parent"
-                    android:layout_height="520dp"
-                    android:minHeight="520dp"
-                    android:layout_marginTop="-20dp"
-                    android:layout_weight="1"
-                    app:kc_background_color="#031F2C"
 
-                    >
-                </com.github.tifezh.kchartlib.chart.KChartView>
-
-
-                <!--<com.github.mikephil.charting.charts.CandleStickChart
+                <com.github.mikephil.charting.charts.CandleStickChart
                     android:id="@+id/chart1"
                     android:layout_width="match_parent"
                     android:layout_height="340dp"
@@ -309,8 +296,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />-->
-
+                    android:layout_marginRight="10dp" />
 
             </LinearLayout>
         </ScrollView>

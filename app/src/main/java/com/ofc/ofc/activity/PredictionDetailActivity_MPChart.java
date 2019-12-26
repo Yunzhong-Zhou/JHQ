@@ -1,16 +1,29 @@
 package com.ofc.ofc.activity;
 
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.tifezh.kchartlib.chart.BaseKChartView;
-import com.github.tifezh.kchartlib.chart.KChartView;
-import com.github.tifezh.kchartlib.chart.formatter.DateFormatter;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.CandleStickChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.CandleData;
+import com.github.mikephil.charting.data.CandleDataSet;
+import com.github.mikephil.charting.data.CandleEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.model.GradientColor;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -18,10 +31,8 @@ import com.ofc.ofc.model.PredictionDetailModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
+import com.ofc.ofc.utils.CoupleChartGestureListener;
 import com.ofc.ofc.utils.MyLogger;
-import com.ofc.ofc.view.chart.DataHelper;
-import com.ofc.ofc.view.chart.KChartAdapter;
-import com.ofc.ofc.view.chart.KLineEntity;
 import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
@@ -32,7 +43,7 @@ import java.util.List;
  * Created by zyz on 2019-12-23.
  * 预测详情
  */
-public class PredictionDetailActivity extends BaseActivity {
+public class PredictionDetailActivity_MPChart extends BaseActivity implements CoupleChartGestureListener.OnEdgeListener {
     PredictionDetailModel model;
     List<PredictionDetailModel.KlineListBean> list = new ArrayList<>();
 //    List<PredictionDetailModel.BSBean> list_bs = new ArrayList<>();
@@ -43,19 +54,17 @@ public class PredictionDetailActivity extends BaseActivity {
     ImageView imageView1, imageView2;
     int page = 1;
 
-   /* CandleStickChart cc;
+    CandleStickChart cc;
     BarChart bc;
     private CoupleChartGestureListener ccGesture;
-    private CoupleChartGestureListener bcGesture;*/
+    private CoupleChartGestureListener bcGesture;
 
-    KChartView mKChartView;
-    private KChartAdapter mAdapter;
     Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_predictiondetail);
+        setContentView(R.layout.activity_predictiondetail_mpchart);
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
     }
@@ -93,24 +102,7 @@ public class PredictionDetailActivity extends BaseActivity {
         textView8 = findViewByID_My(R.id.textView8);
         textView9 = findViewByID_My(R.id.textView9);
         textView10 = findViewByID_My(R.id.textView10);
-
-
-        mKChartView = findViewByID_My(R.id.mKChartView);
-        mAdapter = new KChartAdapter();
-        mKChartView.setAdapter(mAdapter);
-        mKChartView.setDateTimeFormatter(new DateFormatter());
-        mKChartView.setGridRows(4);
-        mKChartView.setGridColumns(4);
-        mKChartView.setOnSelectedChangedListener(new BaseKChartView.OnSelectedChangedListener() {
-            @Override
-            public void onSelectedChanged(BaseKChartView view, Object point, int index) {
-                PredictionDetailModel.KlineListBean data = (PredictionDetailModel.KlineListBean) point;
-                Log.i("onSelectedChanged", "index:" + index + " closePrice:" + data.getClose());
-            }
-        });
-
-
-//        initChart();
+        initChart();
         /*//动态设置linearLayout的高度为屏幕高度的1/4
         ViewGroup.LayoutParams lp = linearLayout.getLayoutParams();
         lp.height = (int) CommonUtil.getScreenHeight(this) / 3;*/
@@ -167,7 +159,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(PredictionDetailActivity.this, URLs.PredictionDetail + string, new OkHttpClientManager.ResultCallback<PredictionDetailModel>() {
+        OkHttpClientManager.getAsyn(PredictionDetailActivity_MPChart.this, URLs.PredictionDetail + string, new OkHttpClientManager.ResultCallback<PredictionDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 MainActivity.isOver = true;
@@ -196,14 +188,13 @@ public class PredictionDetailActivity extends BaseActivity {
                     case "XRP":
                     case "TRX":
                         //压力位
-                        textView7.setText(String.format("%.6f", model.getKline().getResistence()) + " $");
+                        textView7.setText(String.format("%.6f",model.getKline().getResistence()) + " $");
                         break;
                     default:
                         //压力位
                         textView7.setText(String.format("%.2f", model.getKline().getResistence()) + " $");
                         break;
                 }
-
                 if (zhangdie > 0) {
                     //上涨
                     textView2.setTextColor(getResources().getColor(R.color.green));
@@ -234,12 +225,8 @@ public class PredictionDetailActivity extends BaseActivity {
 
                 //支撑位
                 textView6.setText(model.getKline().getSupport() + " $");
-
                 //建议时机
                 textView8.setText(CommonUtil.timedate(model.getTrading_point().getTimestamp() + ""));
-
-
-                mKChartView.showLoading();
 
 
                 handler.post(new Runnable() {
@@ -248,34 +235,12 @@ public class PredictionDetailActivity extends BaseActivity {
                         //反转数据
                         Collections.reverse(response.getKline_list());
                         list = response.getKline_list();
-                        List<KLineEntity> datas = new ArrayList<>();
-                        for (PredictionDetailModel.KlineListBean bean : list) {
-                            KLineEntity kLineEntity = new KLineEntity(
-                                    bean.getTimestamp(),
-                                    (float) bean.getOpen(),
-                                    (float) bean.getHigh(),
-                                    (float) bean.getLow(),
-                                    (float) bean.getClose(),
-                                    (float) bean.getVolume(), 0, 0, 0, 0, 0, 0,
-                                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                    0
-                            );
-                            datas.add(kLineEntity);
-                        }
-                        DataHelper.calculate(datas);
-                        mAdapter.addFooterData(datas);
-                        mKChartView.startAnimation();
-                        mKChartView.refreshEnd();
-
-                        /*//反转数据
-                        Collections.reverse(response.getKline_list());
-                        list = response.getKline_list();
-                *//*Collections.reverse(response.getBS());
-                list_bs = response.getBS();*//*
+                /*Collections.reverse(response.getBS());
+                list_bs = response.getBS();*/
 
                         showLineChart(list);
                         cc.moveViewToX((list.size() - 1));//移动到最后一个值
-                        bc.moveViewToX((list.size() - 1));//移动到最后一个值*/
+                        bc.moveViewToX((list.size() - 1));//移动到最后一个值
                     }
                 });
 
@@ -289,7 +254,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
     private void RequestMore(String string) {
         MyLogger.i(">>>" + string);
-        OkHttpClientManager.getAsyn(PredictionDetailActivity.this, URLs.PredictionDetail + string, new OkHttpClientManager.ResultCallback<PredictionDetailModel>() {
+        OkHttpClientManager.getAsyn(PredictionDetailActivity_MPChart.this, URLs.PredictionDetail + string, new OkHttpClientManager.ResultCallback<PredictionDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 page--;
@@ -315,10 +280,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
                         }
                     });*/
-
-
-
-                    /*//反转数据
+                    //反转数据
                     Collections.reverse(list1);
                     list.addAll(0, list1);
 //                    Collections.reverse(list_bs1);
@@ -329,7 +291,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
                     //移动到指定位置
                     cc.moveViewToX(list1.size());
-                    cc.notifyDataSetChanged();*/
+                    cc.notifyDataSetChanged();
                 }
 
                 hideProgress();
@@ -355,15 +317,12 @@ public class PredictionDetailActivity extends BaseActivity {
 
 
     /**
-     * ************************************图表***********************************************
+     * ************************************初始化图表***********************************************
      */
-
-
-
-    /*private void initChart() {
-     *//**
-     * K线
-     * *//*
+    private void initChart() {
+        /**
+         * K线
+         * */
         cc = findViewByID_My(R.id.chart1);
         //无数据时
         cc.setNoDataText(getString(R.string.app_loading2));//如果没有数据的时候，会显示这个
@@ -448,18 +407,18 @@ public class PredictionDetailActivity extends BaseActivity {
 
 //        yac.setLabelCount(5, true);
 //        yac.enableGridDashedLine(5, 4, 0);//横向网格线设置为虚线
-        *//*yac.setValueFormatter(new IAxisValueFormatter() {
+        /*yac.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {//只显示部分标签
                 int index = getIndexY(value, axis.getAxisMinimum(), axis.getAxisMaximum());
                 return index == 0 || index == 2 ? format4p.format(value) : "";//不显示的标签不能返回null
             }
-        });*//*
+        });*/
         //右Y轴 - 隐藏
         cc.getAxisRight().setEnabled(false);
 
 
-        *//*cc.setOnChartGestureListener(new OnChartGestureListener() {
+        /*cc.setOnChartGestureListener(new OnChartGestureListener() {
             @Override
             public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
 //                MyLogger.i(">>>>>>>>>>开始" + me.getX());
@@ -509,11 +468,11 @@ public class PredictionDetailActivity extends BaseActivity {
 //                MyLogger.i(">>>>>>>>>>onChartTranslate" + dY);
 
             }
-        });*//*
+        });*/
 
-     *//**
-     * 柱状图
-     *//*
+        /**
+         * 柱状图
+         */
         bc = findViewByID_My(R.id.chart2);
         bc.setNoDataText(getString(R.string.app_loading2));//如果没有数据的时候，会显示这个
         bc.setNoDataTextColor(getResources().getColor(R.color.green));
@@ -591,14 +550,14 @@ public class PredictionDetailActivity extends BaseActivity {
         bc.setOnChartGestureListener(bcGesture);
     }
 
-    *//**
+    /**
      * 曲线初始化设置
-     *//*
+     */
 
     private void initLineDataSet(CandleDataSet candleSet, BarDataSet barSet) {
-        *//**
-     * 蜡烛图
-     *//*
+        /**
+         * 蜡烛图
+         */
         candleSet.setAxisDependency(YAxis.AxisDependency.LEFT);
         candleSet.setDrawHorizontalHighlightIndicator(false);
 
@@ -613,7 +572,7 @@ public class PredictionDetailActivity extends BaseActivity {
         candleSet.setShadowColorSameAsCandle(true);//阴影颜色与蜡烛相同
 
         //上涨
-        candleSet.setIncreasingColor(getResources().getColor(R.color.txt_green));
+        candleSet.setIncreasingColor(getResources().getColor(R.color.green));
         candleSet.setIncreasingPaintStyle(Paint.Style.FILL);
 
         //下跌
@@ -630,20 +589,20 @@ public class PredictionDetailActivity extends BaseActivity {
 
         //图标
         candleSet.setDrawIcons(true);
-        *//*MPPointF offsetDp = new MPPointF(0,50);
-        candleSet.setIconsOffset(offsetDp);*//*
+        /*MPPointF offsetDp = new MPPointF(0,50);
+        candleSet.setIconsOffset(offsetDp);*/
 
 
-     *//**
-     * 柱状图
-     *//*
+        /**
+         * 柱状图
+         */
         //高亮线
         barSet.setHighLightColor(Color.WHITE);
         barSet.setHighlightEnabled(false);
         //柱状颜色
         List<GradientColor> gradientColors = new ArrayList<>();
-        gradientColors.add(new GradientColor(getResources().getColor(R.color.txt_green)//开始颜色
-                , getResources().getColor(R.color.txt_green)));//结束颜色
+        gradientColors.add(new GradientColor(getResources().getColor(R.color.green)//开始颜色
+                , getResources().getColor(R.color.green)));//结束颜色
         gradientColors.add(new GradientColor(getResources().getColor(R.color.txt_red)
                 , getResources().getColor(R.color.txt_red)));
         barSet.setGradientColors(gradientColors);
@@ -658,13 +617,13 @@ public class PredictionDetailActivity extends BaseActivity {
         //柱状图
         ArrayList<BarEntry> barEntrie = new ArrayList<>();
 
-        *//*for (PredictionDetailModel.KlineListBean model : list) {
+        /*for (PredictionDetailModel.KlineListBean model : list) {
             for (PredictionDetailModel.BSBean model_bs :list_bs){
                 if (CommonUtil.timedate2(model.getTimestamp()).equals(model_bs.getTimestamp())){
                     MyLogger.i(">>>>>>>");
                 }
             }
-        }*//*
+        }*/
 
         //设置新的数据
         for (int i = 0; i < list.size(); i++) {
@@ -727,9 +686,9 @@ public class PredictionDetailActivity extends BaseActivity {
         BarDataSet barSet = new BarDataSet(barEntrie, "");
         initLineDataSet(candleSet, barSet);
 
-        *//**
-     * 蜡烛图
-     *//*
+        /**
+         * 蜡烛图
+         */
         cc.resetTracking();
         CandleData data = new CandleData(candleSet);
         cc.setData(data);
@@ -741,11 +700,9 @@ public class PredictionDetailActivity extends BaseActivity {
         cc.getViewPortHandler().refresh(matrix, cc, false);
 
 
-        */
-
-    /**
-     * 柱状图
-     *//*
+        /**
+         * 柱状图
+         */
         bc.resetTracking();
         BarData barData = new BarData(barSet);
         bc.setData(barData);
@@ -772,7 +729,7 @@ public class PredictionDetailActivity extends BaseActivity {
             RequestMore(string);
         }
 
-    }*/
+    }
 
     //屏蔽返回键
     @Override

@@ -27,7 +27,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.MainActivity;
-import com.ofc.ofc.activity.PredictionDetailActivity;
+import com.ofc.ofc.activity.PredictionDetailActivity_MPChart;
 import com.ofc.ofc.base.BaseFragment;
 import com.ofc.ofc.model.Fragment2Model;
 import com.ofc.ofc.net.OkHttpClientManager;
@@ -302,7 +302,8 @@ public class Fragment2 extends BaseFragment {
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 Bundle bundle1 = new Bundle();
                                 bundle1.putString("symbol", list1.get(position).getSymbol());
-                                CommonUtil.gotoActivityWithData(getActivity(), PredictionDetailActivity.class, bundle1, false);
+//                                CommonUtil.gotoActivityWithData(getActivity(), PredictionDetailActivity.class, bundle1, false);
+                                CommonUtil.gotoActivityWithData(getActivity(), PredictionDetailActivity_MPChart.class, bundle1, false);
                             }
 
                             @Override
@@ -463,7 +464,7 @@ public class Fragment2 extends BaseFragment {
             floatList.add(Float.valueOf(data.getClose()));
 
             if (i == dataList.size() - 1) {
-                textView.setText(getString(R.string.fragment2_h2) + "  " + data.getVolume());//1H交易量
+                textView.setText(getString(R.string.fragment2_h2) + data.getVolume());//1H交易量
             }
         }
         //最大值

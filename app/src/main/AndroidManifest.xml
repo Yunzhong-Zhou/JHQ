@@ -92,6 +92,9 @@
         <activity
             android:name="com.ofc.ofc.activity.PredictionDetailActivity"
             android:label="预测详情" />
+        <activity
+            android:name="com.ofc.ofc.activity.PredictionDetailActivity_MPChart"
+            android:label="预测详情_MPChart" />
         <!--我的-->
         <activity
             android:name="com.ofc.ofc.activity.MyProfileActivity"
