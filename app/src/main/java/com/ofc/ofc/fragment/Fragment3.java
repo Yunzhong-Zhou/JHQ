@@ -265,13 +265,13 @@ public class Fragment3 extends BaseFragment {
                         //盈利
                         tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h2));
-                        tv_type.setBackgroundResource(R.drawable.yuanjiao_5_lvse);
+                        tv_type.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
                         break;
                     case 2:
                         //亏损
                         tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h21));
-                        tv_type.setBackgroundResource(R.drawable.yuanjiao_5_juse);
+                        tv_type.setBackgroundResource(R.drawable.yuanjiao_2_red);
                         break;
                 }
                 //累计盈利
@@ -321,7 +321,7 @@ public class Fragment3 extends BaseFragment {
                                     TextView tv3 = holder.getView(R.id.textView3);
                                     tv3.setText(model.getStatus_title());
                                     if (model.getStatus() == 1) {
-                                        tv3.setTextColor(getResources().getColor(R.color.green));
+                                        tv3.setTextColor(getResources().getColor(R.color.txt_green));
                                     } else {
                                         tv3.setTextColor(getResources().getColor(R.color.red));
                                     }
@@ -362,11 +362,11 @@ public class Fragment3 extends BaseFragment {
 
                         if (model.getProfit_money() > 0) {
                             tv3.setText("+" + model.getProfit_money());
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
                         } else {
                             tv3.setText("+" + model.getProfit_money());
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_2_red);
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
                         ImageView iv = holder.getView(R.id.imageView1);
                         if (!model.getMember_head().equals(""))
@@ -390,11 +390,11 @@ public class Fragment3 extends BaseFragment {
                         double moeny = Double.valueOf(model.getEarning_money());
                         if (moeny > 0) {
                             tv3.setText("+" + moeny);
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
                         } else {
                             tv3.setText("+" + moeny);
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_2_red);
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
 
                     }

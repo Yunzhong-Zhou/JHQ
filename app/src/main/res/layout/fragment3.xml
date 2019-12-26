@@ -61,7 +61,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="6dp"
                         android:layout_toRightOf="@id/ll_top"
-                        android:background="@drawable/yuanjiao_5_lvse"
+                        android:background="@drawable/yuanjiao_2_lvse"
                         android:paddingLeft="6dp"
                         android:paddingTop="2dp"
                         android:paddingRight="6dp"
@@ -191,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="140dp"
@@ -271,7 +271,6 @@
                                     <View
                                         android:layout_width="4dp"
                                         android:layout_height="4dp"
-                                        android:layout_marginLeft="20dp"
                                         android:background="@drawable/yuanxing_huise" />
 
                                     <TextView
@@ -290,6 +289,12 @@
                                         android:text="NAME"
                                         android:textColor="@color/black1"
                                         android:textSize="15sp" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="/USDT"
+                                        android:textColor="@color/black3"
+                                        android:textSize="12sp" />
 
                                 </LinearLayout>
 
@@ -343,7 +348,6 @@
                                     <View
                                         android:layout_width="4dp"
                                         android:layout_height="4dp"
-                                        android:layout_marginLeft="20dp"
                                         android:background="@drawable/yuanxing_huise" />
 
                                     <TextView
@@ -415,7 +419,6 @@
                                     <View
                                         android:layout_width="4dp"
                                         android:layout_height="4dp"
-                                        android:layout_marginLeft="20dp"
                                         android:background="@drawable/yuanxing_huise" />
 
                                     <TextView
@@ -487,7 +490,6 @@
                                     <View
                                         android:layout_width="4dp"
                                         android:layout_height="4dp"
-                                        android:layout_marginLeft="20dp"
                                         android:background="@drawable/yuanxing_huise" />
 
                                     <TextView
@@ -522,8 +524,8 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginBottom="40dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
@@ -657,7 +659,7 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="@string/fragment3_h24"
-                                android:textColor="@color/black2"
+                                android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -666,7 +668,7 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="@string/fragment3_h25"
-                                android:textColor="@color/black2"
+                                android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -675,7 +677,7 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="@string/fragment3_h26"
-                                android:textColor="@color/black2"
+                                android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
                         </LinearLayout>
@@ -703,8 +705,9 @@
                                 android:paddingTop="8dp"
                                 android:paddingRight="24dp"
                                 android:paddingBottom="8dp"
+                                android:textColor="@color/black3"
                                 android:text="申请终止交易"
-                                android:textSize="15sp" />
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
@@ -875,7 +878,7 @@
                         android:paddingLeft="30dp"
                         android:paddingTop="14dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h32"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -884,7 +887,7 @@
                         android:gravity="center"
                         android:paddingTop="14dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h33"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -894,7 +897,7 @@
                         android:paddingRight="30dp"
                         android:paddingTop="14dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h34"/>
 
                 </LinearLayout>
@@ -911,7 +914,7 @@
                         android:paddingLeft="30dp"
                         android:paddingTop="14dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h6"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -920,7 +923,7 @@
                         android:gravity="center"
                         android:paddingTop="14dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h17"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -930,7 +933,7 @@
                         android:paddingTop="14dp"
                         android:paddingRight="30dp"
                         android:textSize="13sp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h18"/>
 
                 </LinearLayout>
@@ -947,7 +950,7 @@
                         android:gravity="center"
                         android:textSize="13sp"
                         android:paddingTop="14dp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h29"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -956,7 +959,7 @@
                         android:gravity="center"
                         android:textSize="13sp"
                         android:paddingTop="14dp"
-                        android:textColor="@color/white1"
+                        android:textColor="@color/black2"
                         android:text="@string/fragment3_h30"/>
 
                 </LinearLayout>

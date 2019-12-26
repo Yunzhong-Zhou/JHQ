@@ -36,7 +36,7 @@
                     android:gravity="center"
                     android:text="@string/app_type_paixu"
                     android:textColor="@color/green"
-                    android:textSize="14sp" />
+                    android:textSize="17sp" />
 
                 <View
                     android:id="@+id/view1"
@@ -65,7 +65,7 @@
                     android:gravity="center"
                     android:text="@string/app_type_zhuangtai"
                     android:textColor="@color/black3"
-                    android:textSize="14sp" />
+                    android:textSize="17sp" />
 
                 <View
                     android:id="@+id/view2"
@@ -80,7 +80,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/xian"/>
+            android:background="@color/xian"
+            android:visibility="gone"/>
 
         <com.ofc.ofc.view.LoadingLayout
             android:id="@+id/loading_layout"

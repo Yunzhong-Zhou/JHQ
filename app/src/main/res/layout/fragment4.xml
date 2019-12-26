@@ -281,7 +281,8 @@
                             android:id="@+id/linearLayout_addr"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/yuanjiao_5_baiseyinying"
+                            android:background="@drawable/yuanjiao_5_baise"
+                            android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
@@ -313,7 +314,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baiseyinying"
+                            android:background="@drawable/yuanjiao_5_baise"
+                            android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
@@ -345,7 +347,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baiseyinying"
+                            android:background="@drawable/yuanjiao_5_baise"
+                            android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
@@ -377,7 +380,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baiseyinying"
+                            android:background="@drawable/yuanjiao_5_baise"
+                            android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
@@ -420,7 +424,7 @@
                             android:lineSpacingExtra="5dp"
                             android:text="@string/fragment4_h7"
                             android:textColor="@color/black4"
-                            android:textSize="15sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <View

@@ -60,6 +60,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
         imageView1 = findViewByID_My(R.id.imageView1);
         editText1 = findViewByID_My(R.id.editText1);
 
+
         editText1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

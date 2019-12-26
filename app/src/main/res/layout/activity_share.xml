@@ -100,8 +100,8 @@
 
                                 <ImageView
                                     android:id="@+id/imageView3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
                                     android:src="@mipmap/bg_share3_2" />
 
                                 <TextView
@@ -169,6 +169,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
                                     android:layout_gravity="center_horizontal"
                                     android:text="@string/share_h5"
                                     android:textColor="@color/white1"
@@ -215,6 +216,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:text="@string/share_h6"
+                                    android:layout_marginTop="4dp"
                                     android:textColor="@color/white1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -259,6 +261,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:text="@string/share_h7"
+                                    android:layout_marginTop="4dp"
                                     android:textColor="@color/white1"
                                     android:textSize="13sp" />
                             </LinearLayout>
@@ -276,7 +279,7 @@
                             android:layout_height="63dp"
                             android:layout_marginLeft="30dp"
                             android:background="@mipmap/bg_share2"
-                            android:padding="8dp">
+                            android:padding="4dp">
 
                             <com.joooonho.SelectableRoundedImageView
                                 android:id="@+id/imageView1"
@@ -435,7 +438,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/yuanjiao_5_baiseyinying"
+                    android:background="@drawable/yuanjiao_5_baise"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
@@ -704,7 +708,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/yuanjiao_5_baiseyinying"
+                    android:background="@drawable/yuanjiao_5_baise"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
@@ -824,7 +829,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/yuanjiao_5_baiseyinying"
+                    android:background="@drawable/yuanjiao_5_baise"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="20dp"

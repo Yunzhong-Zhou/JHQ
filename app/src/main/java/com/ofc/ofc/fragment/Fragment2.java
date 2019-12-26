@@ -222,7 +222,9 @@ public class Fragment2 extends BaseFragment {
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
     }
+
     Handler handler = new Handler();
+
     private void Request(String string) {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment2 + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -264,20 +266,29 @@ public class Fragment2 extends BaseFragment {
                                         //显示线条渐变色
                                         Drawable drawable = getResources().getDrawable(R.drawable.huisejianbian);
                                         setChartFillDrawable(lineChart, drawable);
-
-                                        holder.setText(R.id.textView1, model.getSymbol() + "/");//name
-//                                holder.setText(R.id.textView3, model.get+"");//1H交易量
-                                        holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
-//                                holder.setText(R.id.textView6, model.get+"");//
-                                        holder.setText(R.id.textView4, CommonUtil.timedate(model.getTrading_point().getTimestamp()+""));//时间
                                     }
                                 });
+                                holder.setText(R.id.textView1, model.getSymbol() + "/");//name
+//                                holder.setText(R.id.textView3, model.get+"");//1H交易量
+                                holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
+
+                                switch (model.getSymbol()) {
+                                    case "XRP":
+                                    case "TRX":
+                                        holder.setText(R.id.textView6, String.format("%.6f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
+                                        break;
+                                    default:
+                                        holder.setText(R.id.textView6, String.format("%.2f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
+
+                                        break;
+                                }
+                                holder.setText(R.id.textView4, CommonUtil.timedate3(model.getTrading_point().getTimestamp() + ""));//时间
 
                                 TextView textView7 = holder.getView(R.id.textView7);
                                 if (model.getTrading_point().getStatus() == 1) {
                                     //买入
                                     textView7.setText(getString(R.string.fragment2_h5));
-                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_lvse);
+                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_lvse1);
                                 } else {
                                     textView7.setText(getString(R.string.fragment2_h4));
                                     textView7.setBackgroundResource(R.drawable.yuanjiao_5_huangse);
@@ -452,7 +463,7 @@ public class Fragment2 extends BaseFragment {
             floatList.add(Float.valueOf(data.getClose()));
 
             if (i == dataList.size() - 1) {
-                textView.setText(getString(R.string.fragment2_h2)+"  "+data.getVolume());//1H交易量
+                textView.setText(getString(R.string.fragment2_h2) + "  " + data.getVolume());//1H交易量
             }
         }
         //最大值

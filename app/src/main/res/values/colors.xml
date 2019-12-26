@@ -28,15 +28,15 @@
     <color name="blue">#2128C1</color>
     <color name="qianblue">#44C7ED</color>
     <color name="purple">#7C08C5</color>
-    <color name="red">#F81223</color>
+    <color name="red">#DF392E</color>
     <color name="green">#10A589</color>
     <color name="orange">#FD5542</color>
 
     <color name="black">#111111</color>
     <color name="black1">#333333</color>
     <color name="black2">#555555</color>
-    <color name="black3">#777777</color>
-    <color name="black4">#999999</color>
+    <color name="black3">#bfbfbf</color>
+    <color name="black4">#d9d7d7</color>
     <color name="black5">#F2F2F2</color>
 
     <color name="pop_bg1">#eaeaea</color>
@@ -147,8 +147,8 @@
     <color name="txt_yellow">#ffeb3b</color><!-- 黄色 -->
     <color name="txt_lime">#cddc39</color><!-- 黄绿色 -->
     <color name="txt_light_green">#8bc34a</color><!-- 亮绿色 -->
-    <color name="txt_green">#14afa6</color><!-- 绿色 -->
-    <color name="txt_red">#d21e4d</color><!-- 红色 -->
+    <color name="txt_green">#01D154</color><!-- 绿色 -->
+    <color name="txt_red">#DF392E</color><!-- 红色 -->
 
     <!-- 透明色 -->
     <color name="transparent">#00000000</color><!--透明 -->

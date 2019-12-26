@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.Display;
@@ -334,8 +335,9 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
 //                                getResizeBitmap(icon,this);
 //                                c.draw(bitmap, icon.getIntrinsicWidth(), icon.getIntrinsicHeight(), mRenderPaint);
 
+//                                trans.pointValuesToPixel(mBodyBuffers);
 
-                               /* Rect mDrawableBoundsCache = new Rect();
+                                Rect mDrawableBoundsCache = new Rect();
                                 MPPointF drawOffset = MPPointF.getInstance();
                                 drawOffset.x = x - (icon.getIntrinsicWidth() / 2);
                                 drawOffset.y = y - (icon.getIntrinsicHeight() / 2);
@@ -350,16 +352,16 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
                                 // 转换到正确的位置并绘制
                                 c.translate(drawOffset.x, drawOffset.y);
                                 icon.draw(c);
-                                c.restoreToCount(saveId);*/
+                                c.restoreToCount(saveId);
 
                                 //买入
-                                Utils.drawImage(
+                                /*Utils.drawImage(
                                         c,
                                         icon,
                                         (int) (x + iconsOffset.x),
                                         (int) (y + iconsOffset.y),//顶部0，mChart.getHeight()=1020
                                         icon.getIntrinsicWidth(),
-                                        icon.getIntrinsicHeight());
+                                        icon.getIntrinsicHeight());*/
 
 //                                System.out.println(">>>>>>>" + y + ">>>>" + Math.abs(mBodyBuffers[3] - mBodyBuffers[1])
 //                                        + ">>动态比例>" + mAnimator.getPhaseY()

@@ -117,7 +117,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
-                                    android:src="@mipmap/ic_fragment3_jiantou_up" />
+                                    android:src="@mipmap/ic_jiantou_up" />
 
                             </LinearLayout>
 

@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:text="0"
                     android:textColor="@color/black1"
                     android:textSize="50sp" />
@@ -44,6 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -86,9 +87,9 @@
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:layout_marginLeft="-20dp"
+                        android:layout_marginLeft="-10dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginRight="0dp"
                         android:layout_weight="1"
                         android:clipOrientation="horizontal"
                         android:gravity="left"
@@ -137,7 +138,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:background="@drawable/yuanjiao_0_baiseyinying"
+                    android:background="@color/white"
+                    android:elevation="2dp"
                     android:orientation="horizontal"
                     android:padding="14dp">
 
@@ -294,7 +296,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="-3dp"
-                        android:background="@drawable/yuanjiao_0_baiseyinying"
+                        android:background="@color/white"
+                        android:elevation="2dp"
                         android:orientation="horizontal"
                         android:padding="14dp">
 
@@ -442,7 +445,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-3dp"
-                    android:background="@drawable/yuanjiao_0_baiseyinying"
+                    android:background="@color/white"
+                    android:elevation="2dp"
                     android:orientation="horizontal"
                     android:padding="14dp">
 
@@ -476,6 +480,10 @@
                     android:text="error"
                     android:textColor="@color/black3"
                     android:textSize="15sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
                 <TextView
                     android:id="@+id/textView18"

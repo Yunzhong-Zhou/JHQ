@@ -53,6 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="45dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:paddingBottom="100dp">
 
             <EditText
@@ -68,10 +70,11 @@
                 android:textSize="50sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="4dp"
                 android:layout_toRightOf="@id/editText1"
-                android:padding="8dp"
                 android:src="@mipmap/ic_editimg" />
 
             <TextView

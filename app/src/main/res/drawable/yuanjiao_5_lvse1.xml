@@ -4,10 +4,10 @@
         android:color="@color/txt_green" />
     <!--圆角-->
     <corners
-        android:bottomLeftRadius="2dp"
-        android:bottomRightRadius="2dp"
-        android:topLeftRadius="2dp"
-        android:topRightRadius="2dp" />
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:topLeftRadius="5dp"
+        android:topRightRadius="5dp" />
     <!--边框-->
     <stroke
         android:width="0dp"

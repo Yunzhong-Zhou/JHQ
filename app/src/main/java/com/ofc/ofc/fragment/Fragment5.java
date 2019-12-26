@@ -101,7 +101,7 @@ public class Fragment5 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        findViewByID_My(R.id.springView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
+//        findViewByID_My(R.id.springView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
         //刷新
         setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {

@@ -184,10 +184,10 @@ public class PredictionDetailActivity extends BaseActivity implements CoupleChar
                 if (zhangdie > 0) {
                     //上涨
                     textView2.setTextColor(getResources().getColor(R.color.green));
-                    imageView2.setImageResource(R.mipmap.ic_fragment3_jiantou_up);
+                    imageView2.setImageResource(R.mipmap.ic_jiantou_up);
                 } else {
                     textView2.setTextColor(getResources().getColor(R.color.red));
-                    imageView2.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
+                    imageView2.setImageResource(R.mipmap.ic_jiantou_down);
                 }
 
                 //建议买入卖出

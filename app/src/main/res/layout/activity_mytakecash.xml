@@ -36,7 +36,7 @@
                     android:gravity="center"
                     android:text="@string/app_type_bizhong"
                     android:textColor="@color/green"
-                    android:textSize="14sp" />
+                    android:textSize="17sp" />
 
                 <View
                     android:id="@+id/view1"
@@ -65,7 +65,7 @@
                     android:gravity="center"
                     android:text="@string/app_type_zhuangtai"
                     android:textColor="@color/black3"
-                    android:textSize="14sp" />
+                    android:textSize="17sp" />
 
                 <View
                     android:id="@+id/view2"

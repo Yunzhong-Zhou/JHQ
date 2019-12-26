@@ -12,7 +12,7 @@
         app:Easy_addIconSize="70dp"
         app:Easy_tabIconSize="20dp"
         app:Easy_navigationBackground="#053B54"
-        app:Easy_navigationHeight="50dp"
+        app:Easy_navigationHeight="51dp"
         app:Easy_addTextTopMargin="-20dp">
 
     </com.next.easynavigation.view.EasyNavigationBar>
