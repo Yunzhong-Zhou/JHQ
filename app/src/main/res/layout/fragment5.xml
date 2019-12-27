@@ -91,6 +91,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4.0dip"
                                 android:text="@string/fragment5_h1"
+                                android:textIsSelectable="true"
                                 android:textColor="@color/white1"
                                 android:textSize="15.0sp" />
                         </LinearLayout>
@@ -120,6 +121,8 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/linearLayout_yue"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -133,7 +136,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="23sp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -165,7 +168,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="23sp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -184,6 +187,8 @@
                             android:background="@color/white1" />
 
                         <LinearLayout
+                            android:id="@+id/linearLayout_yongjin"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -197,7 +202,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="23sp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <TextView

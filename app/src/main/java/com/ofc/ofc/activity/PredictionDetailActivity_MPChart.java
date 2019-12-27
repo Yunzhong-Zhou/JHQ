@@ -672,21 +672,12 @@ public class PredictionDetailActivity_MPChart extends BaseActivity implements Co
                     break;
             }
 
-            //柱状图
-            if (list.get(i).getClose() - list.get(i).getOpen() >0){
-                barEntrie.add(new BarEntry(
-                        i,
-                        (float) list.get(i).getVolume(),
-                        1
-                ));
-            }else {
-                barEntrie.add(new BarEntry(
-                        i,
-                        (float) list.get(i).getVolume(),
-                        2
-                ));
-            }
 
+            //柱状图
+            barEntrie.add(new BarEntry(
+                    i,
+                    (float) list.get(i).getVolume()
+            ));
         }
 
         //设置数据

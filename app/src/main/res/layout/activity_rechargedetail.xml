@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
                     android:text="0"
                     android:textColor="@color/black1"
                     android:textSize="50sp" />
@@ -40,10 +40,19 @@
                     android:textColor="@color/black3"
                     android:textSize="15sp" />
 
+                <ImageView
+                    android:id="@+id/imageView_addr"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:padding="8dp"
+                    android:background="@mipmap/bg_rechargedetail" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
@@ -136,32 +145,52 @@
                 <LinearLayout
                     android:id="@+id/linearLayout_addr"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="110dp"
                     android:layout_marginBottom="14dp"
                     android:background="@color/white"
                     android:elevation="2dp"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:padding="14dp"
                         android:text="@string/recharge_h14"
                         android:textColor="@color/black3"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/textView8"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:lineSpacingExtra="5dp"
-                        android:minLines="3"
-                        android:text=""
-                        android:textColor="@color/black1"
-                        android:textIsSelectable="true"
-                        android:textSize="15sp" />
+                        android:layout_height="match_parent">
 
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="5dp"
+                            android:minLines="3"
+                            android:paddingLeft="14dp"
+                            android:paddingRight="14dp"
+                            android:paddingBottom="14dp"
+                            android:text=""
+                            android:textColor="@color/black1"
+                            android:textIsSelectable="true"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/imageView_fuzhi"
+                            android:onClick="onClick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="20dp"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="10dp"
+                            android:src="@mipmap/ic_fuzhi" />
+
+                    </RelativeLayout>
                 </LinearLayout>
 
 
@@ -196,8 +225,8 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
-                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
+                            android:textIsSelectable="true"
                             android:textSize="15sp" />
 
                     </LinearLayout>
@@ -226,8 +255,8 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
-                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
+                            android:textIsSelectable="true"
                             android:textSize="15sp" />
 
                     </LinearLayout>
@@ -256,8 +285,8 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
-                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
+                            android:textIsSelectable="true"
                             android:textSize="15sp" />
 
                     </LinearLayout>
@@ -286,8 +315,8 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
-                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
+                            android:textIsSelectable="true"
                             android:textSize="15sp" />
 
                     </LinearLayout>
@@ -317,13 +346,12 @@
                             android:gravity="right"
                             android:lineSpacingExtra="5dp"
                             android:text=""
-                            android:textIsSelectable="true"
                             android:textColor="@color/black1"
+                            android:textIsSelectable="true"
                             android:textSize="15sp" />
 
                     </LinearLayout>
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -355,6 +383,7 @@
                         android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/linearLayout_shiji"
                     android:layout_width="match_parent"
@@ -384,6 +413,7 @@
                         android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -412,6 +442,7 @@
                         android:textSize="15sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -480,10 +511,11 @@
                     android:text="error"
                     android:textColor="@color/black3"
                     android:textSize="15sp" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/textView18"

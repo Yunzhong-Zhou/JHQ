@@ -136,6 +136,9 @@
             android:name="com.ofc.ofc.activity.AccountDetailActivity"
             android:label="我的钱包" />
         <activity
+            android:name="com.ofc.ofc.activity.AddressActivity"
+            android:label="币地址" />
+        <activity
             android:name="com.ofc.ofc.activity.MyRechargeActivity"
             android:label="我的充值" />
         <activity

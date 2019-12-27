@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
+import com.ofc.ofc.activity.AccountDetailActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.RechargeDetailActivity;
 import com.ofc.ofc.activity.SetAddressActivity;
@@ -24,7 +26,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
@@ -39,16 +40,15 @@ public class Fragment4 extends BaseFragment {
     //充值
     Fragment4Model model;
     int type = 1;
-    LinearLayout linearLayout1, linearLayout2, linearLayout3;
+    LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout_keyong;
     TextView textView1, textView2, textView_3, textView_dazhe_1, textView_dazhe_2, textView_dazhe_3;
     View view1, view2, view3;
 
     String input_money = "", txid = "";
-    TextView textView3, textView4, textView5, textView6, textView7, textView_addr, textView_moeny;
+    TextView textView3, textView4, textView5, textView6, textView7, textView_addr, textView_moeny, textView_shouxufei;
     EditText editText1, editText2;
 
     LinearLayout linearLayout_addr, linearLayout_num, linearLayout_money, linearLayout_daozhang;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -120,6 +120,7 @@ public class Fragment4 extends BaseFragment {
         linearLayout_money = findViewByID_My(R.id.linearLayout_money);
         textView_moeny = findViewByID_My(R.id.textView_moeny);
         linearLayout_daozhang = findViewByID_My(R.id.linearLayout_daozhang);
+        linearLayout_keyong = findViewByID_My(R.id.linearLayout_keyong);
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
@@ -127,6 +128,7 @@ public class Fragment4 extends BaseFragment {
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
         linearLayout3.setOnClickListener(this);
+        linearLayout_keyong.setOnClickListener(this);
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -148,6 +150,7 @@ public class Fragment4 extends BaseFragment {
         textView7 = findViewByID_My(R.id.textView7);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+        textView_shouxufei = findViewByID_My(R.id.textView_shouxufei);
         textView7.setOnClickListener(this);
 
         //输入监听
@@ -167,13 +170,17 @@ public class Fragment4 extends BaseFragment {
                 if (type == 2) {
                     if (!editText2.getText().toString().trim().equals("")) {
                         input_money = editText2.getText().toString().trim();
-                        MyLogger.i(">>>>>输入币数>>>>>" + input_money);
+                        if (Double.valueOf(input_money) >= 50) {
+                            MyLogger.i(">>>>>输入币数>>>>>" + input_money);
+                            //实际到账  =  个数 -50 *  汇率
+                            double real_money = (Double.valueOf(input_money) - 50) * Double.valueOf(model.getAud_conver_usd());
+                            MyLogger.i(">>>>>实际到账>>>>>" + real_money);
 
-                        //实际到账  =  个数  *  汇率
-                        double real_money = Double.valueOf(input_money) * Double.valueOf(model.getAud_conver_usd());
-                        MyLogger.i(">>>>>实际到账>>>>>" + real_money);
+                            textView_moeny.setText(String.format("%.2f", real_money));
+                        }else {
+                            textView_moeny.setText("0");
+                        }
 
-                        textView_moeny.setText(String.format("%.2f", real_money));
                     } else {
                         textView_moeny.setText("0");
                     }
@@ -289,6 +296,10 @@ public class Fragment4 extends BaseFragment {
                     RequestRecharge(params);//充值
                 }
                 break;
+            case R.id.linearLayout_keyong:
+                //可用 - 跳转我的钱包
+                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
+                break;
         }
 
     }
@@ -357,13 +368,13 @@ public class Fragment4 extends BaseFragment {
 
     private boolean match() {
         input_money = "";
-        if (type ==1){
+        if (type == 1) {
             input_money = editText1.getText().toString().trim();
             if (TextUtils.isEmpty(input_money)) {
                 myToast(getString(R.string.fragment4_h4));
                 return false;
             }
-        }else {
+        } else {
             input_money = editText2.getText().toString().trim();
             if (TextUtils.isEmpty(input_money)) {
                 myToast(getString(R.string.fragment4_h5));
@@ -399,7 +410,7 @@ public class Fragment4 extends BaseFragment {
             linearLayout_money.setVisibility(View.GONE);//隐藏金额
             linearLayout_daozhang.setVisibility(View.GONE);//隐藏到账
             textView5.setVisibility(View.GONE);//隐藏USDT价格
-
+            textView_shouxufei.setVisibility(View.GONE);//隐藏手续费
 
             textView6.setText(getString(R.string.fragment4_h7));
             editText1.setHint(getString(R.string.fragment4_h4)
@@ -429,6 +440,7 @@ public class Fragment4 extends BaseFragment {
             linearLayout_money.setVisibility(View.VISIBLE);//显示金额
             linearLayout_daozhang.setVisibility(View.VISIBLE);//显示到账
             textView5.setVisibility(View.VISIBLE);//显示USDT价格
+            textView_shouxufei.setVisibility(View.VISIBLE);//显示手续费
 
             textView6.setText(getString(R.string.fragment4_h13));
             editText2.setHint(getString(R.string.fragment4_h19));

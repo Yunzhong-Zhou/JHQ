@@ -30,6 +30,7 @@ import java.util.List;
  */
 public class AccountDetailActivity extends BaseActivity {
     int type = 1;
+    AccountDetailModel1 model1;
     private RecyclerView recyclerView;
     List<AccountDetailModel1.EarningListBean> list1 = new ArrayList<>();
     CommonAdapter<AccountDetailModel1.EarningListBean> mAdapter1;
@@ -39,7 +40,7 @@ public class AccountDetailActivity extends BaseActivity {
     //头部一
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
-    TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4;
+    TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4, head1_textView5;
 
     //悬浮部分
     LinearLayout invis;
@@ -88,7 +89,7 @@ public class AccountDetailActivity extends BaseActivity {
         head1_textView2 = findViewByID_My(R.id.head1_textView2);
         head1_textView3 = findViewByID_My(R.id.head1_textView3);
         head1_textView4 = findViewByID_My(R.id.head1_textView4);
-
+        head1_textView5 = findViewByID_My(R.id.head1_textView5);
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
         final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(AccountDetailActivity.this);
@@ -132,6 +133,13 @@ public class AccountDetailActivity extends BaseActivity {
             public void onResponse(AccountDetailModel1 response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>账户详情1" + response);
+                model1 = response;
+                if (!response.getTop_up_usdt_wallet_addr().equals("")) {
+                    head1_textView5.setVisibility(View.VISIBLE);
+                } else {
+                    head1_textView5.setVisibility(View.GONE);
+                }
+
                 head1_textView1.setText(response.getCommon_usable_money());
                 head1_textView2.setText(response.getContract_money());
                 head1_textView3.setText(response.getProfit_money());
@@ -202,7 +210,9 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_textView5:
                 //币地址
-                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("addr",model1.getTop_up_usdt_wallet_addr());
+                CommonUtil.gotoActivityWithData(this, AddressActivity.class, bundle1,false);
                 break;
         }
     }

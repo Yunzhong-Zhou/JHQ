@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,6 +43,9 @@ public class VerifiedActivity extends BaseActivity {
     int i1 = 0;
     String number = "", name = "", code = "";
 
+    boolean isgouxuan1 = true,isgouxuan2 = true;
+    ImageView imageView1,imageView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +65,10 @@ public class VerifiedActivity extends BaseActivity {
 
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+
+        imageView1 = findViewByID_My(R.id.imageView1);
+        imageView2 = findViewByID_My(R.id.imageView2);
+
     }
 
     @Override
@@ -122,6 +130,23 @@ public class VerifiedActivity extends BaseActivity {
                 }
 
                 break;
+
+            case R.id.imageView1:
+                //勾选协议
+                isgouxuan1 = !isgouxuan1;
+                if (isgouxuan1)
+                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                else
+                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
+                break;
+            case R.id.imageView2:
+                //勾选协议
+                isgouxuan2 = !isgouxuan2;
+                if (isgouxuan2)
+                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                else
+                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
+                break;
         }
     }
 
@@ -134,6 +159,15 @@ public class VerifiedActivity extends BaseActivity {
         number = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(number)) {
             myToast(getString(R.string.fragment5_h26));
+            return false;
+        }
+
+        if (!isgouxuan1) {
+            myToast(getString(R.string.fragment5_h32));
+            return false;
+        }
+        if (!isgouxuan2) {
+            myToast(getString(R.string.fragment5_h33));
             return false;
         }
         return true;

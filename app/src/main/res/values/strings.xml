@@ -60,7 +60,6 @@
     <string name="app_type_zhuangtai">状态</string>
     <string name="app_type_bizhong">币种</string>
     <string name="app_type_ETH">ETH</string>
-    <string name="app_type_CHO">CHO</string>
     <string name="app_type_CNY">CNY</string>
     <string name="app_type_USDT">USDT</string>
     <string name="app_type_AY">澳元</string>
@@ -167,6 +166,7 @@
     <string name="registered_h12">请输入相同的密码</string>
     <string name="registered_h13">该昵称可用</string>
     <string name="registered_h14">正在注册...</string>
+    <string name="registered_h15">注册请阅读并同意《用户使用协议》</string>
 
     <!--忘记密码-->
     <string name="forgetpassword_h1">请输入手机号码</string>
@@ -199,7 +199,7 @@
     <string name="fragment2_h12">建议买入时机</string>
 
     <!--fragment3-->
-    <string name="fragment3_h1">合约余额</string>
+    <string name="fragment3_h1">合约仓位</string>
     <string name="fragment3_h2">盈利</string>
     <string name="fragment3_h3">累计盈利</string>
     <string name="fragment3_h4">累计补仓</string>
@@ -215,8 +215,8 @@
     <string name="fragment3_h14">合约动态</string>
     <string name="fragment3_h15">我的交易</string>
     <string name="fragment3_h16">我的补仓</string>
-    <string name="fragment3_h17">合约数</string>
-    <string name="fragment3_h18">合约收益</string>
+    <string name="fragment3_h17">合约仓位</string>
+    <string name="fragment3_h18">合约盈利</string>
     <string name="fragment3_h19">等待中</string>
     <string name="fragment3_h20">交易中</string>
     <string name="fragment3_h21">亏损</string>
@@ -226,56 +226,59 @@
     <string name="fragment3_h25">交易对</string>
     <string name="fragment3_h26">状态</string>
     <string name="fragment3_h27">BTC永续</string>
-    <string name="fragment3_h28">申请终止交易</string>
-    <string name="fragment3_h29">补仓数/USDT</string>
+    <string name="fragment3_h28">申请平仓</string>
+    <string name="fragment3_h29">补仓/USDT</string>
     <string name="fragment3_h30">补仓时间</string>
-    <string name="fragment3_h31">转入</string>
+    <string name="fragment3_h31">合约建仓</string>
     <string name="fragment3_h32">用户</string>
-    <string name="fragment3_h33">合约数/USDT</string>
+    <string name="fragment3_h33">合约仓位/USDT</string>
     <string name="fragment3_h34">收益</string>
-    <string name="fragment3_h35">转出</string>
+    <string name="fragment3_h35">平仓</string>
     <string name="fragment3_h36">持平</string>
     <string name="fragment3_h37">确认转出吗？</string>
     <string name="fragment3_h38">转出成功</string>
-    <string name="fragment3_h39">确认终止交易吗？</string>
-    <string name="fragment3_h40">终止成功</string>
-    <string name="fragment3_h41">取消终止交易</string>
-    <string name="fragment3_h42">确定取消终止吗？</string>
+    <string name="fragment3_h39">若本轮交易盈利，则在结束后立即平仓；若本轮交易亏损，则需等待至下一轮交易盈利后执行平仓</string>
+    <string name="fragment3_h40">平仓成功</string>
+    <string name="fragment3_h41">取消平仓</string>
+    <string name="fragment3_h42">确定取消平仓吗？</string>
+    <string name="fragment3_h43">加仓</string>
+    <string name="fragment3_h44">保险金：</string>
 
 
     <!--fragment4-->
-    <string name="fragment4_h1">可用余币</string>
+    <string name="fragment4_h1">可用（USDT）</string>
     <string name="fragment4_h2">充币地址</string>
-    <string name="fragment4_h3">个数</string>
+    <string name="fragment4_h3">充币数量</string>
     <string name="fragment4_h4">请输入USDT个数</string>
     <string name="fragment4_h5">请输入电汇金额</string>
     <string name="fragment4_h6">USDT价格：</string>
-    <string name="fragment4_h7">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
-    <string name="fragment4_h8">确定</string>
+    <string name="fragment4_h7">重要提示：\n1.充值到帐时间以实际到帐为准；\n2.请注意转帐GAS费，到帐数量以实际为准；\n3.请勿提交虚假充值；</string>
+    <string name="fragment4_h8">提交充币</string>
     <string name="fragment4_h9">充币提交成功</string>
     <string name="fragment4_h10">前往设置充币地址</string>
     <string name="fragment4_h11">USDT</string>
     <string name="fragment4_h12">澳元电汇</string>
-    <string name="fragment4_h13">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
+    <string name="fragment4_h13">重要提示：\n1.充值到帐时间以实际到帐为准，正常3—5个工作日；\n2.海外银行电汇双向手续费50澳元；\n3.到帐金额以实际到帐为准；</string>
     <string name="fragment4_h14">请在提交后，查看充币地址</string>
-    <string name="fragment4_h15">金额</string>
+    <string name="fragment4_h15">金额（AUD）</string>
     <string name="fragment4_h16">电汇信息</string>
-    <string name="fragment4_h17">到账</string>
+    <string name="fragment4_h17">折合（USDT）</string>
     <string name="fragment4_h18">请在提交后，查看电汇账号</string>
     <string name="fragment4_h19">输入电汇金额</string>
     <string name="fragment4_h20"></string>
     <string name="fragment4_h21">正在前往充值...</string>
     <string name="fragment4_h26">9.7折</string>
-    <string name="fragment4_h27">重要提示：\n1.充币到帐时间以实际时间为准。\n2.请勿提交虚假充币，否则将被封号。</string>
+    <string name="fragment4_h27">重要提示：\n1.充值到帐时间以实际到帐为准；\n2.请注意转帐GAS费，到帐数量以实际为准；\n3.请勿提交虚假充值；</string>
+    <string name="fragment4_h28">手续费：50(AUD)</string>
 
     <!--fragment5-->
     <string name="fragment5_h1">邀请码：</string>
-    <string name="fragment5_h2">账户余额</string>
-    <string name="fragment5_h3">累计盈利</string>
-    <string name="fragment5_h4">累计佣金</string>
+    <string name="fragment5_h2">可用(USDT)</string>
+    <string name="fragment5_h3">累计盈利(USDT)</string>
+    <string name="fragment5_h4">累计佣金(USDT)</string>
     <string name="fragment5_h5">佣金</string>
     <string name="fragment5_h6">充币</string>
-    <string name="fragment5_h7">划转</string>
+    <string name="fragment5_h7">建仓</string>
     <string name="fragment5_h8">转币</string>
     <string name="fragment5_h9">推广</string>
     <string name="fragment5_h10">我的钱包</string>
@@ -299,7 +302,8 @@
     <string name="fragment5_h29">人脸识别</string>
     <string name="fragment5_h30">同意《Oceanina T&amp;C》</string>
     <string name="fragment5_h31">同意《Oceanina Privacy Pollcy Last Updated》</string>
-
+    <string name="fragment5_h32">请同意《Oceanina T&amp;C》</string>
+    <string name="fragment5_h33">请同意《Oceanina Privacy Pollcy Last Updated》</string>
 
     <!--个人资料-->
     <string name="myprofile_h1">资料管理</string>
@@ -307,7 +311,7 @@
     <string name="myprofile_h3">昵称</string>
     <string name="myprofile_h4">邀请码</string>
     <string name="myprofile_h5">推广等级</string>
-    <string name="myprofile_h6">币地址管理</string>
+    <string name="myprofile_h6">提币地址管理</string>
     <string name="myprofile_h7">交易密码</string>
     <string name="myprofile_h8">登录密码</string>
     <string name="myprofile_h9">退出登录</string>
@@ -320,7 +324,7 @@
     <string name="myprofile_h16">修改服务代码</string>
     <string name="myprofile_h17">服务中心</string>
     <string name="myprofile_h19">限量申请</string>
-    <string name="myprofile_h20">每个市仅开通三个服务中心</string>
+    <string name="myprofile_h20">无需市场推广，坐享市场分成</string>
     <string name="myprofile_h21">5%分红</string>
     <string name="myprofile_h22">可获得服务用户的盈利\n5%分红</string>
     <string name="myprofile_h23">1个USDT/手</string>
@@ -405,6 +409,8 @@
     <string name="address_h14">选择地区</string>
     <string name="address_h15">中国大陆用户</string>
     <string name="address_h16">海外用户</string>
+    <string name="address_h17">币地址</string>
+    <string name="address_h18">币地址二维码</string>
 
     <!--钱包-->
     <string name="qianbao_h1">账户详情</string>
@@ -456,6 +462,7 @@
     <string name="recharge_h31">充值金额</string>
     <string name="recharge_h32">个USDT</string>
     <string name="recharge_h33">USDT价格</string>
+    <string name="recharge_h34">已复制</string>
 
     <!--推广-->
     <string name="share_h1">推广</string>
@@ -482,7 +489,7 @@
     <string name="share_h27">分享</string>
     <string name="share_h28">OFC区块竞猜链，打造竞猜行业流通币，最公平的竞猜，50%的胜率，奖金翻倍，激活区块，2倍激活奖励，算力挖矿。</string>
     <string name="share_h29">用户名</string>
-    <string name="share_h30">合约额</string>
+    <string name="share_h30">合约仓位</string>
     <string name="share_h31">会员等级</string>
     <string name="share_h32">经纪人体系</string>
     <string name="share_h33">推广用户</string>
@@ -492,6 +499,7 @@
     <string name="share_h37">已签</string>
     <string name="share_h38">未签</string>
     <string name="share_h39">签到中...</string>
+    <string name="share_h40">立即分享</string>
 
     <!--提币-->
     <string name="takecash_h1">提币</string>
@@ -646,25 +654,25 @@
     <string name="zxing_h40">*请务必按照生成金额付款</string>
 
     <!--扫码付款-->
-    <string name="scavengingpayment_h1">转币个数</string>
-    <string name="scavengingpayment_h2">余币：</string>
+    <string name="scavengingpayment_h1">转币数量</string>
+    <string name="scavengingpayment_h2">可用：</string>
     <string name="scavengingpayment_h3">确认转币</string>
     <string name="scavengingpayment_h4">请输入向对方转币的个数</string>
     <string name="scavengingpayment_h5">转币提交成功</string>
     <string name="scavengingpayment_h6">请输入交易密码</string>
     <string name="scavengingpayment_h7">向</string>
     <string name="scavengingpayment_h8">转币</string>
-    <string name="scavengingpayment_h9">转入</string>
+    <string name="scavengingpayment_h9">合约建仓</string>
     <string name="scavengingpayment_h10">手续费：</string>
     <string name="scavengingpayment_h11">转币确认</string>
     <string name="scavengingpayment_h12">验证码已发送到：</string>
     <string name="scavengingpayment_h13">合约建仓</string>
-    <string name="scavengingpayment_h14">合约数量</string>
-    <string name="scavengingpayment_h15">请输入合约数量</string>
+    <string name="scavengingpayment_h14">合约仓位</string>
+    <string name="scavengingpayment_h15">请输入合约仓位</string>
     <string name="scavengingpayment_h16">保险金</string>
     <string name="scavengingpayment_h17">如何推动高质量发展？习近平总书记近几年曾在多个场合作出重要论述</string>
-    <string name="scavengingpayment_h18">可用币数：</string>
-    <string name="scavengingpayment_h19">合约转入</string>
+    <string name="scavengingpayment_h18">可用USDT：</string>
+    <string name="scavengingpayment_h19">合约建仓</string>
     <string name="scavengingpayment_h20">转入成功</string>
     <string name="scavengingpayment_h21">合约记录</string>
     <string name="scavengingpayment_h22">合约额度</string>

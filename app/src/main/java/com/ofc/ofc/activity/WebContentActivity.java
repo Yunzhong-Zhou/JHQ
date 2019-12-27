@@ -13,6 +13,7 @@ import android.webkit.WebViewClient;
 
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
+import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
 
 
@@ -35,7 +36,8 @@ public class WebContentActivity extends BaseActivity {
     protected void initView() {
         showProgress(true, getString(R.string.app_loading2));
         webView = (WebView) findViewById(R.id.webView);
-        String url = getIntent().getStringExtra("url");
+        String url = getIntent().getStringExtra("url")+"&lang_type="
+                + LocalUserInfo.getInstance(this).getLanguage_Type();
         MyLogger.i(">>>>>>url" + url);
 
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);//设置js可以直接打开窗口，如window.open()，默认为false

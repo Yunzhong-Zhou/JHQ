@@ -43,10 +43,10 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  */
 public class Fragment5 extends BaseFragment {
     RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6,textView7,textView8;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12;
+            linearLayout12, linearLayout_yue, linearLayout_yongjin;
     ImageView imageView1;
 
 
@@ -153,6 +153,8 @@ public class Fragment5 extends BaseFragment {
         linearLayout10 = findViewByID_My(R.id.linearLayout10);
         linearLayout11 = findViewByID_My(R.id.linearLayout11);
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
+        linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
+        linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -166,6 +168,8 @@ public class Fragment5 extends BaseFragment {
         linearLayout10.setOnClickListener(this);
         linearLayout11.setOnClickListener(this);
         linearLayout12.setOnClickListener(this);
+        linearLayout_yue.setOnClickListener(this);
+        linearLayout_yongjin.setOnClickListener(this);
 
         relativeLayout = findViewByID_My(R.id.relativeLayout);
         relativeLayout.setOnClickListener(this);
@@ -207,7 +211,7 @@ public class Fragment5 extends BaseFragment {
                 //邀请码
                 textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
-                switch (response.getGrade()){
+                switch (response.getGrade()) {
                     case 1:
                         textView3.setText("LP");
                         break;
@@ -272,10 +276,12 @@ public class Fragment5 extends BaseFragment {
 //                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
                 break;
             case R.id.linearLayout4:
+            case R.id.linearLayout_yongjin:
                 //推广
                 CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout5:
+            case R.id.linearLayout_yue:
                 //我的钱包
                 CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
                 break;

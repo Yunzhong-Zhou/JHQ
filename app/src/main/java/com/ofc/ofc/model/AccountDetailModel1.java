@@ -16,12 +16,21 @@ public class AccountDetailModel1 implements Serializable {
      * expenditure_list : [{"title":"转出","money":"1","status":"完成","created_at":"2019-12-18 15:47:56"},{"title":"申请合约","money":"5","status":"完成","created_at":"2019-12-18 15:43:45"},{"title":"提币","money":"10","status":"待审核","created_at":"2019-12-17 21:41:50"},{"title":"提币","money":"10","status":"待审核","created_at":"2019-12-17 18:23:57"},{"title":"转出","money":"2","status":"完成","created_at":"2019-12-17 17:52:55"}]
      */
 
+    private String top_up_usdt_wallet_addr;
     private String common_usable_money;
     private String contract_money;
     private String profit_money;
     private String commission_money;
     private List<EarningListBean> earning_list;
     private List<ExpenditureListBean> expenditure_list;
+
+    public String getTop_up_usdt_wallet_addr() {
+        return top_up_usdt_wallet_addr;
+    }
+
+    public void setTop_up_usdt_wallet_addr(String top_up_usdt_wallet_addr) {
+        this.top_up_usdt_wallet_addr = top_up_usdt_wallet_addr;
+    }
 
     public String getCommon_usable_money() {
         return common_usable_money;

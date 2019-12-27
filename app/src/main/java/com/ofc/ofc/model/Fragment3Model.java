@@ -21,6 +21,7 @@ public class Fragment3Model implements Serializable {
      */
 
     private String reality_money;
+    private String insurance_money;
     private int result;
     private int contract_status;
     private int contract_make_terminate;
@@ -42,6 +43,14 @@ public class Fragment3Model implements Serializable {
 
     public String getReality_money() {
         return reality_money;
+    }
+
+    public String getInsurance_money() {
+        return insurance_money;
+    }
+
+    public void setInsurance_money(String insurance_money) {
+        this.insurance_money = insurance_money;
     }
 
     public void setReality_money(String reality_money) {

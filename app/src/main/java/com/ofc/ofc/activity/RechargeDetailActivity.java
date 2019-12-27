@@ -1,5 +1,9 @@
 package com.ofc.ofc.activity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,13 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.RechargeDetailModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
+import com.ofc.ofc.utils.ZxingUtils;
 import com.squareup.okhttp.Request;
 
 /**
@@ -23,7 +28,7 @@ public class RechargeDetailActivity extends BaseActivity {
     RechargeDetailModel detailModel;
     String id = "";
     ProgressBar prograssBar;
-    ImageView imageView1, imageView2;
+    ImageView imageView1, imageView2,imageView_addr,imageView_fuzhi;
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16, textView17, textView18;
     LinearLayout linearLayout_addr, linearLayout_bank, linearLayout_shiji, linearLayout_jiage;
@@ -54,7 +59,20 @@ public class RechargeDetailActivity extends BaseActivity {
         prograssBar = findViewByID_My(R.id.prograssBar);
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
-
+        imageView_addr = findViewByID_My(R.id.imageView_addr);
+        imageView_fuzhi = findViewByID_My(R.id.imageView_fuzhi);
+        imageView_fuzhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取剪贴板管理器：
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                // 创建普通字符型ClipData
+                ClipData mClipData = ClipData.newPlainText("Label", detailModel.getTop_up().getWallet_addr());
+                // 将ClipData内容放到系统剪贴板里。
+                cm.setPrimaryClip(mClipData);
+                myToast(getString(R.string.recharge_h34));
+            }
+        });
         textView = findViewByID_My(R.id.textView);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -139,12 +157,6 @@ public class RechargeDetailActivity extends BaseActivity {
         requestServer();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-        }
-    }
-
     private void request(String string) {
         OkHttpClientManager.getAsyn(RechargeDetailActivity.this, URLs.RechargeDetail + string, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
             @Override
@@ -165,6 +177,11 @@ public class RechargeDetailActivity extends BaseActivity {
 
                 if (response.getTop_up().getType() == 1) {
                     //USDT
+                    imageView_addr.setVisibility(View.VISIBLE);
+                    Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(response.getTop_up().getWallet_addr(),
+                            480, 480);
+                    imageView_addr.setImageBitmap(mBitmap);
+
                     linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
                     linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
                     linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格

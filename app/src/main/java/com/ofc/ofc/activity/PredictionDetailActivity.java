@@ -32,7 +32,7 @@ import java.util.List;
  * Created by zyz on 2019-12-23.
  * 预测详情
  */
-public class PredictionDetailActivity extends BaseActivity {
+public class PredictionDetailActivity extends BaseActivity implements KChartView.KChartRefreshListener {
     PredictionDetailModel model;
     List<PredictionDetailModel.KlineListBean> list = new ArrayList<>();
 //    List<PredictionDetailModel.BSBean> list_bs = new ArrayList<>();
@@ -108,6 +108,8 @@ public class PredictionDetailActivity extends BaseActivity {
                 Log.i("onSelectedChanged", "index:" + index + " closePrice:" + data.getClose());
             }
         });
+        mKChartView.setRefreshListener(this);
+//        onLoadMoreBegin(mKChartView);
 
 
 //        initChart();
@@ -240,8 +242,6 @@ public class PredictionDetailActivity extends BaseActivity {
 
 
                 mKChartView.showLoading();
-
-
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -309,13 +309,48 @@ public class PredictionDetailActivity extends BaseActivity {
                     page--;
                     myToast(getString(R.string.app_nomore));
                 } else {
-                    /*handler.post(new Runnable() {
+                    new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            mKChartView.showLoading();
+                            //反转数据
+                            Collections.reverse(list1);
+                            List<KLineEntity> datas = new ArrayList<>();
+                            for (PredictionDetailModel.KlineListBean bean : list1) {
+                                KLineEntity kLineEntity = new KLineEntity(
+                                        bean.getTimestamp(),
+                                        (float) bean.getOpen(),
+                                        (float) bean.getHigh(),
+                                        (float) bean.getLow(),
+                                        (float) bean.getClose(),
+                                        (float) bean.getVolume(), 0, 0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                        0
+                                );
+                                datas.add(kLineEntity);
+                            }
+                            DataHelper.calculate(datas);
 
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //第一次加载时开始动画
+                                    if (mAdapter.getCount() == 0) {
+                                        mKChartView.startAnimation();
+                                    }
+                                    mAdapter.addFooterData(datas);
+                                    //加载完成，还有更多数据
+                                    if (datas.size() > 0) {
+                                        mKChartView.refreshComplete();
+                                    }
+                                    //加载完成，没有更多数据
+                                    else {
+                                        mKChartView.refreshEnd();
+                                    }
+                                }
+                            });
                         }
-                    });*/
-
+                    }).start();
 
 
                     /*//反转数据
@@ -780,5 +815,18 @@ public class PredictionDetailActivity extends BaseActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK)
             return true;//不执行父类点击事件
         return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
+    }
+
+    @Override
+    public void onLoadMoreBegin(KChartView chart) {
+        //加载更多
+        //加载更多数据的操作
+        page = page + 1;
+        showProgress(false, getString(R.string.app_loading));
+        String string = "?token=" + localUserInfo.getToken()
+                + "&page=" + page//当前页号
+                + "&count=" + "168"//页面行数
+                + "&symbol=" + symbol;
+        RequestMore(string);
     }
 }

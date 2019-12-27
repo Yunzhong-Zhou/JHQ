@@ -44,7 +44,8 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/linearLayout_keyong"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal|bottom"
                                 android:orientation="horizontal">
@@ -274,17 +275,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="14dp">
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp">
 
                         <!--充币地址-->
                         <LinearLayout
                             android:id="@+id/linearLayout_addr"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/yuanjiao_5_baise"
+                            android:background="@drawable/yuanjiao_5_huise3"
                             android:elevation="2dp"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:paddingLeft="14dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingTop="18dp"
                             android:paddingRight="14dp"
                             android:paddingBottom="18dp">
@@ -294,7 +298,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/fragment4_h2"
-                                android:textColor="@color/black1"
+                                android:textColor="@color/white"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -302,9 +306,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:lineSpacingExtra="5dp"
-                                android:minLines="2"
                                 android:text="@string/fragment4_h14"
-                                android:textColor="@color/black4"
+                                android:textColor="@color/white1"
+                                android:layout_marginTop="14dp"
                                 android:textIsSelectable="true"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -313,9 +317,11 @@
                             android:id="@+id/linearLayout_num"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:background="@drawable/yuanjiao_5_baise"
                             android:elevation="2dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
@@ -346,12 +352,14 @@
                             android:id="@+id/linearLayout_money"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:background="@drawable/yuanjiao_5_baise"
                             android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
                             android:paddingTop="18dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingRight="14dp"
                             android:paddingBottom="18dp"
                             android:visibility="visible">
@@ -371,6 +379,7 @@
                                 android:hint="@string/fragment4_h5"
                                 android:inputType="numberDecimal"
                                 android:textColor="@color/black1"
+                                android:gravity="right"
                                 android:textColorHint="@color/black4"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -379,11 +388,13 @@
                             android:id="@+id/linearLayout_daozhang"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="10dp"
                             android:background="@drawable/yuanjiao_5_baise"
                             android:elevation="2dp"
                             android:orientation="horizontal"
                             android:paddingLeft="14dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingTop="18dp"
                             android:paddingRight="14dp"
                             android:paddingBottom="18dp">
@@ -399,22 +410,37 @@
                                 android:id="@+id/textView_moeny"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="0"
                                 android:gravity="right"
+                                android:text="0"
                                 android:textColor="@color/black1"
                                 android:textIsSelectable="true"
                                 android:textSize="15sp" />
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="right"
                             android:layout_marginTop="8dp"
-                            android:text="@string/fragment4_h6"
-                            android:textColor="@color/green"
-                            android:textSize="15sp" />
+                            android:gravity="right"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/textView_shouxufei"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fragment4_h28"
+                                android:textColor="@color/green"
+                                android:textSize="15sp" />
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fragment4_h6"
+                                android:layout_marginLeft="14dp"
+                                android:layout_marginRight="14dp"
+                                android:textColor="@color/green"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/textView6"
                             android:layout_width="wrap_content"
@@ -423,8 +449,8 @@
                             android:layout_marginBottom="14dp"
                             android:lineSpacingExtra="5dp"
                             android:text="@string/fragment4_h7"
-                            android:textColor="@color/black4"
-                            android:textSize="12sp" />
+                            android:textColor="@color/black3"
+                            android:textSize="13sp" />
                     </LinearLayout>
 
                     <View

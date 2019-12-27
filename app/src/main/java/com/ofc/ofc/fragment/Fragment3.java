@@ -45,7 +45,7 @@ public class Fragment3 extends BaseFragment {
     Fragment3Model model;
     int type = 1;
 
-    TextView tv_huazhuan, tv_money, tv_type, tv_yingli, tv_bucang;
+    TextView tv_huazhuan, tv_money, tv_type, tv_yingli, tv_bucang,tv_baoxianjin;
 
     RelativeLayout ll_page1;
     private RecyclerView recyclerView;
@@ -146,6 +146,7 @@ public class Fragment3 extends BaseFragment {
         tv_type = findViewByID_My(R.id.tv_type);
         tv_yingli = findViewByID_My(R.id.tv_yingli);
         tv_bucang = findViewByID_My(R.id.tv_bucang);
+        tv_baoxianjin = findViewByID_My(R.id.tv_baoxianjin);
 
         tv_huazhuan = findViewByID_My(R.id.tv_huazhuan);
         tv_huazhuan.setOnClickListener(this);
@@ -256,6 +257,8 @@ public class Fragment3 extends BaseFragment {
                 model = response;
                 //合约余额
                 tv_money.setText(response.getReality_money());
+                //保险金
+                tv_baoxianjin.setText(response.getInsurance_money());
                 //状态
                 switch (response.getResult()) {
                     case -1:
@@ -263,18 +266,23 @@ public class Fragment3 extends BaseFragment {
                         tv_type.setVisibility(View.GONE);
                        /* tv_type.setText(getString(R.string.fragment3_h36));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);*/
+                        tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
                         break;
                     case 1:
                         //盈利
                         tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h2));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
+
+                        tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
                         break;
                     case 2:
                         //亏损
                         tv_type.setVisibility(View.VISIBLE);
                         tv_type.setText(getString(R.string.fragment3_h21));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_2_red);
+
+                        tv_page1_11.setVisibility(View.GONE);//是否显示平仓
                         break;
                 }
                 //累计盈利
@@ -373,7 +381,7 @@ public class Fragment3 extends BaseFragment {
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
                         } else {
-                            tv3.setText("+" + model.getProfit_money());
+                            tv3.setText("" + model.getProfit_money());
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
                         ImageView iv = holder.getView(R.id.imageView1);
@@ -401,7 +409,7 @@ public class Fragment3 extends BaseFragment {
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
                         } else {
-                            tv3.setText("+" + moeny);
+                            tv3.setText("" + moeny);
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
 

@@ -28,7 +28,7 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  */
 public class ShareActivity extends BaseActivity {
     ShareModel model;
-    ImageView imageView, imageView1, imageView2,imageView3;
+    ImageView imageView, imageView1, imageView2, imageView3;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
             textView10, textView11, textView12, textView13, textView14, textView15;
 
@@ -116,7 +116,7 @@ public class ShareActivity extends BaseActivity {
                 textView2.setText(getString(R.string.share_h2) + response.getInvite_code());//邀请码
                 textView3.setText(response.getCommission_money() + "");//合约金额
 //                textView4.setText(response.getGrade_title() + "");//等级
-                switch (response.getGrade()){
+                switch (response.getGrade()) {
                     case 1:
                         //普通
                         imageView3.setImageResource(R.mipmap.bg_share3_1);
@@ -138,7 +138,7 @@ public class ShareActivity extends BaseActivity {
                 textView6.setText(response.getCommission_param().getContract_trading_profit() + "");//团队利益
                 textView7.setText(response.getCommission_param().getContract_trading_same_level() + "");//直推利益
                 textView8.setText(response.getDirect_performance_money() + "");//直推业绩
-                textView9.setText(response.getDirect_recommend()+ "");//直推人数
+                textView9.setText(response.getDirect_recommend() + "");//直推人数
 //                textView10.setText(response.get + "");//直推用户
                 textView11.setText(response.getTeam_performance_money() + "");//团队业绩
                 textView12.setText(response.getTeam_recommend() + "");//团队人数
@@ -161,10 +161,11 @@ public class ShareActivity extends BaseActivity {
                 //直推会员
                 CommonUtil.gotoActivity(ShareActivity.this, SharePeopleActivity.class, false);
                 break;
-            case R.id.imageView2:
-                //二维码
-
+            case R.id.tv_share:
+                //立即分享
+                CommonUtil.gotoActivity(ShareActivity.this, InvitationRewardActivity.class, false);
                 break;
+
         }
     }
 

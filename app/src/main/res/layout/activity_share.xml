@@ -857,6 +857,18 @@
                         android:layout_height="wrap_content"
                         android:src="@mipmap/bg_share4" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_share"
+                    android:onClick="onClick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share_h40"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_img1"/>
             </LinearLayout>
 
         </ScrollView>

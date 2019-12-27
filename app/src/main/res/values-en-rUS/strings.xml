@@ -51,7 +51,6 @@
     <string name="app_type_zhuangtai">Status</string>
     <string name="app_type_bizhong">Coin</string>
     <string name="app_type_ETH">ETH</string>
-    <string name="app_type_CHO">CHO</string>
     <string name="app_type_CNY">CNY</string>
     <string name="app_type_paixu">Sort</string>
     <string name="app_type_leixing">Type</string>
@@ -177,7 +176,7 @@
     <string name="fragment1_h9">Hash Detailed</string>
     <string name="fragment1_h10">Output Exhausted</string>
     <string name="fragment1_h11">have</string>
-    <string name="fragment1_h12">CHODepositFailure</string>
+    <string name="fragment1_h12">OFCDepositFailure</string>
     <string name="fragment1_h13">Upgrade</string>
 
     <!--fragment2-->
@@ -220,9 +219,9 @@
     <string name="fragment3_h14">Win</string>
     <string name="fragment3_h15">BetAmt.</string>
     <string name="fragment3_h16">PAST</string>
-    <string name="fragment3_h17">Choose Public or Side chain to compete. Last the one with less guess wins, and the reward is double the amount of the competition</string>
-    <string name="fragment3_h18">Choose Public or Side chain</string>
-    <string name="fragment3_h19">Insufficient CHO</string>
+    <string name="fragment3_h17">OFCose Public or Side chain to compete. Last the one with less guess wins, and the reward is double the amount of the competition</string>
+    <string name="fragment3_h18">OFCose Public or Side chain</string>
+    <string name="fragment3_h19">Insufficient USDT</string>
     <string name="fragment3_h20">Recharge</string>
     <string name="fragment3_h21">Cancel</string>
     <string name="fragment3_h22">Confirm</string>
@@ -245,14 +244,14 @@
     <string name="fragment4_h3">Pcs</string>
     <string name="fragment4_h4">Number of coins</string>
     <string name="fragment4_h5">TXID(Optional)</string>
-    <string name="fragment4_h6"><u>Account-CHO：</u></string>
+    <string name="fragment4_h6"><u>Account-USDT：</u></string>
     <string name="fragment4_h7">Important tips：\n1.The account time is based on the actual time.\n2.Do not submit false coins, otherwise they will be sealed\n3.Enjoy 9.7 fold with ETH recharge</string>
     <string name="fragment4_h8">Submit</string>
     <string name="fragment4_h9">Successful submit</string>
     <string name="fragment4_h10">SetUp Coin add.</string>
     <string name="fragment4_h11">ETH</string>
-    <string name="fragment4_h12">CHO</string>
-    <string name="fragment4_h13">Important tips：\n1.The account time is based on the actual time.\n2.Do not submit false coins, otherwise they will be sealed\n3.Enjoy 9.7 fold with CHO recharge</string>
+    <string name="fragment4_h12">USDT</string>
+    <string name="fragment4_h13">Important tips：\n1.The account time is based on the actual time.\n2.Do not submit false coins, otherwise they will be sealed\n3.Enjoy 9.7 fold with USDT recharge</string>
     <string name="fragment4_h14">CNY recharge</string>
     <string name="fragment4_h15">amount</string>
     <string name="fragment4_h16">Please enter the amount of the coin</string>
@@ -352,9 +351,9 @@
     <string name="address_h11">CoinADD.SuccessfulSet</string>
     <string name="address_h12">CoinADD.</string>
     <string name="address_h13">NO CoinADD.\nPlease Set</string>
-    <string name="address_h14">CHO CoinADD.</string>
-    <string name="address_h15">CHO CoinADD.</string>
-    <string name="address_h16">CHO CoinADD.</string>
+    <string name="address_h14">USDT CoinADD.</string>
+    <string name="address_h15">USDT CoinADD.</string>
+    <string name="address_h16">USDT CoinADD.</string>
 
     <!--区块-->
     <string name="qukuai_h1">MYBlock</string>
@@ -403,8 +402,8 @@
     <string name="recharge_h20">RCHGAMT.：</string>
     <string name="recharge_h21">OrderNO.：</string>
     <string name="recharge_h22">Time：</string>
-    <string name="recharge_h23">CHO</string>
-    <string name="recharge_h24">CHOPrice</string>
+    <string name="recharge_h23">USDT</string>
+    <string name="recharge_h24">USDTPrice</string>
     <string name="recharge_h25">Successful Exchange</string>
     <string name="recharge_h26">Fail</string>
     <string name="recharge_h27">Reasons for failure：</string>
@@ -442,7 +441,7 @@
     <string name="share_h25">TeamGameLv.</string>
     <string name="share_h26">No Sharing Links</string>
     <string name="share_h27">Share</string>
-    <string name="share_h28">CHO block guess chain, create the currency of the guess industry, the fairest guess, 50% of the winning rate, double the bonus, activate the block, double the activation award, calculate mining.</string>
+    <string name="share_h28">USDT block guess chain, create the currency of the guess industry, the fairest guess, 50% of the winning rate, double the bonus, activate the block, double the activation award, calculate mining.</string>
 
     <!--提币-->
     <string name="takecash_h1">Coin-out</string>
@@ -459,15 +458,15 @@
     <string name="takecash_h12">Submit</string>
     <string name="takecash_h13">Submit Successful</string>
     <string name="takecash_h14">ETH</string>
-    <string name="takecash_h15">CHO</string>
+    <string name="takecash_h15">USDT</string>
     <string name="takecash_h16">Coin-outREC</string>
-    <string name="takecash_h17"><u>CHOADD.</u></string>
+    <string name="takecash_h17"><u>USDTADD.</u></string>
     <string name="takecash_h18">Amount</string>
     <string name="takecash_h19">Successful</string>
     <string name="takecash_h20">Processing</string>
     <string name="takecash_h21">Time</string>
     <string name="takecash_h22">ETHADD.</string>
-    <string name="takecash_h23">CHOADD.</string>
+    <string name="takecash_h23">USDTADD.</string>
     <string name="takecash_h24">Coin-outAmt.：</string>
     <string name="takecash_h25">Details</string>
     <string name="takecash_h26">Set CoinADD.</string>
@@ -529,7 +528,7 @@
     <string name="game_h7">Win</string>
     <string name="game_h8">Ongoing</string>
     <string name="game_h9">Total</string>
-    <string name="game_h10">OUTput(CHO)</string>
+    <string name="game_h10">OUTput(USDT)</string>
     <string name="game_h11">Mining</string>
     <string name="game_h12">Income  </string>
     <string name="game_h13">Hash</string>
@@ -559,7 +558,7 @@
     <string name="zxing_h2">The flash cannot be turned on temporarily</string>
     <string name="zxing_h3">Sweep</string>
     <string name="zxing_h4">Scanning...</string>
-    <string name="zxing_h5">CHO scan code transfer currency</string>
+    <string name="zxing_h5">USDT scan code transfer currency</string>
     <string name="zxing_h6">Save album</string>
     <string name="zxing_h7">Generating QR code</string>
     <string name="zxing_h8">You have not yet opened the payment function, if you need to open, please click the confirmation button</string>

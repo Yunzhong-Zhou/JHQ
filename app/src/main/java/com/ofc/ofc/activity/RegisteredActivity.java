@@ -35,7 +35,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.popupwindow.SelectLanguagePopupWindow;
 import com.ofc.ofc.utils.CommonUtil;
-import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
@@ -74,6 +73,9 @@ public class RegisteredActivity extends BaseActivity {
 
 
     String register_agreement = "";
+
+    boolean isgouxuan = true;
+    ImageView imageView1;
     /**
      * 定位
      */
@@ -114,6 +116,7 @@ public class RegisteredActivity extends BaseActivity {
 
         // TODO 务必在oncreate方法里初始化
         gt3GeetestUtils = new GT3GeetestUtils(this);
+
     }
 
     @Override
@@ -151,6 +154,8 @@ public class RegisteredActivity extends BaseActivity {
         editText4 = findViewByID_My(R.id.editText4);
         editText5 = findViewByID_My(R.id.editText5);
         editText6 = findViewByID_My(R.id.editText6);
+
+        imageView1 = findViewByID_My(R.id.imageView1);
 
         /*//失去焦点时触发
         editText6.setOnFocusChangeListener(new View.
@@ -268,8 +273,7 @@ public class RegisteredActivity extends BaseActivity {
                 } else {
                     register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 }*/
-                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654"+"&lang_type="
-                        + LocalUserInfo.getInstance(this).getLanguage_Type();
+                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 if (!register_agreement.equals("")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("url", register_agreement);
@@ -300,6 +304,15 @@ public class RegisteredActivity extends BaseActivity {
 //                    //不是真机
 //                    myToast("该设备不能进行注册");
 //                }
+                break;
+
+            case R.id.imageView1:
+                //勾选协议
+                isgouxuan = !isgouxuan;
+                if (isgouxuan)
+                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                else
+                    imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;
         }
     }
@@ -338,6 +351,11 @@ public class RegisteredActivity extends BaseActivity {
         nickname = editText6.getText().toString().trim();
         if (TextUtils.isEmpty(nickname)) {
             myToast(getString(R.string.registered_h11));
+            return false;
+        }
+
+        if (!isgouxuan) {
+            myToast(getString(R.string.registered_h15));
             return false;
         }
         /*if (isNickName==false){
