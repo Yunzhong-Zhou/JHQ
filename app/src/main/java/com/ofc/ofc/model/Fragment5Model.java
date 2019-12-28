@@ -24,6 +24,15 @@ public class Fragment5Model implements Serializable {
     private String commission_money;
     private String invite_code;
     private int grade;
+    private int service_center_status;
+
+    public int getService_center_status() {
+        return service_center_status;
+    }
+
+    public void setService_center_status(int service_center_status) {
+        this.service_center_status = service_center_status;
+    }
 
     public int getGrade() {
         return grade;

@@ -101,7 +101,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                     model = response;
 //                    hk = response.getHk();
                     textView2.setText(response.getCommon_usable_money());//可用余额
-                    textView3.setText(response.getTransfer_service_charge() + "");//手续费
+                    textView3.setText(response.getTransfer_service_charge() + "USDT");//手续费
                     //昵称
                     textView1.setText(response.getNickname());
                     //头像

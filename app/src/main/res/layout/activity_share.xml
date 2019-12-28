@@ -509,6 +509,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/app_ren"
+                                    android:visibility="gone"
                                     android:textColor="@color/black1"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -835,7 +836,7 @@
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:visibility="visible">
+                    android:visibility="gone">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -857,6 +858,10 @@
                         android:layout_height="wrap_content"
                         android:src="@mipmap/bg_share4" />
                 </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
 
                 <TextView
                     android:id="@+id/tv_share"

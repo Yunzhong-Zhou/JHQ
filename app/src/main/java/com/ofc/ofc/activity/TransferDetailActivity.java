@@ -127,15 +127,30 @@ public class TransferDetailActivity extends BaseActivity {
                                 (TransferDetailActivity.this, R.layout.item_transferdetail, list1) {
                             @Override
                             protected void convert(ViewHolder holder, TransferDetailModel.ContractTradingListBean model, int position) {
-                                holder.setText(R.id.textView1, model.getEarning_money()+"");//合约收益
-                                holder.setText(R.id.textView2, model.getBourse_on_title()+"");//合约类型
-                                holder.setText(R.id.textView3, model.getDirection_title()+"");//合约方向
-                                holder.setText(R.id.textView4, model.getLever()+getString(R.string.app_bei));//合约杠杆
-                                holder.setText(R.id.textView5, model.getBuy_price()+"");//买入价格
-                                holder.setText(R.id.textView6, model.getSell_price()+"");//平仓价格
-                                holder.setText(R.id.textView7, model.getSn()+"");//交易单号
-                                holder.setText(R.id.textView8, model.getBuy_at()+"");//买入时间
-                                holder.setText(R.id.textView9, model.getSell_at()+"");//平仓时间
+                                TextView textView1 = holder.getView(R.id.textView1);
+                                TextView textView11 = holder.getView(R.id.textView11);
+                                textView11.setText(model.getResult_title() + "");//交易结果
+                                textView1.setText(model.getEarning_money() + "");//合约盈利
+                                if (model.getResult() == 1){
+                                    //盈利
+                                    textView11.setTextColor(getResources().getColor(R.color.green));
+                                    textView1.setTextColor(getResources().getColor(R.color.green));
+                                }else {
+                                    //亏损
+                                    textView11.setTextColor(getResources().getColor(R.color.red));
+                                    textView1.setTextColor(getResources().getColor(R.color.red));
+                                }
+
+                                holder.setText(R.id.textView10, model.getBourse_title() + "");//合约交易
+                                holder.setText(R.id.textView2, model.getBourse_on_title() + "");//合约类型
+                                holder.setText(R.id.textView3, model.getDirection_title() + "");//合约方向
+                                holder.setText(R.id.textView4, model.getLever() + getString(R.string.app_bei));//合约杠杆
+                                holder.setText(R.id.textView5, "$ " + model.getBuy_price() + "");//买入价格
+                                holder.setText(R.id.textView6, "$ " + model.getSell_price() + "");//卖出价格
+
+                                holder.setText(R.id.textView8, model.getBuy_at() + "");//买入时间
+                                holder.setText(R.id.textView9, model.getSell_at() + "");//卖出时间
+                                holder.setText(R.id.textView7, model.getSn() + "");//交易单号
 
                             }
                         };
@@ -144,8 +159,9 @@ public class TransferDetailActivity extends BaseActivity {
                                 (TransferDetailActivity.this, R.layout.item_transferdetail_1, list2) {
                             @Override
                             protected void convert(ViewHolder holder, TransferDetailModel.ContractCallMarginListBean model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney()+"");//合约收益
-                                holder.setText(R.id.textView2, model.getCreated_at()+"");//合约类型
+
+                                holder.setText(R.id.textView1, model.getMoney() + "");//合约盈利
+                                holder.setText(R.id.textView2, model.getCreated_at() + "");//合约类型
                             }
                         };
                         changeUI();

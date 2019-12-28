@@ -422,7 +422,7 @@
                         android:onClick="onClick"
                         android:orientation="horizontal"
                         android:padding="10dp"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -448,7 +448,7 @@
                         android:layout_marginLeft="14dp"
                         android:layout_marginRight="14dp"
                         android:background="@color/xian"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:id="@+id/linearLayout13"

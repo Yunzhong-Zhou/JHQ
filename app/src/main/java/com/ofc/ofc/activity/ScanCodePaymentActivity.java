@@ -39,15 +39,15 @@ public class ScanCodePaymentActivity extends BaseActivity {
     LinearLayout linearLayout;
 
     TextView textView;
-    File file = null;
+    Handler handler = new Handler();
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
     private Handler mHandler = new Handler() {
 
         public void handleMessage(Message msg) {// 此方法在ui线程运行
             switch (msg.what) {
                 case MSG_SUCCESS:
-                    showToast(getString(R.string.zxing_h23));
-                    textView.setClickable(true);
+                    showToast(getString(R.string.zxing_h21));
+//                    textView.setClickable(true);
                     /*if (file != null) {
                         showToast("二维码已经保存到相册");
                         textView.setClickable(true);
@@ -147,14 +147,12 @@ public class ScanCodePaymentActivity extends BaseActivity {
             case R.id.textView:
                 //保存二维码
                 textView.setClickable(false);
-
-                Runnable runnable = new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        //这是新的线程，可在这儿处理耗时的操作，更新不了UI界面的操作的
-                        file = printScreen(linearLayout, "ScanQRCode" + System.currentTimeMillis());
+                        printScreen(linearLayout, "ScanQRCode" + System.currentTimeMillis());
                     }
-                };
+                });
                 break;
 
         }
@@ -170,7 +168,7 @@ public class ScanCodePaymentActivity extends BaseActivity {
      */
     public File printScreen(View view, String picName) {
         //图片地址
-//        String imgPath = FileUtil.getImageDownloadDir(MyPosterActivity.this) + picName + ".png";
+        //        String imgPath = FileUtil.getImageDownloadDir(MyPosterActivity.this) + picName + ".png";
 //        String imgPath = Environment.getExternalStorageDirectory() + "/" + picName + ".png";//文件根目录
         String imgPath = Environment.getExternalStorageDirectory()
                 + File.separator + Environment.DIRECTORY_DCIM
@@ -182,7 +180,6 @@ public class ScanCodePaymentActivity extends BaseActivity {
         if (bitmap != null) {
             try {
                 file = new File(imgPath, picName + ".png");
-//                file = new File(imgPath);
                 if (!file.exists()) {
                     file.getParentFile().mkdirs();
                     file.createNewFile();
@@ -192,18 +189,17 @@ public class ScanCodePaymentActivity extends BaseActivity {
                 out.flush();
                 out.close();
 
-                /*Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", file);
-                //通知相册更新
-                MediaStore.Images.Media.insertImage(ScanCodePaymentActivity.this.getContentResolver(), bitmap, file.toString(), null);
+                /*//通知相册更新
+                MediaStore.Images.Media.insertImage(getContentResolver(), BitmapFactory.decodeFile(f.getAbsolutePath()), f.getName(), null);
                 Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-                Uri uri1 = Uri.fromFile(file);
-                intent.setData(uri1);
-                ScanCodePaymentActivity.this.sendBroadcast(intent);*/
+//                Uri uri1 = Uri.fromFile(f);
+                Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", f);
+                intent.setData(uri);
+                sendBroadcast(intent);*/
 
-
-                /*//把文件插入到系统图库(内部存储/Pictures)
+                /*//把文件插入到系统图库
                 try {
-                    MediaStore.Images.Media.insertImage(this.getContentResolver(), file.getAbsolutePath(), file.getName(), null);
+                    MediaStore.Images.Media.insertImage(this.getContentResolver(), f.getAbsolutePath(), f.getName(), null);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }*/
@@ -222,20 +218,18 @@ public class ScanCodePaymentActivity extends BaseActivity {
                     File file1 = new File(relationDir);
                     sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.fromFile(file1.getAbsoluteFile())));
                 }
-
                 mHandler.obtainMessage(MSG_SUCCESS)// 获取信息
                         .sendToTarget(); //发送信息
 
-                MyLogger.i(">>>>>>"+file);
+                MyLogger.i(">>>>>>" + file);
                 return file;
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
         return null;
     }
 }

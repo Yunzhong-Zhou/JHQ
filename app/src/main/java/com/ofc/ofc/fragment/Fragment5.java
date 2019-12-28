@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.AccountDetailActivity;
 import com.ofc.ofc.activity.InformationActivity;
@@ -22,6 +23,8 @@ import com.ofc.ofc.activity.MyTakeCashActivity;
 import com.ofc.ofc.activity.NewcomerRewardActivity;
 import com.ofc.ofc.activity.OnlineServiceActivity;
 import com.ofc.ofc.activity.QRCodeActivity;
+import com.ofc.ofc.activity.ServiceCenter_NoActivity;
+import com.ofc.ofc.activity.ServiceCenter_YesActivity;
 import com.ofc.ofc.activity.ShareActivity;
 import com.ofc.ofc.activity.TransferActivity;
 import com.ofc.ofc.activity.TransferListActivity;
@@ -31,7 +34,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
@@ -42,11 +44,12 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  * 我的
  */
 public class Fragment5 extends BaseFragment {
+    Fragment5Model model;
     RelativeLayout relativeLayout;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout_yue, linearLayout_yongjin;
+            linearLayout12, linearLayout13, linearLayout_yue, linearLayout_yongjin;
     ImageView imageView1;
 
 
@@ -153,6 +156,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout10 = findViewByID_My(R.id.linearLayout10);
         linearLayout11 = findViewByID_My(R.id.linearLayout11);
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
+        linearLayout13 = findViewByID_My(R.id.linearLayout13);
         linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
         linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
 
@@ -168,6 +172,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout10.setOnClickListener(this);
         linearLayout11.setOnClickListener(this);
         linearLayout12.setOnClickListener(this);
+        linearLayout13.setOnClickListener(this);
         linearLayout_yue.setOnClickListener(this);
         linearLayout_yongjin.setOnClickListener(this);
 
@@ -206,6 +211,7 @@ public class Fragment5 extends BaseFragment {
             @Override
             public void onResponse(Fragment5Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
+                model = response;
                 //昵称
                 textView1.setText(response.getNickname());
                 //邀请码
@@ -312,6 +318,25 @@ public class Fragment5 extends BaseFragment {
             case R.id.linearLayout12:
                 //在线客服
                 CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
+                break;
+            case R.id.linearLayout13:
+                //申请服务中心
+                switch (model.getService_center_status()) {
+                    case 1:
+                        //待申请
+                    case 2:
+                        //审核中
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("status",model.getService_center_status());
+                        CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle,false);
+
+//                        myToast(getString(R.string.myprofile_h32));
+                        break;
+                    case 3:
+                        //已通过
+                        CommonUtil.gotoActivity(getActivity(), ServiceCenter_YesActivity.class, false);
+                        break;
+                }
                 break;
 
         }

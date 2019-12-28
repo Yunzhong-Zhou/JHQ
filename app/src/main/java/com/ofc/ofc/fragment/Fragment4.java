@@ -17,6 +17,7 @@ import com.ofc.ofc.R;
 import com.ofc.ofc.activity.AccountDetailActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.RechargeDetailActivity;
+import com.ofc.ofc.activity.SelectAddressActivity;
 import com.ofc.ofc.activity.SetAddressActivity;
 import com.ofc.ofc.activity.SetTransactionPasswordActivity;
 import com.ofc.ofc.base.BaseFragment;
@@ -342,6 +343,23 @@ public class Fragment4 extends BaseFragment {
                                         dialog.dismiss();
                                     }
                                 });
+                    } else if (info.contains(getString(R.string.password_h7))) {
+                        showToast(getString(R.string.password_h8),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("type", 2);//1、服务中心 2、实名认证
+                                        CommonUtil.gotoActivityWithData(getActivity(), SelectAddressActivity.class, bundle, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
                     } else {
                         showToast(info);
                     }
@@ -412,6 +430,7 @@ public class Fragment4 extends BaseFragment {
             textView5.setVisibility(View.GONE);//隐藏USDT价格
             textView_shouxufei.setVisibility(View.GONE);//隐藏手续费
 
+            textView7.setText(getString(R.string.fragment4_h8));
             textView6.setText(getString(R.string.fragment4_h7));
             editText1.setHint(getString(R.string.fragment4_h4)
                     + "(" + model.getUsdt_top_up_min_money() + "-" +
@@ -442,6 +461,7 @@ public class Fragment4 extends BaseFragment {
             textView5.setVisibility(View.VISIBLE);//显示USDT价格
             textView_shouxufei.setVisibility(View.VISIBLE);//显示手续费
 
+            textView7.setText(getString(R.string.fragment4_h29));
             textView6.setText(getString(R.string.fragment4_h13));
             editText2.setHint(getString(R.string.fragment4_h19));
 

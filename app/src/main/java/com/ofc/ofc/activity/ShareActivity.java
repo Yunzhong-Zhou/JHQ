@@ -162,7 +162,8 @@ public class ShareActivity extends BaseActivity {
                 CommonUtil.gotoActivity(ShareActivity.this, SharePeopleActivity.class, false);
                 break;
             case R.id.tv_share:
-                //立即分享
+            case R.id.imageView2:
+                //立即分享//跳转海报
                 CommonUtil.gotoActivity(ShareActivity.this, InvitationRewardActivity.class, false);
                 break;
 

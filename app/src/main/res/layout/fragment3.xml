@@ -14,8 +14,8 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,33 +79,43 @@
                     android:text="@string/fragment3_h1"
                     android:textColor="@color/white2"
                     android:textSize="14sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
-                    android:layout_gravity="center"
-                    android:background="@mipmap/bg_baoxianjin">
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@mipmap/bg_baoxianjin"
+                    android:gravity="center">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/fragment3_h44"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
+                        android:drawableLeft="@mipmap/ic_baoxianjin"
                         android:drawablePadding="4dp"
-                        android:drawableLeft="@mipmap/ic_baoxianjin"/>
+                        android:gravity="center_vertical"
+                        android:text="@string/fragment3_h44"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="1dp"
+                        android:src="@mipmap/ic_usdt_white" />
+
                     <TextView
                         android:id="@+id/tv_baoxianjin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:layout_marginLeft="3dp"
                         android:gravity="center_vertical"
+                        android:text="0"
                         android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:drawablePadding="4dp"
-                        android:drawableLeft="@mipmap/ic_usdt_white"/>
+                        android:textSize="15sp" />
 
                 </LinearLayout>
 
@@ -213,13 +223,13 @@
                 </LinearLayout>
                 //中间布局
 
-                <!--布局1-->
+                <!--布局1  等待中-->
                 <RelativeLayout
                     android:id="@+id/ll_page1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="140dp"
@@ -317,6 +327,7 @@
                                         android:text="NAME"
                                         android:textColor="@color/black1"
                                         android:textSize="15sp" />
+
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -640,7 +651,7 @@
 
                     </LinearLayout>
                 </RelativeLayout>
-                <!--布局2-->
+                <!--布局2 交易中-->
                 <RelativeLayout
                     android:id="@+id/ll_page2"
                     android:layout_width="match_parent"
@@ -654,11 +665,11 @@
                         android:layout_centerHorizontal="true"
                         android:background="@mipmap/bg_fragment3_btn_qing"
                         android:gravity="center"
-                        android:text="@string/fragment3_h20"
                         android:paddingBottom="10dp"
-                        android:textStyle="bold"
+                        android:text="@string/fragment3_h20"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -733,8 +744,8 @@
                                 android:paddingTop="8dp"
                                 android:paddingRight="24dp"
                                 android:paddingBottom="8dp"
-                                android:textColor="@color/black3"
                                 android:text="@string/fragment3_h28"
+                                android:textColor="@color/black3"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -746,10 +757,10 @@
                     android:id="@+id/ll_page3"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:orientation="vertical"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
-                    android:visibility="visible">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -782,8 +793,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="14dp"
                     android:orientation="vertical"
                     android:visibility="visible">
@@ -894,65 +905,74 @@
                     </LinearLayout>
 
                 </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/ll_type1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="30dp"
                         android:paddingTop="14dp"
-                        android:textSize="13sp"
+                        android:text="@string/fragment3_h32"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h32"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:paddingTop="14dp"
-                        android:textSize="13sp"
+                        android:text="@string/fragment3_h33"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h33"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:paddingRight="30dp"
                         android:paddingTop="14dp"
-                        android:textSize="13sp"
+                        android:paddingRight="30dp"
+                        android:text="@string/fragment3_h34"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h34"/>
+                        android:textSize="13sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/ll_type2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingLeft="30dp"
                         android:paddingTop="14dp"
-                        android:textSize="13sp"
+                        android:text="@string/fragment3_h6"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h6"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:paddingTop="14dp"
-                        android:textSize="13sp"
+                        android:text="@string/fragment3_h17"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h17"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -960,35 +980,38 @@
                         android:gravity="right"
                         android:paddingTop="14dp"
                         android:paddingRight="30dp"
-                        android:textSize="13sp"
+                        android:text="@string/fragment3_h18"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h18"/>
+                        android:textSize="13sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/ll_type3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textSize="13sp"
                         android:paddingTop="14dp"
+                        android:text="@string/fragment3_h29"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h29"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textSize="13sp"
                         android:paddingTop="14dp"
+                        android:text="@string/fragment3_h30"
                         android:textColor="@color/black2"
-                        android:text="@string/fragment3_h30"/>
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 

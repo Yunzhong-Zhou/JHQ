@@ -44,10 +44,10 @@
                     android:id="@+id/imageView_addr"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:padding="8dp"
-                    android:background="@mipmap/bg_rechargedetail" />
+                    android:layout_gravity="center"
+                    android:background="@mipmap/bg_rechargedetail"
+                    android:padding="8dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -179,15 +179,15 @@
 
                         <ImageView
                             android:id="@+id/imageView_fuzhi"
-                            android:onClick="onClick"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_alignParentBottom="true"
+                            android:onClick="onClick"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
                             android:paddingRight="20dp"
                             android:paddingBottom="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingLeft="10dp"
                             android:src="@mipmap/ic_fuzhi" />
 
                     </RelativeLayout>

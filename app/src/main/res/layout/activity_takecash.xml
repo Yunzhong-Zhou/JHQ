@@ -82,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="14dp">
+                        android:paddingTop="14dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -117,6 +117,8 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="5dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView
@@ -151,6 +153,7 @@
                             android:gravity="right|center_vertical"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
+                            android:layout_marginRight="14dp"
                             android:text="@string/takecash_h14"
                             android:textColor="@color/black4"
                             android:textColorHint="@color/black4"
@@ -166,6 +169,8 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="5dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView
@@ -200,6 +205,8 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="5dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView
@@ -235,6 +242,8 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:paddingTop="5dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView
@@ -267,6 +276,8 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="8dp"
                             android:paddingTop="5dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView

@@ -176,6 +176,15 @@ public class TransferDetailModel implements Serializable {
         private String created_at;
         private String bourse_on_title;
         private String direction_title;
+        private String result_title;
+
+        public String getResult_title() {
+            return result_title;
+        }
+
+        public void setResult_title(String result_title) {
+            this.result_title = result_title;
+        }
 
         public String getSn() {
             return sn;

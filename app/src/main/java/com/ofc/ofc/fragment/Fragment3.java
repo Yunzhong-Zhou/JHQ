@@ -304,10 +304,10 @@ public class Fragment3 extends BaseFragment {
                                 tv_page1_2.setText(response.getContract_trading().getBourse_on_title());//合约类型
                                 tv_page1_3.setText(response.getContract_trading().getDirection_title());//合约方向
                                 tv_page1_4.setText(response.getContract_trading().getLever() + getString(R.string.app_bei));//合约杠杆
-                                tv_page1_5.setText(response.getContract_trading().getBuy_price());//买入价格
+                                tv_page1_5.setText("$ "+response.getContract_trading().getBuy_price());//买入价格
                                 tv_page1_6.setText(response.getContract_trading().getShow_buy_at());//买入时间
-                                tv_page1_7.setText(response.getContract_trading().getBuy_price());//平仓价格
-                                tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//平仓时间
+                                tv_page1_7.setText("$ "+response.getContract_trading().getSell_price());//卖出价格
+                                tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//卖出时间
                                 tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
 
                             } else {
@@ -375,12 +375,14 @@ public class Fragment3 extends BaseFragment {
                         holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                         holder.setText(R.id.textView2, model.getMoney());//合约数
                         TextView tv3 = holder.getView(R.id.textView3);
-
                         if (model.getProfit_money() > 0) {
                             tv3.setText("+" + model.getProfit_money());
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
-                        } else {
+                        } else if (model.getProfit_money() < 0){
+                            tv3.setText("-" + model.getProfit_money());
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
+                        }else {
                             tv3.setText("" + model.getProfit_money());
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
@@ -408,7 +410,10 @@ public class Fragment3 extends BaseFragment {
                             tv3.setText("+" + moeny);
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
-                        } else {
+                        } else if (moeny < 0){
+                            tv3.setText("-" + moeny);
+                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
+                        }else {
                             tv3.setText("" + moeny);
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
