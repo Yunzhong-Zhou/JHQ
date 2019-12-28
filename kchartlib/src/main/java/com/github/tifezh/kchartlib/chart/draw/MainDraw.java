@@ -1,8 +1,11 @@
 package com.github.tifezh.kchartlib.chart.draw;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,10 +13,10 @@ import android.support.v4.content.ContextCompat;
 
 import com.github.tifezh.kchartlib.R;
 import com.github.tifezh.kchartlib.chart.BaseKChartView;
-import com.github.tifezh.kchartlib.chart.entity.ICandle;
-import com.github.tifezh.kchartlib.chart.entity.IKLine;
 import com.github.tifezh.kchartlib.chart.base.IChartDraw;
 import com.github.tifezh.kchartlib.chart.base.IValueFormatter;
+import com.github.tifezh.kchartlib.chart.entity.ICandle;
+import com.github.tifezh.kchartlib.chart.entity.IKLine;
 import com.github.tifezh.kchartlib.chart.formatter.ValueFormatter;
 import com.github.tifezh.kchartlib.utils.ViewUtil;
 
@@ -25,7 +28,7 @@ import java.util.List;
  * Created by tifezh on 2016/6/14.
  */
 
-public class MainDraw implements IChartDraw<ICandle>{
+public class MainDraw implements IChartDraw<ICandle> {
 
     private float mCandleWidth = 0;
     private float mCandleLineWidth = 0;
@@ -39,19 +42,19 @@ public class MainDraw implements IChartDraw<ICandle>{
     private Paint mSelectorBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Context mContext;
 
-    private boolean mCandleSolid=true;
+    private boolean mCandleSolid = true;
 
     public MainDraw(BaseKChartView view) {
-        Context context=view.getContext();
-        mContext=context;
-        mRedPaint.setColor(ContextCompat.getColor(context,R.color.chart_red));
-        mGreenPaint.setColor(ContextCompat.getColor(context,R.color.chart_green));
+        Context context = view.getContext();
+        mContext = context;
+        mRedPaint.setColor(ContextCompat.getColor(context, R.color.chart_red));
+        mGreenPaint.setColor(ContextCompat.getColor(context, R.color.chart_green));
     }
 
     @Override
     public void drawTranslated(@Nullable ICandle lastPoint, @NonNull ICandle curPoint, float lastX, float curX, @NonNull Canvas canvas, @NonNull BaseKChartView view, int position) {
-        drawCandle(view, canvas, curX, curPoint.getHighPrice(), curPoint.getLowPrice(), curPoint.getOpenPrice(), curPoint.getClosePrice());
-        //画ma5
+        drawCandle(view, canvas, curX, curPoint.getHighPrice(), curPoint.getLowPrice(), curPoint.getOpenPrice(), curPoint.getClosePrice(), curPoint.getType());
+        /*//画ma5
         if (lastPoint.getMA5Price() != 0) {
             view.drawMainLine(canvas, ma5Paint, lastX, lastPoint.getMA5Price(), curX, curPoint.getMA5Price());
         }
@@ -62,7 +65,7 @@ public class MainDraw implements IChartDraw<ICandle>{
         //画ma20
         if (lastPoint.getMA20Price() != 0) {
             view.drawMainLine(canvas, ma20Paint, lastX, lastPoint.getMA20Price(), curX, curPoint.getMA20Price());
-        }
+        }*/
     }
 
     @Override
@@ -97,7 +100,8 @@ public class MainDraw implements IChartDraw<ICandle>{
     }
 
     /**
-     * 画Candle
+     * 画蜡烛
+     *
      * @param canvas
      * @param x      x轴坐标
      * @param high   最高价
@@ -105,7 +109,16 @@ public class MainDraw implements IChartDraw<ICandle>{
      * @param open   开盘价
      * @param close  收盘价
      */
-    private void drawCandle(BaseKChartView view, Canvas canvas, float x, float high, float low, float open, float close) {
+    private void drawCandle(BaseKChartView view, Canvas canvas, float x, float high, float low, float open, float close, String type) {
+        Bitmap mBitmap1 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ic_b);
+        Bitmap mBitmap0 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ic_s);
+
+        int w1 = mBitmap1.getWidth();
+        int h1 = mBitmap1.getHeight();
+
+        int w0 = mBitmap0.getWidth();
+        int h0 = mBitmap0.getHeight();
+
         high = view.getMainY(high);
         low = view.getMainY(low);
         open = view.getMainY(open);
@@ -114,11 +127,25 @@ public class MainDraw implements IChartDraw<ICandle>{
         float lineR = mCandleLineWidth / 2;
         if (open > close) {
             //实心
-            if(mCandleSolid) {
+            if (mCandleSolid) {
+                //画矩形
                 canvas.drawRect(x - r, close, x + r, open, mRedPaint);
                 canvas.drawRect(x - lineR, high, x + lineR, low, mRedPaint);
-            }
-            else {
+
+                if (type.equals("1")) {
+                    System.out.println(">>>>>>>>>>>" + type);
+                    //画买入 b点
+//                    canvas.drawBitmap(mBitmap1, x- r , close, mRedPaint);
+                    drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) open, w1, h1, 0, 0);
+                }
+                if (type.equals("0")) {
+                    System.out.println(">>>>>>>>>>>" + type);
+                    //画卖出 s点
+//                    canvas.drawBitmap(mBitmap0, x- r, open, mRedPaint);
+                    drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) close-h0, w0, h0, 0, 0);
+                }
+            } else {
+                //画线
                 mRedPaint.setStrokeWidth(mCandleLineWidth);
                 canvas.drawLine(x, high, x, close, mRedPaint);
                 canvas.drawLine(x, open, x, low, mRedPaint);
@@ -132,14 +159,45 @@ public class MainDraw implements IChartDraw<ICandle>{
         } else if (open < close) {
             canvas.drawRect(x - r, open, x + r, close, mGreenPaint);
             canvas.drawRect(x - lineR, high, x + lineR, low, mGreenPaint);
+
+            if (type.equals("1")) {
+                System.out.println(">>>>>>>>>>>" + type);
+                //画买入 b点
+//                canvas.drawBitmap(mBitmap1, x- r , open, mRedPaint);
+                drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) close, w1, h1, 0, 0);
+            }
+            if (type.equals("0")) {
+                System.out.println(">>>>>>>>>>>" + type);
+                //画卖出 s点
+//                canvas.drawBitmap(mBitmap0, x- r, close, mRedPaint);
+                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
+            }
+
         } else {
             canvas.drawRect(x - r, open, x + r, close + 1, mRedPaint);
             canvas.drawRect(x - lineR, high, x + lineR, low, mRedPaint);
+
+            if (type.equals("1")) {
+                System.out.println(">>>>>>>>>>>" + type);
+                //画买入 b点
+//                canvas.drawBitmap(mBitmap1, x- r , open, mRedPaint);
+                drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) open, w1, h1, 0, 0);
+            }
+            if (type.equals("0")) {
+                System.out.println(">>>>>>>>>>>" + type);
+                //画卖出 s点
+//                canvas.drawBitmap(mBitmap0, x- r, open, mRedPaint);
+                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
+            }
+
         }
+
+
     }
 
     /**
      * draw选择器
+     *
      * @param view
      * @param canvas
      */
@@ -152,7 +210,7 @@ public class MainDraw implements IChartDraw<ICandle>{
         float margin = ViewUtil.Dp2Px(mContext, 5);
         float width = 0;
         float left;
-        float top = margin+view.getTopPadding();
+        float top = margin + view.getTopPadding();
         float height = padding * 8 + textHeight * 5;
 
         ICandle point = (ICandle) view.getItem(index);
@@ -188,6 +246,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置蜡烛宽度
+     *
      * @param candleWidth
      */
     public void setCandleWidth(float candleWidth) {
@@ -196,6 +255,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置蜡烛线宽度
+     *
      * @param candleLineWidth
      */
     public void setCandleLineWidth(float candleLineWidth) {
@@ -204,6 +264,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置ma5颜色
+     *
      * @param color
      */
     public void setMa5Color(int color) {
@@ -212,6 +273,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置ma10颜色
+     *
      * @param color
      */
     public void setMa10Color(int color) {
@@ -220,6 +282,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置ma20颜色
+     *
      * @param color
      */
     public void setMa20Color(int color) {
@@ -228,6 +291,7 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置选择器文字颜色
+     *
      * @param color
      */
     public void setSelectorTextColor(int color) {
@@ -236,14 +300,16 @@ public class MainDraw implements IChartDraw<ICandle>{
 
     /**
      * 设置选择器文字大小
+     *
      * @param textSize
      */
-    public void setSelectorTextSize(float textSize){
+    public void setSelectorTextSize(float textSize) {
         mSelectorTextPaint.setTextSize(textSize);
     }
 
     /**
      * 设置选择器背景
+     *
      * @param color
      */
     public void setSelectorBackgroundColor(int color) {
@@ -253,8 +319,7 @@ public class MainDraw implements IChartDraw<ICandle>{
     /**
      * 设置曲线宽度
      */
-    public void setLineWidth(float width)
-    {
+    public void setLineWidth(float width) {
         ma20Paint.setStrokeWidth(width);
         ma10Paint.setStrokeWidth(width);
         ma5Paint.setStrokeWidth(width);
@@ -263,8 +328,7 @@ public class MainDraw implements IChartDraw<ICandle>{
     /**
      * 设置文字大小
      */
-    public void setTextSize(float textSize)
-    {
+    public void setTextSize(float textSize) {
         ma20Paint.setTextSize(textSize);
         ma10Paint.setTextSize(textSize);
         ma5Paint.setTextSize(textSize);
@@ -275,5 +339,39 @@ public class MainDraw implements IChartDraw<ICandle>{
      */
     public void setCandleSolid(boolean candleSolid) {
         mCandleSolid = candleSolid;
+    }
+
+
+    /*---------------------------------
+     * 绘制图片
+     * @param       x屏幕上的x坐标
+     * @param       y屏幕上的y坐标
+     * @param       w要绘制的图片的宽度
+     * @param       h要绘制的图片的高度
+     * @param       bx图片上的x坐标
+     * @param       by图片上的y坐标
+     *
+     * @return      null
+     ------------------------------------*/
+
+    public static void drawImage(Canvas canvas, Bitmap blt, int x, int y,
+                                 int w, int h, int bx, int by) {
+        Rect src = new Rect();// 图片 >>原矩形
+        Rect dst = new Rect();// 屏幕 >>目标矩形
+
+        src.left = bx;
+        src.top = by;
+        src.right = bx + w;
+        src.bottom = by + h;
+
+        dst.left = x;
+        dst.top = y;
+        dst.right = x + w;
+        dst.bottom = y + h;
+        // 画出指定的位图，位图将自动--》缩放/自动转换，以填补目标矩形
+        // 这个方法的意思就像 将一个位图按照需求重画一遍，画后的位图就是我们需要的了
+        canvas.drawBitmap(blt, null, dst, null);
+        src = null;
+        dst = null;
     }
 }

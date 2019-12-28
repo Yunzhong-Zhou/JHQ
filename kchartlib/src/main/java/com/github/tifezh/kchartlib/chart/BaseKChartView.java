@@ -14,13 +14,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.github.tifezh.kchartlib.R;
-import com.github.tifezh.kchartlib.chart.entity.IKLine;
-import com.github.tifezh.kchartlib.chart.formatter.TimeFormatter;
-import com.github.tifezh.kchartlib.chart.formatter.ValueFormatter;
 import com.github.tifezh.kchartlib.chart.base.IAdapter;
 import com.github.tifezh.kchartlib.chart.base.IChartDraw;
 import com.github.tifezh.kchartlib.chart.base.IDateTimeFormatter;
 import com.github.tifezh.kchartlib.chart.base.IValueFormatter;
+import com.github.tifezh.kchartlib.chart.entity.IKLine;
+import com.github.tifezh.kchartlib.chart.formatter.TimeFormatter;
+import com.github.tifezh.kchartlib.chart.formatter.ValueFormatter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -140,6 +140,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         mTopPadding = (int) getResources().getDimension(R.dimen.chart_top_padding);
         mBottomPadding = (int)getResources().getDimension(R.dimen.chart_bottom_padding);
 
+        //添加tab
         mKChartTabView = new KChartTabView(getContext());
         addView(mKChartTabView, new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         mKChartTabView.setOnTabSelectListener(new KChartTabView.TabSelectListener() {
@@ -193,7 +194,8 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         drawGird(canvas);
         drawK(canvas);
         drawText(canvas);
-        drawValue(canvas, isLongPress ? mSelectedIndex : mStopIndex);
+        //画左上角的值
+//        drawValue(canvas, isLongPress ? mSelectedIndex : mStopIndex);
         canvas.restore();
     }
 
@@ -222,17 +224,22 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         //横向的grid
         float rowSpace = mMainRect.height() / mGridRows;
         for (int i = 0; i <= mGridRows; i++) {
-            canvas.drawLine(0, rowSpace * i+mMainRect.top, mWidth, rowSpace * i+mMainRect.top, mGridPaint);
+            //横向的线
+//            canvas.drawLine(0, rowSpace * i+mMainRect.top, mWidth, rowSpace * i+mMainRect.top, mGridPaint);
         }
         //-----------------------下方子图------------------------
-        canvas.drawLine(0, mChildRect.top, mWidth, mChildRect.top, mGridPaint);
-        canvas.drawLine(0, mChildRect.bottom, mWidth, mChildRect.bottom, mGridPaint);
+        canvas.drawLine(0, mChildRect.top, mWidth, mChildRect.top, mGridPaint);//K线图底部的线
+        canvas.drawLine(0, mChildRect.bottom, mWidth, mChildRect.bottom, mGridPaint);//子图底部的线
 
         //纵向的grid
         float columnSpace = mWidth / mGridColumns;
         for (int i = 0; i <= mGridColumns; i++) {
-            canvas.drawLine(columnSpace * i, mMainRect.top, columnSpace * i, mMainRect.bottom, mGridPaint);
-            canvas.drawLine(columnSpace * i, mChildRect.top, columnSpace * i, mChildRect.bottom, mGridPaint);
+            if (i == 0){
+                //画第一根线
+                canvas.drawLine(columnSpace * i, mMainRect.top, columnSpace * i, mMainRect.bottom, mGridPaint);
+                canvas.drawLine(columnSpace * i, mChildRect.top, columnSpace * i, mChildRect.bottom, mGridPaint);
+            }
+
         }
     }
 
@@ -251,9 +258,11 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             Object lastPoint = i == 0 ? currentPoint : getItem(i - 1);
             float lastX = i == 0 ? currentPointX : getX(i - 1);
             if (mMainDraw != null) {
+                //绘制K线图
                 mMainDraw.drawTranslated(lastPoint, currentPoint, lastX, currentPointX, canvas, this, i);
             }
             if (mChildDraw != null) {
+                //绘制子图
                 mChildDraw.drawTranslated(lastPoint, currentPoint, lastX, currentPointX, canvas, this, i);
             }
 
@@ -307,18 +316,22 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             if (translateX >= startX && translateX <= stopX) {
                 int index = indexOfTranslateX(translateX);
                 String text = formatDateTime(mAdapter.getDate(index));
-                canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2, y, mTextPaint);
+                canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2, y, mTextPaint);//子图底部 中间的时间
+
+                canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2,  mChildRect.top, mTextPaint);//k线图底部 中间的时间
             }
         }
 
         float translateX = xToTranslateX(0);
         if (translateX >= startX && translateX <= stopX) {
-            canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, y, mTextPaint);
+            canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, y, mTextPaint);//子图底部 左侧第一个时间
+//            canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, mChildRect.top, mTextPaint);//K线图底部 左侧第一个时间
         }
         translateX = xToTranslateX(mWidth);
         if (translateX >= startX && translateX <= stopX) {
             String text = formatDateTime(getAdapter().getDate(mStopIndex));
-            canvas.drawText(text, mWidth - mTextPaint.measureText(text), y, mTextPaint);
+            canvas.drawText(text, mWidth - mTextPaint.measureText(text), y, mTextPaint);//子图底部 右侧第一个时间
+            canvas.drawText(text, mWidth - mTextPaint.measureText(text), mChildRect.top, mTextPaint);//K线图底部 右侧第一个时间
         }
         if (isLongPress) {
             IKLine point = (IKLine) getItem(mSelectedIndex);

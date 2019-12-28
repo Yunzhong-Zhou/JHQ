@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#031F2C"
     android:orientation="vertical">
 
@@ -63,17 +63,17 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="40dp"
                     android:background="@mipmap/bg_predictiondetail"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="40dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingLeft="14dp"
-                        android:layout_weight="1"
                         android:paddingRight="14dp"
                         android:paddingBottom="14dp">
 
@@ -140,8 +140,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
-                        android:layout_weight="1"
                         android:layout_marginRight="14dp"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -169,9 +169,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
-                        android:layout_weight="1"
                         android:layout_marginTop="14dp"
                         android:layout_marginRight="14dp"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -199,8 +199,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_marginTop="14dp"
-                        android:layout_weight="1"
                         android:layout_marginRight="14dp"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -257,8 +257,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="14dp"
                         android:layout_marginTop="14dp"
-                        android:layout_weight="1"
                         android:layout_marginRight="14dp"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -283,19 +283,23 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <com.github.tifezh.kchartlib.chart.KChartView
-                    android:id="@+id/mKChartView"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="520dp"
-                    android:minHeight="520dp"
-                    android:layout_marginTop="-20dp"
-                    android:layout_weight="1"
-                    app:kc_background_color="#031F2C"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="-20dp">
 
-                    >
-                </com.github.tifezh.kchartlib.chart.KChartView>
+                    <com.github.tifezh.kchartlib.chart.KChartView
+                        android:id="@+id/mKChartView"
+                        android:layout_width="match_parent"
+                        android:layout_height="520dp"
+                        android:layout_weight="1"
+                        android:minHeight="520dp"
+                        app:kc_candle_width="5dp"
+                        app:kc_background_color="#031F2C"></com.github.tifezh.kchartlib.chart.KChartView>
 
-
+                </RelativeLayout>
                 <!--<com.github.mikephil.charting.charts.CandleStickChart
                     android:id="@+id/chart1"
                     android:layout_width="match_parent"

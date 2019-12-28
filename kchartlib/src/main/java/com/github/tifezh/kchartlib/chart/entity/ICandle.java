@@ -41,4 +41,7 @@ public interface ICandle {
      * 二十(月，日，时，分，5分等)均价
      */
     float getMA20Price();
+
+    //显示图片
+    String getType();
 }

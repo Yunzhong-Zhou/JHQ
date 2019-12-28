@@ -50,6 +50,8 @@ public class KLineEntity implements IKLine {
 
     public float MA10Volume;
 
+    public String type;
+
     public KLineEntity(String date,
                        float open,
                        float high,
@@ -72,7 +74,8 @@ public class KLineEntity implements IKLine {
                        float mb,
                        float dn,
                        float MA5Volume,
-                       float MA10Volume) {
+                       float MA10Volume,
+                       String type) {
         Date = date;
         Open = open;
         High = high;
@@ -96,6 +99,7 @@ public class KLineEntity implements IKLine {
         this.dn = dn;
         this.MA5Volume = MA5Volume;
         this.MA10Volume = MA10Volume;
+        this.type = type;
     }
 
     public String getDatetime() {
@@ -135,6 +139,11 @@ public class KLineEntity implements IKLine {
     @Override
     public float getMA20Price() {
         return MA20Price;
+    }
+
+    @Override
+    public String getType() {
+        return type;
     }
 
     @Override
@@ -211,10 +220,5 @@ public class KLineEntity implements IKLine {
     public float getMA10Volume() {
         return MA10Volume;
     }
-
-
-
-
-
 
 }

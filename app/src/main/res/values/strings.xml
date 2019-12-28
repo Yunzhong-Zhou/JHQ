@@ -59,8 +59,6 @@
     <string name="app_type_quanbu">全部</string>
     <string name="app_type_zhuangtai">状态</string>
     <string name="app_type_bizhong">币种</string>
-    <string name="app_type_ETH">ETH</string>
-    <string name="app_type_CNY">CNY</string>
     <string name="app_type_USDT">USDT</string>
     <string name="app_type_AY">澳元</string>
     <string name="app_type_paixu">排序</string>
@@ -243,6 +241,8 @@
     <string name="fragment3_h42">确定取消平仓吗？</string>
     <string name="fragment3_h43">加仓</string>
     <string name="fragment3_h44">保险金：</string>
+    <string name="fragment3_h45">确定申请</string>
+    <string name="fragment3_h46">确认取消</string>
 
 
     <!--fragment4-->
@@ -327,14 +327,14 @@
     <string name="myprofile_h20">无需市场推广，坐享市场分成</string>
     <string name="myprofile_h21">5%分红</string>
     <string name="myprofile_h22">可获得服务用户的盈利\n5%分红</string>
-    <string name="myprofile_h23">1个USDT/手</string>
-    <string name="myprofile_h24">可获得服务用户的交易\n手续费1个USDT/手</string>
+    <string name="myprofile_h23">1USDT/手</string>
+    <string name="myprofile_h24">可获得服务用户的交易\n手续费1USDT/手</string>
     <string name="myprofile_h25">经纪人支持</string>
-    <string name="myprofile_h26">平台将分配经纪人及讲\n师到服务中心</string>
+    <string name="myprofile_h26">可获得合约经纪人及讲师的\n专业服务支持</string>
     <string name="myprofile_h27">用户引流</string>
-    <string name="myprofile_h28">通过线上推广的用户将导\n流到各个服务中心</string>
+    <string name="myprofile_h28">可获得平台通过线上推广\n渠道引流的用户</string>
     <string name="myprofile_h29">申请条件</string>
-    <string name="myprofile_h30">合约帐户余额不低于8万USDT，有100平以上办公室</string>
+    <string name="myprofile_h30">合约仓位不能低于8万USDT，且有100平方以上的办公室</string>
     <string name="myprofile_h31">立刻申请</string>
     <string name="myprofile_h32">申请审核中...</string>
     <string name="myprofile_h33">服务码：</string>
@@ -414,12 +414,12 @@
 
     <!--钱包-->
     <string name="qianbao_h1">账户详情</string>
-    <string name="qianbao_h2">本金余额</string>
-    <string name="qianbao_h3">合约余额</string>
+    <string name="qianbao_h2">可用（USDT）</string>
+    <string name="qianbao_h3">合约仓位</string>
     <string name="qianbao_h4">累计盈利</string>
     <string name="qianbao_h5">累计佣金</string>
     <string name="qianbao_h6">充币</string>
-    <string name="qianbao_h7">划转</string>
+    <string name="qianbao_h7">建仓</string>
     <string name="qianbao_h8">提币</string>
     <string name="qianbao_h9">收入记录</string>
     <string name="qianbao_h10">支出记录</string>
@@ -439,7 +439,7 @@
     <string name="recharge_h8">收款人姓名</string>
     <string name="recharge_h9">收款人帐号</string>
     <string name="recharge_h10">充币详情</string>
-    <string name="recharge_h11">充币个数(USDT)</string>
+    <string name="recharge_h11">充币数量(USDT)</string>
     <string name="recharge_h12">充币成功</string>
     <string name="recharge_h13">充币处理中</string>
     <string name="recharge_h14">充币地址</string>
@@ -504,7 +504,7 @@
     <!--提币-->
     <string name="takecash_h1">提币</string>
     <string name="takecash_h2"><u>USDT地址</u></string>
-    <string name="takecash_h3">可用余币：</string>
+    <string name="takecash_h3">可用(USDT)：</string>
     <string name="takecash_h4">USDT价格：</string>
     <string name="takecash_h5">美元</string>
     <string name="takecash_h6">手机号码</string>
@@ -518,7 +518,7 @@
     <string name="takecash_h14">手续费：</string>
     <string name="takecash_h15">USDT提币</string>
     <string name="takecash_h16">提币记录</string>
-    <string name="takecash_h17"><u>USDF地址</u></string>
+    <string name="takecash_h17"><u>USDT地址</u></string>
     <string name="takecash_h18">提币个数(USDT)</string>
     <string name="takecash_h19">提币成功</string>
     <string name="takecash_h20">提币处理中</string>

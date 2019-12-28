@@ -163,12 +163,25 @@ public class SelectLanguagePopupWindow extends PopupWindow {
 //                LocalUserInfo.getInstance(mContext).setMobile_State_Code(list.get(position).getMobile_state_code());
                 switch (list.get(position).getLang_type()) {
                     case "zh":
+                        //中文
                         configuration.locale = new Locale("zh", "CN");
                         break;
                     case "en":
+                        //英文
                         configuration.locale = new Locale("en", "US");
                         break;
-
+                    case "ja":
+                        //设置为日文
+                        configuration.locale = new Locale("ja", "JP");
+                        break;
+                    case "ko":
+                        //设置为韩文
+                        configuration.locale = new Locale("ko", "KR");
+                        break;
+                    case "vi":
+                        //设置为越南文
+                        configuration.locale = new Locale("vi", "VN");
+                        break;
                 }
 
                 mContext.getResources().updateConfiguration(configuration, displayMetrics);

@@ -43,15 +43,34 @@ public class HelloActivity extends Activity {
         final Configuration configuration = resources.getConfiguration();
 //        Locale locale=configuration.locale;
         final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        if (LocalUserInfo.getInstance(this).getLanguage_Type().equals("en")) {
-            //设置为英文
-            configuration.locale = new Locale("en", "US");
-            resources.updateConfiguration(configuration, displayMetrics);
-        } else {
-            //设置为中文
-            configuration.locale = new Locale("zh", "CN");
-            resources.updateConfiguration(configuration, displayMetrics);
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                configuration.locale = new Locale("zh", "CN");
+                resources.updateConfiguration(configuration, displayMetrics);
+                break;
+            case "en":
+                //设置为英文
+                configuration.locale = new Locale("en", "US");
+                resources.updateConfiguration(configuration, displayMetrics);
+                break;
+            case "ja":
+                //设置为日文
+                configuration.locale = new Locale("ja", "JP");
+                resources.updateConfiguration(configuration, displayMetrics);
+                break;
+            case "ko":
+                //设置为韩文
+                configuration.locale = new Locale("ko", "KR");
+                resources.updateConfiguration(configuration, displayMetrics);
+                break;
+            case "vi":
+                //设置为越南文
+                configuration.locale = new Locale("vi", "VN");
+                resources.updateConfiguration(configuration, displayMetrics);
+                break;
         }
+
 
         // 判断是否是第一次开启应用
         SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);

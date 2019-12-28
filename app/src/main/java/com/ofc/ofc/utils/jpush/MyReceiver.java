@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.ofc.ofc.activity.PredictionDetailActivity_MPChart;
+import com.ofc.ofc.activity.PredictionDetailActivity;
 import com.ofc.ofc.activity.WebContentActivity;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
@@ -83,7 +83,8 @@ public class MyReceiver extends BroadcastReceiver {
                         MyLogger.i(">>>>>>>>>symbol:" + symbol);
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("symbol", symbol);
-                        CommonUtil.gotoActivityWithData(context, PredictionDetailActivity_MPChart.class, bundle1);
+                        CommonUtil.gotoActivityWithData(context, PredictionDetailActivity.class, bundle1);
+//                        CommonUtil.gotoActivityWithData(context, PredictionDetailActivity_MPChart.class, bundle1);
                         break;
                     default:
 

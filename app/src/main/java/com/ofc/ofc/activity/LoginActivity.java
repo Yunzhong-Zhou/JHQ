@@ -99,7 +99,6 @@ public class LoginActivity extends BaseActivity {
 
 //        mImmersionBar.reset().init();
 
-
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);

@@ -12,6 +12,7 @@ import com.github.tifezh.kchartlib.R;
 
 /**
  * Created by tifezh on 2017/6/30.
+ * 选项卡
  */
 
 public class TabView extends RelativeLayout{

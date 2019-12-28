@@ -478,9 +478,9 @@ public class Fragment3 extends BaseFragment {
             case R.id.tv_zhongzhi:
                 //终止
                 if (model.getContract_make_terminate() ==1 ) {
-                    showToast(getString(R.string.fragment3_h39),
-                            getString(R.string.app_confirm),
-                            getString(R.string.app_cancel),
+                    showToast_shenqing(getString(R.string.fragment3_h39),
+                            getString(R.string.fragment3_h45),
+                            getString(R.string.fragment3_h46),
                             new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

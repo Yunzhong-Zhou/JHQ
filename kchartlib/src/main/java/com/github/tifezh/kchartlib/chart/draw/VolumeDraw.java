@@ -40,8 +40,8 @@ public class VolumeDraw implements IChartDraw<IVolume> {
             @NonNull Canvas canvas, @NonNull BaseKChartView view, int position) {
 
         drawHistogram(canvas, curPoint, lastPoint, curX, view, position);
-        view.drawChildLine(canvas, ma5Paint, lastX, lastPoint.getMA5Volume(), curX, curPoint.getMA5Volume());
-        view.drawChildLine(canvas, ma10Paint, lastX, lastPoint.getMA10Volume(), curX, curPoint.getMA10Volume());
+//        view.drawChildLine(canvas, ma5Paint, lastX, lastPoint.getMA5Volume(), curX, curPoint.getMA5Volume());
+//        view.drawChildLine(canvas, ma10Paint, lastX, lastPoint.getMA10Volume(), curX, curPoint.getMA10Volume());
     }
 
     private void drawHistogram(
