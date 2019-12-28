@@ -54,7 +54,7 @@
                         android:onClick="onClick"
                         android:text="@string/takecash_h26"
                         android:textColor="@color/white"
-                        android:paddingBottom="2dp"
+                        android:paddingBottom="6dp"
                         android:textSize="15sp"
                         android:visibility="visible" />
 
@@ -278,6 +278,7 @@
                             android:paddingTop="5dp"
                             android:layout_marginLeft="14dp"
                             android:layout_marginRight="14dp"
+                            android:layout_marginBottom="14dp"
                             android:paddingBottom="5dp">
 
                             <TextView
