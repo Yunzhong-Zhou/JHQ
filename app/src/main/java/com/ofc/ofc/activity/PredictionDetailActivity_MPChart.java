@@ -188,10 +188,14 @@ public class PredictionDetailActivity_MPChart extends BaseActivity implements Co
                     case "TRX":
                         //压力位
                         textView7.setText(String.format("%.6f",model.getKline().getResistence()) + " $");
+                        //支撑位
+                        textView6.setText(String.format("%.6f", model.getKline().getSupport()) + " $");
                         break;
                     default:
                         //压力位
                         textView7.setText(String.format("%.2f", model.getKline().getResistence()) + " $");
+                        //支撑位
+                        textView6.setText(String.format("%.2f", model.getKline().getSupport()) + " $");
                         break;
                 }
                 if (zhangdie > 0) {
@@ -222,8 +226,6 @@ public class PredictionDetailActivity_MPChart extends BaseActivity implements Co
                     textView10.setText(getString(R.string.fragment2_h11));
                 }
 
-                //支撑位
-                textView6.setText(model.getKline().getSupport() + " $");
                 //建议时机
                 textView8.setText(CommonUtil.timedate(model.getTrading_point().getTimestamp() + ""));
 

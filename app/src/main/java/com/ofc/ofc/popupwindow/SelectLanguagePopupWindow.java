@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
@@ -142,6 +143,16 @@ public class SelectLanguagePopupWindow extends PopupWindow {
                             .into(imageView);//加载图片
                 else
                     imageView.setImageResource(R.mipmap.ic_guoqi);
+
+                ImageView imageView2 = holder.getView(R.id.imageView2);
+                LinearLayout linearLayout = holder.getView(R.id.linearLayout);
+                if (model.getLang_type().equals(LocalUserInfo.getInstance(mContext).getLanguage_Type())){
+                    imageView2.setVisibility(View.VISIBLE);
+                    linearLayout.setBackgroundResource(R.drawable.yuanjiao_5_baise_huangsebiankuang);
+                }else {
+                    imageView2.setVisibility(View.GONE);
+                    linearLayout.setBackgroundResource(R.drawable.yuanjiao_5_baise);
+                }
 
             }
         };

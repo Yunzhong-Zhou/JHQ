@@ -203,7 +203,6 @@ public class Fragment4 extends BaseFragment {
 
     }
 
-
     private void request(String string) {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment4 + string, new OkHttpClientManager.ResultCallback<Fragment4Model>() {
             @Override

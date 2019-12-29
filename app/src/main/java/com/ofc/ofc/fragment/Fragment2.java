@@ -268,6 +268,11 @@ public class Fragment2 extends BaseFragment {
                                         setChartFillDrawable(lineChart, drawable);
                                     }
                                 });
+
+                                TextView textView1 = holder.getView(R.id.textView1);
+                                TextView textView2 = holder.getView(R.id.textView2);
+                                TextView textView5 = holder.getView(R.id.textView5);
+
                                 holder.setText(R.id.textView1, model.getSymbol() + "/");//name
 //                                holder.setText(R.id.textView3, model.get+"");//1H交易量
                                 holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
@@ -289,9 +294,15 @@ public class Fragment2 extends BaseFragment {
                                     //买入
                                     textView7.setText(getString(R.string.fragment2_h5));
                                     textView7.setBackgroundResource(R.drawable.yuanjiao_5_lvse1);
+                                    textView1.setTextColor(getResources().getColor(R.color.txt_green));
+                                    textView2.setTextColor(getResources().getColor(R.color.txt_green));
+                                    textView5.setTextColor(getResources().getColor(R.color.txt_green));
                                 } else {
                                     textView7.setText(getString(R.string.fragment2_h4));
-                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_huangse);
+                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_hongse);
+                                    textView1.setTextColor(getResources().getColor(R.color.red));
+                                    textView2.setTextColor(getResources().getColor(R.color.red));
+                                    textView5.setTextColor(getResources().getColor(R.color.red));
                                 }
 
                             }

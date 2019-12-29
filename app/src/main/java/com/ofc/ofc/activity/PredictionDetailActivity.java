@@ -244,7 +244,6 @@ public class PredictionDetailActivity extends BaseActivity {
                         textView10.setText(getString(R.string.fragment2_h11));
                     }
 
-
                     //建议时机
                     textView8.setText(CommonUtil.timedate(model.getTrading_point().getTimestamp() + ""));
                 }

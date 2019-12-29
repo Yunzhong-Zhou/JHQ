@@ -16,20 +16,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ofc.ofc.R;
-import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.net.OkHttpClientManager;
-import com.ofc.ofc.net.URLs;
-import com.ofc.ofc.utils.CommonUtil;
-import com.ofc.ofc.utils.FileUtil;
-import com.ofc.ofc.utils.MyChooseImages;
-import com.ofc.ofc.utils.MyLogger;
 import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citywheel.CityConfig;
 import com.lljjcoder.style.citypickerview.CityPickerView;
+import com.ofc.ofc.R;
+import com.ofc.ofc.base.BaseActivity;
+import com.ofc.ofc.net.OkHttpClientManager;
+import com.ofc.ofc.net.URLs;
+import com.ofc.ofc.utils.FileUtil;
+import com.ofc.ofc.utils.MyChooseImages;
+import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
@@ -231,7 +230,11 @@ public class SetServiceCenterActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                CommonUtil.gotoActivityWithFinishOtherAll(SetServiceCenterActivity.this, MyProfileActivity.class, true);
+                finish();
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("item", 4);
+//                CommonUtil.gotoActivityWithFinishOtherAllAndData(SetServiceCenterActivity.this, MainActivity.class, bundle, true);
+//                CommonUtil.gotoActivityWithFinishOtherAll(SetServiceCenterActivity.this, MyProfileActivity.class, true);
             }
         }, false);
 
