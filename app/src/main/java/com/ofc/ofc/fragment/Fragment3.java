@@ -410,15 +410,12 @@ public class Fragment3 extends BaseFragment {
                         holder.setText(R.id.textView2, model.getMoney());//合约数
                         TextView tv3 = holder.getView(R.id.textView3);
                         double moeny = Double.valueOf(model.getEarning_money());
-                        if (moeny > 0) {
+                        if (model.getResult()==1) {
                             tv3.setText("+" + moeny);
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
-                        } else if (moeny < 0){
+                        } else {
                             tv3.setText("-" + moeny);
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                        }else {
-                            tv3.setText("" + moeny);
                             tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
                         }
 

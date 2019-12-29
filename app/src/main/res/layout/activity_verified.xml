@@ -150,9 +150,12 @@
 
             <TextView
                 android:id="@+id/textView3"
+                android:onClick="onClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment5_h30"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
                 android:textColor="@color/black2"/>
 
         </LinearLayout>
@@ -175,6 +178,7 @@
 
             <TextView
                 android:id="@+id/textView4"
+                android:onClick="onClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment5_h31"

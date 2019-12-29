@@ -293,9 +293,9 @@
                     <com.github.tifezh.kchartlib.chart.KChartView
                         android:id="@+id/mKChartView"
                         android:layout_width="match_parent"
-                        android:layout_height="520dp"
+                        android:layout_height="500dp"
                         android:layout_weight="1"
-                        android:minHeight="520dp"
+                        android:minHeight="500dp"
                         app:kc_candle_width="8dp"
                         app:kc_point_width="10dp"
                         app:kc_grid_line_color="#FFFFFF"

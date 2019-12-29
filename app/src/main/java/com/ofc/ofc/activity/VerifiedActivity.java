@@ -21,6 +21,7 @@ import com.ofc.ofc.model.VerifiedModel1;
 import com.ofc.ofc.model.VerifiedModel2;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
+import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
 import com.squareup.okhttp.Request;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.ofc.ofc.net.OkHttpClientManager.HOST;
 
 /**
  * Created by zyz on 2019-12-22.
@@ -146,6 +149,18 @@ public class VerifiedActivity extends BaseActivity {
                     imageView1.setImageResource(R.mipmap.ic_gouxuan);
                 else
                     imageView1.setImageResource(R.mipmap.ic_weigouxuan);
+                break;
+
+            case R.id.textView3:
+                Bundle bundle = new Bundle();
+                bundle.putString("url", HOST +"/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                CommonUtil.gotoActivityWithData(VerifiedActivity.this, WebContentActivity.class, bundle, false);
+                break;
+            case R.id.textView4:
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("url", HOST +"/wechat/article/detail?id=9f8358e8a49db94a5c7d98f970889a4f");
+                CommonUtil.gotoActivityWithData(VerifiedActivity.this, WebContentActivity.class, bundle1, false);
+
                 break;
         }
     }

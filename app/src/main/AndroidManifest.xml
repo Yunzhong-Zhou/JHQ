@@ -27,6 +27,8 @@
     <!--9.0权限-->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
+
+
     <!--录音权限-->
     <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
 
@@ -40,6 +42,9 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <!-- 极光推送 -->
 
+    <!--Android 10 停用过滤视图，使用旧版存储模式
+    android:requestLegacyExternalStorage="true"
+    -->
     <application
         android:name="com.ofc.ofc.MyApplication"
         android:allowBackup="true"
@@ -49,6 +54,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity

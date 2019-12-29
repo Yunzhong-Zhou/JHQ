@@ -407,9 +407,18 @@ public class Fragment3Model implements Serializable {
          */
 
         private int bourse_on;
+        private int result;
         private String money;
         private String earning_money;
         private String bourse_on_title;
+
+        public int getResult() {
+            return result;
+        }
+
+        public void setResult(int result) {
+            this.result = result;
+        }
 
         public int getBourse_on() {
             return bourse_on;
