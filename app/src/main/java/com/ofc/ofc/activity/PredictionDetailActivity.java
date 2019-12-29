@@ -1,7 +1,6 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -43,7 +42,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
     KChartView mKChartView;
     private KChartAdapter mAdapter;
-    Handler handler = new Handler();
+    List<KLineEntity> datas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +158,7 @@ public class PredictionDetailActivity extends BaseActivity {
         requestServer();
 
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -180,12 +180,10 @@ public class PredictionDetailActivity extends BaseActivity {
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            finish();
-                        }
-                    });
+                    myToast(info);
+                }
+                if (page > 1) {
+                    page = page - 1;
                 }
 
             }
@@ -251,16 +249,14 @@ public class PredictionDetailActivity extends BaseActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 //反转数据
                                 Collections.reverse(response.getKline_list());
-
 //                                list.addAll(0,response.getKline_list());
                                 list = response.getKline_list();
-                                List<KLineEntity> datas = new ArrayList<>();
+                                datas.clear();
                                 for (PredictionDetailModel.KlineListBean bean : list) {
                                     KLineEntity kLineEntity = new KLineEntity(
                                             bean.getTimestamp(),
@@ -281,13 +277,6 @@ public class PredictionDetailActivity extends BaseActivity {
                         });
                     }
                 }).start();
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-
-                    }
-                });
 
 
                 hideProgress();

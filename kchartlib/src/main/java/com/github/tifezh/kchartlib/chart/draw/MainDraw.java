@@ -133,15 +133,13 @@ public class MainDraw implements IChartDraw<ICandle> {
                 canvas.drawRect(x - lineR, high, x + lineR, low, mRedPaint);
 
                 if (type.equals("1")) {
-                    System.out.println(">>>>>>>>>>>" + type);
+//                    System.out.println(">>>>>>>>>>>" + type);
                     //画买入 b点
-//                    canvas.drawBitmap(mBitmap1, x- r , close, mRedPaint);
                     drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) open, w1, h1, 0, 0);
                 }
                 if (type.equals("0")) {
-                    System.out.println(">>>>>>>>>>>" + type);
+//                    System.out.println(">>>>>>>>>>>" + type);
                     //画卖出 s点
-//                    canvas.drawBitmap(mBitmap0, x- r, open, mRedPaint);
                     drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) close-h0, w0, h0, 0, 0);
                 }
             } else {
@@ -161,15 +159,13 @@ public class MainDraw implements IChartDraw<ICandle> {
             canvas.drawRect(x - lineR, high, x + lineR, low, mGreenPaint);
 
             if (type.equals("1")) {
-                System.out.println(">>>>>>>>>>>" + type);
+//                System.out.println(">>>>>>>>>>>" + type);
                 //画买入 b点
-//                canvas.drawBitmap(mBitmap1, x- r , open, mRedPaint);
                 drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) close, w1, h1, 0, 0);
             }
             if (type.equals("0")) {
-                System.out.println(">>>>>>>>>>>" + type);
+//                System.out.println(">>>>>>>>>>>" + type);
                 //画卖出 s点
-//                canvas.drawBitmap(mBitmap0, x- r, close, mRedPaint);
                 drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
             }
 
@@ -178,15 +174,13 @@ public class MainDraw implements IChartDraw<ICandle> {
             canvas.drawRect(x - lineR, high, x + lineR, low, mRedPaint);
 
             if (type.equals("1")) {
-                System.out.println(">>>>>>>>>>>" + type);
+//                System.out.println(">>>>>>>>>>>" + type);
                 //画买入 b点
-//                canvas.drawBitmap(mBitmap1, x- r , open, mRedPaint);
                 drawImage(canvas, mBitmap1, (int) (x - w1 / 2), (int) open, w1, h1, 0, 0);
             }
             if (type.equals("0")) {
-                System.out.println(">>>>>>>>>>>" + type);
+//                System.out.println(">>>>>>>>>>>" + type);
                 //画卖出 s点
-//                canvas.drawBitmap(mBitmap0, x- r, open, mRedPaint);
                 drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
             }
 

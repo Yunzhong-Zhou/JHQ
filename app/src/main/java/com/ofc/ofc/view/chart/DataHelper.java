@@ -214,10 +214,10 @@ public class DataHelper {
      */
     public static void calculate(List<KLineEntity> datas) {
         calculateMA(datas);
-        calculateMACD(datas);
-        calculateBOLL(datas);
-        calculateRSI(datas);
-        calculateKDJ(datas);
+//        calculateMACD(datas);
+//        calculateBOLL(datas);
+//        calculateRSI(datas);
+//        calculateKDJ(datas);
         calculateVolumeMA(datas);
     }
 
