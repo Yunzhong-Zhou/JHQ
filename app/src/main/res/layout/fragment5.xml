@@ -428,7 +428,7 @@
                             <ImageView
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:src="@mipmap/ic_fragment5_7" />
+                                android:src="@mipmap/ic_fragment5_14" />
 
                             <TextView
                                 android:layout_width="match_parent"

@@ -49,7 +49,7 @@ public class ServiceCenter_NoActivity extends BaseActivity {
             case 1:
                 //待审核 - 不可点击 - 不显示理由
                 tv_shenqing.setSelected(false);
-                tv_shenqing.setBackgroundResource(R.mipmap.bg_btn5);
+                tv_shenqing.setBackgroundResource(R.mipmap.bg_btn6);
                 tv_shenqing.setText(getString(R.string.myprofile_h52));//已申请
                 textView_liyou.setVisibility(View.GONE);
                 break;
