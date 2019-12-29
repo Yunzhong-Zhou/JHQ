@@ -52,7 +52,7 @@ public class Fragment3 extends BaseFragment {
     List<Fragment3Model.NewestContractListBean> list1 = new ArrayList<>();
     CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
     TextView tv_page1_1, tv_page1_2, tv_page1_3, tv_page1_4, tv_page1_5, tv_page1_6, tv_page1_7, tv_page1_8,
-            tv_page1_9, tv_page1_10, tv_page1_11;
+            tv_page1_9, tv_page1_10, tv_page1_11,tv_zhanwei;
     ImageView iv_page1_1;
 
     RelativeLayout ll_page2;
@@ -208,6 +208,7 @@ public class Fragment3 extends BaseFragment {
         tv_page1_11 = findViewByID_My(R.id.tv_page1_11);
         tv_page1_11.setOnClickListener(this);
         iv_page1_1 = findViewByID_My(R.id.iv_page1_1);
+        tv_zhanwei = findViewByID_My(R.id.tv_zhanwei);
 
         //交易中
         rv_jiaoyizhong = findViewByID_My(R.id.rv_jiaoyizhong);
@@ -267,6 +268,7 @@ public class Fragment3 extends BaseFragment {
                        /* tv_type.setText(getString(R.string.fragment3_h36));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);*/
                         tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
+                        tv_zhanwei.setVisibility(View.GONE);
                         break;
                     case 1:
                         //盈利
@@ -275,6 +277,7 @@ public class Fragment3 extends BaseFragment {
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
 
                         tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
+                        tv_zhanwei.setVisibility(View.GONE);
                         break;
                     case 2:
                         //亏损
@@ -283,6 +286,7 @@ public class Fragment3 extends BaseFragment {
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_2_red);
 
                         tv_page1_11.setVisibility(View.GONE);//是否显示平仓
+                        tv_zhanwei.setVisibility(View.VISIBLE);
                         break;
                 }
                 //累计盈利

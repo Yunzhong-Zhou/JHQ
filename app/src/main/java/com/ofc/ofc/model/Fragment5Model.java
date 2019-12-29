@@ -25,6 +25,15 @@ public class Fragment5Model implements Serializable {
     private String invite_code;
     private int grade;
     private int service_center_status;
+    private String status_rejected_cause;
+
+    public String getStatus_rejected_cause() {
+        return status_rejected_cause;
+    }
+
+    public void setStatus_rejected_cause(String status_rejected_cause) {
+        this.status_rejected_cause = status_rejected_cause;
+    }
 
     public int getService_center_status() {
         return service_center_status;

@@ -259,7 +259,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             float lastX = i == 0 ? currentPointX : getX(i - 1);
             if (mMainDraw != null) {
                 //绘制K线图
-                mMainDraw.drawTranslated(lastPoint, currentPoint, lastX, currentPointX, canvas, this, i);
+                mMainDraw.drawTranslated(lastPoint, currentPoint, lastX , currentPointX, canvas, this, i);
             }
             if (mChildDraw != null) {
                 //绘制子图
@@ -318,20 +318,20 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
                 String text = formatDateTime(mAdapter.getDate(index));
                 canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2, y, mTextPaint);//子图底部 中间的时间
 
-                canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2,  mChildRect.top, mTextPaint);//k线图底部 中间的时间
+                canvas.drawText(text, columnSpace * i - mTextPaint.measureText(text) / 2,  mChildRect.top-5, mTextPaint);//k线图底部 中间的时间
             }
         }
 
         float translateX = xToTranslateX(0);
         if (translateX >= startX && translateX <= stopX) {
             canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, y, mTextPaint);//子图底部 左侧第一个时间
-//            canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, mChildRect.top, mTextPaint);//K线图底部 左侧第一个时间
+//            canvas.drawText(formatDateTime(getAdapter().getDate(mStartIndex)), 0, mChildRect.top-5, mTextPaint);//K线图底部 左侧第一个时间
         }
         translateX = xToTranslateX(mWidth);
         if (translateX >= startX && translateX <= stopX) {
             String text = formatDateTime(getAdapter().getDate(mStopIndex));
             canvas.drawText(text, mWidth - mTextPaint.measureText(text), y, mTextPaint);//子图底部 右侧第一个时间
-            canvas.drawText(text, mWidth - mTextPaint.measureText(text), mChildRect.top, mTextPaint);//K线图底部 右侧第一个时间
+            canvas.drawText(text, mWidth - mTextPaint.measureText(text), mChildRect.top-5, mTextPaint);//K线图底部 右侧第一个时间
         }
         if (isLongPress) {
             IKLine point = (IKLine) getItem(mSelectedIndex);

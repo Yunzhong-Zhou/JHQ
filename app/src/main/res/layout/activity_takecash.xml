@@ -54,7 +54,6 @@
                         android:onClick="onClick"
                         android:text="@string/takecash_h26"
                         android:textColor="@color/white"
-                        android:paddingBottom="6dp"
                         android:textSize="15sp"
                         android:visibility="visible" />
 

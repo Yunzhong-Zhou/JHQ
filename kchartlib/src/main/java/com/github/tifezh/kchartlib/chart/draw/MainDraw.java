@@ -123,7 +123,7 @@ public class MainDraw implements IChartDraw<ICandle> {
         low = view.getMainY(low);
         open = view.getMainY(open);
         close = view.getMainY(close);
-        float r = mCandleWidth / 2;
+        float r = mCandleWidth / 2 ;
         float lineR = mCandleLineWidth / 2;
         if (open > close) {
             //实心

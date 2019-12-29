@@ -296,7 +296,9 @@
                         android:layout_height="520dp"
                         android:layout_weight="1"
                         android:minHeight="520dp"
-                        app:kc_candle_width="5dp"
+                        app:kc_candle_width="8dp"
+                        app:kc_point_width="10dp"
+                        app:kc_grid_line_color="#FFFFFF"
                         app:kc_background_color="#031F2C"></com.github.tifezh.kchartlib.chart.KChartView>
 
                 </RelativeLayout>

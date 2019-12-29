@@ -189,7 +189,7 @@
     <string name="fragment2_h4">建议卖出</string>
     <string name="fragment2_h5">建议买入</string>
     <string name="fragment2_h6">建议卖出价格</string>
-    <string name="fragment2_h7">建议卖入价格</string>
+    <string name="fragment2_h7">建议买入价格</string>
     <string name="fragment2_h8">当前价格</string>
     <string name="fragment2_h9">支撑位</string>
     <string name="fragment2_h10">压力位</string>
@@ -356,7 +356,8 @@
     <string name="myprofile_h48">请输入服务码</string>
     <string name="myprofile_h49">州</string>
     <string name="myprofile_h50">请输入州</string>
-
+    <string name="myprofile_h51">未通过理由：</string>
+    <string name="myprofile_h52">已申请</string>
     <!--修改登录密码-->
     <string name="changepassword_h1">修改登录密码</string>
     <string name="changepassword_h2">旧密码</string>

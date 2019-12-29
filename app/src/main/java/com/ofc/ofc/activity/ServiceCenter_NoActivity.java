@@ -15,8 +15,10 @@ import com.ofc.ofc.utils.CommonUtil;
  */
 public class ServiceCenter_NoActivity extends BaseActivity {
     int status = 1;
+    String cause = "";
     LinearLayout headView;
-    TextView tv_shenqing;
+    TextView tv_shenqing, textView_liyou;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,18 +31,36 @@ public class ServiceCenter_NoActivity extends BaseActivity {
 //        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
         CommonUtil.setMargins(headView, 0, (int) CommonUtil.getStatusBarHeight(ServiceCenter_NoActivity.this), 0, 0);
         tv_shenqing = findViewByID_My(R.id.tv_shenqing);
+        textView_liyou = findViewByID_My(R.id.textView_liyou);
     }
 
     @Override
     protected void initData() {
-        status = getIntent().getIntExtra("status",1);
-        if (status ==2){
-            //审核中
-            tv_shenqing.setSelected(false);
-//            tv_shenqing.setBackgroundResource(R.drawable.yuanjiao_50_huise);
-        }else {
-            tv_shenqing.setSelected(true);
-            tv_shenqing.setBackgroundResource(R.drawable.btn_img_login);
+        status = getIntent().getIntExtra("status", 1);
+        cause = getIntent().getStringExtra("cause");
+        switch (status) {
+            case -1:
+                //待申请 -可点击  - 不显示理由
+                tv_shenqing.setSelected(true);
+                tv_shenqing.setBackgroundResource(R.drawable.btn_img_login);
+                tv_shenqing.setText(getString(R.string.myprofile_h31));//立即申请
+                textView_liyou.setVisibility(View.GONE);
+                break;
+            case 1:
+                //待审核 - 不可点击 - 不显示理由
+                tv_shenqing.setSelected(false);
+                tv_shenqing.setBackgroundResource(R.mipmap.bg_btn5);
+                tv_shenqing.setText(getString(R.string.myprofile_h52));//已申请
+                textView_liyou.setVisibility(View.GONE);
+                break;
+            case 3:
+                //未通过 - 可点击 - 显示理由
+                tv_shenqing.setSelected(true);
+                tv_shenqing.setBackgroundResource(R.drawable.btn_img_login);
+                tv_shenqing.setText(getString(R.string.myprofile_h31));//立即申请
+                textView_liyou.setVisibility(View.VISIBLE);
+                textView_liyou.setText(getString(R.string.myprofile_h51) + cause);
+                break;
         }
     }
 
@@ -54,8 +74,8 @@ public class ServiceCenter_NoActivity extends BaseActivity {
             case R.id.tv_shenqing:
                 //申请
                 Bundle bundle = new Bundle();
-                bundle.putInt("type",1);//1、服务中心 2、实名认证
-                CommonUtil.gotoActivityWithData(ServiceCenter_NoActivity.this, SelectAddressActivity.class,bundle, false);
+                bundle.putInt("type", 1);//1、服务中心 2、实名认证
+                CommonUtil.gotoActivityWithData(ServiceCenter_NoActivity.this, SelectAddressActivity.class, bundle, false);
                 break;
         }
     }
