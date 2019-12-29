@@ -178,7 +178,7 @@ public class Fragment4 extends BaseFragment {
                             MyLogger.i(">>>>>实际到账>>>>>" + real_money);
 
                             textView_moeny.setText(String.format("%.2f", real_money));
-                        }else {
+                        } else {
                             textView_moeny.setText("0");
                         }
 
@@ -245,8 +245,8 @@ public class Fragment4 extends BaseFragment {
                             }
                         });
                     }*/
-
                 changeUI();
+
                 MainActivity.isOver = true;
             }
         });
@@ -431,9 +431,12 @@ public class Fragment4 extends BaseFragment {
 
             textView7.setText(getString(R.string.fragment4_h8));
             textView6.setText(getString(R.string.fragment4_h7));
-            editText1.setHint(getString(R.string.fragment4_h4)
-                    + "(" + model.getUsdt_top_up_min_money() + "-" +
-                    model.getUsdt_top_up_max_money() + ")");
+            if (model != null){
+                editText1.setHint(getString(R.string.fragment4_h4)
+                        + "(" + model.getUsdt_top_up_min_money() + "-" +
+                        model.getUsdt_top_up_max_money() + ")");
+            }
+
 
             textView7.setVisibility(View.VISIBLE);
 
@@ -462,12 +465,12 @@ public class Fragment4 extends BaseFragment {
 
             textView7.setText(getString(R.string.fragment4_h29));
             textView6.setText(getString(R.string.fragment4_h13));
-            editText2.setHint(getString(R.string.fragment4_h19));
 
             textView7.setVisibility(View.VISIBLE);
 
-        } else if (type == 3) {
-            /*textView1.setTextColor(getResources().getColor(R.color.black3));
+        }
+        /*else if (type == 3) {
+           textView1.setTextColor(getResources().getColor(R.color.black3));
             textView2.setTextColor(getResources().getColor(R.color.black3));
             textView_3.setTextColor(getResources().getColor(R.color.green));
 
@@ -494,9 +497,9 @@ public class Fragment4 extends BaseFragment {
                     + "(" + model.getCny().getTop_up_min_money() + "-" +
                     model.getCny().getTop_up_max_money() + ")");
 
-            textView7.setVisibility(View.GONE);*/
+            textView7.setVisibility(View.GONE);
 
-        }
+        }*/
     }
 
     @Override

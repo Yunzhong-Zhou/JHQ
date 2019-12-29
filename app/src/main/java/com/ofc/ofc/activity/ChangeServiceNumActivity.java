@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,9 +33,10 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  * 修改服务代码
  */
 public class ChangeServiceNumActivity extends BaseActivity {
+    ChangeServiceNumModel model;
     LinearLayout headView,linearLayout;
     TextView textView1, textView2, textView3;
-    ImageView imageView1;
+    ImageView imageView1,imageView_bianji;
     EditText editText1;
 
     Handler handler = new Handler();
@@ -107,10 +109,24 @@ public class ChangeServiceNumActivity extends BaseActivity {
                         params.put("token", localUserInfo.getToken());
                         RequestSet(params);
                     }else {
-                        myToast(getString(R.string.myprofile_h48));
+//                        myToast(getString(R.string.myprofile_h48));
+                        editText1.setText(model.getService_center().getCode());
                     }
                 }
                 return true;
+            }
+        });
+        imageView_bianji = findViewByID_My(R.id.imageView_bianji);
+        imageView_bianji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                editText1.setText("");
+                editText1.setSelection(editText1.getText().length());
+                //得到焦点
+                editText1.requestFocus();
+                //弹出键盘
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.showSoftInput(editText1, InputMethodManager.SHOW_IMPLICIT);
             }
         });
     }
@@ -168,6 +184,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
             public void onResponse(ChangeServiceNumModel response) {
                 MyLogger.i(">>>>>>>>>服务中心" + response);
                 hideProgress();
+                model = response;
                 if (response.getService_center_grade() == 0){
                     //可编辑
                     editText1.setEnabled(true);

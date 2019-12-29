@@ -257,7 +257,6 @@ public class Fragment2 extends BaseFragment {
                             protected void convert(ViewHolder holder, final Fragment2Model model, int position) {
                                 LineChart lineChart = holder.getView(R.id.lineChart);
                                 initChart(lineChart);
-
                                 handler.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -268,41 +267,39 @@ public class Fragment2 extends BaseFragment {
                                         setChartFillDrawable(lineChart, drawable);
                                     }
                                 });
-
-                                TextView textView1 = holder.getView(R.id.textView1);
-                                TextView textView2 = holder.getView(R.id.textView2);
-                                TextView textView5 = holder.getView(R.id.textView5);
-
-                                holder.setText(R.id.textView1, model.getSymbol() + "/");//name
+                                if (model.getTrading_point() != null) {
+                                    TextView textView1 = holder.getView(R.id.textView1);
+                                    TextView textView2 = holder.getView(R.id.textView2);
+                                    TextView textView5 = holder.getView(R.id.textView5);
+                                    holder.setText(R.id.textView1, model.getSymbol() + "/");//name
 //                                holder.setText(R.id.textView3, model.get+"");//1H交易量
-                                holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
+                                    holder.setText(R.id.textView5, model.getTrading_point().getPrice() + "");//币价
+                                    switch (model.getSymbol()) {
+                                        case "XRP":
+                                        case "TRX":
+                                            holder.setText(R.id.textView6, String.format("%.6f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
+                                            break;
+                                        default:
+                                            holder.setText(R.id.textView6, String.format("%.2f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
 
-                                switch (model.getSymbol()) {
-                                    case "XRP":
-                                    case "TRX":
-                                        holder.setText(R.id.textView6, String.format("%.6f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
-                                        break;
-                                    default:
-                                        holder.setText(R.id.textView6, String.format("%.2f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
-
-                                        break;
-                                }
-                                holder.setText(R.id.textView4, CommonUtil.timedate3(model.getTrading_point().getTimestamp() + ""));//时间
-
-                                TextView textView7 = holder.getView(R.id.textView7);
-                                if (model.getTrading_point().getStatus() == 1) {
-                                    //买入
-                                    textView7.setText(getString(R.string.fragment2_h5));
-                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_lvse1);
-                                    textView1.setTextColor(getResources().getColor(R.color.txt_green));
-                                    textView2.setTextColor(getResources().getColor(R.color.txt_green));
-                                    textView5.setTextColor(getResources().getColor(R.color.txt_green));
-                                } else {
-                                    textView7.setText(getString(R.string.fragment2_h4));
-                                    textView7.setBackgroundResource(R.drawable.yuanjiao_5_hongse);
-                                    textView1.setTextColor(getResources().getColor(R.color.red));
-                                    textView2.setTextColor(getResources().getColor(R.color.red));
-                                    textView5.setTextColor(getResources().getColor(R.color.red));
+                                            break;
+                                    }
+                                    holder.setText(R.id.textView4, CommonUtil.timedate3(model.getTrading_point().getTimestamp() + ""));//时间
+                                    TextView textView7 = holder.getView(R.id.textView7);
+                                    if (model.getTrading_point().getStatus() == 1) {
+                                        //买入
+                                        textView7.setText(getString(R.string.fragment2_h5));
+                                        textView7.setBackgroundResource(R.drawable.yuanjiao_5_lvse1);
+                                        textView1.setTextColor(getResources().getColor(R.color.txt_green));
+                                        textView2.setTextColor(getResources().getColor(R.color.txt_green));
+                                        textView5.setTextColor(getResources().getColor(R.color.txt_green));
+                                    } else {
+                                        textView7.setText(getString(R.string.fragment2_h4));
+                                        textView7.setBackgroundResource(R.drawable.yuanjiao_5_hongse);
+                                        textView1.setTextColor(getResources().getColor(R.color.red));
+                                        textView2.setTextColor(getResources().getColor(R.color.red));
+                                        textView5.setTextColor(getResources().getColor(R.color.red));
+                                    }
                                 }
 
                             }

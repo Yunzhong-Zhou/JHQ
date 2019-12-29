@@ -321,24 +321,27 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout13:
                 //申请服务中心
-                switch (model.getService_center_status()) {
-                    case -1:
-                        //待申请
-                    case 1:
-                        //待审核
-                    case 3:
-                        //未通过
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("status",model.getService_center_status());
-                        bundle.putString("cause",model.getStatus_rejected_cause());
-                        CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle,false);
+                if (model!=null){
+                    switch (model.getService_center_status()) {
+                        case -1:
+                            //待申请
+                        case 1:
+                            //待审核
+                        case 3:
+                            //未通过
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("status",model.getService_center_status());
+                            bundle.putString("cause",model.getStatus_rejected_cause());
+                            CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle,false);
 //                        myToast(getString(R.string.myprofile_h32));
-                        break;
-                    case 2:
-                        //已通过
-                        CommonUtil.gotoActivity(getActivity(), ServiceCenter_YesActivity.class, false);
-                        break;
+                            break;
+                        case 2:
+                            //已通过
+                            CommonUtil.gotoActivity(getActivity(), ServiceCenter_YesActivity.class, false);
+                            break;
+                    }
                 }
+
                 break;
 
         }

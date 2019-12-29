@@ -45,14 +45,14 @@ public class Fragment3 extends BaseFragment {
     Fragment3Model model;
     int type = 1;
 
-    TextView tv_huazhuan, tv_money, tv_type, tv_yingli, tv_bucang,tv_baoxianjin;
+    TextView tv_huazhuan, tv_money, tv_type, tv_yingli, tv_bucang, tv_baoxianjin;
 
     RelativeLayout ll_page1;
     private RecyclerView recyclerView;
     List<Fragment3Model.NewestContractListBean> list1 = new ArrayList<>();
     CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
     TextView tv_page1_1, tv_page1_2, tv_page1_3, tv_page1_4, tv_page1_5, tv_page1_6, tv_page1_7, tv_page1_8,
-            tv_page1_9, tv_page1_10, tv_page1_11,tv_zhanwei,textView_shangqi;
+            tv_page1_9, tv_page1_10, tv_page1_11, tv_zhanwei, textView_shangqi;
     ImageView iv_page1_1;
     LinearLayout ll_shangqi;
 
@@ -258,199 +258,201 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(final Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>首页" + response);
-                model = response;
-                //合约余额
-                tv_money.setText(response.getReality_money());
-                //保险金
-                tv_baoxianjin.setText(response.getInsurance_money());
-                //状态
-                switch (response.getResult()) {
-                    case -1:
-                        //持平
-                        tv_type.setVisibility(View.GONE);
+                if (response != null) {
+                    model = response;
+                    //合约余额
+                    tv_money.setText(response.getReality_money());
+                    //保险金
+                    tv_baoxianjin.setText(response.getInsurance_money());
+                    //状态
+                    switch (response.getResult()) {
+                        case -1:
+                            //持平
+                            tv_type.setVisibility(View.GONE);
                        /* tv_type.setText(getString(R.string.fragment3_h36));
                         tv_type.setBackgroundResource(R.drawable.yuanjiao_5_huise);*/
-                        tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
-                        tv_zhanwei.setVisibility(View.GONE);
-                        break;
-                    case 1:
-                        //盈利
-                        tv_type.setVisibility(View.VISIBLE);
-                        tv_type.setText(getString(R.string.fragment3_h2));
-                        tv_type.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
-
-                        tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
-                        tv_zhanwei.setVisibility(View.GONE);
-                        break;
-                    case 2:
-                        //亏损
-                        tv_type.setVisibility(View.VISIBLE);
-                        tv_type.setText(getString(R.string.fragment3_h21));
-                        tv_type.setBackgroundResource(R.drawable.yuanjiao_2_red);
-
-                        tv_page1_11.setVisibility(View.GONE);//是否显示平仓
-                        tv_zhanwei.setVisibility(View.VISIBLE);
-                        break;
-                }
-                //累计盈利
-                tv_yingli.setText(response.getProfit_money());
-                //累计补仓
-                tv_bucang.setText(response.getCall_margin_money());
-
-                double money = Double.valueOf(response.getReality_money());
-                if (money > 0) {
-                    switch (response.getContract_status()) {
+                            tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
+                            tv_zhanwei.setVisibility(View.GONE);
+                            break;
                         case 1:
-                            //等待中
-                            if (response.getContract_trading() != null) {
-                                ll_page1.setVisibility(View.VISIBLE);
-                                ll_page2.setVisibility(View.GONE);
+                            //盈利
+                            tv_type.setVisibility(View.VISIBLE);
+                            tv_type.setText(getString(R.string.fragment3_h2));
+                            tv_type.setBackgroundResource(R.drawable.yuanjiao_2_lvse);
+
+                            tv_page1_11.setVisibility(View.VISIBLE);//是否显示平仓
+                            tv_zhanwei.setVisibility(View.GONE);
+                            break;
+                        case 2:
+                            //亏损
+                            tv_type.setVisibility(View.VISIBLE);
+                            tv_type.setText(getString(R.string.fragment3_h21));
+                            tv_type.setBackgroundResource(R.drawable.yuanjiao_2_red);
+
+                            tv_page1_11.setVisibility(View.GONE);//是否显示平仓
+                            tv_zhanwei.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                    //累计盈利
+                    tv_yingli.setText(response.getProfit_money());
+                    //累计补仓
+                    tv_bucang.setText(response.getCall_margin_money());
+
+                    double money = Double.valueOf(response.getReality_money());
+                    if (money > 0) {
+                        switch (response.getContract_status()) {
+                            case 1:
+                                //等待中
+                                if (response.getContract_trading() != null) {
+                                    ll_page1.setVisibility(View.VISIBLE);
+                                    ll_page2.setVisibility(View.GONE);
+                                    ll_page3.setVisibility(View.GONE);
+
+                                    tv_page1_1.setText(response.getContract_trading().getBourse_title());//合约交易
+                                    tv_page1_2.setText(response.getContract_trading().getBourse_on_title());//合约类型
+                                    tv_page1_3.setText(response.getContract_trading().getDirection_title());//合约方向
+                                    tv_page1_4.setText(response.getContract_trading().getLever() + getString(R.string.app_bei));//合约杠杆
+                                    tv_page1_5.setText("$ " + response.getContract_trading().getBuy_price());//买入价格
+                                    tv_page1_6.setText(response.getContract_trading().getShow_buy_at());//买入时间
+                                    tv_page1_7.setText("$ " + response.getContract_trading().getSell_price());//卖出价格
+                                    tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//卖出时间
+                                    tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
+
+                                    if (Double.valueOf(response.getContract_trading().getEarning_money()) > 0) {
+                                        //盈利 - 绿色
+                                        ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_lv);
+                                        iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_up);
+                                        textView_shangqi.setText(getString(R.string.fragment3_h13));
+                                    } else {
+                                        ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_hong);
+                                        iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
+                                        textView_shangqi.setText(getString(R.string.fragment3_h47));
+                                    }
+
+
+                                } else {
+                                    ll_page1.setVisibility(View.GONE);
+                                    ll_page2.setVisibility(View.GONE);
+                                    ll_page3.setVisibility(View.VISIBLE);
+                                }
+                                break;
+                            case 2:
+                                //交易中
+                                ll_page1.setVisibility(View.GONE);
+                                ll_page2.setVisibility(View.VISIBLE);
                                 ll_page3.setVisibility(View.GONE);
 
-                                tv_page1_1.setText(response.getContract_trading().getBourse_title());//合约交易
-                                tv_page1_2.setText(response.getContract_trading().getBourse_on_title());//合约类型
-                                tv_page1_3.setText(response.getContract_trading().getDirection_title());//合约方向
-                                tv_page1_4.setText(response.getContract_trading().getLever() + getString(R.string.app_bei));//合约杠杆
-                                tv_page1_5.setText("$ "+response.getContract_trading().getBuy_price());//买入价格
-                                tv_page1_6.setText(response.getContract_trading().getShow_buy_at());//买入时间
-                                tv_page1_7.setText("$ "+response.getContract_trading().getSell_price());//卖出价格
-                                tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//卖出时间
-                                tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
-
-                                if (Double.valueOf(response.getContract_trading().getEarning_money()) >0){
-                                    //盈利 - 绿色
-                                    ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_lv);
-                                    iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_up);
-                                    textView_shangqi.setText(getString(R.string.fragment3_h13));
-                                }else {
-                                    ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_hong);
-                                    iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
-                                    textView_shangqi.setText(getString(R.string.fragment3_h47));
+                                if (response.getContract_make_terminate() == 1) {
+                                    tv_zhongzhi.setText(getString(R.string.fragment3_h28));
+                                } else {
+                                    tv_zhongzhi.setText(getString(R.string.fragment3_h41));
                                 }
 
-
-                            } else {
+                                list4 = response.getBourse_matching_list();
+                                mAdapter4 = new CommonAdapter<Fragment3Model.BourseMatchingListBean>
+                                        (getActivity(), R.layout.item_fragment3_4, list4) {
+                                    @Override
+                                    protected void convert(ViewHolder holder, Fragment3Model.BourseMatchingListBean model, int position) {
+                                        holder.setText(R.id.textView1, model.getBourse_title());
+                                        holder.setText(R.id.textView2, model.getBourse_on_title());
+                                        TextView tv3 = holder.getView(R.id.textView3);
+                                        tv3.setText(model.getStatus_title());
+                                        if (model.getStatus() == 1) {
+                                            tv3.setTextColor(getResources().getColor(R.color.txt_green));
+                                        } else {
+                                            tv3.setTextColor(getResources().getColor(R.color.red));
+                                        }
+                                        ImageView iv = holder.getView(R.id.imageView1);
+                                        if (!model.getBourse_icon().equals(""))
+                                            Glide.with(getActivity()).load(IMGHOST + model.getBourse_icon())
+                                                    .centerCrop()
+//                            .placeholder(R.mipmap.headimg)//加载站位图
+//                            .error(R.mipmap.headimg)//加载失败
+                                                    .into(iv);//加载图片
+                                    }
+                                };
+                                rv_jiaoyizhong.setAdapter(mAdapter4);
+                                break;
+                            default:
+                                //已结束
                                 ll_page1.setVisibility(View.GONE);
                                 ll_page2.setVisibility(View.GONE);
                                 ll_page3.setVisibility(View.VISIBLE);
-                            }
-                            break;
-                        case 2:
-                            //交易中
-                            ll_page1.setVisibility(View.GONE);
-                            ll_page2.setVisibility(View.VISIBLE);
-                            ll_page3.setVisibility(View.GONE);
+                                break;
+                        }
+                    } else {
+                        ll_page1.setVisibility(View.GONE);
+                        ll_page2.setVisibility(View.GONE);
+                        ll_page3.setVisibility(View.VISIBLE);
+                    }
 
-                            if (response.getContract_make_terminate() ==1 ){
-                                tv_zhongzhi.setText(getString(R.string.fragment3_h28));
-                            }else {
-                                tv_zhongzhi.setText(getString(R.string.fragment3_h41));
-                            }
+                    //合约动态
+                    list1 = response.getNewest_contract_list();
+                    mAdapter1 = new CommonAdapter<Fragment3Model.NewestContractListBean>
+                            (getActivity(), R.layout.item_fragment3_1, list1) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment3Model.NewestContractListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getMember_nickname());//昵称
+                            holder.setText(R.id.textView2, model.getMoney());//合约数
+                            TextView tv3 = holder.getView(R.id.textView3);
+                            if (model.getProfit_money() > 0) {
+                                tv3.setText("+" + model.getProfit_money());
+                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
 
-                            list4 = response.getBourse_matching_list();
-                            mAdapter4 = new CommonAdapter<Fragment3Model.BourseMatchingListBean>
-                                    (getActivity(), R.layout.item_fragment3_4, list4) {
-                                @Override
-                                protected void convert(ViewHolder holder, Fragment3Model.BourseMatchingListBean model, int position) {
-                                    holder.setText(R.id.textView1, model.getBourse_title());
-                                    holder.setText(R.id.textView2, model.getBourse_on_title());
-                                    TextView tv3 = holder.getView(R.id.textView3);
-                                    tv3.setText(model.getStatus_title());
-                                    if (model.getStatus() == 1) {
-                                        tv3.setTextColor(getResources().getColor(R.color.txt_green));
-                                    } else {
-                                        tv3.setTextColor(getResources().getColor(R.color.red));
-                                    }
-                                    ImageView iv = holder.getView(R.id.imageView1);
-                                    if (!model.getBourse_icon().equals(""))
-                                        Glide.with(getActivity()).load(IMGHOST + model.getBourse_icon())
-                                                .centerCrop()
+                            } else if (model.getProfit_money() < 0) {
+                                tv3.setText("-" + model.getProfit_money());
+                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
+                            } else {
+                                tv3.setText("" + model.getProfit_money());
+                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
+                            }
+                            ImageView iv = holder.getView(R.id.imageView1);
+                            if (!model.getMember_head().equals(""))
+                                Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
+                                        .centerCrop()
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
-                                                .into(iv);//加载图片
-                                }
-                            };
-                            rv_jiaoyizhong.setAdapter(mAdapter4);
-                            break;
-                        default:
-                            //已结束
-                            ll_page1.setVisibility(View.GONE);
-                            ll_page2.setVisibility(View.GONE);
-                            ll_page3.setVisibility(View.VISIBLE);
-                            break;
-                    }
-                } else {
-                    ll_page1.setVisibility(View.GONE);
-                    ll_page2.setVisibility(View.GONE);
-                    ll_page3.setVisibility(View.VISIBLE);
+                                        .into(iv);//加载图片
+
+                        }
+                    };
+                    //我的交易
+                    list2 = response.getContract_trading_list();
+                    mAdapter2 = new CommonAdapter<Fragment3Model.ContractTradingListBean>
+                            (getActivity(), R.layout.item_fragment3_2, list2) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment3Model.ContractTradingListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
+                            holder.setText(R.id.textView2, model.getMoney());//合约数
+                            TextView tv3 = holder.getView(R.id.textView3);
+                            double moeny = Double.valueOf(model.getEarning_money());
+                            if (model.getResult() == 1) {
+                                tv3.setText("+" + moeny);
+                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
+
+                            } else {
+                                tv3.setText("-" + moeny);
+                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
+                            }
+
+                        }
+                    };
+                    //我的补仓
+                    list3 = response.getContract_call_margin_list();
+                    mAdapter3 = new CommonAdapter<Fragment3Model.ContractCallMarginListBean>
+                            (getActivity(), R.layout.item_fragment3_3, list3) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment3Model.ContractCallMarginListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getMoney());
+                            holder.setText(R.id.textView2, model.getShow_created_at());
+                        }
+                    };
+
+                    changeUI();
+                    hideProgress();
+
+                    MainActivity.isOver = true;
                 }
-
-                //合约动态
-                list1 = response.getNewest_contract_list();
-                mAdapter1 = new CommonAdapter<Fragment3Model.NewestContractListBean>
-                        (getActivity(), R.layout.item_fragment3_1, list1) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment3Model.NewestContractListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getMember_nickname());//昵称
-                        holder.setText(R.id.textView2, model.getMoney());//合约数
-                        TextView tv3 = holder.getView(R.id.textView3);
-                        if (model.getProfit_money() > 0) {
-                            tv3.setText("+" + model.getProfit_money());
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
-
-                        } else if (model.getProfit_money() < 0){
-                            tv3.setText("-" + model.getProfit_money());
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                        }else {
-                            tv3.setText("" + model.getProfit_money());
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                        }
-                        ImageView iv = holder.getView(R.id.imageView1);
-                        if (!model.getMember_head().equals(""))
-                            Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                                    .into(iv);//加载图片
-
-                    }
-                };
-                //我的交易
-                list2 = response.getContract_trading_list();
-                mAdapter2 = new CommonAdapter<Fragment3Model.ContractTradingListBean>
-                        (getActivity(), R.layout.item_fragment3_2, list2) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment3Model.ContractTradingListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
-                        holder.setText(R.id.textView2, model.getMoney());//合约数
-                        TextView tv3 = holder.getView(R.id.textView3);
-                        double moeny = Double.valueOf(model.getEarning_money());
-                        if (model.getResult()==1) {
-                            tv3.setText("+" + moeny);
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
-
-                        } else {
-                            tv3.setText("-" + moeny);
-                            tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                        }
-
-                    }
-                };
-                //我的补仓
-                list3 = response.getContract_call_margin_list();
-                mAdapter3 = new CommonAdapter<Fragment3Model.ContractCallMarginListBean>
-                        (getActivity(), R.layout.item_fragment3_3, list3) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment3Model.ContractCallMarginListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getMoney());
-                        holder.setText(R.id.textView2, model.getShow_created_at());
-                    }
-                };
-
-                changeUI();
-                hideProgress();
-
-                MainActivity.isOver = true;
             }
         });
     }
@@ -498,7 +500,7 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.tv_zhongzhi:
                 //终止
-                if (model.getContract_make_terminate() ==1 ) {
+                if (model.getContract_make_terminate() == 1) {
                     showToast_shenqing(getString(R.string.fragment3_h39),
                             getString(R.string.fragment3_h45),
                             getString(R.string.fragment3_h46),
@@ -515,7 +517,7 @@ public class Fragment3 extends BaseFragment {
                                     dialog.dismiss();
                                 }
                             });
-                }else {
+                } else {
                     showToast(getString(R.string.fragment3_h42),
                             getString(R.string.app_confirm),
                             getString(R.string.app_cancel),

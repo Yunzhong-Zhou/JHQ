@@ -179,7 +179,7 @@ public class OnlineServiceActivity extends BaseActivity {
 //                showErrorPage();
 //                onHttpResult();
                 if (!info.equals("")) {
-                    showToast(info);
+                    myToast(info);
                 }
             }
 
@@ -248,7 +248,7 @@ public class OnlineServiceActivity extends BaseActivity {
                 onHttpResult();
                 showErrorPage();
                 if (!info.equals("")) {
-                    showToast(info);
+                    myToast(info);
                 }
             }
 
@@ -358,8 +358,8 @@ public class OnlineServiceActivity extends BaseActivity {
     @Override
     public void requestServer() {
         super.requestServer();
-//        this.showLoadingPage();
-        showProgress(true, getString(R.string.app_loading2));
+        this.showLoadingPage();
+//        showProgress(true, getString(R.string.app_loading2));
         page = 1;
         String string = "?page=" + page//当前页号
                 + "&count=" + "10"//页面行数
