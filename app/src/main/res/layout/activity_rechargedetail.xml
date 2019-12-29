@@ -48,6 +48,20 @@
                     android:layout_gravity="center"
                     android:background="@mipmap/bg_rechargedetail"
                     android:padding="8dp" />
+                <TextView
+                    android:id="@+id/textView_baocun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yuanjiaobiankuang_50_huise"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="3dp"
+                    android:layout_gravity="center"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginTop="14dp"
+                    android:textSize="13sp"
+                    android:text="@string/address_h20"
+                    android:textColor="@color/black3" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

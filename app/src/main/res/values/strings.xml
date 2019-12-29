@@ -414,6 +414,7 @@
     <string name="address_h17">币地址</string>
     <string name="address_h18">币地址二维码</string>
     <string name="address_h19">请提供ERC-20格式的USDT地址，否则您的资产将无法找回</string>
+    <string name="address_h20">保存二维码</string>
 
     <!--钱包-->
     <string name="qianbao_h1">账户详情</string>

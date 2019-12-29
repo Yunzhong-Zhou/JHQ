@@ -77,7 +77,7 @@
                             android:layout_gravity="center_horizontal"
                             android:src="@mipmap/bg_servicecenter4" />
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -92,6 +92,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:layout_centerHorizontal="true"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -107,9 +108,10 @@
                                     android:layout_marginTop="10dp"
                                     android:text="@string/myprofile_h20"
                                     android:textColor="@color/white1"
+                                    android:visibility="gone"
                                     android:textSize="15sp" />
                             </LinearLayout>
-                        </LinearLayout>
+                        </RelativeLayout>
 
                     </LinearLayout>
 

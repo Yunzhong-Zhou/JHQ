@@ -32,7 +32,7 @@ import java.io.IOException;
 public class AddressActivity extends BaseActivity {
     String addr;
     ImageView imageView_addr,imageView_fuzhi;
-    TextView textView_addr;
+    TextView textView_addr,textView_baocun;
 
     Handler handler = new Handler();
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
@@ -73,6 +73,7 @@ public class AddressActivity extends BaseActivity {
         imageView_addr = findViewByID_My(R.id.imageView_addr);
         imageView_fuzhi = findViewByID_My(R.id.imageView_fuzhi);
         textView_addr = findViewByID_My(R.id.textView_addr);
+        textView_baocun = findViewByID_My(R.id.textView_baocun);
     }
 
     @Override
@@ -94,16 +95,11 @@ public class AddressActivity extends BaseActivity {
                 myToast(getString(R.string.recharge_h34));
             }
         });
-        imageView_addr.setOnLongClickListener(new View.OnLongClickListener() {
+
+        textView_baocun.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        printScreen(imageView_addr, "OFC_qrcode" + System.currentTimeMillis());
-                    }
-                });
-                return true;
+            public void onClick(View v) {
+                printScreen(imageView_addr, "OFC_qrcode" + System.currentTimeMillis());
             }
         });
     }

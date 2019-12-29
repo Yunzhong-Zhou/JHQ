@@ -42,7 +42,8 @@ public class RechargeDetailActivity extends BaseActivity {
     ProgressBar prograssBar;
     ImageView imageView1, imageView2,imageView_addr,imageView_fuzhi;
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, textView13, textView14, textView15, textView16, textView17, textView18;
+            textView9, textView10, textView11, textView12, textView13, textView14, textView15,
+            textView16, textView17, textView18,textView_baocun;
     LinearLayout linearLayout_addr, linearLayout_bank, linearLayout_shiji, linearLayout_jiage;
 
     Handler handler = new Handler();
@@ -133,6 +134,7 @@ public class RechargeDetailActivity extends BaseActivity {
         textView16 = findViewByID_My(R.id.textView16);
         textView17 = findViewByID_My(R.id.textView17);
         textView18 = findViewByID_My(R.id.textView18);
+        textView_baocun = findViewByID_My(R.id.textView_baocun);
 
         linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
         linearLayout_bank = findViewByID_My(R.id.linearLayout_bank);
@@ -188,16 +190,10 @@ public class RechargeDetailActivity extends BaseActivity {
 
             }
         });
-        imageView_addr.setOnLongClickListener(new View.OnLongClickListener() {
+        textView_baocun.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        printScreen(imageView_addr, "OFC_qrcode" + System.currentTimeMillis());
-                    }
-                });
-                return true;
+            public void onClick(View v) {
+                printScreen(imageView_addr, "OFC_qrcode" + System.currentTimeMillis());
             }
         });
 

@@ -261,6 +261,7 @@
                     android:layout_height="60dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/white"
+                    android:focusableInTouchMode="true"
                     android:orientation="horizontal">
 
                     <View
