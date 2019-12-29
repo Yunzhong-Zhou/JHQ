@@ -52,8 +52,10 @@ public class Fragment3 extends BaseFragment {
     List<Fragment3Model.NewestContractListBean> list1 = new ArrayList<>();
     CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
     TextView tv_page1_1, tv_page1_2, tv_page1_3, tv_page1_4, tv_page1_5, tv_page1_6, tv_page1_7, tv_page1_8,
-            tv_page1_9, tv_page1_10, tv_page1_11,tv_zhanwei;
+            tv_page1_9, tv_page1_10, tv_page1_11,tv_zhanwei,textView_shangqi;
     ImageView iv_page1_1;
+    LinearLayout ll_shangqi;
+
 
     RelativeLayout ll_page2;
     List<Fragment3Model.ContractTradingListBean> list2 = new ArrayList<>();
@@ -209,7 +211,8 @@ public class Fragment3 extends BaseFragment {
         tv_page1_11.setOnClickListener(this);
         iv_page1_1 = findViewByID_My(R.id.iv_page1_1);
         tv_zhanwei = findViewByID_My(R.id.tv_zhanwei);
-
+        ll_shangqi = findViewByID_My(R.id.ll_shangqi);
+        textView_shangqi = findViewByID_My(R.id.textView_shangqi);
         //交易中
         rv_jiaoyizhong = findViewByID_My(R.id.rv_jiaoyizhong);
         LinearLayoutManager mLinearLayoutManager1 = new LinearLayoutManager(getActivity());
@@ -313,6 +316,18 @@ public class Fragment3 extends BaseFragment {
                                 tv_page1_7.setText("$ "+response.getContract_trading().getSell_price());//卖出价格
                                 tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//卖出时间
                                 tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
+
+                                if (Double.valueOf(response.getContract_trading().getEarning_money()) >0){
+                                    //盈利 - 绿色
+                                    ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_lv);
+                                    iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_up);
+                                    textView_shangqi.setText(getString(R.string.fragment3_h13));
+                                }else {
+                                    ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_hong);
+                                    iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
+                                    textView_shangqi.setText(getString(R.string.fragment3_h47));
+                                }
+
 
                             } else {
                                 ll_page1.setVisibility(View.GONE);

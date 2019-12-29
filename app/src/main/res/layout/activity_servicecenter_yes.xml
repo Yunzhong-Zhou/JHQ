@@ -92,7 +92,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="ID "
+                                android:text="@string/myprofile_h53"
                                 android:textColor="#8B5603"
                                 android:textSize="15dp" />
                         </LinearLayout>

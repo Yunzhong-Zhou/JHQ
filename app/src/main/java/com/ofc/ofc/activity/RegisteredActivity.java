@@ -569,6 +569,7 @@ public class RegisteredActivity extends BaseActivity {
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
                     bundle.putInt("isShowAd", 1);
                     CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
+
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

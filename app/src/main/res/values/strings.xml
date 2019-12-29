@@ -135,7 +135,7 @@
     <string name="login_h1">请输入手机号码</string>
     <string name="login_h2">请输入密码</string>
     <string name="login_h3">注册账号</string>
-    <string name="login_h4"><u>忘记密码?</u></string>
+    <string name="login_h4">忘记密码?</string>
     <string name="login_h5">登录</string>
     <string name="login_h6">第三方登录</string>
     <string name="login_h7">正在登录...</string>
@@ -243,6 +243,7 @@
     <string name="fragment3_h44">保险金：</string>
     <string name="fragment3_h45">确定申请</string>
     <string name="fragment3_h46">确认取消</string>
+    <string name="fragment3_h47">上期亏损</string>
 
 
     <!--fragment4-->
@@ -318,11 +319,11 @@
     <string name="myprofile_h9">退出登录</string>
     <string name="myprofile_h10">头像</string>
     <string name="myprofile_h11">确认退出该账号吗？</string>
-    <string name="myprofile_h12">服务码</string>
+    <string name="myprofile_h12">服务ID</string>
     <string name="myprofile_h13">修改成功</string>
     <string name="myprofile_h14">语言切换</string>
     <string name="myprofile_h15">申请服务中心</string>
-    <string name="myprofile_h16">修改服务代码</string>
+    <string name="myprofile_h16">修改服务ID</string>
     <string name="myprofile_h17">服务中心</string>
     <string name="myprofile_h19">限量申请</string>
     <string name="myprofile_h20">无需市场推广，坐享市场分成</string>
@@ -338,7 +339,7 @@
     <string name="myprofile_h30">合约仓位不能低于8万USDT，且有100平方以上的办公室</string>
     <string name="myprofile_h31">立刻申请</string>
     <string name="myprofile_h32">申请审核中...</string>
-    <string name="myprofile_h33">服务码：</string>
+    <string name="myprofile_h33">服务ID：</string>
     <string name="myprofile_h34">服务人数</string>
     <string name="myprofile_h35">服务业绩</string>
     <string name="myprofile_h36">累计分红</string>
@@ -350,14 +351,16 @@
     <string name="myprofile_h42">请选择省市区</string>
     <string name="myprofile_h43">详细地址</string>
     <string name="myprofile_h44">请输入详细地址</string>
-    <string name="myprofile_h45">面积</string>
-    <string name="myprofile_h46">请输入面积</string>
+    <string name="myprofile_h45">办公室面积</string>
+    <string name="myprofile_h46">请输入办公室面积</string>
     <string name="myprofile_h47">请上传办公室照片</string>
-    <string name="myprofile_h48">请输入服务码</string>
+    <string name="myprofile_h48">请输入服务ID</string>
     <string name="myprofile_h49">国家/城市</string>
     <string name="myprofile_h50">请输入国家或城市</string>
     <string name="myprofile_h51">未通过理由：</string>
     <string name="myprofile_h52">审核中</string>
+    <string name="myprofile_h53">昵称：</string>
+
     <!--修改登录密码-->
     <string name="changepassword_h1">修改登录密码</string>
     <string name="changepassword_h2">旧密码</string>
@@ -411,13 +414,13 @@
     <string name="address_h14">选择地区</string>
     <string name="address_h15">中国大陆用户</string>
     <string name="address_h16">Overseas Users</string>
-    <string name="address_h17">币地址</string>
-    <string name="address_h18">币地址二维码</string>
+    <string name="address_h17">资产地址</string>
+    <string name="address_h18">资产地址二维码</string>
     <string name="address_h19">请提供ERC-20格式的USDT地址，否则您的资产将无法找回</string>
     <string name="address_h20">保存二维码</string>
 
     <!--钱包-->
-    <string name="qianbao_h1">账户详情</string>
+    <string name="qianbao_h1">资产详情</string>
     <string name="qianbao_h2">可用（USDT）</string>
     <string name="qianbao_h3">合约仓位</string>
     <string name="qianbao_h4">累计盈利</string>
@@ -430,7 +433,7 @@
     <string name="qianbao_h11">充币个数：</string>
     <string name="qianbao_h12">订单号</string>
     <string name="qianbao_h13">时间：</string>
-    <string name="qianbao_h14">币地址</string>
+    <string name="qianbao_h14">资产地址</string>
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

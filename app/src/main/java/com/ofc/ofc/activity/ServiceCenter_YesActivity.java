@@ -102,7 +102,7 @@ public class ServiceCenter_YesActivity extends BaseActivity {
 //                            .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
                 textView1.setText(response.getService_code());//服务码
-                textView2.setText("ID " + response.getNickname());//ID
+                textView2.setText(getString(R.string.myprofile_h53) + response.getNickname());//昵称
                 textView3.setText(response.getService_count());//服务人数
                 textView4.setText(response.getService_performance());//服务业绩
                 textView5.setText(response.getAmount_earning());//累计分红

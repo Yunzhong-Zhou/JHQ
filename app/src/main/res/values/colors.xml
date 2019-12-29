@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#10A589</color>
-    <color name="colorPrimaryDark">#10A589</color>
+    <color name="colorPrimary">#03ad90</color>
+    <color name="colorPrimaryDark">#03ad90</color>
     <color name="colorAccent">#4292B4</color><!--加载圈的颜色-->
 
     <color name="background">#F5F4F9</color>
@@ -28,9 +28,9 @@
     <color name="blue">#2128C1</color>
     <color name="qianblue">#44C7ED</color>
     <color name="purple">#7C08C5</color>
-    <color name="red">#DF392E</color>
-    <color name="green">#10A589</color>
-    <color name="orange">#FD5542</color>
+    <color name="red">#d04c64</color>
+    <color name="green">#03ad90</color>
+    <color name="orange">#d04c64</color>
 
     <color name="black">#111111</color>
     <color name="black1">#333333</color>
@@ -147,8 +147,8 @@
     <color name="txt_yellow">#ffeb3b</color><!-- 黄色 -->
     <color name="txt_lime">#cddc39</color><!-- 黄绿色 -->
     <color name="txt_light_green">#8bc34a</color><!-- 亮绿色 -->
-    <color name="txt_green">#01D154</color><!-- 绿色 -->
-    <color name="txt_red">#DF392E</color><!-- 红色 -->
+    <color name="txt_green">#03ad90</color><!-- 绿色 -->
+    <color name="txt_red">#d04c64</color><!-- 红色 -->
 
     <!-- 透明色 -->
     <color name="transparent">#00000000</color><!--透明 -->

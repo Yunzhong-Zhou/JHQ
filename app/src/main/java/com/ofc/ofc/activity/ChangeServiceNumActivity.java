@@ -2,9 +2,6 @@ package com.ofc.ofc.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -63,8 +60,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
         imageView1 = findViewByID_My(R.id.imageView1);
         editText1 = findViewByID_My(R.id.editText1);
 
-
-        editText1.addTextChangedListener(new TextWatcher() {
+        /*editText1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -98,7 +94,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 Log.v("tag", "(((((" + s.toString());
                 handler.postDelayed(runnable, 1000);
             }
-        });
+        });*/
         editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -124,7 +120,7 @@ public class ChangeServiceNumActivity extends BaseActivity {
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info);
+                    myToast(info);
                 }
             }
 
@@ -141,9 +137,10 @@ public class ChangeServiceNumActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                finish();
+                requestServer();
+//                finish();
             }
-        }, true);
+        }, false);
 
     }
     @Override

@@ -80,6 +80,9 @@ public class MyProfileActivity extends BaseActivity {
         else
             imageView1.setImageResource(R.mipmap.headimg);
 
+        //获取个人信息
+        showProgress(true, getString(R.string.app_loading2));
+        requestInfo("?token=" + localUserInfo.getToken());
     }
 
     @Override
@@ -109,9 +112,6 @@ public class MyProfileActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        //获取个人信息
-        showProgress(true, getString(R.string.app_loading2));
-        requestInfo("?token=" + localUserInfo.getToken());
         String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
         RequestSmsCodeList(string3);//手机号国家代码集合
     }
