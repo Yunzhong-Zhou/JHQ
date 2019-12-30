@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="chart_red">#DF392E</color>
-    <color name="chart_green">#10A589</color>
+    <!--和普通股票K线图的颜色相反-->
+    <color name="chart_red">#10A589</color>
+    <color name="chart_green">#DF392E</color>
 
     <color name="chart_ma5">#18CCF6</color>
     <color name="chart_ma10">#FE5EDF</color>

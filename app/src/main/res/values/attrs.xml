@@ -138,4 +138,29 @@
         <attr name="cv_isChangeDateStatus" format="boolean|reference"/>
     </declare-styleable>
 
+    <declare-styleable name="CircleTimeView">
+        <attr name="circle_width" format="integer" />
+        <attr name="circle_color" format="string" />
+        <attr name="max_time" format="integer"></attr>
+        <attr name="text_size" format="integer"></attr>
+        <attr name="text_color" format="string"></attr>
+        <attr name="redus_color" format="string"></attr>
+        <attr name="text_redus" format="integer"></attr>
+    </declare-styleable>
+
+    <!--人脸-->
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchView">
+        <attr name="hasShadow" format="boolean"/>
+        <attr name="primaryColor" format="color"/>
+        <attr name="primaryColorDark" format="color"/>
+        <attr name="isOpened" format="boolean"/>
+    </declare-styleable>
 </resources>

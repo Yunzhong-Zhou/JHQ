@@ -6,9 +6,9 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Handler;
 
+import com.hjq.toast.ToastUtils;
 import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
-import com.hjq.toast.ToastUtils;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.Set;
@@ -42,6 +42,23 @@ public class MyApplication extends Application {
         //toast初始化
         ToastUtils.init(this);
 
+        /*//人脸
+        CLLCSDKManager.getInstance().init(getApplicationContext(),
+                "https://cloud-license.linkface.cn/json/2019123016575797dd54651ff04b0e87b22049cdf9379f.json",//jsonUrl 实⼈认证平台获取到的jsonUrl（必须与平台获取的.lic⽂件对应）
+                "k01UMTdN",//appid
+                "SGKuoaNz",//appkey
+                new InitStateListener() {
+                    @Override
+                    public void getInitStatus(int code, String msg) {
+                        if (code == 1000){
+                            MyLogger.i(">>>>>>>>>人脸初始化成功");
+                        }else {
+                            MyLogger.i(">>>>>>>>>人脸初始化失败：" +
+                                    "\n>>>>>>>>>code:"+code
+                                    +"\n>>>>>>>>>msg:"+msg);
+                        }
+                    }
+                });*/
 
         //极光推送
         JPushInterface.setDebugMode(false);
@@ -58,7 +75,7 @@ public class MyApplication extends Application {
                     }
                 });*/
 
-        new ScreenAdaptation(this,828,1792).register();
+        new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this,720,1280).register();
     }
 

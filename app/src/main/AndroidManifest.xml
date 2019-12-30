@@ -27,8 +27,6 @@
     <!--9.0权限-->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-
-
     <!--录音权限-->
     <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
 
@@ -41,6 +39,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <!-- 极光推送 -->
+
 
     <!--Android 10 停用过滤视图，使用旧版存储模式
     android:requestLegacyExternalStorage="true"
@@ -207,6 +206,12 @@
         <activity
             android:name="com.ofc.ofc.activity.VerifiedActivity"
             android:label="实名认证" />
+        <activity
+            android:name="com.ofc.ofc.view.face.LivenessActivity"
+            android:label="人脸识别" />
+        <activity
+            android:name="com.ofc.ofc.activity.VerfiedResultActivity"
+            android:label="认证结果" />
         <!--全面屏适配-->
         <meta-data
             android:name="android.max_aspect"
@@ -300,5 +305,20 @@
             android:required="false" />
 
     </application>
+
+    <!--人脸-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false"/>
+
 
 </manifest>

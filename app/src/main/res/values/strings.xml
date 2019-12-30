@@ -306,6 +306,7 @@
     <string name="fragment5_h31">同意《Oceanina Privacy Pollcy Last Updated》</string>
     <string name="fragment5_h32">请同意《Oceanina T&amp;C》</string>
     <string name="fragment5_h33">请同意《Oceanina Privacy Pollcy Last Updated》</string>
+    <string name="fragment5_h34">请上传护照首页（带头像）</string>
 
     <!--个人资料-->
     <string name="myprofile_h1">资料管理</string>
@@ -418,6 +419,10 @@
     <string name="address_h18">资产地址二维码</string>
     <string name="address_h19">请提供ERC-20格式的USDT地址，否则您的资产将无法找回</string>
     <string name="address_h20">保存二维码</string>
+    <string name="address_h21">澳洲用户</string>
+    <string name="address_h22">日本用户</string>
+    <string name="address_h23">韩国用户</string>
+    <string name="address_h24">越南用户</string>
 
     <!--钱包-->
     <string name="qianbao_h1">资产详情</string>
@@ -713,4 +718,57 @@
     <string name="transferrecord_h3">转出</string>
     <string name="transferrecord_h4">对方昵称：</string>
 
+    <!--人脸认证-->
+    <string name="faceverified_h1">认证结果</string>
+    <string name="faceverified_h2">认证成功</string>
+    <string name="faceverified_h3">认证失败</string>
+    <string name="faceverified_h4">重新认证</string>
+    <string name="faceverified_h5">认证完成</string>
+    <string name="faceverified_h6">无法访问摄像头，没有权限或摄像头被占用</string>
+    <string name="faceverified_h7">人脸识别</string>
+    <string name="faceverified_h8">开始测试</string>
+    <string name="faceverified_h9">光线充足</string>
+    <string name="faceverified_h10">正对手机</string>
+    <string name="faceverified_h11">去除遮挡</string>
+    <string name="faceverified_h12">放缓速度</string>
+    <string name="faceverified_h13">我知道了</string>
+    <string name="faceverified_h14"></string>
+    <string name="faceverified_h15">动作超时</string>
+    <string name="faceverified_h16">追踪目标丢失</string>
+    <string name="faceverified_h17">未获取到图片数据</string>
+    <string name="faceverified_h18">内部错误</string>
+    <string name="faceverified_h19">包名绑定错误</string>
+    <string name="faceverified_h20">sdk初始化失败,模型加载失败</string>
+    <string name="faceverified_h21">license过期</string>
+    <string name="faceverified_h22">license读取失败</string>
+    <string name="faceverified_h23">未知异常</string>
+    <string name="faceverified_h24">活体照片与身份证照片置信度过低</string>
+    <string name="faceverified_h25">姓名与身份证号不匹配</string>
+    <string name="faceverified_h26">参数非UTF-8编码</string>
+    <string name="faceverified_h27">图片不存在</string>
+    <string name="faceverified_h28">图片体积过大</string>
+    <string name="faceverified_h29">上传图片未检测出人脸</string>
+    <string name="faceverified_h30">不是图片文件或图片文件已经损坏</string>
+    <string name="faceverified_h31">图片大小或者格式不符合要求</string>
+    <string name="faceverified_h32">调用频率超出限额</string>
+    <string name="faceverified_h33">调用次数超出限额</string>
+    <string name="faceverified_h34">请求路径错误</string>
+    <string name="faceverified_h35">服务器内部错误</string>
+    <string name="faceverified_h36">数据源服务服务出错</string>
+    <string name="faceverified_h37">姓名和身份证号匹配，近照不存在</string>
+    <string name="faceverified_h38">姓名与身份证号不匹配</string>
+    <string name="faceverified_h39">查无此身份证号</string>
+    <string name="faceverified_h40">接口获取超时</string>
+    <string name="faceverified_h41">服务不可用</string>
+    <string name="faceverified_h42">网络错误</string>
+    <string name="faceverified_h43">身份证姓名有误</string>
+    <string name="faceverified_h44">认证失败</string>
+    <string name="faceverified_h45">请等待...</string>
+    <string name="faceverified_h46">正在校验...</string>
+
+    <string name="note_blink">请眨眨眼</string>
+    <string name="note_nod">请点点头</string>
+    <string name="note_mouth">请张张嘴</string>
+    <string name="note_yaw">请摇摇头</string>
+    <string name="time_out">动作超时</string>
 </resources>

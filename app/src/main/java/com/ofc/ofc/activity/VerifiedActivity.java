@@ -1,7 +1,15 @@
 package com.ofc.ofc.activity;
 
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,42 +20,59 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chuanglan.cllc.CLLCSDKManager;
+import com.chuanglan.cllc.listener.InitStateListener;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.VerifiedModel1;
-import com.ofc.ofc.model.VerifiedModel2;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
+import com.ofc.ofc.utils.FileUtil;
+import com.ofc.ofc.utils.MyChooseImages;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
+import com.ofc.ofc.view.face.LivenessActivity;
 import com.squareup.okhttp.Request;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import id.zelory.compressor.Compressor;
+
 import static com.ofc.ofc.net.OkHttpClientManager.HOST;
+import static com.ofc.ofc.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
+import static com.ofc.ofc.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
 /**
  * Created by zyz on 2019-12-22.
  * 实名认证
  */
 public class VerifiedActivity extends BaseActivity {
-    int type = 1;
+    int type = 1;//  1、大陆 2、海外
     VerifiedModel1 model1;
     TextView textView1, textView2, textView3, textView4;
     EditText editText1, editText2;
-    LinearLayout linearLayout1, linearLayout2, linearLayout3;
+    LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout_huzhao2;
+    RelativeLayout linearLayout_huzhao1;
     int i1 = 0;
-    String number = "", name = "", code = "";
+    String number = "", name = "", v_type = "";
 
-    boolean isgouxuan1 = true,isgouxuan2 = true;
-    ImageView imageView1,imageView2;
+    boolean isgouxuan1 = true, isgouxuan2 = true;
+    ImageView imageView1, imageView2, imageView_huzhao;
+
+    //选择图片及上传
+    ArrayList<String> listFileNames = new ArrayList<>();
+    ArrayList<File> listFiles = new ArrayList<>();
+    String img_type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +85,8 @@ public class VerifiedActivity extends BaseActivity {
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
         linearLayout3 = findViewByID_My(R.id.linearLayout3);
+        linearLayout_huzhao1 = findViewByID_My(R.id.linearLayout_huzhao1);
+        linearLayout_huzhao2 = findViewByID_My(R.id.linearLayout_huzhao2);
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -71,6 +98,7 @@ public class VerifiedActivity extends BaseActivity {
 
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        imageView_huzhao = findViewByID_My(R.id.imageView_huzhao);
 
     }
 
@@ -78,6 +106,15 @@ public class VerifiedActivity extends BaseActivity {
     protected void initData() {
         type = getIntent().getIntExtra("type", 1);
         request1("?token=" + localUserInfo.getToken());
+
+        if (type == 1) {
+            //大陆
+            linearLayout_huzhao1.setVisibility(View.GONE);
+        } else {
+            //海外
+            linearLayout_huzhao1.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private void request1(String string) {
@@ -98,13 +135,13 @@ public class VerifiedActivity extends BaseActivity {
                         model1 = response;
                         if (type == 1) {
                             if (model1.getInland().size() > 0) {
-                                code = model1.getInland().get(0).getCode();
+                                v_type = model1.getInland().get(0).getCode();
                                 textView1.setText(model1.getInland().get(0).getTitle());
                             }
 
                         } else {
                             if (model1.getForeign().size() > 0) {
-                                code = model1.getForeign().get(0).getCode();
+                                v_type = model1.getForeign().get(0).getCode();
                                 textView1.setText(model1.getForeign().get(0).getTitle());
                             }
                         }
@@ -124,14 +161,20 @@ public class VerifiedActivity extends BaseActivity {
             case R.id.textView2:
                 //人脸识别
                 if (match()) {
+                    showProgress(false, getString(R.string.app_loading1));
+                    String[] filenames = new String[]{};
+                    File[] files = new File[]{};
+                    for (int i = 0; i < listFiles.size(); i++) {
+                        filenames = listFileNames.toArray(new String[i]);
+                        files = listFiles.toArray(new File[i]);
+                    }
                     HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
-                    params.put("type", code);
+                    params.put("type", v_type);
                     params.put("number", number);
                     params.put("name", name);
-                    request2(params);//登录
+                    request2(filenames, files, params);
                 }
-
                 break;
 
             case R.id.imageView1:
@@ -153,15 +196,29 @@ public class VerifiedActivity extends BaseActivity {
 
             case R.id.textView3:
                 Bundle bundle = new Bundle();
-                bundle.putString("url", HOST +"/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
+                bundle.putString("url", HOST + "/wechat/article/detail?id=13a19f182849fa6440b88e4ee0a5e5e8");
                 CommonUtil.gotoActivityWithData(VerifiedActivity.this, WebContentActivity.class, bundle, false);
                 break;
             case R.id.textView4:
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("url", HOST +"/wechat/article/detail?id=9f8358e8a49db94a5c7d98f970889a4f");
+                bundle1.putString("url", HOST + "/wechat/article/detail?id=9f8358e8a49db94a5c7d98f970889a4f");
                 CommonUtil.gotoActivityWithData(VerifiedActivity.this, WebContentActivity.class, bundle1, false);
-
                 break;
+
+            case R.id.imageView_huzhao:
+            case R.id.linearLayout_huzhao2:
+                //选择图片
+                img_type = "pic";
+                for (int i = 0; i < listFileNames.size(); i++) {
+                    if (listFileNames.get(i).equals(type)) {
+                        //删除
+                        listFileNames.remove(i);
+                        listFiles.remove(i);
+                    }
+                }
+                MyChooseImages.showPhotoDialog(this);
+                break;
+
         }
     }
 
@@ -185,12 +242,21 @@ public class VerifiedActivity extends BaseActivity {
             myToast(getString(R.string.fragment5_h33));
             return false;
         }
+
+        if (type == 2) {
+            if (listFiles.size() != 1) {
+                myToast(getString(R.string.fragment5_h34));
+                return false;
+            }
+
+        }
         return true;
     }
 
-    private void request2(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(VerifiedActivity.this, URLs.Verified2, params,
-                new OkHttpClientManager.ResultCallback<VerifiedModel2>() {
+
+    private void request2(String[] fileKeys, File[] files, Map<String, String> params) {
+        OkHttpClientManager.postAsyn(VerifiedActivity.this, URLs.Verified2, fileKeys, files, params,
+                new OkHttpClientManager.ResultCallback<String>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
                         hideProgress();
@@ -200,13 +266,43 @@ public class VerifiedActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onResponse(VerifiedModel2 response) {
+                    public void onResponse(String response) {
                         MyLogger.i(">>>>>>>>>认证加载2" + response);
                         hideProgress();
-                        //可以实名，去人脸识别
+                        CLLCSDKManager.getInstance().init(getApplicationContext(),
+                                "https://cloud-license.linkface.cn/json/2019123016575797dd54651ff04b0e87b22049cdf9379f.json",//jsonUrl 实⼈认证平台获取到的jsonUrl（必须与平台获取的.lic⽂件对应）
+                                "k01UMTdN",//appid
+                                "SGKuoaNz",//appkey
+                                new InitStateListener() {
+                                    @Override
+                                    public void getInitStatus(int code, String msg) {
+                                        if (code == 1000) {
+                                            MyLogger.i(">>>>>>>>>人脸初始化成功");
+                                            //可以实名，去人脸识别
+
+                                            /*Intent intent = new Intent(VerifiedActivity.this, LivenessActivity.class)
+                                                    .putExtra("name", name)
+                                                    .putExtra("cardNo", number)
+                                                    .putExtra("type", v_type);
+                                            startActivity(intent);*/
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("name", name);
+                                            bundle.putString("cardNo", number);
+                                            bundle.putString("type", v_type);
+//                                            bundle.putStringArrayList("listFileNames",listFileNames);
+//                                            bundle.putByteArray("listFileNames",listFileNames);
+                                            CommonUtil.gotoActivityWithData(VerifiedActivity.this, LivenessActivity.class, bundle, false);
+                                        } else {
+                                            MyLogger.i(">>>>>>>>>人脸初始化失败：" +
+                                                    "\n>>>>>>>>>code:" + code
+                                                    + "\n>>>>>>>>>msg:" + msg);
+                                        }
+                                    }
+                                });
 
                     }
                 });
+
     }
 
     @Override
@@ -263,9 +359,9 @@ public class VerifiedActivity extends BaseActivity {
                 i1 = i;
 
                 if (type == 1) {
-                    code = model1.getInland().get(i).getCode();
+                    v_type = model1.getInland().get(i).getCode();
                 } else {
-                    code = model1.getForeign().get(i).getCode();
+                    v_type = model1.getForeign().get(i).getCode();
                 }
                 textView1.setText(list.get(i));
                 requestServer();
@@ -289,4 +385,74 @@ public class VerifiedActivity extends BaseActivity {
         // 设置好参数之后再show
         popupWindow.showAsDropDown(v);
     }
+
+
+    /**
+     * *****************************************选择图片********************************************
+     */
+    @SuppressLint("MissingSuperCall")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            Uri uri = null;
+            String imagePath = null;
+            switch (requestCode) {
+                case REQUEST_CODE_CAPTURE_CAMEIA:
+                    //相机
+                    uri = Uri.parse("");
+                    uri = Uri.fromFile(new File(MyChooseImages.imagepath));
+                    imagePath = uri.getPath();
+                    break;
+                case REQUEST_CODE_PICK_IMAGE:
+                    //相册
+                    uri = data.getData();
+                    //处理得到的url
+                    ContentResolver cr = this.getContentResolver();
+                    Cursor cursor = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                        cursor = cr.query(uri, null, null, null, null, null);
+                    }
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        imagePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                    } else {
+                        imagePath = uri.getPath();
+                    }
+                    break;
+            }
+            if (uri != null) {
+                MyLogger.i(">>>>>>>>>>获取到的图片路径1：" + imagePath);
+                //图片过大解决方法
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 2;//按照比例（1 / inSampleSize）缩小bitmap的宽和高、降低分辨率
+                Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
+
+                switch (img_type) {
+                    case "pic":
+                        imageView_huzhao.setImageBitmap(bitmap);
+                        imageView_huzhao.setVisibility(View.VISIBLE);
+                        linearLayout_huzhao2.setVisibility(View.GONE);
+                        break;
+
+                }
+
+                //图片压缩及保存
+                Uri uri1 = Uri.parse("");
+                uri1 = Uri.fromFile(new File(imagePath));
+                File file1 = new File(FileUtil.getPath(this, uri1));
+//                listFiles.add(file1);
+                listFileNames.add(img_type);
+                File newFile = null;
+                try {
+                    newFile = new Compressor(this).compressToFile(file1);
+                    listFiles.add(newFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    myToast(getString(R.string.app_imgerr));
+                }
+            }
+        }
+
+    }
+
 }

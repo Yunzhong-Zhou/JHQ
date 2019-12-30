@@ -51,7 +51,14 @@ public class URLs {
      * 实名认证2
      */
     public static final String Verified2 = "/api/auth/check";
-
+    /**
+     * 实名认证3
+     */
+    public static final String Verified3 = "/api/auth/create";
+    /**
+     * 实名认证4 -海外
+     */
+    public static final String Verified4 = "https://api.253.com/open/i/witness/face-contrast";
     //学院
     /**
      * 学院

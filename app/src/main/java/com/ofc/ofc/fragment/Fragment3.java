@@ -318,17 +318,18 @@ public class Fragment3 extends BaseFragment {
                                     tv_page1_8.setText(response.getContract_trading().getShow_sell_at());//卖出时间
                                     tv_page1_9.setText(response.getContract_trading().getEarning_money());//上期盈利
 
-                                    if (Double.valueOf(response.getContract_trading().getEarning_money()) > 0) {
+                                    if (response.getResult() == 2) {
+                                        //亏损
+                                        ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_hong);
+                                        iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
+                                        textView_shangqi.setText(getString(R.string.fragment3_h47));
+
+                                    } else {
                                         //盈利 - 绿色
                                         ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_lv);
                                         iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_up);
                                         textView_shangqi.setText(getString(R.string.fragment3_h13));
-                                    } else {
-                                        ll_shangqi.setBackgroundResource(R.mipmap.bg_fragment3_btn_hong);
-                                        iv_page1_1.setImageResource(R.mipmap.ic_fragment3_jiantou_down);
-                                        textView_shangqi.setText(getString(R.string.fragment3_h47));
                                     }
-
 
                                 } else {
                                     ll_page1.setVisibility(View.GONE);
