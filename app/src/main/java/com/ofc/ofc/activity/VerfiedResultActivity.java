@@ -49,7 +49,7 @@ public class VerfiedResultActivity extends BaseActivity {
     protected void initData() {
         name = getIntent().getStringExtra("name");
         number = getIntent().getStringExtra("cardNo");
-        v_type = getIntent().getStringExtra("type");
+        v_type = getIntent().getStringExtra("v_type");
         boolean succeed = getIntent().getBooleanExtra("result",false);
         String msg = getIntent().getStringExtra("msg");
         MyLogger.i(">>>>>>>返回数据"+msg);

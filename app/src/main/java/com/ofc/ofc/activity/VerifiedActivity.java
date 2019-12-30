@@ -288,7 +288,8 @@ public class VerifiedActivity extends BaseActivity {
                                             Bundle bundle = new Bundle();
                                             bundle.putString("name", name);
                                             bundle.putString("cardNo", number);
-                                            bundle.putString("type", v_type);
+                                            bundle.putInt("type", type);
+                                            bundle.putString("v_type", v_type);
 //                                            bundle.putStringArrayList("listFileNames",listFileNames);
 //                                            bundle.putByteArray("listFileNames",listFileNames);
                                             CommonUtil.gotoActivityWithData(VerifiedActivity.this, LivenessActivity.class, bundle, false);

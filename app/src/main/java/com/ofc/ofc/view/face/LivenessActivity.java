@@ -106,7 +106,7 @@ public class LivenessActivity extends BaseActivity {
         type = getIntent().getIntExtra("type", 1);
         name = getIntent().getStringExtra("name");
         number = getIntent().getStringExtra("cardNo");
-        v_type = getIntent().getStringExtra("type");
+        v_type = getIntent().getStringExtra("v_type");
         /**
          *  设置检测动作
          */
@@ -497,7 +497,7 @@ public class LivenessActivity extends BaseActivity {
 
             intent.putExtra("name", name);
             intent.putExtra("cardNo", number);
-            intent.putExtra("type", v_type);
+            intent.putExtra("v_type", v_type);
 
             if (!result) {
                 intent.putExtra("hint", hint);
@@ -511,7 +511,7 @@ public class LivenessActivity extends BaseActivity {
 
             intent.putExtra("name", name);
             intent.putExtra("cardNo", number);
-            intent.putExtra("type", v_type);
+            intent.putExtra("v_type", v_type);
 
             if (!result) {
                 intent.putExtra("hint", hint);
