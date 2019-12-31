@@ -2,6 +2,7 @@ package com.ofc.ofc.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -134,7 +135,7 @@ public class InvitationRewardActivity extends BaseActivity {
                 textView1.setText(response.getNickname() + "");//昵称
                 textView2.setText(response.getInvite_code() + "");//邀请码
                 textView3.setText(response.getProfit_money() + "");//合约金额
-
+//                scrollView.fullScroll(View.FOCUS_DOWN);//滑动到最底部
             }
 
         });
@@ -151,7 +152,23 @@ public class InvitationRewardActivity extends BaseActivity {
             case R.id.right_btn:
                 //分享
                 showProgress(true, getString(R.string.share_h41));
-                printScreen(scrollView, "OFC_share" + System.currentTimeMillis());
+               /* new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                printScreen(scrollView, "OFC_share");
+                            }
+                        });
+                    }
+                }).start();*/
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        printScreen(scrollView, "OFC_share");
+                    }
+                });
                 break;
         }
     }
@@ -185,7 +202,7 @@ public class InvitationRewardActivity extends BaseActivity {
     /**
      * 截取图片存到本地
      */
-    public File printScreen(View view, String picName) {
+    public File printScreen(ScrollView scrollView, String picName) {
         //图片地址
         //        String imgPath = FileUtil.getImageDownloadDir(MyPosterActivity.this) + picName + ".png";
 //        String imgPath = Environment.getExternalStorageDirectory() + "/" + picName + ".png";//文件根目录
@@ -193,11 +210,22 @@ public class InvitationRewardActivity extends BaseActivity {
                 + File.separator + Environment.DIRECTORY_DCIM
                 + File.separator + "Camera" + File.separator;//相册
 
-        //使控件可以进行缓存
+        //截取长图
+        int h = 0;
+        Bitmap bitmap;
+        for (int i = 0; i < scrollView.getChildCount(); i++) {
+            h += scrollView.getChildAt(i).getHeight();
+        }
+        // 创建对应大小的bitmap
+        bitmap = Bitmap.createBitmap(scrollView.getWidth(), h,
+                Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        scrollView.draw(canvas);
+        /*//使控件可以进行缓存
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         //获取缓存的 Bitmap
-        Bitmap bitmap = view.getDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();*/
 
         File file = null;
         if (bitmap != null) {
@@ -208,7 +236,7 @@ public class InvitationRewardActivity extends BaseActivity {
                     file.createNewFile();
                 }
                 FileOutputStream out = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 50, out);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
                 out.flush();
                 out.close();
 
@@ -259,5 +287,22 @@ public class InvitationRewardActivity extends BaseActivity {
             }
         }
         return null;
+    }
+
+    /**
+     * 截取scrollview的屏幕
+     **/
+    public static Bitmap getScrollViewBitmap(ScrollView scrollView) {
+        int h = 0;
+        Bitmap bitmap;
+        for (int i = 0; i < scrollView.getChildCount(); i++) {
+            h += scrollView.getChildAt(i).getHeight();
+        }
+        // 创建对应大小的bitmap
+        bitmap = Bitmap.createBitmap(scrollView.getWidth(), h,
+                Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        scrollView.draw(canvas);
+        return bitmap;
     }
 }

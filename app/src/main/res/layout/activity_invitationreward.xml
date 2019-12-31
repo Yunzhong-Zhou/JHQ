@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@mipmap/bg_invitationreward1"
     android:orientation="vertical">
     <!--只需要刷新只写header-->
     <com.liaoinstan.springview.widget.SpringView
@@ -22,6 +21,7 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@mipmap/bg_invitationreward1"
                 android:orientation="vertical">
 
                 <ImageView
@@ -195,7 +195,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:onClick="onClick"
-            android:padding="20dp"
+            android:padding="19dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_fenxiang"
             android:visibility="visible" />

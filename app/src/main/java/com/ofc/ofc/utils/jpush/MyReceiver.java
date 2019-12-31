@@ -66,7 +66,7 @@ public class MyReceiver extends BroadcastReceiver {
                         bundle2.putString("url", url1);
                         CommonUtil.gotoActivityWithData(context, WebContentActivity.class, bundle2);*/
                         Intent i = new Intent(context, WebContentActivity.class);
-                        bundle.putString("url", url);
+                        bundle.putString("url", url1);
                         i.putExtras(bundle);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(i);
@@ -76,7 +76,7 @@ public class MyReceiver extends BroadcastReceiver {
                         String symbol = jObj.getString("symbol");
                         MyLogger.i(">>>>>>>>>symbol:" + symbol);
                         Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
-                        bundle.putString("symbol", url);
+                        bundle.putString("symbol", symbol);
                         i2.putExtras(bundle);
                         i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(i2);
