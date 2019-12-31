@@ -267,7 +267,7 @@ public class Fragment2 extends BaseFragment {
                                         setChartFillDrawable(lineChart, drawable);
                                     }
                                 });
-                                if (model.getTrading_point() != null) {
+                                if (model.getTrading_point() != null && model.getKline_list().size() > 0) {
                                     TextView textView1 = holder.getView(R.id.textView1);
                                     TextView textView2 = holder.getView(R.id.textView2);
                                     TextView textView5 = holder.getView(R.id.textView5);
@@ -281,7 +281,6 @@ public class Fragment2 extends BaseFragment {
                                             break;
                                         default:
                                             holder.setText(R.id.textView6, String.format("%.2f", 7 * Double.valueOf(model.getKline_list().get(0).getClose())) + "");//
-
                                             break;
                                     }
                                     holder.setText(R.id.textView4, CommonUtil.timedate3(model.getTrading_point().getTimestamp() + ""));//时间

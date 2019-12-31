@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.ofc.ofc.activity.PredictionDetailActivity;
+import com.ofc.ofc.activity.PredictionDetailActivity_MPChart;
 import com.ofc.ofc.activity.WebContentActivity;
-import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 
 import org.json.JSONException;
@@ -54,16 +53,6 @@ public class MyReceiver extends BroadcastReceiver {
                 MyLogger.i(TAG, "[MyReceiver] 用户点击打开了通知");
 
                 //打开自定义的Activity
-				/*Intent i = new Intent(context, WebContentActivity.class);
-				bundle.putString("url", url);
-                *//*Intent i = new Intent(context, PredictionDetailActivity_MPChart.class);
-                bundle.putString("symbol", url);*//*
-//                bundle.putString("title", context.getString(R.string.information_content));
-                i.putExtras(bundle);
-//				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(i);*/
-
                 //解析数据
                 JSONObject jObj = new JSONObject(url);
                 String type = jObj.getString("type");
@@ -73,18 +62,29 @@ public class MyReceiver extends BroadcastReceiver {
                         //网页
                         String url1 = jObj.getString("url");
                         MyLogger.i(">>>>>>>>>url:" + url1);
-                        Bundle bundle2 = new Bundle();
+                        /*Bundle bundle2 = new Bundle();
                         bundle2.putString("url", url1);
-                        CommonUtil.gotoActivityWithData(context, WebContentActivity.class, bundle2);
+                        CommonUtil.gotoActivityWithData(context, WebContentActivity.class, bundle2);*/
+                        Intent i = new Intent(context, WebContentActivity.class);
+                        bundle.putString("url", url);
+                        i.putExtras(bundle);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        context.startActivity(i);
                         break;
                     case "2":
                         //订单详情
                         String symbol = jObj.getString("symbol");
                         MyLogger.i(">>>>>>>>>symbol:" + symbol);
-                        Bundle bundle1 = new Bundle();
+                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
+                        bundle.putString("symbol", url);
+                        i2.putExtras(bundle);
+                        i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        context.startActivity(i2);
+                        /*Bundle bundle1 = new Bundle();
                         bundle1.putString("symbol", symbol);
                         CommonUtil.gotoActivityWithData(context, PredictionDetailActivity.class, bundle1);
-//                        CommonUtil.gotoActivityWithData(context, PredictionDetailActivity_MPChart.class, bundle1);
+//                        CommonUtil.gotoActivityWithData(context, PredictionDetailActivity_MPChart.class, bundle1);*/
+
                         break;
                     default:
 
