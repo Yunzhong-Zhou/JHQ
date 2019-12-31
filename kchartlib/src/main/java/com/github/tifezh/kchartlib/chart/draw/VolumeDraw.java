@@ -65,12 +65,12 @@ public class VolumeDraw implements IChartDraw<IVolume> {
         IVolume point = (IVolume) view.getItem(position);
         String text = "VOL:" + getValueFormatter().format(point.getVolume()) + " ";
         canvas.drawText(text, x, y, view.getTextPaint());
-        x += view.getTextPaint().measureText(text);
+        /*x += view.getTextPaint().measureText(text);
         text = "MA5:" + getValueFormatter().format(point.getMA5Volume()) + " ";
         canvas.drawText(text, x, y, ma5Paint);
         x += ma5Paint.measureText(text);
         text = "MA10:" + getValueFormatter().format(point.getMA10Volume()) + " ";
-        canvas.drawText(text, x, y, ma10Paint);
+        canvas.drawText(text, x, y, ma10Paint);*/
     }
 
     @Override

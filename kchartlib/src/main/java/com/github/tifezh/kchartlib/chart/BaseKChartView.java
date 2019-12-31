@@ -195,7 +195,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         drawK(canvas);
         drawText(canvas);
         //画左上角的值
-//        drawValue(canvas, isLongPress ? mSelectedIndex : mStopIndex);
+        drawValue(canvas, isLongPress ? mSelectedIndex : mStopIndex);
         canvas.restore();
     }
 
@@ -360,11 +360,11 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         float textHeight = fm.descent - fm.ascent;
         float baseLine = (textHeight - fm.bottom - fm.top) / 2;
         if (position >= 0 && position < mItemCount) {
-            if (mMainDraw != null) {
+            /*if (mMainDraw != null) {
                 float y =mMainRect.top+baseLine-textHeight;
                 float x = 0;
                 mMainDraw.drawText(canvas, this, position, x, y);
-            }
+            }*/
             if (mChildDraw != null) {
                 float y = mChildRect.top + baseLine;
                 float x = mTextPaint.measureText(mChildDraw.getValueFormatter().format(mChildMaxValue) + " ");

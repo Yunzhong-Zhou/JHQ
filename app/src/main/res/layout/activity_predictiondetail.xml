@@ -15,10 +15,10 @@
 
         <ImageView
             android:id="@+id/left_btn"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:onClick="onClick"
-            android:padding="22dp"
+            android:padding="18dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return1" />
 
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/right_btn"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:onClick="onClick"
             android:padding="13dp"
             android:scaleType="fitCenter"
@@ -49,10 +49,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+       <!-- <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:fillViewport="true">-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -285,7 +285,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="-20dp">
@@ -293,7 +294,7 @@
                     <com.github.tifezh.kchartlib.chart.KChartView
                         android:id="@+id/mKChartView"
                         android:layout_width="match_parent"
-                        android:layout_height="500dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:minHeight="500dp"
                         app:kc_candle_width="8dp"
@@ -319,7 +320,7 @@
 
 
             </LinearLayout>
-        </ScrollView>
+<!--        </ScrollView>-->
 
     </com.liaoinstan.springview.widget.SpringView>
 
