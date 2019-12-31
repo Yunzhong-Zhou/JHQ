@@ -81,6 +81,8 @@ public class OkHttpClientManager {
 //    public static String IMGHOST = "http://app.cho-coin.com";//图片地址
 //    public static String HOST = "http://app.cho-coin.com";//接口地址
     public boolean isLogin = false;
+    public static boolean isFace = false;
+
     public static boolean isJiaMi = false;
     public int RequestNum = 0;
 
@@ -174,6 +176,7 @@ public class OkHttpClientManager {
     public static void getAsyn(Context context, String url, ResultCallback callback) {
         mContext = context;
         isJiaMi = false;
+        isFace = false;
         url = url + "&lang_type=" + LocalUserInfo.getInstance(mContext).getLanguage_Type();
         MyLogger.i(">>>>>>get请求地址：" + HOST + url);
         getInstance().getGetDelegate().getAsyn(HOST + url, callback, null);
@@ -182,6 +185,7 @@ public class OkHttpClientManager {
     //get加密  -  无用
     public static void getAsyn(Context context, String url, ResultCallback callback, boolean tag) {
         mContext = context;
+        isFace = false;
         if (tag == true) {
             //需要加密
             isJiaMi = true;
@@ -246,11 +250,20 @@ public class OkHttpClientManager {
     public static void postAsyn(Context context, String url, Map<String, String> params, final ResultCallback callback) {
         mContext = context;
         isJiaMi = false;
+        isFace = false;
         params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
         getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, null);
     }
 
+    public static void postAsyn1(Context context, String url, Map<String, String> params, final ResultCallback callback) {
+        mContext = context;
+        isJiaMi = false;
+        isFace = true;
+//        params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+        MyLogger.i(">>>>post接口：>>" + url + ">>>>>传入的参数：" + params);
+        getInstance().getPostDelegate().postAsyn(url, params, callback, null);
+    }
    /* public static void postAsyn(String url, String bodyStr, final ResultCallback callback) {
         getInstance().getPostDelegate().postAsyn(url, bodyStr, callback, null);
 
@@ -263,6 +276,7 @@ public class OkHttpClientManager {
 
     public static void postAsyn(Context context, String url, Map<String, String> params, final ResultCallback callback, boolean tag) {
         mContext = context;
+        isFace = false;
         if (tag == true) {
             //需要加密
             isJiaMi = true;
@@ -310,6 +324,7 @@ public class OkHttpClientManager {
     public static void postAsyn(Context context, String url, String[] fileKeys, File[] files, Map<String, String> params, ResultCallback callback) {
         mContext = context;
         isJiaMi = false;
+        isFace = false;
         params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
         StringBuffer sb = new StringBuffer();
@@ -324,7 +339,7 @@ public class OkHttpClientManager {
     //带文件上传，多个文件和其他参数（加密）
     public static void postAsyn(Context context, String url, String[] fileKeys, File[] files, Map<String, String> params, ResultCallback callback, boolean tag) {
         mContext = context;
-
+        isFace = false;
         if (tag == true) {
             //需要加密
             isJiaMi = true;
@@ -430,7 +445,7 @@ public class OkHttpClientManager {
                     if (!string.equals("")) {
                         if (isJiaMi == true) {
                             //判断不为json数据-解密
-                            if (!isjson(string)){
+                            if (!isjson(string)) {
                                 //需要解密
                                 MyLogger.i("解密前数据", string);
                                 string = new AES().decrypt(string);
@@ -442,41 +457,56 @@ public class OkHttpClientManager {
 //                    sendSuccessResultCallback(string, resCallBack);
                         JSONObject mJsonObject = new JSONObject(string);
                         String result_code = mJsonObject.getString("code");
-                        String reason = mJsonObject.getString("msg");
-                        String result = mJsonObject.getString("data");
-                        //1	成功
-                        //2	操作数据失败
-                        //3	验证失败
-                        //4	未知错误
-                        //5	认证成功
-                        //6	认证失败
-                        //7	数据不可用
-                        //8	数据存在
-                        //9	数据不存在
-                        //10	上传文件无效
-                        //11	操作限制
-                        //12	无效
-                        //13	过期
-                        if (result_code.equals("1") || result_code.equals("8") || result_code.equals("9")) {
-                            //数据请求成功-解析数据
-                            if (resCallBack.mType == String.class) {
-                                sendSuccessResultCallback(string, resCallBack);
-                            } else {
+                        if (isFace){
+                            //人脸
+                            if (result_code.equals("200000")) {
+                                String result = mJsonObject.getString("data");
+//                                sendSuccessResultCallback(string, resCallBack);
                                 Object o = mGson.fromJson(result, resCallBack.mType);
                                 sendSuccessResultCallback(o, resCallBack);
+                            }else {
+                                String message = mJsonObject.getString("message");
+                                sendFailedStringCallback(response.request(), message, null, resCallBack);
                             }
-                        } else if (result_code.equals("13") || result_code.equals("12") || result_code.equals("4")) {
-                            //token失效-重新登录
-                            LocalUserInfo.getInstance(mContext).setUserId("");
-                            CommonUtil.gotoActivity(mContext, LoginActivity.class);
-
-                        } else if (result_code.equals("100") || result_code.equals("101") || result_code.equals("102")) {
-                            //特殊情况-登录后手机不是注册时的手机
-                            sendFailedStringCallback(response.request(), result_code, new Exception(reason), resCallBack);
                         } else {
-                            //数据请求失败
-                            sendFailedStringCallback(response.request(), reason, null, resCallBack);
+                            //不是人脸
+                            String reason = mJsonObject.getString("msg");
+                            String result = mJsonObject.getString("data");
+                            //1	成功
+                            //2	操作数据失败
+                            //3	验证失败
+                            //4	未知错误
+                            //5	认证成功
+                            //6	认证失败
+                            //7	数据不可用
+                            //8	数据存在
+                            //9	数据不存在
+                            //10	上传文件无效
+                            //11	操作限制
+                            //12	无效
+                            //13	过期
+                            if (result_code.equals("1") || result_code.equals("8") || result_code.equals("9")) {
+                                //数据请求成功-解析数据
+                                if (resCallBack.mType == String.class) {
+                                    sendSuccessResultCallback(string, resCallBack);
+                                } else {
+                                    Object o = mGson.fromJson(result, resCallBack.mType);
+                                    sendSuccessResultCallback(o, resCallBack);
+                                }
+                            } else if (result_code.equals("13") || result_code.equals("12") || result_code.equals("4")) {
+                                //token失效-重新登录
+                                LocalUserInfo.getInstance(mContext).setUserId("");
+                                CommonUtil.gotoActivity(mContext, LoginActivity.class);
+
+                            } else if (result_code.equals("100") || result_code.equals("101") || result_code.equals("102")) {
+                                //特殊情况-登录后手机不是注册时的手机
+                                sendFailedStringCallback(response.request(), result_code, new Exception(reason), resCallBack);
+                            } else {
+                                //数据请求失败
+                                sendFailedStringCallback(response.request(), reason, null, resCallBack);
+                            }
                         }
+
                     } else {
                         sendFailedStringCallback(response.request(), mContext.getString(R.string.app_err), null, resCallBack);
                     }
@@ -497,11 +527,11 @@ public class OkHttpClientManager {
     }
 
     //判断是否为json数据
-    private boolean isjson(String string){
+    private boolean isjson(String string) {
         try {
 //            JSONObject jsonStr= JSONObject.parseObject(string);
             com.alibaba.fastjson.JSONObject jsonStr = com.alibaba.fastjson.JSONObject.parseObject(string);
-            return  true;
+            return true;
         } catch (Exception e) {
             return false;
         }
@@ -1171,9 +1201,7 @@ public class OkHttpClientManager {
                     try {
                         if (certificate != null)
                             certificate.close();
-                    } catch (IOException e)
-
-                    {
+                    } catch (IOException e) {
                     }
                 }
                 TrustManagerFactory trustManagerFactory = null;
@@ -1409,15 +1437,11 @@ public class OkHttpClientManager {
                 width = params.width; // 获得布局文件中的声明的宽�?
             }
 
-            if (width <= 0)
-
-            {
+            if (width <= 0) {
                 width = getImageViewFieldValue(view, "mMaxWidth");// 获得设置的最大的宽度
             }
             //如果宽度还是没有获取到，憋大招，使用屏幕的宽�?
-            if (width <= 0)
-
-            {
+            if (width <= 0) {
                 DisplayMetrics displayMetrics = view.getContext().getResources()
                         .getDisplayMetrics();
                 width = displayMetrics.widthPixels;

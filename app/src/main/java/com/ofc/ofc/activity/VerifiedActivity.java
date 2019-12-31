@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,21 +33,19 @@ import com.ofc.ofc.model.VerifiedModel1;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
-import com.ofc.ofc.utils.FileUtil;
 import com.ofc.ofc.utils.MyChooseImages;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
 import com.ofc.ofc.view.face.LivenessActivity;
 import com.squareup.okhttp.Request;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import id.zelory.compressor.Compressor;
 
 import static com.ofc.ofc.net.OkHttpClientManager.HOST;
 import static com.ofc.ofc.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
@@ -65,6 +64,7 @@ public class VerifiedActivity extends BaseActivity {
     RelativeLayout linearLayout_huzhao1;
     int i1 = 0;
     String number = "", name = "", v_type = "";
+    public static String bendi_img = "";//Bundle的大小限制为1M
 
     boolean isgouxuan1 = true, isgouxuan2 = true;
     ImageView imageView1, imageView2, imageView_huzhao;
@@ -78,6 +78,12 @@ public class VerifiedActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verified);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bendi_img = "";
     }
 
     @Override
@@ -162,18 +168,18 @@ public class VerifiedActivity extends BaseActivity {
                 //人脸识别
                 if (match()) {
                     showProgress(false, getString(R.string.app_loading1));
-                    String[] filenames = new String[]{};
+                    /*String[] filenames = new String[]{};
                     File[] files = new File[]{};
                     for (int i = 0; i < listFiles.size(); i++) {
                         filenames = listFileNames.toArray(new String[i]);
                         files = listFiles.toArray(new File[i]);
-                    }
+                    }*/
                     HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
                     params.put("type", v_type);
                     params.put("number", number);
                     params.put("name", name);
-                    request2(filenames, files, params);
+                    request2(params);
                 }
                 break;
 
@@ -244,7 +250,7 @@ public class VerifiedActivity extends BaseActivity {
         }
 
         if (type == 2) {
-            if (listFiles.size() != 1) {
+            if (TextUtils.isEmpty(bendi_img)) {
                 myToast(getString(R.string.fragment5_h34));
                 return false;
             }
@@ -254,8 +260,8 @@ public class VerifiedActivity extends BaseActivity {
     }
 
 
-    private void request2(String[] fileKeys, File[] files, Map<String, String> params) {
-        OkHttpClientManager.postAsyn(VerifiedActivity.this, URLs.Verified2, fileKeys, files, params,
+    private void request2(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(VerifiedActivity.this, URLs.Verified2, params,
                 new OkHttpClientManager.ResultCallback<String>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
@@ -290,6 +296,10 @@ public class VerifiedActivity extends BaseActivity {
                                             bundle.putString("cardNo", number);
                                             bundle.putInt("type", type);
                                             bundle.putString("v_type", v_type);
+                                            /*if (type == 2) {
+                                                bundle.putString("bendi_img", bendi_img);
+                                            }*/
+
 //                                            bundle.putStringArrayList("listFileNames",listFileNames);
 //                                            bundle.putByteArray("listFileNames",listFileNames);
                                             CommonUtil.gotoActivityWithData(VerifiedActivity.this, LivenessActivity.class, bundle, false);
@@ -427,7 +437,8 @@ public class VerifiedActivity extends BaseActivity {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 2;//按照比例（1 / inSampleSize）缩小bitmap的宽和高、降低分辨率
                 Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
-
+                bendi_img = bitmapToBase64(bitmap);
+                MyLogger.i(">>>>>>>" + bendi_img);
                 switch (img_type) {
                     case "pic":
                         imageView_huzhao.setImageBitmap(bitmap);
@@ -437,7 +448,7 @@ public class VerifiedActivity extends BaseActivity {
 
                 }
 
-                //图片压缩及保存
+               /* //图片压缩及保存
                 Uri uri1 = Uri.parse("");
                 uri1 = Uri.fromFile(new File(imagePath));
                 File file1 = new File(FileUtil.getPath(this, uri1));
@@ -450,10 +461,46 @@ public class VerifiedActivity extends BaseActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                     myToast(getString(R.string.app_imgerr));
-                }
+                }*/
             }
         }
 
     }
+
+    /**
+     * bitmap转为base64
+     *
+     * @param bitmap
+     * @return
+     */
+    public String bitmapToBase64(Bitmap bitmap) {
+        String result = null;
+        ByteArrayOutputStream baos = null;
+        try {
+            if (bitmap != null) {
+                baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+
+                baos.flush();
+                baos.close();
+
+                byte[] bitmapBytes = baos.toByteArray();
+                result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (baos != null) {
+                    baos.flush();
+                    baos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 
 }

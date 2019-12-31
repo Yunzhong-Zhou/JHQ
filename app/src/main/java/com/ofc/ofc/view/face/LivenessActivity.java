@@ -8,6 +8,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,11 @@ import com.chuanglan.cllc.modle.CLLCParameter;
 import com.chuanglan.cllc.tool.CLLCSensorManager;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.VerfiedResultActivity;
+import com.ofc.ofc.activity.VerifiedActivity;
 import com.ofc.ofc.base.BaseActivity;
+import com.ofc.ofc.model.LivenessModel;
+import com.ofc.ofc.net.OkHttpClientManager;
+import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.face.listener.OcrAlertDialogListener;
@@ -32,21 +37,19 @@ import com.ofc.ofc.view.face.view.CLLCAlertDialog;
 import com.ofc.ofc.view.face.view.LFGifView;
 import com.ofc.ofc.view.face.view.timeview.CircleTimeView;
 import com.ofc.ofc.view.face.view.timeview.contoller.TimeViewContoller;
+import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class LivenessActivity extends BaseActivity {
     int type = 1;//  1、大陆 2、海外
-    String number = "", name = "", v_type = "";
+    String number = "", name = "", v_type = "", huoti_img = "";
     byte[] huotiimg = null;
-    //选择图片及上传
-    ArrayList<String> listFileNames = new ArrayList<>();
-    ArrayList<File> listFiles = new ArrayList<>();
+
 
     private static final int CURRENT_ANIMATION = -1;
 
@@ -483,6 +486,8 @@ public class LivenessActivity extends BaseActivity {
             //            MyLogger.i(">>>>活体照片imageResult>>>"+imageResult[i].image);
             huotiimg = imageResult[i].image;
         }
+
+        huoti_img = Base64.encodeToString(huotiimg, Base64.DEFAULT);
        /* for (int i = 0; i < videoResult.length; i++) {
             MyLogger.i(">>>>活体视频videoResult>>>"+videoResult[i]);
         }*/
@@ -505,50 +510,23 @@ public class LivenessActivity extends BaseActivity {
             startActivity(intent);
             finish();
         } else {
-            Intent intent = new Intent(LivenessActivity.this, VerfiedResultActivity.class);
-            intent.putExtra("result", result);
-            intent.putExtra("msg", msg);
-
-            intent.putExtra("name", name);
-            intent.putExtra("cardNo", number);
-            intent.putExtra("v_type", v_type);
-
-            if (!result) {
-                intent.putExtra("hint", hint);
-            }
-            startActivity(intent);
-            finish();
-//            BitmapFactory.decodeByteArray(huotiimg, 0, huotiimg.length);
             //海外
-//            showProgress(false, getString(R.string.app_loading1));
-
-           /* String[] filenames = new String[]{};
-            File[] files = new File[]{};
-            for (int i = 0; i < listFiles.size(); i++) {
-                filenames = listFileNames.toArray(new String[i]);
-                files = listFiles.toArray(new File[i]);
-            }*/
-
-            /*Map<String, String> params = new HashMap<>();
+            showProgress(false, getString(R.string.app_loading1));
+            Map<String, String> params = new HashMap<>();
             params.put("appId", "k01UMTdN");
             params.put("appKey", "SGKuoaNz");
-//            params.put("liveImage", huotiimg);
-//            params.put("idCardImage", );
-            params.put("imageType", "file");
-            request4(result, hint, msg, params);
+            params.put("liveImage", huoti_img);
+            params.put("idCardImage", VerifiedActivity.bendi_img);
+            params.put("imageType", "BASE64");
+            request4(params);
 
-            OkhttpUtil.okHttpUploadFile(URLs.Verified4,
-                    params,
-                    listFiles,
-                    );*/
         }
-
 
     }
 
-    private void request4(boolean result, String hint, String msg, Map<String, String> params) {
-        /*OkHttpClientManager.postAsyn(LivenessActivity.this, URLs.Verified4,params,
-                new OkHttpClientManager.ResultCallback<String>() {
+    private void request4(Map<String, String> params) {
+        OkHttpClientManager.postAsyn1(LivenessActivity.this, URLs.Verified4, params,
+                new OkHttpClientManager.ResultCallback<LivenessModel>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
                         hideProgress();
@@ -558,13 +536,55 @@ public class LivenessActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onResponse(String response) {
-                        MyLogger.i(">>>>>>>>>认证加载4 - 海外" + response);
+                    public void onResponse(LivenessModel response) {
+                        MyLogger.i(">>>>>>>>>认证加载4 - 海外" + response.getScore());
                         hideProgress();
+                        /*{
+                            "chargeStatus":1,
+                                "message":"成功",
+                                "data":{
+                            "tradeNo":"19123113081780819",
+                                    "score":"0.0",
+                                    "remark":"比对成功",
+                                    "code":"0"
+                        },
+                            "code":"200000"
+                        }*/
+                        boolean result = false;
+                        String hint = "";
+                        String msg = response.getRemark();
+                        if (response.getCode().equals("0")){
+
+                            //成功
+                            if (Double.valueOf(response.getScore()) >= 80){
+                                //是同一个人
+                                result = true;
+                            }else {
+                                //不是同一个人
+                                result = false;
+                            }
+                        }else {
+                            //失败
+                            result = false;
+
+                        }
+                        Intent intent = new Intent(LivenessActivity.this, VerfiedResultActivity.class);
+                        intent.putExtra("result", result);
+                        intent.putExtra("msg", msg);
+
+                        intent.putExtra("name", name);
+                        intent.putExtra("cardNo", number);
+                        intent.putExtra("v_type", v_type);
+
+                        if (!result) {
+                            intent.putExtra("hint", hint);
+                        }
+                        startActivity(intent);
+                        finish();
+
 
                     }
-                });*/
-
+                });
     }
 
     private void removeDetectWaitUI() {
