@@ -177,8 +177,9 @@ public class PredictionDetailActivity extends BaseActivity {
             @Override
             public void onError(Request request, String info, Exception e) {
                 MainActivity.isOver = true;
-                showErrorPage();
+//                showErrorPage();
                 hideProgress();
+                mKChartView.refreshEnd();//刷新完成，没有数据
                 if (!info.equals("")) {
                     myToast(info);
                 }
@@ -190,7 +191,7 @@ public class PredictionDetailActivity extends BaseActivity {
 
             @Override
             public void onResponse(PredictionDetailModel response) {
-                showContentPage();
+//                showContentPage();
                 MyLogger.i(">>>>>>>>>预测详情" + response);
                 model = response;
                 //第一次加载

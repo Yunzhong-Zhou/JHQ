@@ -74,10 +74,11 @@ public class LoginActivity extends BaseActivity {
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.READ_PHONE_STATE,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             //定位
-            /*android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION*/
+            android.Manifest.permission.ACCESS_FINE_LOCATION
+//            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+//            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
 
             /*Manifest.permission.RECORD_AUDIO,
             Manifest.permission.VIBRATE*/

@@ -143,7 +143,7 @@ dependencies {
     implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
 
     //极光推送
-    implementation 'cn.jiguang.sdk:jpush:3.4.1'
+    implementation 'cn.jiguang.sdk:jpush:3.5.4'
     implementation 'cn.jiguang.sdk:jcore:2.2.4'
 
     //极验-机器验证

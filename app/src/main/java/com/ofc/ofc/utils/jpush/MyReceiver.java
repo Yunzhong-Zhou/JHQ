@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.ofc.ofc.activity.PredictionDetailActivity_MPChart;
+import com.ofc.ofc.activity.PredictionDetailActivity;
 import com.ofc.ofc.activity.WebContentActivity;
 import com.ofc.ofc.utils.MyLogger;
 
@@ -75,7 +75,8 @@ public class MyReceiver extends BroadcastReceiver {
                         //订单详情
                         String symbol = jObj.getString("symbol");
                         MyLogger.i(">>>>>>>>>symbol:" + symbol);
-                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
+//                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
+                        Intent i2 = new Intent(context, PredictionDetailActivity.class);
                         bundle.putString("symbol", symbol);
                         i2.putExtras(bundle);
                         i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -115,6 +116,7 @@ public class MyReceiver extends BroadcastReceiver {
             if (key.equals(JPushInterface.EXTRA_NOTIFICATION_ID)) {
                 sb.append("\nkey:" + key + ", value:" + bundle.getInt(key));
             } else if (key.equals(JPushInterface.EXTRA_CONNECTION_CHANGE)) {
+
                 sb.append("\nkey:" + key + ", value:" + bundle.getBoolean(key));
             } else if (key.equals(JPushInterface.EXTRA_EXTRA)) {
                 if (TextUtils.isEmpty(bundle.getString(JPushInterface.EXTRA_EXTRA))) {
