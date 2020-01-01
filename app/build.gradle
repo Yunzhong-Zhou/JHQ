@@ -143,8 +143,10 @@ dependencies {
     implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
 
     //极光推送
-    implementation 'cn.jiguang.sdk:jpush:3.5.4'
-    implementation 'cn.jiguang.sdk:jcore:2.2.4'
+//    implementation 'cn.jiguang.sdk:jpush:3.5.4'
+//    implementation 'cn.jiguang.sdk:jcore:2.2.4'
+    implementation 'cn.jiguang.sdk:jpush:3.1.6'
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'
 
     //极验-机器验证
 //    implementation(name: 'geetest_sensebot_android_v4.1.2_20190605', ext: 'aar')
