@@ -34,14 +34,11 @@
 
     <!--单位-->
     <string name="app_tian">天</string>
-    <string name="app_qiang">抢</string>
     <string name="app_ren">人</string>
-    <string name="app_mei">枚</string>
     <string name="app_yuan">元</string>
     <string name="app_ge">个</string>
     <string name="app_bei">倍</string>
     <string name="app_ji">级</string>
-    <string name="app_chang">场</string>
     <string name="app_shi">h</string>
     <string name="app_fen">m</string>
     <string name="app_miao">s</string>
@@ -200,7 +197,7 @@
     <string name="fragment3_h1">合约仓位</string>
     <string name="fragment3_h2">盈利</string>
     <string name="fragment3_h3">累计盈利</string>
-    <string name="fragment3_h4">累计补仓</string>
+    <string name="fragment3_h4">累计赔付</string>
     <string name="fragment3_h5">合约交易</string>
     <string name="fragment3_h6">合约类型</string>
     <string name="fragment3_h7">合约方向</string>
@@ -212,21 +209,21 @@
     <string name="fragment3_h13">上期盈利</string>
     <string name="fragment3_h14">合约动态</string>
     <string name="fragment3_h15">我的交易</string>
-    <string name="fragment3_h16">我的补仓</string>
+    <string name="fragment3_h16">我的赔付</string>
     <string name="fragment3_h17">合约仓位</string>
     <string name="fragment3_h18">合约盈利</string>
     <string name="fragment3_h19">等待中</string>
     <string name="fragment3_h20">交易中</string>
     <string name="fragment3_h21">亏损</string>
     <string name="fragment3_h22">当前盈利</string>
-    <string name="fragment3_h23">当前补仓</string>
+    <string name="fragment3_h23">当前赔付</string>
     <string name="fragment3_h24">交易所</string>
     <string name="fragment3_h25">交易对</string>
     <string name="fragment3_h26">状态</string>
     <string name="fragment3_h27">BTC永续</string>
     <string name="fragment3_h28">申请平仓</string>
-    <string name="fragment3_h29">补仓/USDT</string>
-    <string name="fragment3_h30">补仓时间</string>
+    <string name="fragment3_h29">赔付/USDT</string>
+    <string name="fragment3_h30">赔付时间</string>
     <string name="fragment3_h31">合约建仓</string>
     <string name="fragment3_h32">用户</string>
     <string name="fragment3_h33">合约仓位/USDT</string>
@@ -550,61 +547,6 @@
     <string name="takecash_h33">银行卡号</string>
     <string name="takecash_h34">银行账户</string>
 
-    <!--设置-->
-    <string name="setting_h1">绑定银行卡</string>
-    <string name="setting_h2">银行卡绑定</string>
-    <string name="setting_h3">币地址绑定</string>
-    <string name="setting_h4">支付设置</string>
-    <string name="setting_h5">银行名称</string>
-    <string name="setting_h6">请选择银行名称</string>
-    <string name="setting_h7">开户名</string>
-    <string name="setting_h8">请输入开户姓名</string>
-    <string name="setting_h9">卡号</string>
-    <string name="setting_h10">请输入银行卡号</string>
-    <string name="setting_h11">支付宝号</string>
-    <string name="setting_h12">请输入支付宝号</string>
-    <string name="setting_h13">请上次图片</string>
-    <string name="setting_h14">微信二维码</string>
-    <string name="setting_h15">支付宝二维码</string>
-    <string name="setting_h16">请输入验证码</string>
-    <string name="setting_h17">确定设置</string>
-    <string name="setting_h18">设置成功</string>
-    <string name="setting_h19">币种</string>
-    <string name="setting_h20">地址</string>
-    <string name="setting_h21">请输入币地址</string>
-    <string name="setting_h22">确认设置</string>
-    <string name="setting_h23">收币设置</string>
-    <string name="setting_h24">支付宝姓名</string>
-    <string name="setting_h25">请输入支付宝姓名</string>
-    <string name="setting_h26">银行卡设置</string>
-    <string name="setting_h27">姓名</string>
-    <string name="setting_h28">请输入姓名</string>
-    <string name="setting_h29">身份证号</string>
-    <string name="setting_h30">请输入身份证号</string>
-    <string name="setting_h31">银行开户地址</string>
-    <string name="setting_h32">请选择银行开户行地址</string>
-    <string name="setting_h33">手机号</string>
-    <string name="setting_h34">请输入预留手机号</string>
-    <string name="setting_h35">认证成功</string>
-    <string name="setting_h36">验证码</string>
-    <string name="setting_h37">收款人姓名不能更改，确认提交吗？</string>
-
-    <!--竞猜-->
-    <string name="game_h1">我的竞猜</string>
-    <string name="game_h2">累计奖励</string>
-    <string name="game_h3">竞猜次数</string>
-    <string name="game_h4">猜中次数</string>
-    <string name="game_h5">链号</string>
-    <string name="game_h6">竞猜额</string>
-    <string name="game_h7">中奖</string>
-    <string name="game_h8">进行中</string>
-    <string name="game_h9">总值</string>
-    <string name="game_h10">已产(USDT)</string>
-    <string name="game_h11">挖矿</string>
-    <string name="game_h12">收益</string>
-    <string name="game_h13">算力</string>
-    <string name="game_h14">时间</string>
-
     <!--在线客服-->
     <string name="onlineservice_title">在线留言</string>
     <string name="onlineservice_hint">请输入您想要咨询的问题</string>
@@ -632,41 +574,20 @@
     <string name="zxing_h5">扫码转币</string>
     <string name="zxing_h6">保存相册</string>
     <string name="zxing_h7">正在生成二维码</string>
-    <string name="zxing_h8">您暂未开通支付功能，如需开通，请点击确认按钮</string>
-    <string name="zxing_h9">请完善商户信息</string>
-    <string name="zxing_h10">正在为您开通支付功能，请稍后...</string>
-    <string name="zxing_h11">扫码支付功能已经开通</string>
     <string name="zxing_h12">转币</string>
-    <string name="zxing_h13">您暂未开通商户，确认前往开通商户？</string>
-    <string name="zxing_h14">您申请的商户正在审核中...</string>
-    <string name="zxing_h15">感谢您的申请，系统综合评估您的条件后发现暂未达到准入标准，请达到准入标准后在申请！</string>
-    <string name="zxing_h16">正在为您开通收币功能，请稍后...</string>
-    <string name="zxing_h17">收币功能已经开通</string>
-    <string name="zxing_h18">您暂未开通收币功能，如需开通，请点击确认按钮</string>
-    <string name="zxing_h19">您已经是商户了，无需再次申请</string>
-    <string name="zxing_h20">分享给好友</string>
     <string name="zxing_h21">保存成功</string>
     <string name="zxing_h22">正在生成分享图片，请稍后...</string>
     <string name="zxing_h23">图片已保存</string>
     <string name="zxing_h24">转币记录</string>
-    <string name="zxing_h25">收币二维码</string>
+    <string name="zxing_h25">二维码</string>
     <string name="zxing_h26">相册</string>
     <string name="zxing_h27">选择二维码图片</string>
     <string name="zxing_h28">图片格式错误</string>
-    <string name="zxing_h29">请按生成的金额充值，否则将充值失败（充值时必须输入后两位小数）。</string>
-    <string name="zxing_h30">充值金额（元）</string>
     <string name="zxing_h31">保存二维码</string>
     <string name="zxing_h32">保存二维码到相册</string>
-    <string name="zxing_h33">微信/支付宝扫一扫\n从相册选择此二维码</string>
-    <string name="zxing_h34">按充值金额转帐\n否则将充值失败</string>
-    <string name="zxing_h35">扫码支付</string>
-    <string name="zxing_h36">银行名称</string>
-    <string name="zxing_h37">银行卡号</string>
-    <string name="zxing_h38">银行账户</string>
-    <string name="zxing_h39">银联支付</string>
-    <string name="zxing_h40">*请务必按照生成金额付款</string>
 
-    <!--扫码付款-->
+
+    <!--转币-->
     <string name="scavengingpayment_h1">转币数量</string>
     <string name="scavengingpayment_h2">可用(USDT)：</string>
     <string name="scavengingpayment_h3">确认转币</string>
@@ -697,7 +618,7 @@
     <string name="scavengingpayment_h28">开始时间</string>
     <string name="scavengingpayment_h29">结束时间</string>
     <string name="scavengingpayment_h30">交易记录</string>
-    <string name="scavengingpayment_h31">补仓记录</string>
+    <string name="scavengingpayment_h31">赔付记录</string>
     <string name="scavengingpayment_h32">合约盈利</string>
     <string name="scavengingpayment_h33">合约类型</string>
     <string name="scavengingpayment_h34">合约方向</string>
@@ -707,8 +628,8 @@
     <string name="scavengingpayment_h38">交易单号</string>
     <string name="scavengingpayment_h39">买入时间</string>
     <string name="scavengingpayment_h40">卖出时间</string>
-    <string name="scavengingpayment_h41">补仓时间</string>
-    <string name="scavengingpayment_h42">补仓币数</string>
+    <string name="scavengingpayment_h41">赔付时间</string>
+    <string name="scavengingpayment_h42">赔付币数</string>
     <string name="scavengingpayment_h43">实际仓位：</string>
     <string name="scavengingpayment_h44">交易结果</string>
 

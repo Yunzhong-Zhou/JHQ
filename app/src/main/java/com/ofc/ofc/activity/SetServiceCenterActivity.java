@@ -74,7 +74,7 @@ public class SetServiceCenterActivity extends BaseActivity {
         //预先加载仿iOS滚轮实现的全部数据
         mPicker.init(this);
         cityConfig = new CityConfig.Builder()
-                .title(getString(R.string.setting_h32))//标题
+                .title(getString(R.string.myprofile_h42))//标题
                 .titleTextSize(18)//标题文字大小
                 .titleTextColor("#585858")//标题文字颜  色
                 .titleBackgroundColor("#eaeaea")//标题栏背景色

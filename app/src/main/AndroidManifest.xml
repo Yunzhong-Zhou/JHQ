@@ -206,15 +206,6 @@
             android:name="com.ofc.ofc.activity.TransferRecordActivity"
             android:label="转账记录" />
         <activity
-            android:name="com.ofc.ofc.activity.BankCardSettingActivity"
-            android:label="绑定银行卡" />
-        <activity
-            android:name="com.ofc.ofc.activity.ScanCodePaymentActivity"
-            android:label="扫码支付" />
-        <activity
-            android:name="com.ofc.ofc.activity.BankPaymentActivity"
-            android:label="银联支付" />
-        <activity
             android:name="com.ofc.ofc.activity.NewcomerRewardActivity"
             android:label="签到有奖" />
         <activity
