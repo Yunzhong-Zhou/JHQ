@@ -44,6 +44,20 @@ public class MyReceiver extends BroadcastReceiver {
                 MyLogger.i(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
 //				processCustomMessage(context, bundle);
 
+                /*NotificationManager notificationManager=(NotificationManager)context.getSystemService(NOTIFICATION_SERVICE);
+                Notification notification = new NotificationCompat.Builder(context)//此处会有中间一道线，并不影响运行，这是android系统版本的问题
+                        .setContentTitle(bundle.getString(JPushInterface.EXTRA_TITLE))  //显示通知的标题
+                        .setContentText(bundle.getString(JPushInterface.EXTRA_MESSAGE))//显示消息通知的内容
+                        .setWhen(System.currentTimeMillis())//显示通知的具体时间
+                        .setSmallIcon(R.mipmap.ic_launcher)//这里设置显示的是手机顶部系统通知的应用图标
+//                        .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher))//这里设置显示的是下拉通知栏后显示的系统图标
+//                        .setContentIntent(pendingIntent)
+                        .setAutoCancel(true)//可以在此使用此方法，点击通知后，通知内容自动取消,也可以在NotificationActivity.java中设置方法取消显示通知内容
+//                        .setVibrate(new long[] {0,1000,1000,1000})//设置发出通知后震动一秒，停止一秒后再震动一秒，需要在manifest.xml中设置权限
+                        .build();
+                notification.flags = Notification.FLAG_ONLY_ALERT_ONCE; //发起Notification后，铃声和震动均只执行一次
+                notificationManager.notify(1,notification);//通过通知管理器发送通知*/
+
             } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
                 MyLogger.i(TAG, "[MyReceiver] 接收到推送下来的通知");
                 int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
@@ -51,7 +65,6 @@ public class MyReceiver extends BroadcastReceiver {
 
             } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
                 MyLogger.i(TAG, "[MyReceiver] 用户点击打开了通知");
-
                 //打开自定义的Activity
                 //解析数据
                 JSONObject jObj = new JSONObject(url);
@@ -147,9 +160,9 @@ public class MyReceiver extends BroadcastReceiver {
         }
         return sb.toString();
     }
-	
-	/*//send msg to MainActivity
-	private void processCustomMessage(Context context, Bundle bundle) {
+
+	//send msg to MainActivity
+	/*private void processCustomMessage(Context context, Bundle bundle) {
 		if (MainActivity.isForeground) {
 			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);

@@ -257,7 +257,7 @@
             </intent-filter>
         </activity>
         <!--新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
-        <!--<receiver
+        <receiver
             android:name=".utils.jpush.MyJPushMessageReceiver"
             android:enabled="true"
             android:exported="false" >
@@ -265,7 +265,7 @@
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="${applicationId}" />
             </intent-filter>
-        </receiver>-->
+        </receiver>
         <service
             android:name="cn.jpush.android.service.PushService"
             android:process=":multiprocess"
@@ -285,12 +285,12 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".utils.jpush.MyJPushMessageReceiver">
+        <!--<receiver android:name=".utils.jpush.MyJPushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="${applicationId}"></category>
             </intent-filter>
-        </receiver>
+        </receiver>-->
         <!--极光推送  结束-->
 
         <!--7.0限制-私有目录被限制访问-->
