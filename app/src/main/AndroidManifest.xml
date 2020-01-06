@@ -230,14 +230,47 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <!--极光推送-->
+        <!--极光推送  开始-->
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="true"
+            tools:node="replace"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            tools:node="replace"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity>
+        <!--新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <!--<receiver
+            android:name=".utils.jpush.MyJPushMessageReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>-->
         <service
             android:name="cn.jpush.android.service.PushService"
             android:process=":multiprocess"
             tools:node="replace">
-
         </service>
-        <!--极光推送-->
         <receiver
             android:name=".utils.jpush.MyReceiver"
             android:enabled="true"
@@ -258,6 +291,7 @@
                 <category android:name="${applicationId}"></category>
             </intent-filter>
         </receiver>
+        <!--极光推送  结束-->
 
         <!--7.0限制-私有目录被限制访问-->
         <!--exported:要求必须为false，为true则会报安全异常。

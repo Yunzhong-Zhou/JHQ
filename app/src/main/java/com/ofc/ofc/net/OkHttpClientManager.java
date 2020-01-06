@@ -177,7 +177,11 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        url = url + "&lang_type=" + LocalUserInfo.getInstance(mContext).getLanguage_Type();
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+            url = url + "&lang_type=" + LocalUserInfo.getInstance(mContext).getLanguage_Type();
+        }else {
+            url = url + "&lang_type=" + "en";
+        }
         MyLogger.i(">>>>>>get请求地址：" + HOST + url);
         getInstance().getGetDelegate().getAsyn(HOST + url, callback, null);
     }
@@ -251,7 +255,11 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+            params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+        }else {
+            params.put("lang_type", "en");
+        }
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
         getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, null);
     }
@@ -295,7 +303,11 @@ public class OkHttpClientManager {
                 Map<String, String> params1 = new HashMap<>();
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
-                params1.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                    params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                }else {
+                    params.put("lang_type", "en");
+                }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
                 getInstance().getPostDelegate().postAsyn(HOST + url, params1, callback, null);
             } catch (Exception e) {
@@ -304,7 +316,11 @@ public class OkHttpClientManager {
         } else {
             //不需要加密
             isJiaMi = false;
-            params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+            }else {
+                params.put("lang_type", "en");
+            }
             MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
             getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, null);
         }
@@ -325,7 +341,11 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+            params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+        }else {
+            params.put("lang_type", "en");
+        }
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < fileKeys.length; i++) {
@@ -357,7 +377,11 @@ public class OkHttpClientManager {
                 Map<String, String> params1 = new HashMap<>();
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
-                params1.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                    params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                }else {
+                    params.put("lang_type", "en");
+                }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
                 Param[] params2 = map2Params(params1);
                 getInstance()._getUploadDelegate().postAsyn(HOST + url, fileKeys, files, params2, callback, null);
@@ -366,7 +390,11 @@ public class OkHttpClientManager {
             }
         } else {
             isJiaMi = false;
-            params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+            }else {
+                params.put("lang_type", "en");
+            }
             MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < fileKeys.length; i++) {

@@ -267,6 +267,15 @@ public class Fragment2 extends BaseFragment {
                                         setChartFillDrawable(lineChart, drawable);
                                     }
                                 });
+                                lineChart.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Bundle bundle1 = new Bundle();
+                                        bundle1.putString("symbol", model.getSymbol());
+                                        CommonUtil.gotoActivityWithData(getActivity(), PredictionDetailActivity.class, bundle1, false);
+                                    }
+                                });
+
                                 if (model.getTrading_point() != null && model.getKline_list().size() > 0) {
                                     TextView textView1 = holder.getView(R.id.textView1);
                                     TextView textView2 = holder.getView(R.id.textView2);
@@ -318,6 +327,7 @@ public class Fragment2 extends BaseFragment {
                                 return false;
                             }
                         });
+
                     }
 
                 } catch (JSONException e) {

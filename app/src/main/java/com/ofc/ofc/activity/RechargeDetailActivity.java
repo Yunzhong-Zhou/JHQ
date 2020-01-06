@@ -83,6 +83,7 @@ public class RechargeDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
         //刷新
         setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {

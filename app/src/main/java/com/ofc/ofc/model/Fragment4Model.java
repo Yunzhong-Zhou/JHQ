@@ -7,11 +7,12 @@ import java.io.Serializable;
  */
 public class Fragment4Model implements Serializable {
     /**
-     * usdt_top_up_max_money : 10
+     * usdt_top_up_max_money : 100000
      * usdt_top_up_min_money : 1
      * usdt_price : 1
      * aud_conver_usd : 0.6889
-     * usable_money : 0.3
+     * usable_money : 1015.84
+     * id : bc074ffaa8923d040e17c4fc0f6f71b9
      */
 
     private String usdt_top_up_max_money;
@@ -19,6 +20,7 @@ public class Fragment4Model implements Serializable {
     private String usdt_price;
     private String aud_conver_usd;
     private String usable_money;
+    private String id;
 
     public String getUsdt_top_up_max_money() {
         return usdt_top_up_max_money;
@@ -58,5 +60,13 @@ public class Fragment4Model implements Serializable {
 
     public void setUsable_money(String usable_money) {
         this.usable_money = usable_money;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
