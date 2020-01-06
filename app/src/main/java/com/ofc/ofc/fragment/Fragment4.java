@@ -437,7 +437,6 @@ public class Fragment4 extends BaseFragment {
                         model.getUsdt_top_up_max_money() + ")");
             }
 
-
             textView7.setVisibility(View.VISIBLE);
 
         } else if (type == 2) {
