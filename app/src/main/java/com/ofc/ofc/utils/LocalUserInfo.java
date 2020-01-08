@@ -478,7 +478,8 @@ public class LocalUserInfo {
         if (!TextUtils.isEmpty(string)) {
             return string;
         }
-        return "zh";
+//        return "zh";
+        return "en";
     }
     public String getUserRealName(){
         String userRealName=getString(USERREALNAME);
