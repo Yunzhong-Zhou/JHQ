@@ -413,6 +413,8 @@ public class LoginActivity extends BaseActivity {
                     //保存电话号码
 //                            String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(response.getMobile());
+
+
 //                            localUserInfo.setPhoneNumber(phonenum);
                     //保存用户昵称
 //                            String nickname = jObj1.getString("nickname");

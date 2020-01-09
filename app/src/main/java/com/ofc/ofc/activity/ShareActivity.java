@@ -1,5 +1,8 @@
 package com.ofc.ofc.activity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.ShareModel;
@@ -16,7 +20,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
@@ -165,6 +168,16 @@ public class ShareActivity extends BaseActivity {
             case R.id.imageView2:
                 //立即分享//跳转海报
                 CommonUtil.gotoActivity(ShareActivity.this, InvitationRewardActivity.class, false);
+                break;
+
+            case R.id.textView2:
+                //获取剪贴板管理器：
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                // 创建普通字符型ClipData
+                ClipData mClipData = ClipData.newPlainText("Label", model.getInvite_code());
+                // 将ClipData内容放到系统剪贴板里。
+                cm.setPrimaryClip(mClipData);
+                myToast(getString(R.string.recharge_h34));
                 break;
 
         }

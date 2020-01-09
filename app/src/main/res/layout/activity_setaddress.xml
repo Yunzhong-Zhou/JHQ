@@ -79,7 +79,6 @@
                 android:text="@string/address_h4"
                 android:textColor="@color/black1"
                 android:textColorHint="@color/black4" />
-
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"

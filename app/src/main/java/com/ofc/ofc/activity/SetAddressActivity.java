@@ -55,7 +55,7 @@ public class SetAddressActivity extends BaseActivity {
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
 
-        textView2.setText(localUserInfo.getPhonenumber());
+        textView2.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
         if (type == 1) {
             //ETH
             titleView.setTitle(getString(R.string.address_h1));

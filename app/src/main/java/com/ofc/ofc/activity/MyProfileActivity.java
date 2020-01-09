@@ -1,6 +1,9 @@
 package com.ofc.ofc.activity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.ChangeProfileModel;
@@ -26,7 +30,6 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.FileUtil;
 import com.ofc.ofc.utils.MyChooseImages;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
@@ -65,7 +68,7 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        textView1.setText(localUserInfo.getPhonenumber());
+        textView1.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
         textView2.setText(localUserInfo.getNickname());
         textView3.setText(localUserInfo.getInvuteCode());
 //        textView4.setText(localUserInfo.getEmail());
@@ -142,7 +145,7 @@ public class MyProfileActivity extends BaseActivity {
                     imageView1.setImageResource(R.mipmap.headimg);
 
                 //手机号
-                textView1.setText(response.getMobile());
+                textView1.setText("+"+localUserInfo.getMobile_State_Code()+"  "+response.getMobile());
                 //昵称
                 textView2.setText(response.getNickname());
                 //邀请码
@@ -179,6 +182,15 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.textView3:
+                //获取剪贴板管理器：
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                // 创建普通字符型ClipData
+                ClipData mClipData = ClipData.newPlainText("Label", model.getInvite_code());
+                // 将ClipData内容放到系统剪贴板里。
+                cm.setPrimaryClip(mClipData);
+                myToast(getString(R.string.recharge_h34));
+                break;
             case R.id.linearLayout1:
                 //头像
                 MyChooseImages.showPhotoDialog(MyProfileActivity.this);

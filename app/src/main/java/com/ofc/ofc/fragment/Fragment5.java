@@ -1,5 +1,8 @@
 package com.ofc.ofc.fragment;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -123,6 +126,7 @@ public class Fragment5 extends BaseFragment {
 
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+        textView2.setOnClickListener(this);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
         textView4.setOnClickListener(this);
@@ -258,6 +262,15 @@ public class Fragment5 extends BaseFragment {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.textView2:
+                //获取剪贴板管理器：
+                ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                // 创建普通字符型ClipData
+                ClipData mClipData = ClipData.newPlainText("Label", model.getInvite_code());
+                // 将ClipData内容放到系统剪贴板里。
+                cm.setPrimaryClip(mClipData);
+                myToast(getString(R.string.recharge_h34));
+                break;
             case R.id.relativeLayout:
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);

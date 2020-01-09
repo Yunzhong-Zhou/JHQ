@@ -49,7 +49,7 @@ public class SetTransactionPasswordActivity extends BaseActivity {
     @Override
     protected void initView() {
         editText1 = findViewByID_My(R.id.editText1);
-        editText1.setText(localUserInfo.getPhonenumber());
+        editText1.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
