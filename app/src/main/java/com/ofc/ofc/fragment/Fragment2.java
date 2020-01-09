@@ -100,9 +100,9 @@ public class Fragment2 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.item == 1) {
+        /*if (MainActivity.item == 1) {
             requestServer();
-        }
+        }*/
     }
 
     /*@Override
@@ -224,7 +224,6 @@ public class Fragment2 extends BaseFragment {
     }
 
     Handler handler = new Handler();
-
     private void Request(String string) {
         OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment2 + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -257,6 +256,21 @@ public class Fragment2 extends BaseFragment {
                             protected void convert(ViewHolder holder, final Fragment2Model model, int position) {
                                 LineChart lineChart = holder.getView(R.id.lineChart);
                                 initChart(lineChart);
+                                /*new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                showLineChart(model.getKline_list(), "", getResources().getColor(R.color.black1), lineChart,
+                                                        holder.getView(R.id.textView3));
+                                                //显示线条渐变色
+                                                Drawable drawable = getResources().getDrawable(R.drawable.huisejianbian);
+                                                setChartFillDrawable(lineChart, drawable);
+                                            }
+                                        });
+                                    }
+                                }).start();*/
                                 handler.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -334,8 +348,8 @@ public class Fragment2 extends BaseFragment {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                hideProgress();
 
+                hideProgress();
                 MainActivity.isOver = true;
             }
         });
@@ -500,7 +514,7 @@ public class Fragment2 extends BaseFragment {
 
 
         Matrix matrix = new Matrix();
-        matrix.postScale(2.0F, 1.0F);
+        matrix.postScale(1.0F, 1.0F);
         lineChart.getViewPortHandler().refresh(matrix, lineChart, false);
 
         lineChart.setData(lineData);

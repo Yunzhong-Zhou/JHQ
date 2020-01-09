@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.cy.dialog.BaseDialog;
+import com.maning.updatelibrary.InstallUtils;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.LoginModel;
@@ -36,8 +38,6 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.permission.PermissionsActivity;
 import com.ofc.ofc.utils.permission.PermissionsChecker;
-import com.cy.dialog.BaseDialog;
-import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 
 import java.io.Serializable;

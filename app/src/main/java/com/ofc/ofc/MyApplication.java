@@ -33,6 +33,7 @@ public class MyApplication extends Application {
     @Override
     public final void onCreate() {
         super.onCreate();
+
         mContext = this;
         myApplication = this;
 

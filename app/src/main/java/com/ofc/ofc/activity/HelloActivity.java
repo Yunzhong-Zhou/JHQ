@@ -36,9 +36,7 @@ public class HelloActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
-
         Resources resources = getResources();
-
         // 获取应用内语言
         final Configuration configuration = resources.getConfiguration();
 //        Locale locale=configuration.locale;
@@ -46,30 +44,35 @@ public class HelloActivity extends Activity {
         switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
             case "zh":
                 //设置为中文
-                configuration.locale = new Locale("zh", "CN");
-                resources.updateConfiguration(configuration, displayMetrics);
+//                configuration.locale = new Locale("zh", "CN");
+                configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
                 break;
             case "en":
                 //设置为英文
-                configuration.locale = new Locale("en", "US");
-                resources.updateConfiguration(configuration, displayMetrics);
+//                configuration.locale = new Locale("en", "US");
+                configuration.setLocale(Locale.US);
+
                 break;
             case "ja":
                 //设置为日文
-                configuration.locale = new Locale("ja", "JP");
-                resources.updateConfiguration(configuration, displayMetrics);
+//                configuration.locale = new Locale("ja", "JP");
+                configuration.setLocale(Locale.JAPAN);
+
                 break;
             case "ko":
                 //设置为韩文
-                configuration.locale = new Locale("ko", "KR");
-                resources.updateConfiguration(configuration, displayMetrics);
+//                configuration.locale = new Locale("ko", "KR");
+                configuration.setLocale(Locale.KOREA);
+
                 break;
             case "vi":
                 //设置为越南文
                 configuration.locale = new Locale("vi", "VN");
-                resources.updateConfiguration(configuration, displayMetrics);
+//                configuration.setLocale(Locale.);
+
                 break;
         }
+        resources.updateConfiguration(configuration, displayMetrics);
 
 
         // 判断是否是第一次开启应用
