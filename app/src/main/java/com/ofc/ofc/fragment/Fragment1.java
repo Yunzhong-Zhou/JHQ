@@ -211,6 +211,9 @@ public class Fragment1 extends BaseFragment {
             public void onResponse(final Fragment1Model response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>学院" + response);
+                textView1.setText(response.getArticle_category_1().getTitle());
+                textView2.setText(response.getArticle_category_2().getTitle());
+                textView3.setText(response.getArticle_category_3().getTitle());
                 //基础知识
                 list1 = response.getArticle_category_1().getArticle_list();
                 mAdapter1 = new CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean>

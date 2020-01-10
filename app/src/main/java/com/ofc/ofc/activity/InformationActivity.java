@@ -32,11 +32,11 @@ import java.util.List;
  */
 public class InformationActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<InformationModel.NoticeBean> list1 = new ArrayList<>();
-    CommonAdapter<InformationModel.NoticeBean> adapter1;
+    List<InformationModel.ArticleCategory1Bean.ArticleListBean> list1 = new ArrayList<>();
+    CommonAdapter<InformationModel.ArticleCategory1Bean.ArticleListBean> adapter1;
 
-    List<InformationModel.HelpBean> list2 = new ArrayList<>();
-    CommonAdapter<InformationModel.HelpBean> adapter2;
+    List<InformationModel.ArticleCategory2Bean.ArticleListBeanX> list2 = new ArrayList<>();
+    CommonAdapter<InformationModel.ArticleCategory2Bean.ArticleListBeanX> adapter2;
 
 //    List<InformationModel.BusinessNewsBean> list2 = new ArrayList<>();
 //    CommonAdapter<InformationModel.BusinessNewsBean> adapter2;
@@ -191,12 +191,13 @@ public class InformationActivity extends BaseActivity {
                 showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>公告列表" + response);
-
-                list1 = response.getNotice();
-                adapter1 = new CommonAdapter<InformationModel.NoticeBean>
+                textView1.setText(response.getArticle_category_1().getTitle());
+                textView2.setText(response.getArticle_category_2().getTitle());
+                list1 = response.getArticle_category_1().getArticle_list();
+                adapter1 = new CommonAdapter<InformationModel.ArticleCategory1Bean.ArticleListBean>
                         (InformationActivity.this, R.layout.item_information, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, InformationModel.NoticeBean model, int position) {
+                    protected void convert(ViewHolder holder, InformationModel.ArticleCategory1Bean.ArticleListBean model, int position) {
                         holder.setText(R.id.textView1,model.getTitle());
                         holder.setText(R.id.textView2,model.getDigest());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
@@ -223,11 +224,11 @@ public class InformationActivity extends BaseActivity {
                         return false;
                     }
                 });
-                list2 = response.getHelp();
-                adapter2 = new CommonAdapter<InformationModel.HelpBean>
+                list2 = response.getArticle_category_2().getArticle_list();
+                adapter2 = new CommonAdapter<InformationModel.ArticleCategory2Bean.ArticleListBeanX>
                         (InformationActivity.this, R.layout.item_information, list2) {
                     @Override
-                    protected void convert(ViewHolder holder, InformationModel.HelpBean model, int position) {
+                    protected void convert(ViewHolder holder, InformationModel.ArticleCategory2Bean.ArticleListBeanX model, int position) {
                         holder.setText(R.id.textView1,model.getTitle());
                         holder.setText(R.id.textView2,model.getDigest());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
