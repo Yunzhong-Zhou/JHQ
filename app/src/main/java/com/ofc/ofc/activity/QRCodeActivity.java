@@ -216,7 +216,7 @@ public class QRCodeActivity extends BaseActivity {
                 if (scanResult != null && !scanResult.equals("")) {
                     Bundle bundle1 = new Bundle();
                     bundle1.putString("id", scanResult);
-                    CommonUtil.gotoActivityWithData(QRCodeActivity.this, ScavengingPaymentActivity.class, bundle1, true);
+                    CommonUtil.gotoActivityWithData(QRCodeActivity.this, ScavengingPaymentActivity.class, bundle1, false);
                 }
             }
 

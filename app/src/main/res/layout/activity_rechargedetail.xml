@@ -166,11 +166,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="14dp"
                         android:text="@string/recharge_h14"
-                        android:textColor="@color/black3"
+                        android:textColor="@color/red"
                         android:textSize="15sp" />
 
                     <RelativeLayout
@@ -378,7 +378,7 @@
                     android:padding="14dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
@@ -408,7 +408,7 @@
                     android:padding="14dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
@@ -437,7 +437,7 @@
                     android:padding="14dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
@@ -466,7 +466,7 @@
                     android:padding="14dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
@@ -496,7 +496,7 @@
                     android:padding="14dp">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.cy.dialog.BaseDialog;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.ScavengingPaymentModel;
@@ -17,8 +19,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.cy.dialog.BaseDialog;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
@@ -99,6 +99,15 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>对方信息" + response);
                 if (response != null) {
                     model = response;
+                    if (response.getTrade_password().equals("")) {
+                        showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                            }
+                        });
+                    }
 //                    hk = response.getHk();
                     textView2.setText(response.getCommon_usable_money());//可用余额
                     textView3.setText(response.getTransfer_service_charge() + "USDT");//手续费
@@ -113,14 +122,13 @@ public class ScavengingPaymentActivity extends BaseActivity {
                     else
                         imageView1.setImageResource(R.mipmap.headimg);
 
-
                 }
             }
         });
     }
 
     private void RequestScavengingPayment(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(ScavengingPaymentActivity.this, URLs.Transfer, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(ScavengingPaymentActivity.this, URLs.Transfer, params, new OkHttpClientManager.ResultCallback<ScavengingPaymentModel>() {
             @Override
             public void onError(final Request request, String info, Exception e) {
                 hideProgress();
@@ -165,18 +173,77 @@ public class ScavengingPaymentActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ScavengingPaymentModel response) {
                 textView4.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>转账" + response);
-                showToast(getString(R.string.scavengingpayment_h5), new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
+
+                if (response.getCode() == 1) {
+                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                        }
+                    });
+                } else if (response.getCode() == 2) {
+                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
+                        }
+                    });
+                } else {
+                    showToast(getString(R.string.scavengingpayment_h5), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
 //                        finish();
-                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
+                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
+                        }
+                    });
+                }
+
+                /*JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+//                    myToast(jObj.getString("msg"));
+
+                    JSONObject jObj1 = jObj.getJSONObject("data");
+                    int code = jObj1.getInt("code");
+                    if (code == 1) {
+                        showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                            }
+                        });
+                    } else if (code == 2) {
+                        showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
+                            }
+                        });
+                    } else {
+                        showToast(getString(R.string.scavengingpayment_h5), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+//                        finish();
+                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
+                            }
+                        });
                     }
-                });
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }*/
+
 
             }
         }, true);

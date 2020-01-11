@@ -20,6 +20,25 @@ public class ScavengingPaymentModel implements Serializable {
     private String common_usable_money;
     private String transfer_service_charge;
     private String hk;
+    private String trade_password;
+
+    private int code;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getTrade_password() {
+        return trade_password;
+    }
+
+    public void setTrade_password(String trade_password) {
+        this.trade_password = trade_password;
+    }
 
     public String getHead() {
         return head;

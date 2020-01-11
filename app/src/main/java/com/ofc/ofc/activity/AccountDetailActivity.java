@@ -55,6 +55,12 @@ public class AccountDetailActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();
+    }
+
+    @Override
     protected void initView() {
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
@@ -115,7 +121,7 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();
+
     }
 
     private void Request(String string) {

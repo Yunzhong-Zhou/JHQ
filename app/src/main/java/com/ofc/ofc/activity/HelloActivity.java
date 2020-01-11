@@ -102,9 +102,11 @@ public class HelloActivity extends Activity {
     private void enterHomeActivity() {
         if (LocalUserInfo.getInstance(HelloActivity.this).getUserId().equals("")) {
             Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
         /*Intent intent = new Intent(this, MainActivity.class);

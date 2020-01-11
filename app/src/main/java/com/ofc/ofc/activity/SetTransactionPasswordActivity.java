@@ -68,7 +68,7 @@ public class SetTransactionPasswordActivity extends BaseActivity {
                     SetTransactionPasswordActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
                     textView1.setClickable(false);
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("mobile", phonenum);
+                    params.put("mobile", localUserInfo.getPhonenumber());
                     params.put("type", "5");
                     params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestCode(params);//获取验证码

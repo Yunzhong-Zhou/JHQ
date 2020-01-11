@@ -558,7 +558,7 @@ public class RegisteredActivity extends BaseActivity {
                     //保存电话号码
                     String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(mobile);
-                    localUserInfo.setPhoneNumber(phonenum);
+//                    localUserInfo.setPhoneNumber(phonenum);
                     //保存用户昵称
                     String nickname = jObj1.getString("nickname");
                     localUserInfo.setNickname(nickname);

@@ -208,6 +208,7 @@ public class MyProfileActivity extends BaseActivity {
 
                 break;
             case R.id.linearLayout10:
+            case R.id.textView5:
                 //修改服务码
                 CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
                 //                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);

@@ -440,6 +440,7 @@ public class LoginActivity extends BaseActivity {
 
                     hideProgress();
                     MainActivity.isOver = false;
+
                     CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
 
                 }

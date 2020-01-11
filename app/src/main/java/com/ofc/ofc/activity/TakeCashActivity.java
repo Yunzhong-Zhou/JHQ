@@ -186,7 +186,6 @@ public class TakeCashActivity extends BaseActivity {
             public void onResponse(AvailableAmountModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>可用余额" + response);
-
                 model = response;
                 if (model.getUsdt_wallet_addr() != null && !model.getUsdt_wallet_addr().equals("")) {
                     textView3.setVisibility(View.VISIBLE);
@@ -195,7 +194,16 @@ public class TakeCashActivity extends BaseActivity {
                 } else {
                     textView3.setVisibility(View.GONE);
                     textView1.setVisibility(View.VISIBLE);
+
+                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                        }
+                    });
                 }
+
                 textView4.setText(getString(R.string.takecash_h3) + response.getCommon_usable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8)
                         + "(" + model.getMin_withdrawal_money() + "-" +
@@ -203,7 +211,7 @@ public class TakeCashActivity extends BaseActivity {
 
                 textView5.setText(getString(R.string.takecash_h14) + response.getWithdrawal_service_charge()
                         + getString(R.string.recharge_h32));//手续费
-                textView7.setText(localUserInfo.getPhonenumber());//手机号码
+                textView7.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());//手机号码
             }
         });
     }
@@ -282,9 +290,28 @@ public class TakeCashActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }*/
-                Bundle bundle = new Bundle();
-                bundle.putString("id", response.getId());
-                CommonUtil.gotoActivityWithData(TakeCashActivity.this, TakeCashDetailActivity.class, bundle, true);
+                if (response.getCode() ==1){
+                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(TakeCashActivity.this, SetTransactionPasswordActivity.class, false);
+                        }
+                    });
+                }else if (response.getCode() ==2){
+                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                        }
+                    });
+                }else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", response.getId());
+                    CommonUtil.gotoActivityWithData(TakeCashActivity.this, TakeCashDetailActivity.class, bundle, true);
+                }
+
             }
         }, true);
     }

@@ -74,12 +74,12 @@ public class OkHttpClientManager {
 //    public static String HOST = "http://192.168.0.200";
 
     //测试地址
-//    public static String IMGHOST = "http://www.usdtcai.com";//图片地址
-//    public static String HOST = "http://www.usdtcai.com";//接口地址
+    public static String IMGHOST = "http://www.usdtcai.com";//图片地址
+    public static String HOST = "http://www.usdtcai.com";//接口地址
 
     //正式地址
-    public static String IMGHOST = "https://app.ofcapital.net";//图片地址
-    public static String HOST = "https://app.ofcapital.net";//接口地址
+//    public static String IMGHOST = "https://app.ofcapital.net";//图片地址
+//    public static String HOST = "https://app.ofcapital.net";//接口地址
     public boolean isLogin = false;
     public static boolean isFace = false;
 
@@ -177,9 +177,9 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
             url = url + "&lang_type=" + LocalUserInfo.getInstance(mContext).getLanguage_Type();
-        }else {
+        } else {
             url = url + "&lang_type=" + "en";
         }
         MyLogger.i(">>>>>>get请求地址：" + HOST + url);
@@ -255,9 +255,9 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
             params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-        }else {
+        } else {
             params.put("lang_type", "en");
         }
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
@@ -303,9 +303,9 @@ public class OkHttpClientManager {
                 Map<String, String> params1 = new HashMap<>();
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
-                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
                     params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-                }else {
+                } else {
                     params.put("lang_type", "en");
                 }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
@@ -316,9 +316,9 @@ public class OkHttpClientManager {
         } else {
             //不需要加密
             isJiaMi = false;
-            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
                 params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-            }else {
+            } else {
                 params.put("lang_type", "en");
             }
             MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
@@ -341,9 +341,9 @@ public class OkHttpClientManager {
         mContext = context;
         isJiaMi = false;
         isFace = false;
-        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+        if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
             params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-        }else {
+        } else {
             params.put("lang_type", "en");
         }
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
@@ -377,9 +377,9 @@ public class OkHttpClientManager {
                 Map<String, String> params1 = new HashMap<>();
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
-                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
                     params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-                }else {
+                } else {
                     params.put("lang_type", "en");
                 }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
@@ -390,9 +390,9 @@ public class OkHttpClientManager {
             }
         } else {
             isJiaMi = false;
-            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")){
+            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
                 params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
-            }else {
+            } else {
                 params.put("lang_type", "en");
             }
             MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
@@ -484,21 +484,21 @@ public class OkHttpClientManager {
                         MyLogger.i("请求到的数据onResponse", string);
 //                    sendSuccessResultCallback(string, resCallBack);
                         JSONObject mJsonObject = new JSONObject(string);
-                        String result_code = mJsonObject.getString("code");
-                        if (isFace){
+                        int result_code = mJsonObject.getInt("code");
+                        if (isFace) {
                             //人脸
-                            if (result_code.equals("200000")) {
+                            if (result_code == 200000) {
                                 String result = mJsonObject.getString("data");
 //                                sendSuccessResultCallback(string, resCallBack);
                                 Object o = mGson.fromJson(result, resCallBack.mType);
                                 sendSuccessResultCallback(o, resCallBack);
-                            }else {
+                            } else {
                                 String message = mJsonObject.getString("message");
                                 sendFailedStringCallback(response.request(), message, null, resCallBack);
                             }
                         } else {
                             //不是人脸
-                            String reason = mJsonObject.getString("msg");
+                            String msg = mJsonObject.getString("msg");
                             String result = mJsonObject.getString("data");
                             //1	成功
                             //2	操作数据失败
@@ -513,25 +513,37 @@ public class OkHttpClientManager {
                             //11	操作限制
                             //12	无效
                             //13	过期
-                            if (result_code.equals("1") || result_code.equals("8") || result_code.equals("9")) {
-                                //数据请求成功-解析数据
-                                if (resCallBack.mType == String.class) {
-                                    sendSuccessResultCallback(string, resCallBack);
-                                } else {
-                                    Object o = mGson.fromJson(result, resCallBack.mType);
-                                    sendSuccessResultCallback(o, resCallBack);
-                                }
-                            } else if (result_code.equals("13") || result_code.equals("12") || result_code.equals("4")) {
-                                //token失效-重新登录
-                                LocalUserInfo.getInstance(mContext).setUserId("");
-                                CommonUtil.gotoActivity(mContext, LoginActivity.class);
 
-                            } else if (result_code.equals("100") || result_code.equals("101") || result_code.equals("102")) {
-                                //特殊情况-登录后手机不是注册时的手机
-                                sendFailedStringCallback(response.request(), result_code, new Exception(reason), resCallBack);
-                            } else {
-                                //数据请求失败
-                                sendFailedStringCallback(response.request(), reason, null, resCallBack);
+                            switch (result_code) {
+                                case 1:
+                                case 8:
+                                case 9:
+                                    //数据请求成功-解析数据
+                                    if (resCallBack.mType == String.class) {
+                                        sendSuccessResultCallback(string, resCallBack);
+                                    } else {
+                                        Object o = mGson.fromJson(result, resCallBack.mType);
+                                        sendSuccessResultCallback(o, resCallBack);
+                                    }
+                                    break;
+                                case 4:
+                                case 12:
+                                case 13:
+                                    //token失效-重新登录
+                                    LocalUserInfo.getInstance(mContext).setUserId("");
+                                    CommonUtil.gotoActivity(mContext, LoginActivity.class);
+                                    break;
+                                case 100:
+                                case 101:
+                                case 102:
+                                    //特殊情况-登录后手机不是注册时的手机
+                                    sendFailedStringCallback(response.request(), result_code+"", new Exception(msg), resCallBack);
+                                    break;
+                                default:
+                                    //数据请求失败
+                                    sendFailedStringCallback(response.request(), msg, null, resCallBack);
+                                    break;
+
                             }
                         }
 

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.SetAddressModel;
@@ -15,9 +17,6 @@ import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +54,7 @@ public class SetAddressActivity extends BaseActivity {
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
 
-        textView2.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
+        textView2.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
         if (type == 1) {
             //ETH
             titleView.setTitle(getString(R.string.address_h1));
@@ -77,6 +76,7 @@ public class SetAddressActivity extends BaseActivity {
 
         request("?token=" + localUserInfo.getToken());
     }
+
     private void request(String string) {
         OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.WalletAddress + string,
                 new OkHttpClientManager.ResultCallback<SetAddressModel>() {
@@ -93,6 +93,15 @@ public class SetAddressActivity extends BaseActivity {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
                         editText1.setText(response.getUsdt_wallet_addr());
+                        if (response.getTrade_password().equals("")) {
+                            showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                                }
+                            });
+                        }
                     }
                 });
     }
@@ -156,7 +165,7 @@ public class SetAddressActivity extends BaseActivity {
 
     //钱包地址设置
     private void RequestSetWalletAddress(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.WalletAddress, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.WalletAddress, params, new OkHttpClientManager.ResultCallback<SetAddressModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 textView4.setClickable(true);
@@ -199,22 +208,78 @@ public class SetAddressActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(SetAddressModel response) {
                 textView4.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
-//                myToast(getString(R.string.address_h11));
-                JSONObject jObj;
+
+                if (response.getCode() == 1) {
+                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                        }
+                    });
+                } else if (response.getCode() == 2) {
+                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
+                        }
+                    });
+                } else {
+                    myToast(getString(R.string.address_h11));
+                    finish();
+                }
+
+                /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
-                    myToast(jObj.getString("msg"));
+
+                    JSONObject jObj1 = jObj.getJSONObject("data");
+                    int code = jObj1.getInt("code");
+                    if (code ==1){
+                        showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                            }
+                        });
+
+                    }else if (code ==2){
+                        showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
+                            }
+                        });
+
+                    }else {
+                        myToast(jObj.getString("msg"));
+                        finish();
+                    }
+
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
-                finish();
+                }*/
+
             }
         }, true);
+    }
+
+    public static boolean isGoodJson(String json) {
+
+        try {
+            new JsonParser().parse(json);
+            return true;
+        } catch (JsonParseException e) {
+            return false;
+        }
     }
 
     private boolean match() {

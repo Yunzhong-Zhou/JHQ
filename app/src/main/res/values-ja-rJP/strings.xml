@@ -245,7 +245,7 @@
 
     <!--fragment4-->
     <string name="fragment4_h1">Fund(USDT)</string>
-    <string name="fragment4_h2">Address</string>
+    <string name="fragment4_h2">ECR20 Address</string>
     <string name="fragment4_h3">Amount</string>
     <string name="fragment4_h4">Enter Amount</string>
     <string name="fragment4_h5">Enter Amount</string>
@@ -253,11 +253,11 @@
     <string name="fragment4_h7">Note：\n1.Deposits require confirmations of the entire network. It will arrive and be ready for withdrawals after 12 confirmations\n2.All deposits will incur GAS fee.\n3.Do not submit fake deposit requests</string>
     <string name="fragment4_h8">Submit Request</string>
     <string name="fragment4_h9">Request Submitted</string>
-    <string name="fragment4_h10">Go to Deposit Address</string>
+    <string name="fragment4_h10">Go to Deposit ECR20 Address</string>
     <string name="fragment4_h11">USDT</string>
     <string name="fragment4_h12">Wire Transfer</string>
     <string name="fragment4_h13">Note：\n1.Transfers may take 3-5 business days\n2.Wire transfer bank charge: 50 AUD；\n3.The actual fund settlement time and amount shall prevail</string>
-    <string name="fragment4_h14">Please refer to the deposit address after submitting the request</string>
+    <string name="fragment4_h14">Please refer to the deposit ECR20 address after submitting the request</string>
     <string name="fragment4_h15">Amount(AUD)</string>
     <string name="fragment4_h16">Bank Details</string>
     <string name="fragment4_h17">Total Profit(USDT)</string>
@@ -406,7 +406,7 @@
     <string name="address_h8">Trx Password</string>
     <string name="address_h9">Enter Trx Password</string>
     <string name="address_h10">Confirm</string>
-    <string name="address_h11">Address Saved</string>
+    <string name="address_h11">USDT Address Saved</string>
     <string name="address_h12">Withdrawal Address</string>
     <string name="address_h13">No withdrawal address\nPlease add</string>
     <string name="address_h14">Choose Region</string>
@@ -420,7 +420,8 @@
     <string name="address_h22">Japan</string>
     <string name="address_h23">Korea</string>
     <string name="address_h24">Vietnam</string>
-
+    <string name="address_h25">需设置交易密码后才可操作</string>
+    <string name="address_h26">需设置USDT地址后才可操作</string>
     <!--钱包-->
     <string name="qianbao_h1">Asset</string>
     <string name="qianbao_h2">Fund(USDT)</string>
@@ -451,7 +452,7 @@
     <string name="recharge_h11">Amount(USDT)</string>
     <string name="recharge_h12">Approved</string>
     <string name="recharge_h13">Processing</string>
-    <string name="recharge_h14">Address</string>
+    <string name="recharge_h14">ECR20 Address</string>
     <string name="recharge_h15">SWIFT Code</string>
     <string name="recharge_h16">Settled</string>
     <string name="recharge_h17">Deposit Time</string>

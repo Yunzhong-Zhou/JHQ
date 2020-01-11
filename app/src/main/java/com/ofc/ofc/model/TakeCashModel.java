@@ -31,6 +31,15 @@ public class TakeCashModel implements Serializable {
     private double money;
     private String updated_at;
     private String created_at;
+    private int code;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public String getId() {
         return id;

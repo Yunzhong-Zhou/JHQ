@@ -108,7 +108,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
             });
         }
     }
-
     protected <T extends View> T findViewByID_My(int id) {
         return (T) mParent.findViewById(id);
     }
