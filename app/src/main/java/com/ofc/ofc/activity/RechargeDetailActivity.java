@@ -235,6 +235,8 @@ public class RechargeDetailActivity extends BaseActivity {
                     linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
                     linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格
                     linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账
+                    imageView_addr.setVisibility(View.VISIBLE);//显示二维码
+                    textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
 
                     textView2.setText("+" + response.getTop_up().getMoney());//充值个数
                     textView3.setText("" + getString(R.string.recharge_h11));//充币个数（USDT）
@@ -258,6 +260,8 @@ public class RechargeDetailActivity extends BaseActivity {
                     linearLayout_bank.setVisibility(View.VISIBLE);//显示银行信息
                     linearLayout_jiage.setVisibility(View.VISIBLE);//显示USDT价格
                     linearLayout_shiji.setVisibility(View.VISIBLE);//显示实际到账
+                    imageView_addr.setVisibility(View.GONE);//隐藏二维码
+                    textView_baocun.setVisibility(View.GONE);//隐藏保存二维码
 
                     textView2.setText("+" + response.getTop_up().getInput_money());//充值个数
                     textView3.setText("" + getString(R.string.recharge_h3));//电汇金额（澳元）
@@ -273,7 +277,7 @@ public class RechargeDetailActivity extends BaseActivity {
                     textView12.setText("" + response.getAud_wire_transfer().getBank_swift_code());//银行电汇SWIFT代码
                     textView13.setText("" + response.getAud_wire_transfer().getBank_aba_code());//银行代码ABA#
 
-                    textView.setText(response.getTop_up().getUsdt_price());//USDT价格
+                    textView.setText("$"+response.getTop_up().getUsdt_price());//USDT价格
                     textView1.setText(response.getTop_up().getMoney() + getString(R.string.recharge_h32));//实际到账
                     textView14.setText(response.getTop_up().getCreated_at());//充值时间
                     textView15.setText(response.getTop_up().getSn());//流水号

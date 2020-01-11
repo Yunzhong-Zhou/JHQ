@@ -447,6 +447,8 @@ public class Fragment4 extends BaseFragment {
                     detail_linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
                     detail_linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格
                     detail_linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账
+                    detail_imageView_addr.setVisibility(View.VISIBLE);//显示二维码
+                    detail_textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
 
                     detail_textView2.setText("+" + response.getTop_up().getMoney());//充值个数
                     detail_textView3.setText("" + getString(R.string.recharge_h11));//充币个数（USDT）
@@ -470,6 +472,8 @@ public class Fragment4 extends BaseFragment {
                     detail_linearLayout_bank.setVisibility(View.VISIBLE);//显示银行信息
                     detail_linearLayout_jiage.setVisibility(View.VISIBLE);//显示USDT价格
                     detail_linearLayout_shiji.setVisibility(View.VISIBLE);//显示实际到账
+                    detail_imageView_addr.setVisibility(View.GONE);//隐藏二维码
+                    detail_textView_baocun.setVisibility(View.GONE);//隐藏保存二维码
 
                     detail_textView2.setText("+" + response.getTop_up().getInput_money());//充值个数
                     detail_textView3.setText("" + getString(R.string.recharge_h3));//电汇金额（澳元）
@@ -485,7 +489,7 @@ public class Fragment4 extends BaseFragment {
                     detail_textView12.setText("" + response.getAud_wire_transfer().getBank_swift_code());//银行电汇SWIFT代码
                     detail_textView13.setText("" + response.getAud_wire_transfer().getBank_aba_code());//银行代码ABA#
 
-                    detail_textView.setText(response.getTop_up().getUsdt_price());//USDT价格
+                    detail_textView.setText("$"+response.getTop_up().getUsdt_price());//USDT价格
                     detail_textView1.setText(response.getTop_up().getMoney() + getString(R.string.recharge_h32));//实际到账
                     detail_textView14.setText(response.getTop_up().getCreated_at());//充值时间
                     detail_textView15.setText(response.getTop_up().getSn());//流水号

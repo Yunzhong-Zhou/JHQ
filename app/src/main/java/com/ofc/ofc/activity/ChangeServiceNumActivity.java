@@ -3,6 +3,7 @@ package com.ofc.ofc.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -33,6 +34,7 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  * 修改服务代码
  */
 public class ChangeServiceNumActivity extends BaseActivity {
+    String num = "";
     ChangeServiceNumModel model;
     LinearLayout headView,linearLayout;
     TextView textView1, textView2, textView3;
@@ -47,6 +49,49 @@ public class ChangeServiceNumActivity extends BaseActivity {
         setContentView(R.layout.activity_changeservicenum);
 
     }
+    // 触摸其他区域，输入法界面消失
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (isShouldHideInput(v, ev)) {
+                MyLogger.i(">>>>>>>>>"+editText1.getText().toString().trim());
+                if (!editText1.getText().toString().trim().equals("")){
+                    showProgress(false, getString(R.string.app_loading1));
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("service_code", editText1.getText().toString().trim());
+                    params.put("token", localUserInfo.getToken());
+                    RequestSet(params);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
+    }
+    public boolean isShouldHideInput(View v, MotionEvent event) {
+        if (v != null && (v instanceof EditText)) {
+            int[] leftTop = {0, 0};
+            // 获取输入框当前的location位置
+            v.getLocationInWindow(leftTop);
+            int left = leftTop[0];
+            int top = leftTop[1];
+            int bottom = top + v.getHeight();
+            int right = left + v.getWidth();
+            if (event.getX() > left && event.getX() < right
+                    && event.getY() > top && event.getY() < bottom) {
+                // 点击的是输入框区域，保留点击EditText的事件
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @Override
     protected void initView() {
@@ -82,19 +127,18 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 runnable = new Runnable() {
                     @Override
                     public void run() {
+                        MyLogger.i(">>>>>>>>>"+editText1.getText().toString().trim());
                         if (!editText1.getText().toString().trim().equals("")){
                             showProgress(false, getString(R.string.app_loading1));
                             HashMap<String, String> params = new HashMap<>();
                             params.put("service_code", editText1.getText().toString().trim());
                             params.put("token", localUserInfo.getToken());
                             RequestSet(params);
-                        }else {
-//                            myToast(getString(R.string.myprofile_h48));
                         }
                     }
                 };
                 Log.v("tag", "(((((" + s.toString());
-                handler.postDelayed(runnable, 1000);
+                handler.postDelayed(runnable, 2000);
             }
         });*/
         editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -114,6 +158,30 @@ public class ChangeServiceNumActivity extends BaseActivity {
                     }
                 }
                 return true;
+            }
+        });
+
+        //失去焦点时触发
+        editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                } else {
+                    // 此处为失去焦点时的处理内容
+                    MyLogger.i(">>>>>>>>>"+editText1.getText().toString().trim());
+                    editText1.setText(" ");
+                    editText1.setSelection(editText1.getText().length());
+                    //得到焦点
+                    editText1.requestFocus();
+                    /*if (!editText1.getText().toString().trim().equals("")){
+                        showProgress(false, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("service_code", editText1.getText().toString().trim());
+                        params.put("token", localUserInfo.getToken());
+                        RequestSet(params);
+                    }*/
+                }
             }
         });
         imageView_bianji = findViewByID_My(R.id.imageView_bianji);
@@ -138,6 +206,10 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 if (!info.equals("")) {
                     myToast(info);
                 }
+                editText1.setText(num);
+                //得到焦点
+                editText1.requestFocus();
+                editText1.setSelection(editText1.getText().length());
             }
 
             @Override
@@ -188,6 +260,9 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 if (response.getService_center_grade() == 0){
                     //可编辑
                     editText1.setEnabled(true);
+                    //得到焦点
+                    editText1.requestFocus();
+                    editText1.setSelection(editText1.getText().length());
                 }else {
                     //不可编辑
                     editText1.setEnabled(false);
@@ -210,6 +285,8 @@ public class ChangeServiceNumActivity extends BaseActivity {
                 }else {
                     linearLayout.setVisibility(View.GONE);
                 }
+
+                num = editText1.getText().toString().trim();
 
             }
         });
