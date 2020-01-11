@@ -420,8 +420,8 @@
     <string name="address_h22">Japan</string>
     <string name="address_h23">Korea</string>
     <string name="address_h24">Vietnam</string>
-    <string name="address_h25">需设置交易密码后才可操作</string>
-    <string name="address_h26">需设置USDT地址后才可操作</string>
+    <string name="address_h25">Please set up Trx Password first</string>
+    <string name="address_h26">Please set up USDT address first</string>
     <!--钱包-->
     <string name="qianbao_h1">Asset</string>
     <string name="qianbao_h2">Fund(USDT)</string>

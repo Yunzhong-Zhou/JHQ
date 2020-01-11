@@ -300,7 +300,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                             tv2.setClickable(false);
                                 /*String string = "?mobile=" + phonenum +
                                         "&type=" + "10";//类型*/
-                            tv3.setText(getString(R.string.scavengingpayment_h12) + localUserInfo.getPhonenumber());
+                            tv3.setText(getString(R.string.scavengingpayment_h12) + "+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
 
                             HashMap<String, String> params = new HashMap<>();
                             params.put("mobile", localUserInfo.getPhonenumber());

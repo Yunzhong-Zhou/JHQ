@@ -281,7 +281,7 @@
     <string name="fragment5_h9">推广</string>
     <string name="fragment5_h10">我的钱包</string>
     <string name="fragment5_h11">合约记录</string>
-    <string name="fragment5_h12">提现记录</string>
+    <string name="fragment5_h12">提币记录</string>
     <string name="fragment5_h13">充币记录</string>
     <string name="fragment5_h14">资料管理</string>
     <string name="fragment5_h15">有奖邀请</string>
@@ -542,7 +542,7 @@
     <string name="takecash_h27">提币失败</string>
     <string name="takecash_h28">提币失败原因：</string>
     <string name="takecash_h29">手续费</string>
-    <string name="takecash_h30">USDT提现</string>
+    <string name="takecash_h30">USDT提币</string>
     <string name="takecash_h31">暂无银行卡\n请添加</string>
     <string name="takecash_h32">银行名称</string>
     <string name="takecash_h33">银行卡号</string>
