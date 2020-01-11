@@ -108,6 +108,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
             });
         }
     }
+
     protected <T extends View> T findViewByID_My(int id) {
         return (T) mParent.findViewById(id);
     }
@@ -144,16 +145,18 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
     @Override
     public void showProgress(boolean flag, String message) {
         MyLogger.i("showProgress");
-        if (pd == null) {
-            pd = new ProgressDialog(getActivity());
-            pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            pd.setCancelable(flag);
-            pd.setCanceledOnTouchOutside(false);
-            pd.setMessage(message);
-            pd.show();
-        } else {
-            pd.setMessage(message);
-            pd.show();
+        if (!getActivity().isFinishing()) {
+            if (pd == null) {
+                pd = new ProgressDialog(getActivity());
+                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                pd.setCancelable(flag);
+                pd.setCanceledOnTouchOutside(false);
+                pd.setMessage(message);
+                pd.show();
+            } else {
+                pd.setMessage(message);
+                pd.show();
+            }
         }
     }
 
@@ -310,6 +313,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
             }
         }
     }
+
     public void showToast_shenqing(String msg, String btntxt1, String btntxt2, View.OnClickListener listener1, View.OnClickListener listener2) {
         //        if (!isFinishing()) {
 //            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

@@ -11,6 +11,15 @@ public class TransferModel implements Serializable {
      */
 
     private String common_usable_money;
+    private String hk;
+
+    public String getHk() {
+        return hk;
+    }
+
+    public void setHk(String hk) {
+        this.hk = hk;
+    }
 
     public String getCommon_usable_money() {
         return common_usable_money;

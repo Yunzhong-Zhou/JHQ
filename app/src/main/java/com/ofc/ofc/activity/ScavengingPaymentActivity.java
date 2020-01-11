@@ -112,6 +112,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
+                                        finish();
                                     }
                                 }
                         );
@@ -199,6 +200,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
+                                    finish();
                                 }
                             });
                 } else if (response.getCode() == 2) {
@@ -214,22 +216,17 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
+                                    finish();
                                 }
                             });
                 } else {
                     showToast(getString(R.string.scavengingpayment_h5),
-                            getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
 //                        finish();
                                     CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
                                 }
                             });
                 }

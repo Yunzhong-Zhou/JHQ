@@ -26,6 +26,7 @@ import java.util.Map;
  * 划转
  */
 public class TransferActivity extends BaseActivity {
+    TransferModel model;
     TextView textView1, textView2, textView3,textView4;
     EditText editText1;
 
@@ -109,6 +110,7 @@ public class TransferActivity extends BaseActivity {
             public void onResponse(TransferModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转" + response);
+                model = response;
                 textView1.setText(response.getCommon_usable_money() + "");
             }
         });
@@ -129,7 +131,8 @@ public class TransferActivity extends BaseActivity {
                     HashMap<String, String> params = new HashMap<>();
                     params.put("money", editText1.getText().toString().trim());
                     params.put("token", localUserInfo.getToken());
-                    RequestAdd(params);//充值
+                    params.put("hk", model.getHk());
+                    RequestAdd(params);
                 } else {
                     myToast(getString(R.string.scavengingpayment_h15));
                 }
@@ -154,7 +157,6 @@ public class TransferActivity extends BaseActivity {
                 textView3.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转提交" + response);
-
 
                 showToast(getString(R.string.scavengingpayment_h20), new View.OnClickListener() {
                     @Override

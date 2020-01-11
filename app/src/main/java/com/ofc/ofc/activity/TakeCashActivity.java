@@ -207,6 +207,7 @@ public class TakeCashActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
+                                    finish();
                                 }
                             });
                 }
@@ -310,6 +311,7 @@ public class TakeCashActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
+                                    finish();
                                 }
                             });
                 }else if (response.getCode() ==2){
@@ -325,6 +327,7 @@ public class TakeCashActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
+                                    finish();
                                 }
                             });
                 }else {

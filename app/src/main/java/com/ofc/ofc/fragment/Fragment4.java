@@ -800,7 +800,6 @@ public class Fragment4 extends BaseFragment {
     @Override
     public void requestServer() {
         super.requestServer();
-
         showProgress(true, getString(R.string.app_loading));
         request("?token=" + localUserInfo.getToken());
     }
