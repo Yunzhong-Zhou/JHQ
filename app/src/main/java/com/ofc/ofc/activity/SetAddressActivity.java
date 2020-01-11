@@ -94,13 +94,20 @@ public class SetAddressActivity extends BaseActivity {
                         hideProgress();
                         editText1.setText(response.getUsdt_wallet_addr());
                         if (response.getTrade_password().equals("")) {
-                            showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                            showToast(getString(R.string.address_h25),
+                                    getString(R.string.password_h5), getString(R.string.password_h6),
+                                    new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
                                     CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
                                 }
-                            });
+                            }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            dialog.dismiss();
+                                        }
+                                    });
                         }
                     }
                 });
@@ -214,21 +221,35 @@ public class SetAddressActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>地址设置" + response);
 
                 if (response.getCode() == 1) {
-                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                    showToast(getString(R.string.address_h25),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
                             CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
                         }
-                    });
+                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                    showToast(getString(R.string.address_h26),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
                             CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
                         }
-                    });
+                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 } else {
                     myToast(getString(R.string.address_h11));
                     finish();

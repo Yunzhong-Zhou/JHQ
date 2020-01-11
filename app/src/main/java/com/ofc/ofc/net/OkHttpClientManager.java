@@ -304,9 +304,9 @@ public class OkHttpClientManager {
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
                 if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
-                    params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                    params1.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
                 } else {
-                    params.put("lang_type", "en");
+                    params1.put("lang_type", "en");
                 }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
                 getInstance().getPostDelegate().postAsyn(HOST + url, params1, callback, null);
@@ -378,9 +378,9 @@ public class OkHttpClientManager {
 //                params1.put("app_type", "1");//验证是否为Android
                 params1.put("param", enString);
                 if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
-                    params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                    params1.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
                 } else {
-                    params.put("lang_type", "en");
+                    params1.put("lang_type", "en");
                 }
                 MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
                 Param[] params2 = map2Params(params1);

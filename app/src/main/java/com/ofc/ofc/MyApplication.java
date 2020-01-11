@@ -10,6 +10,7 @@ import com.hjq.toast.ToastUtils;
 import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.util.Set;
 
@@ -39,6 +40,23 @@ public class MyApplication extends Application {
 
         //腾讯bugly 异常上报初始化-建议在测试阶段建议设置成true，发布时设置为false。
         CrashReport.initCrashReport(getApplicationContext(), "789711ef96", false);
+        //非wifi情况下，主动下载x5内核
+        QbSdk.setDownloadWithoutWifi(false);
+        //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+            @Override
+            public void onViewInitFinished(boolean arg0) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                MyLogger.i("5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。"+arg0);
+            }
+
+            @Override
+            public void onCoreInitFinished() {
+
+            }
+        };
+        //x5内核初始化接口
+        QbSdk.initX5Environment(getApplicationContext(), cb);
 
         //toast初始化
         ToastUtils.init(this);
@@ -75,6 +93,42 @@ public class MyApplication extends Application {
                         Log.d("alias", "设置别名结果为" + i);
                     }
                 });*/
+
+
+       /* Resources resources = getResources();
+        // 获取应用内语言
+        final Configuration configuration = resources.getConfiguration();
+//        Locale locale=configuration.locale;
+        final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                configuration.locale = new Locale("zh", "CN");
+//                configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+                break;
+            case "en":
+                //设置为英文
+                configuration.locale = new Locale("en", "US");
+//                configuration.setLocale(Locale.US);
+                break;
+            case "ja":
+                //设置为日文
+                configuration.locale = new Locale("ja", "JP");
+//                configuration.setLocale(Locale.JAPAN);
+                break;
+            case "ko":
+                //设置为韩文
+                configuration.locale = new Locale("ko", "KR");
+//                configuration.setLocale(Locale.KOREA);
+                break;
+            case "vi":
+                //设置为越南文
+                configuration.locale = new Locale("vi", "VN");
+//                configuration.setLocale(Locale.);
+
+                break;
+        }
+        resources.updateConfiguration(configuration, displayMetrics);*/
 
         new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this,720,1280).register();

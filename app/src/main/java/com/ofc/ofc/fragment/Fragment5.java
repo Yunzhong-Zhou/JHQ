@@ -216,10 +216,6 @@ public class Fragment5 extends BaseFragment {
             public void onResponse(Fragment5Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
                 model = response;
-                //昵称
-                textView1.setText(response.getNickname());
-                //邀请码
-                textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
                 //等级
                 switch (response.getGrade()) {
                     case 1:
@@ -251,6 +247,11 @@ public class Fragment5 extends BaseFragment {
                 textView6.setText("" + response.getProfit_money());//盈利
                 textView7.setText("" + response.getCommission_money());//佣金
 //                textView8.setText("" + response.getCommission_money());//
+
+                //昵称
+                textView1.setText(response.getNickname());
+                //邀请码
+                textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
 
                 hideProgress();
 

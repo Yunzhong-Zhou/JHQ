@@ -97,6 +97,7 @@ public class MainActivity extends BaseActivity {
 
         mImmersionBar.reset().init();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -382,6 +383,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        isOver = false;
         // 缺少权限时, 进入权限配置页面
         if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
             startPermissionsActivity();

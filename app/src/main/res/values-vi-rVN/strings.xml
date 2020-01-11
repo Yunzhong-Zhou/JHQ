@@ -245,7 +245,7 @@
 
     <!--fragment4-->
     <string name="fragment4_h1">Quỹ (USDT)</string>
-    <string name="fragment4_h2">ECR20 Địa chỉ</string>
+    <string name="fragment4_h2">ERC20 Địa chỉ</string>
     <string name="fragment4_h3">Số lượng</string>
     <string name="fragment4_h4">Nhập số lượng</string>
     <string name="fragment4_h5">Nhập số lượng</string>
@@ -253,11 +253,11 @@
     <string name="fragment4_h7">Lưu ý：\n1.Việc gửi tiền cần toàn bộ mạng lưới xác thực. Tiền sẽ đến và có thể rút sau 12 lượt xác thực.\n2.Tất cả các khoản tiền gửi sẽ phải chịu phí GAS.\n3.Vui lòng không gửi yêu cầu giả</string>
     <string name="fragment4_h8">Gửi yêu cầu</string>
     <string name="fragment4_h9">Yêu cầu đã gửi</string>
-    <string name="fragment4_h10">Đi đến ECR20 địa chỉ ví gửi</string>
+    <string name="fragment4_h10">Đi đến ERC20 địa chỉ ví gửi</string>
     <string name="fragment4_h11">USDT</string>
     <string name="fragment4_h12">Chuyển khoản</string>
     <string name="fragment4_h13">Lưu ý：\n1.Chuyển tiền có thể mất 3-5 ngày làm việc\n2.Phí chuyển khoản ngân hàng: 50 AUD；\n3.Thời gian và số tiền thanh toán thực tế sẽ chiếm ưu thế</string>
-    <string name="fragment4_h14">Vui lòng tham khảo ECR20 địa chỉ ví gửi sau khi gửi yêu cầu</string>
+    <string name="fragment4_h14">Vui lòng tham khảo ERC20 địa chỉ ví gửi sau khi gửi yêu cầu</string>
     <string name="fragment4_h15">Số lượng (AUD)</string>
     <string name="fragment4_h16">Thông tin ngân hàng</string>
     <string name="fragment4_h17">Tổng lợi nhuận (USDT)</string>
@@ -271,7 +271,7 @@
     <string name="fragment4_h29">Gửi</string>
 
     <!--fragment5-->
-    <string name="fragment5_h1">Mã giới thiệu：</string>
+    <string name="fragment5_h1">Mã Mời：</string>
     <string name="fragment5_h2">Quỹ (USDT)</string>
     <string name="fragment5_h3">Lợi nhuận (USDT)</string>
     <string name="fragment5_h4">Tổng hoa hồng (USDT)</string>
@@ -288,7 +288,7 @@
     <string name="fragment5_h15">Giới thiệu</string>
     <string name="fragment5_h16">Thông báo</string>
     <string name="fragment5_h17">Liên hệ</string>
-    <string name="fragment5_h18">Giải thưởng hàng ngày</string>
+    <string name="fragment5_h18">Phần Thưởng</string>
     <string name="fragment5_h19">Tổng lợi nhuận：</string>
     <string name="fragment5_h20">KYC</string>
     <string name="fragment5_h21">Loại ID</string>
@@ -309,7 +309,7 @@
     <string name="myprofile_h1">Hồ sơ</string>
     <string name="myprofile_h2">Số điện thoại</string>
     <string name="myprofile_h3">Tên</string>
-    <string name="myprofile_h4">Mã giới thiệu</string>
+    <string name="myprofile_h4">Mã Mời</string>
     <string name="myprofile_h5">Thành viên</string>
     <string name="myprofile_h6">Địa chỉ rút tiền</string>
     <string name="myprofile_h7">Mật khẩu giao dịch</string>
@@ -452,7 +452,7 @@
     <string name="recharge_h11">Số tiền (USDT)</string>
     <string name="recharge_h12">Đã duyệt</string>
     <string name="recharge_h13">Đang xử lý</string>
-    <string name="recharge_h14">ECR20 Địa chỉ</string>
+    <string name="recharge_h14">ERC20 Địa chỉ</string>
     <string name="recharge_h15">Mã SWIFT</string>
     <string name="recharge_h16">Đã xử lý</string>
     <string name="recharge_h17">Thời gian gửi</string>

@@ -150,7 +150,7 @@ dependencies {
 
     //极验-机器验证
 //    implementation(name: 'geetest_sensebot_android_v4.1.2_20190605', ext: 'aar')
-    implementation 'com.geetest.sensebot:sensebot:4.1.8'
+//    implementation 'com.geetest.sensebot:sensebot:4.1.8'
 
     //带气泡的进度条
     implementation 'com.xw.repo:bubbleseekbar:3.20-lite'
@@ -170,4 +170,8 @@ dependencies {
 
     //人脸识别
     implementation(name: 'cllc_sdk_1_0_0', ext: 'aar')
+
+    //腾讯X5 WebView
+    implementation 'com.tencent.tbs.tbssdk:sdk:43697'
+
 }

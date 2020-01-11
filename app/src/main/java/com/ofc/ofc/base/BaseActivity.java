@@ -14,16 +14,16 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
+import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.toast.ToastUtils;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.view.LoadingLayout;
 import com.ofc.ofc.view.MyDefaultFooter;
 import com.ofc.ofc.view.MyDefaultHeader;
 import com.ofc.ofc.view.TitleView;
-import com.cy.dialog.BaseDialog;
-import com.gyf.immersionbar.ImmersionBar;
-import com.hjq.toast.ToastUtils;
-import com.liaoinstan.springview.widget.SpringView;
 
 import java.util.HashMap;
 
@@ -63,8 +63,8 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
             e.printStackTrace();
         }
 
-
         localUserInfo = LocalUserInfo.getInstance(this);
+
         inflater = LayoutInflater.from(this);
         dialog = new BaseDialog(this);
 

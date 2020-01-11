@@ -100,13 +100,21 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 if (response != null) {
                     model = response;
                     if (response.getTrade_password().equals("")) {
-                        showToast(getString(R.string.address_h25), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
-                            }
-                        });
+                        showToast(getString(R.string.address_h25), getString(R.string.password_h5),
+                                getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                }
+                        );
                     }
 //                    hk = response.getHk();
                     textView2.setText(response.getCommon_usable_money());//可用余额
@@ -179,30 +187,51 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>转账" + response);
 
                 if (response.getCode() == 1) {
-                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
-                        }
-                    });
+                    showToast(getString(R.string.address_h25),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
-                        }
-                    });
+                    showToast(getString(R.string.address_h26),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 } else {
-                    showToast(getString(R.string.scavengingpayment_h5), new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
+                    showToast(getString(R.string.scavengingpayment_h5),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
 //                        finish();
-                            CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
-                        }
-                    });
+                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 }
 
                 /*JSONObject jObj;
@@ -280,7 +309,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                             .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                     ViewGroup.LayoutParams.WRAP_CONTENT))
                             .animType(BaseDialog.AnimInType.CENTER)
-                            .canceledOnTouchOutside(true)
+                            .canceledOnTouchOutside(false)
                             .dimAmount(0.8f)
                             .show();
                     TextView tv1 = dialog.findViewById(R.id.textView1);
@@ -300,7 +329,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                             tv2.setClickable(false);
                                 /*String string = "?mobile=" + phonenum +
                                         "&type=" + "10";//类型*/
-                            tv3.setText(getString(R.string.scavengingpayment_h12) + "+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
+                            tv3.setText(getString(R.string.scavengingpayment_h12) + "+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
 
                             HashMap<String, String> params = new HashMap<>();
                             params.put("mobile", localUserInfo.getPhonenumber());

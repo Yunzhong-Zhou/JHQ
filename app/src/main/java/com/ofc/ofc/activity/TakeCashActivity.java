@@ -195,13 +195,20 @@ public class TakeCashActivity extends BaseActivity {
                     textView3.setVisibility(View.GONE);
                     textView1.setVisibility(View.VISIBLE);
 
-                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                    showToast(getString(R.string.address_h26),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
                             CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
                         }
-                    });
+                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 }
 
                 textView4.setText(getString(R.string.takecash_h3) + response.getCommon_usable_money());//可用余额
@@ -291,21 +298,35 @@ public class TakeCashActivity extends BaseActivity {
                     e.printStackTrace();
                 }*/
                 if (response.getCode() ==1){
-                    showToast(getString(R.string.address_h25), new View.OnClickListener() {
+                    showToast(getString(R.string.address_h25),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
                             CommonUtil.gotoActivity(TakeCashActivity.this, SetTransactionPasswordActivity.class, false);
                         }
-                    });
+                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 }else if (response.getCode() ==2){
-                    showToast(getString(R.string.address_h26), new View.OnClickListener() {
+                    showToast(getString(R.string.address_h26),
+                            getString(R.string.password_h5), getString(R.string.password_h6),
+                            new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
                             CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
                         }
-                    });
+                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+                            });
                 }else {
                     Bundle bundle = new Bundle();
                     bundle.putString("id", response.getId());

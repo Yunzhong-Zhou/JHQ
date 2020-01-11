@@ -51,25 +51,21 @@ public class HelloActivity extends Activity {
                 //设置为英文
 //                configuration.locale = new Locale("en", "US");
                 configuration.setLocale(Locale.US);
-
                 break;
             case "ja":
                 //设置为日文
 //                configuration.locale = new Locale("ja", "JP");
                 configuration.setLocale(Locale.JAPAN);
-
                 break;
             case "ko":
                 //设置为韩文
 //                configuration.locale = new Locale("ko", "KR");
                 configuration.setLocale(Locale.KOREA);
-
                 break;
             case "vi":
                 //设置为越南文
                 configuration.locale = new Locale("vi", "VN");
 //                configuration.setLocale(Locale.);
-
                 break;
         }
         resources.updateConfiguration(configuration, displayMetrics);
@@ -102,18 +98,21 @@ public class HelloActivity extends Activity {
     private void enterHomeActivity() {
         if (LocalUserInfo.getInstance(HelloActivity.this).getUserId().equals("")) {
             Intent intent = new Intent(this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+//            CommonUtil.gotoActivityWithFinishOtherAll(HelloActivity.this, LoginActivity.class, true);
         } else {
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+//            CommonUtil.gotoActivityWithFinishOtherAll(HelloActivity.this, MainActivity.class, true);
         }
         /*Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();*/
 
         finish();
+
     }
 
 

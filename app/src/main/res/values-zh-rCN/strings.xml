@@ -244,7 +244,7 @@
 
     <!--fragment4-->
     <string name="fragment4_h1">可用（USDT）</string>
-    <string name="fragment4_h2">ECR20充币地址</string>
+    <string name="fragment4_h2">ERC20充币地址</string>
     <string name="fragment4_h3">充币数量</string>
     <string name="fragment4_h4">请输入USDT个数</string>
     <string name="fragment4_h5">请输入电汇金额</string>
@@ -252,11 +252,11 @@
     <string name="fragment4_h7">重要提示：\n1.充值到帐时间以实际到帐为准；\n2.请注意转帐GAS费，到帐数量以实际为准；\n3.请勿提交虚假充值。</string>
     <string name="fragment4_h8">提交充币</string>
     <string name="fragment4_h9">充币提交成功</string>
-    <string name="fragment4_h10">前往设置ECR20充币地址</string>
+    <string name="fragment4_h10">前往设置ERC20充币地址</string>
     <string name="fragment4_h11">USDT</string>
     <string name="fragment4_h12">澳元电汇</string>
     <string name="fragment4_h13">重要提示：\n1.充值到帐时间以实际到帐为准，正常3—5个工作日；\n2.海外银行电汇双向手续费50澳元；\n3.到帐金额以实际到帐为准。</string>
-    <string name="fragment4_h14">请在提交后，查看ECR20充币地址</string>
+    <string name="fragment4_h14">请在提交后，查看ERC20充币地址</string>
     <string name="fragment4_h15">金额（AUD）</string>
     <string name="fragment4_h16">电汇信息</string>
     <string name="fragment4_h17">折合（USDT）</string>
@@ -324,8 +324,8 @@
     <string name="myprofile_h17">服务中心</string>
     <string name="myprofile_h19">限量申请</string>
     <string name="myprofile_h20">无需市场推广，坐享市场分成</string>
-    <string name="myprofile_h21">5%分红</string>
-    <string name="myprofile_h22">可获得服务用户的盈利\n5%分红</string>
+    <string name="myprofile_h21">10%分红</string>
+    <string name="myprofile_h22">可获得服务用户的盈利\n10%分红</string>
     <string name="myprofile_h23">1USDT/手</string>
     <string name="myprofile_h24">可获得服务用户的交易\n手续费1USDT/手</string>
     <string name="myprofile_h25">经纪人支持</string>
@@ -452,7 +452,7 @@
     <string name="recharge_h11">充币数量(USDT)</string>
     <string name="recharge_h12">充币成功</string>
     <string name="recharge_h13">充币处理中</string>
-    <string name="recharge_h14">ECR20充币地址</string>
+    <string name="recharge_h14">ERC20充币地址</string>
     <string name="recharge_h15">银行电汇SWIFT代码</string>
     <string name="recharge_h16">实际到账</string>
     <string name="recharge_h17">充币时间</string>

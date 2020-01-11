@@ -1,26 +1,20 @@
 package com.ofc.ofc.activity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
-import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
-import com.tencent.smtt.sdk.WebChromeClient;
-import com.tencent.smtt.sdk.WebSettings;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
-
-import java.util.Locale;
 
 
 /**
@@ -28,7 +22,7 @@ import java.util.Locale;
  * 文章详情
  */
 
-public class WebContentActivity extends BaseActivity {
+public class WebContentActivity1 extends BaseActivity {
     String article_id = "";
     WebView webView;
 
@@ -39,77 +33,15 @@ public class WebContentActivity extends BaseActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Resources resources = getResources();
-        // 获取应用内语言
-        final Configuration configuration = resources.getConfiguration();
-//        Locale locale=configuration.locale;
-        final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
-            case "zh":
-                //设置为中文
-                configuration.locale = new Locale("zh", "CN");
-//                configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
-                break;
-            case "en":
-                //设置为英文
-                configuration.locale = new Locale("en", "US");
-//                configuration.setLocale(Locale.US);
-                break;
-            case "ja":
-                //设置为日文
-                configuration.locale = new Locale("ja", "JP");
-//                configuration.setLocale(Locale.JAPAN);
-                break;
-            case "ko":
-                //设置为韩文
-                configuration.locale = new Locale("ko", "KR");
-//                configuration.setLocale(Locale.KOREA);
-                break;
-            case "vi":
-                //设置为越南文
-                configuration.locale = new Locale("vi", "VN");
-//                configuration.setLocale(Locale.);
-                break;
-        }
-        resources.updateConfiguration(configuration, displayMetrics);
-
-        webView.onResume();
-        webView.getSettings().setJavaScriptEnabled(true);
-    }
-    @Override
-    public void onPause() {
-        super.onPause();
-        webView.onPause();
-        webView.getSettings().setLightTouchEnabled(false);
-    }
-    //销毁 放置内存泄漏
-    @Override
-    public void onDestroy() {
-
-        if (this.webView != null) {
-            webView.destroy();
-        }
-        super.onDestroy();
-    }
-
-    @Override
     protected void initView() {
-        this.showProgress(true, getString(R.string.app_loading2));
+        this.showProgress(false, getString(R.string.app_loading2));
         String url = getIntent().getStringExtra("url")
                 +"&lang_type=" + LocalUserInfo.getInstance(this).getLanguage_Type();
         MyLogger.i(">>>>>>url" + url);
 
-        webView = findViewByID_My(R.id.webView);
-
+        webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);//设置js可以直接打开窗口，如window.open()，默认为false
+        webView.getSettings().setJavaScriptEnabled(true);//是否允许执行js，默认为false。设置true时，会提醒可能造成XSS漏洞
         webView.getSettings().setSupportZoom(true);//是否可以缩放，默认true
         webView.getSettings().setBuiltInZoomControls(true);//是否显示缩放按钮，默认false
         webView.getSettings().setUseWideViewPort(true);//设置此属性，可任意比例缩放。大视图模式
@@ -121,15 +53,8 @@ public class WebContentActivity extends BaseActivity {
         // webSettings.setDatabaseEnabled(true);
         webView.getSettings().setGeolocationEnabled(true);
 
-        getWindow().setFormat(PixelFormat.TRANSLUCENT);//（这个对宿主没什么影响，建议声明）
-        webView.getSettings().setDisplayZoomControls(true); //隐藏原生的缩放控件
-        webView.getSettings().setBlockNetworkImage(false);//解决图片不显示
-        webView.getSettings().setLoadsImagesAutomatically(true); //支持自动加载图片
-        webView.getSettings().setDefaultTextEncodingName("utf-8");//设置编码格式
-
 //        webView.getSettings().setUserAgentString("User-Agent:Android");//设置用户代理，一般不用
         //页面打开
-
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

@@ -63,7 +63,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="22dp"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/textView1"
                 android:src="@mipmap/ic_usdt_black" />

@@ -1,12 +1,9 @@
 package com.ofc.ofc.activity;
 
-import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -22,15 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.geetest.sdk.GT3ConfigBean;
-import com.geetest.sdk.GT3ErrorBean;
-import com.geetest.sdk.GT3GeetestUtils;
-import com.geetest.sdk.GT3Listener;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.SmsCodeListModel;
-import com.ofc.ofc.net.HttpUtils;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.popupwindow.SelectLanguagePopupWindow;
@@ -83,21 +75,6 @@ public class RegisteredActivity extends BaseActivity {
     /*public LocationClient mLocationClient = null;
     private MyLocationListener myListener = new MyLocationListener();*/
 
-    /**
-     * 极验
-     */
-    private GT3GeetestUtils gt3GeetestUtils;
-    private GT3ConfigBean gt3ConfigBean;
-
-    private static String TAG = RegisteredActivity.class.getSimpleName();
-    /**
-     * api1，需替换成自己的服务器URL
-     */
-    String captchaURL = HOST + URLs.Registered_API1;
-    /**
-     * api2，需替换成自己的服务器URL
-     */
-    String validateURL = HOST + "/admin/geetest/api2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,9 +90,6 @@ public class RegisteredActivity extends BaseActivity {
         mLocationClient.registerLocationListener(myListener);
         initLocation();
         mLocationClient.start();*/
-
-        // TODO 务必在oncreate方法里初始化
-        gt3GeetestUtils = new GT3GeetestUtils(this);
 
     }
 
@@ -246,23 +220,23 @@ public class RegisteredActivity extends BaseActivity {
             case R.id.textView1:
                 //发送验证码
                 phonenum = editText1.getText().toString().trim();
+
                 if (TextUtils.isEmpty(phonenum)) {
                     Toast.makeText(this, getString(R.string.registered_h1), Toast.LENGTH_SHORT).show();
                 } else {
-                    customVerity();//极验
-                    /*showProgress(true, "正在获取短信验证码...");
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("mobile", phonenum);
-                    params.put("type", "1");
-//                    params.put("code", piccode);
-                    RequestCode(params);//获取验证码*/
+//                    customVerity();//极验
 
                     /*showProgress(true, "正在生成图形验证码...");
                     HashMap<String, String> params = new HashMap<>();
                     params.put("mobile", phonenum);
                     params.put("type", "1");
                     RequestPicCode(params);*/
-
+                    showProgress(true, getString(R.string.app_sendcode_hint1));
+                    HashMap<String, String> params1 = new HashMap<>();
+                    params1.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                    params1.put("mobile", phonenum);
+                    params1.put("type", "1");
+                    RequestCode(params1);//获取验证码
                 }
                 break;
             case R.id.textView2:
@@ -612,320 +586,6 @@ public class RegisteredActivity extends BaseActivity {
             textView1.setClickable(false);
             textView1.setText(millisUntilFinished / 1000 + RegisteredActivity.this.getString(R.string.app_codethen) + "");
         }
-    }
-
-
-    /**
-     * ********************************************定位**********************************************
-     */
-    /*private void initLocation() {
-        LocationClientOption option = new LocationClientOption();
-
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-
-        option.setCoorType("bd09ll");
-
-        option.setScanSpan(1000);
-
-        option.setOpenGps(true);
-
-        option.setIsNeedAddress(true);
-
-        option.setLocationNotify(true);//可选，设置是否当GPS有效时按照1S/1次频率输出GPS结果，默认false
-
-        option.setIgnoreKillProcess(false);
-
-        option.SetIgnoreCacheException(false);
-
-//        option.setWifiCacheTimeOut(0);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
-
-        option.setEnableSimulateGps(false);
-
-        mLocationClient.setLocOption(option);
-    }
-
-    public class MyLocationListener implements BDLocationListener {
-        @Override
-        public void onReceiveLocation(BDLocation location) {
-            //此处的BDLocation为定位结果信息类，通过它的各种get方法可获取定位相关的全部结果
-            //以下只列举部分获取经纬度相关（常用）的结果信息
-            //更多结果信息获取说明，请参照类参考中BDLocation类中的说明
-
-            double latitude = location.getLatitude();    //获取纬度信息
-            double longitude = location.getLongitude();    //获取经度信息
-//            float radius = location.getRadius();    //获取定位精度，默认值为0.0f
-//
-//            String coorType = location.getCoorType();//获取经纬度坐标类型，以LocationClientOption中设置过的坐标类型为准
-//
-//            int errorCode = location.getLocType();//获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
-            String addr = location.getAddrStr();    //获取详细地址信息
-//            String country = location.getCountry();    //获取国家
-//            String province = location.getProvince();    //获取省份
-//            String city = location.getCity();    //获取城市
-//            String district = location.getDistrict();    //获取区县
-//            String street = location.getStreet();    //获取街道信息
-
-            register_addr = addr + "";
-
-            MyLogger.i(">>>>>>>>>>>>获取定位详细信息:" + addr + longitude + ">>>>" + latitude);
-
-            mLocationClient.stop();
-
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        // 退出时销毁定位
-        mLocationClient.stop();
-        super.onDestroy();
-    }*/
-
-    String user_id = "";
-    String gtserver = "";
-
-    private void customVerity() {
-        // 配置bean文件，也可在oncreate初始化
-        gt3ConfigBean = new GT3ConfigBean();
-        // 设置验证模式，1：bind，2：unbind
-        gt3ConfigBean.setPattern(1);
-        // 设置点击灰色区域是否消失，默认不消息
-        gt3ConfigBean.setCanceledOnTouchOutside(false);
-        // 设置语言，参考API文档。如果为null则使用系统默认语言(TODO 若想设置语言立即生效，则init需要在setContentView之前)
-//        gt3ConfigBean.setLang(null);
-        // 设置debug模式，开代理可调试 TODO 线上版本关闭
-//        gt3ConfigBean.setDebug(false);
-        // 设置语言，如果为null则使用系统默认语言
-        gt3ConfigBean.setLang(null);
-        // 设置webview加载超时
-        gt3ConfigBean.setTimeout(9000);
-        // 设置webview请求超时
-        gt3ConfigBean.setWebviewTimeout(6000);
-        // 设置回调监听
-        gt3ConfigBean.setListener(new GT3Listener() {
-
-            /**
-             * api1结果回调
-             * @param result
-             */
-            @Override
-            public void onApi1Result(String result) {
-                Log.e(TAG, "GT3BaseListener-->onApi1Result-->" + result);
-                if (result != null) {
-                    JSONObject jObj;
-                    try {
-                        jObj = new JSONObject(result);
-                        user_id = jObj.getString("user_id");
-                        gtserver = jObj.getString("gtserver");
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-
-            /**
-             * 验证码加载完成
-             * @param duration 加载时间和版本等信息，为json格式
-             */
-            @Override
-            public void onDialogReady(String duration) {
-                Log.e(TAG, "GT3BaseListener-->onDialogReady-->" + duration);
-            }
-
-            /**
-             * 验证结果
-             * @param result
-             */
-            @Override
-            public void onDialogResult(String result) {
-                Log.e(TAG, "GT3BaseListener-->onDialogResult-->" + result);
-                gt3GeetestUtils.showSuccessDialog();//成功
-
-
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(result);
-
-                    String geetest_challenge = jObj.getString("geetest_challenge");
-                    String geetest_seccode = jObj.getString("geetest_seccode");
-                    String geetest_validate = jObj.getString("geetest_validate");
-
-//                    showProgress(true, "正在获取短信验证码...");
-                    final HashMap<String, String> params = new HashMap<>();
-                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
-                    params.put("mobile", phonenum);
-                    params.put("type", "1");
-                    params.put("geetest_challenge", geetest_challenge);
-                    params.put("geetest_seccode", geetest_seccode);
-                    params.put("geetest_validate", geetest_validate);
-//                    params.put("code", piccode);
-                    params.put("user_id", user_id);
-                    params.put("gtserver", gtserver);
-
-                    MyLogger.i(">>>>>>>>>" + params.toString());
-
-                    RequestCode(params);//获取验证码
-
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-                // 开启api2逻辑
-//                new RequestAPI2().execute(result);
-            }
-
-            /**
-             * api2回调
-             * @param result
-             */
-            @Override
-            public void onApi2Result(String result) {
-                Log.e(TAG, "GT3BaseListener-->onApi2Result-->" + result);
-            }
-
-            /**
-             * 统计信息，参考接入文档
-             * @param result
-             */
-            @Override
-            public void onStatistics(String result) {
-                Log.e(TAG, "GT3BaseListener-->onStatistics-->" + result);
-            }
-
-            /**
-             * 验证码被关闭
-             * @param num 1 点击验证码的关闭按钮来关闭验证码, 2 点击屏幕关闭验证码, 3 点击返回键关闭验证码
-             */
-            @Override
-            public void onClosed(int num) {
-                Log.e(TAG, "GT3BaseListener-->onClosed-->" + num);
-            }
-
-            /**
-             * 验证成功回调
-             * @param result
-             */
-            @Override
-            public void onSuccess(String result) {
-                Log.e(TAG, "GT3BaseListener-->onSuccess-->" + result);
-            }
-
-            /**
-             * 验证失败回调
-             * @param errorBean 版本号，错误码，错误描述等信息
-             */
-            @Override
-            public void onFailed(GT3ErrorBean errorBean) {
-                Log.e(TAG, "GT3BaseListener-->onFailed-->" + errorBean.toString());
-            }
-
-            /**
-             * api1回调
-             */
-            @Override
-            public void onButtonClick() {
-                new RequestAPI1().execute();
-            }
-        });
-        gt3GeetestUtils.init(gt3ConfigBean);
-        // 开启验证
-        gt3GeetestUtils.startCustomFlow();
-    }
-
-    /**
-     * 请求api1
-     */
-    class RequestAPI1 extends AsyncTask<Void, Void, JSONObject> {
-
-        @Override
-        protected JSONObject doInBackground(Void... params) {
-            String string = HttpUtils.requestGet(captchaURL);
-            Log.e(TAG, "doInBackground: " + string);
-            JSONObject jsonObject = null;
-            try {
-                jsonObject = new JSONObject(string);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jsonObject;
-        }
-
-        @Override
-        protected void onPostExecute(JSONObject parmas) {
-            // 继续验证
-            Log.i(TAG, "RequestAPI1-->onPostExecute: " + parmas);
-            // SDK可识别格式为
-            // {"success":1,"challenge":"06fbb267def3c3c9530d62aa2d56d018","gt":"019924a82c70bb123aae90d483087f94","new_captcha":true}
-            // TODO 设置返回api1数据，即使为null也要设置，SDK内部已处理
-            gt3ConfigBean.setApi1Json(parmas);
-            // 继续api验证
-            gt3GeetestUtils.getGeetest();
-        }
-    }
-
-    /**
-     * 请求api2
-     */
-    class RequestAPI2 extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            if (!TextUtils.isEmpty(params[0])) {
-                return HttpUtils.requestPost(validateURL, params[0]);
-            } else {
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            Log.i(TAG, "RequestAPI2-->onPostExecute: " + result);
-            if (!TextUtils.isEmpty(result)) {
-                try {
-                    JSONObject jsonObject = new JSONObject(result);
-                    String status = jsonObject.getString("status");
-                    if ("success".equals(status)) {
-                        gt3GeetestUtils.showSuccessDialog();//成功
-                        /*showProgress(true, "正在获取短信验证码...");
-                        HashMap<String, String> params = new HashMap<>();
-                        params.put("mobile", phonenum);
-                        params.put("type", "1");
-//                    params.put("code", piccode);
-                        RequestCode(params);//获取验证码*/
-                    } else {
-                        gt3GeetestUtils.showFailedDialog();
-                    }
-                } catch (Exception e) {
-                    gt3GeetestUtils.showFailedDialog();
-                    e.printStackTrace();
-                }
-            } else {
-                gt3GeetestUtils.showFailedDialog();
-            }
-        }
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // TODO 销毁资源，务必添加
-        gt3GeetestUtils.destory();
-
-        if (time != null) {
-            time.cancel();
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // 横竖屏切换
-        gt3GeetestUtils.changeDialogLayout();
     }
 
 

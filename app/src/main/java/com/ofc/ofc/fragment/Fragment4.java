@@ -373,6 +373,7 @@ public class Fragment4 extends BaseFragment {
                     hideProgress();
                     linearLayout_1.setVisibility(View.VISIBLE);
                     linearLayout_2.setVisibility(View.GONE);
+                    detail_textView_title.setVisibility(View.GONE);
 
                     textView3.setText(response.getUsable_money());//可用余币
                     textView5.setText(getString(R.string.fragment4_h6) + response.getUsdt_price());//可用余币
@@ -401,6 +402,7 @@ public class Fragment4 extends BaseFragment {
                         });
                     }*/
                     changeUI();
+                    MainActivity.isOver = true;
                 } else {
                     id = model.getId();
                     //加载充币详情
@@ -413,7 +415,6 @@ public class Fragment4 extends BaseFragment {
                             + "&id=" + model.getId());
                 }
 
-                MainActivity.isOver = true;
             }
         });
     }
@@ -547,7 +548,7 @@ public class Fragment4 extends BaseFragment {
                     detail_textView18.setVisibility(View.GONE);//取消按钮
 
                 }
-
+                MainActivity.isOver = true;
             }
         });
     }
@@ -799,6 +800,7 @@ public class Fragment4 extends BaseFragment {
     @Override
     public void requestServer() {
         super.requestServer();
+
         showProgress(true, getString(R.string.app_loading));
         request("?token=" + localUserInfo.getToken());
     }
