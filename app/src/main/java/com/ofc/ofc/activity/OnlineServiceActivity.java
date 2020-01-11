@@ -291,6 +291,7 @@ public class OnlineServiceActivity extends BaseActivity {
                 if (!info.equals("")) {
                     showToast(info);
                 }
+                page--;
             }
 
             @Override
@@ -303,6 +304,7 @@ public class OnlineServiceActivity extends BaseActivity {
                 list1_1 = response.getLeave_message_list();
                 if (list1_1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
+                    page--;
                 } else {
                     //反转数据
                     List<OnlineServiceModel.LeaveMessageListBean> list1 = new ArrayList<OnlineServiceModel.LeaveMessageListBean>();

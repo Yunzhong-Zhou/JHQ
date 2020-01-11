@@ -138,7 +138,7 @@ public class TransferListActivity extends BaseActivity {
                                     holder.setText(R.id.textView4, model.getProfit_money());//状态
                                     TextView tv5 = holder.getView(R.id.textView5);
                                     tv5.setText(model.getStatus_title());
-                                    switch (model.getStatus()){
+                                    switch (model.getStatus()) {
                                         case 1:
                                             //等待中
                                             tv5.setTextColor(getResources().getColor(R.color.green));
@@ -188,6 +188,7 @@ public class TransferListActivity extends BaseActivity {
                         if (!info.equals("")) {
                             showToast(info);
                         }
+                        page--;
                     }
 
                     @Override
@@ -195,10 +196,10 @@ public class TransferListActivity extends BaseActivity {
                         showContentPage();
                         onHttpResult();
                         MyLogger.i(">>>>>>>>>合约记录列表更多" + response);
-
                         List<TransferListModel.ContractListBean> list1 = new ArrayList<>();
                         list1 = response.getContract_list();
                         if (list1.size() == 0) {
+                            page--;
                             myToast(getString(R.string.app_nomore));
                         } else {
                             list.addAll(list1);

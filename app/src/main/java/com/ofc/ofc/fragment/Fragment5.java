@@ -215,43 +215,45 @@ public class Fragment5 extends BaseFragment {
             @Override
             public void onResponse(Fragment5Model response) {
                 MyLogger.i(">>>>>>>>>我的" + response);
-                model = response;
-                //等级
-                switch (response.getGrade()) {
-                    case 1:
-                        textView3.setText("LP");
-                        break;
-                    case 2:
-                        textView3.setText("IB");
-                        break;
-                    case 3:
-                        textView3.setText("MIB");
-                        break;
-                    case 4:
-                        textView3.setText("PIB");
-                        break;
-                }
+                if (response != null) {
+                    model = response;
+                    //等级
+                    switch (response.getGrade()) {
+                        case 1:
+                            textView3.setText("LP");
+                            break;
+                        case 2:
+                            textView3.setText("IB");
+                            break;
+                        case 3:
+                            textView3.setText("MIB");
+                            break;
+                        case 4:
+                            textView3.setText("PIB");
+                            break;
+                    }
 
-                //头像
-                localUserInfo.setUserImage(response.getHead());
-                if (!response.getHead().equals(""))
-                    Glide.with(getActivity()).load(IMGHOST + response.getHead())
-                            .centerCrop()
+                    //头像
+                    localUserInfo.setUserImage(response.getHead());
+                    if (!response.getHead().equals("") && getActivity() != null)
+                        Glide.with(getActivity()).load(IMGHOST + response.getHead())
+                                .centerCrop()
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);
+                                .into(imageView1);//加载图片
+                    else
+                        imageView1.setImageResource(R.mipmap.headimg);
 
-                textView5.setText("" + response.getCommon_usable_money());//余额
-                textView6.setText("" + response.getProfit_money());//盈利
-                textView7.setText("" + response.getCommission_money());//佣金
+                    textView5.setText("" + response.getCommon_usable_money());//余额
+                    textView6.setText("" + response.getProfit_money());//盈利
+                    textView7.setText("" + response.getCommission_money());//佣金
 //                textView8.setText("" + response.getCommission_money());//
 
-                //昵称
-                textView1.setText(response.getNickname());
-                //邀请码
-                textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
+                    //昵称
+                    textView1.setText(response.getNickname());
+                    //邀请码
+                    textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
+                }
 
                 hideProgress();
 
@@ -335,7 +337,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout13:
                 //申请服务中心
-                if (model!=null){
+                if (model != null) {
                     switch (model.getService_center_status()) {
                         case -1:
                             //待申请
@@ -344,9 +346,9 @@ public class Fragment5 extends BaseFragment {
                         case 3:
                             //未通过
                             Bundle bundle = new Bundle();
-                            bundle.putInt("status",model.getService_center_status());
-                            bundle.putString("cause",model.getStatus_rejected_cause());
-                            CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle,false);
+                            bundle.putInt("status", model.getService_center_status());
+                            bundle.putString("cause", model.getStatus_rejected_cause());
+                            CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle, false);
 //                        myToast(getString(R.string.myprofile_h32));
                             break;
                         case 2:

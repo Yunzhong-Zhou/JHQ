@@ -140,7 +140,7 @@
     <string name="login_h9">Your Account has been suspended, please contact us</string>
     <string name="login_h10">Authorising Login...</string>
     <string name="login_h11">Auth Failed</string>
-    <string name="login_h12">Enter Codde</string>
+    <string name="login_h12">Enter Code</string>
     <string name="login_h13">Account not verified, please complete facial recognition first</string>
     <string name="login_h14">No account yet？</string>
     <string name="login_h15">Auth Login</string>
@@ -148,7 +148,7 @@
 
     <!--注册-->
     <string name="registered_h1">Enter Phone</string>
-    <string name="registered_h2">Enter Codde</string>
+    <string name="registered_h2">Enter Code</string>
     <string name="registered_h3">Enter Password</string>
     <string name="registered_h4">Confirm Password</string>
     <string name="registered_h5">Ref ID</string>
@@ -165,7 +165,7 @@
 
     <!--忘记密码-->
     <string name="forgetpassword_h1">Enter Phone</string>
-    <string name="forgetpassword_h2">Enter Codde</string>
+    <string name="forgetpassword_h2">Enter Code</string>
     <string name="forgetpassword_h3">New Password</string>
     <string name="forgetpassword_h4">Confirm New Password</string>
     <string name="forgetpassword_h5">Confirm</string>
@@ -376,7 +376,7 @@
     <string name="settransactionpassword_h2">Phone Number</string>
     <string name="settransactionpassword_h3">Enter Phone</string>
     <string name="settransactionpassword_h4">Verification Code</string>
-    <string name="settransactionpassword_h5">Enter Codde</string>
+    <string name="settransactionpassword_h5">Enter Code</string>
     <string name="settransactionpassword_h6">Trx Password</string>
     <string name="settransactionpassword_h7">Enter Trx Password</string>
     <string name="settransactionpassword_h8">Confirm Trx Password</string>
@@ -402,7 +402,7 @@
     <string name="address_h4">Phone</string>
     <string name="address_h5">Enter Phone</string>
     <string name="address_h6">Verification Code</string>
-    <string name="address_h7">Enter Codde</string>
+    <string name="address_h7">Enter Code</string>
     <string name="address_h8">Trx Password</string>
     <string name="address_h9">Enter Trx Password</string>
     <string name="address_h10">Confirm</string>

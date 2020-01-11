@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
+import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -80,6 +81,8 @@ public class WebContentActivity extends BaseActivity {
                 break;
         }
         resources.updateConfiguration(configuration, displayMetrics);
+
+        new ScreenAdaptation(getApplication(), 828, 1792).register();
 
         webView.onResume();
         webView.getSettings().setJavaScriptEnabled(true);

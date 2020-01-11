@@ -192,6 +192,7 @@ public class MyRechargeActivity extends BaseActivity {
                 if (!info.equals("")) {
                     showToast(info);
                 }
+                page--;
             }
 
             @Override
@@ -207,6 +208,7 @@ public class MyRechargeActivity extends BaseActivity {
                     list1 = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
                     if (list1.size() == 0) {
                         myToast(getString(R.string.app_nomore));
+                        page--;
                     } else {
                         list.addAll(list1);
                         mAdapter.notifyDataSetChanged();

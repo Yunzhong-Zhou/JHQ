@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -38,29 +39,40 @@ public class HelloActivity extends Activity {
 
         Resources resources = getResources();
         // 获取应用内语言
-        final Configuration configuration = resources.getConfiguration();
-//        Locale locale=configuration.locale;
+        Configuration configuration = resources.getConfiguration();
         final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
         switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
             case "zh":
                 //设置为中文
-//                configuration.locale = new Locale("zh", "CN");
-                configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+                } else {
+                    configuration.locale = new Locale("zh", "CN");
+                }
                 break;
             case "en":
                 //设置为英文
-//                configuration.locale = new Locale("en", "US");
-                configuration.setLocale(Locale.US);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    configuration.setLocale(Locale.US);
+                } else {
+                    configuration.locale = new Locale("en", "US");
+                }
                 break;
             case "ja":
                 //设置为日文
-//                configuration.locale = new Locale("ja", "JP");
-                configuration.setLocale(Locale.JAPAN);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    configuration.setLocale(Locale.JAPAN);
+                } else {
+                    configuration.locale = new Locale("ja", "JP");
+                }
                 break;
             case "ko":
                 //设置为韩文
-//                configuration.locale = new Locale("ko", "KR");
-                configuration.setLocale(Locale.KOREA);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    configuration.setLocale(Locale.KOREA);
+                } else {
+                    configuration.locale = new Locale("ko", "KR");
+                }
                 break;
             case "vi":
                 //设置为越南文
@@ -98,12 +110,12 @@ public class HelloActivity extends Activity {
     private void enterHomeActivity() {
         if (LocalUserInfo.getInstance(HelloActivity.this).getUserId().equals("")) {
             Intent intent = new Intent(this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 //            CommonUtil.gotoActivityWithFinishOtherAll(HelloActivity.this, LoginActivity.class, true);
         } else {
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 //            CommonUtil.gotoActivityWithFinishOtherAll(HelloActivity.this, MainActivity.class, true);
         }
