@@ -89,7 +89,6 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
-
                 }
             }
 
