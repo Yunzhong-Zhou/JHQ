@@ -213,19 +213,21 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
 
     @Override
     public void showProgress(boolean flag, String message) {
-        if (pd == null) {
-            pd = new ProgressDialog(this);
-            pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            pd.setCancelable(flag);
-            pd.setCanceledOnTouchOutside(false);
-            pd.setMessage(message);
-            pd.show();
-        } else {
-            pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            pd.setCancelable(flag);
-            pd.setCanceledOnTouchOutside(false);
-            pd.setMessage(message);
-            pd.show();
+        if (!isFinishing()) {
+            if (pd == null) {
+                pd = new ProgressDialog(this);
+                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                pd.setCancelable(flag);
+                pd.setCanceledOnTouchOutside(false);
+                pd.setMessage(message);
+                pd.show();
+            } else {
+                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                pd.setCancelable(flag);
+                pd.setCanceledOnTouchOutside(false);
+                pd.setMessage(message);
+                pd.show();
+            }
         }
     }
 
