@@ -27,7 +27,7 @@ public class DirectMemberModel implements Serializable {
 
         private String head;
         private String nickname;
-        private int contract_money;
+        private String contract_money;
         private String grade_title;
 
         public String getHead() {
@@ -46,11 +46,11 @@ public class DirectMemberModel implements Serializable {
             this.nickname = nickname;
         }
 
-        public int getContract_money() {
+        public String getContract_money() {
             return contract_money;
         }
 
-        public void setContract_money(int contract_money) {
+        public void setContract_money(String contract_money) {
             this.contract_money = contract_money;
         }
 

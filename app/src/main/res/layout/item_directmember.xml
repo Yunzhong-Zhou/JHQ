@@ -19,12 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:layout_weight="1">
             <com.joooonho.SelectableRoundedImageView
                 android:id="@+id/imageView1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_marginLeft="14dp"
                 android:background="@mipmap/headimg"
                 app:sriv_oval="true" />
             <TextView
@@ -42,11 +43,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="13dp"
                 android:layout_height="13dp"
+                android:layout_marginLeft="24dp"
                 android:src="@mipmap/ic_usdt_black"/>
             <TextView
                 android:id="@+id/textView2"
