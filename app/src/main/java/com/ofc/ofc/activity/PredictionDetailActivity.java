@@ -196,9 +196,6 @@ public class PredictionDetailActivity extends BaseActivity {
                 model = response;
                 //第一次加载
                 if (page == 1) {
-                    //（开盘价- 收盘价）/开盘价
-                    double zhangdie = (model.getKline().getOpen() - model.getKline().getClose()) / model.getKline().getOpen() * 100;
-                    textView2.setText(String.format("%.2f", zhangdie) + "%");
                     switch (symbol) {
                         case "XRP":
                         case "TRX":
@@ -214,12 +211,15 @@ public class PredictionDetailActivity extends BaseActivity {
                             textView6.setText(String.format("%.2f", model.getKline().getSupport()) + " $");
                             break;
                     }
-
+                    //（收盘价 - 开盘价）/开盘价
+                    double zhangdie = (model.getKline().getClose() - model.getKline().getOpen()) / model.getKline().getOpen() * 100;
                     if (zhangdie > 0) {
                         //上涨
+                        textView2.setText("+" + String.format("%.2f", zhangdie) + "%");
                         textView2.setTextColor(getResources().getColor(R.color.green));
                         imageView2.setImageResource(R.mipmap.ic_jiantou_up);
                     } else {
+                        textView2.setText(String.format("%.2f", zhangdie) + "%");
                         textView2.setTextColor(getResources().getColor(R.color.red));
                         imageView2.setImageResource(R.mipmap.ic_jiantou_down);
                     }

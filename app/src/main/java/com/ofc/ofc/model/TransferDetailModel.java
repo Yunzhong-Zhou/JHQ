@@ -167,7 +167,7 @@ public class TransferDetailModel implements Serializable {
         private int result;
         private int direction;
         private int lever;
-        private int ratio;
+        private String ratio;
         private String buy_price;
         private String sell_price;
         private String buy_at;
@@ -242,11 +242,11 @@ public class TransferDetailModel implements Serializable {
             this.lever = lever;
         }
 
-        public int getRatio() {
+        public String getRatio() {
             return ratio;
         }
 
-        public void setRatio(int ratio) {
+        public void setRatio(String ratio) {
             this.ratio = ratio;
         }
 
