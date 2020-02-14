@@ -4,11 +4,14 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Handler;
 
 import com.hjq.toast.ToastUtils;
 import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
+import com.ofc.ofc.utils.changelanguage.LanguageUtil;
+import com.ofc.ofc.utils.changelanguage.SpUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -23,7 +26,7 @@ import cn.jpush.android.api.TagAliasCallback;
 
 public class MyApplication extends Application {
     // 上下文菜单
-    private Context mContext;
+    private static Context mContext;
 
     private static MyApplication myApplication;
 
@@ -47,7 +50,7 @@ public class MyApplication extends Application {
             @Override
             public void onViewInitFinished(boolean arg0) {
                 //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
-                MyLogger.i("5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。"+arg0);
+                MyLogger.i("5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。" + arg0);
             }
 
             @Override
@@ -129,9 +132,22 @@ public class MyApplication extends Application {
                 break;
         }
         resources.updateConfiguration(configuration, displayMetrics);*/
+        /**
+         * 对于7.0以下，需要在Application创建的时候进行语言切换
+         */
+
+        String language = SpUtil.getInstance(this).getString(SpUtil.LANGUAGE);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            LanguageUtil.changeAppLanguage(mContext, language);
+        }
 
         new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this,720,1280).register();
+
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
     @Override

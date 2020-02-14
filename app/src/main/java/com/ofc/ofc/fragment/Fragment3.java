@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.TransferActivity;
@@ -21,8 +22,8 @@ import com.ofc.ofc.model.Fragment3Model;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
+import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -53,7 +54,7 @@ public class Fragment3 extends BaseFragment {
     CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
     TextView tv_page1_1, tv_page1_2, tv_page1_3, tv_page1_4, tv_page1_5, tv_page1_6, tv_page1_7, tv_page1_8,
             tv_page1_9, tv_page1_10, tv_page1_11, tv_zhanwei, textView_shangqi;
-    ImageView iv_page1_1;
+    ImageView iv_page1_1,iv_change;
     LinearLayout ll_shangqi;
 
 
@@ -220,6 +221,13 @@ public class Fragment3 extends BaseFragment {
 
         tv_zhongzhi = findViewByID_My(R.id.tv_zhongzhi);
         tv_zhongzhi.setOnClickListener(this);
+
+        iv_change = findViewByID_My(R.id.iv_change);
+        if (LocalUserInfo.getInstance(getActivity()).getLanguage_Type().equals("zh")){
+            iv_change.setImageResource(R.mipmap.bg_f3_1_zh);
+        }else {
+            iv_change.setImageResource(R.mipmap.bg_f3_1);
+        }
     }
 
     @Override

@@ -1,12 +1,12 @@
 package com.ofc.ofc.popupwindow;
 
 import android.content.Context;
-import android.content.res.Configuration;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,21 +15,23 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
+import com.ofc.ofc.MyApplication;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.LoginActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.model.SmsCodeListModel;
 import com.ofc.ofc.net.OkHttpClientManager;
-import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.LocalUserInfo;
-import com.bumptech.glide.Glide;
+import com.ofc.ofc.utils.changelanguage.LanguageType;
+import com.ofc.ofc.utils.changelanguage.LanguageUtil;
+import com.ofc.ofc.utils.changelanguage.SpUtil;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 /**
@@ -161,7 +163,7 @@ public class SelectLanguagePopupWindow extends PopupWindow {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 Resources resources = mContext.getResources();
-                // 获取应用内语言
+                /*// 获取应用内语言
                 final Configuration configuration = resources.getConfiguration();
 //        Locale locale=configuration.locale;
                 final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
@@ -197,14 +199,59 @@ public class SelectLanguagePopupWindow extends PopupWindow {
 
                 mContext.getResources().updateConfiguration(configuration, displayMetrics);
 //                CommonUtil.gotoActivityWithFinishOtherAll(mContext, HelloActivity.class,true);
-
                 if (LocalUserInfo.getInstance(mContext).getUserId().equals("")) {
                     CommonUtil.gotoActivityWithFinishOtherAll(mContext, LoginActivity.class, true);
                 } else {
                     CommonUtil.gotoActivityWithFinishOtherAll(mContext, MainActivity.class, true);
+                }*/
+
+                //语言切换
+                //保存语言
+                LocalUserInfo.getInstance(mContext).setLanguage_Type(list.get(position).getLang_type());
+                //保存国家图片
+                LocalUserInfo.getInstance(mContext).setCountry_IMG(list.get(position).getIcon());
+                String language = null;
+                switch (LocalUserInfo.getInstance(mContext).getLanguage_Type()) {
+                    case "zh":
+                        //设置为中文
+                        language = LanguageType.CHINESE.getLanguage();
+                        break;
+                    case "en":
+                        //设置为英文
+                        language = LanguageType.ENGLISH.getLanguage();
+                        break;
+                    case "ja":
+                        //设置为日文
+                        language = LanguageType.JAPANESE.getLanguage();
+                        break;
+                    case "ko":
+                        //设置为韩文
+                        language = LanguageType.KOREAN.getLanguage();
+                        break;
+                    case "vi":
+                        //设置为越南文
+                        language = LanguageType.VIETNAMESE.getLanguage();
+                        break;
                 }
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    LanguageUtil.changeAppLanguage(MyApplication.getContext(), language);
+                }
+                SpUtil.getInstance(mContext).putString(SpUtil.LANGUAGE, language);
+                if (LocalUserInfo.getInstance(mContext).getUserId().equals("")) {
+                    Intent intent = new Intent(mContext, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                } else {
+                    Intent intent = new Intent(mContext, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
+
                 dismiss();
 
+                /*// 杀死该应用进程
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(0);*/
             }
 
             @Override

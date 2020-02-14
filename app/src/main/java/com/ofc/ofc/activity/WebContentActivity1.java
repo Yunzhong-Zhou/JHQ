@@ -1,9 +1,12 @@
 package com.ofc.ofc.activity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -15,6 +18,8 @@ import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
+
+import java.util.Locale;
 
 
 /**
@@ -29,6 +34,40 @@ public class WebContentActivity1 extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Resources resources = getResources();
+        // 获取应用内语言
+        final Configuration configuration = resources.getConfiguration();
+//        Locale locale=configuration.locale;
+        final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                configuration.locale = new Locale("zh", "CN");
+//                configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+                break;
+            case "en":
+                //设置为英文
+                configuration.locale = new Locale("en", "US");
+//                configuration.setLocale(Locale.US);
+                break;
+            case "ja":
+                //设置为日文
+                configuration.locale = new Locale("ja", "JP");
+//                configuration.setLocale(Locale.JAPAN);
+                break;
+            case "ko":
+                //设置为韩文
+                configuration.locale = new Locale("ko", "KR");
+//                configuration.setLocale(Locale.KOREA);
+                break;
+            case "vi":
+                //设置为越南文
+                configuration.locale = new Locale("vi", "VN");
+//                configuration.setLocale(Locale.);
+                break;
+        }
+        resources.updateConfiguration(configuration, displayMetrics);
+
         setContentView(R.layout.activity_webcontent);
     }
 

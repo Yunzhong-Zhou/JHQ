@@ -17,9 +17,9 @@ public class ScreenAdaptation {
 
     private Application mApplication;
 
-    private float mWidth = 720;
+    private float mWidth = 828;
 
-    private float mHeight = 1280;
+    private float mHeight = 1792;
 
     public ScreenAdaptation(Application application, float width, int height) {
 
@@ -34,10 +34,7 @@ public class ScreenAdaptation {
             @Override
 
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
-
                 //开启Activity才执行
-
                 resetDensity(activity, mWidth, mHeight);
 
             }
@@ -51,7 +48,8 @@ public class ScreenAdaptation {
             @Override
 
             public void onActivityResumed(Activity activity) {
-
+                //onResumed 有调用 不然从webview里面出来会变成原来的设置
+                resetDensity(activity, mWidth, mHeight);
             }
 
             @Override

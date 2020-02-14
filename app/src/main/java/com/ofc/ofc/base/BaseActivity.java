@@ -18,8 +18,11 @@ import com.cy.dialog.BaseDialog;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.toast.ToastUtils;
 import com.liaoinstan.springview.widget.SpringView;
+import com.ofc.ofc.MyApplication;
 import com.ofc.ofc.R;
 import com.ofc.ofc.utils.LocalUserInfo;
+import com.ofc.ofc.utils.changelanguage.LanguageUtil;
+import com.ofc.ofc.utils.changelanguage.SpUtil;
 import com.ofc.ofc.view.LoadingLayout;
 import com.ofc.ofc.view.MyDefaultFooter;
 import com.ofc.ofc.view.MyDefaultHeader;
@@ -51,9 +54,56 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
 
     private SwipeBackLayout mSwipeBackLayout;//侧滑返回
 
+    /**
+     * 切换语言
+     * 此方法先于 onCreate()方法执行
+     *
+     * @param newBase
+     */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        //获取我们存储的语言环境 比如 "en","zh",等等
+        String language = SpUtil.getInstance(MyApplication.getContext()).getString(SpUtil.LANGUAGE);
+        super.attachBaseContext(LanguageUtil.attachBaseContext(newBase, language));
+
+        /*//切换语言
+        Resources resources = newBase.getResources();
+        // 获取应用内语言
+        Configuration configuration = resources.getConfiguration();
+        final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                configuration.locale = new Locale("zh", "CN");
+                break;
+            case "en":
+                //设置为英文
+                configuration.locale = new Locale("en", "US");
+                break;
+            case "ja":
+                //设置为日文
+                configuration.locale = new Locale("ja", "JP");
+                break;
+            case "ko":
+                //设置为韩文
+                configuration.locale = new Locale("ko", "KR");
+                break;
+            case "vi":
+                //设置为越南文
+                configuration.locale = new Locale("vi", "VN");
+//                configuration.setLocale(Locale.);
+                break;
+        }
+        MyLogger.i(">>>>>>>>>>"+configuration.locale.toString());
+        resources.updateConfiguration(configuration, displayMetrics);*/
+//        super.attachBaseContext(newBase);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Log.i("BaseActivity", getClass().getSimpleName());
 
         try {

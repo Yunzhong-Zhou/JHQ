@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
+import com.hjq.toast.ToastUtils;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.utils.LocalUserInfo;
@@ -16,9 +19,6 @@ import com.ofc.ofc.view.LoadingLayout;
 import com.ofc.ofc.view.MyDefaultFooter;
 import com.ofc.ofc.view.MyDefaultHeader;
 import com.ofc.ofc.view.TitleView;
-import com.cy.dialog.BaseDialog;
-import com.hjq.toast.ToastUtils;
-import com.liaoinstan.springview.widget.SpringView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +45,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         Log.i("BaseFragment", getClass().getSimpleName());
         mParent = getView();
         if (!(getActivity() instanceof MainActivity)) {//这里转换

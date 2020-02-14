@@ -30,9 +30,11 @@
                     android:layout_height="200dp"
                     android:visibility="gone"/>
                 <ImageView
+                    android:id="@+id/iv_change"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:background="@mipmap/bg_fragment1"/>
+                    android:src="@mipmap/bg_fragment1"
+                    android:scaleType="fitXY"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.WebContentActivity;
@@ -20,8 +21,8 @@ import com.ofc.ofc.model.Fragment1Model;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
+import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -58,6 +59,8 @@ public class Fragment1 extends BaseFragment {
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
     TextView textView1, textView2, textView3;
     View view1, view2, view3;
+
+    ImageView iv_change;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -186,6 +189,13 @@ public class Fragment1 extends BaseFragment {
 //                CommonUtil.gotoActivityWithData(JiFenShangChengActivity.this, JiFenLieBiaoActivity.class, bundle, false);
             }
         });*/
+
+        iv_change = findViewByID_My(R.id.iv_change);
+        if (LocalUserInfo.getInstance(getActivity()).getLanguage_Type().equals("zh")){
+            iv_change.setImageResource(R.mipmap.bg_fragment1_zh);
+        }else {
+            iv_change.setImageResource(R.mipmap.bg_fragment1);
+        }
 
     }
 

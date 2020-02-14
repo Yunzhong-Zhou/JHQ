@@ -12,7 +12,6 @@ import android.view.View;
 
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -82,8 +81,6 @@ public class WebContentActivity extends BaseActivity {
         }
         resources.updateConfiguration(configuration, displayMetrics);
 
-        new ScreenAdaptation(getApplication(), 828, 1792).register();
-
         webView.onResume();
         webView.getSettings().setJavaScriptEnabled(true);
     }
@@ -105,7 +102,7 @@ public class WebContentActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        this.showProgress(true, getString(R.string.app_loading2));
+        this.showProgress(true, getString(R.string.app_loading));
         String url = getIntent().getStringExtra("url")
                 +"&lang_type=" + LocalUserInfo.getInstance(this).getLanguage_Type();
         MyLogger.i(">>>>>>url" + url);
@@ -122,6 +119,7 @@ public class WebContentActivity extends BaseActivity {
         webView.getSettings().setAllowFileAccess(true);// 设置可以访问文件
         webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         // webSettings.setDatabaseEnabled(true);
+//        webView.getSettings().setTextZoom(100);
         webView.getSettings().setGeolocationEnabled(true);
 
         getWindow().setFormat(PixelFormat.TRANSLUCENT);//（这个对宿主没什么影响，建议声明）

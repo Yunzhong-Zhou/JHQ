@@ -3,6 +3,8 @@ package com.ofc.ofc.activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +41,7 @@ import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -87,6 +91,37 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //切换语言
+        Resources resources = getResources();
+        // 获取应用内语言
+        Configuration configuration = resources.getConfiguration();
+        final DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                configuration.locale = new Locale("zh", "CN");
+                break;
+            case "en":
+                //设置为英文
+                configuration.locale = new Locale("en", "US");
+                break;
+            case "ja":
+                //设置为日文
+                configuration.locale = new Locale("ja", "JP");
+                break;
+            case "ko":
+                //设置为韩文
+                configuration.locale = new Locale("ko", "KR");
+                break;
+            case "vi":
+                //设置为越南文
+                configuration.locale = new Locale("vi", "VN");
+//                configuration.setLocale(Locale.);
+                break;
+        }
+        MyLogger.i(">>>>>>>>>>"+configuration.locale.toString());
+        resources.updateConfiguration(configuration, displayMetrics);
 
         setContentView(R.layout.activity_main);
 
