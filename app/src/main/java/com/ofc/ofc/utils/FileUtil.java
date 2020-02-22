@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 
@@ -25,6 +24,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import androidx.core.content.FileProvider;
 
 /**
  * Created by ling on 2015/8/25.

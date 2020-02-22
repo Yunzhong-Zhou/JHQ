@@ -1,1 +1,1 @@
-include ':app', ':MPChartLib', ':kchartlib'
+include ':app', ':kchartlib'

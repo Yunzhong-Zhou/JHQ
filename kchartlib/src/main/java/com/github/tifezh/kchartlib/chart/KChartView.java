@@ -3,9 +3,6 @@ package com.github.tifezh.kchartlib.chart;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -17,6 +14,10 @@ import com.github.tifezh.kchartlib.chart.draw.MACDDraw;
 import com.github.tifezh.kchartlib.chart.draw.MainDraw;
 import com.github.tifezh.kchartlib.chart.draw.RSIDraw;
 import com.github.tifezh.kchartlib.chart.draw.VolumeDraw;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.core.content.ContextCompat;
 
 /**
  * k线图

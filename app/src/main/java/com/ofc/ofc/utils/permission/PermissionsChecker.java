@@ -2,7 +2,7 @@ package com.ofc.ofc.utils.permission;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by zyz on 2017/9/13.

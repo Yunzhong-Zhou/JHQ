@@ -83,7 +83,8 @@ public class MyApplication extends Application {
                 });*/
 
         //极光推送
-        JPushInterface.setDebugMode(BuildConfig.DEBUG);
+//        JPushInterface.setDebugMode(BuildConfig.DEBUG);
+        JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 //        JPushInterface.setAlias(this, 0, LocalUserInfo.getInstance(this).getUserId());
         /*// 调用 Handler 来异步设置别名

@@ -1,14 +1,13 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.AccountDetailModel1;
@@ -16,13 +15,15 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by zyz on 2019/5/28.

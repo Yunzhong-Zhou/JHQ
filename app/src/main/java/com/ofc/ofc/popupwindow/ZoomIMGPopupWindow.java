@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;

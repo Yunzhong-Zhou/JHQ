@@ -6,7 +6,6 @@ import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -25,6 +24,8 @@ import com.github.tifezh.kchartlib.chart.formatter.ValueFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.core.view.GestureDetectorCompat;
 
 /**
  * k线图

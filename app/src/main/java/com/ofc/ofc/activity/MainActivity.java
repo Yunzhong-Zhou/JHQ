@@ -10,8 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -46,6 +44,8 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 

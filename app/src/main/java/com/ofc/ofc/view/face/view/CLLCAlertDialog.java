@@ -2,7 +2,7 @@ package com.ofc.ofc.view.face.view;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.AppCompatDialog;
+import androidx.appcompat.app.AppCompatDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
