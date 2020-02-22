@@ -384,15 +384,6 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
 
-        <!--华为推送-->
-        <service
-            android:name="cn.jpush.android.service.PluginHuaweiPlatformsService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
 
         <!--7.0限制-私有目录被限制访问-->
         <!--exported:要求必须为false，为true则会报安全异常。

@@ -14,8 +14,6 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.PermissionChecker;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -33,6 +31,9 @@ import com.znq.zbarcode.utils.BeepManager;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.PermissionChecker;
 
 /**
  * Desc: 1:启动一个SurfaceView作为取景预览
