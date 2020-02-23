@@ -1,6 +1,7 @@
 package com.ofc.ofc.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -9,6 +10,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -19,6 +22,10 @@ import android.widget.Toast;
 
 import com.cy.dialog.BaseDialog;
 import com.maning.updatelibrary.InstallUtils;
+import com.mob.pushsdk.MobPush;
+import com.mob.pushsdk.MobPushCustomMessage;
+import com.mob.pushsdk.MobPushNotifyMessage;
+import com.mob.pushsdk.MobPushReceiver;
 import com.next.easynavigation.view.EasyNavigationBar;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -40,14 +47,11 @@ import com.squareup.okhttp.Request;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
 
 public class MainActivity extends BaseActivity {
 //    public static BottomTabBar mBottomTabBar;
@@ -69,9 +73,9 @@ public class MainActivity extends BaseActivity {
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.READ_PHONE_STATE,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
             //定位
-            android.Manifest.permission.ACCESS_FINE_LOCATION
+//            android.Manifest.permission.ACCESS_FINE_LOCATION
 //            android.Manifest.permission.ACCESS_COARSE_LOCATION
 //            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
 
@@ -87,6 +91,8 @@ public class MainActivity extends BaseActivity {
             Manifest.permission.VIBRATE*/
     };
     private PermissionsChecker mPermissionsChecker; // 权限检测器
+
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,24 +305,99 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        //        JPushInterface.setAlias(this, 0, LocalUserInfo.getInstance(this).getUserId());//设置别名
-        JPushInterface.setAlias(this, LocalUserInfo.getInstance(this).getUserId(), new TagAliasCallback() {
+
+        MobPush.setAlias(localUserInfo.getUserId());//设置别名
+//        MobPush.addTags();//设置标签
+        //推送
+        MobPush.setShowBadge(true); //默认是关闭的，设置true为打开显示角标，反之则为关闭显示角标
+        MobPush.addPushReceiver(new MobPushReceiver() {
             @Override
-            public void gotResult(int code, String alias, Set<String> tags) {
-                switch (code) {
-                    case 0:
-                        MyLogger.i("极光推送 别名设置成功");
-                        // 建议这里往 SharePreference 里写一个成功设置的状态。成功设置一次后，以后不必再次设置了。
+            public void onCustomMessageReceive(Context context, MobPushCustomMessage message) {
+                //接收自定义消息(透传)
+                MyLogger.i("接收自定义消息(透传)onCustomMessageReceive:" + message.toString());
+            }
+
+            @Override
+            public void onNotifyMessageReceive(Context context, MobPushNotifyMessage message) {
+                //接收通知消息
+                MyLogger.i("接收通知消息MobPush onNotifyMessageReceive:" + message.toString());
+
+            }
+
+            @Override
+            public void onNotifyMessageOpenedReceive(Context context, MobPushNotifyMessage message) {
+                //接收通知消息被点击事件
+                MyLogger.i("接收通知消息被点击事件MobPush onNotifyMessageOpenedReceive:" + message.toString());
+                Message msg = new Message();
+//                msg.obj = "Click Message:" + message.toString();
+//                msg.obj = "Click Message:" + message.getTitle();
+//                msg.obj = "Click Message:" + message.getContent();
+                switch (message.getExtrasMap().get("type")) {
+                    case "1":
+                        //网页
+                        msg.what = 1;
+                        msg.obj = message.getExtrasMap().get("url");
                         break;
-                    case 6002:
-                        MyLogger.i("由于超时而无法设置别名和标签。");
-                        // 延迟 60 秒来调用 Handler 设置别名
-//                        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
-                        break;
-                    default:
-                        MyLogger.i("设置别名失败：" + code);
+                    case "2":
+                        //订单详情
+                        msg.what = 2;
+                        msg.obj = message.getExtrasMap().get("symbol");
                         break;
                 }
+                handler.sendMessage(msg);
+
+            }
+
+            @Override
+            public void onTagsCallback(Context context, String[] tags, int operation, int errorCode) {
+                //接收tags的增改删查操作
+                MyLogger.i("接收tags的增改删查操作onTagsCallback:" + operation + "  " + errorCode);
+            }
+
+            @Override
+            public void onAliasCallback(Context context, String alias, int operation, int errorCode) {
+                //接收alias的增改删查操作
+                MyLogger.i("接收alias的增改删查操作onAliasCallback:" + alias + "  " + operation + "  " + errorCode);
+            }
+        });
+
+        handler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                Bundle bundle = new Bundle();
+                switch (msg.what) {
+                    case 1:
+                        //网页
+                        MyLogger.i(">>>>>>>>网页：" + msg.obj.toString());
+                        Intent i = new Intent(MainActivity.this, WebContentActivity.class);
+                        bundle.putString("url", msg.obj.toString());
+                        i.putExtras(bundle);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        MainActivity.this.startActivity(i);
+                        break;
+                    case 2:
+                        //订单详情
+                        MyLogger.i(">>>>>>>>>symbol:" + msg.obj.toString());
+//                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
+                        Intent i2 = new Intent(MainActivity.this, PredictionDetailActivity.class);
+                        bundle.putString("symbol", msg.obj.toString());
+                        i2.putExtras(bundle);
+                        i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        MainActivity.this.startActivity(i2);
+
+                        break;
+                    default:
+                        break;
+                }
+
+                //当其它dialog未关闭的时候，再次显示dialog，会造成其他dialog无法dismiss的现象，建议使用toast
+//			if(PushDeviceHelper.getInstance().isNotificationEnabled()) {
+//				Toast.makeText(MainActivity.this, "回调信息\n" + (String) msg.OBJ, Toast.LENGTH_SHORT).show();
+//			} else {//当做比通知栏后，toast是无法显示的
+//				new DialogShell(MainActivity.this).autoDismissDialog(0, "回调信息\n" + (String)msg.OBJ, 2);
+//			}
+
+                return false;
             }
         });
 

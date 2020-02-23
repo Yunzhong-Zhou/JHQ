@@ -23,6 +23,7 @@ import com.ofc.ofc.utils.changelanguage.SpUtil;
 public class HelloActivity extends Activity {
     private static final String SHARE_APP_TAG = "HelloActivity";
     String language = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +114,6 @@ public class HelloActivity extends Activity {
         SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);
         Boolean user_first = setting.getBoolean("FIRST", true);
 
-
         // 如果是第一次启动，则先进入功能引导页
         if (user_first) {
             setting.edit().putBoolean("FIRST", false).commit();
@@ -123,6 +123,8 @@ public class HelloActivity extends Activity {
         } else {
             // 如果不是第一次启动app，则正常显示启动屏
             setContentView(R.layout.viewpager_page);
+
+            //启动页
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -132,10 +134,12 @@ public class HelloActivity extends Activity {
         }
 
     }
+
     /**
      * 如果是7.0以下，我们需要调用changeAppLanguage方法，
      * 如果是7.0及以上系统，直接把我们想要切换的语言类型保存在SharedPreferences中即可
      * 然后重新启动MainActivity
+     *
      * @param language
      */
     private void enterHomeActivity(String language) {
@@ -165,7 +169,6 @@ public class HelloActivity extends Activity {
         System.exit(0);*/
 
         finish();
-
 
     }
 

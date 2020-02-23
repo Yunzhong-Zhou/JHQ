@@ -5,18 +5,16 @@ buildscript {
     repositories {
         google()
         jcenter()
-        //华为推送
-        maven { url 'http://developer.huawei.com/repo/' }
+
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
 
-        classpath 'com.google.gms:google-services:4.3.3'//谷歌推送
-
-        classpath 'com.huawei.agconnect:agcp:1.0.0.300'//华为推送
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // 注册MobSDK
+        classpath 'com.mob.sdk:MobSDK:+'
+        // 注册google services FCM推送需要
+        classpath 'com.google.gms:google-services:4.0.1'
     }
 }
 
@@ -25,10 +23,6 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
-        //谷歌推送
-        maven { url "https://maven.google.com" }
-        //华为推送
-        maven { url 'http://developer.huawei.com/repo/' }
 
     }
 }
