@@ -30,10 +30,7 @@ android {
                 //魅族推送
                 MEIZU_APPKEY : "MZ-707d274d6ed542b4864ec545e67aaf8f",//魅族平台注册的appkey
                 MEIZU_APPID  : "MZ-128004",//魅族平台注册的appid
-
-
         ]
-
 
     }
     buildTypes {

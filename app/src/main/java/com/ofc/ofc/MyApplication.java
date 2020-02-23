@@ -38,6 +38,8 @@ public class MyApplication extends Application {
     public final void onCreate() {
         super.onCreate();
 
+//        LogcatHelper.getInstance(this).start();//打印log
+
         mContext = this;
         myApplication = this;
 
@@ -86,6 +88,21 @@ public class MyApplication extends Application {
 //        JPushInterface.setDebugMode(BuildConfig.DEBUG);
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+
+
+       /* new Thread() {
+            @Override
+            public void run() {
+                try {
+                    // read from agconnect-services.json
+                    String appId = AGConnectServicesConfig.fromContext(mContext).getString("client/app_id");
+                    String token = HmsInstanceId.getInstance(mContext).getToken(appId, "HCM");
+                    Log.i("华为获取Token", "get token:" + token);
+                } catch (ApiException e) {
+                    Log.e("华为获取Token", "get token failed, " + e);
+                }
+            }
+        }.start();*/
 //        JPushInterface.setAlias(this, 0, LocalUserInfo.getInstance(this).getUserId());
         /*// 调用 Handler 来异步设置别名
         mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, LocalUserInfo.getInstance(this).getUserId()));

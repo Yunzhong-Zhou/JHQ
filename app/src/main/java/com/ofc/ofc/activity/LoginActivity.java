@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.provider.Settings;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -45,6 +44,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.appcompat.app.AlertDialog;
 
 import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
 
@@ -100,9 +101,11 @@ public class LoginActivity extends BaseActivity {
 
 //        mImmersionBar.reset().init();
 
+
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
+
     }
 
 
