@@ -6,8 +6,8 @@ android {
         applicationId "com.ofc.ofc"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -189,7 +189,7 @@ dependencies {
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'
 
 }
-
+apply plugin: 'com.google.gms.google-services'//谷歌服务
 apply plugin: 'com.mob.sdk'
 MobSDK {
     appKey "2e203bbc66b2a"
