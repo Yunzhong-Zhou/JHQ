@@ -12,7 +12,13 @@ import android.view.View;
 
 import com.ofc.ofc.R;
 
+
+/**
+ * Copyright (c) 2017-2018 LINKFACE Corporation. All rights reserved.
+ */
+
 public class LFGifView extends View {
+
     /**
      * 默认为1秒
      */

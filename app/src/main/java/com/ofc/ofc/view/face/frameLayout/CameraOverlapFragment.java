@@ -1,6 +1,5 @@
 package com.ofc.ofc.view.face.frameLayout;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -25,6 +24,8 @@ import com.ofc.ofc.view.face.LivenessActivity;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * 相机Fragment
@@ -58,7 +59,6 @@ public class CameraOverlapFragment extends Fragment {
         if (mIsCameraInit && mCamera == null) {
             openCamera();
         }
-        CLLCSDKManager.getInstance().startDetector();
     }
 
     @Override
@@ -127,6 +127,7 @@ public class CameraOverlapFragment extends Fragment {
     }
 
     private void onOpenCameraError() {
+
         Toast.makeText(getActivity().getApplication(),getString(R.string.faceverified_h6),Toast.LENGTH_LONG).show();
         onErrorHappen();
     }
@@ -171,6 +172,33 @@ public class CameraOverlapFragment extends Fragment {
         para1.height = r*2;
         para1.width = r*2;
         surfaceView.setLayoutParams(para1);
+    }
+
+    //设置预览尺寸
+    private void setSurfaceviewSize(boolean across){
+        RelativeLayout.LayoutParams para1 = (RelativeLayout.LayoutParams) mSurfaceview.getLayoutParams();
+        if(across){
+            if(PREVIEW_WIDTH > PREVIEW_HEIGHT){
+                int margintop = para1.topMargin + para1.height/2 - (PREVIEW_WIDTH/PREVIEW_HEIGHT*para1.width)/2;
+                para1.topMargin = margintop;
+                para1.height = PREVIEW_WIDTH/PREVIEW_HEIGHT*para1.width;
+            }else {
+                int marginLeft = para1.leftMargin + para1.width/2 - (PREVIEW_HEIGHT/PREVIEW_WIDTH*para1.height)/2;
+                para1.leftMargin = marginLeft;
+                para1.width = PREVIEW_WIDTH/PREVIEW_HEIGHT*para1.height;
+            }
+        }else {
+            if(PREVIEW_WIDTH > PREVIEW_HEIGHT){
+                int marginLeft = para1.leftMargin + para1.width/2 - (PREVIEW_WIDTH/PREVIEW_HEIGHT*para1.height)/2;
+                para1.leftMargin = marginLeft;
+                para1.height = PREVIEW_HEIGHT*para1.width/para1.height;
+            }else {
+                int margintop = para1.topMargin + para1.height/2 - (PREVIEW_HEIGHT/PREVIEW_WIDTH*para1.width)/2;
+                para1.topMargin = margintop;
+                para1.width = PREVIEW_HEIGHT/PREVIEW_WIDTH*para1.width;
+            }
+        }
+        mSurfaceview.setLayoutParams(para1);
     }
 
 
@@ -225,9 +253,13 @@ public class CameraOverlapFragment extends Fragment {
                 } else {
                     mCamera.setDisplayOrientation(90);
                 }
+                //横屏调整
+                setSurfaceviewSize(true);
             } else {
                 parameters.set("orientation", "landscape");
                 mCamera.setDisplayOrientation(0);
+                //竖屏调整
+                setSurfaceviewSize(false);
             }
 
             mCamera.setParameters(parameters);
@@ -251,12 +283,38 @@ public class CameraOverlapFragment extends Fragment {
         mCamera = null;
     }
 
+   /* Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
+        @Override
+        public void onPreviewFrame(byte[] data, Camera camera) {
+            MyLogger.i(">>>>>>>"+PREVIEW_WIDTH+">>>>>>"+PREVIEW_HEIGHT+"》》data"+data.length);
+            CLLCSDKManager.getInstance().setPicData(data,camera,PREVIEW_WIDTH,PREVIEW_HEIGHT,mCameraInfo.orientation);
 
+
+        }
+    };*/
+    private int i = 0;
+    private byte[] mCurPreviewBuffer = null;
 
     Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
-            CLLCSDKManager.getInstance().setPicData(data,camera,PREVIEW_WIDTH,PREVIEW_HEIGHT,mCameraInfo.orientation);
+            if(i % 5 == 0) {
+                CLLCSDKManager.getInstance().setPicData(data, camera, PREVIEW_WIDTH, PREVIEW_HEIGHT, mCameraInfo.orientation);
+            }else {
+                if (mCurPreviewBuffer == null) {
+                    int previewFormat = ImageFormat.NV21; // the default.
+                    if (camera != null) {
+                        Camera.Parameters parameters = camera.getParameters();
+                        previewFormat = parameters.getPreviewFormat();
+                    }
+                    int bytesPerPixel = ImageFormat.getBitsPerPixel(previewFormat) / 8;
+                    int bufferSize = PREVIEW_WIDTH * PREVIEW_HEIGHT * bytesPerPixel * 3 / 2;
+
+                    mCurPreviewBuffer = new byte[bufferSize];
+                }
+                camera.addCallbackBuffer(mCurPreviewBuffer);
+            }
+            i++;
         }
     };
 
@@ -264,7 +322,6 @@ public class CameraOverlapFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        CLLCSDKManager.getInstance().releaseDetector();
     }
 
     @Override
@@ -273,7 +330,7 @@ public class CameraOverlapFragment extends Fragment {
         if (mPreviewCallbackData != null) {
             mPreviewCallbackData = null;
         }
-        CLLCSDKManager.getInstance().stopDetectThread();
+        CLLCSDKManager.getInstance().remove();
     }
 
 
@@ -319,6 +376,17 @@ public class CameraOverlapFragment extends Fragment {
             }
         });
         return sizeList.get(0);
+    }
+
+    public void resetDetector(){
+        if (mIsCameraInit && mCamera == null) {
+            openCamera();
+            CLLCSDKManager.getInstance().resetDetector();
+        }
+    }
+
+    public void stopDetector(){
+        releaseCamera();
     }
 }
 

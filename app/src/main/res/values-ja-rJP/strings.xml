@@ -655,7 +655,7 @@
     <string name="faceverified_h11">Remove mask</string>
     <string name="faceverified_h12">Slow down</string>
     <string name="faceverified_h13">I see</string>
-    <string name="faceverified_h14"></string>
+    <string name="faceverified_h14">Do not move out of the box and complete the detection action continuously</string>
     <string name="faceverified_h15">Time Out</string>
     <string name="faceverified_h16">Bad Capture</string>
     <string name="faceverified_h17">Invalid Image data</string>
@@ -688,6 +688,7 @@
     <string name="faceverified_h44">Verification failed</string>
     <string name="faceverified_h45">Please wait...</string>
     <string name="faceverified_h46">Verifying...</string>
+    <string name="faceverified_h47">Multiple faces detected, please try again</string>
 
     <string name="note_blink">Please blink</string>
     <string name="note_nod">Please nod</string>

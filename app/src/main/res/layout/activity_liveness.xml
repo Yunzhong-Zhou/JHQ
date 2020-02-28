@@ -64,22 +64,5 @@
                     android:orientation="horizontal" />
             </LinearLayout>
         </LinearLayout>
-
-        <com.ofc.ofc.view.face.view.timeview.CircleTimeView
-            android:id="@+id/t_view"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="right"
-            android:visibility="gone"
-            app:circle_color="#398AF3"
-            app:circle_width="4"
-            app:max_time="10"
-            app:text_color="#888888"
-            app:text_redus="100"
-            app:text_size="20" />
     </RelativeLayout>
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.ofc.ofc.view.face;
 
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,7 +10,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -21,7 +21,6 @@ import com.chuanglan.cllc.constant.LivenessState;
 import com.chuanglan.cllc.listener.LivenessListener;
 import com.chuanglan.cllc.modle.CLLCImageResult;
 import com.chuanglan.cllc.modle.CLLCParameter;
-import com.chuanglan.cllc.tool.CLLCSensorManager;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.VerfiedResultActivity;
 import com.ofc.ofc.activity.VerifiedActivity;
@@ -31,12 +30,11 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
+import com.ofc.ofc.view.face.frameLayout.CameraOverlapFragment;
 import com.ofc.ofc.view.face.listener.OcrAlertDialogListener;
-import com.ofc.ofc.view.face.utils.CLLCMediaPlayer;
-import com.ofc.ofc.view.face.view.CLLCAlertDialog;
+import com.ofc.ofc.view.face.utils.OcrMediaPlayer;
 import com.ofc.ofc.view.face.view.LFGifView;
-import com.ofc.ofc.view.face.view.timeview.CircleTimeView;
-import com.ofc.ofc.view.face.view.timeview.contoller.TimeViewContoller;
+import com.ofc.ofc.view.face.view.OcrAlertDialog;
 import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
@@ -44,6 +42,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.fragment.app.FragmentManager;
 
 public class LivenessActivity extends BaseActivity {
     int type = 1;//  1、大陆 2、海外
@@ -56,56 +56,53 @@ public class LivenessActivity extends BaseActivity {
     private Context mContext;
 
     private LFGifView mGvView;
-    private TimeViewContoller mTimeViewContoller;
-    private CircleTimeView mTimeView;
     private TextView mNoteTextView;
     private ViewGroup mVGBottomDots;
 
     private int[] mDetectList = null;//动作序列
 
     private boolean mSoundNoticeOrNot = true;   //声音控制true为打开, false为关闭。
-    private CLLCMediaPlayer mMediaPlayer = new CLLCMediaPlayer();
-    private CLLCAlertDialog cllcAlertDialog;
-
-    private CLLCSensorManager cllcSensorManager;
+    private OcrMediaPlayer mMediaPlayer = new OcrMediaPlayer();
+    private OcrAlertDialog ocrAlertDialog;
 
     private ProgressDialog m_Dialog;
+
+    private CameraOverlapFragment cameraOverlapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liveness);
         mContext = this;
+        initview();
     }
 
     @Override
-    protected void initView() {
+    protected void initView() { }
+
+    @Override
+    protected void initData() { }
+
+    @Override
+    protected void updateView() {
+        titleView.setTitle(getString(R.string.faceverified_h7));
+    }
+
+    private void initview() {
         mGvView = (LFGifView) findViewById(R.id.id_gv_play_action);
-        mTimeView = (CircleTimeView) findViewById(R.id.t_view);
-        mTimeViewContoller = new TimeViewContoller(mTimeView);
         mNoteTextView = (TextView) findViewById(R.id.noteText);
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        cameraOverlapFragment = (CameraOverlapFragment) fragmentManager.findFragmentById(R.id.overlapFragment);
         /**
          *  动作序列
          */
-
         mDetectList = new int[4];
         mDetectList[0] = LivenessState.BLINK;
-        mDetectList[1] = LivenessState.MOUTH;
-        mDetectList[2] = LivenessState.NOD;
+        mDetectList[1] = LivenessState.NOD;
+        mDetectList[2] = LivenessState.MOUTH;
         mDetectList[3] = LivenessState.YAW;
-        /*List<String> sequenceDataList = new ArrayList<>();
-        sequenceDataList.add("BLINK");//眨眼
-        sequenceDataList.add("MOUTH");//张嘴
-        sequenceDataList.add("NOD");//点头
-        sequenceDataList.add("YAW");//摇头
-        mDetectList = new int[sequenceDataList.size()];
-        for (int i = 0; i < sequenceDataList.size(); i++) {
-            mDetectList[i] = LivenessState.BLINK;
-            mDetectList[i] = LivenessState.MOUTH;
-            mDetectList[i] = LivenessState.NOD;
-            mDetectList[i] = LivenessState.YAW;
-        }*/
+
         type = getIntent().getIntExtra("type", 1);
         name = getIntent().getStringExtra("name");
         number = getIntent().getStringExtra("cardNo");
@@ -119,20 +116,25 @@ public class LivenessActivity extends BaseActivity {
         //输出类型
         parameter.setOutputType("singleImg");//singleImg 单图， multiImg 多图，video 低质量视频
         //难易程度
-        parameter.setComplexity("normal");//easy 容易， normal 正常，hard 困难，hell 究极
+        parameter.setComplexity("easy");//easy 容易， normal 正常，hard 困难，hell 究极
         //姓名
         parameter.setName(name);
         //身份证号
-        parameter.setCardNo(getIntent().getStringExtra("cardNo"));
+        parameter.setCardNo(number);
+        //超时时间(默认10秒)
+        parameter.setTime(10);
+        //添加hack检测
+        parameter.setHack(true);
 
         CLLCSDKManager.getInstance().setCLLCParameter(parameter);
         CLLCSDKManager.getInstance().setLivenessListener(new LivenessListener() {
             /**
              *  活体检测流程回调
              */
+
             @Override
-            public void onLivenessDetect(int value, int status, byte[] livenessEncryptResult, byte[] videoResult, CLLCImageResult[] imageResult) {
-                onLivenessDetectCallBack(value, status, livenessEncryptResult, videoResult, imageResult);
+            public void onLivenessDetect(int value, int status, CLLCImageResult[] imageResult) {
+                onLivenessDetectCallBack(value, status, imageResult);
             }
 
             /**
@@ -140,7 +142,7 @@ public class LivenessActivity extends BaseActivity {
              */
             @Override
             public void startVerify() {
-                showDialog();
+                showProgressDialog();
             }
 
             /**
@@ -149,7 +151,7 @@ public class LivenessActivity extends BaseActivity {
             @Override
             public void verifyResult(int code, String result) {
                 dismissDialog();
-                if (code == 0) {
+                if (code == 1000) {
                     /**
                      *  result 的解析仅限 默认URL 请求回调数据解析  自定义URL 数据非此解析方案
                      */
@@ -158,8 +160,26 @@ public class LivenessActivity extends BaseActivity {
                     skipResultActivity(false, result, result);
                 }
             }
-        }, null);
 
+            @Override
+            public void detectTimeout() {
+                showDialog(getString(R.string.faceverified_h15));
+            }
+
+            @Override
+            public void detectInterrupt(int i) {
+                if (type == 0) {
+                    showDialog(getString(R.string.faceverified_h14));
+                } else if (type == 1) {
+                    showDialog(getString(R.string.faceverified_h47));
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+
+            }
+        }, null);
 
         mVGBottomDots = (ViewGroup) findViewById(R.id.viewGroup);
         if (mDetectList.length >= 1) {
@@ -173,20 +193,7 @@ public class LivenessActivity extends BaseActivity {
                 mVGBottomDots.addView(tvBottomCircle, layoutParams);
             }
         }
-
-        cllcSensorManager = new CLLCSensorManager(this);
-
     }
-
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    protected void updateView() {
-        titleView.setTitle(getString(R.string.faceverified_h7));
-    }
-
 
     private void startAnimation(int animation) {
         if (animation != CURRENT_ANIMATION) {
@@ -195,14 +202,6 @@ public class LivenessActivity extends BaseActivity {
                 return;
             }
         }
-        mTimeViewContoller.start();
-        mTimeViewContoller.setCallBack(new TimeViewContoller.CallBack() {
-            @Override
-            public void onTimeEnd() {
-                setLivenessState(true);
-                showDialog(getString(R.string.faceverified_h15));
-            }
-        });
     }
 
     private void updateUi(int stringId, int animationId, int number) {
@@ -219,6 +218,7 @@ public class LivenessActivity extends BaseActivity {
 
 
     private void playSoundNotice(int step) {
+        MyLogger.i(">>>>>>>>>" + mContext);
         if (step > 0) {
             if (mDetectList[step - 1] == 0) {
                 if (mSoundNoticeOrNot) {
@@ -245,36 +245,31 @@ public class LivenessActivity extends BaseActivity {
     }
 
     private boolean isDialogShowing(String msg) {
-        if (cllcAlertDialog != null && cllcAlertDialog.isShowing()) {
+        if (ocrAlertDialog != null && ocrAlertDialog.isShowing()) {
             if (msg != null) {
-                cllcAlertDialog.setMsg(msg);
+                ocrAlertDialog.setMsg(msg);
             }
             return true;
         }
         return false;
     }
 
-
-    private void onLivenessDetectCallBack(final int value, final int status, final byte[] livenessEncryptResult, final byte[] videoResult, final CLLCImageResult[] imageResult) {
-
+    private void onLivenessDetectCallBack(final int value, final int status, final CLLCImageResult[] imageResult) {
+        MyLogger.i(">>>>>>value:" + value + ">>>>>>>status:" + status);
         if (value == LivenessState.BLINK) {       //眨眼睛
-            Log.e("sdsdfafdsfdsa", "--------眨眼睛----------->" + value);
             updateUi(R.string.note_blink, R.raw.raw_detect_blink, status + 1);
         } else if (value == LivenessState.NOD) {    //请点点头
-            Log.e("sdsdfafdsfdsa", "--------请点点头----------->" + value);
             updateUi(R.string.note_nod, R.raw.raw_detect_nod, status + 1);
         } else if (value == LivenessState.MOUTH) {  //请张张嘴
-            Log.e("sdsdfafdsfdsa", "--------请张张嘴----------->" + value);
             updateUi(R.string.note_mouth, R.raw.raw_detect_mouth, status + 1);
         } else if (value == LivenessState.YAW) {    //请瑶瑶头
-            Log.e("sdsdfafdsfdsa", "--------请瑶瑶头----------->" + value);
             updateUi(R.string.note_yaw, R.raw.raw_detect_yaw, status + 1);
         } else if (value == LivenessState.SUCCESS) { //成功
             updateTheLastStepUI(mVGBottomDots);
             /**
              *  处理图片（用户自己可以处理图片 视频保存）
              */
-            saveFinalEncrytFile(livenessEncryptResult, videoResult, imageResult);
+            saveFinalEncrytFile(imageResult);
         } else if (value == LivenessState.TRACKING_MISSED) { //采集失败，再试一次吧（追踪目标丢失）
             showDialog(getString(R.string.faceverified_h16));
         } else if (value == LivenessState.PREPARE) {
@@ -296,12 +291,12 @@ public class LivenessActivity extends BaseActivity {
                 case 1005:
                     msg = getString(R.string.faceverified_h20);
                     break;
-                case 1006:
+                /*case 1006:
                     msg = getString(R.string.faceverified_h21);
                     break;
                 case 1007:
                     msg = getString(R.string.faceverified_h22);
-                    break;
+                    break;*/
                 default:
                     msg = getString(R.string.faceverified_h23);
                     break;
@@ -345,7 +340,6 @@ public class LivenessActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        cllcSensorManager.registerListener(mSensorEventListener);
         if (isDialogShowing(null)) {
             mMediaPlayer.stop();
         }
@@ -354,7 +348,6 @@ public class LivenessActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        cllcSensorManager.unregisterListener(mSensorEventListener);
         mMediaPlayer.stop();
     }
 
@@ -366,28 +359,27 @@ public class LivenessActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mTimeViewContoller != null) {
-            mTimeViewContoller.remove();
-            mTimeViewContoller = null;
-        }
+        cameraOverlapFragment = null;
         ocrAlertDialogClose();
         dismissDialog();
     }
 
     private void updateTheLastStepUI(ViewGroup viewGroup) {
         mMediaPlayer.release();
-
-        hideTimeContoller();
-
         hideIndicateView();
     }
 
 
     private void showDialog(String msg) {
+        //暂停检测
+        setLivenessState(true);
+
+        //如果弹窗已经显示 直接返回
         if (isDialogShowing(msg)) {
             return;
         }
 
+        //设置流程小点点初始化
         if (mDetectList.length >= 1) {
             for (int i = 0; i < mDetectList.length; i++) {
                 View childAt = mVGBottomDots.getChildAt(i);
@@ -397,13 +389,10 @@ public class LivenessActivity extends BaseActivity {
             }
         }
 
-        hideTimeContoller();
-
+        //隐藏检测时相关控件
         hideIndicateView();
 
-        setLivenessState(true);
-
-        cllcAlertDialog = new CLLCAlertDialog(mContext, msg, new OcrAlertDialogListener() {
+        ocrAlertDialog = new OcrAlertDialog(mContext, msg, new OcrAlertDialogListener() {
             @Override
             public void onClick(View view) {
                 /**
@@ -415,30 +404,25 @@ public class LivenessActivity extends BaseActivity {
                 showIndicateView();
 
                 restartAnimationAndLiveness();
+
+                setLivenessState(false);
             }
         });
         if (((Activity) mContext).isFinishing()) {
             return;
         }
-        cllcAlertDialog.show();
+        ocrAlertDialog.show();
         mMediaPlayer.release();
     }
 
     public void ocrAlertDialogClose() {
-        if (cllcAlertDialog != null) {
-            if (cllcAlertDialog.isShowing()) {
-                cllcAlertDialog.dismiss();
+        if (ocrAlertDialog != null) {
+            if (ocrAlertDialog.isShowing()) {
+                ocrAlertDialog.dismiss();
             }
-            cllcAlertDialog = null;
+            ocrAlertDialog = null;
         }
     }
-
-    private void hideTimeContoller() {
-        if (mTimeViewContoller != null) {
-            mTimeViewContoller.hide();
-        }
-    }
-
 
     private void restartAnimationAndLiveness() {
         setLivenessState(false);
@@ -453,9 +437,13 @@ public class LivenessActivity extends BaseActivity {
 
     private void setLivenessState(boolean pause) {
         if (pause) {
-            CLLCSDKManager.getInstance().stopLiveness();
+            if (cameraOverlapFragment != null) {
+                cameraOverlapFragment.stopDetector();
+            }
         } else {
-            CLLCSDKManager.getInstance().startLiveness();
+            if (cameraOverlapFragment != null) {
+                cameraOverlapFragment.resetDetector();
+            }
         }
     }
 
@@ -474,11 +462,12 @@ public class LivenessActivity extends BaseActivity {
             /**
              *  添加传感器检测
              */
-            CLLCSDKManager.getInstance().addSequentialInfo(event.sensor.getType(), event.values);
+//            CLLCSDKManager.getInstance().addSequentialInfo(event.sensor.getType(), event.values);
+
         }
     };
 
-    public void saveFinalEncrytFile(byte[] livenessEncryptResult, byte[] videoResult, CLLCImageResult[] imageResult) {
+    public void saveFinalEncrytFile(CLLCImageResult[] imageResult) {
         /**
          * 用户自己处理图片或视频数据
          */
@@ -553,17 +542,17 @@ public class LivenessActivity extends BaseActivity {
                         boolean result = false;
                         String hint = "";
                         String msg = response.getRemark();
-                        if (response.getCode().equals("0")){
+                        if (response.getCode().equals("0")) {
 
                             //成功
-                            if (Double.valueOf(response.getScore()) >= 80){
+                            if (Double.valueOf(response.getScore()) >= 80) {
                                 //是同一个人
                                 result = true;
-                            }else {
+                            } else {
                                 //不是同一个人
                                 result = false;
                             }
-                        }else {
+                        } else {
                             //失败
                             result = false;
 
@@ -720,14 +709,14 @@ public class LivenessActivity extends BaseActivity {
         return msg;
     }
 
-    private void showDialog() {
+    private void showProgressDialog() {
         if (m_Dialog == null) {
             m_Dialog = ProgressDialog.show(LivenessActivity.this, getString(R.string.faceverified_h45), getString(R.string.faceverified_h46), true);
         } else {
             if (!m_Dialog.isShowing()) {
                 m_Dialog.dismiss();
                 m_Dialog = null;
-                showDialog();
+                showProgressDialog();
             }
         }
     }

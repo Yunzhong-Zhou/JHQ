@@ -655,7 +655,7 @@
     <string name="faceverified_h11">去除遮挡</string>
     <string name="faceverified_h12">放缓速度</string>
     <string name="faceverified_h13">我知道了</string>
-    <string name="faceverified_h14"></string>
+    <string name="faceverified_h14">请勿移出框外，并连续完成检测动作</string>
     <string name="faceverified_h15">动作超时</string>
     <string name="faceverified_h16">追踪目标丢失</string>
     <string name="faceverified_h17">未获取到图片数据</string>
@@ -688,6 +688,7 @@
     <string name="faceverified_h44">认证失败</string>
     <string name="faceverified_h45">请等待...</string>
     <string name="faceverified_h46">正在校验...</string>
+    <string name="faceverified_h47">检测到多个人脸，请重新尝试检测</string>
 
     <string name="note_blink">请眨眨眼</string>
     <string name="note_nod">请点点头</string>

@@ -655,7 +655,7 @@
     <string name="faceverified_h11">Tháo mặt nạ</string>
     <string name="faceverified_h12">Chậm lại</string>
     <string name="faceverified_h13">Tôi hiểu rồi</string>
-    <string name="faceverified_h14"></string>
+    <string name="faceverified_h14">Không di chuyển ra khỏi hộp và hoàn thành hành động phát hiện liên tục</string>
     <string name="faceverified_h15">Hết thời gian</string>
     <string name="faceverified_h16">Chụp kém</string>
     <string name="faceverified_h17">Dữ liệu ảnh không hợp lệ</string>
@@ -688,6 +688,7 @@
     <string name="faceverified_h44">Xác minh không thành công</string>
     <string name="faceverified_h45">Vui lòng chờ...</string>
     <string name="faceverified_h46">Đang xác minh...</string>
+    <string name="faceverified_h47">Nhiều khuôn mặt được phát hiện, vui lòng thử lại</string>
 
     <string name="note_blink">Hãy chớp mắt</string>
     <string name="note_nod">Hãy gật đầu</string>

@@ -45,7 +45,6 @@ public class FaceDetectRoundView extends View {
     public static final int COLOR_ROUND = Color.parseColor("#FFFFFF");
 
 
-
     private PathEffect mFaceRoundPathEffect = null;
     // new DashPathEffect(new float[]{PATH_SPACE, PATH_SPACE}, 1);
     private Paint mBGPaint;
@@ -103,7 +102,7 @@ public class FaceDetectRoundView extends View {
         mFaceRoundPaint.setDither(true);
 
 
-        paint= new Paint();
+        paint = new Paint();
         paint.setStrokeWidth(pathWidth);
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
@@ -140,7 +139,7 @@ public class FaceDetectRoundView extends View {
         //设置圆心高度
         float y = canvasWidth * 2 / 3 - height;
         //设置圆半径
-        float r = canvasWidth/3;
+        float r = canvasWidth / 3;
 
         if (mFaceRect == null) {
             mFaceRect = new Rect((int) (x - r),
@@ -176,18 +175,18 @@ public class FaceDetectRoundView extends View {
         paint.setColor(COLOR_gray);
         paint.setStrokeWidth(4);
         paint.setPathEffect(new DashPathEffect(new float[]{4, 4}, 0));
-        canvas.drawCircle(mX, mY, mR+75, paint);//max
+        canvas.drawCircle(mX, mY, mR + 75, paint);//max
         paint.setColor(COLOR_blue);
         canvas.drawCircle(mX, mY, mR, paint); //min
         paint.setPathEffect(null);
         paint.setStrokeWidth(8);
-        canvas.drawCircle(mX, mY, mR+30, paint);
+        canvas.drawCircle(mX, mY, mR + 30, paint);
 
 
     }
 
     public static Rect getPreviewDetectRect(int w, int pw, int ph) {
-        float round = (w / 2) - ((w / 2) * WIDTH_SPACE_RATIO*1.8f);
+        float round = (w / 2) - ((w / 2) * WIDTH_SPACE_RATIO * 1.8f);
         float x = pw / 2;
         float y = (ph / 2) - ((ph / 2) * HEIGHT_RATIO);
         float r = (pw / 2) > round ? round : (pw / 2);

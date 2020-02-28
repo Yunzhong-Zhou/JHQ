@@ -198,7 +198,7 @@
             <TextView
                 android:id="@+id/textView3"
                 android:onClick="onClick"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment5_h30"
                 android:paddingTop="14dp"
@@ -226,7 +226,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:onClick="onClick"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment5_h31"
                 android:paddingBottom="14dp"

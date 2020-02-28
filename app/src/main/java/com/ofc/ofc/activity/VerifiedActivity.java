@@ -276,7 +276,6 @@ public class VerifiedActivity extends BaseActivity {
                         MyLogger.i(">>>>>>>>>认证加载2" + response);
                         hideProgress();
                         CLLCSDKManager.getInstance().init(getApplicationContext(),
-                                "https://cloud-license.linkface.cn/json/2019123016575797dd54651ff04b0e87b22049cdf9379f.json",//jsonUrl 实⼈认证平台获取到的jsonUrl（必须与平台获取的.lic⽂件对应）
                                 "k01UMTdN",//appid
                                 "SGKuoaNz",//appkey
                                 new InitStateListener() {
@@ -286,11 +285,6 @@ public class VerifiedActivity extends BaseActivity {
                                             MyLogger.i(">>>>>>>>>人脸初始化成功");
                                             //可以实名，去人脸识别
 
-                                            /*Intent intent = new Intent(VerifiedActivity.this, LivenessActivity.class)
-                                                    .putExtra("name", name)
-                                                    .putExtra("cardNo", number)
-                                                    .putExtra("type", v_type);
-                                            startActivity(intent);*/
                                             Bundle bundle = new Bundle();
                                             bundle.putString("name", name);
                                             bundle.putString("cardNo", number);
@@ -299,9 +293,6 @@ public class VerifiedActivity extends BaseActivity {
                                             /*if (type == 2) {
                                                 bundle.putString("bendi_img", bendi_img);
                                             }*/
-
-//                                            bundle.putStringArrayList("listFileNames",listFileNames);
-//                                            bundle.putByteArray("listFileNames",listFileNames);
                                             CommonUtil.gotoActivityWithData(VerifiedActivity.this, LivenessActivity.class, bundle, false);
                                         } else {
                                             MyLogger.i(">>>>>>>>>人脸初始化失败：" +
