@@ -283,22 +283,20 @@ public class CameraOverlapFragment extends Fragment {
         mCamera = null;
     }
 
-   /* Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
+    Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
-            MyLogger.i(">>>>>>>"+PREVIEW_WIDTH+">>>>>>"+PREVIEW_HEIGHT+"》》data"+data.length);
+//            MyLogger.i(">>>>>>>"+PREVIEW_WIDTH+">>>>>>"+PREVIEW_HEIGHT+"》》data"+data.length);
             CLLCSDKManager.getInstance().setPicData(data,camera,PREVIEW_WIDTH,PREVIEW_HEIGHT,mCameraInfo.orientation);
-
-
         }
-    };*/
-    private int i = 0;
+    };
+    /*private int i = 0;
     private byte[] mCurPreviewBuffer = null;
 
     Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() {
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
-            if(i % 5 == 0) {
+            if(i % 3 == 0) {
                 CLLCSDKManager.getInstance().setPicData(data, camera, PREVIEW_WIDTH, PREVIEW_HEIGHT, mCameraInfo.orientation);
             }else {
                 if (mCurPreviewBuffer == null) {
@@ -316,7 +314,7 @@ public class CameraOverlapFragment extends Fragment {
             }
             i++;
         }
-    };
+    };*/
 
 
     @Override

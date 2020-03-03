@@ -218,7 +218,6 @@ public class LivenessActivity extends BaseActivity {
 
 
     private void playSoundNotice(int step) {
-        MyLogger.i(">>>>>>>>>" + mContext);
         if (step > 0) {
             if (mDetectList[step - 1] == 0) {
                 if (mSoundNoticeOrNot) {
