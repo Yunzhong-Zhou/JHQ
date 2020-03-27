@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
@@ -353,6 +354,7 @@ public class MyProfileActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             Uri uri = null;
             String imagePath = null;
@@ -369,18 +371,22 @@ public class MyProfileActivity extends BaseActivity {
                     //处理得到的url
                     ContentResolver cr = this.getContentResolver();
                     Cursor cursor = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         cursor = cr.query(uri, null, null, null, null, null);
                         if (cursor != null) {
                             cursor.moveToFirst();
                             try {
                                 imagePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
 //                                myToast(getString(R.string.app_error));
+                            } finally {
+                                if (cursor != null)
+                                    cursor.close();
                             }
                         }
-                    }else {
+
+                    } else {
                         imagePath = uri.getPath();
                     }
                     break;
