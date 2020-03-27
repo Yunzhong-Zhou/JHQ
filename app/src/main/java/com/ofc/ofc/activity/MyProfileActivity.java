@@ -371,16 +371,21 @@ public class MyProfileActivity extends BaseActivity {
                     Cursor cursor = null;
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
                         cursor = cr.query(uri, null, null, null, null, null);
-                    }
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        imagePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-                    } else {
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            try {
+                                imagePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                            }catch (Exception e){
+                                e.printStackTrace();
+//                                myToast(getString(R.string.app_error));
+                            }
+                        }
+                    }else {
                         imagePath = uri.getPath();
                     }
                     break;
             }
-            if (uri != null) {
+            if (imagePath != null) {
                 MyLogger.i(">>>>>>>>>>获取到的图片路径1：" + imagePath);
                 //图片过大解决方法
                 BitmapFactory.Options options = new BitmapFactory.Options();
