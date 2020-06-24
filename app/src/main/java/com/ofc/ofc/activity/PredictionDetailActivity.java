@@ -17,10 +17,15 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
+import com.ofc.ofc.utils.websocket.IReceiveMessage;
+import com.ofc.ofc.utils.websocket.WebSocketManager;
 import com.ofc.ofc.view.chart.DataHelper;
 import com.ofc.ofc.view.chart.KChartAdapter;
 import com.ofc.ofc.view.chart.KLineEntity;
 import com.squareup.okhttp.Request;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,6 +55,12 @@ public class PredictionDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_predictiondetail);
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //关闭连接
+        WebSocketManager.getInstance().close();
     }
 
     @Override
@@ -124,6 +135,106 @@ public class PredictionDetailActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //发送信息
+//        WebSocketManager.getInstance().sendMessage("客户端发送");
+        //关闭连接
+//        WebSocketManager.getInstance().close();
+
+        //开始连接
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //wss://api.hadax.com/ws
+                WebSocketManager.getInstance().init("wss://api.huobi.pro/ws", new IReceiveMessage() {
+                    @Override
+                    public void onConnectSuccess() {
+                        MyLogger.i(">>>>>>连接成功");
+                        try {
+                            //发送订阅
+                            JSONObject jObj_dingyue = new JSONObject();
+                            jObj_dingyue.put("sub","market.btcusdt.kline.1min");
+                            jObj_dingyue.put("id","btcusdt");
+                            jObj_dingyue.put("from",(Long)System.currentTimeMillis()/1000 - 600);
+                            jObj_dingyue.put("to",(Long)System.currentTimeMillis()/1000);
+                            WebSocketManager.getInstance().sendMessage(jObj_dingyue.toString());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onConnectFailed() {
+                        MyLogger.i(">>>>>>连接失败");
+                    }
+
+                    @Override
+                    public void onClose() {
+                        MyLogger.i(">>>>>>关闭成功");
+                    }
+
+                    @Override
+                    public void onMessage(String text) {
+                        MyLogger.i("接收消息",text);
+
+                        //得到心跳 {"ping":1592998031971}，发送心跳{"pong":1592998031971}
+                        JSONObject jObj;
+                        String ping = "";
+                        try {
+                            //解析数据
+                            if (text.indexOf("ping") != -1) {
+                                //TODO 判断有无ping数据
+                                jObj = new JSONObject(text);
+                                ping = jObj.getString("ping");
+
+                                JSONObject jObj_pong = new JSONObject();
+                                //发送心跳
+                                jObj_pong.put("pong",ping);
+                                WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
+                            }else {
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        }).start();
+
+        /*
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                WebSocketManager.getInstance().init("wss://api.hadax.com/ws", new IReceiveMessage() {
+                    @Override
+                    public void onConnectSuccess() {
+                        MyLogger.i(">>>>>>连接成功");
+
+                    }
+
+                    @Override
+                    public void onConnectFailed() {
+                        MyLogger.i(">>>>>>连接失败");
+                    }
+
+                    @Override
+                    public void onClose() {
+                        MyLogger.i(">>>>>>关闭成功");
+                    }
+
+                    @Override
+                    public void onMessage(String text) {
+                        MyLogger.i("接收消息",text);
+
+                    }
+                });
+            }
+        }).start();*/
+
+
+
         symbol = getIntent().getStringExtra("symbol");
         textView1.setText(symbol);
         switch (symbol) {
@@ -309,5 +420,4 @@ public class PredictionDetailActivity extends BaseActivity {
             return true;//不执行父类点击事件
         return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
     }
-
 }

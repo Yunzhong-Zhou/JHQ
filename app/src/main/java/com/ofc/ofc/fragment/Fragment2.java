@@ -6,8 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +52,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 /**
  * Created by fafukeji01 on 2016/1/6.
@@ -65,6 +66,7 @@ public class Fragment2 extends BaseFragment {
     CommonAdapter<Fragment2Model> mAdapter1;
 
     List<String> stringList = new ArrayList<>();
+
 
     private String userName = "user";
     private String passWord = "SZUI78*AAQa";
@@ -167,6 +169,8 @@ public class Fragment2 extends BaseFragment {
 
     @Override
     protected void initData() {
+
+
 //        requestServer();
        /* TextView textView = findViewByID_My(R.id.textView);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -537,6 +541,7 @@ public class Fragment2 extends BaseFragment {
             lineChart.invalidate();
         }
     }
+
     /**
      * *************************************长连接**************************************************
      */

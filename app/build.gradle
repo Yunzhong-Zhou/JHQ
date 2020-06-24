@@ -90,7 +90,7 @@ dependencies {
 //    implementation 'com.android.support:multidex:1.0.3'
 
     //网络请求、解析
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
@@ -178,6 +178,7 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 //    implementation project(':MPChartLib')
     implementation project(':kchartlib')
+
     //长连接-RabbitMQ
     implementation 'com.rabbitmq:amqp-client:5.8.0'
 
