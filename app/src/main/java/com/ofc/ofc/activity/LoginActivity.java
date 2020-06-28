@@ -24,6 +24,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
+import com.lahm.library.EasyProtectorLib;
+import com.lahm.library.EmulatorCheckCallback;
 import com.maning.updatelibrary.InstallUtils;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -509,6 +511,22 @@ public class LoginActivity extends BaseActivity {
         password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             myToast(getString(R.string.login_h2));
+            return false;
+        }
+
+        /*if (!CommonUtil.notHasLightSensorManager(LoginActivity.this)){
+            myToast(getString(R.string.app_abfooter_loading));
+            return false;
+        }*/
+
+        boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+            @Override
+            public void findEmulator(String emulatorInfo) {
+                MyLogger.i("设备信息", emulatorInfo);
+            }
+        });
+        if (isMoNiQi == true) {//是模拟器
+            myToast(getString(R.string.login_h17));
             return false;
         }
 

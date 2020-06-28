@@ -332,6 +332,18 @@ public class RegisteredActivity extends BaseActivity {
             myToast(getString(R.string.registered_h15));
             return false;
         }
+
+        /*boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+            @Override
+            public void findEmulator(String emulatorInfo) {
+                MyLogger.i("设备信息", emulatorInfo);
+            }
+        });
+        if (isMoNiQi == true) {//是模拟器
+            myToast(getString(R.string.login_h17));
+            return false;
+        }*/
+
         /*if (isNickName==false){
             myToast("昵称不可用");
             return false;

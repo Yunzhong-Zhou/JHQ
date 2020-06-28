@@ -188,6 +188,9 @@ dependencies {
     //腾讯X5 WebView
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'
 
+    //检测手机XP/调试/多开/模拟器/root
+    implementation 'com.lahm.library:easy-protector-release:1.1.2'
+
 }
 apply plugin: 'com.google.gms.google-services'//谷歌服务
 apply plugin: 'com.mob.sdk'

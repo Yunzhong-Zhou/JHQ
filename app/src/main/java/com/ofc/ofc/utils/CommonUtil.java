@@ -8,10 +8,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.fragment.app.Fragment;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -31,6 +32,8 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * 页面跳转辅助类
@@ -496,6 +499,24 @@ public class CommonUtil {
     }
 
     /**
+     * 判断是否存在光传感器来判断是否为模拟器 部分真机也不存在温度和压力传感器。其余传感器模拟器也存在。
+     *
+     * @return  false 为模拟器
+     */
+    public static boolean notHasLightSensorManager(Context context) {
+        SensorManager sensorManager = (SensorManager) context
+                .getSystemService(Context.SENSOR_SERVICE);
+        Sensor sensor8 = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT); // 光
+        if (null == sensor8) {
+            MyLogger.i("", "光传感器判定为false");
+            return false;
+        } else {
+            MyLogger.i("", "光传感器判定为true");
+            return true;
+        }
+    }
+
+    /**
      * 判断手机有无Gps
      */
     public static boolean hasGPSDevice(Context context) {
@@ -551,6 +572,7 @@ public class CommonUtil {
         }
         return times;
     }
+
     /**
      * 调用此方法输入所要转换的时间戳输入例如（1402733340）输出（"2014-06-14 16:09:00"）
      *
@@ -566,6 +588,7 @@ public class CommonUtil {
         return times;
 
     }
+
     /**
      * 调用此方法输入所要转换的时间戳输入例如（1402733340）输出（"2014-06-14 16:09:00"）
      *
@@ -597,6 +620,7 @@ public class CommonUtil {
         return times;
 
     }
+
     /**
      * 调用此方法输入所要转换的时间戳输入例如（1402733340）输出（"2014-06-14 16:09:00"）
      *
@@ -612,6 +636,7 @@ public class CommonUtil {
         return times;
 
     }
+
     /**
      * 调用此方法输入所要转换的时间戳输入例如（1402733340）输出（"2014-06-14 16:09:00"）
      *
@@ -627,7 +652,6 @@ public class CommonUtil {
         return times;
 
     }
-
 
 
     /**
@@ -706,7 +730,7 @@ public class CommonUtil {
                 sb.append(String.format("%02d", minute) + ":");//分
             }
 //            if (second > 0) {
-                sb.append(String.format("%02d", second) + "s");//秒
+            sb.append(String.format("%02d", second) + "s");//秒
 //            }
             /*if(milliSecond > 0) {
                 sb.append(milliSecond+"毫秒");//毫秒
@@ -791,4 +815,5 @@ public class CommonUtil {
         double statusBarHeight = Math.ceil(25 * context.getResources().getDisplayMetrics().density);
         return statusBarHeight;
     }
+
 }

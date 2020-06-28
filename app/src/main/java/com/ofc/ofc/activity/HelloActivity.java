@@ -7,9 +7,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.lahm.library.EasyProtectorLib;
+import com.lahm.library.EmulatorCheckCallback;
 import com.ofc.ofc.MyApplication;
 import com.ofc.ofc.R;
 import com.ofc.ofc.utils.LocalUserInfo;
+import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.changelanguage.LanguageType;
 import com.ofc.ofc.utils.changelanguage.LanguageUtil;
 import com.ofc.ofc.utils.changelanguage.SpUtil;
@@ -113,6 +116,23 @@ public class HelloActivity extends Activity {
         // 判断是否是第一次开启应用
         SharedPreferences setting = getSharedPreferences(SHARE_APP_TAG, 0);
         Boolean user_first = setting.getBoolean("FIRST", true);
+
+
+        //判断是否为真机
+        /*if (!CommonUtil.notHasLightSensorManager(HelloActivity.this)){
+            finish();
+        }*/
+
+        boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+            @Override
+            public void findEmulator(String emulatorInfo) {
+                MyLogger.i("设备信息", emulatorInfo);
+            }
+        });
+        if (isMoNiQi == true) {//是模拟器
+            finish();
+        }
+
 
         // 如果是第一次启动，则先进入功能引导页
         if (user_first) {
