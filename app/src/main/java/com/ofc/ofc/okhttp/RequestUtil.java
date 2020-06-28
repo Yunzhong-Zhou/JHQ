@@ -129,7 +129,9 @@ class RequestUtil {
         FormBody.Builder formBody = new FormBody.Builder();
         if(mParamsMap != null) {
             for (String key : mParamsMap.keySet()) {
-                formBody.add(key, mParamsMap.get(key));
+                if (mParamsMap.get(key) != null){
+                    formBody.add(key, mParamsMap.get(key));
+                }
             }
         }
         return formBody.build();

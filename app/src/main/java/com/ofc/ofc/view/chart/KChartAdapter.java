@@ -17,7 +17,6 @@ public class KChartAdapter extends BaseKChartAdapter {
     private List<KLineEntity> datas = new ArrayList<>();
 
     public KChartAdapter() {
-
     }
 
     @Override
@@ -66,6 +65,18 @@ public class KChartAdapter extends BaseKChartAdapter {
      */
     public void addHeaderData(List<KLineEntity> data) {
         if (data != null && !data.isEmpty()) {
+//            datas.clear();//先清除数据
+            datas.addAll(data);
+            notifyDataSetChanged();
+        }
+    }
+    /**
+     * 向头部添加数据
+     */
+    public void addHeaderData1(List<KLineEntity> data) {
+        if (data != null && !data.isEmpty()) {
+            datas.clear();//先清除数据
+
             datas.addAll(data);
             notifyDataSetChanged();
         }

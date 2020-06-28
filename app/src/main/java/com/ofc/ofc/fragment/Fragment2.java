@@ -169,8 +169,6 @@ public class Fragment2 extends BaseFragment {
 
     @Override
     protected void initData() {
-
-
 //        requestServer();
        /* TextView textView = findViewByID_My(R.id.textView);
         textView.setOnClickListener(new View.OnClickListener() {

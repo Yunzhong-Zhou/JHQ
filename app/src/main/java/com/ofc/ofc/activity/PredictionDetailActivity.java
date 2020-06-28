@@ -45,6 +45,7 @@ public class PredictionDetailActivity extends BaseActivity {
     ImageView imageView1, imageView2;
     int page = 0;
 
+
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
@@ -145,7 +146,8 @@ public class PredictionDetailActivity extends BaseActivity {
             @Override
             public void run() {
                 //wss://api.hadax.com/ws
-                WebSocketManager.getInstance().init("wss://api.huobi.pro/ws", new IReceiveMessage() {
+                //wss://api.huobi.pro/ws
+                WebSocketManager.getInstance().init("wss://api.hadax.com/ws", new IReceiveMessage() {
                     @Override
                     public void onConnectSuccess() {
                         MyLogger.i(">>>>>>连接成功");
@@ -192,6 +194,7 @@ public class PredictionDetailActivity extends BaseActivity {
                                 jObj_pong.put("pong",ping);
                                 WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
                             }else {
+
 
 
                             }

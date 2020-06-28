@@ -100,7 +100,9 @@
         <activity
             android:name="com.ofc.ofc.activity.WebContentActivity"
             android:label="网页" />
-
+        <activity
+            android:name="com.ofc.ofc.activity.TESTActivity"
+            android:label="测试" />
 
         <activity
             android:name="com.ofc.ofc.activity.PastListActivity"

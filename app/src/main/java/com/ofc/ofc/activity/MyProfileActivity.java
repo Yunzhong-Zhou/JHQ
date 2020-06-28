@@ -69,7 +69,7 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        textView1.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());
+        textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
         textView2.setText(localUserInfo.getNickname());
         textView3.setText(localUserInfo.getInvuteCode());
 //        textView4.setText(localUserInfo.getEmail());
@@ -146,7 +146,7 @@ public class MyProfileActivity extends BaseActivity {
                     imageView1.setImageResource(R.mipmap.headimg);
 
                 //手机号
-                textView1.setText("+"+localUserInfo.getMobile_State_Code()+"  "+response.getMobile());
+                textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + response.getMobile());
                 //昵称
                 textView2.setText(response.getNickname());
                 //邀请码
@@ -285,6 +285,10 @@ public class MyProfileActivity extends BaseActivity {
                                 dialog.dismiss();
                             }
                         });
+                break;
+
+            case R.id.linearLayout_test:
+                CommonUtil.gotoActivity(MyProfileActivity.this, TESTActivity.class, false);
                 break;
         }
     }

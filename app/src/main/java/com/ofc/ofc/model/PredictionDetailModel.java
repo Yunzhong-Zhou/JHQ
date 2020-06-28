@@ -229,6 +229,7 @@ public class PredictionDetailModel implements Serializable {
         private double support;
         private String resistence;
         private String created_at;
+
         private String status;
 
         public String getStatus() {
