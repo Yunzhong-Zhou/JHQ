@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity {
 //                configuration.setLocale(Locale.);
                 break;
         }
-        MyLogger.i(">>>>>>>>>>"+configuration.locale.toString());
+        MyLogger.i(">>>>>>>>>>" + configuration.locale.toString());
         resources.updateConfiguration(configuration, displayMetrics);
 
         setContentView(R.layout.activity_main);
@@ -145,6 +145,7 @@ public class MainActivity extends BaseActivity {
         item = 2;
         isOver = false;
     }
+
     @Override
     protected void initView() {
         navigationBar = findViewByID_My(R.id.navigationBar);
@@ -156,9 +157,9 @@ public class MainActivity extends BaseActivity {
         fragments.add(new Fragment3());
         fragments.add(new Fragment4());
         fragments.add(new Fragment5());
-        String[] tabText = {getString(R.string.fragment1) + "",
+        String[] tabText = {getString(R.string.fragment3) + "",
                 getString(R.string.fragment2) + "",
-                getString(R.string.fragment3) + "",
+                "",
                 getString(R.string.fragment4) + "",
                 getString(R.string.fragment5) + ""};
         //未选中icon
@@ -189,7 +190,7 @@ public class MainActivity extends BaseActivity {
                                 mImmersionBar.reset()
 //                                        .fitsSystemWindows(true)
 //                                        .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
-//                                        .statusBarColor(R.color.black_)
+//                                        .statusBarColor(R.color.title_bg)
 //                                        .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
                                         .init();
                                 break;

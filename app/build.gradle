@@ -89,6 +89,9 @@ dependencies {
     //通过Grovvy脚本修改版本号解决冲突
 //    implementation 'com.android.support:multidex:1.0.3'
 
+    //屏幕适配
+    implementation 'me.jessyan:autosize:1.2.1'
+
     //网络请求、解析
     implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation 'com.google.code.gson:gson:2.8.0'

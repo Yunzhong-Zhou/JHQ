@@ -300,7 +300,7 @@
                         app:kc_candle_width="8dp"
                         app:kc_point_width="10dp"
                         app:kc_grid_line_color="#FFFFFF"
-                        app:kc_background_color="#031F2C"></com.github.tifezh.kchartlib.chart.KChartView>
+                        app:kc_background_color="#031F2C"/>
 
                 </RelativeLayout>
                 <!--<com.github.mikephil.charting.charts.CandleStickChart

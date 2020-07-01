@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/headview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!--只需要刷新只写header-->
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/iv_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@mipmap/bg_fragment1"
+                    android:scaleType="fitXY"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:background="#E3E2EA" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusableInTouchMode="true"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawablePadding="5dp"
+                                android:gravity="center"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:text="@string/fragment1_h1"
+                                android:textColor="@color/green"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:id="@+id/view1"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawablePadding="5dp"
+                                android:gravity="center"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:text="@string/fragment1_h2"
+                                android:textColor="@color/black4"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawablePadding="5dp"
+                                android:gravity="center"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp"
+                                android:text="@string/fragment1_h3"
+                                android:textColor="@color/black4"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:id="@+id/view3"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <com.ofc.ofc.view.LoadingLayout
+                    android:id="@+id/loading_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.ofc.ofc.view.LoadingLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.liaoinstan.springview.widget.SpringView>
+
+</RelativeLayout>

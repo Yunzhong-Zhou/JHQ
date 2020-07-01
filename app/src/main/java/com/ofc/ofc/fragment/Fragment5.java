@@ -26,6 +26,7 @@ import com.ofc.ofc.activity.MyTakeCashActivity;
 import com.ofc.ofc.activity.NewcomerRewardActivity;
 import com.ofc.ofc.activity.OnlineServiceActivity;
 import com.ofc.ofc.activity.QRCodeActivity;
+import com.ofc.ofc.activity.SchoolActivity;
 import com.ofc.ofc.activity.ServiceCenter_NoActivity;
 import com.ofc.ofc.activity.ServiceCenter_YesActivity;
 import com.ofc.ofc.activity.ShareActivity;
@@ -52,7 +53,7 @@ public class Fragment5 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout_yue, linearLayout_yongjin;
+            linearLayout12, linearLayout13,linearLayout14, linearLayout_yue, linearLayout_yongjin;
     ImageView imageView1;
 
 
@@ -161,6 +162,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout11 = findViewByID_My(R.id.linearLayout11);
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
         linearLayout13 = findViewByID_My(R.id.linearLayout13);
+        linearLayout14 = findViewByID_My(R.id.linearLayout14);
         linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
         linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
 
@@ -177,6 +179,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout11.setOnClickListener(this);
         linearLayout12.setOnClickListener(this);
         linearLayout13.setOnClickListener(this);
+        linearLayout14.setOnClickListener(this);
         linearLayout_yue.setOnClickListener(this);
         linearLayout_yongjin.setOnClickListener(this);
 
@@ -326,6 +329,10 @@ public class Fragment5 extends BaseFragment {
             case R.id.linearLayout10:
                 //有奖邀请
                 CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
+                break;
+            case R.id.linearLayout14:
+                //学院
+                CommonUtil.gotoActivity(getActivity(), SchoolActivity.class, false);
                 break;
             case R.id.linearLayout11:
                 //公告通知

@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.TESTModel;
+import com.ofc.ofc.model.TEST_ListModel;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.websocket.IReceiveMessage;
 import com.ofc.ofc.utils.websocket.WebSocketManager;
@@ -31,7 +32,10 @@ public class TESTActivity extends BaseActivity {
     boolean isOver = false;
     //wss://api.hadax.com/ws
     //wss://api.huobi.pro/ws
-    String url = "wss://api.hadax.com/ws", sub = "market.btcusdt.kline.1min", id = "btcusdt";
+    //wss://api-aws.huobi.pro/ws
+    String url = "wss://api.hadax.com/ws",
+            longtime = "1min", id = "btcusdt",
+            sub = "market." + id + ".kline." + longtime;
     long page = 1, time = 60 * 100, tempTime = 0;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
@@ -81,7 +85,7 @@ public class TESTActivity extends BaseActivity {
                     try {
                         //发送订阅
                         JSONObject jObj_dingyue = new JSONObject();
-                        jObj_dingyue.put("sub", sub);
+                        jObj_dingyue.put("req", sub);
                         jObj_dingyue.put("id", id);
                         jObj_dingyue.put("from", (Long) (System.currentTimeMillis() / 1000 - (time * page)));
                         jObj_dingyue.put("to", (Long) System.currentTimeMillis() / 1000);
@@ -107,15 +111,20 @@ public class TESTActivity extends BaseActivity {
                     public void onConnectSuccess() {
                         MyLogger.i(">>>>>>连接成功");
                         try {
+                            JSONObject jObj_lishi = new JSONObject();
+                            jObj_lishi.put("req", sub);
+                            jObj_lishi.put("id", id);
+                            jObj_lishi.put("from", (Long) (System.currentTimeMillis() / 1000 - (time * page)));
+                            jObj_lishi.put("to", (Long) System.currentTimeMillis() / 1000);
+                            WebSocketManager.getInstance().sendMessage(jObj_lishi.toString());
+                            MyLogger.i(">>>>>>>历史数据提交：" + jObj_lishi.toString());
+
                             //发送订阅
                             JSONObject jObj_dingyue = new JSONObject();
                             jObj_dingyue.put("sub", sub);
                             jObj_dingyue.put("id", id);
-                            jObj_dingyue.put("from", (Long) (System.currentTimeMillis() / 1000 - (time * page)));
-                            jObj_dingyue.put("to", (Long) System.currentTimeMillis() / 1000);
                             WebSocketManager.getInstance().sendMessage(jObj_dingyue.toString());
                             MyLogger.i(">>>>>>>订阅提交：" + jObj_dingyue.toString());
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -135,7 +144,7 @@ public class TESTActivity extends BaseActivity {
 
                     @Override
                     public void onMessage(String text) {
-                        MyLogger.i("接收消息", text);
+//                        MyLogger.i("接收消息", text);
                         //得到心跳 {"ping":1592998031971}，发送心跳{"pong":1592998031971}
                         JSONObject jObj;
                         String ping = "";
@@ -152,7 +161,48 @@ public class TESTActivity extends BaseActivity {
                                 WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
                             } else if (text.indexOf("data") != -1) {
                                 //TODO 判断有无data数据
-                                MyLogger.i("接收消息data", text);
+                                MyLogger.i("接收消息-历史记录", text);
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //解析数据
+                                        TEST_ListModel model = mGson.fromJson(text, TEST_ListModel.class);
+                                        for (TEST_ListModel.DataBean bean : model.getData()) {
+                                            if (bean != null) {
+                                                KLineEntity kLineEntity = new KLineEntity(
+                                                        bean.getId() + "",
+                                                        (float) bean.getOpen(),
+                                                        (float) bean.getHigh(),
+                                                        (float) bean.getLow(),
+                                                        (float) bean.getClose(),
+                                                        (float) bean.getVol(), 0, 0, 0, 0, 0, 0,
+                                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                                        "-1"
+                                                );
+                                                datas.add(kLineEntity);
+                                            }
+                                        }
+                                        mAdapter.addFooterData(datas);//添加尾部数据
+                                        mAdapter.notifyDataSetChanged();
+                                        DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
+                                        mKChartView.refreshComplete();//加载完成
+                                        isOver = true;
+
+                                        /*if (isOver == false) {
+                                            tempTime = model.getData().get(datas.size() - 1).getId();
+                                            mAdapter.addHeaderData1(datas);//添加头部数据
+                                            DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
+                                            mKChartView.refreshComplete();//加载完成
+                                            isOver = true;
+                                        } else {
+                                            mAdapter.addFooterData(datas);//添加尾部数据
+                                            mAdapter.notifyDataSetChanged();
+                                            DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
+                                            mKChartView.refreshComplete();//加载完成
+                                        }*/
+                                    }
+                                });
+
                             } else {
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -188,7 +238,6 @@ public class TESTActivity extends BaseActivity {
 
                                             DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
                                             mKChartView.refreshComplete();//加载完成
-                                            isOver = true;
                                         }
 
                                     }

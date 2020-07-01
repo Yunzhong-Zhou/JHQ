@@ -109,7 +109,7 @@
     <!--底部栏-->
     <string name="fragment1">学院</string>
     <string name="fragment2">预测</string>
-    <string name="fragment3"></string>
+    <string name="fragment3">合约</string>
     <string name="fragment4">充币</string>
     <string name="fragment5">我的</string>
 
@@ -178,6 +178,27 @@
     <string name="fragment1_h1">基础知识</string>
     <string name="fragment1_h2">进阶知识</string>
     <string name="fragment1_h3">高阶知识</string>
+
+    <string name="fragment1_h4">第</string>
+    <string name="fragment1_h5">期</string>
+    <string name="fragment1_h6">价格走势</string>
+    <string name="fragment1_h7">倒计时</string>
+    <string name="fragment1_h8">做空</string>
+    <string name="fragment1_h9">做多</string>
+    <string name="fragment1_h10">可用：</string>
+    <string name="fragment1_h11">手续费</string>
+    <string name="fragment1_h12">持有仓位</string>
+    <string name="fragment1_h13">历史记录</string>
+    <string name="fragment1_h14">价格</string>
+    <string name="fragment1_h15">仓位</string>
+    <string name="fragment1_h16">盈利</string>
+    <string name="fragment1_h17">方向</string>
+    <string name="fragment1_h18">手续费</string>
+    <string name="fragment1_h19">待交割</string>
+    <string name="fragment1_h20">状态</string>
+    <string name="fragment1_h21">买入看涨</string>
+    <string name="fragment1_h22">买入看跌</string>
+
 
     <!--fragment2-->
     <string name="fragment2_h1">24H交易量</string>
