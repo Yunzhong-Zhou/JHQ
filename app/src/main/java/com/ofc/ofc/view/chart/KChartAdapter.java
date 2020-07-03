@@ -70,10 +70,11 @@ public class KChartAdapter extends BaseKChartAdapter {
             notifyDataSetChanged();
         }
     }
+
     /**
-     * 向头部添加数据
+     * 更新
      */
-    public void addHeaderData1(List<KLineEntity> data) {
+    public void changeData(List<KLineEntity> data) {
         if (data != null && !data.isEmpty()) {
             datas.clear();//先清除数据
 
@@ -98,8 +99,13 @@ public class KChartAdapter extends BaseKChartAdapter {
      * @param position 索引值
      */
     public void changeItem(int position, KLineEntity data) {
-        datas.set(position, data);
-        notifyDataSetChanged();
+        try {
+            datas.set(position, data);
+            notifyDataSetChanged();
+        } catch (IllegalStateException e) {
+            // Only fullscreen activities can request orientation
+            e.printStackTrace();
+        }
     }
 
 }

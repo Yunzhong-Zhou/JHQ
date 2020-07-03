@@ -42,7 +42,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by fafukeji01 on 2016/1/6.
- * 学院
+ * 合约
  */
 
 public class Fragment1 extends BaseFragment {
@@ -61,19 +61,21 @@ public class Fragment1 extends BaseFragment {
 
 
     TextView tv_1min, tv_5min, tv_30min, tv_1h, tv_1day, tv_1mon;
-    boolean isOver = false;
+    boolean isOver = false, isNew = true;
     //wss://api.hadax.com/ws
     //wss://api.huobi.pro/ws
     //wss://api-aws.huobi.pro/ws
     String url = "wss://api.hadax.com/ws",
             fenshi = "1min", id = "btcusdt",
             sub = "market." + id + ".kline." + fenshi;
-    long page = 1, time = 60 * 60 * 12, tempTime = 0, from = 0, to = 0;
+
+    long page = 1, tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
     List<KLineEntity> newlist = new ArrayList<>();
 
+    KLineEntity kLineEntity;
     Gson mGson = new Gson();
 
     @Override
@@ -184,8 +186,9 @@ public class Fragment1 extends BaseFragment {
                         //发送订阅
                         isOver = false;
                         to = from;
-//                        from = (Long) (to - (time * page));
+
                         from = (Long) (to - time);
+
                         JSONObject jObj_dingyue = new JSONObject();
                         jObj_dingyue.put("req", sub);
                         jObj_dingyue.put("id", id);
@@ -218,6 +221,7 @@ public class Fragment1 extends BaseFragment {
     @Override
     protected void initData() {
 //        requestServer();
+        isNew = true;
         //开始连接
         new Thread(new Runnable() {
             @Override
@@ -280,7 +284,7 @@ public class Fragment1 extends BaseFragment {
                                 WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
                             } else if (text.indexOf("data") != -1) {
                                 //TODO 判断有无data数据
-                                MyLogger.i("接收消息-历史记录", text);
+//                                MyLogger.i("接收消息-历史记录", text);
                                 getActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -289,7 +293,7 @@ public class Fragment1 extends BaseFragment {
                                         newlist.clear();
                                         for (TEST_ListModel.DataBean bean : model.getData()) {
                                             if (bean != null) {
-                                                KLineEntity kLineEntity = new KLineEntity(
+                                                kLineEntity = new KLineEntity(
                                                         bean.getId() + "",
                                                         (float) bean.getOpen(),
                                                         (float) bean.getHigh(),
@@ -302,27 +306,20 @@ public class Fragment1 extends BaseFragment {
                                                 newlist.add(kLineEntity);
                                             }
                                         }
-
-                                        tempTime = model.getData().get(newlist.size() - 1).getId();
                                         datas.addAll(0, newlist);
-                                        mAdapter.addFooterData(newlist);//添加尾部数据
+                                        if (isNew) {//是新数据
+                                            tempTime = model.getData().get(newlist.size() - 1).getId();
+//                                            mKChartView.setAdapter(mAdapter);
+                                            mAdapter.changeData(datas);//更新数据
+
+                                            isNew = false;
+                                        } else {//不是新数据
+                                            mAdapter.addFooterData(newlist);//添加尾部数据
+                                        }
                                         mAdapter.notifyDataSetChanged();
                                         DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
                                         mKChartView.refreshComplete();//加载完成
                                         isOver = true;
-
-                                        /*if (isOver == false) {
-                                            tempTime = model.getData().get(datas.size() - 1).getId();
-                                            mAdapter.addHeaderData1(datas);//添加头部数据
-                                            DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
-                                            mKChartView.refreshComplete();//加载完成
-                                            isOver = true;
-                                        } else {
-                                            mAdapter.addFooterData(datas);//添加尾部数据
-                                            mAdapter.notifyDataSetChanged();
-                                            DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
-                                            mKChartView.refreshComplete();//加载完成
-                                        }*/
                                     }
                                 });
 
@@ -334,7 +331,7 @@ public class Fragment1 extends BaseFragment {
                                         TESTModel model = mGson.fromJson(text, TESTModel.class);
                                         if (model != null && model.getTick() != null) {
 //                                            MyLogger.i(">>>>>" + CommonUtil.timedate(model.getTick().getId() + ""));
-                                            KLineEntity kLineEntity = new KLineEntity(
+                                            kLineEntity = new KLineEntity(
                                                     model.getTick().getId() + "",
                                                     (float) model.getTick().getOpen(),
                                                     (float) model.getTick().getHigh(),
@@ -349,15 +346,14 @@ public class Fragment1 extends BaseFragment {
 
                                             if (tempTime != model.getTick().getId()) {
                                                 tempTime = model.getTick().getId();
-
                                                 datas.add(kLineEntity);
                                                 mAdapter.addHeaderData(newlist);//添加头部数据
                                             } else {
-                                                datas.set(datas.size() - 1, kLineEntity);
-
-                                                mAdapter.changeItem(datas.size() - 1, kLineEntity);//改变某个值
+                                                if (datas.size() > 0) {
+                                                    datas.set(datas.size() - 1, kLineEntity);
+                                                    mAdapter.changeItem(datas.size() - 1, kLineEntity);//改变某个值
+                                                }
                                             }
-
 //                                            MyLogger.i(">>>>>"+datas.size());
 //                                            mAdapter.notifyDataSetChanged();
 
@@ -392,110 +388,6 @@ public class Fragment1 extends BaseFragment {
             @Override
             public void onResponse(final Fragment1Model response) {
                 showContentPage();
-                /*MyLogger.i(">>>>>>>>>" + response);
-                //基础知识
-                list1 = response.getArticle_category_1().getArticle_list();
-                mAdapter1 = new CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean>
-                        (getActivity(), R.layout.item_fragment1, list1) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory1Bean.ArticleListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getTitle());
-                        holder.setText(R.id.textView2, model.getCreated_at());
-                        holder.setText(R.id.textView3, model.getRead() + "");
-                        holder.setText(R.id.textView4, model.getDigest() + "");
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getCover().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getCover())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                    }
-                };
-                mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("url", list1.get(position).getUrl());
-                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
-                    }
-
-                    @Override
-                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        return false;
-                    }
-                });
-
-                list2 = response.getArticle_category_2().getArticle_list();
-                mAdapter2 = new CommonAdapter<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX>
-                        (getActivity(), R.layout.item_fragment1, list2) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory2Bean.ArticleListBeanX model, int position) {
-                        holder.setText(R.id.textView1, model.getTitle());
-                        holder.setText(R.id.textView2, model.getCreated_at());
-                        holder.setText(R.id.textView3, model.getRead() + "");
-                        holder.setText(R.id.textView4, model.getDigest() + "");
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getCover().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getCover())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-
-                    }
-                };
-                mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("url", list2.get(position).getUrl());
-                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
-                    }
-
-                    @Override
-                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        return false;
-                    }
-                });
-
-                list3 = response.getArticle_category_3().getArticle_list();
-                mAdapter3 = new CommonAdapter<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX>
-                        (getActivity(), R.layout.item_fragment1, list3) {
-                    @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX model, int position) {
-                        holder.setText(R.id.textView1, model.getTitle());
-                        holder.setText(R.id.textView2, model.getCreated_at());
-                        holder.setText(R.id.textView3, model.getRead() + "");
-                        holder.setText(R.id.textView4, model.getDigest() + "");
-                        ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getCover().equals(""))
-                            Glide.with(getActivity())
-                                    .load(IMGHOST + model.getCover())
-                                    .centerCrop()
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-
-                    }
-                };
-                mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("url", list3.get(position).getUrl());
-                        CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
-                    }
-
-                    @Override
-                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                        return false;
-                    }
-                });
-
-                changeUI();*/
 
                 hideProgress();
 
@@ -517,68 +409,104 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.tv_1min:
                 //1分钟
+                tv_1min.setTextColor(getResources().getColor(R.color.white));
+                tv_5min.setTextColor(getResources().getColor(R.color.white2));
+                tv_30min.setTextColor(getResources().getColor(R.color.white2));
+                tv_1h.setTextColor(getResources().getColor(R.color.white2));
+                tv_1day.setTextColor(getResources().getColor(R.color.white2));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white2));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "1min";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12;
+                time = 60 * num;//60*12条
                 initData();
                 break;
             case R.id.tv_5min:
                 //5分钟
+                tv_1min.setTextColor(getResources().getColor(R.color.white2));
+                tv_5min.setTextColor(getResources().getColor(R.color.white));
+                tv_30min.setTextColor(getResources().getColor(R.color.white2));
+                tv_1h.setTextColor(getResources().getColor(R.color.white2));
+                tv_1day.setTextColor(getResources().getColor(R.color.white2));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white2));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "5min";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12 * 5;
+                time = 60 * 5 * num;//60*12条
                 initData();
                 break;
             case R.id.tv_30min:
                 //30分钟
+                tv_1min.setTextColor(getResources().getColor(R.color.white2));
+                tv_5min.setTextColor(getResources().getColor(R.color.white2));
+                tv_30min.setTextColor(getResources().getColor(R.color.white));
+                tv_1h.setTextColor(getResources().getColor(R.color.white2));
+                tv_1day.setTextColor(getResources().getColor(R.color.white2));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white2));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "30min";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12 * 30;
+                time = 60 * 30 * num;//60*12条
                 initData();
                 break;
             case R.id.tv_1h:
                 //60分钟
+                tv_1min.setTextColor(getResources().getColor(R.color.white2));
+                tv_5min.setTextColor(getResources().getColor(R.color.white2));
+                tv_30min.setTextColor(getResources().getColor(R.color.white2));
+                tv_1h.setTextColor(getResources().getColor(R.color.white));
+                tv_1day.setTextColor(getResources().getColor(R.color.white2));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white2));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "60min";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12 * 60;
+                time = 60 * 60 * num;//60*12条
                 initData();
                 break;
             case R.id.tv_1day:
                 //1天
+                tv_1min.setTextColor(getResources().getColor(R.color.white2));
+                tv_5min.setTextColor(getResources().getColor(R.color.white2));
+                tv_30min.setTextColor(getResources().getColor(R.color.white2));
+                tv_1h.setTextColor(getResources().getColor(R.color.white2));
+                tv_1day.setTextColor(getResources().getColor(R.color.white));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white2));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "1day";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12 * 60;
+                time = 60 * 60 * 24 * num;//60*12条
                 initData();
                 break;
             case R.id.tv_1mon:
                 //1月
+                tv_1min.setTextColor(getResources().getColor(R.color.white2));
+                tv_5min.setTextColor(getResources().getColor(R.color.white2));
+                tv_30min.setTextColor(getResources().getColor(R.color.white2));
+                tv_1h.setTextColor(getResources().getColor(R.color.white2));
+                tv_1day.setTextColor(getResources().getColor(R.color.white2));
+                tv_1mon.setTextColor(getResources().getColor(R.color.white));
+
                 //关闭连接
                 WebSocketManager.getInstance().close();
                 datas.clear();
                 fenshi = "1week";
-                id = "btcusdt";
                 sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 12 * 60;
+                time = 60 * 60 * 24 * 7 * 60;//60条
                 initData();
                 break;
         }

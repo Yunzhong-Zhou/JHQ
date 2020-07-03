@@ -227,7 +227,7 @@ public class TESTActivity extends BaseActivity {
                                                 tempTime = model.getTick().getId();
 
                                                 datas.add(kLineEntity);
-                                                mAdapter.addHeaderData1(datas);//添加头部数据
+                                                mAdapter.changeData(datas);//添加头部数据
                                             } else {
                                                 datas.set(datas.size() - 1, kLineEntity);
                                                 mAdapter.changeItem(datas.size() - 1, kLineEntity);//改变某个值

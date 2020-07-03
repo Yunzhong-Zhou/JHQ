@@ -17,15 +17,11 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.ofc.ofc.utils.websocket.IReceiveMessage;
 import com.ofc.ofc.utils.websocket.WebSocketManager;
 import com.ofc.ofc.view.chart.DataHelper;
 import com.ofc.ofc.view.chart.KChartAdapter;
 import com.ofc.ofc.view.chart.KLineEntity;
 import com.squareup.okhttp.Request;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -142,7 +138,7 @@ public class PredictionDetailActivity extends BaseActivity {
 //        WebSocketManager.getInstance().close();
 
         //开始连接
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 //wss://api.hadax.com/ws
@@ -204,39 +200,7 @@ public class PredictionDetailActivity extends BaseActivity {
                     }
                 });
             }
-        }).start();
-
-        /*
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                WebSocketManager.getInstance().init("wss://api.hadax.com/ws", new IReceiveMessage() {
-                    @Override
-                    public void onConnectSuccess() {
-                        MyLogger.i(">>>>>>连接成功");
-
-                    }
-
-                    @Override
-                    public void onConnectFailed() {
-                        MyLogger.i(">>>>>>连接失败");
-                    }
-
-                    @Override
-                    public void onClose() {
-                        MyLogger.i(">>>>>>关闭成功");
-                    }
-
-                    @Override
-                    public void onMessage(String text) {
-                        MyLogger.i("接收消息",text);
-
-                    }
-                });
-            }
         }).start();*/
-
-
 
         symbol = getIntent().getStringExtra("symbol");
         textView1.setText(symbol);
