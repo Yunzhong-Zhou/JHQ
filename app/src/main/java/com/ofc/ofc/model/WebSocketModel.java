@@ -1,40 +1,28 @@
 package com.ofc.ofc.model;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
- * Created by zyz on 2020/7/1.
+ * Created by zyz on 2020/6/28.
  */
-public class TEST_ListModel {
+public class WebSocketModel implements Serializable {
 
     /**
-     * id : btcusdt
-     * status : ok
-     * ts : 1593575990173
-     * rep : market.btcusdt.kline.1min
-     * data : [{"id":1593575940,"open":9138.59,"close":9138.59,"low":9138.58,"high":9138.59,"amount":1.7547855312296536,"vol":16036.26155684,"count":81}]
+     * ch : market.btcusdt.kline.1min
+     * ts : 1593313154425
+     * tick : {"id":1593313140,"open":8980.52,"close":8980.49,"low":8980.48,"high":8980.52,"amount":1.982793,"vol":17806.45301476,"count":68}
      */
 
-    private String id;
-    private String status;
+    private String ch;
     private long ts;
-    private String rep;
-    private List<DataBean> data;
+    private TickBean tick;
 
-    public String getId() {
-        return id;
+    public String getCh() {
+        return ch;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCh(String ch) {
+        this.ch = ch;
     }
 
     public long getTs() {
@@ -45,35 +33,27 @@ public class TEST_ListModel {
         this.ts = ts;
     }
 
-    public String getRep() {
-        return rep;
+    public TickBean getTick() {
+        return tick;
     }
 
-    public void setRep(String rep) {
-        this.rep = rep;
+    public void setTick(TickBean tick) {
+        this.tick = tick;
     }
 
-    public List<DataBean> getData() {
-        return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
-    }
-
-    public static class DataBean {
+    public static class TickBean {
         /**
-         * id : 1593575940
-         * open : 9138.59
-         * close : 9138.59
-         * low : 9138.58
-         * high : 9138.59
-         * amount : 1.7547855312296536
-         * vol : 16036.26155684
-         * count : 81
+         * id : 1593313140
+         * open : 8980.52
+         * close : 8980.49
+         * low : 8980.48
+         * high : 8980.52
+         * amount : 1.982793
+         * vol : 17806.45301476
+         * count : 68
          */
 
-        private int id;
+        private Long id;
         private double open;
         private double close;
         private double low;
@@ -82,11 +62,11 @@ public class TEST_ListModel {
         private double vol;
         private int count;
 
-        public int getId() {
+        public Long getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(Long id) {
             this.id = id;
         }
 

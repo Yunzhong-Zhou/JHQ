@@ -1,28 +1,40 @@
 package com.ofc.ofc.model;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
- * Created by zyz on 2020/6/28.
+ * Created by zyz on 2020/7/1.
  */
-public class TESTModel implements Serializable {
+public class WebSocket_ListModel {
 
     /**
-     * ch : market.btcusdt.kline.1min
-     * ts : 1593313154425
-     * tick : {"id":1593313140,"open":8980.52,"close":8980.49,"low":8980.48,"high":8980.52,"amount":1.982793,"vol":17806.45301476,"count":68}
+     * id : btcusdt
+     * status : ok
+     * ts : 1593575990173
+     * rep : market.btcusdt.kline.1min
+     * data : [{"id":1593575940,"open":9138.59,"close":9138.59,"low":9138.58,"high":9138.59,"amount":1.7547855312296536,"vol":16036.26155684,"count":81}]
      */
 
-    private String ch;
+    private String id;
+    private String status;
     private long ts;
-    private TickBean tick;
+    private String rep;
+    private List<DataBean> data;
 
-    public String getCh() {
-        return ch;
+    public String getId() {
+        return id;
     }
 
-    public void setCh(String ch) {
-        this.ch = ch;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public long getTs() {
@@ -33,24 +45,32 @@ public class TESTModel implements Serializable {
         this.ts = ts;
     }
 
-    public TickBean getTick() {
-        return tick;
+    public String getRep() {
+        return rep;
     }
 
-    public void setTick(TickBean tick) {
-        this.tick = tick;
+    public void setRep(String rep) {
+        this.rep = rep;
     }
 
-    public static class TickBean {
+    public List<DataBean> getData() {
+        return data;
+    }
+
+    public void setData(List<DataBean> data) {
+        this.data = data;
+    }
+
+    public static class DataBean {
         /**
-         * id : 1593313140
-         * open : 8980.52
-         * close : 8980.49
-         * low : 8980.48
-         * high : 8980.52
-         * amount : 1.982793
-         * vol : 17806.45301476
-         * count : 68
+         * id : 1593575940
+         * open : 9138.59
+         * close : 9138.59
+         * low : 9138.58
+         * high : 9138.59
+         * amount : 1.7547855312296536
+         * vol : 16036.26155684
+         * count : 81
          */
 
         private Long id;
@@ -61,6 +81,17 @@ public class TESTModel implements Serializable {
         private double amount;
         private double vol;
         private int count;
+
+        public DataBean(Long id, double open, double close, double low, double high, double amount, double vol, int count) {
+            this.id = id;
+            this.open = open;
+            this.close = close;
+            this.low = low;
+            this.high = high;
+            this.amount = amount;
+            this.vol = vol;
+            this.count = count;
+        }
 
         public Long getId() {
             return id;

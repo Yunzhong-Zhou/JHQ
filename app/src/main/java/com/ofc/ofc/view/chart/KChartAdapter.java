@@ -99,12 +99,9 @@ public class KChartAdapter extends BaseKChartAdapter {
      * @param position 索引值
      */
     public void changeItem(int position, KLineEntity data) {
-        try {
+        if (datas.size() > 0) {
             datas.set(position, data);
             notifyDataSetChanged();
-        } catch (IllegalStateException e) {
-            // Only fullscreen activities can request orientation
-            e.printStackTrace();
         }
     }
 

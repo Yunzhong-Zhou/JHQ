@@ -16,8 +16,8 @@ import com.ofc.ofc.R;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.base.BaseFragment;
 import com.ofc.ofc.model.Fragment1Model;
-import com.ofc.ofc.model.TESTModel;
-import com.ofc.ofc.model.TEST_ListModel;
+import com.ofc.ofc.model.WebSocketModel;
+import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
@@ -69,7 +69,7 @@ public class Fragment1 extends BaseFragment {
             fenshi = "1min", id = "btcusdt",
             sub = "market." + id + ".kline." + fenshi;
 
-    long page = 1, tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
+    long tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
@@ -180,8 +180,6 @@ public class Fragment1 extends BaseFragment {
             @Override
             public void onLoadMoreBegin(KChartView chart) {
                 if (isOver) {
-                    page++;
-                    MyLogger.i(">>>>>>>>>" + page);
                     try {
                         //发送订阅
                         isOver = false;
@@ -189,12 +187,12 @@ public class Fragment1 extends BaseFragment {
 
                         from = (Long) (to - time);
 
-                        JSONObject jObj_dingyue = new JSONObject();
-                        jObj_dingyue.put("req", sub);
-                        jObj_dingyue.put("id", id);
-                        jObj_dingyue.put("from", from);
-                        jObj_dingyue.put("to", to);
-                        WebSocketManager.getInstance().sendMessage(jObj_dingyue.toString());
+                        JSONObject jObj_lishi = new JSONObject();
+                        jObj_lishi.put("req", sub);
+                        jObj_lishi.put("id", id);
+                        jObj_lishi.put("from", from);
+                        jObj_lishi.put("to", to);
+                        WebSocketManager.getInstance().sendMessage(jObj_lishi.toString());
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -231,7 +229,7 @@ public class Fragment1 extends BaseFragment {
                     public void onConnectSuccess() {
                         MyLogger.i(">>>>>>连接成功");
                         try {
-                            from = (Long) (System.currentTimeMillis() / 1000 - (time * page));
+                            from = (Long) (System.currentTimeMillis() / 1000 - time);
                             to = (Long) System.currentTimeMillis() / 1000;
 
                             JSONObject jObj_lishi = new JSONObject();
@@ -289,9 +287,9 @@ public class Fragment1 extends BaseFragment {
                                     @Override
                                     public void run() {
                                         //解析数据
-                                        TEST_ListModel model = mGson.fromJson(text, TEST_ListModel.class);
+                                        WebSocket_ListModel model = mGson.fromJson(text, WebSocket_ListModel.class);
                                         newlist.clear();
-                                        for (TEST_ListModel.DataBean bean : model.getData()) {
+                                        for (WebSocket_ListModel.DataBean bean : model.getData()) {
                                             if (bean != null) {
                                                 kLineEntity = new KLineEntity(
                                                         bean.getId() + "",
@@ -328,7 +326,7 @@ public class Fragment1 extends BaseFragment {
                                     @Override
                                     public void run() {
                                         //解析数据
-                                        TESTModel model = mGson.fromJson(text, TESTModel.class);
+                                        WebSocketModel model = mGson.fromJson(text, WebSocketModel.class);
                                         if (model != null && model.getTick() != null) {
 //                                            MyLogger.i(">>>>>" + CommonUtil.timedate(model.getTick().getId() + ""));
                                             kLineEntity = new KLineEntity(
@@ -345,6 +343,7 @@ public class Fragment1 extends BaseFragment {
                                             newlist.add(kLineEntity);
 
                                             if (tempTime != model.getTick().getId()) {
+
                                                 tempTime = model.getTick().getId();
                                                 datas.add(kLineEntity);
                                                 mAdapter.addHeaderData(newlist);//添加头部数据

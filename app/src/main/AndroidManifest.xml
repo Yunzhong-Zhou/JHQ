@@ -103,6 +103,9 @@
         <activity
             android:name="com.ofc.ofc.activity.TESTActivity"
             android:label="测试" />
+        <activity
+            android:name="com.ofc.ofc.activity.TESTActivity_MPChart"
+            android:label="测试" />
 
         <activity
             android:name="com.ofc.ofc.activity.PastListActivity"

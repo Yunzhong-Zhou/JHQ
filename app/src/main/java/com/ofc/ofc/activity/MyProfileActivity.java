@@ -288,7 +288,12 @@ public class MyProfileActivity extends BaseActivity {
                 break;
 
             case R.id.linearLayout_test:
-                CommonUtil.gotoActivity(MyProfileActivity.this, TESTActivity.class, false);
+//                CommonUtil.gotoActivity(MyProfileActivity.this, TESTActivity.class, false);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("symbol", "BTC");
+//                CommonUtil.gotoActivityWithData(MyProfileActivity.this, PredictionDetailActivity_MPChart.class, bundle1, false);
+                CommonUtil.gotoActivityWithData(MyProfileActivity.this, TESTActivity_MPChart.class, bundle1, false);
+
                 break;
         }
     }

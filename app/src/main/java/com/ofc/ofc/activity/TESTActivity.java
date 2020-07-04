@@ -10,8 +10,8 @@ import com.github.tifezh.kchartlib.chart.formatter.DateFormatter;
 import com.google.gson.Gson;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.TESTModel;
-import com.ofc.ofc.model.TEST_ListModel;
+import com.ofc.ofc.model.WebSocketModel;
+import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.websocket.IReceiveMessage;
 import com.ofc.ofc.utils.websocket.WebSocketManager;
@@ -166,8 +166,8 @@ public class TESTActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         //解析数据
-                                        TEST_ListModel model = mGson.fromJson(text, TEST_ListModel.class);
-                                        for (TEST_ListModel.DataBean bean : model.getData()) {
+                                        WebSocket_ListModel model = mGson.fromJson(text, WebSocket_ListModel.class);
+                                        for (WebSocket_ListModel.DataBean bean : model.getData()) {
                                             if (bean != null) {
                                                 KLineEntity kLineEntity = new KLineEntity(
                                                         bean.getId() + "",
@@ -208,7 +208,7 @@ public class TESTActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         //解析数据
-                                        TESTModel model = mGson.fromJson(text, TESTModel.class);
+                                        WebSocketModel model = mGson.fromJson(text, WebSocketModel.class);
                                         if (model != null && model.getTick() != null) {
 //                                            MyLogger.i(">>>>>" + CommonUtil.timedate(model.getTick().getId() + ""));
                                             KLineEntity kLineEntity = new KLineEntity(
