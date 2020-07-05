@@ -1,4 +1,4 @@
-package com.ofc.ofc.utils.websocket;
+package com.ofc.ofc.okhttp.websocket;
 
 import com.ofc.ofc.utils.MyLogger;
 
@@ -14,7 +14,7 @@ import okio.ByteString;
 /**
  * Created by zyz on 2020/6/24.
  */
-public class WebSocketManager  {
+public class WebSocketManager {
     private final static String TAG = WebSocketManager.class.getSimpleName();
     private final static int MAX_NUM = 5;       // 最大重连数
     private final static int MILLIS = 5000;     // 重连间隔时间，毫秒
@@ -27,6 +27,8 @@ public class WebSocketManager  {
 
     private boolean isConnect = false;
     private int connectNum = 0;
+
+    private boolean isClose = false;
 
     private WebSocketManager() {
     }
@@ -77,7 +79,7 @@ public class WebSocketManager  {
                 e.printStackTrace();
             }
         } else {
-            MyLogger.i(TAG, "重新连接"+MAX_NUM +"，请检查网址或网络");
+            MyLogger.i(TAG, "重新连接" + MAX_NUM + "，请检查网址或网络");
         }
     }
 
@@ -115,8 +117,12 @@ public class WebSocketManager  {
      */
     public void close() {
         if (isConnect()) {
+
+            MyLogger.i(">>>>>>主动关闭连接");
+            isClose = true;
+
             mWebSocket.cancel();
-            mWebSocket.close(1001, "客户端主动关闭连接");
+            mWebSocket.close(1001, "关闭连接");
 
             mWebSocket = null;
             isConnect = false;
@@ -138,6 +144,7 @@ public class WebSocketManager  {
                     reconnect();
                 } else {
                     MyLogger.i(TAG, "连接成功");
+                    connectNum = 0;
                     if (receiveMessage != null) {
                         receiveMessage.onConnectSuccess();
                     }
@@ -196,7 +203,10 @@ public class WebSocketManager  {
                 if (receiveMessage != null) {
                     receiveMessage.onConnectFailed();
                 }
-                reconnect();
+                if (!isClose) {//不是关闭就重连
+                    reconnect();//重连
+                }
+
             }
         };
     }

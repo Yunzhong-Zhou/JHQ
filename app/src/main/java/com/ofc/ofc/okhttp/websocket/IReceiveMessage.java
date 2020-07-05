@@ -1,4 +1,4 @@
-package com.ofc.ofc.utils.websocket;
+package com.ofc.ofc.okhttp.websocket;
 
 /**
  * Created by zyz on 2020/6/24.

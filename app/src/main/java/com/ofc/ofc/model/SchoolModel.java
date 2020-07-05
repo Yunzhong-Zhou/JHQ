@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by zyz on 2019/6/4.
  */
-public class Fragment1Model implements Serializable {
+public class SchoolModel implements Serializable {
     /**
      * article_category_1 : {"title":"基础知识","article_list":[{"id":"a3dede1d27ec9601c8b60fede83e3bfc","article_category_id":"c647fb3291586713d6399748fa2e483e","title":"aaaaaa","cover":"/upload/article/2019-12-20/e25afb9d55640a5dff49dcf54dba5e50.jpg","digest":"","read":133,"created_at":"2019-12-20 21:42:33","url":"http://www.usdtcai.com/wechat/article/detail?id=a3dede1d27ec9601c8b60fede83e3bfc"}]}
      * article_category_2 : {"title":"进阶知识","article_list":[{"id":"47888c1d94d3bf4fc1dd53ed7656ea26","article_category_id":"44b4e3b89a09fc667e2c58aba8df62c1","title":"bbbbbb","cover":"/upload/article/2019-12-20/e2d9b09a3f9d0dc7f11f2b8717454356.jpg","digest":"","read":864,"created_at":"2019-12-20 21:42:56","url":"http://www.usdtcai.com/wechat/article/detail?id=47888c1d94d3bf4fc1dd53ed7656ea26"}]}

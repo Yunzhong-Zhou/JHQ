@@ -17,7 +17,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.ofc.ofc.utils.websocket.WebSocketManager;
 import com.ofc.ofc.view.chart.DataHelper;
 import com.ofc.ofc.view.chart.KChartAdapter;
 import com.ofc.ofc.view.chart.KLineEntity;
@@ -53,12 +52,12 @@ public class PredictionDetailActivity extends BaseActivity {
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
     }
-    @Override
+    /*@Override
     public void onDestroy() {
         super.onDestroy();
         //关闭连接
         WebSocketManager.getInstance().close();
-    }
+    }*/
 
     @Override
     protected void initView() {

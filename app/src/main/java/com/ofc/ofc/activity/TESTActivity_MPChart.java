@@ -33,8 +33,8 @@ import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.CoupleChartGestureListener;
 import com.ofc.ofc.utils.MyLogger;
-import com.ofc.ofc.utils.websocket.IReceiveMessage;
-import com.ofc.ofc.utils.websocket.WebSocketManager;
+import com.ofc.ofc.okhttp.websocket.IReceiveMessage;
+import com.ofc.ofc.okhttp.websocket.WebSocketManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,12 +85,12 @@ public class TESTActivity_MPChart extends BaseActivity implements CoupleChartGes
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
     }
 
-    @Override
+   /* @Override
     public void onDestroy() {
         super.onDestroy();
         //关闭连接
         WebSocketManager.getInstance().close();
-    }
+    }*/
 
     @Override
     protected void initView() {

@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.Fragment1Model;
+import com.ofc.ofc.model.SchoolModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
@@ -41,14 +41,14 @@ public class SchoolActivity extends BaseActivity {
     List<String> images = new ArrayList<>();
     int type = 1;
     private RecyclerView recyclerView;
-    List<Fragment1Model.ArticleCategory1Bean.ArticleListBean> list1 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean> mAdapter1;
+    List<SchoolModel.ArticleCategory1Bean.ArticleListBean> list1 = new ArrayList<>();
+    CommonAdapter<SchoolModel.ArticleCategory1Bean.ArticleListBean> mAdapter1;
 
-    List<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX> list2 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX> mAdapter2;
+    List<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> list2 = new ArrayList<>();
+    CommonAdapter<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> mAdapter2;
 
-    List<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX> list3 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX> mAdapter3;
+    List<SchoolModel.ArticleCategory3Bean.ArticleListBeanXX> list3 = new ArrayList<>();
+    CommonAdapter<SchoolModel.ArticleCategory3Bean.ArticleListBeanXX> mAdapter3;
 
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
@@ -163,7 +163,7 @@ public class SchoolActivity extends BaseActivity {
         requestServer();
     }
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(SchoolActivity.this, URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+        OkHttpClientManager.getAsyn(SchoolActivity.this, URLs.School + string, new OkHttpClientManager.ResultCallback<SchoolModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 MainActivity.isOver = true;
@@ -175,7 +175,7 @@ public class SchoolActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final Fragment1Model response) {
+            public void onResponse(final SchoolModel response) {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>学院" + response);
                 textView1.setText(response.getArticle_category_1().getTitle());
@@ -183,10 +183,10 @@ public class SchoolActivity extends BaseActivity {
                 textView3.setText(response.getArticle_category_3().getTitle());
                 //基础知识
                 list1 = response.getArticle_category_1().getArticle_list();
-                mAdapter1 = new CommonAdapter<Fragment1Model.ArticleCategory1Bean.ArticleListBean>
+                mAdapter1 = new CommonAdapter<SchoolModel.ArticleCategory1Bean.ArticleListBean>
                         (SchoolActivity.this, R.layout.item_fragment1, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory1Bean.ArticleListBean model, int position) {
+                    protected void convert(ViewHolder holder, SchoolModel.ArticleCategory1Bean.ArticleListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
                         holder.setText(R.id.textView2, model.getCreated_at());
                         holder.setText(R.id.textView3, model.getRead() + "");
@@ -216,10 +216,10 @@ public class SchoolActivity extends BaseActivity {
                 });
 
                 list2 = response.getArticle_category_2().getArticle_list();
-                mAdapter2 = new CommonAdapter<Fragment1Model.ArticleCategory2Bean.ArticleListBeanX>
+                mAdapter2 = new CommonAdapter<SchoolModel.ArticleCategory2Bean.ArticleListBeanX>
                         (SchoolActivity.this, R.layout.item_fragment1, list2) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory2Bean.ArticleListBeanX model, int position) {
+                    protected void convert(ViewHolder holder, SchoolModel.ArticleCategory2Bean.ArticleListBeanX model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
                         holder.setText(R.id.textView2, model.getCreated_at());
                         holder.setText(R.id.textView3, model.getRead() + "");
@@ -250,10 +250,10 @@ public class SchoolActivity extends BaseActivity {
                 });
 
                 list3 = response.getArticle_category_3().getArticle_list();
-                mAdapter3 = new CommonAdapter<Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX>
+                mAdapter3 = new CommonAdapter<SchoolModel.ArticleCategory3Bean.ArticleListBeanXX>
                         (SchoolActivity.this, R.layout.item_fragment1, list3) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.ArticleCategory3Bean.ArticleListBeanXX model, int position) {
+                    protected void convert(ViewHolder holder, SchoolModel.ArticleCategory3Bean.ArticleListBeanXX model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
                         holder.setText(R.id.textView2, model.getCreated_at());
                         holder.setText(R.id.textView3, model.getRead() + "");

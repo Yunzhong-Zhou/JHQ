@@ -63,11 +63,11 @@ public class URLs {
     /**
      * 学院
      */
-    public static final String Fragment1= "/api/article/college";
+    public static final String School = "/api/article/college";
     /**
-     * 算力
+     * 合约
      */
-    public static final String SuanLiList= "/api/invest/record";
+    public static final String HeYue= "/api/invest/record";
 
     //区块
     /**

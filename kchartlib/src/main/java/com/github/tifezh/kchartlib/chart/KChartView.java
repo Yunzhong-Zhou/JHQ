@@ -168,8 +168,8 @@ public class KChartView extends BaseKChartView {
             {
                 mProgressBar.setVisibility(View.VISIBLE);
             }
-            if(mRefreshListener!=null)
-            {
+            //不加载更多
+            if(mRefreshListener!=null) {
                 mRefreshListener.onLoadMoreBegin(this);
             }
             mLastScaleEnable =isScaleEnable();
