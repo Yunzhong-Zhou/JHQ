@@ -1,13 +1,14 @@
 package com.github.tifezh.kchartlib.chart;
 
 import android.content.Context;
-import androidx.core.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.widget.OverScroller;
 import android.widget.RelativeLayout;
+
+import androidx.core.view.GestureDetectorCompat;
 
 /**
  * 可以滑动和放大的view
@@ -32,11 +33,11 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     protected float mScaleXMin = 0.5f;
 
-    private boolean mMultipleTouch=false;
+    private boolean mMultipleTouch = false;
 
-    private boolean mScrollEnable=true;
+    private boolean mScrollEnable = true;
 
-    private boolean mScaleEnable=true;
+    private boolean mScaleEnable = true;
 
     public ScrollAndScaleView(Context context) {
         super(context);
@@ -77,7 +78,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        if (!isLongPress&&!isMultipleTouch()) {
+        if (!isLongPress && !isMultipleTouch()) {
             scrollBy(Math.round(distanceX), 0);
             return true;
         }
@@ -91,7 +92,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        if (!isTouch()&&isScrollEnable()) {
+        if (!isTouch() && isScrollEnable()) {
             mScroller.fling(mScrollX, 0
                     , Math.round(velocityX / mScaleX), 0,
                     Integer.MIN_VALUE, Integer.MAX_VALUE,
@@ -111,6 +112,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
         }
     }
 
+
     @Override
     public void scrollBy(int x, int y) {
         scrollTo(mScrollX - Math.round(x / mScaleX), 0);
@@ -118,8 +120,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     @Override
     public void scrollTo(int x, int y) {
-        if(!isScrollEnable())
-        {
+        if (!isScrollEnable()) {
             mScroller.forceFinished(true);
             return;
         }
@@ -140,24 +141,22 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     @Override
     public boolean onScale(ScaleGestureDetector detector) {
-        if(!isScaleEnable())
-        {
+        if (!isScaleEnable()) {
             return false;
         }
-        float oldScale=mScaleX;
+        float oldScale = mScaleX;
         mScaleX *= detector.getScaleFactor();
         if (mScaleX < mScaleXMin) {
             mScaleX = mScaleXMin;
         } else if (mScaleX > mScaleXMax) {
             mScaleX = mScaleXMax;
         } else {
-            onScaleChanged(mScaleX,oldScale);
+            onScaleChanged(mScaleX, oldScale);
         }
         return true;
     }
 
-    protected void onScaleChanged(float scale,float oldScale)
-    {
+    protected void onScaleChanged(float scale, float oldScale) {
         invalidate();
     }
 
@@ -170,6 +169,32 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
     public void onScaleEnd(ScaleGestureDetector detector) {
 
     }
+
+    /**
+     * 如果是横向滑动，直接返回false即不竖向滑动。
+     */
+    /*float xDistance = 0, yDistance = 0, lastX = 0, lastY = 0;
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                xDistance = yDistance = 0f;
+                lastX = ev.getX();
+                lastY = ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                final float curX = ev.getX();
+                final float curY = ev.getY();
+                xDistance += Math.abs(curX - lastX);
+                yDistance += Math.abs(curY - lastY);
+                lastX = curX;
+                lastY = curY;
+                if (xDistance > yDistance)
+                    return false;
+                break;
+        }
+        return super.onInterceptTouchEvent(ev);
+    }*/
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -199,7 +224,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
                 invalidate();
                 break;
         }
-        mMultipleTouch=event.getPointerCount()>1;
+        mMultipleTouch = event.getPointerCount() > 1;
         this.mDetector.onTouchEvent(event);
         this.mScaleDetector.onTouchEvent(event);
         return true;
@@ -251,6 +276,7 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     /**
      * 是否是多指触控
+     *
      * @return
      */
     public boolean isMultipleTouch() {
@@ -315,4 +341,6 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
     public float getScaleX() {
         return mScaleX;
     }
+
+
 }

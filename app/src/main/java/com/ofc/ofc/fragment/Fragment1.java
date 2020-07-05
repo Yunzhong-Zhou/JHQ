@@ -302,7 +302,7 @@ public class Fragment1 extends BaseFragment {
                                 WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
                             } else if (text.indexOf("data") != -1) {
                                 //TODO 判断有无data数据
-                                MyLogger.i("接收消息-历史记录", text);
+//                                MyLogger.i("接收消息-历史记录", text);
                                 getActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -326,19 +326,20 @@ public class Fragment1 extends BaseFragment {
                                         }
                                         datas.addAll(0, newlist);
                                         if (isNew) {//是新数据
-                                            MyLogger.i(">>>>>>历史新数据");
+//                                            MyLogger.i(">>>>>>历史新数据");
                                             tempTime = model.getData().get(newlist.size() - 1).getId();
 //                                            mKChartView.setAdapter(mAdapter);
                                             mAdapter.changeData(datas);//更新数据
                                             isNew = false;
                                         } else {//不是新数据
-                                            MyLogger.i(">>>>>>历史更多数据");
+//                                            MyLogger.i(">>>>>>历史更多数据");
                                             mAdapter.addFooterData(newlist);//添加尾部数据
                                         }
                                         mAdapter.notifyDataSetChanged();
                                         DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
                                         mKChartView.refreshComplete();//加载完成
                                         isShowOver = true;
+//                                        MyLogger.i(">>>>>>"+mKChartView.getWidth());
                                     }
                                 });
 
@@ -637,4 +638,6 @@ public class Fragment1 extends BaseFragment {
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
     }
+
+
 }
