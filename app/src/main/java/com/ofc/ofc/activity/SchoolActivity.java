@@ -184,7 +184,7 @@ public class SchoolActivity extends BaseActivity {
                 //基础知识
                 list1 = response.getArticle_category_1().getArticle_list();
                 mAdapter1 = new CommonAdapter<SchoolModel.ArticleCategory1Bean.ArticleListBean>
-                        (SchoolActivity.this, R.layout.item_fragment1, list1) {
+                        (SchoolActivity.this, R.layout.item_school, list1) {
                     @Override
                     protected void convert(ViewHolder holder, SchoolModel.ArticleCategory1Bean.ArticleListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
@@ -217,7 +217,7 @@ public class SchoolActivity extends BaseActivity {
 
                 list2 = response.getArticle_category_2().getArticle_list();
                 mAdapter2 = new CommonAdapter<SchoolModel.ArticleCategory2Bean.ArticleListBeanX>
-                        (SchoolActivity.this, R.layout.item_fragment1, list2) {
+                        (SchoolActivity.this, R.layout.item_school, list2) {
                     @Override
                     protected void convert(ViewHolder holder, SchoolModel.ArticleCategory2Bean.ArticleListBeanX model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
@@ -251,7 +251,7 @@ public class SchoolActivity extends BaseActivity {
 
                 list3 = response.getArticle_category_3().getArticle_list();
                 mAdapter3 = new CommonAdapter<SchoolModel.ArticleCategory3Bean.ArticleListBeanXX>
-                        (SchoolActivity.this, R.layout.item_fragment1, list3) {
+                        (SchoolActivity.this, R.layout.item_school, list3) {
                     @Override
                     protected void convert(ViewHolder holder, SchoolModel.ArticleCategory3Bean.ArticleListBeanXX model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());

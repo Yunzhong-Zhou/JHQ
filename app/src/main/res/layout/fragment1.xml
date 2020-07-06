@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-       <!-- <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none">-->
+        <!-- <androidx.core.widget.NestedScrollView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:fillViewport="true"
+             android:scrollbars="none">-->
         <com.ofc.ofc.view.MyNestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -122,7 +122,7 @@
                                 android:paddingRight="7dp"
                                 android:paddingBottom="3dp"
                                 android:text="@string/fragment1_h8"
-                                android:textColor="#FD032C"
+                                android:textColor="@color/red_1"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -131,16 +131,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
                                 android:text="--"
-                                android:textColor="#FD032C"
+                                android:textColor="@color/red_1"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="USDT"
                                 android:paddingTop="3dp"
-                                android:textColor="#FD032C"
+                                android:text="USDT"
+                                android:textColor="@color/red_1"
                                 android:textSize="10sp" />
 
                         </LinearLayout>
@@ -163,7 +163,7 @@
                                 android:paddingRight="7dp"
                                 android:paddingBottom="3dp"
                                 android:text="@string/fragment1_h9"
-                                android:textColor="#05C363"
+                                android:textColor="@color/green_1"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -172,16 +172,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
                                 android:text="--"
-                                android:textColor="#05C363"
+                                android:textColor="@color/green_1"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="USDT"
                                 android:paddingTop="3dp"
-                                android:textColor="#05C363"
+                                android:text="USDT"
+                                android:textColor="@color/green_1"
                                 android:textSize="10sp" />
 
                         </LinearLayout>
@@ -219,9 +219,9 @@
                         android:id="@+id/rl_1min"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_1min"
@@ -234,17 +234,17 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="1min"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/rl_5min"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_5min"
@@ -256,16 +256,17 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="5min"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/rl_30min"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_30min"
@@ -277,16 +278,17 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="30min"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/rl_1h"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_1h"
@@ -298,16 +300,17 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="1h"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/rl_1day"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_1day"
@@ -319,16 +322,17 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="1day"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/rl_1mon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_weight="1">
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/tv_1mon"
@@ -340,8 +344,8 @@
                             android:paddingRight="10dp"
                             android:paddingBottom="3dp"
                             android:text="1mon"
-                            android:textSize="12sp"
-                            android:textColor="@color/white2" />
+                            android:textColor="@color/white2"
+                            android:textSize="12sp" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -377,11 +381,16 @@
                             <EditText
                                 android:id="@+id/et_keyong_left"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
                                 android:background="@color/transparent"
+                                android:gravity="center"
                                 android:hint="@string/fragment1_h10"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/white2"
                                 android:textSize="12sp" />
@@ -425,7 +434,7 @@
                             android:id="@+id/tv_kanzhang"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#05C464"
+                            android:background="@color/green_1"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="@string/fragment1_h21"
@@ -459,11 +468,16 @@
                             <EditText
                                 android:id="@+id/et_keyong_right"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 android:gravity="center"
                                 android:hint="@string/fragment1_h10"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/white2"
                                 android:textSize="12sp" />
@@ -507,7 +521,7 @@
                             android:id="@+id/tv_kandie"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#FE032C"
+                            android:background="@color/red_1"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="@string/fragment1_h22"
@@ -523,7 +537,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp">
 
                     <LinearLayout
                         android:id="@+id/linearLayout1"
@@ -551,6 +566,7 @@
                             android:id="@+id/view1"
                             android:layout_width="18dp"
                             android:layout_height="3dp"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/yuanjiao_5_baise" />
                     </LinearLayout>
 
@@ -614,6 +630,7 @@
                             android:id="@+id/view3"
                             android:layout_width="18dp"
                             android:layout_height="3dp"
+                            android:layout_marginRight="10dp"
                             android:background="@drawable/yuanjiao_5_baise"
                             android:visibility="invisible" />
                     </LinearLayout>
@@ -629,7 +646,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10dp" />
                 </com.ofc.ofc.view.LoadingLayout>
             </LinearLayout>
         </com.ofc.ofc.view.MyNestedScrollView>

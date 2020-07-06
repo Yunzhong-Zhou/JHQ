@@ -116,6 +116,9 @@
         <activity
             android:name="com.ofc.ofc.activity.PredictionDetailActivity_MPChart"
             android:label="预测详情_MPChart" />
+        <activity
+            android:name="com.ofc.ofc.activity.Fragment1DeatilActivity"
+            android:label="合约详情" />
         <!--我的-->
         <activity
             android:name="com.ofc.ofc.activity.MyProfileActivity"

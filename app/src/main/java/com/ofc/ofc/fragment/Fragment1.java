@@ -1,6 +1,7 @@
 package com.ofc.ofc.fragment;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,10 @@ import com.github.tifezh.kchartlib.chart.formatter.DateFormatter;
 import com.google.gson.Gson;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
+import com.ofc.ofc.activity.Fragment1DeatilActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.base.BaseFragment;
-import com.ofc.ofc.model.SchoolModel;
+import com.ofc.ofc.model.Fragment1Model;
 import com.ofc.ofc.model.WebSocketModel;
 import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.net.OkHttpClientManager;
@@ -32,11 +34,14 @@ import com.ofc.ofc.view.chart.KChartAdapter;
 import com.ofc.ofc.view.chart.KLineEntity;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,23 +54,25 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class Fragment1 extends BaseFragment {
-    int type = 1;
+    int type = 1, page = 1;
+    Fragment1Model model;
     //页面数据
     private RecyclerView recyclerView;
-    List<SchoolModel.ArticleCategory1Bean.ArticleListBean> list1 = new ArrayList<>();
-    CommonAdapter<SchoolModel.ArticleCategory1Bean.ArticleListBean> mAdapter1;
+    List<Fragment1Model.MyCurrentChangeGameParticipationListBean> list1 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.MyCurrentChangeGameParticipationListBean> mAdapter1;
 
-    List<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> list2 = new ArrayList<>();
-    CommonAdapter<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> mAdapter2;
+    List<Fragment1Model.MyAllChangeGameParticipationListBean> list2 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.MyAllChangeGameParticipationListBean> mAdapter2;
 
-    List<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> list3 = new ArrayList<>();
-    CommonAdapter<SchoolModel.ArticleCategory2Bean.ArticleListBeanX> mAdapter3;
+    List<Fragment1Model.HistoryChangeGameListBean> list3 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.HistoryChangeGameListBean> mAdapter3;
 
     TextView tv_qici, tv_zoushi, tv_daojishi, tv_zuokong, tv_zuoduo,
             tv_shouxufei_left, tv_shouxufei_right, tv_kanzhang, tv_kandie;
     ImageView iv_jian_left, iv_jia_left, iv_jian_right, iv_jia_right;
     EditText et_keyong_left, et_keyong_right;
 
+    TimeCount time1 = null;
 
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
@@ -83,7 +90,7 @@ public class Fragment1 extends BaseFragment {
             fenshi = "1min", id = "btcusdt",
             sub = "market." + id + ".kline." + fenshi;
 
-    long tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
+    long tempTime = 0, from = 0, to = 0, num = 5, time = 60 * num;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
@@ -91,6 +98,8 @@ public class Fragment1 extends BaseFragment {
 
     KLineEntity kLineEntity;
     Gson mGson = new Gson();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -142,17 +151,24 @@ public class Fragment1 extends BaseFragment {
     @Override
     protected void initView(View view) {
         findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
-        setSpringViewMore(false);//需要加载更多
+        setSpringViewMore(true);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                String string = "?token=" + localUserInfo.getToken();
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
                 Request(string);
             }
 
             @Override
             public void onLoadmore() {
-
+                page = page + 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMore(string);
             }
         });
 
@@ -261,10 +277,527 @@ public class Fragment1 extends BaseFragment {
     @Override
     protected void initData() {
 //        requestServer();
-        MyLogger.i(">>>>>>>>>"+WebSocketManager.getInstance().isConnect());
+        requestWebSocket();
 
+    }
+
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+//        this.showLoadingPage();
+        showProgress(true, getString(R.string.app_loading));
+        page = 1;
+        String string = "?page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        Request(string);
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.HeYue + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                MainActivity.isOver = true;
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(final Fragment1Model response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>合约" + response);
+                model = response;
+                tv_qici.setText(getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));//期次
+                tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
+
+                if (model.getChange_game().getStatus() != 1) {
+                    tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
+                    tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
+                } else {
+                    tv_zuokong.setText("--");//做空
+                    tv_zuoduo.setText("--");//做多
+                }
+                tv_shouxufei_left.setText(model.getService_charge() + "USDT");
+                tv_shouxufei_right.setText(model.getService_charge() + "USDT");
+
+                et_keyong_left.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
+                et_keyong_right.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
+
+                //倒计时
+                /*if (model.getChange_game().getStatus() == 1) {//状态（1.进行中 2.待开奖 3.已结束）
+                    tv_daojishi.setText(getText(R.string.fragment3_h54));//待开奖
+                } else {
+                    tv_daojishi.setText(getText(R.string.fragment3_h46));//已结束
+                }*/
+                if (response.getCount_down() >= 0) {
+                    showTime();
+                }
+
+                //持有仓位
+                list1 = model.getMy_current_change_game_participation_list();
+                mAdapter1 = new CommonAdapter<Fragment1Model.MyCurrentChangeGameParticipationListBean>
+                        (getActivity(), R.layout.item_fragment1_1, list1) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model.MyCurrentChangeGameParticipationListBean bean, int position) {
+                        holder.setText(R.id.tv1, bean.getMoney() + "");
+                        holder.setText(R.id.tv3, bean.getService_charge_money() + "");
+                        TextView tv2 = holder.getView(R.id.tv2);
+                        if (bean.getType() == 1) {//看涨、做多
+                            tv2.setText(getString(R.string.fragment1_h9));
+                            tv2.setTextColor(getResources().getColor(R.color.green_1));
+                        } else {
+                            tv2.setText(getString(R.string.fragment1_h8));
+                            tv2.setTextColor(getResources().getColor(R.color.red_1));
+                        }
+                    }
+                };
+                //我的交易
+                list2 = model.getMy_all_change_game_participation_list();
+                mAdapter2 = new CommonAdapter<Fragment1Model.MyAllChangeGameParticipationListBean>
+                        (getActivity(), R.layout.item_fragment1_2, list2) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model.MyAllChangeGameParticipationListBean bean, int position) {
+                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getChange_gameX().getPeriod() + getText(R.string.fragment1_h5));
+
+                        TextView tv4 = holder.getView(R.id.tv4);
+                        TextView tv5 = holder.getView(R.id.tv5);
+                        if (bean.getChange_gameX().getStatus() != 1) {//进行中
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getChange_gameX().getInit_at() + "(" + bean.getChange_gameX().getInit_num() + ")"
+                                    + "—" + bean.getChange_gameX().getWin_at() + "(" + bean.getChange_gameX().getWin_num() + ")");
+
+                            tv5.setVisibility(View.VISIBLE);
+                            if (Double.valueOf(bean.getBureau_win_money()) > 0) {//盈利
+                                tv4.setTextColor(getResources().getColor(R.color.green_1));
+                                tv4.setText(getString(R.string.fragment1_h16) + "+" + bean.getBureau_win_money());
+                                tv5.setTextColor(getResources().getColor(R.color.green_1));
+                            } else {
+                                tv4.setTextColor(getResources().getColor(R.color.red_1));
+                                tv4.setText(getString(R.string.fragment1_h35) + "-" + bean.getBureau_win_money());
+                                tv5.setTextColor(getResources().getColor(R.color.red_1));
+                            }
+
+                            holder.setText(R.id.tv10, getString(R.string.fragment1_h33));//状态
+                        } else {
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getChange_gameX().getInit_at() + "(~~)"
+                                    + "—" + bean.getChange_gameX().getWin_at() + "(~~)");
+
+                            tv4.setTextColor(getResources().getColor(R.color.white2));
+                            tv4.setText(getString(R.string.fragment1_h32));
+                            tv5.setVisibility(View.GONE);
+
+                            holder.setText(R.id.tv10, getString(R.string.fragment1_h32));//状态
+                        }
+
+                        holder.setText(R.id.tv3, bean.getChange_gameX().get_$1_amount_money() + "");//看涨、做多
+                        holder.setText(R.id.tv6, bean.getChange_gameX().get_$2_amount_money() + "");//看跌、做空
+
+                        holder.setText(R.id.tv7, bean.getMoney() + "");//仓位
+                        holder.setText(R.id.tv9, bean.getService_charge_money() + "");//手续费
+
+                        TextView tv8 = holder.getView(R.id.tv8);
+                        if (bean.getType() == 1) {//看涨、做多
+                            tv8.setText(getString(R.string.fragment1_h9));
+                            tv8.setTextColor(getResources().getColor(R.color.green_1));
+                        } else {
+                            tv8.setText(getString(R.string.fragment1_h8));
+                            tv8.setTextColor(getResources().getColor(R.color.red_1));
+                        }
+                    }
+                };
+                //历史
+                list3 = model.getHistory_change_game_list();
+                mAdapter3 = new CommonAdapter<Fragment1Model.HistoryChangeGameListBean>
+                        (getActivity(), R.layout.item_fragment1_3, list3) {
+                    @Override
+                    protected void convert(ViewHolder holder, Fragment1Model.HistoryChangeGameListBean bean, int position) {
+                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
+
+                        TextView tv4 = holder.getView(R.id.tv4);
+                        if (bean.getStatus() != 1) {//进行中
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getInit_at() + "(" + bean.getInit_num() + ")"
+                                    + "—" + bean.getWin_at() + "(" + bean.getWin_num() + ")");
+
+                            tv4.setText(getString(R.string.fragment1_h33));
+
+                        } else {
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getInit_at() + "(~~)"
+                                    + "—" + bean.getWin_at() + "(~~)");
+
+                            tv4.setText(getString(R.string.fragment1_h32));
+                        }
+
+                        holder.setText(R.id.tv3, bean.get_$1_amount_money() + "");//看涨、做多
+                        holder.setText(R.id.tv6, bean.get_$2_amount_money() + "");//看跌、做空
+                    }
+                };
+                mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        //关闭连接
+                        WebSocketManager.getInstance().close();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", list3.get(i).getId());
+                        CommonUtil.gotoActivityWithData(getActivity(), Fragment1DeatilActivity.class, bundle, false);
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+
+                changeUI();
+                MainActivity.isOver = true;
+            }
+        });
+    }
+
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.HeYue + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+                page--;
+            }
+
+            @Override
+            public void onResponse(Fragment1Model response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>合约更多" + response);
+                List<Fragment1Model.MyCurrentChangeGameParticipationListBean> list1_1 = response.getMy_current_change_game_participation_list();
+
+                List<Fragment1Model.MyAllChangeGameParticipationListBean> list2_1 = response.getMy_all_change_game_participation_list();
+
+                List<Fragment1Model.HistoryChangeGameListBean> list3_1 = response.getHistory_change_game_list();
+                if (list1_1.size() == 0 && list2_1.size() == 0 && list3_1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    if (list1_1.size() > 0) {
+                        list1.addAll(list1_1);
+                        mAdapter1.notifyDataSetChanged();
+                    }
+                    if (list2_1.size() > 0) {
+                        list2.addAll(list2_1);
+                        mAdapter2.notifyDataSetChanged();
+                    }
+                    if (list3_1.size() > 0) {
+                        list3.addAll(list3_1);
+                        mAdapter3.notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void requestAdd(HashMap<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.HeYue_Add, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    //是否包含"余币不足"
+                    if (info.contains(getString(R.string.fragment1_h27))) {
+                        showToast(info, getString(R.string.fragment1_h28),
+                                getString(R.string.app_cancel),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //充值
+                                        dialog.dismiss();
+                                        MainActivity.item = 3;
+                                        MainActivity.navigationBar.selectTab(3);
+//                                        CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //取消
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } else {
+                        showToast(info);
+                    }
+
+                }
+                tv_kanzhang.setClickable(true);
+                tv_kandie.setClickable(true);
+
+                requestServer();
+            }
+
+            @Override
+            public void onResponse(final String response) {
+                tv_kanzhang.setClickable(true);
+                tv_kandie.setClickable(true);
+//                hideProgress();
+                MyLogger.i(">>>>>>>>>合约买入" + response);
+
+                requestServer();
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    String info = jObj.getString("msg");
+                    myToast(info);
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        }, true);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.linearLayout1:
+                type = 1;
+                changeUI();
+                break;
+            case R.id.linearLayout2:
+                type = 2;
+                changeUI();
+                break;
+            case R.id.linearLayout3:
+                type = 3;
+                changeUI();
+                break;
+            case R.id.iv_jian_left:
+                //买涨-减
+                double tempMoney_jian_left = 0;
+                if (!et_keyong_left.getText().toString().trim().equals("")) {
+                    tempMoney_jian_left = Double.valueOf(et_keyong_left.getText().toString().trim());
+                }
+                if (tempMoney_jian_left > 10) {
+                    tempMoney_jian_left -= 10;
+                    et_keyong_left.setText((int) tempMoney_jian_left + "");
+                } else {
+                    tempMoney_jian_left = 0;
+                    et_keyong_left.setText("");
+                }
+                break;
+            case R.id.iv_jia_left:
+                //买涨-加
+                double tempMoney_jia_left = 0;
+                if (!et_keyong_left.getText().toString().trim().equals("")) {
+                    tempMoney_jia_left = Double.valueOf(et_keyong_left.getText().toString().trim());
+                }
+                if (Double.valueOf(model.getUsable_money()) > tempMoney_jia_left) {
+                    if ((Double.valueOf(model.getUsable_money()) - tempMoney_jia_left) >= 10) {
+                        tempMoney_jia_left += 10;
+                    } else {
+                        tempMoney_jia_left = Double.valueOf(model.getUsable_money());
+                    }
+                }
+                et_keyong_left.setText((int) tempMoney_jia_left + "");
+                break;
+            case R.id.iv_jian_right:
+                //买跌-减
+                double tempMoney_jian_right = 0;
+                if (!et_keyong_right.getText().toString().trim().equals("")) {
+                    tempMoney_jian_right = Double.valueOf(et_keyong_right.getText().toString().trim());
+                }
+                if (tempMoney_jian_right > 10) {
+                    tempMoney_jian_right -= 10;
+                    et_keyong_right.setText((int) tempMoney_jian_right + "");
+                } else {
+                    tempMoney_jian_right = 0;
+                    et_keyong_right.setText("");
+                }
+                break;
+            case R.id.iv_jia_right:
+                //买跌-加
+                double tempMoney_jia_right = 0;
+                if (!et_keyong_right.getText().toString().trim().equals("")) {
+                    tempMoney_jia_right = Double.valueOf(et_keyong_right.getText().toString().trim());
+                }
+                if (Double.valueOf(model.getUsable_money()) > tempMoney_jia_right) {
+                    if ((Double.valueOf(model.getUsable_money()) - tempMoney_jia_right) >= 10) {
+                        tempMoney_jia_right += 10;
+                    } else {
+                        tempMoney_jia_right = Double.valueOf(model.getUsable_money());
+                    }
+                }
+                et_keyong_right.setText((int) tempMoney_jia_right + "");
+                break;
+            case R.id.tv_kanzhang:
+                //买涨
+                if (!et_keyong_left.getText().toString().trim().equals("")) {
+                    if (Double.valueOf(et_keyong_left.getText().toString().trim()) >= 10) {
+                        tv_kanzhang.setClickable(false);
+                        showProgress(true, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("hk", model.getHk());
+                        params.put("change_game_id", model.getChange_game().getId());
+                        params.put("type", "1");//类型（1.看涨 2.看跌）
+                        params.put("money", et_keyong_left.getText().toString().trim());
+                        params.put("token", localUserInfo.getToken());
+                        requestAdd(params);
+
+                    } else {
+                        myToast(getString(R.string.fragment1_h26));
+                    }
+                } else {
+                    myToast(getString(R.string.fragment1_h25));
+                }
+                break;
+            case R.id.tv_kandie:
+                //买跌
+                if (!et_keyong_right.getText().toString().trim().equals("")) {
+                    if (Double.valueOf(et_keyong_right.getText().toString().trim()) >= 10) {
+                        tv_kandie.setClickable(false);
+                        showProgress(true, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("hk", model.getHk());
+                        params.put("change_game_id", model.getChange_game().getId());
+                        params.put("type", "2");//类型（1.看涨 2.看跌）
+                        params.put("money", et_keyong_right.getText().toString().trim());
+                        params.put("token", localUserInfo.getToken());
+                        requestAdd(params);
+                    } else {
+                        myToast(getString(R.string.fragment1_h26));
+                    }
+                } else {
+                    myToast(getString(R.string.fragment1_h25));
+                }
+                break;
+            case R.id.rl_1min:
+                //1分钟
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "1min";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * num;//60*12条
+                changeKChart();
+                break;
+            case R.id.rl_5min:
+                //5分钟
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "5min";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * 5 * num;//60*12条
+                changeKChart();
+                break;
+            case R.id.rl_30min:
+                //30分钟
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "30min";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * 30 * num;//60*12条
+                changeKChart();
+                break;
+            case R.id.rl_1h:
+                //1小时
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "60min";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * 60 * num;//60*12条
+                changeKChart();
+                break;
+            case R.id.rl_1day:
+                //1天
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "1day";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * 60 * 24 * num;//60*12条
+                changeKChart();
+                break;
+            case R.id.rl_1mon:
+                //1月
+                cancelDingYue();//先取消订阅-再订阅最新
+                fenshi = "1mon";
+                changeUI();
+                sub = "market." + id + ".kline." + fenshi;
+                time = 60 * 60 * 24 * 30 * 60;//60条
+                changeKChart();
+                break;
+        }
+    }
+
+    private void showTime() {
+        MyLogger.i(">>>>>>" + (model.getCount_down() * 1000));
+        if (time1 != null) {
+            time1.cancel();
+        }
+        time1 = new TimeCount(model.getCount_down() * 1000, 1000, tv_daojishi);//构造CountDownTimer对象
+        time1.start();//开始计时
+    }
+
+    class TimeCount extends CountDownTimer {
+        TextView textView;
+
+        public TimeCount(long millisInFuture, long countDownInterval, TextView textView) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            this.textView = textView;
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+//            textView.setText(getString(R.string.fragment3_h54));
+            textView2.setText("0s");
+            /*if (MainActivity.item == 0) {
+                dialog.contentView(R.layout.dialog_gifimg)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .dimAmount(0.8f)
+                        .show();
+
+                GifImageView gifImageView = (GifImageView) dialog.findViewById(R.id.imageView);
+                GifLoadOneTimeGif.loadOneTimeGif(getActivity(), R.mipmap.gifimg, gifImageView, 1, new GifLoadOneTimeGif.GifListener() {
+                    @Override
+                    public void gifPlayComplete() {
+                        dialog.dismiss();
+
+                        requestServer();
+                    }
+                });
+
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }*/
+
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+//            textView.setText(CommonUtil.timedate3(millisUntilFinished) + "s");//秒计时
+            textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
+        }
+
+    }
+
+    /**
+     * 连接websocket、解析、展示
+     */
+    private void requestWebSocket() {
         isNew = true;
-        if (!WebSocketManager.getInstance().isConnect()){//是否连接
+        MyLogger.i(">>>是否连接"+WebSocketManager.getInstance().isConnect());
+
+        if (!WebSocketManager.getInstance().isConnect()) {//是否连接
             //没有连接时，开始连接
             new Thread(new Runnable() {
                 @Override
@@ -349,8 +882,8 @@ public class Fragment1 extends BaseFragment {
                                     });
 
                                 } else {
-                                MyLogger.i("接收消息-订阅数据", text);
-                                    if (isNew ==false){//有了历史数据后展示最新数据
+//                                    MyLogger.i("接收消息-订阅数据", text);
+                                    if (isNew == false) {//有了历史数据后展示最新数据
                                         getActivity().runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
@@ -399,112 +932,18 @@ public class Fragment1 extends BaseFragment {
                     });
                 }
             }).start();
-        }else {
+        } else {
             //有连接-加载历史
             cancelDingYue();//先取消订阅-再订阅最新
             changeKChart();
         }
-
     }
-
-    private void Request(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.HeYue + string, new OkHttpClientManager.ResultCallback<SchoolModel>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-                MainActivity.isOver = true;
-                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    myToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(final SchoolModel response) {
-                showContentPage();
-
-                hideProgress();
-
-                MainActivity.isOver = true;
-            }
-        });
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.linearLayout1:
-                type = 1;
-                changeUI();
-                break;
-            case R.id.linearLayout2:
-                type = 2;
-                changeUI();
-                break;
-            case R.id.rl_1min:
-                //1分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_5min:
-                //5分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "5min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 5 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_30min:
-                //30分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "30min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 30 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1h:
-                //1小时
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "60min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1day:
-                //1天
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1day";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 24 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1mon:
-                //1月
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1mon";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 24 * 30 * 60;//60条
-                changeKChart();
-                break;
-        }
-    }
-
 
     /**
      * 选择分时，更改k线图
      */
     private void changeKChart() {
-        //关闭连接
-//                WebSocketManager.getInstance().close();
+
         datas.clear();
         isShowOver = false;
         isNew = true;
@@ -529,6 +968,7 @@ public class Fragment1 extends BaseFragment {
             e.printStackTrace();
         }
     }
+
     /**
      * 查看历史数据
      */
@@ -599,7 +1039,7 @@ public class Fragment1 extends BaseFragment {
             }
         }
 
-        switch (fenshi){
+        switch (fenshi) {
             case "1min":
                 tv_1min.setBackgroundResource(R.drawable.yuanjiao_10_heise);
                 tv_5min.setBackgroundResource(R.color.transparent);
@@ -654,15 +1094,6 @@ public class Fragment1 extends BaseFragment {
     @Override
     protected void updateView() {
 
-    }
-
-    @Override
-    public void requestServer() {
-        super.requestServer();
-//        this.showLoadingPage();
-        showProgress(true, getString(R.string.app_loading));
-        String string = "?token=" + localUserInfo.getToken();
-        Request(string);
     }
 
 
