@@ -5,8 +5,6 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +30,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -47,10 +39,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,19 +54,6 @@ public class Fragment2 extends BaseFragment {
     private RecyclerView recyclerView;
     List<Fragment2Model> list1 = new ArrayList<>();
     CommonAdapter<Fragment2Model> mAdapter1;
-
-    List<String> stringList = new ArrayList<>();
-
-
-    private String userName = "user";
-    private String passWord = "SZUI78*AAQa";
-    private String virtualHost = "/";
-    private String hostName = "221.122.37.70";
-    private int portNum = 5672;
-    private String queueName = "bsTradingPoint";//接消息name
-    private String exchangeName = "BsTradingPoint";//发消息name
-    private String rountingKey = "key";
-    ConnectionFactory factory;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -170,45 +147,6 @@ public class Fragment2 extends BaseFragment {
     @Override
     protected void initData() {
 //        requestServer();
-       /* TextView textView = findViewByID_My(R.id.textView);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        basicPublish();//发消息
-                    }
-                }).start();
-            }
-        });*/
-        /*//用于从线程中获取数据，更新ui
-        final Handler incomingMessageHandler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                String message = msg.getData().getString("msg");
-                MyLogger.i("test>>>>>>>", "msg:" + message);
-                myToast("收到消息"+message);
-                stringList.add(message);
-            }
-        };
-        //连接设置
-        setupConnectionFactory();
-
-        //开启消费者线程
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                basicConsume(incomingMessageHandler);
-            }
-        }).start();*/
-        /*BigDecimal bd = new BigDecimal("1.5770196E+12");
-        String str = bd.toPlainString();
-        MyLogger.i(">>>>>>"+str);
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date(Long.valueOf(str));
-        MyLogger.i(">>>>>>"+ simpleDateFormat.format(date));*/
     }
 
     @Override
@@ -538,129 +476,5 @@ public class Fragment2 extends BaseFragment {
             lineDataSet.setFillDrawable(drawable);
             lineChart.invalidate();
         }
-    }
-
-    /**
-     * *************************************长连接**************************************************
-     */
-    /**
-     * 连接设置
-     */
-    private void setupConnectionFactory() {
-        factory = new ConnectionFactory();
-        factory.setHost(hostName);
-        factory.setPort(portNum);
-        factory.setUsername(userName);
-        factory.setPassword(passWord);
-        factory.setAutomaticRecoveryEnabled(true);// 设置连接恢复
-
-    }
-
-    /**
-     * 收消息（从发布者那边订阅消息）
-     */
-    private void basicConsume(final Handler handler) {
-        try {
-            //连接
-            Connection connection = factory.newConnection();
-            //通道
-            final Channel channel = connection.createChannel();
-
-            //实现Consumer的最简单方法是将便捷类DefaultConsumer子类化。可以在basicConsume 调用上传递此子类的对象以设置订阅：
-            //队列名称、
-            channel.basicConsume(queueName, false, new DefaultConsumer(channel) {
-                @Override
-                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    super.handleDelivery(consumerTag, envelope, properties, body);
-
-                    String msg = new String(body);
-                    long deliveryTag = envelope.getDeliveryTag();
-                    channel.basicAck(deliveryTag, false);
-                    //从message池中获取msg对象更高效
-                    Message uimsg = handler.obtainMessage();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("msg", msg);
-                    uimsg.setData(bundle);
-                    handler.sendMessage(uimsg);
-
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 发消息
-     */
-    private void basicPublish() {
-
-        try {
-            //连接
-            Connection connection = factory.newConnection();
-            //通道
-            Channel channel = connection.createChannel();
-            //声明了一个交换和一个服务器命名的队列，然后将它们绑定在一起。
-            channel.exchangeDeclare(exchangeName, "fanout", true);
-            String queueName = channel.queueDeclare().getQueue();
-            channel.queueBind(queueName, exchangeName, rountingKey);
-            //消息发布
-            byte[] msg = "hello word!".getBytes();
-            channel.basicPublish(exchangeName, rountingKey, null, msg);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 收消息
-     */
-    private void basicConsume() {
-
-        try {
-            //连接
-            Connection connection = factory.newConnection();
-            //通道
-            final Channel channel = connection.createChannel();
-            //声明了一个交换和一个服务器命名的队列，然后将它们绑定在一起。
-            channel.exchangeDeclare(exchangeName, "fanout", true);
-            String queueName = channel.queueDeclare().getQueue();
-            Log.e("TAG", queueName + " :queueName");
-            channel.queueBind(queueName, exchangeName, rountingKey);
-            //实现Consumer的最简单方法是将便捷类DefaultConsumer子类化。可以在basicConsume 调用上传递此子类的对象以设置订阅：
-            channel.basicConsume(queueName, false, "administrator", new DefaultConsumer(channel) {
-                @Override
-                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    super.handleDelivery(consumerTag, envelope, properties, body);
-
-                    String rountingKey = envelope.getRoutingKey();//路由密钥
-                    String contentType = properties.getContentType();//contentType字段，如果尚未设置字段，则为null。
-                    String msg = new String(body, "UTF-8");//接收到的消息
-                    long deliveryTag = envelope.getDeliveryTag();//交付标记
-
-                    Log.e("TAG", rountingKey + "：rountingKey");
-                    Log.e("TAG", contentType + "：contentType");
-                    Log.e("TAG", msg + "：msg");
-                    Log.e("TAG", deliveryTag + "：deliveryTag");
-                    Log.e("TAG", consumerTag + "：consumerTag");
-                    Log.e("TAG", envelope.getExchange() + "：exchangeName");
-
-                    channel.basicAck(deliveryTag, false);
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-
     }
 }

@@ -54,6 +54,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class Fragment1 extends BaseFragment {
+
     int type = 1, page = 1;
     Fragment1Model model;
     //页面数据
@@ -90,7 +91,7 @@ public class Fragment1 extends BaseFragment {
             fenshi = "1min", id = "btcusdt",
             sub = "market." + id + ".kline." + fenshi;
 
-    long tempTime = 0, from = 0, to = 0, num = 5, time = 60 * num;
+    long tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
@@ -98,7 +99,6 @@ public class Fragment1 extends BaseFragment {
 
     KLineEntity kLineEntity;
     Gson mGson = new Gson();
-
 
 
     @Override
@@ -318,9 +318,13 @@ public class Fragment1 extends BaseFragment {
                 if (model.getChange_game().getStatus() != 1) {
                     tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
                     tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
+
+                    tv_daojishi.setText(getText(R.string.fragment1_h32));//待交割
                 } else {
                     tv_zuokong.setText("--");//做空
                     tv_zuoduo.setText("--");//做多
+
+                    tv_daojishi.setText(getText(R.string.fragment1_h33));//已交割
                 }
                 tv_shouxufei_left.setText(model.getService_charge() + "USDT");
                 tv_shouxufei_right.setText(model.getService_charge() + "USDT");
@@ -442,7 +446,7 @@ public class Fragment1 extends BaseFragment {
                         WebSocketManager.getInstance().close();
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("id", list3.get(i).getId());
+                        bundle.putString("history_id", list3.get(i).getId());
                         CommonUtil.gotoActivityWithData(getActivity(), Fragment1DeatilActivity.class, bundle, false);
                     }
 
@@ -795,8 +799,7 @@ public class Fragment1 extends BaseFragment {
      */
     private void requestWebSocket() {
         isNew = true;
-        MyLogger.i(">>>是否连接"+WebSocketManager.getInstance().isConnect());
-
+        MyLogger.i(">>>是否连接" + WebSocketManager.getInstance().isConnect());
         if (!WebSocketManager.getInstance().isConnect()) {//是否连接
             //没有连接时，开始连接
             new Thread(new Runnable() {

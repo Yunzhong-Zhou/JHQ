@@ -202,7 +202,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:minHeight="500dp"
+                        android:minHeight="300dp"
                         app:kc_background_color="#031F2C"
                         app:kc_candle_width="8dp"
                         app:kc_grid_line_color="#FFFFFF"
@@ -348,10 +348,15 @@
                             android:textSize="12sp" />
                     </RelativeLayout>
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:background="#072533" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingBottom="20dp">

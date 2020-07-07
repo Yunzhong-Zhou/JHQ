@@ -72,6 +72,10 @@ public class URLs {
      * 合约-买入
      */
     public static final String HeYue_Add= "/api/change-game-participation/create";
+    /**
+     * 合约-详情
+     */
+    public static final String HeYue_Detail= "/api/change-game/detail";
     //区块
     /**
      * 区块

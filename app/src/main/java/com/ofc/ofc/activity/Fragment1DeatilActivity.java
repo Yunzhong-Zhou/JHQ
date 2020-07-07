@@ -1,9 +1,8 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,7 +14,7 @@ import com.google.gson.Gson;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.Fragment1Model;
+import com.ofc.ofc.model.Fragment1DetailModel;
 import com.ofc.ofc.model.WebSocketModel;
 import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.net.OkHttpClientManager;
@@ -29,6 +28,8 @@ import com.ofc.ofc.view.chart.KChartAdapter;
 import com.ofc.ofc.view.chart.KLineEntity;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +44,9 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by zyz on 2020/7/5.
  */
 public class Fragment1DeatilActivity extends BaseActivity {
-    int type = 1, page = 1;
+    String history_id = "";
+    Fragment1DetailModel model;
+    int type = 2, page = 1;
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
     TextView textView1, textView2, textView3;
@@ -51,19 +54,17 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
     //页面数据
     private RecyclerView recyclerView;
-    List<Fragment1Model.MyCurrentChangeGameParticipationListBean> list1 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.MyCurrentChangeGameParticipationListBean> mAdapter1;
+    List<Fragment1DetailModel.MyChangeGameParticipationListBean> list1 = new ArrayList<>();
+    CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean> mAdapter1;
 
-    List<Fragment1Model.MyAllChangeGameParticipationListBean> list2 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.MyAllChangeGameParticipationListBean> mAdapter2;
+    List<Fragment1DetailModel.MyChangeGameParticipationListBean> list2 = new ArrayList<>();
+    CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean> mAdapter2;
 
-    List<Fragment1Model.HistoryChangeGameListBean> list3 = new ArrayList<>();
-    CommonAdapter<Fragment1Model.HistoryChangeGameListBean> mAdapter3;
+    List<Fragment1DetailModel.MyChangeGameParticipationListBean> list3 = new ArrayList<>();
+    CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean> mAdapter3;
 
-    TextView tv_qici, tv_zoushi, tv_daojishi, tv_zuokong, tv_zuoduo,
-            tv_shouxufei_left, tv_shouxufei_right, tv_kanzhang, tv_kandie;
-    ImageView iv_jian_left, iv_jia_left, iv_jian_right, iv_jia_right;
-    EditText et_keyong_left, et_keyong_right;
+    TextView tv_qici, tv_zoushi, tv_zhuangtai, tv_zuokong, tv_zuoduo, tv_zuokong_baifenbi, tv_zuoduo_baifenbi,
+            tv_money_left, tv_time_left, tv_money_right, tv_time_right, tv_jieguo;
 
     //走势图
     RelativeLayout rl_1min, rl_5min, rl_30min, rl_1h, rl_1day, rl_1mon;
@@ -76,7 +77,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
             fenshi = "1min", id = "btcusdt",
             sub = "market." + id + ".kline." + fenshi;
 
-    long tempTime = 0, from = 0, to = 0, num = 5, time = 60 * num;
+    long tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
     KChartView mKChartView;
     private KChartAdapter mAdapter;
     List<KLineEntity> datas = new ArrayList<>();
@@ -100,6 +101,22 @@ public class Fragment1DeatilActivity extends BaseActivity {
         WebSocketManager.getInstance().close();
     }*/
 
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            //关闭连接
+            WebSocketManager.getInstance().close();
+//                finish();
+            Bundle bundle = new Bundle();
+            bundle.putInt("item", 0);
+            CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);
+            return false;
+        } else {
+            return super.dispatchKeyEvent(event);
+        }
+    }
 
     @Override
     protected void initView() {
@@ -115,13 +132,14 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);
             }
         });
-        setSpringViewMore(true);//需要加载更多
+        setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
                 page = 1;
                 String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
+                        + "&id=" + history_id
                         + "&token=" + localUserInfo.getToken();
                 Request(string);
             }
@@ -131,6 +149,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 page = page + 1;
                 String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
+                        + "&id=" + history_id
                         + "&token=" + localUserInfo.getToken();
                 RequestMore(string);
             }
@@ -149,6 +168,20 @@ public class Fragment1DeatilActivity extends BaseActivity {
         view1 = findViewByID_My(R.id.view1);
         view2 = findViewByID_My(R.id.view2);
         view3 = findViewByID_My(R.id.view3);
+
+        //普通数据
+        tv_qici = findViewByID_My(R.id.tv_qici);
+        tv_zoushi = findViewByID_My(R.id.tv_zoushi);
+        tv_zhuangtai = findViewByID_My(R.id.tv_zhuangtai);
+        tv_zuokong = findViewByID_My(R.id.tv_zuokong);
+        tv_zuoduo = findViewByID_My(R.id.tv_zuoduo);
+        tv_zuokong_baifenbi = findViewByID_My(R.id.tv_zuokong_baifenbi);
+        tv_zuoduo_baifenbi = findViewByID_My(R.id.tv_zuoduo_baifenbi);
+        tv_money_left = findViewByID_My(R.id.tv_money_left);
+        tv_time_left = findViewByID_My(R.id.tv_time_left);
+        tv_money_right = findViewByID_My(R.id.tv_money_right);
+        tv_time_right = findViewByID_My(R.id.tv_time_right);
+        tv_jieguo = findViewByID_My(R.id.tv_jieguo);
 
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -217,7 +250,8 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        id = getIntent().getStringExtra("id");
+        history_id = getIntent().getStringExtra("history_id");
+        requestServer();
         requestWebSocket();
     }
 
@@ -229,12 +263,13 @@ public class Fragment1DeatilActivity extends BaseActivity {
         page = 1;
         String string = "?page=" + page//当前页号
                 + "&count=" + "10"//页面行数
+                + "&id=" + history_id
                 + "&token=" + localUserInfo.getToken();
         Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.HeYue + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+        OkHttpClientManager.getAsyn(this, URLs.HeYue_Detail + string, new OkHttpClientManager.ResultCallback<Fragment1DetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -245,34 +280,56 @@ public class Fragment1DeatilActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final Fragment1Model response) {
+            public void onResponse(final Fragment1DetailModel response) {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>合约详情" + response);
-                /*model = response;
+                model = response;
                 tv_qici.setText(getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));//期次
                 tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
 
                 if (model.getChange_game().getStatus() != 1) {
+                    tv_zhuangtai.setText(getText(R.string.fragment1_h33));
                     tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
                     tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
                 } else {
+                    tv_zhuangtai.setText(getText(R.string.fragment1_h32));
                     tv_zuokong.setText("--");//做空
                     tv_zuoduo.setText("--");//做多
                 }
-                tv_shouxufei_left.setText(model.getService_charge() + "USDT");
-                tv_shouxufei_right.setText(model.getService_charge() + "USDT");
+                //做空百分比
+                tv_zuokong_baifenbi.setText(model.getChange_game().getFall_ratio()+"%");
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                params.weight = Float.valueOf(model.getChange_game().getFall_ratio());//在此处设置weight
+                tv_zuokong_baifenbi.setLayoutParams(params);
 
-                et_keyong_left.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
-                et_keyong_right.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
+                //做多百分比
+                tv_zuoduo_baifenbi.setText(model.getChange_game().getRise_ratio()+"%");
+                LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                params1.weight = Float.valueOf(model.getChange_game().getRise_ratio());//在此处设置weight
+                tv_zuoduo_baifenbi.setLayoutParams(params1);
+
+                tv_money_left.setText(model.getChange_game().getInit_num());
+                tv_time_left.setText(model.getChange_game().getInit_at());
+                tv_money_right.setText(model.getChange_game().getWin_num());
+                tv_time_right.setText(model.getChange_game().getWin_at());
+                if (model.getChange_game().getWin_rise_fall()==1){////看涨、做多
+                    tv_jieguo.setText(getString(R.string.fragment1_h9));
+                    tv_jieguo.setTextColor(getResources().getColor(R.color.green_1));
+                }else {
+                    tv_jieguo.setText(getString(R.string.fragment1_h8));
+                    tv_jieguo.setTextColor(getResources().getColor(R.color.red_1));
+                }
 
 
                 //持有仓位
-                list1 = model.getMy_current_change_game_participation_list();
-                mAdapter1 = new CommonAdapter<Fragment1Model.MyCurrentChangeGameParticipationListBean>
-                        (getActivity(), R.layout.item_fragment1_1, list1) {
+                list1 = model.getMy_change_game_participation_list();
+                mAdapter1 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
+                        (Fragment1DeatilActivity.this, R.layout.item_fragment1_1, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.MyCurrentChangeGameParticipationListBean bean, int position) {
+                    protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
                         holder.setText(R.id.tv1, bean.getMoney() + "");
                         holder.setText(R.id.tv3, bean.getService_charge_money() + "");
                         TextView tv2 = holder.getView(R.id.tv2);
@@ -286,12 +343,12 @@ public class Fragment1DeatilActivity extends BaseActivity {
                     }
                 };
                 //我的交易
-                list2 = model.getMy_all_change_game_participation_list();
-                mAdapter2 = new CommonAdapter<Fragment1Model.MyAllChangeGameParticipationListBean>
-                        (getActivity(), R.layout.item_fragment1_2, list2) {
+                list2 = model.getMy_change_game_participation_list();
+                mAdapter2 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
+                        (Fragment1DeatilActivity.this, R.layout.item_fragment1_2, list2) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.MyAllChangeGameParticipationListBean bean, int position) {
-                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getChange_gameX().getPeriod() + getText(R.string.fragment1_h5));
+                    protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
+                        /*holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getChange_gameX().getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
                         TextView tv5 = holder.getView(R.id.tv5);
@@ -335,16 +392,16 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         } else {
                             tv8.setText(getString(R.string.fragment1_h8));
                             tv8.setTextColor(getResources().getColor(R.color.red_1));
-                        }
+                        }*/
                     }
                 };
                 //历史
-                list3 = model.getHistory_change_game_list();
-                mAdapter3 = new CommonAdapter<Fragment1Model.HistoryChangeGameListBean>
-                        (getActivity(), R.layout.item_fragment1_3, list3) {
+                list3 = model.getMy_change_game_participation_list();
+                mAdapter3 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
+                        (Fragment1DeatilActivity.this, R.layout.item_fragment1_3, list3) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1Model.HistoryChangeGameListBean bean, int position) {
-                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
+                    protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
+                        /*holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
                         if (bean.getStatus() != 1) {//进行中
@@ -361,22 +418,21 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         }
 
                         holder.setText(R.id.tv3, bean.get_$1_amount_money() + "");//看涨、做多
-                        holder.setText(R.id.tv6, bean.get_$2_amount_money() + "");//看跌、做空
+                        holder.setText(R.id.tv6, bean.get_$2_amount_money() + "");//看跌、做空*/
                     }
                 };
                 mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("id", list3.get(i).getId());
-                        CommonUtil.gotoActivityWithData(getActivity(), Fragment1DeatilActivity.class, bundle, false);
+                        history_id = list3.get(i).getId();
+                        requestServer();
                     }
 
                     @Override
                     public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         return false;
                     }
-                });*/
+                });
 
                 changeUI();
 
@@ -385,7 +441,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
     }
 
     private void RequestMore(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.HeYue + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+        OkHttpClientManager.getAsyn(this, URLs.HeYue_Detail + string, new OkHttpClientManager.ResultCallback<Fragment1DetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -397,15 +453,15 @@ public class Fragment1DeatilActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(Fragment1Model response) {
+            public void onResponse(Fragment1DetailModel response) {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>合约更多" + response);
-                List<Fragment1Model.MyCurrentChangeGameParticipationListBean> list1_1 = response.getMy_current_change_game_participation_list();
+                List<Fragment1DetailModel.MyChangeGameParticipationListBean> list1_1 = response.getMy_change_game_participation_list();
 
-                List<Fragment1Model.MyAllChangeGameParticipationListBean> list2_1 = response.getMy_all_change_game_participation_list();
+                List<Fragment1DetailModel.MyChangeGameParticipationListBean> list2_1 = response.getMy_change_game_participation_list();
 
-                List<Fragment1Model.HistoryChangeGameListBean> list3_1 = response.getHistory_change_game_list();
+                List<Fragment1DetailModel.MyChangeGameParticipationListBean> list3_1 = response.getMy_change_game_participation_list();
                 if (list1_1.size() == 0 && list2_1.size() == 0 && list3_1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page--;
@@ -507,7 +563,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
      */
     private void requestWebSocket() {
         isNew = true;
-        MyLogger.i(">>>是否连接" + WebSocketManager.getInstance().isConnect());
+//        MyLogger.i(">>>是否连接" + WebSocketManager.getInstance().isConnect());
         if (!WebSocketManager.getInstance().isConnect()) {//是否连接
             //没有连接时，开始连接
             new Thread(new Runnable() {
@@ -537,7 +593,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                         @Override
                         public void onMessage(String text) {
-                        MyLogger.i("接收消息", text);
+//                        MyLogger.i("接收消息", text);
                             //得到心跳 {"ping":1592998031971}，发送心跳{"pong":1592998031971}
                             JSONObject jObj;
                             String ping = "";
