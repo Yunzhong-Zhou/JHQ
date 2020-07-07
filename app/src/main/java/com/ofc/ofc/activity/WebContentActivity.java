@@ -93,7 +93,6 @@ public class WebContentActivity extends BaseActivity {
     //销毁 放置内存泄漏
     @Override
     public void onDestroy() {
-
         if (this.webView != null) {
             webView.destroy();
         }

@@ -8,6 +8,7 @@ import android.os.Build;
 
 import com.hjq.toast.ToastUtils;
 import com.mob.MobSDK;
+import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.changelanguage.LanguageUtil;
 import com.ofc.ofc.utils.changelanguage.SpUtil;
@@ -123,7 +124,7 @@ public class MyApplication extends Application {
             LanguageUtil.changeAppLanguage(mContext, language);
         }
 
-//        new ScreenAdaptation(this, 828, 1792).register();
+        new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this,720,1280).register();
 
     }

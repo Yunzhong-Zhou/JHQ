@@ -359,7 +359,7 @@ public class SchoolActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle("学院");
+        titleView.setTitle(getString(R.string.fragment1));
     }
     @Override
     public void requestServer() {
