@@ -108,10 +108,10 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             //关闭连接
             WebSocketManager.getInstance().close();
-//                finish();
+            /*MainActivity.isOver = false;
             Bundle bundle = new Bundle();
             bundle.putInt("item", 0);
-            CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);
+            CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);*/
             return false;
         } else {
             return super.dispatchKeyEvent(event);
@@ -127,9 +127,10 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 //关闭连接
                 WebSocketManager.getInstance().close();
 //                finish();
+                /*MainActivity.isOver = false;
                 Bundle bundle = new Bundle();
                 bundle.putInt("item", 0);
-                CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(Fragment1DeatilActivity.this, MainActivity.class, bundle, true);*/
             }
         });
         setSpringViewMore(false);//需要加载更多
@@ -289,23 +290,22 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
 
                 if (model.getChange_game().getStatus() != 1) {
-                    tv_zhuangtai.setText(getText(R.string.fragment1_h33));
                     tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
                     tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
                 } else {
-                    tv_zhuangtai.setText(getText(R.string.fragment1_h32));
                     tv_zuokong.setText("--");//做空
                     tv_zuoduo.setText("--");//做多
                 }
+                tv_zhuangtai.setText(model.getChange_game().getStatus_title());
                 //做空百分比
-                tv_zuokong_baifenbi.setText(model.getChange_game().getFall_ratio()+"%");
+                tv_zuokong_baifenbi.setText(model.getChange_game().getFall_ratio() + "%");
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
                 params.weight = Float.valueOf(model.getChange_game().getFall_ratio());//在此处设置weight
                 tv_zuokong_baifenbi.setLayoutParams(params);
 
                 //做多百分比
-                tv_zuoduo_baifenbi.setText(model.getChange_game().getRise_ratio()+"%");
+                tv_zuoduo_baifenbi.setText(model.getChange_game().getRise_ratio() + "%");
                 LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
                 params1.weight = Float.valueOf(model.getChange_game().getRise_ratio());//在此处设置weight
@@ -315,10 +315,10 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 tv_time_left.setText(model.getChange_game().getInit_at());
                 tv_money_right.setText(model.getChange_game().getWin_num());
                 tv_time_right.setText(model.getChange_game().getWin_at());
-                if (model.getChange_game().getWin_rise_fall()==1){////看涨、做多
+                if (model.getChange_game().getWin_rise_fall() == 1) {////看涨、做多
                     tv_jieguo.setText(getString(R.string.fragment1_h9));
                     tv_jieguo.setTextColor(getResources().getColor(R.color.green_1));
-                }else {
+                } else {
                     tv_jieguo.setText(getString(R.string.fragment1_h8));
                     tv_jieguo.setTextColor(getResources().getColor(R.color.red_1));
                 }
@@ -352,10 +352,10 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                         TextView tv4 = holder.getView(R.id.tv4);
                         TextView tv5 = holder.getView(R.id.tv5);
-                        if (model.getChange_game().getStatus() != 1) {//进行中
+
+                        if (model.getChange_game().getStatus() == 3) {
                             holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + model.getChange_game().getInit_at() + "(" + model.getChange_game().getInit_num() + ")"
                                     + "—" + model.getChange_game().getWin_at() + "(" + model.getChange_game().getWin_num() + ")");
-
                             tv5.setVisibility(View.VISIBLE);
                             if (Double.valueOf(bean.getBureau_win_money()) > 0) {//盈利
                                 tv4.setTextColor(getResources().getColor(R.color.green_1));
@@ -363,20 +363,17 @@ public class Fragment1DeatilActivity extends BaseActivity {
                                 tv5.setTextColor(getResources().getColor(R.color.green_1));
                             } else {
                                 tv4.setTextColor(getResources().getColor(R.color.red_1));
-                                tv4.setText(getString(R.string.fragment1_h35) + "-" + bean.getBureau_win_money());
+                                tv4.setText(getString(R.string.fragment1_h35) + "-" + bean.getMoney());
                                 tv5.setTextColor(getResources().getColor(R.color.red_1));
                             }
-
-                            holder.setText(R.id.tv10, getString(R.string.fragment1_h33));//状态
                         } else {
                             holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + model.getChange_game().getInit_at() + "(~~)"
                                     + "—" + model.getChange_game().getWin_at() + "(~~)");
 
                             tv4.setTextColor(getResources().getColor(R.color.white2));
-                            tv4.setText(getString(R.string.fragment1_h32));
+                            tv4.setText(bean.getStatus_title());//状态
                             tv5.setVisibility(View.GONE);
 
-                            holder.setText(R.id.tv10, getString(R.string.fragment1_h32));//状态
                         }
 
                         holder.setText(R.id.tv3, model.getChange_game().get_$1_amount_money() + "");//看涨、做多
@@ -384,7 +381,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                         holder.setText(R.id.tv7, bean.getMoney() + "");//仓位
                         holder.setText(R.id.tv9, bean.getService_charge_money() + "");//手续费
-
+                        holder.setText(R.id.tv10, bean.getStatus_title());//状态
                         TextView tv8 = holder.getView(R.id.tv8);
                         if (bean.getType() == 1) {//看涨、做多
                             tv8.setText(getString(R.string.fragment1_h9));
@@ -404,17 +401,13 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
+                        tv4.setText(bean.getStatus_title());
                         if (bean.getStatus() != 1) {//进行中
                             holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getInit_at() + "(" + bean.getInit_num() + ")"
                                     + "—" + bean.getWin_at() + "(" + bean.getWin_num() + ")");
-
-                            tv4.setText(getString(R.string.fragment1_h33));
-
                         } else {
                             holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getInit_at() + "(~~)"
                                     + "—" + bean.getWin_at() + "(~~)");
-
-                            tv4.setText(getString(R.string.fragment1_h32));
                         }
 
                         holder.setText(R.id.tv3, bean.get_$1_amount_money() + "");//看涨、做多
@@ -587,7 +580,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                             isShowOver = false;
                             MyLogger.i(">>>>>>关闭成功");
 //                            hideProgress();
-//                            finish();
+                            finish();
 
                         }
 

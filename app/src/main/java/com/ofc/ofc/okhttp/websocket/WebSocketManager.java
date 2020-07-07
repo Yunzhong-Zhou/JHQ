@@ -201,6 +201,7 @@ public class WebSocketManager {
                 MyLogger.i(TAG, "连接失败抛出：" + t.getMessage());
                 isConnect = false;
                 if (receiveMessage != null) {
+
                     receiveMessage.onConnectFailed();
                 }
                 if (!isClose) {//不是关闭就重连

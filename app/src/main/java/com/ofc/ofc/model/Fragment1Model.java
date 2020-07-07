@@ -126,6 +126,16 @@ public class Fragment1Model implements Serializable {
         private String init_at;
         private String win_at;
         private int status;
+        private String status_title;
+
+        public String getStatus_title() {
+            return status_title;
+        }
+
+        public void setStatus_title(String status_title) {
+            this.status_title = status_title;
+        }
+
         private String created_at;
 
         public String getId() {
@@ -391,6 +401,15 @@ public class Fragment1Model implements Serializable {
             private String win_at;
             private int win_rise_fall;
             private int status;
+            private String status_title;
+
+            public String getStatus_title() {
+                return status_title;
+            }
+
+            public void setStatus_title(String status_title) {
+                this.status_title = status_title;
+            }
 
             public String getId() {
                 return id;
@@ -500,6 +519,15 @@ public class Fragment1Model implements Serializable {
         private String win_at;
         private int win_rise_fall;
         private int status;
+        private String status_title;
+
+        public String getStatus_title() {
+            return status_title;
+        }
+
+        public void setStatus_title(String status_title) {
+            this.status_title = status_title;
+        }
 
         public String getId() {
             return id;
