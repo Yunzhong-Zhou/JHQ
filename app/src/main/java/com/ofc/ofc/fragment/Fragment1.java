@@ -319,12 +319,12 @@ public class Fragment1 extends BaseFragment {
                     tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
                     tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
 
-                    tv_daojishi.setText(getText(R.string.fragment1_h32));//待交割
+                    tv_daojishi.setText(getText(R.string.fragment1_h33));//已交割
                 } else {
                     tv_zuokong.setText("--");//做空
                     tv_zuoduo.setText("--");//做多
 
-                    tv_daojishi.setText(getText(R.string.fragment1_h33));//已交割
+                    tv_daojishi.setText(getText(R.string.fragment1_h32));//待交割
                 }
                 tv_shouxufei_left.setText(model.getService_charge() + "USDT");
                 tv_shouxufei_right.setText(model.getService_charge() + "USDT");
@@ -756,7 +756,7 @@ public class Fragment1 extends BaseFragment {
         @Override
         public void onFinish() {//计时完毕时触发
 //            textView.setText(getString(R.string.fragment3_h54));
-            textView2.setText("0s");
+            textView.setText("0s");
             /*if (MainActivity.item == 0) {
                 dialog.contentView(R.layout.dialog_gifimg)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

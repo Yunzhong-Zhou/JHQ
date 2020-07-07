@@ -60,8 +60,8 @@ public class Fragment1DeatilActivity extends BaseActivity {
     List<Fragment1DetailModel.MyChangeGameParticipationListBean> list2 = new ArrayList<>();
     CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean> mAdapter2;
 
-    List<Fragment1DetailModel.MyChangeGameParticipationListBean> list3 = new ArrayList<>();
-    CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean> mAdapter3;
+    List<Fragment1DetailModel.HistoryChangeGameListBean> list3 = new ArrayList<>();
+    CommonAdapter<Fragment1DetailModel.HistoryChangeGameListBean> mAdapter3;
 
     TextView tv_qici, tv_zoushi, tv_zhuangtai, tv_zuokong, tv_zuoduo, tv_zuokong_baifenbi, tv_zuoduo_baifenbi,
             tv_money_left, tv_time_left, tv_money_right, tv_time_right, tv_jieguo;
@@ -325,7 +325,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
 
                 //持有仓位
-                list1 = model.getMy_change_game_participation_list();
+                /*list1 = model.getMy_change_game_participation_list();
                 mAdapter1 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
                         (Fragment1DeatilActivity.this, R.layout.item_fragment1_1, list1) {
                     @Override
@@ -341,20 +341,20 @@ public class Fragment1DeatilActivity extends BaseActivity {
                             tv2.setTextColor(getResources().getColor(R.color.red_1));
                         }
                     }
-                };
+                };*/
                 //我的交易
                 list2 = model.getMy_change_game_participation_list();
                 mAdapter2 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
                         (Fragment1DeatilActivity.this, R.layout.item_fragment1_2, list2) {
                     @Override
                     protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
-                        /*holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getChange_gameX().getPeriod() + getText(R.string.fragment1_h5));
+                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
                         TextView tv5 = holder.getView(R.id.tv5);
-                        if (bean.getChange_gameX().getStatus() != 1) {//进行中
-                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getChange_gameX().getInit_at() + "(" + bean.getChange_gameX().getInit_num() + ")"
-                                    + "—" + bean.getChange_gameX().getWin_at() + "(" + bean.getChange_gameX().getWin_num() + ")");
+                        if (model.getChange_game().getStatus() != 1) {//进行中
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + model.getChange_game().getInit_at() + "(" + model.getChange_game().getInit_num() + ")"
+                                    + "—" + model.getChange_game().getWin_at() + "(" + model.getChange_game().getWin_num() + ")");
 
                             tv5.setVisibility(View.VISIBLE);
                             if (Double.valueOf(bean.getBureau_win_money()) > 0) {//盈利
@@ -369,8 +369,8 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                             holder.setText(R.id.tv10, getString(R.string.fragment1_h33));//状态
                         } else {
-                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getChange_gameX().getInit_at() + "(~~)"
-                                    + "—" + bean.getChange_gameX().getWin_at() + "(~~)");
+                            holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + model.getChange_game().getInit_at() + "(~~)"
+                                    + "—" + model.getChange_game().getWin_at() + "(~~)");
 
                             tv4.setTextColor(getResources().getColor(R.color.white2));
                             tv4.setText(getString(R.string.fragment1_h32));
@@ -379,8 +379,8 @@ public class Fragment1DeatilActivity extends BaseActivity {
                             holder.setText(R.id.tv10, getString(R.string.fragment1_h32));//状态
                         }
 
-                        holder.setText(R.id.tv3, bean.getChange_gameX().get_$1_amount_money() + "");//看涨、做多
-                        holder.setText(R.id.tv6, bean.getChange_gameX().get_$2_amount_money() + "");//看跌、做空
+                        holder.setText(R.id.tv3, model.getChange_game().get_$1_amount_money() + "");//看涨、做多
+                        holder.setText(R.id.tv6, model.getChange_game().get_$2_amount_money() + "");//看跌、做空
 
                         holder.setText(R.id.tv7, bean.getMoney() + "");//仓位
                         holder.setText(R.id.tv9, bean.getService_charge_money() + "");//手续费
@@ -392,16 +392,16 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         } else {
                             tv8.setText(getString(R.string.fragment1_h8));
                             tv8.setTextColor(getResources().getColor(R.color.red_1));
-                        }*/
+                        }
                     }
                 };
                 //历史
-                list3 = model.getMy_change_game_participation_list();
-                mAdapter3 = new CommonAdapter<Fragment1DetailModel.MyChangeGameParticipationListBean>
+                list3 = model.getHistory_change_game_list();
+                mAdapter3 = new CommonAdapter<Fragment1DetailModel.HistoryChangeGameListBean>
                         (Fragment1DeatilActivity.this, R.layout.item_fragment1_3, list3) {
                     @Override
-                    protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
-                        /*holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
+                    protected void convert(ViewHolder holder, Fragment1DetailModel.HistoryChangeGameListBean bean, int position) {
+                        holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
                         if (bean.getStatus() != 1) {//进行中
@@ -418,7 +418,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         }
 
                         holder.setText(R.id.tv3, bean.get_$1_amount_money() + "");//看涨、做多
-                        holder.setText(R.id.tv6, bean.get_$2_amount_money() + "");//看跌、做空*/
+                        holder.setText(R.id.tv6, bean.get_$2_amount_money() + "");//看跌、做空
                     }
                 };
                 mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -461,7 +461,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                 List<Fragment1DetailModel.MyChangeGameParticipationListBean> list2_1 = response.getMy_change_game_participation_list();
 
-                List<Fragment1DetailModel.MyChangeGameParticipationListBean> list3_1 = response.getMy_change_game_participation_list();
+                List<Fragment1DetailModel.HistoryChangeGameListBean> list3_1 = response.getHistory_change_game_list();
                 if (list1_1.size() == 0 && list2_1.size() == 0 && list3_1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page--;

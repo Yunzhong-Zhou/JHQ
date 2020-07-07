@@ -498,10 +498,16 @@
 
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#072533" />
                 <!--tab-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:focusableInTouchMode="true"
                     android:orientation="horizontal">
 
