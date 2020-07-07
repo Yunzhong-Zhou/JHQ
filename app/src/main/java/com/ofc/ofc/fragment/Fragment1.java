@@ -2,6 +2,8 @@ package com.ofc.ofc.fragment;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -208,6 +210,45 @@ public class Fragment1 extends BaseFragment {
         iv_jia_right.setOnClickListener(this);
         et_keyong_left = findViewByID_My(R.id.et_keyong_left);
         et_keyong_right = findViewByID_My(R.id.et_keyong_right);
+        //输入监听
+        et_keyong_left.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!et_keyong_left.getText().toString().trim().equals("")) {
+                    double shouxufei = Double.valueOf(model.getService_charge()) / 100 * Double.valueOf(et_keyong_left.getText().toString().trim());
+                    tv_shouxufei_left.setText(String.format("%.2f", shouxufei) + "USDT");
+                }
+            }
+        });
+        et_keyong_right.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!et_keyong_right.getText().toString().trim().equals("")) {
+                    double shouxufei = Double.valueOf(model.getService_charge()) / 100 * Double.valueOf(et_keyong_right.getText().toString().trim());
+                    tv_shouxufei_right.setText(String.format("%.2f", shouxufei) + "USDT");
+                }
+            }
+        });
 
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -228,7 +269,7 @@ public class Fragment1 extends BaseFragment {
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
 //                PredictionDetailModel.KlineListBean data = (PredictionDetailModel.KlineListBean) point;
 //               MyLogger("index:" + index + " closePrice:" + data.getClose());
-                MyLogger.i(">>>>>>onSelectedChanged>");
+
             }
         });
         mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
@@ -326,8 +367,9 @@ public class Fragment1 extends BaseFragment {
 
                     tv_daojishi.setText(getText(R.string.fragment1_h32));//待交割
                 }
+                /*//手续费
                 tv_shouxufei_left.setText(model.getService_charge() + "USDT");
-                tv_shouxufei_right.setText(model.getService_charge() + "USDT");
+                tv_shouxufei_right.setText(model.getService_charge() + "USDT");*/
 
                 et_keyong_left.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
                 et_keyong_right.setHint(getString(R.string.fragment1_h10) + model.getUsable_money());
@@ -593,6 +635,11 @@ public class Fragment1 extends BaseFragment {
                     tempMoney_jian_left = 0;
                     et_keyong_left.setText("");
                 }
+
+                //计算手续费
+                double shouxufei1 = Double.valueOf(model.getService_charge()) / 100 * tempMoney_jian_left;
+                tv_shouxufei_left.setText(String.format("%.2f", shouxufei1) + "USDT");
+
                 break;
             case R.id.iv_jia_left:
                 //买涨-加
@@ -608,6 +655,10 @@ public class Fragment1 extends BaseFragment {
                     }
                 }
                 et_keyong_left.setText((int) tempMoney_jia_left + "");
+
+                //计算手续费
+                double shouxufei2 = Double.valueOf(model.getService_charge()) / 100 * tempMoney_jia_left;
+                tv_shouxufei_left.setText(String.format("%.2f", shouxufei2) + "USDT");
                 break;
             case R.id.iv_jian_right:
                 //买跌-减
@@ -622,6 +673,9 @@ public class Fragment1 extends BaseFragment {
                     tempMoney_jian_right = 0;
                     et_keyong_right.setText("");
                 }
+                //计算手续费
+                double shouxufei3 = Double.valueOf(model.getService_charge()) / 100 * tempMoney_jian_right;
+                tv_shouxufei_right.setText(String.format("%.2f", shouxufei3) + "USDT");
                 break;
             case R.id.iv_jia_right:
                 //买跌-加
@@ -637,6 +691,11 @@ public class Fragment1 extends BaseFragment {
                     }
                 }
                 et_keyong_right.setText((int) tempMoney_jia_right + "");
+
+                //计算手续费
+                double shouxufei4 = Double.valueOf(model.getService_charge()) / 100 * tempMoney_jia_right;
+                tv_shouxufei_right.setText(String.format("%.2f", shouxufei4) + "USDT");
+
                 break;
             case R.id.tv_kanzhang:
                 //买涨

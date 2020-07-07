@@ -359,7 +359,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingBottom="20dp">
+                    android:paddingBottom="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -536,13 +536,17 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:background="#072533" />
                 <!--tab-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
                     android:orientation="horizontal"
+
                     android:paddingBottom="10dp">
 
                     <LinearLayout
@@ -559,7 +563,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingLeft="24dp"
-                            android:paddingTop="6dp"
+                            android:paddingTop="15dp"
                             android:paddingRight="12dp"
                             android:paddingBottom="6dp"
                             android:text="@string/fragment1_h12"
@@ -591,7 +595,7 @@
                             android:drawablePadding="5dp"
                             android:gravity="center"
                             android:paddingLeft="12dp"
-                            android:paddingTop="6dp"
+                            android:paddingTop="15dp"
                             android:paddingRight="12dp"
                             android:paddingBottom="6dp"
                             android:text="@string/fragment1_h23"
@@ -623,7 +627,7 @@
                             android:drawablePadding="5dp"
                             android:gravity="center"
                             android:paddingLeft="12dp"
-                            android:paddingTop="6dp"
+                            android:paddingTop="15dp"
                             android:paddingRight="24dp"
                             android:paddingBottom="6dp"
                             android:text="@string/fragment1_h13"
