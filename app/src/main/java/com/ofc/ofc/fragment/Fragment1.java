@@ -270,8 +270,8 @@ public class Fragment1 extends BaseFragment {
         mKChartView.setOnSelectedChangedListener(new BaseKChartView.OnSelectedChangedListener() {
             @Override
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
-                KLineEntity data = (KLineEntity) point;
-                MyLogger.i("index:" + index + " closePrice:" + data.getClosePrice());
+                /*KLineEntity data = (KLineEntity) point;
+                MyLogger.i("index:" + index + " closePrice:" + data.getClosePrice());*/
 
             }
         });

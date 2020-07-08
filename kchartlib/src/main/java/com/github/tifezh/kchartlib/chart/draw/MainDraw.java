@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.util.Log;
 
 import com.github.tifezh.kchartlib.R;
 import com.github.tifezh.kchartlib.chart.BaseKChartView;
@@ -244,7 +243,6 @@ public class MainDraw implements IChartDraw<ICandle> {
         }*/
         for (int i = 0; i < strings.size(); i++) {
             if (i == 5 || i == 6) {
-                Log.i(">>>>>>>>>",(point.getClosePrice() - point.getOpenPrice())+"");
                 if ((point.getClosePrice() - point.getOpenPrice()) >= 0) {
                     setSelectorTextColor(ContextCompat.getColor(mContext, R.color.chart_red));
                     canvas.drawText(strings.get(i), left + padding, y, mSelectorTextPaint);//画文字-涨跌额

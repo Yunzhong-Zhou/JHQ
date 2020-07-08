@@ -195,9 +195,8 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         drawK(canvas);
         drawText(canvas);
 
-        //画左上角的值-如果是长按就显示选中的值
+        //如果是长按就显示选中的值否则显示最后一条的值
         drawValue(canvas, isLongPress ? mSelectedIndex : mStopIndex);
-
 
         canvas.restore();
     }
@@ -226,17 +225,17 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
     private void drawGird(Canvas canvas) {
         //-----------------------上方k线图------------------------
         //横向的grid
-        float rowSpace = mMainRect.height() / mGridRows;
+        /*float rowSpace = mMainRect.height() / mGridRows;
         for (int i = 0; i <= mGridRows; i++) {
             //横向的线
-//            canvas.drawLine(0, rowSpace * i+mMainRect.top, mWidth, rowSpace * i+mMainRect.top, mGridPaint);
-        }
+            canvas.drawLine(0, rowSpace * i+mMainRect.top, mWidth, rowSpace * i+mMainRect.top, mGridPaint);
+        }*/
         //-----------------------下方子图------------------------
 //        canvas.drawLine(0, mChildRect.top, mWidth, mChildRect.top, mGridPaint);//K线图底部的线
-        canvas.drawLine(0, mChildRect.bottom, mWidth, mChildRect.bottom, mGridPaint);//子图底部的线
+//        canvas.drawLine(0, mChildRect.bottom, mWidth, mChildRect.bottom, mGridPaint);//子图底部的线
 
         //纵向的grid
-        float columnSpace = mWidth / mGridColumns;
+        /*float columnSpace = mWidth / mGridColumns;
         for (int i = 0; i <= mGridColumns; i++) {
             if (i == 0) {
                 //画第一根线
@@ -244,7 +243,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
                 canvas.drawLine(columnSpace * i, mChildRect.top, columnSpace * i, mChildRect.bottom, mGridPaint);
             }
 
-        }
+        }*/
     }
 
     /**
@@ -270,22 +269,32 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
                 //绘制子图
                 mChildDraw.drawTranslated(lastPoint, currentPoint, lastX, currentPointX, canvas, this, i);
             }
+        }
 
-            //画最后一根线的值
-            if (i == mItemCount - 1) {
+        //画最后一根线的值
+//            if (i == mItemCount - 1) {
 //                ICandle curPoint = (ICandle) currentPoint;
 //                Log.i("最后一个值：",i+">>>>>>>>>>>"+curPoint.getHighPrice());
-            }
+        //画线
+        IKLine point1 = (IKLine) getItem(mItemCount - 1);
+        float x1 = getX(mItemCount - 1);
+        float y1 = getMainY(point1.getClosePrice());
+//                canvas.drawLine(x, mMainRect.top, x, mMainRect.bottom, mSelectedLinePaint);//竖线-上部分
+        canvas.drawLine(-mTranslateX, y1, -mTranslateX + mWidth / mScaleX, y1, mSelectedLinePaint);//横线
+//                canvas.drawLine(x, mChildRect.top, x, mChildRect.bottom, mSelectedLinePaint);//竖线-下部分
+//            }
 
-        }
         //画选择线
         if (isLongPress) {
-            IKLine point = (IKLine) getItem(mSelectedIndex);
-            float x = getX(mSelectedIndex);
-            float y = getMainY(point.getClosePrice());
-            canvas.drawLine(x, mMainRect.top, x, mMainRect.bottom, mSelectedLinePaint);
-            canvas.drawLine(-mTranslateX, y, -mTranslateX + mWidth / mScaleX, y, mSelectedLinePaint);
-            canvas.drawLine(x, mChildRect.top, x, mChildRect.bottom, mSelectedLinePaint);
+            if (mSelectedIndex >= 0) {
+                IKLine point = (IKLine) getItem(mSelectedIndex);
+                float x = getX(mSelectedIndex);
+                float y = getMainY(point.getClosePrice());
+                canvas.drawLine(x, mMainRect.top, x, mMainRect.bottom, mSelectedLinePaint);
+                canvas.drawLine(-mTranslateX, y, -mTranslateX + mWidth / mScaleX, y, mSelectedLinePaint);
+                canvas.drawLine(x, mChildRect.top, x, mChildRect.bottom, mSelectedLinePaint);
+            }
+
         }
         //还原 平移缩放
         canvas.restore();
@@ -308,7 +317,8 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             float rowSpace = mMainRect.height() / mGridRows;
             for (int i = 1; i < mGridRows; i++) {
                 String text = formatValue(rowValue * (mGridRows - i) + mMainMinValue);
-                canvas.drawText(text, 0, fixTextY(rowSpace * i + mMainRect.top), mTextPaint);
+                canvas.drawText(text, 0, fixTextY(rowSpace * i + mMainRect.top), mTextPaint);//画在左侧
+//                canvas.drawText(text, mWidth - mTextPaint.measureText(text), fixTextY(rowSpace * i + mMainRect.top), mTextPaint);//画在右侧
             }
         }
         //--------------画下方子图的值-------------
@@ -344,22 +354,43 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             canvas.drawText(text, mWidth - mTextPaint.measureText(text), y, mTextPaint);//子图底部 右侧第一个时间
 //            canvas.drawText(text, mWidth - mTextPaint.measureText(text), mChildRect.top-5, mTextPaint);//K线图底部 右侧第一个时间
         }
-        //长按
+
+
+        //长按 -画值
         if (isLongPress) {
-            IKLine point = (IKLine) getItem(mSelectedIndex);
-            String text = formatValue(point.getClosePrice());
-            float r = textHeight / 2;
-            y = getMainY(point.getClosePrice());
-            float x;
-            if (translateXtoX(getX(mSelectedIndex)) < getChartWidth() / 2) {
-                x = 0;
-                canvas.drawRect(x, y - r, mTextPaint.measureText(text), y + r, mBackgroundPaint);
-            } else {
-                x = mWidth - mTextPaint.measureText(text);
-                canvas.drawRect(x, y - r, mWidth, y + r, mBackgroundPaint);
+            if (mSelectedIndex >= 0) {
+                IKLine point = (IKLine) getItem(mSelectedIndex);
+                String text = formatValue(point.getClosePrice());
+                float r = textHeight / 2;
+                y = getMainY(point.getClosePrice());
+                float x;
+                if (translateXtoX(getX(mSelectedIndex)) < getChartWidth() / 2) {
+                    x = 0;
+                    canvas.drawRect(x, y - r, mTextPaint.measureText(text), y + r, mBackgroundPaint);
+                } else {
+                    x = mWidth - mTextPaint.measureText(text);
+                    canvas.drawRect(x, y - r, mWidth, y + r, mBackgroundPaint);
+                }
+                canvas.drawText(text, x, fixTextY(y), mTextPaint);
             }
-            canvas.drawText(text, x, fixTextY(y), mTextPaint);
         }
+
+
+        //画最新数据的值
+        IKLine point = (IKLine) getItem(mItemCount - 1);
+        String text = formatValue(point.getClosePrice());
+        float r = textHeight / 2;
+        y = getMainY(point.getClosePrice());
+        float x;
+        if (translateXtoX(getX(mItemCount - 1)) < getChartWidth() / 2) {
+            x = 0;
+            canvas.drawRect(x, y - r, mTextPaint.measureText(text), y + r, mBackgroundPaint);
+        } else {
+            x = mWidth - mTextPaint.measureText(text);
+            canvas.drawRect(x, y - r, mWidth, y + r, mBackgroundPaint);
+        }
+        canvas.drawText(text, x, fixTextY(y), mTextPaint);
+
     }
 
     /**
@@ -369,6 +400,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
      * @param position 显示某个点的值
      */
     private void drawValue(Canvas canvas, int position) {
+
         Paint.FontMetrics fm = mTextPaint.getFontMetrics();
         float textHeight = fm.descent - fm.ascent;
         float baseLine = (textHeight - fm.bottom - fm.top) / 2;
@@ -376,11 +408,12 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
 
             //主页面显示
             if (mMainDraw != null) {
-                float y =mMainRect.top+baseLine-textHeight;
+                float y = mMainRect.top + baseLine - textHeight;
                 float x = 0;
                 mMainDraw.drawText(canvas, this, position, x, y);
             }
 
+            //子页面显示
             if (mChildDraw != null) {
                 float y = mChildRect.top + baseLine;
                 float x = mTextPaint.measureText(mChildDraw.getValueFormatter().format(mChildMaxValue) + " ");
@@ -836,6 +869,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
     public int getSelectedIndex() {
         return mSelectedIndex;
     }
+
     /**
      * 获取总条数
      */

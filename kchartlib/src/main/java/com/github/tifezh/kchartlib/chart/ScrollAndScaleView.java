@@ -201,22 +201,28 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 touch = true;
+                if (event.getPointerCount() == 1) {//触控点数量
+                    onLongPress(event);
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (event.getPointerCount() == 1) {
+                /*if (event.getPointerCount() == 1) {
                     //长按之后移动
                     if (isLongPress) {
                         onLongPress(event);
                     }
-                }
+                }*/
+                isLongPress = false;
+                invalidate();
                 break;
             case MotionEvent.ACTION_POINTER_UP:
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                isLongPress = false;
+//                isLongPress = false;
+                isLongPress = true;
                 touch = false;
-                invalidate();
+//                invalidate();
                 break;
             case MotionEvent.ACTION_CANCEL:
                 isLongPress = false;
