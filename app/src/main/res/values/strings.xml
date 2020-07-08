@@ -185,7 +185,7 @@
     <string name="fragment1_h7">倒计时</string>
     <string name="fragment1_h8">做空</string>
     <string name="fragment1_h9">做多</string>
-    <string name="fragment1_h10">可用：</string>
+    <string name="fragment1_h10">可用:</string>
     <string name="fragment1_h11">手续费</string>
     <string name="fragment1_h12">持有仓位</string>
     <string name="fragment1_h13">历史记录</string>
@@ -204,8 +204,8 @@
     <string name="fragment1_h26">交易额不能小于10</string>
     <string name="fragment1_h27">余币不足</string>
     <string name="fragment1_h28">充币</string>
-    <string name="fragment1_h29">做多交易量</string>
-    <string name="fragment1_h30">做空交易量</string>
+    <string name="fragment1_h29">做多交易量(USDT)</string>
+    <string name="fragment1_h30">做空交易量(USDT)</string>
     <string name="fragment1_h31">BTC价格</string>
     <string name="fragment1_h32">待交割</string>
     <string name="fragment1_h33">已交割</string>

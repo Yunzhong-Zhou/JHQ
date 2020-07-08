@@ -42,6 +42,11 @@ public interface ICandle {
      */
     float getMA20Price();
 
+    /**
+     * 成交量
+     */
+    float getAmount();
+
     //显示图片
     String getType();
 }

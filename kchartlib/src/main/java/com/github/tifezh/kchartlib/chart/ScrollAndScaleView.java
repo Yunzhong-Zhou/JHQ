@@ -21,7 +21,8 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
     protected GestureDetectorCompat mDetector;
     protected ScaleGestureDetector mScaleDetector;
 
-    protected boolean isLongPress = false;
+    protected boolean isLongPress = false;//是否长按
+    protected boolean isTouchPress = false;//是否点击
 
     private OverScroller mScroller;
 
@@ -33,11 +34,11 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
 
     protected float mScaleXMin = 0.5f;
 
-    private boolean mMultipleTouch = false;
+    private boolean mMultipleTouch = false;//是否是多指触控
 
-    private boolean mScrollEnable = true;
+    private boolean mScrollEnable = true;//是否滑动
 
-    private boolean mScaleEnable = true;
+    private boolean mScaleEnable = true;//是否缩放
 
     public ScrollAndScaleView(Context context) {
         super(context);
@@ -195,7 +196,6 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
         }
         return super.onInterceptTouchEvent(ev);
     }*/
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -301,10 +301,16 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
         return mScaleXMin;
     }
 
+    /**
+     * 是否启用滚动
+     */
     public boolean isScrollEnable() {
         return mScrollEnable;
     }
 
+    /**
+     * 是否启用比例
+     */
     public boolean isScaleEnable() {
         return mScaleEnable;
     }

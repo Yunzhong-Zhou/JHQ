@@ -79,6 +79,7 @@
                         android:text="USDT"
                         android:textColor="@color/green_1"
                         android:textSize="15sp"
+                        android:visibility="gone"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -171,6 +172,7 @@
                         android:text="USDT"
                         android:textColor="@color/red_1"
                         android:textSize="15sp"
+                        android:visibility="gone"
                         android:textStyle="bold" />
 
                 </LinearLayout>

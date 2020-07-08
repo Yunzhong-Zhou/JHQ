@@ -175,7 +175,8 @@ public class TESTActivity extends BaseActivity {
                                                         (float) bean.getHigh(),
                                                         (float) bean.getLow(),
                                                         (float) bean.getClose(),
-                                                        (float) bean.getVol(), 0, 0, 0, 0, 0, 0,
+                                                        (float) bean.getVol(),
+                                                        (float) bean.getAmount(),0, 0, 0, 0, 0, 0,
                                                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                         "-1"
                                                 );
@@ -217,7 +218,8 @@ public class TESTActivity extends BaseActivity {
                                                     (float) model.getTick().getHigh(),
                                                     (float) model.getTick().getLow(),
                                                     (float) model.getTick().getClose(),
-                                                    (float) model.getTick().getVol(), 0, 0, 0, 0, 0, 0,
+                                                    (float) model.getTick().getVol(),
+                                                    (float) model.getTick().getAmount(),0, 0, 0, 0, 0, 0,
                                                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                     "-1"
                                             );

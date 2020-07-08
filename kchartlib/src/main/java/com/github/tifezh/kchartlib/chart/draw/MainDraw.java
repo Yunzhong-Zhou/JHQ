@@ -7,21 +7,22 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import android.util.Log;
 
 import com.github.tifezh.kchartlib.R;
 import com.github.tifezh.kchartlib.chart.BaseKChartView;
 import com.github.tifezh.kchartlib.chart.base.IChartDraw;
 import com.github.tifezh.kchartlib.chart.base.IValueFormatter;
 import com.github.tifezh.kchartlib.chart.entity.ICandle;
-import com.github.tifezh.kchartlib.chart.entity.IKLine;
 import com.github.tifezh.kchartlib.chart.formatter.ValueFormatter;
 import com.github.tifezh.kchartlib.utils.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 /**
  * 主图的实现类
@@ -42,7 +43,7 @@ public class MainDraw implements IChartDraw<ICandle> {
     private Paint mSelectorBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Context mContext;
 
-    private boolean mCandleSolid = true;
+    private boolean mCandleSolid = true;//蜡烛是否实心
 
     public MainDraw(BaseKChartView view) {
         Context context = view.getContext();
@@ -70,7 +71,7 @@ public class MainDraw implements IChartDraw<ICandle> {
 
     @Override
     public void drawText(@NonNull Canvas canvas, @NonNull BaseKChartView view, int position, float x, float y) {
-        ICandle point = (IKLine) view.getItem(position);
+       /* ICandle point = (IKLine) view.getItem(position);
         String text = "MA5:" + view.formatValue(point.getMA5Price()) + " ";
         canvas.drawText(text, x, y, ma5Paint);
         x += ma5Paint.measureText(text);
@@ -78,10 +79,14 @@ public class MainDraw implements IChartDraw<ICandle> {
         canvas.drawText(text, x, y, ma10Paint);
         x += ma10Paint.measureText(text);
         text = "MA20:" + view.formatValue(point.getMA20Price()) + " ";
-        canvas.drawText(text, x, y, ma20Paint);
+        canvas.drawText(text, x, y, ma20Paint);*/
+
+        //长按显示
         if (view.isLongPress()) {
             drawSelector(view, canvas);
         }
+
+
     }
 
     @Override
@@ -123,7 +128,7 @@ public class MainDraw implements IChartDraw<ICandle> {
         low = view.getMainY(low);
         open = view.getMainY(open);
         close = view.getMainY(close);
-        float r = mCandleWidth / 2 ;
+        float r = mCandleWidth / 2;
         float lineR = mCandleLineWidth / 2;
         if (open > close) {
             //实心
@@ -140,7 +145,7 @@ public class MainDraw implements IChartDraw<ICandle> {
                 if (type.equals("0")) {
 //                    System.out.println(">>>>>>>>>>>" + type);
                     //画卖出 s点
-                    drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) close-h0, w0, h0, 0, 0);
+                    drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) close - h0, w0, h0, 0, 0);
                 }
             } else {
                 //画线
@@ -166,7 +171,7 @@ public class MainDraw implements IChartDraw<ICandle> {
             if (type.equals("0")) {
 //                System.out.println(">>>>>>>>>>>" + type);
                 //画卖出 s点
-                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
+                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open - h0, w0, h0, 0, 0);
             }
 
         } else {
@@ -181,11 +186,10 @@ public class MainDraw implements IChartDraw<ICandle> {
             if (type.equals("0")) {
 //                System.out.println(">>>>>>>>>>>" + type);
                 //画卖出 s点
-                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open-h0, w0, h0, 0, 0);
+                drawImage(canvas, mBitmap0, (int) (x - w0 / 2), (int) open - h0, w0, h0, 0, 0);
             }
 
         }
-
 
     }
 
@@ -205,7 +209,7 @@ public class MainDraw implements IChartDraw<ICandle> {
         float width = 0;
         float left;
         float top = margin + view.getTopPadding();
-        float height = padding * 8 + textHeight * 5;
+        float height = padding * 8 + textHeight * 9;
 
         ICandle point = (ICandle) view.getItem(index);
         List<String> strings = new ArrayList<>();
@@ -214,6 +218,9 @@ public class MainDraw implements IChartDraw<ICandle> {
         strings.add("低:" + point.getLowPrice());
         strings.add("开:" + point.getOpenPrice());
         strings.add("收:" + point.getClosePrice());
+        strings.add("涨跌额:" + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice())));
+        strings.add("涨跌幅:" + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice()) / point.getOpenPrice() * 100) + "%");
+        strings.add("成交量:" + (int) point.getAmount());
 
         for (String s : strings) {
             width = Math.max(width, mSelectorTextPaint.measureText(s));
@@ -228,11 +235,27 @@ public class MainDraw implements IChartDraw<ICandle> {
         }
 
         RectF r = new RectF(left, top, left + width, top + height);
-        canvas.drawRoundRect(r, padding, padding, mSelectorBackgroundPaint);
+        canvas.drawRoundRect(r, padding, padding, mSelectorBackgroundPaint);//画背景
         float y = top + padding * 2 + (textHeight - metrics.bottom - metrics.top) / 2;
 
-        for (String s : strings) {
-            canvas.drawText(s, left + padding, y, mSelectorTextPaint);
+        /*for (String s : strings) {
+            canvas.drawText(s, left + padding, y, mSelectorTextPaint);//画文字
+            y += textHeight + padding;
+        }*/
+        for (int i = 0; i < strings.size(); i++) {
+            if (i == 5 || i == 6) {
+                Log.i(">>>>>>>>>",(point.getClosePrice() - point.getOpenPrice())+"");
+                if ((point.getClosePrice() - point.getOpenPrice()) >= 0) {
+                    setSelectorTextColor(ContextCompat.getColor(mContext, R.color.chart_red));
+                    canvas.drawText(strings.get(i), left + padding, y, mSelectorTextPaint);//画文字-涨跌额
+                } else {
+                    setSelectorTextColor(ContextCompat.getColor(mContext, R.color.chart_green));
+                    canvas.drawText(strings.get(i), left + padding, y, mSelectorTextPaint);//画文字-涨跌幅
+                }
+            } else {
+                setSelectorTextColor(ContextCompat.getColor(mContext, R.color.chart_text));
+                canvas.drawText(strings.get(i), left + padding, y, mSelectorTextPaint);//画文字
+            }
             y += textHeight + padding;
         }
 

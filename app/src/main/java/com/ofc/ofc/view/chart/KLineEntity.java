@@ -15,6 +15,7 @@ public class KLineEntity implements IKLine {
     public float Low;
     public float Close;
     public float Volume;
+    public float Amount;
 
     public float MA5Price;
 
@@ -58,6 +59,7 @@ public class KLineEntity implements IKLine {
                        float low,
                        float close,
                        float volume,
+                       float amount,
                        float MA5Price,
                        float MA10Price,
                        float MA20Price,
@@ -82,6 +84,7 @@ public class KLineEntity implements IKLine {
         Low = low;
         Close = close;
         Volume = volume;
+        Amount = amount;
         this.MA5Price = MA5Price;
         this.MA10Price = MA10Price;
         this.MA20Price = MA20Price;
@@ -140,6 +143,12 @@ public class KLineEntity implements IKLine {
     public float getMA20Price() {
         return MA20Price;
     }
+
+    @Override
+    public float getAmount() {
+        return Amount;
+    }
+
 
     @Override
     public String getType() {

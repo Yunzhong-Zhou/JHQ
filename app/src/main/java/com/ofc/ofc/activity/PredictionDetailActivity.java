@@ -342,7 +342,8 @@ public class PredictionDetailActivity extends BaseActivity {
                                             (float) bean.getHigh(),
                                             (float) bean.getLow(),
                                             (float) bean.getClose(),
-                                            (float) bean.getVolume(), 0, 0, 0, 0, 0, 0,
+                                            (float) bean.getVolume(),
+                                            (float) bean.getSupport(),0, 0, 0, 0, 0, 0,
                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                             bean.getStatus()
                                     );

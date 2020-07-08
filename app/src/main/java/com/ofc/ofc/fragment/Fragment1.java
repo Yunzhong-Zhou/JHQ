@@ -56,7 +56,6 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class Fragment1 extends BaseFragment {
-
     int type = 1, page = 1;
     Fragment1Model model;
     //页面数据
@@ -271,8 +270,8 @@ public class Fragment1 extends BaseFragment {
         mKChartView.setOnSelectedChangedListener(new BaseKChartView.OnSelectedChangedListener() {
             @Override
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
-//                PredictionDetailModel.KlineListBean data = (PredictionDetailModel.KlineListBean) point;
-//               MyLogger("index:" + index + " closePrice:" + data.getClose());
+                KLineEntity data = (KLineEntity) point;
+                MyLogger.i("index:" + index + " closePrice:" + data.getClosePrice());
 
             }
         });
@@ -929,7 +928,8 @@ public class Fragment1 extends BaseFragment {
                                                             (float) bean.getHigh(),
                                                             (float) bean.getLow(),
                                                             (float) bean.getClose(),
-                                                            (float) bean.getVol(), 0, 0, 0, 0, 0, 0,
+                                                            (float) bean.getVol(),
+                                                            (float) bean.getAmount(),0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );
@@ -971,7 +971,8 @@ public class Fragment1 extends BaseFragment {
                                                             (float) model.getTick().getHigh(),
                                                             (float) model.getTick().getLow(),
                                                             (float) model.getTick().getClose(),
-                                                            (float) model.getTick().getVol(), 0, 0, 0, 0, 0, 0,
+                                                            (float) model.getTick().getVol(),
+                                                            (float) model.getTick().getAmount(),0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );
