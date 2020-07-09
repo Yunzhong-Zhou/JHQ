@@ -4,7 +4,9 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -66,13 +68,16 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
 
     private int mGridColumns = 4;
 
-    private Paint mGridPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint mGridPaint = new Paint(Paint.ANTI_ALIAS_FLAG);//网格线
 
-    private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);//文字
 
-    private Paint mBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint mBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);//背景
 
-    private Paint mSelectedLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint mSelectedLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);//选中线
+
+    private Paint mDottedLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);//虚线
+    private Path mDottedLinePath = new Path();
 
     private int mSelectedIndex;
 
@@ -159,6 +164,12 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
                 invalidate();
             }
         });
+
+        //初始化虚线
+        mDottedLinePaint.setAntiAlias(true);
+        mDottedLinePaint.setStyle(Paint.Style.STROKE);
+        mDottedLinePaint.setStrokeWidth(2);
+        mDottedLinePaint.setPathEffect(new DashPathEffect(new float[] {5, 5}, 0));
     }
 
 
@@ -277,7 +288,22 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         float y1 = getMainY(point1.getClosePrice());
 //        canvas.drawLine(x1, mMainRect.top, x1, mMainRect.bottom, mSelectedLinePaint);//竖线-上部分
 //        canvas.drawLine(-mTranslateX, y1, -mTranslateX + mWidth / mScaleX, y1, mSelectedLinePaint);//横线
-        canvas.drawLine((-mTranslateX + mWidth / mScaleX), y1, (-mTranslateX + mWidth / mScaleX) - 200, y1, mSelectedLinePaint);//横线左移200
+
+        //横线左移200-画虚线
+        if ((point1.getClosePrice() - point1.getOpenPrice()) >= 0) {
+            mDottedLinePaint.setColor(getResources().getColor(R.color.chart_red));//先改变颜色
+        } else {
+            mDottedLinePaint.setColor(getResources().getColor(R.color.chart_green));//先改变颜色
+        }
+//        setLayerType(LAYER_TYPE_SOFTWARE, null);//硬件加速
+//        canvas.drawLine((-mTranslateX + mWidth / mScaleX), y1, (-mTranslateX + mWidth / mScaleX) - 200, y1, mDottedLinePaint);//横线左移200
+        mDottedLinePath.reset();
+        mDottedLinePath.moveTo((-mTranslateX + mWidth / mScaleX), y1);
+        mDottedLinePath.lineTo((-mTranslateX + mWidth / mScaleX) - 200, y1);
+        canvas.drawPath(mDottedLinePath, mDottedLinePaint);
+
+
+
 //        canvas.drawLine(x1, mChildRect.top, x1, mChildRect.bottom, mSelectedLinePaint);//竖线-下部分
 
 
@@ -327,7 +353,7 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
         if (mChildDraw != null) {
             canvas.drawText(mChildDraw.getValueFormatter().format(mChildMaxValue), 0, mChildRect.top + baseLine, mTextPaint);//画在左侧
             canvas.drawText(mChildDraw.getValueFormatter().format(mChildMinValue), 0, mChildRect.bottom, mTextPaint);//画在左侧
-            
+
 //            canvas.drawText(mChildDraw.getValueFormatter().format(mChildMaxValue), mWidth - mTextPaint.measureText(mChildDraw.getValueFormatter().format(mChildMaxValue)), mChildRect.top + baseLine, mTextPaint);//画在右侧
 //            canvas.drawText(mChildDraw.getValueFormatter().format(mChildMinValue), mWidth - mTextPaint.measureText(mChildDraw.getValueFormatter().format(mChildMaxValue)), mChildRect.bottom, mTextPaint);//画在右侧
         }
@@ -375,7 +401,13 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
                     x = mWidth - mTextPaint.measureText(text);
                     canvas.drawRect(x, y - r, mWidth, y + r, mBackgroundPaint);
                 }
+                if ((point.getClosePrice() - point.getOpenPrice()) >= 0) {
+                    setTextColor(getResources().getColor(R.color.chart_red));//先改变颜色
+                } else {
+                    setTextColor(getResources().getColor(R.color.chart_green));//先改变颜色
+                }
                 canvas.drawText(text, x, fixTextY(y), mTextPaint);
+                setTextColor(getResources().getColor(R.color.chart_text));//恢复字体颜色
             }
         }
 
@@ -392,7 +424,14 @@ public abstract class BaseKChartView extends ScrollAndScaleView {
             x = mWidth - mTextPaint.measureText(text);
             canvas.drawRect(x, y - r, mWidth, y + r, mBackgroundPaint);
         }
+
+        if ((point.getClosePrice() - point.getOpenPrice()) >= 0) {
+            setTextColor(getResources().getColor(R.color.chart_red));//先改变颜色
+        } else {
+            setTextColor(getResources().getColor(R.color.chart_green));//先改变颜色
+        }
         canvas.drawText(text, x, fixTextY(y), mTextPaint);
+        setTextColor(getResources().getColor(R.color.chart_text));//恢复字体颜色
 
     }
 
