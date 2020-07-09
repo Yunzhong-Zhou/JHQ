@@ -70,7 +70,7 @@ public class MainDraw implements IChartDraw<ICandle> {
 
     @Override
     public void drawText(@NonNull Canvas canvas, @NonNull BaseKChartView view, int position, float x, float y) {
-       /* ICandle point = (IKLine) view.getItem(position);
+        /*ICandle point = (IKLine) view.getItem(position);
         String text = "MA5:" + view.formatValue(point.getMA5Price()) + " ";
         canvas.drawText(text, x, y, ma5Paint);
         x += ma5Paint.measureText(text);

@@ -74,6 +74,7 @@ public class KChartView extends BaseKChartView {
 //        addChildDraw("KDJ", mKDJDraw);
 //        addChildDraw("RSI", mRSIDraw);
 //        addChildDraw("BOLL",mBOLLDraw);
+
         setMainDraw(mMainDraw);
     }
 
