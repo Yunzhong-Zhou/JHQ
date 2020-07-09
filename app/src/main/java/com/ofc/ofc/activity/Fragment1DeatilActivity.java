@@ -379,7 +379,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                                     + "—" + model.getChange_game().getWin_at() + "(~~)");
 
                             tv4.setTextColor(getResources().getColor(R.color.white2));
-                            tv4.setText(bean.getStatus_title());//状态
+                            tv4.setText(model.getChange_game().getStatus_title());//状态
                             tv5.setVisibility(View.GONE);
 
                         }
@@ -389,7 +389,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
                         holder.setText(R.id.tv7, bean.getMoney() + "");//仓位
                         holder.setText(R.id.tv9, bean.getService_charge_money() + "");//手续费
-                        holder.setText(R.id.tv10, bean.getStatus_title());//状态
+                        holder.setText(R.id.tv10, model.getChange_game().getStatus_title());//状态
                         TextView tv8 = holder.getView(R.id.tv8);
                         if (bean.getType() == 1) {//看涨、做多
                             tv8.setText(getString(R.string.fragment1_h9));

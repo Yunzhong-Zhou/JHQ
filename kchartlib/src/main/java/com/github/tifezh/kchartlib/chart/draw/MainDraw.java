@@ -228,9 +228,9 @@ public class MainDraw implements IChartDraw<ICandle> {
 
         float x = view.translateXtoX(view.getX(index));
         if (x > view.getChartWidth() / 2) {
-            left = margin;
+            left = margin;//显示在左边
         } else {
-            left = view.getChartWidth() - width - margin;
+            left = view.getChartWidth() - width - margin;//显示在右边
         }
 
         RectF r = new RectF(left, top, left + width, top + height);

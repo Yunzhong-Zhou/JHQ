@@ -274,7 +274,6 @@ public class Fragment1 extends BaseFragment {
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
                 /*KLineEntity data = (KLineEntity) point;
                 MyLogger.i("index:" + index + " closePrice:" + data.getClosePrice());*/
-
             }
         });
         mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
@@ -878,7 +877,7 @@ public class Fragment1 extends BaseFragment {
 
 
                 //弹窗
-                dialog.contentView(R.layout.dialog_base1)
+                dialog.contentView(R.layout.dialog_daojishi)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
@@ -886,12 +885,7 @@ public class Fragment1 extends BaseFragment {
                         .dimAmount(0.8f)
                         .show();
                 TextView textView2 = dialog.findViewById(R.id.textView2);
-                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
+               
                 if (time2 != null) {
                     time2.cancel();
                 }
