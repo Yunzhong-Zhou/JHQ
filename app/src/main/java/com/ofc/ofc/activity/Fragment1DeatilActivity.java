@@ -787,7 +787,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
     private void changeUI() {
         if (type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.white));
+            textView1.setTextColor(getResources().getColor(R.color.white1));
             textView2.setTextColor(getResources().getColor(R.color.white2));
             textView3.setTextColor(getResources().getColor(R.color.white2));
             view1.setVisibility(View.VISIBLE);
@@ -802,7 +802,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
 
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.white2));
-            textView2.setTextColor(getResources().getColor(R.color.white));
+            textView2.setTextColor(getResources().getColor(R.color.white1));
             textView3.setTextColor(getResources().getColor(R.color.white2));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
@@ -816,7 +816,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
         } else if (type == 3) {
             textView1.setTextColor(getResources().getColor(R.color.white2));
             textView2.setTextColor(getResources().getColor(R.color.white2));
-            textView3.setTextColor(getResources().getColor(R.color.white));
+            textView3.setTextColor(getResources().getColor(R.color.white1));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.VISIBLE);

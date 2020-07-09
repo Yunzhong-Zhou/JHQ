@@ -568,7 +568,7 @@
                             android:paddingRight="12dp"
                             android:paddingBottom="6dp"
                             android:text="@string/fragment1_h12"
-                            android:textColor="@color/white"
+                            android:textColor="@color/white1"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -577,7 +577,7 @@
                             android:layout_width="18dp"
                             android:layout_height="3dp"
                             android:layout_marginLeft="10dp"
-                            android:background="@drawable/yuanjiao_5_baise" />
+                            android:background="@drawable/yuanjiao_5_baise1" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -608,7 +608,7 @@
                             android:id="@+id/view2"
                             android:layout_width="18dp"
                             android:layout_height="3dp"
-                            android:background="@drawable/yuanjiao_5_baise"
+                            android:background="@drawable/yuanjiao_5_baise1"
                             android:visibility="invisible" />
                     </LinearLayout>
 
@@ -641,7 +641,7 @@
                             android:layout_width="18dp"
                             android:layout_height="3dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/yuanjiao_5_baise"
+                            android:background="@drawable/yuanjiao_5_baise1"
                             android:visibility="invisible" />
                     </LinearLayout>
 

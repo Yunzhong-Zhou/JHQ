@@ -361,8 +361,9 @@ public class Fragment1 extends BaseFragment {
                 model = response;
 
                 et_keyong_left.setText("");
+                tv_shouxufei_left.setText("0USDT");
                 et_keyong_right.setText("");
-
+                tv_shouxufei_right.setText("0USDT");
                 if (isAdded()) {
                     tv_qici.setText(getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));//期次
                     tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
@@ -885,7 +886,7 @@ public class Fragment1 extends BaseFragment {
                         .dimAmount(0.8f)
                         .show();
                 TextView textView2 = dialog.findViewById(R.id.textView2);
-               
+
                 if (time2 != null) {
                     time2.cancel();
                 }
@@ -1160,7 +1161,7 @@ public class Fragment1 extends BaseFragment {
 
     private void changeUI() {
         if (type == 1) {
-            textView1.setTextColor(getResources().getColor(R.color.white));
+            textView1.setTextColor(getResources().getColor(R.color.white1));
             textView2.setTextColor(getResources().getColor(R.color.white2));
             textView3.setTextColor(getResources().getColor(R.color.white2));
             view1.setVisibility(View.VISIBLE);
@@ -1175,7 +1176,7 @@ public class Fragment1 extends BaseFragment {
 
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.white2));
-            textView2.setTextColor(getResources().getColor(R.color.white));
+            textView2.setTextColor(getResources().getColor(R.color.white1));
             textView3.setTextColor(getResources().getColor(R.color.white2));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
@@ -1189,7 +1190,7 @@ public class Fragment1 extends BaseFragment {
         } else if (type == 3) {
             textView1.setTextColor(getResources().getColor(R.color.white2));
             textView2.setTextColor(getResources().getColor(R.color.white2));
-            textView3.setTextColor(getResources().getColor(R.color.white));
+            textView3.setTextColor(getResources().getColor(R.color.white1));
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.INVISIBLE);
             view3.setVisibility(View.VISIBLE);
