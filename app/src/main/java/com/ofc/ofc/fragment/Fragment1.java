@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.github.tifezh.kchartlib.chart.BaseKChartView;
 import com.github.tifezh.kchartlib.chart.KChartView;
 import com.github.tifezh.kchartlib.chart.formatter.DateFormatter;
@@ -56,7 +57,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class Fragment1 extends BaseFragment {
-    int type = 1, page = 1;
+    int type = 1, page = 1, item = -1;
     Fragment1Model model;
     //页面数据
     private RecyclerView recyclerView;
@@ -75,6 +76,7 @@ public class Fragment1 extends BaseFragment {
     EditText et_keyong_left, et_keyong_right;
 
     TimeCount time1 = null;
+    TimeCount2 time2 = null;
 
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
@@ -358,6 +360,10 @@ public class Fragment1 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>合约" + response);
                 model = response;
+
+                et_keyong_left.setText("");
+                et_keyong_right.setText("");
+
                 if (isAdded()) {
                     tv_qici.setText(getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));//期次
                     tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
@@ -383,7 +389,7 @@ public class Fragment1 extends BaseFragment {
                     tv_daojishi.setText(getText(R.string.fragment3_h46));//已结束
                 }*/
                     tv_daojishi.setText(model.getChange_game().getStatus_title());//已交割
-                    if (response.getCount_down() >= 0) {
+                    if (response.getCount_down() > 0) {
                         showTime();
                     }
 
@@ -411,6 +417,13 @@ public class Fragment1 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment1_2, list2) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment1Model.MyAllChangeGameParticipationListBean bean, int position) {
+                            LinearLayout ll_bg = holder.getView(R.id.ll_bg);
+                            if (item == position) {
+                                ll_bg.setBackgroundResource(R.color.bg_1);
+                            } else {
+                                ll_bg.setBackgroundResource(R.color.bg_0);
+                            }
+
                             holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + bean.getChange_gameX().getPeriod() + getText(R.string.fragment1_h5));
 
                             TextView tv4 = holder.getView(R.id.tv4);
@@ -456,6 +469,22 @@ public class Fragment1 extends BaseFragment {
                             }
                         }
                     };
+                    mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            if (item != i) {
+                                item = i;
+                            } else {
+                                item = -1;
+                            }
+                            mAdapter2.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            return false;
+                        }
+                    });
                     //历史
                     list3 = model.getHistory_change_game_list();
                     mAdapter3 = new CommonAdapter<Fragment1Model.HistoryChangeGameListBean>
@@ -487,7 +516,6 @@ public class Fragment1 extends BaseFragment {
                             if (time1 != null) {
                                 time1.cancel();
                             }
-
                             Bundle bundle = new Bundle();
                             bundle.putString("history_id", list3.get(i).getId());
                             CommonUtil.gotoActivityWithData(getActivity(), Fragment1DeatilActivity.class, bundle, false);
@@ -817,10 +845,13 @@ public class Fragment1 extends BaseFragment {
         @Override
         public void onFinish() {//计时完毕时触发
 //            textView.setText(getString(R.string.fragment3_h54));
-            textView.setText("0s");
-            requestServer();
-            /*if (MainActivity.item == 0) {
-                dialog.contentView(R.layout.dialog_gifimg)
+            textView.setText(getText(R.string.fragment1_h39));
+
+            if (MainActivity.item == 0) {
+//                requestServer();
+
+                //GIF图显示
+               /* dialog.contentView(R.layout.dialog_gifimg)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
@@ -843,8 +874,31 @@ public class Fragment1 extends BaseFragment {
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
+                });*/
+
+
+                //弹窗
+                dialog.contentView(R.layout.dialog_base1)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(false)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView2 = dialog.findViewById(R.id.textView2);
+                dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
                 });
-            }*/
+                if (time2 != null) {
+                    time2.cancel();
+                }
+                time2 = new TimeCount2(6 * 1000, 1000, textView2);//构造CountDownTimer对象
+                time2.start();//开始计时
+            }
+
 
         }
 
@@ -854,6 +908,45 @@ public class Fragment1 extends BaseFragment {
             textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
         }
 
+    }
+
+    class TimeCount2 extends CountDownTimer {
+        TextView textView;
+
+        public TimeCount2(long millisInFuture, long countDownInterval, TextView textView) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            this.textView = textView;
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+//            textView.setText(getString(R.string.fragment3_h22));
+            if (MainActivity.item == 0) {
+                dialog.dismiss();
+                requestServer();
+
+                /*showProgress(true, getString(R.string.app_loading));
+                String string = "?token=" + localUserInfo.getToken()
+                        + "&type=" + "2"
+                        + "&page=" + page//当前页号
+                        + "&count=" + "20"//页面行数
+                        + "&period_count=" + period_count;
+                request(string);*/
+            }
+            /*textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+
+                }
+            });*/
+
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            textView.setText(getString(R.string.fragment1_h38) + CommonUtil.timedate3(millisUntilFinished) + "s");
+        }
     }
 
     /**
@@ -929,7 +1022,7 @@ public class Fragment1 extends BaseFragment {
                                                             (float) bean.getLow(),
                                                             (float) bean.getClose(),
                                                             (float) bean.getVol(),
-                                                            (float) bean.getAmount(),0, 0, 0, 0, 0, 0,
+                                                            (float) bean.getAmount(), 0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );
@@ -972,7 +1065,7 @@ public class Fragment1 extends BaseFragment {
                                                             (float) model.getTick().getLow(),
                                                             (float) model.getTick().getClose(),
                                                             (float) model.getTick().getVol(),
-                                                            (float) model.getTick().getAmount(),0, 0, 0, 0, 0, 0,
+                                                            (float) model.getTick().getAmount(), 0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );

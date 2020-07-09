@@ -194,7 +194,7 @@
     <string name="fragment1_h16">盈利</string>
     <string name="fragment1_h17">方向</string>
     <string name="fragment1_h18">手续费</string>
-    <string name="fragment1_h19"></string>
+    <string name="fragment1_h19">仓位(USDT)</string>
     <string name="fragment1_h20">状态</string>
     <string name="fragment1_h21">买入看涨</string>
     <string name="fragment1_h22">买入看跌</string>
@@ -212,6 +212,10 @@
     <string name="fragment1_h34">正在关闭连接，请稍候...</string>
     <string name="fragment1_h35">亏损</string>
     <string name="fragment1_h36">结果</string>
+    <string name="fragment1_h37">手续费(USDT)</string>
+    <string name="fragment1_h38">提交中...\n生成倒计时：</string>
+    <string name="fragment1_h39">生成中</string>
+
 
     <!--fragment2-->
     <string name="fragment2_h1">24H交易量</string>

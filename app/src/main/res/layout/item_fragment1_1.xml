@@ -44,6 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="USDT"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -53,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fragment1_h15"
+                    android:text="@string/fragment1_h19"
                     android:textColor="@color/white2"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -126,6 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="USDT"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -135,7 +137,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fragment1_h11"
+                    android:text="@string/fragment1_h37"
                     android:textColor="@color/white2"
                     android:textSize="12sp" />
             </LinearLayout>

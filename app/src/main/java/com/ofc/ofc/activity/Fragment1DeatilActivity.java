@@ -46,7 +46,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Fragment1DeatilActivity extends BaseActivity {
     String history_id = "";
     Fragment1DetailModel model;
-    int type = 2, page = 1;
+    int type = 2, page = 1, item = -1;
     //悬浮部分
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
     TextView textView1, textView2, textView3;
@@ -108,6 +108,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             //关闭连接
             WebSocketManager.getInstance().close();
+            finish();
             /*MainActivity.isOver = false;
             Bundle bundle = new Bundle();
             bundle.putInt("item", 0);
@@ -126,7 +127,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
             public void onClick(View v) {
                 //关闭连接
                 WebSocketManager.getInstance().close();
-//                finish();
+                finish();
                 /*MainActivity.isOver = false;
                 Bundle bundle = new Bundle();
                 bundle.putInt("item", 0);
@@ -348,6 +349,13 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         (Fragment1DeatilActivity.this, R.layout.item_fragment1_2, list2) {
                     @Override
                     protected void convert(ViewHolder holder, Fragment1DetailModel.MyChangeGameParticipationListBean bean, int position) {
+                        LinearLayout ll_bg = holder.getView(R.id.ll_bg);
+                        if (item == position) {
+                            ll_bg.setBackgroundResource(R.color.bg_1);
+                        } else {
+                            ll_bg.setBackgroundResource(R.color.bg_0);
+                        }
+
                         holder.setText(R.id.tv1, getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));
 
                         TextView tv4 = holder.getView(R.id.tv4);
@@ -392,6 +400,22 @@ public class Fragment1DeatilActivity extends BaseActivity {
                         }
                     }
                 };
+                mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        if (item != i) {
+                            item = i;
+                        } else {
+                            item = -1;
+                        }
+                        mAdapter2.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
                 //历史
                 list3 = model.getHistory_change_game_list();
                 mAdapter3 = new CommonAdapter<Fragment1DetailModel.HistoryChangeGameListBean>
@@ -580,8 +604,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                             isShowOver = false;
                             MyLogger.i(">>>>>>关闭成功");
 //                            hideProgress();
-                            finish();
-
+//                            finish();
                         }
 
                         @Override
@@ -619,7 +642,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                                                             (float) bean.getLow(),
                                                             (float) bean.getClose(),
                                                             (float) bean.getVol(),
-                                                            (float) bean.getAmount(),0, 0, 0, 0, 0, 0,
+                                                            (float) bean.getAmount(), 0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );
@@ -662,7 +685,7 @@ public class Fragment1DeatilActivity extends BaseActivity {
                                                             (float) model.getTick().getLow(),
                                                             (float) model.getTick().getClose(),
                                                             (float) model.getTick().getVol(),
-                                                            (float) model.getTick().getAmount(),0, 0, 0, 0, 0, 0,
+                                                            (float) model.getTick().getAmount(), 0, 0, 0, 0, 0, 0,
                                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                                             "-1"
                                                     );

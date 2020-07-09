@@ -24,8 +24,8 @@ public class Fragment1Model implements Serializable {
     private String usable_money;
     private String service_charge;
     private ChangeGameBean change_game;
-    private int game_time;
-    private int count_down;
+    private Long game_time;
+    private Long count_down;
     private String hk;
     private List<MyCurrentChangeGameParticipationListBean> my_current_change_game_participation_list;
     private List<MyAllChangeGameParticipationListBean> my_all_change_game_participation_list;
@@ -56,19 +56,19 @@ public class Fragment1Model implements Serializable {
         this.change_game = change_game;
     }
 
-    public int getGame_time() {
+    public Long getGame_time() {
         return game_time;
     }
 
-    public void setGame_time(int game_time) {
+    public void setGame_time(Long game_time) {
         this.game_time = game_time;
     }
 
-    public int getCount_down() {
+    public Long getCount_down() {
         return count_down;
     }
 
-    public void setCount_down(int count_down) {
+    public void setCount_down(Long count_down) {
         this.count_down = count_down;
     }
 
@@ -218,7 +218,7 @@ public class Fragment1Model implements Serializable {
         private String change_game_id;
         private String member_id;
         private int type;
-        private int money;
+        private String money;
         private String service_charge_money;
         private String created_at;
 
@@ -254,11 +254,11 @@ public class Fragment1Model implements Serializable {
             this.type = type;
         }
 
-        public int getMoney() {
+        public String getMoney() {
             return money;
         }
 
-        public void setMoney(int money) {
+        public void setMoney(String money) {
             this.money = money;
         }
 
@@ -296,7 +296,7 @@ public class Fragment1Model implements Serializable {
         private String change_game_id;
         private String member_id;
         private int type;
-        private int money;
+        private String money;
         private String service_charge_money;
         private String bureau_win_money;
         private String created_at;
@@ -335,11 +335,11 @@ public class Fragment1Model implements Serializable {
             this.type = type;
         }
 
-        public int getMoney() {
+        public String getMoney() {
             return money;
         }
 
-        public void setMoney(int money) {
+        public void setMoney(String money) {
             this.money = money;
         }
 
@@ -392,14 +392,14 @@ public class Fragment1Model implements Serializable {
             private String id;
             private String period;
             @SerializedName("1_amount_money")
-            private double _$1_amount_money;
+            private String _$1_amount_money;
             @SerializedName("2_amount_money")
-            private double _$2_amount_money;
+            private String _$2_amount_money;
             private String init_num;
             private String init_at;
             private String win_num;
             private String win_at;
-            private int win_rise_fall;
+            private String win_rise_fall;
             private int status;
             private String status_title;
 
@@ -427,19 +427,19 @@ public class Fragment1Model implements Serializable {
                 this.period = period;
             }
 
-            public double get_$1_amount_money() {
+            public String get_$1_amount_money() {
                 return _$1_amount_money;
             }
 
-            public void set_$1_amount_money(double _$1_amount_money) {
+            public void set_$1_amount_money(String _$1_amount_money) {
                 this._$1_amount_money = _$1_amount_money;
             }
 
-            public double get_$2_amount_money() {
+            public String get_$2_amount_money() {
                 return _$2_amount_money;
             }
 
-            public void set_$2_amount_money(double _$2_amount_money) {
+            public void set_$2_amount_money(String _$2_amount_money) {
                 this._$2_amount_money = _$2_amount_money;
             }
 
@@ -475,11 +475,11 @@ public class Fragment1Model implements Serializable {
                 this.win_at = win_at;
             }
 
-            public int getWin_rise_fall() {
+            public String getWin_rise_fall() {
                 return win_rise_fall;
             }
 
-            public void setWin_rise_fall(int win_rise_fall) {
+            public void setWin_rise_fall(String win_rise_fall) {
                 this.win_rise_fall = win_rise_fall;
             }
 
@@ -510,14 +510,14 @@ public class Fragment1Model implements Serializable {
         private String id;
         private String period;
         @SerializedName("1_amount_money")
-        private int _$1_amount_money;
+        private String _$1_amount_money;
         @SerializedName("2_amount_money")
-        private int _$2_amount_money;
+        private String _$2_amount_money;
         private String init_num;
         private String init_at;
         private String win_num;
         private String win_at;
-        private int win_rise_fall;
+        private String win_rise_fall;
         private int status;
         private String status_title;
 
@@ -545,19 +545,19 @@ public class Fragment1Model implements Serializable {
             this.period = period;
         }
 
-        public int get_$1_amount_money() {
+        public String get_$1_amount_money() {
             return _$1_amount_money;
         }
 
-        public void set_$1_amount_money(int _$1_amount_money) {
+        public void set_$1_amount_money(String _$1_amount_money) {
             this._$1_amount_money = _$1_amount_money;
         }
 
-        public int get_$2_amount_money() {
+        public String get_$2_amount_money() {
             return _$2_amount_money;
         }
 
-        public void set_$2_amount_money(int _$2_amount_money) {
+        public void set_$2_amount_money(String _$2_amount_money) {
             this._$2_amount_money = _$2_amount_money;
         }
 
@@ -593,11 +593,11 @@ public class Fragment1Model implements Serializable {
             this.win_at = win_at;
         }
 
-        public int getWin_rise_fall() {
+        public String getWin_rise_fall() {
             return win_rise_fall;
         }
 
-        public void setWin_rise_fall(int win_rise_fall) {
+        public void setWin_rise_fall(String win_rise_fall) {
             this.win_rise_fall = win_rise_fall;
         }
 
