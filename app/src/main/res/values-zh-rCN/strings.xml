@@ -179,6 +179,43 @@
     <string name="fragment1_h2">进阶知识</string>
     <string name="fragment1_h3">高阶知识</string>
 
+    <string name="fragment1_h4">第</string>
+    <string name="fragment1_h5">期</string>
+    <string name="fragment1_h6">BTC价格走势</string>
+    <string name="fragment1_h7">倒计时</string>
+    <string name="fragment1_h8">做空</string>
+    <string name="fragment1_h9">做多</string>
+    <string name="fragment1_h10">可用:</string>
+    <string name="fragment1_h11">手续费</string>
+    <string name="fragment1_h12">持有仓位</string>
+    <string name="fragment1_h13">历史记录</string>
+    <string name="fragment1_h14">价格</string>
+    <string name="fragment1_h15">仓位</string>
+    <string name="fragment1_h16">盈利</string>
+    <string name="fragment1_h17">方向</string>
+    <string name="fragment1_h18">手续费</string>
+    <string name="fragment1_h19">仓位(USDT)</string>
+    <string name="fragment1_h20">状态</string>
+    <string name="fragment1_h21">买入做多</string>
+    <string name="fragment1_h22">卖出做空</string>
+    <string name="fragment1_h23">我的交易</string>
+    <string name="fragment1_h24">交割状态</string>
+    <string name="fragment1_h25">请输入交易额</string>
+    <string name="fragment1_h26">交易额不能小于10</string>
+    <string name="fragment1_h27">余币不足</string>
+    <string name="fragment1_h28">充币</string>
+    <string name="fragment1_h29">做多交易量(USDT)</string>
+    <string name="fragment1_h30">做空交易量(USDT)</string>
+    <string name="fragment1_h31">BTC价格</string>
+    <string name="fragment1_h32">待交割</string>
+    <string name="fragment1_h33">已交割</string>
+    <string name="fragment1_h34">正在关闭连接，请稍候...</string>
+    <string name="fragment1_h35">亏损</string>
+    <string name="fragment1_h36">结果</string>
+    <string name="fragment1_h37">手续费(USDT)</string>
+    <string name="fragment1_h38">提交中...\n生成倒计时：</string>
+    <string name="fragment1_h39">生成中</string>
+
     <!--fragment2-->
     <string name="fragment2_h1">24H交易量</string>
     <string name="fragment2_h2">1H交易量：</string>
