@@ -24,200 +24,111 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="5dp">
+                    android:background="@mipmap/bg_addfenhong"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_qici"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/white2"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_zoushi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fragment1_h6"
-                            android:textColor="@color/white2"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
-                        android:src="@mipmap/ic_btc_gray" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_zhuangtai"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/white2"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fragment1_h24"
-                            android:textColor="@color/white2"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="84dp"
-                    android:layout_marginTop="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@mipmap/bg_fragment1_left"
-                            android:orientation="horizontal"
-                            android:paddingLeft="30dp"
-                            android:paddingTop="10dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiaobiankuang_0_hongse"
-                                android:paddingLeft="7dp"
-                                android:paddingTop="3dp"
-                                android:paddingRight="7dp"
-                                android:paddingBottom="3dp"
-                                android:text="@string/fragment1_h8"
-                                android:textColor="#FD032C"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:id="@+id/tv_zuokong"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="--"
-                                android:textColor="#FD032C"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="USDT"
-                                android:textColor="#FD032C"
-                                android:textSize="10sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@mipmap/bg_fragment1_right"
-                            android:gravity="right"
-                            android:orientation="horizontal"
-                            android:paddingTop="10dp"
-                            android:paddingRight="30dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiaobiankuang_0_lvse"
-                                android:paddingLeft="7dp"
-                                android:paddingTop="3dp"
-                                android:paddingRight="7dp"
-                                android:paddingBottom="3dp"
-                                android:text="@string/fragment1_h9"
-                                android:textColor="#05C363"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:id="@+id/tv_zuoduo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:text="--"
-                                android:textColor="#05C363"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="USDT"
-                                android:textColor="#05C363"
-                                android:textSize="10sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_alignParentBottom="true"
                         android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:layout_marginBottom="18dp">
+                        android:layout_marginTop="15dp"
+                        android:text="OFC/USDT"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="bottom"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="14dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@mipmap/ic_usdt_white" />
 
                         <TextView
-                            android:id="@+id/tv_zuokong_baifenbi"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_weight="50"
-                            android:background="#FD032B"
-                            android:gravity="left|center_vertical"
-                            android:paddingLeft="7dp"
-                            android:text="0%"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"
+                            android:text="0"
                             android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textSize="30sp" />
 
                         <TextView
-                            android:id="@+id/tv_zuoduo_baifenbi"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_weight="50"
-                            android:background="#05C363"
-                            android:gravity="right|center_vertical"
-                            android:paddingRight="7dp"
-                            android:text="0%"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/qianbao_h34"
+                            android:textColor="@color/red_1"
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
-                </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Toal +0%"
+                                android:textColor="@color/green_1"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/ic_jiantou_up1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24H +0%"
+                                android:textColor="@color/green_1"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/ic_jiantou_up1" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -382,58 +293,125 @@
                     android:layout_height="7dp"
                     android:background="#072533" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="25dp">
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="10dp"
-                        android:background="@color/white3" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="6dp"
-                        android:text="@string/fragment1_h31"
-                        android:textColor="@color/white3"
-                        android:textSize="12sp" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="13dp"
+                    android:paddingTop="13dp"
+                    android:paddingRight="13dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_jian_left"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="#263548"
+                            android:padding="10dp"
+                            android:src="@mipmap/ic_jian" />
+
+                        <EditText
+                            android:id="@+id/et_keyong_left"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:hint="@string/fragment1_h10"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white2"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_jia_left"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="#263548"
+                            android:padding="10dp"
+                            android:src="@mipmap/ic_jia" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_kanzhang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/green_1"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/qianbao_h35"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="=0usdt"
+                    android:textColor="@color/white2"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:background="#072533" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="13dp"
+                    android:background="@mipmap/bg_addfenhong"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="25dp">
+                    android:padding="13dp">
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/ic_addfenhong1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tv_money_left"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/white1"
-                            android:textSize="25sp" />
+                            android:text="OFC"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/tv_time_left"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="00:00"
-                            android:textColor="@color/white3"
-                            android:textSize="25sp" />
-
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h36"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
@@ -441,176 +419,151 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center_horizontal"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tv_money_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
-                            android:textColor="@color/white1"
-                            android:textSize="25sp" />
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/tv_time_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="00:00"
-                            android:textColor="@color/white3"
-                            android:textSize="25sp" />
-
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h37"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tv_jieguo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/fragment1_h9"
+                            android:drawableRight="@mipmap/ic_jiantou_up1"
+                            android:drawablePadding="5dp"
+                            android:text="0"
+                            android:textStyle="bold"
                             android:textColor="@color/green_1"
                             android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:paddingRight="30dp"
-                            android:text="@string/fragment1_h36"
-                            android:textColor="@color/white3"
-                            android:textSize="20sp" />
-
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h38"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="7dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#072533" />
-                <!--tab-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusableInTouchMode="true"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@mipmap/bg_addfenhong"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="13dp">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:background="@mipmap/ic_addfenhong2" />
 
                     <LinearLayout
-                        android:id="@+id/linearLayout1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:orientation="vertical"
-                        android:visibility="gone">
+                        android:layout_marginLeft="13dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:paddingLeft="24dp"
-                            android:paddingTop="15dp"
-                            android:paddingRight="12dp"
-                            android:paddingBottom="6dp"
-                            android:text="@string/fragment1_h12"
+                            android:text="USDT"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/view1"
-                            android:layout_width="18dp"
-                            android:layout_height="3dp"
-                            android:background="@drawable/yuanjiao_5_baise" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:orientation="vertical">
+                            android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawablePadding="5dp"
-                            android:gravity="center"
-                            android:paddingLeft="24dp"
-                            android:paddingTop="15dp"
-                            android:paddingRight="12dp"
-                            android:paddingBottom="6dp"
-                            android:text="@string/fragment1_h23"
-                            android:textColor="@color/white1"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/view2"
-                            android:layout_width="18dp"
-                            android:layout_height="3dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@drawable/yuanjiao_5_baise1"
-                            android:visibility="visible" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawablePadding="5dp"
-                            android:gravity="center"
-                            android:paddingLeft="12dp"
-                            android:paddingTop="15dp"
-                            android:paddingRight="24dp"
-                            android:paddingBottom="6dp"
-                            android:text="@string/fragment1_h13"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h39"
                             android:textColor="@color/white2"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textSize="11sp" />
 
-                        <View
-                            android:id="@+id/view3"
-                            android:layout_width="18dp"
-                            android:layout_height="3dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/yuanjiao_5_baise1"
-                            android:visibility="invisible" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h37"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/red_1"
+                            android:textStyle="bold"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h40"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
-                <com.ofc.ofc.view.LoadingLayout
-                    android:id="@+id/loading_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </com.ofc.ofc.view.LoadingLayout>
             </LinearLayout>
         </com.ofc.ofc.view.MyNestedScrollView>
     </com.liaoinstan.springview.widget.SpringView>

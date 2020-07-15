@@ -5,29 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/grey1">
 
-    <com.ofc.ofc.view.WaveProgress
-        android:id="@+id/wave_progress_bar"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_centerInParent="true"
-        app:bgColor="#fff"
-        app:circleColor="#fff"
-        app:circleWidth="1dp"
-        app:darkWaveAnimTime="3000"
-        app:darkWaveColor="#B558D2"
-        app:lightWaveAnimTime="3000"
-        app:lightWaveColor="#E9CDF1"
-        app:lightWaveDirect="R2L"
-        app:lockWave="false"
-        app:valueSize="0dp"
-        app:waveHeight="10dp"
-        app:waveNum="2" />
-
-    <com.ofc.ofc.view.MyArcView
+    <!--<com.ofc.ofc.view.MyArcView
         android:id="@+id/myarcview"
         android:layout_width="290dp"
         android:layout_height="280dp"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true" />-->
 
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

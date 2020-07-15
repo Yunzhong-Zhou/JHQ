@@ -475,6 +475,32 @@
     <string name="qianbao_h12">订单号</string>
     <string name="qianbao_h13">时间：</string>
     <string name="qianbao_h14">资产地址</string>
+    <string name="qianbao_h15">已解冻</string>
+    <string name="qianbao_h16">已分红</string>
+    <string name="qianbao_h17">总佣金</string>
+    <string name="qianbao_h18">增值</string>
+    <string name="qianbao_h19">买入明细</string>
+    <string name="qianbao_h20">支出记录</string>
+    <string name="qianbao_h21">币数量</string>
+    <string name="qianbao_h22">买入价</string>
+    <string name="qianbao_h23">已增值</string>
+    <string name="qianbao_h24">解冻时间：</string>
+    <string name="qianbao_h25">已分红：</string>
+    <string name="qianbao_h26">分红记录</string>
+    <string name="qianbao_h27">数据明细</string>
+    <string name="qianbao_h28">币数量：</string>
+    <string name="qianbao_h29">已增值：</string>
+    <string name="qianbao_h30">已分红：</string>
+    <string name="qianbao_h31">买入价：</string>
+    <string name="qianbao_h32">币来源：</string>
+    <string name="qianbao_h33">解冻时间：</string>
+    <string name="qianbao_h34">分红指数</string>
+    <string name="qianbao_h35">买入OFC</string>
+    <string name="qianbao_h36">发行价:</string>
+    <string name="qianbao_h37">余额</string>
+    <string name="qianbao_h38">增值</string>
+    <string name="qianbao_h39">合约:</string>
+    <string name="qianbao_h40">已分红</string>
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

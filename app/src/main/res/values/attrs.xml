@@ -71,21 +71,21 @@
     //水波纹圆形进度条
     <declare-styleable name="WaveProgress">
         <!-- 是否开启抗锯齿 -->
-        <attr name="antiAlias" />
+<!--        <attr name="antiAlias" />-->
         <!-- 深色水波动画时间 -->
         <attr name="darkWaveAnimTime" format="integer" />
         <!-- 浅色水波动画时间 -->
         <attr name="lightWaveAnimTime" format="integer" />
         <!-- 最大值 -->
-        <attr name="maxValue" />
+<!--        <attr name="maxValue" />-->
         <!-- 当前值 -->
-        <attr name="value" />
-        <attr name="valueColor" />
-        <attr name="valueSize" />
+<!--        <attr name="value" />-->
+<!--        <attr name="valueColor" />-->
+<!--        <attr name="valueSize" />-->
         <!-- 绘制内容相应的提示语 -->
-        <attr name="hint" />
-        <attr name="hintSize" />
-        <attr name="hintColor" />
+<!--        <attr name="hint" />-->
+<!--        <attr name="hintSize" />-->
+<!--        <attr name="hintColor" />-->
         <!-- 背景色 -->
         <attr name="bgColor" format="color|reference" />
         <!-- 圆环宽度 -->
@@ -112,6 +112,7 @@
             <enum name="R2L" value="1" />
         </attr>
     </declare-styleable>
+
 
 
     <!-- 自定义星期 View -->
