@@ -17,9 +17,10 @@ import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.AccountDetailModel1;
+import com.ofc.ofc.model.AccountDetailModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
+import com.ofc.ofc.okhttp.websocket.WebSocketManager;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
@@ -40,20 +41,20 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class AccountDetailActivity extends BaseActivity {
     int type = 1;
-    AccountDetailModel1 model1;
+    AccountDetailModel model;
     private RecyclerView recyclerView;
-    List<AccountDetailModel1.EarningListBean> list1 = new ArrayList<>();
-    CommonAdapter<AccountDetailModel1.EarningListBean> mAdapter1;
+    List<AccountDetailModel.EarningListBean> list1 = new ArrayList<>();
+    CommonAdapter<AccountDetailModel.EarningListBean> mAdapter1;
 
-    List<AccountDetailModel1.ExpenditureListBean> list2 = new ArrayList<>();
-    CommonAdapter<AccountDetailModel1.ExpenditureListBean> mAdapter2;
+    List<AccountDetailModel.ExpenditureListBean> list2 = new ArrayList<>();
+    CommonAdapter<AccountDetailModel.ExpenditureListBean> mAdapter2;
     //头部一
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
     TextView head1_textView1, head1_textView2, head1_textView3, head1_textView4, head1_textView5;
 
     private LinearLayout pop_view;
-    TextView tv_paixu,tv_zhuangtai;
+    TextView tv_paixu, tv_zhuangtai;
     String money_type = "", status = "";
     int i1 = 0;
     int i2 = 0;
@@ -78,6 +79,9 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+//        findViewByID_My(R.id.titleView).setPadding(0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
+        CommonUtil.setMargins(findViewByID_My(R.id.titleView), 0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
+
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
@@ -109,7 +113,6 @@ public class AccountDetailActivity extends BaseActivity {
 
 
         head1_relativeLayout = findViewByID_My(R.id.head1_relativeLayout);
-//        head1_relativeLayout.setPadding(0, (int) CommonUtil.getStatusBarHeight(AccountDetailActivity.this), 0, 0);
 
         head1_textView1 = findViewByID_My(R.id.head1_textView1);
         head1_textView2 = findViewByID_My(R.id.head1_textView2);
@@ -145,7 +148,7 @@ public class AccountDetailActivity extends BaseActivity {
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.AccountDetail1 + string, new OkHttpClientManager.ResultCallback<AccountDetailModel1>() {
+        OkHttpClientManager.getAsyn(this, URLs.AccountDetail + string, new OkHttpClientManager.ResultCallback<AccountDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -156,37 +159,35 @@ public class AccountDetailActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(AccountDetailModel1 response) {
+            public void onResponse(AccountDetailModel response) {
                 showContentPage();
-                MyLogger.i(">>>>>>>>>账户详情1" + response);
-                model1 = response;
-                if (!response.getTop_up_usdt_wallet_addr().equals("")) {
-                    head1_textView5.setVisibility(View.VISIBLE);
-                } else {
-                    head1_textView5.setVisibility(View.GONE);
-                }
+                MyLogger.i(">>>>>>>>>账户详情" + response);
+                model = response;
 
-                head1_textView1.setText(response.getCommon_usable_money());
-                head1_textView2.setText(response.getContract_money());
-                head1_textView3.setText(response.getProfit_money());
-                head1_textView4.setText(response.getCommission_money());
-
+                head1_textView1.setText(response.getOfc_money());
+                head1_textView2.setText(response.getUnfreeze_money());//解冻
+                head1_textView3.setText(response.getInterest_money());//分红
+                head1_textView4.setText(response.getOfc_commission_money());//佣金
+                head1_textView5.setText(response.getAppreciation() + "%");//增值
                 list1 = response.getEarning_list();
-                mAdapter1 = new CommonAdapter<AccountDetailModel1.EarningListBean>
+                mAdapter1 = new CommonAdapter<AccountDetailModel.EarningListBean>
                         (AccountDetailActivity.this, R.layout.item_accountdetail, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, final AccountDetailModel1.EarningListBean model, int position) {
-                       /* holder.setText(R.id.textView1, model.getTitle() + "：+" + model.getMoney());//标题
-//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.get);//流水号
-                        holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
-                        holder.setText(R.id.textView4, model.getStatus());//状态*/
-
+                    protected void convert(ViewHolder holder, final AccountDetailModel.EarningListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getType_title());//类型
+                        holder.setText(R.id.textView2, model.getOfc_money());//币数量
+                        holder.setText(R.id.textView3, model.getOfc_price());//买入价
+                        holder.setText(R.id.textView4, model.getAppreciation() + "%");//已增值
+                        holder.setText(R.id.textView5, model.getUnfreeze_at());//时间
+                        holder.setText(R.id.textView6, model.getInterest_money());//已分红
                     }
                 };
                 mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        CommonUtil.gotoActivity(AccountDetailActivity.this,FenHongListActivity.class,false);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", list1.get(i).getId());
+                        CommonUtil.gotoActivityWithData(AccountDetailActivity.this, FenHongListActivity.class, bundle, false);
                     }
 
                     @Override
@@ -196,20 +197,24 @@ public class AccountDetailActivity extends BaseActivity {
                 });
 
                 list2 = response.getExpenditure_list();
-                mAdapter2 = new CommonAdapter<AccountDetailModel1.ExpenditureListBean>
+                mAdapter2 = new CommonAdapter<AccountDetailModel.ExpenditureListBean>
                         (AccountDetailActivity.this, R.layout.item_accountdetail, list2) {
                     @Override
-                    protected void convert(ViewHolder holder, final AccountDetailModel1.ExpenditureListBean model, int position) {
-                       /* holder.setText(R.id.textView1, model.getTitle() + "：-" + model.getMoney());//标题
-//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.getId());//流水号
-                        holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
-                        holder.setText(R.id.textView4, model.getStatus());//状态*/
+                    protected void convert(ViewHolder holder, final AccountDetailModel.ExpenditureListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getType_title());//类型
+                        holder.setText(R.id.textView2, model.getOfc_money());//币数量
+                        holder.setText(R.id.textView3, model.getOfc_price());//买入价
+                        holder.setText(R.id.textView4, model.getAppreciation() + "%");//已增值
+                        holder.setText(R.id.textView5, model.getUnfreeze_at());//时间
+                        holder.setText(R.id.textView6, model.getInterest_money());//已分红
                     }
                 };
                 mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        CommonUtil.gotoActivity(AccountDetailActivity.this,FenHongListActivity.class,false);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", list1.get(i).getId());
+                        CommonUtil.gotoActivityWithData(AccountDetailActivity.this, FenHongListActivity.class, bundle, false);
                     }
 
                     @Override
@@ -217,8 +222,8 @@ public class AccountDetailActivity extends BaseActivity {
                         return false;
                     }
                 });
-
                 changeUI();
+
                 hideProgress();
             }
         });
@@ -251,7 +256,11 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_linearLayout2:
                 //划转
-                CommonUtil.gotoActivity(this, TransferActivity.class, false);
+//                CommonUtil.gotoActivity(this, TransferActivity.class, false);
+                //分红
+                //关闭连接
+                WebSocketManager.getInstance().close();
+                CommonUtil.gotoActivity(this, AddFenHongActivity.class, false);
 //                Bundle bundle1 = new Bundle();
 //                bundle1.putInt("item", 0);
 //                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
@@ -263,9 +272,9 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_textView5:
                 //币地址
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("addr",model1.getTop_up_usdt_wallet_addr());
-                CommonUtil.gotoActivityWithData(this, AddressActivity.class, bundle1,false);
+//                Bundle bundle1 = new Bundle();
+//                bundle1.putString("addr",model1.getTop_up_usdt_wallet_addr());
+//                CommonUtil.gotoActivityWithData(this, AddressActivity.class, bundle1,false);
                 break;
             case R.id.ll_paixu:
                 tv_paixu.setTextColor(getResources().getColor(R.color.green));
@@ -296,8 +305,14 @@ public class AccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.VISIBLE);
 //            head2_view2.setVisibility(View.INVISIBLE);
 
-            recyclerView.setAdapter(mAdapter1);
-            mAdapter1.notifyDataSetChanged();
+            if (list1.size()>0){
+                showContentPage();
+                recyclerView.setAdapter(mAdapter1);
+                mAdapter1.notifyDataSetChanged();
+            }else {
+                showEmptyPage();
+            }
+
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black4));
             textView2.setTextColor(getResources().getColor(R.color.green));
@@ -309,8 +324,13 @@ public class AccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.INVISIBLE);
 //            head2_view2.setVisibility(View.VISIBLE);
 
-            recyclerView.setAdapter(mAdapter2);
-            mAdapter2.notifyDataSetChanged();
+            if (list2.size()>0){
+                showContentPage();
+                recyclerView.setAdapter(mAdapter2);
+                mAdapter2.notifyDataSetChanged();
+            }else {
+                showEmptyPage();
+            }
         }
     }
 
@@ -325,9 +345,10 @@ public class AccountDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.qianbao_h1));
-//        titleView.setVisibility(View.GONE);
+//        titleView.setTitle(getString(R.string.qianbao_h1));
+        titleView.setVisibility(View.GONE);
     }
+
     private void showPopupWindow1(View v) {
         // 一个自定义的布局，作为显示的内容
         final View contentView = LayoutInflater.from(AccountDetailActivity.this).inflate(

@@ -160,6 +160,9 @@
             android:name="com.ofc.ofc.activity.AccountDetailActivity"
             android:label="我的钱包" />
         <activity
+            android:name="com.ofc.ofc.activity.AddFenHongActivity"
+            android:label="分红" />
+        <activity
             android:name="com.ofc.ofc.activity.FenHongListActivity"
             android:label="分红记录" />
         <activity

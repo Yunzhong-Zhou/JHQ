@@ -159,6 +159,22 @@ public class URLs {
     /**
      * 账户详情
      */
+    public static final String AccountDetail = "/api/invest/account";
+    /**
+     * 分红主页
+     */
+    public static final String FenHong = "/api/invest/index";
+    /**
+     * 买入分红
+     */
+    public static final String AddFenHong = "/api/invest/create";
+    /**
+     * 分红详情
+     */
+    public static final String FenHongDetail = "/api/invest/detail";
+    /**
+     * 账户详情
+     */
     public static final String AccountDetail1 = "/api/member/account";
     /**
      * 我的充值

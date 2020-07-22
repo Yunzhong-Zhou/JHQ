@@ -204,7 +204,6 @@ public class Fragment1DeatilActivity extends BaseActivity {
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
 //                PredictionDetailModel.KlineListBean data = (PredictionDetailModel.KlineListBean) point;
 //               MyLogger("index:" + index + " closePrice:" + data.getClose());
-                MyLogger.i(">>>>>>onSelectedChanged>");
             }
         });
         mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据

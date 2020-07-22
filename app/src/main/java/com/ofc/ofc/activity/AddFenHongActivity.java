@@ -1,8 +1,12 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,7 +17,7 @@ import com.google.gson.Gson;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.Fragment1DetailModel;
+import com.ofc.ofc.model.FenHongModel;
 import com.ofc.ofc.model.WebSocketModel;
 import com.ofc.ofc.model.WebSocket_ListModel;
 import com.ofc.ofc.net.OkHttpClientManager;
@@ -31,13 +35,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by zyz on 2020/7/5.
  */
 public class AddFenHongActivity extends BaseActivity {
-
+    FenHongModel model;
+    TextView tv_usdt, tv_fenhongzhishu, tv_toal, tv_24h, tv_mairu, tv_jisuan, tv_faxingjia, tv_ofc_yue, tv_zengzhi,
+            tv_heyue, tv_usdt_yue, tv_yifenhong;
+    ImageView iv_toal, iv_24h, iv_jian, iv_jia, iv_zengzhi;
+    EditText et_keyong;
 
     //走势图
     RelativeLayout rl_1min, rl_5min, rl_30min, rl_1h, rl_1day, rl_1mon;
@@ -111,12 +120,8 @@ public class AddFenHongActivity extends BaseActivity {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                /*page = 1;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&id=" + history_id
-                        + "&token=" + localUserInfo.getToken();
-                Request(string);*/
+                String string = "?token=" + localUserInfo.getToken();
+                Request(string);
             }
 
             @Override
@@ -129,7 +134,47 @@ public class AddFenHongActivity extends BaseActivity {
                 RequestMore(string);*/
             }
         });
+        //普通数据
+        tv_usdt = findViewByID_My(R.id.tv_usdt);
+        tv_fenhongzhishu = findViewByID_My(R.id.tv_fenhongzhishu);
+        tv_toal = findViewByID_My(R.id.tv_toal);
+        tv_24h = findViewByID_My(R.id.tv_24h);
+        tv_mairu = findViewByID_My(R.id.tv_mairu);
+        tv_jisuan = findViewByID_My(R.id.tv_jisuan);
+        tv_faxingjia = findViewByID_My(R.id.tv_faxingjia);
+        tv_ofc_yue = findViewByID_My(R.id.tv_ofc_yue);
+        tv_zengzhi = findViewByID_My(R.id.tv_zengzhi);
+        tv_heyue = findViewByID_My(R.id.tv_heyue);
+        tv_usdt_yue = findViewByID_My(R.id.tv_usdt_yue);
+        tv_yifenhong = findViewByID_My(R.id.tv_yifenhong);
+        iv_toal = findViewByID_My(R.id.iv_toal);
+        iv_24h = findViewByID_My(R.id.iv_24h);
+        iv_jian = findViewByID_My(R.id.iv_jian);
+        iv_jia = findViewByID_My(R.id.iv_jia);
+        iv_zengzhi = findViewByID_My(R.id.iv_zengzhi);
+        et_keyong = findViewByID_My(R.id.et_keyong);
+        //输入监听
+        et_keyong.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (model.getOfc_price() != null) {
+                    if (!et_keyong.getText().toString().trim().equals("")) {
+                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                        tv_jisuan.setText("=" + String.format("%.2f", shouxufei) + "USDT");
+                    }
+                }
+            }
+        });
         //k线图
         mKChartView = findViewByID_My(R.id.mKChartView);
         mAdapter = new KChartAdapter();
@@ -144,7 +189,6 @@ public class AddFenHongActivity extends BaseActivity {
             public void onSelectedChanged(BaseKChartView view, Object point, int index) {
 //                PredictionDetailModel.KlineListBean data = (PredictionDetailModel.KlineListBean) point;
 //               MyLogger("index:" + index + " closePrice:" + data.getClose());
-                MyLogger.i(">>>>>>onSelectedChanged>");
             }
         });
         mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
@@ -202,16 +246,12 @@ public class AddFenHongActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading));
-        /*page = 1;
-        String string = "?page=" + page//当前页号
-                + "&count=" + "10"//页面行数
-                + "&id=" + history_id
-                + "&token=" + localUserInfo.getToken();
-        Request(string);*/
+        String string = "?token=" + localUserInfo.getToken();
+        Request(string);
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.HeYue_Detail + string, new OkHttpClientManager.ResultCallback<Fragment1DetailModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.FenHong + string, new OkHttpClientManager.ResultCallback<FenHongModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -222,50 +262,45 @@ public class AddFenHongActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final Fragment1DetailModel response) {
+            public void onResponse(final FenHongModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>合约详情" + response);
-                /*model = response;
-                tv_qici.setText(getText(R.string.fragment1_h4) + model.getChange_game().getPeriod() + getText(R.string.fragment1_h5));//期次
-                tv_zoushi.setText(model.getChange_game().getInit_at() + "-" + model.getChange_game().getWin_at() + getText(R.string.fragment1_h6));//价格走势
-
-                if (model.getChange_game().getStatus() != 1) {
-                    tv_zuokong.setText(model.getChange_game().get_$2_amount_money());//做空
-                    tv_zuoduo.setText(model.getChange_game().get_$1_amount_money());//做多
+                MyLogger.i(">>>>>>>>分红" + response);
+                model = response;
+                tv_usdt.setText(model.getOfc_money());
+                tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
+                if (model.getToal_appreciation() >= 0) {
+                    tv_toal.setTextColor(getResources().getColor(R.color.green_1));
+                    tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
                 } else {
-                    tv_zuokong.setText("--");//做空
-                    tv_zuoduo.setText("--");//做多
+                    tv_toal.setTextColor(getResources().getColor(R.color.red_1));
+                    tv_toal.setText("Toal -" + model.getToal_appreciation() + "%");
                 }
-                tv_zhuangtai.setText(model.getChange_game().getStatus_title());
-                //做空百分比
-                tv_zuokong_baifenbi.setText(model.getChange_game().getFall_ratio() + "%");
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-                params.weight = Float.valueOf(model.getChange_game().getFall_ratio());//在此处设置weight
-                tv_zuokong_baifenbi.setLayoutParams(params);
+                if (model.getLast_appreciation() >= 0) {
+                    tv_24h.setTextColor(getResources().getColor(R.color.green_1));
+                    tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
 
-                //做多百分比
-                tv_zuoduo_baifenbi.setText(model.getChange_game().getRise_ratio() + "%");
-                LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-                params1.weight = Float.valueOf(model.getChange_game().getRise_ratio());//在此处设置weight
-                tv_zuoduo_baifenbi.setLayoutParams(params1);
-
-                tv_money_left.setText(model.getChange_game().getInit_num());
-                tv_time_left.setText(model.getChange_game().getInit_at());
-                tv_money_right.setText(model.getChange_game().getWin_num());
-                tv_time_right.setText(model.getChange_game().getWin_at());
-                if (model.getChange_game().getWin_rise_fall() == 1) {////看涨、做多
-                    tv_jieguo.setText(getString(R.string.fragment1_h9));
-                    tv_jieguo.setTextColor(getResources().getColor(R.color.green_1));
+                    tv_zengzhi.setTextColor(getResources().getColor(R.color.green_1));
+                    tv_zengzhi.setText(model.getLast_appreciation() + "%");
                 } else {
-                    tv_jieguo.setText(getString(R.string.fragment1_h8));
-                    tv_jieguo.setTextColor(getResources().getColor(R.color.red_1));
-                }*/
+                    tv_24h.setTextColor(getResources().getColor(R.color.red_1));
+                    tv_24h.setText("24H -" + model.getLast_appreciation() + "%");
+
+                    tv_zengzhi.setTextColor(getResources().getColor(R.color.red_1));
+                    tv_zengzhi.setText(model.getLast_appreciation() + "%");
+                }
+                et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
+                tv_ofc_yue.setText(model.getOfc_money());
+                tv_usdt_yue.setText(model.getCommon_usable_money());
+
+                tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price());
+
+
+                tv_heyue.setText(getString(R.string.qianbao_h39) + model.getContract_money());
+                tv_yifenhong.setText(model.getInterest_money());
+
 
                 changeUI();
-
             }
         });
     }
@@ -273,6 +308,66 @@ public class AddFenHongActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.iv_jian:
+                //买涨-减
+                double tempMoney_jian_left = 0;
+                if (!et_keyong.getText().toString().trim().equals("")) {
+                    tempMoney_jian_left = Double.valueOf(et_keyong.getText().toString().trim());
+                }
+                if (tempMoney_jian_left > 10) {
+                    tempMoney_jian_left -= 10;
+                    et_keyong.setText((int) tempMoney_jian_left + "");
+                } else {
+                    tempMoney_jian_left = 0;
+                    et_keyong.setText("");
+                }
+
+                //计算手续费 输入币数 * usdt_price / ofc_price;
+                double shouxufei1 = tempMoney_jian_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                tv_jisuan.setText("=" + String.format("%.2f", shouxufei1) + "USDT");
+
+                break;
+            case R.id.iv_jia:
+                //买涨-加
+                double tempMoney_jia_left = 0;
+                if (!et_keyong.getText().toString().trim().equals("")) {
+                    tempMoney_jia_left = Double.valueOf(et_keyong.getText().toString().trim());
+                }
+                if (Double.valueOf(model.getCommon_usable_money()) > tempMoney_jia_left) {
+                    if ((Double.valueOf(model.getCommon_usable_money()) - tempMoney_jia_left) >= 10) {
+                        tempMoney_jia_left += 10;
+                    } else {
+                        tempMoney_jia_left = Double.valueOf(model.getCommon_usable_money());
+                    }
+                }
+                et_keyong.setText((int) tempMoney_jia_left + "");
+
+                //计算手续费 输入币数 * usdt_price / ofc_price;
+                double shouxufei2 = tempMoney_jia_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                tv_jisuan.setText("=" + String.format("%.2f", shouxufei2) + "USDT");
+
+                break;
+            case R.id.tv_mairu:
+                //买入
+                if (!et_keyong.getText().toString().trim().equals("")) {
+                    if (Double.valueOf(et_keyong.getText().toString().trim()) >= 10) {
+                        tv_mairu.setClickable(false);
+                        showProgress(true, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+//                        params.put("hk", model.getHk());
+//                        params.put("change_game_id", model.getChange_game().getId());
+//                        params.put("type", "1");//类型（1.看涨 2.看跌）
+                        params.put("money", et_keyong.getText().toString().trim());
+                        params.put("token", localUserInfo.getToken());
+                        requestAdd(params);
+
+                    } else {
+                        myToast(getString(R.string.fragment1_h26));
+                    }
+                } else {
+                    myToast(getString(R.string.fragment1_h25));
+                }
+                break;
             case R.id.rl_1min:
                 //1分钟
                 cancelDingYue();//先取消订阅-再订阅最新
@@ -330,6 +425,69 @@ public class AddFenHongActivity extends BaseActivity {
         }
     }
 
+    private void requestAdd(HashMap<String, String> params) {
+        OkHttpClientManager.postAsyn(AddFenHongActivity.this, URLs.AddFenHong, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    //是否包含"余币不足"
+                    if (info.contains(getString(R.string.fragment1_h27))) {
+                        showToast(info, getString(R.string.fragment1_h28),
+                                getString(R.string.app_cancel),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //充值
+                                        dialog.dismiss();
+                                        MainActivity.item = 3;
+                                        MainActivity.navigationBar.selectTab(3);
+//                                        CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //取消
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } else {
+                        showToast(info);
+                    }
+
+                }
+                tv_mairu.setClickable(true);
+
+                requestServer();
+            }
+
+            @Override
+            public void onResponse(final String response) {
+                tv_mairu.setClickable(true);
+//                hideProgress();
+                MyLogger.i(">>>>>>>>>合约买入" + response);
+
+                requestServer();
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    String info = jObj.getString("msg");
+                    myToast(info);
+
+                    JSONObject jObj1 = new JSONObject(jObj.getString("data"));
+                    String id = jObj1.getString("id");
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", id);
+                    CommonUtil.gotoActivityWithData(AddFenHongActivity.this, FenHongListActivity.class, bundle, false);
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        }, true);
+    }
 
     /**
      * 连接websocket、解析、展示
