@@ -157,8 +157,14 @@
             android:name="com.ofc.ofc.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
+            android:name="com.ofc.ofc.activity.OFCAccountDetailActivity"
+            android:label="OFC钱包" />
+        <activity
             android:name="com.ofc.ofc.activity.AccountDetailActivity"
             android:label="我的钱包" />
+        <activity
+            android:name="com.ofc.ofc.activity.RechargeActivity"
+            android:label="充值" />
         <activity
             android:name="com.ofc.ofc.activity.AddFenHongActivity"
             android:label="分红" />

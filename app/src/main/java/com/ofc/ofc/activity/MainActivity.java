@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity {
         String[] tabText = {getString(R.string.fragment3) + "",
                 getString(R.string.fragment2) + "",
                 "",
-                getString(R.string.fragment4) + "",
+                getString(R.string.qianbao_h40) + "",
                 getString(R.string.fragment5) + ""};
         //未选中icon
         int[] normalIcon = {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};

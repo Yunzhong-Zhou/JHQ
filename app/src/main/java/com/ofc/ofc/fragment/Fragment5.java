@@ -26,6 +26,7 @@ import com.ofc.ofc.activity.MyTakeCashActivity;
 import com.ofc.ofc.activity.NewcomerRewardActivity;
 import com.ofc.ofc.activity.OnlineServiceActivity;
 import com.ofc.ofc.activity.QRCodeActivity;
+import com.ofc.ofc.activity.RechargeActivity;
 import com.ofc.ofc.activity.SchoolActivity;
 import com.ofc.ofc.activity.ServiceCenter_NoActivity;
 import com.ofc.ofc.activity.ServiceCenter_YesActivity;
@@ -287,9 +288,9 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout1:
                 //充值
-                MainActivity.item = 3;
-                MainActivity.navigationBar.selectTab(3);
-//                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+               /* MainActivity.item = 3;
+                MainActivity.navigationBar.selectTab(3);*/
+                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
             case R.id.linearLayout2:
                 //划转

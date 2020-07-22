@@ -89,43 +89,45 @@ public class FenHongListActivity extends BaseActivity {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>分红详情" + response);
 
-                textView1.setText(response.getInvest().getOfc_money());//币数量
-                textView2.setText(response.getInvest().getAppreciation() + "%");//已增值
-                textView3.setText(response.getInvest().getInterest_money());//已分红
-                textView4.setText(response.getInvest().getOfc_price());//买入价
-                textView5.setText(response.getInvest().getType_title());//币来源
-                textView6.setText(response.getInvest().getUnfreeze_at());//解冻时间
+                if (response.getInvest() !=null){
+                    textView1.setText(response.getInvest().getOfc_money());//币数量
+                    textView2.setText(response.getInvest().getAppreciation() + "%");//已增值
+                    textView3.setText(response.getInvest().getInterest_money());//已分红
+                    textView4.setText(response.getInvest().getOfc_price());//买入价
+                    textView5.setText(response.getInvest().getType_title());//币来源
+                    textView6.setText(response.getInvest().getUnfreeze_at());//解冻时间
 
-                list = response.getInvest().getInterest_list();
-                if (list.size() > 0) {
-                    showContentPage();
-                    mAdapter = new CommonAdapter<FenHongListModel.InvestBean.InterestListBean>
-                            (FenHongListActivity.this, R.layout.item_fenhonglist, list) {
-                        @Override
-                        protected void convert(ViewHolder holder, final FenHongListModel.InvestBean.InterestListBean model, int position) {
-                            holder.setText(R.id.textView1, model.getMoney() + "USDT");//标题
-                            holder.setText(R.id.textView2, "+"+model.getRate() );//流水号
+                    list = response.getInvest().getInterest_list();
+                    if (list.size() > 0) {
+                        showContentPage();
+                        mAdapter = new CommonAdapter<FenHongListModel.InvestBean.InterestListBean>
+                                (FenHongListActivity.this, R.layout.item_fenhonglist, list) {
+                            @Override
+                            protected void convert(ViewHolder holder, final FenHongListModel.InvestBean.InterestListBean model, int position) {
+                                holder.setText(R.id.textView1, model.getMoney() + "USDT");//标题
+                                holder.setText(R.id.textView2, "+"+model.getRate() );//流水号
 //                            holder.setText(R.id.textView3, );//时间
-                            holder.setText(R.id.textView4, model.getCreated_at());//状态
+                                holder.setText(R.id.textView4, model.getCreated_at());//状态
 
-                        }
-                    };
-                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            }
+                        };
+                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
 //                        CommonUtil.gotoActivity(AccountDetailActivity.this,FenHongListActivity.class,false);
-                        }
+                            }
 
-                        @Override
-                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                            return false;
-                        }
-                    });
-                    recyclerView.setAdapter(mAdapter);
-                } else {
-                    showEmptyPage();
+                            @Override
+                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                                return false;
+                            }
+                        });
+                        recyclerView.setAdapter(mAdapter);
+                    } else {
+                        showEmptyPage();
+                    }
+
                 }
-
 
                 hideProgress();
             }

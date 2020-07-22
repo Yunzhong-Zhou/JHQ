@@ -159,7 +159,7 @@ public class URLs {
     /**
      * 账户详情
      */
-    public static final String AccountDetail = "/api/invest/account";
+    public static final String OFCAccountDetail = "/api/invest/account";
     /**
      * 分红主页
      */
@@ -175,7 +175,7 @@ public class URLs {
     /**
      * 账户详情
      */
-    public static final String AccountDetail1 = "/api/member/account";
+    public static final String AccountDetail = "/api/member/account";
     /**
      * 我的充值
      */

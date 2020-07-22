@@ -149,7 +149,10 @@ public class Fragment1 extends BaseFragment {
         if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
                 if (MainActivity.item == 0) {
+                    //关闭连接
+                    WebSocketManager.getInstance().close();
                     requestServer();
+                    requestWebSocket();
                 }
             }
         }

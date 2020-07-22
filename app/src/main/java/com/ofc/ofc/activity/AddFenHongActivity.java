@@ -126,12 +126,6 @@ public class AddFenHongActivity extends BaseActivity {
 
             @Override
             public void onLoadmore() {
-                /*page = page + 1;
-                String string = "?page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&id=" + history_id
-                        + "&token=" + localUserInfo.getToken();
-                RequestMore(string);*/
             }
         });
         //普通数据
@@ -367,6 +361,15 @@ public class AddFenHongActivity extends BaseActivity {
                 } else {
                     myToast(getString(R.string.fragment1_h25));
                 }
+                break;
+            case R.id.ll_ofc:
+                //ofc
+                CommonUtil.gotoActivity(AddFenHongActivity.this, OFCAccountDetailActivity.class, false);
+                break;
+            case R.id.ll_usdt:
+                //usdt
+                CommonUtil.gotoActivity(AddFenHongActivity.this, RechargeActivity.class, false);
+
                 break;
             case R.id.rl_1min:
                 //1分钟
