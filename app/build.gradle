@@ -110,6 +110,8 @@ dependencies {
 
     //图片圆角
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
+    //圆形图片
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //图片点击放大
     implementation 'com.bm.photoview:library:1.4.1'

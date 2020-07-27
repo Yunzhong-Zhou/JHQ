@@ -213,13 +213,13 @@ public class MainDraw implements IChartDraw<ICandle> {
         ICandle point = (ICandle) view.getItem(index);
         List<String> strings = new ArrayList<>();
         strings.add(view.formatDateTime(view.getAdapter().getDate(index)));
-        strings.add("高:" + point.getHighPrice());
-        strings.add("低:" + point.getLowPrice());
-        strings.add("开:" + point.getOpenPrice());
-        strings.add("收:" + point.getClosePrice());
-        strings.add("涨跌额:" + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice())));
-        strings.add("涨跌幅:" + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice()) / point.getOpenPrice() * 100) + "%");
-        strings.add("成交量:" + (int) point.getAmount());
+        strings.add(mContext.getString(R.string.kchart_string1) + point.getHighPrice());
+        strings.add(mContext.getString(R.string.kchart_string2) + point.getLowPrice());
+        strings.add(mContext.getString(R.string.kchart_string3) + point.getOpenPrice());
+        strings.add(mContext.getString(R.string.kchart_string4)+ point.getClosePrice());
+        strings.add(mContext.getString(R.string.kchart_string5) + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice())));
+        strings.add(mContext.getString(R.string.kchart_string6) + String.format("%.2f", (point.getClosePrice() - point.getOpenPrice()) / point.getOpenPrice() * 100) + "%");
+        strings.add(mContext.getString(R.string.kchart_string7) + (int) point.getAmount());
 
         for (String s : strings) {
             width = Math.max(width, mSelectorTextPaint.measureText(s));

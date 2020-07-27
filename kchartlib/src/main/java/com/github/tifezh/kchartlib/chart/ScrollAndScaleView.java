@@ -196,6 +196,8 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
         }
         return super.onInterceptTouchEvent(ev);
     }*/
+    float xDistance = 0, lastX = 0;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -203,6 +205,11 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
                 touch = true;
 //                if (event.getPointerCount() == 1) {//触控点数量
                 onLongPress(event);
+
+
+                //保存点击后的x点坐标
+                xDistance = 0f;
+                lastX = event.getX();
 //                }
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -212,7 +219,14 @@ public abstract class ScrollAndScaleView extends RelativeLayout implements
                         onLongPress(event);
                     }
                 }*/
-                isLongPress = false;
+
+
+                //如果移动的距离大于100，设置为未选择
+                final float curX = event.getX();
+                xDistance += Math.abs(curX - lastX);
+                if (xDistance > 100) {
+                    isLongPress = false;
+                }
                 invalidate();
                 break;
             case MotionEvent.ACTION_POINTER_UP:

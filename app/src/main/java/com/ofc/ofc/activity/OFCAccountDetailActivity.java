@@ -250,7 +250,7 @@ public class OFCAccountDetailActivity extends BaseActivity {
 
             case R.id.head1_linearLayout1:
                 //充值
-                CommonUtil.gotoActivity(this, RechargeActivity.class, false);
+                CommonUtil.gotoActivity(this, OFCRechargeActivity.class, false);
                 /*Bundle bundle = new Bundle();
                 bundle.putInt("item", 3);
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class, bundle, true);*/
@@ -269,7 +269,7 @@ public class OFCAccountDetailActivity extends BaseActivity {
 
             case R.id.head1_linearLayout3:
                 //提现
-                CommonUtil.gotoActivity(this, TakeCashActivity.class, false);
+                CommonUtil.gotoActivity(this, OFCTakeCashActivity.class, false);
                 break;
             case R.id.head1_textView5:
                 //币地址

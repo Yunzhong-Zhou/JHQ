@@ -166,6 +166,9 @@
             android:name="com.ofc.ofc.activity.RechargeActivity"
             android:label="充值" />
         <activity
+            android:name="com.ofc.ofc.activity.OFCRechargeActivity"
+            android:label="OFC充值" />
+        <activity
             android:name="com.ofc.ofc.activity.AddFenHongActivity"
             android:label="分红" />
         <activity
@@ -183,6 +186,9 @@
         <activity
             android:name="com.ofc.ofc.activity.TakeCashActivity"
             android:label="提现" />
+        <activity
+            android:name="com.ofc.ofc.activity.OFCTakeCashActivity"
+            android:label="OFC提现" />
         <activity
             android:name="com.ofc.ofc.activity.MyTakeCashActivity"
             android:label="我的提现" />
