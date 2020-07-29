@@ -203,6 +203,7 @@ MobSDK {
     appKey "2e203bbc66b2a"
     appSecret "1f0bcee1f26f892737d09be0192d98e3"
     MobPush {
+        version "3.0.4"
         bradge true//设置是否开启角标开关
         devInfo {
             HUAWEI {

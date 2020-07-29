@@ -1,19 +1,32 @@
 package com.ofc.ofc;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 
 import com.hjq.toast.ToastUtils;
 import com.mob.MobSDK;
+import com.mob.pushsdk.MobPush;
+import com.mob.pushsdk.MobPushCustomMessage;
+import com.mob.pushsdk.MobPushNotifyMessage;
+import com.mob.pushsdk.MobPushReceiver;
+import com.ofc.ofc.activity.PredictionDetailActivity;
+import com.ofc.ofc.activity.WebContentActivity;
 import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.utils.changelanguage.LanguageUtil;
 import com.ofc.ofc.utils.changelanguage.SpUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
+
+import java.util.List;
 
 /**
  * Created by zyz on 2018/1/18.
@@ -28,6 +41,8 @@ public class MyApplication extends Application {
     public static MyApplication getInstance() {
         return myApplication;
     }
+
+    private Handler handler;
 
     @Override
     public final void onCreate() {
@@ -81,6 +96,98 @@ public class MyApplication extends Application {
 
         //推送初始化
         MobSDK.init(mContext);
+        //防止多进程注册多次  可以在MainActivity或者其他页面注册MobPushReceiver
+        String processName = getProcessName(this);
+        if (getPackageName().equals(processName)) {
+            MobPush.addPushReceiver(new MobPushReceiver() {
+                @Override
+                public void onCustomMessageReceive(Context context, MobPushCustomMessage message) {
+                    //接收自定义消息(透传)
+                    MyLogger.i("接收自定义消息(透传)onCustomMessageReceive:" + message.toString());
+                }
+
+                @Override
+                public void onNotifyMessageReceive(Context context, MobPushNotifyMessage message) {
+                    //接收通知消息
+                    MyLogger.i("接收通知消息MobPush onNotifyMessageReceive:" + message.toString());
+
+                }
+
+                @Override
+                public void onNotifyMessageOpenedReceive(Context context, MobPushNotifyMessage message) {
+                    //接收通知消息被点击事件
+                    MyLogger.i("接收通知消息被点击事件MobPush onNotifyMessageOpenedReceive:" + message.toString());
+                    Message msg = new Message();
+//                msg.obj = "Click Message:" + message.toString();
+//                msg.obj = "Click Message:" + message.getTitle();
+//                msg.obj = "Click Message:" + message.getContent();
+                    switch (message.getExtrasMap().get("type")) {
+                        case "1":
+                            //网页
+                            msg.what = 1;
+                            msg.obj = message.getExtrasMap().get("url");
+                            break;
+                        case "2":
+                            //订单详情
+                            msg.what = 2;
+                            msg.obj = message.getExtrasMap().get("symbol");
+                            break;
+                    }
+                    handler.sendMessage(msg);
+                }
+
+                @Override
+                public void onTagsCallback(Context context, String[] tags, int operation, int errorCode) {
+                    //接收tags的增改删查操作
+                    MyLogger.i("接收tags的增改删查操作onTagsCallback:" + operation + "  " + errorCode);
+                }
+
+                @Override
+                public void onAliasCallback(Context context, String alias, int operation, int errorCode) {
+                    //接收alias的增改删查操作
+                    MyLogger.i("接收alias的增改删查操作onAliasCallback:" + alias + "  " + operation + "  " + errorCode);
+                }
+            });
+
+            handler = new Handler(new Handler.Callback() {
+                @Override
+                public boolean handleMessage(Message msg) {
+                    Bundle bundle = new Bundle();
+                    switch (msg.what) {
+                        case 1:
+                            //网页
+                            MyLogger.i(">>>>>>>>网页：" + msg.obj.toString());
+                            Intent i = new Intent(mContext, WebContentActivity.class);
+                            bundle.putString("url", msg.obj.toString());
+                            i.putExtras(bundle);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            mContext.startActivity(i);
+                            break;
+                        case 2:
+                            //订单详情
+                            MyLogger.i(">>>>>>>>>symbol:" + msg.obj.toString());
+//                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
+                            Intent i2 = new Intent(mContext, PredictionDetailActivity.class);
+                            bundle.putString("symbol", msg.obj.toString());
+                            i2.putExtras(bundle);
+                            i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            mContext.startActivity(i2);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //当其它dialog未关闭的时候，再次显示dialog，会造成其他dialog无法dismiss的现象，建议使用toast
+//			if(PushDeviceHelper.getInstance().isNotificationEnabled()) {
+//				Toast.makeText(MainActivity.this, "回调信息\n" + (String) msg.OBJ, Toast.LENGTH_SHORT).show();
+//			} else {//当做比通知栏后，toast是无法显示的
+//				new DialogShell(MainActivity.this).autoDismissDialog(0, "回调信息\n" + (String)msg.OBJ, 2);
+//			}
+
+                    return false;
+                }
+            });
+        }
        /* Resources resources = getResources();
         // 获取应用内语言
         final Configuration configuration = resources.getConfiguration();
@@ -156,5 +263,21 @@ public class MyApplication extends Application {
             res.updateConfiguration(newConfig, res.getDisplayMetrics());
         }
         return res;
+    }
+
+    private String getProcessName(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
+        if (runningApps == null) {
+            return null;
+        }
+        for (ActivityManager.RunningAppProcessInfo proInfo : runningApps) {
+            if (proInfo.pid == android.os.Process.myPid()) {
+                if (proInfo.processName != null) {
+                    return proInfo.processName;
+                }
+            }
+        }
+        return null;
     }
 }

@@ -99,7 +99,13 @@
             android:label="注册" />
         <activity
             android:name="com.ofc.ofc.activity.WebContentActivity"
-            android:label="网页" />
+            android:label="网页" >
+            <!--点击通知默认打开-->
+            <!--<intent-filter>
+                <action android:name="${applicationId}.default.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name="com.ofc.ofc.activity.TESTActivity"
             android:label="测试" />
@@ -112,7 +118,13 @@
             android:label="往期列表" />
         <activity
             android:name="com.ofc.ofc.activity.PredictionDetailActivity"
-            android:label="预测详情" />
+            android:label="预测详情" >
+            <!--点击通知默认打开-->
+            <!--<intent-filter>
+                <action android:name="${applicationId}.default.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name="com.ofc.ofc.activity.PredictionDetailActivity_MPChart"
             android:label="预测详情_MPChart" />
@@ -243,6 +255,7 @@
         <activity
             android:name="com.ofc.ofc.activity.VerfiedResultActivity"
             android:label="认证结果" />
+
         <!--全面屏适配-->
         <meta-data
             android:name="design_width_in_dp"
@@ -263,6 +276,20 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
+        <!--查看mob推送日志-->
+        <meta-data
+            android:name="com.mob.mobpush.debugLevel"
+            android:value="4" />
+        <!--配置华为-->
+        <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
+            </intent-filter>
+        </receiver>
 
         <!--7.0限制-私有目录被限制访问-->
         <!--exported:要求必须为false，为true则会报安全异常。
@@ -297,6 +324,5 @@
     <uses-feature
         android:name="android.hardware.camera.flash"
         android:required="false" />
-
 
 </manifest>

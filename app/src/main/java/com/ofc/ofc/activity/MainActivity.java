@@ -1,7 +1,6 @@
 package com.ofc.ofc.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -11,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -23,9 +21,6 @@ import android.widget.Toast;
 import com.cy.dialog.BaseDialog;
 import com.maning.updatelibrary.InstallUtils;
 import com.mob.pushsdk.MobPush;
-import com.mob.pushsdk.MobPushCustomMessage;
-import com.mob.pushsdk.MobPushNotifyMessage;
-import com.mob.pushsdk.MobPushReceiver;
 import com.next.easynavigation.view.EasyNavigationBar;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -309,9 +304,17 @@ public class MainActivity extends BaseActivity {
 
         MobPush.setAlias(localUserInfo.getUserId());//设置别名
 //        MobPush.addTags();//设置标签
+        /*//获取设备rid
+        MobPush.getRegistrationId(new MobPushCallback<String>() {
+            @Override
+            public void onCallback(String rid) {
+                MyLogger.i(">>>>>>>>>>>RegistrationId:" + rid);
+                showToast(rid);
+            }
+        });*/
         //推送
         MobPush.setShowBadge(true); //默认是关闭的，设置true为打开显示角标，反之则为关闭显示角标
-        MobPush.addPushReceiver(new MobPushReceiver() {
+        /*MobPush.addPushReceiver(new MobPushReceiver() {
             @Override
             public void onCustomMessageReceive(Context context, MobPushCustomMessage message) {
                 //接收自定义消息(透传)
@@ -322,7 +325,6 @@ public class MainActivity extends BaseActivity {
             public void onNotifyMessageReceive(Context context, MobPushNotifyMessage message) {
                 //接收通知消息
                 MyLogger.i("接收通知消息MobPush onNotifyMessageReceive:" + message.toString());
-
             }
 
             @Override
@@ -346,7 +348,6 @@ public class MainActivity extends BaseActivity {
                         break;
                 }
                 handler.sendMessage(msg);
-
             }
 
             @Override
@@ -385,7 +386,6 @@ public class MainActivity extends BaseActivity {
                         i2.putExtras(bundle);
                         i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         MainActivity.this.startActivity(i2);
-
                         break;
                     default:
                         break;
@@ -400,7 +400,7 @@ public class MainActivity extends BaseActivity {
 
                 return false;
             }
-        });
+        });*/
 
         /*isShowAd = getIntent().getIntExtra("isShowAd", 0);
         if (isShowAd == 1) {
