@@ -3,8 +3,6 @@ package com.ofc.ofc.activity;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
@@ -24,7 +23,6 @@ import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -36,6 +34,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by zyz on 2017/9/5.
@@ -294,6 +295,7 @@ public class MyTakeCashActivity extends BaseActivity {
         list.add(getString(R.string.app_type_quanbu));
         list.add(getString(R.string.app_type_USDT));
         list.add(getString(R.string.app_type_AY));
+        list.add("OFC");
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyTakeCashActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);

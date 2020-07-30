@@ -195,13 +195,13 @@ public class OFCTakeCashActivity extends BaseActivity {
                     textView3.setVisibility(View.GONE);
                     textView1.setVisibility(View.VISIBLE);
 
-                    showToast(getString(R.string.address_h26),
+                    showToast(getString(R.string.qianbao_h47),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetAddressActivity.class, false);
+                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
                         }
                     }, new View.OnClickListener() {
                                 @Override
@@ -212,7 +212,7 @@ public class OFCTakeCashActivity extends BaseActivity {
                             });
                 }
 
-                textView4.setText(getString(R.string.takecash_h3) + response.getCommon_usable_money());//可用余额
+                textView4.setText(getString(R.string.qianbao_h46) + response.getCommon_usable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8)
                         + "(" + model.getMin_withdrawal_money() + "-" +
                         model.getMax_withdrawal_money() + ")");//请输入提币个数
@@ -254,7 +254,7 @@ public class OFCTakeCashActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -315,13 +315,13 @@ public class OFCTakeCashActivity extends BaseActivity {
                                 }
                             });
                 }else if (response.getCode() ==2){
-                    showToast(getString(R.string.address_h26),
+                    showToast(getString(R.string.qianbao_h47),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetAddressActivity.class, false);
+                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
                         }
                     }, new View.OnClickListener() {
                                 @Override
