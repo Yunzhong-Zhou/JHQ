@@ -61,7 +61,8 @@ public class TakeCashActivity extends BaseActivity {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                String string = "?token=" + localUserInfo.getToken();
+                String string = "?token=" + localUserInfo.getToken()
+                        + "&money_type=" + "1";
                 RequestAvailableAmount(string);//获取可用币数
             }
 
@@ -148,6 +149,7 @@ public class TakeCashActivity extends BaseActivity {
                     params.put("code", code);
                     params.put("trade_password", password);//交易密码（不能小于6位数）
                     params.put("input_money", money);//提现金额
+                    params.put("money_type", "1");
                     params.put("token", localUserInfo.getToken());
                     params.put("hk", model.getHk());
                     RequestTakeCash(params);//提现
@@ -386,7 +388,8 @@ public class TakeCashActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading2));
-        String string = "?token=" + localUserInfo.getToken();
+        String string = "?token=" + localUserInfo.getToken()
+                + "&money_type=" + "1";
         RequestAvailableAmount(string);//获取可用币数
     }
 

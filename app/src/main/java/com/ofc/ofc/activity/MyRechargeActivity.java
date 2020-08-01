@@ -147,11 +147,11 @@ public class MyRechargeActivity extends BaseActivity {
                                 (MyRechargeActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                if (model.getType() == 1){
-                                    holder.setText(R.id.textView1, model.getType_title()+"：+" + model.getMoney());//标题
-                                }else {
+                                if (model.getType() == 1 || model.getType() == 3) {
+                                    holder.setText(R.id.textView1, model.getType_title() + "：+" + model.getMoney());//标题
+                                } else {
                                     holder.setText(R.id.textView1, "USDT：+" + model.getMoney() +
-                                            "("+model.getType_title()+"：+"+model.getInput_money()+")");//标题
+                                            "(" + model.getType_title() + "：+" + model.getInput_money() + ")");//标题
                                 }
 
                                 holder.setText(R.id.textView2, model.getSn());//流水号

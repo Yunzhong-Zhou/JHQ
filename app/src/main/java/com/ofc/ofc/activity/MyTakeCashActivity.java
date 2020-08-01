@@ -142,7 +142,12 @@ public class MyTakeCashActivity extends BaseActivity {
                                 (MyTakeCashActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyTakeCashModel model, int position) {
-                                holder.setText(R.id.textView1, getString(R.string.takecash_h18) + "：-" + model.getInput_money());//标题
+                                if (model.getType() ==1){
+                                    holder.setText(R.id.textView1, getString(R.string.takecash_h18) + "：-" + model.getInput_money());//标题
+                                }else {
+                                    holder.setText(R.id.textView1, getString(R.string.qianbao_h53) + "：-" + model.getInput_money());//标题
+                                }
+
                                 holder.setText(R.id.textView2, model.getSn());//流水号
                                 holder.setText(R.id.textView3, MyTakeCashActivity.this.getString(R.string.recharge_h22) + model.getCreated_at());//时间
                                 holder.setText(R.id.textView4, model.getStatus_title());//状态

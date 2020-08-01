@@ -8,17 +8,19 @@ import java.io.Serializable;
 
 public class MyTakeCashModel implements Serializable {
     /**
-     * id : 2b8f007446b940cf4c1ff8c7
-     * sn : WL1576578237525550
-     * input_money : 10
-     * money : 9
+     * id : 93664743ab1f5b3333112961
+     * sn : WL1596270907975055
+     * type : 3
+     * input_money : 1000.00
+     * money : 999.00
      * status : 1
-     * created_at : 2019-12-17 18:23:57
+     * created_at : 2020-08-01 16:35:07
      * status_title : 待审核
      */
 
     private String id;
     private String sn;
+    private int type;
     private String input_money;
     private String money;
     private int status;
@@ -39,6 +41,14 @@ public class MyTakeCashModel implements Serializable {
 
     public void setSn(String sn) {
         this.sn = sn;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getInput_money() {

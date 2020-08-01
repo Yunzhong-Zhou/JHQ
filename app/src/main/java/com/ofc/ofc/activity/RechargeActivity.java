@@ -266,7 +266,7 @@ public class RechargeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //取消充币
-                if (detailModel.getTop_up().getType() == 1) {
+                if (detailModel.getTop_up().getType() == 1 || detailModel.getTop_up().getType() == 3) {
                     showToast(getString(R.string.recharge_h29),
                             getString(R.string.app_yes),
                             getString(R.string.app_no),
@@ -440,7 +440,7 @@ public class RechargeActivity extends BaseActivity {
 
                     detail_textView18.setText(getString(R.string.recharge_h28));//取消充币
 
-                } else {
+                } else if (response.getTop_up().getType() == 2) {
                     //澳元电汇
                     detail_linearLayout_addr.setVisibility(View.GONE);//隐藏充币地址
                     detail_linearLayout_bank.setVisibility(View.VISIBLE);//显示银行信息
@@ -470,6 +470,35 @@ public class RechargeActivity extends BaseActivity {
                     detail_textView16.setText(response.getTop_up().getStatus_title());//状态
 
                     detail_textView18.setText(getString(R.string.recharge_h6));//取消电汇
+                } else {
+                    //OFC
+                    detail_imageView_addr.setVisibility(View.VISIBLE);
+                    Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(response.getTop_up().getWallet_addr(),
+                            480, 480);
+                    detail_imageView_addr.setImageBitmap(mBitmap);
+
+                    detail_linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
+                    detail_linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
+                    detail_linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格
+                    detail_linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账
+                    detail_imageView_addr.setVisibility(View.VISIBLE);//显示二维码
+                    detail_textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
+
+                    detail_textView2.setText("+" + response.getTop_up().getMoney());//充值个数
+                    detail_textView3.setText("" + getString(R.string.qianbao_h52));//充币个数（USDT）
+
+                    detail_textView4.setText(getString(R.string.recharge_h13));//充币处理中
+
+                    detail_textView5.setText("" + response.getTop_up().getShow_created_at());//充值处理中时间
+                    detail_textView7.setText("" + response.getTop_up().getShow_updated_at());//充值完成时间
+
+                    detail_textView8.setText(response.getTop_up().getWallet_addr());//充币地址
+
+                    detail_textView14.setText(response.getTop_up().getCreated_at());//充值时间
+                    detail_textView15.setText(response.getTop_up().getSn());//流水号
+                    detail_textView16.setText(response.getTop_up().getStatus_title());//状态
+
+                    detail_textView18.setText(getString(R.string.recharge_h28));//取消充币
                 }
 
                 //进度条
@@ -478,7 +507,7 @@ public class RechargeActivity extends BaseActivity {
                     detail_textView7.setVisibility(View.VISIBLE);
                     detail_imageView2.setImageResource(R.mipmap.ic_rechargedetail3);
                     detail_prograssBar.setProgress(100);
-                    if (response.getTop_up().getType() == 1) {
+                    if (response.getTop_up().getType() == 1 || response.getTop_up().getType() == 3) {
                         //USDT
                         detail_textView6.setText(getString(R.string.recharge_h12));
                     } else {
@@ -492,7 +521,7 @@ public class RechargeActivity extends BaseActivity {
                     detail_textView7.setVisibility(View.VISIBLE);
                     detail_imageView2.setImageResource(R.mipmap.ic_rechargedetail4);
                     detail_prograssBar.setProgress(100);
-                    if (response.getTop_up().getType() == 1) {
+                    if (response.getTop_up().getType() == 1 || response.getTop_up().getType() == 3) {
                         //USDT
                         detail_textView6.setText(getString(R.string.recharge_h26));
                     } else {
@@ -507,7 +536,7 @@ public class RechargeActivity extends BaseActivity {
                     detail_textView7.setVisibility(View.GONE);
                     detail_imageView2.setImageResource(R.mipmap.ic_rechargedetail2);
                     detail_prograssBar.setProgress(50);
-                    if (response.getTop_up().getType() == 1) {
+                    if (response.getTop_up().getType() == 1 || response.getTop_up().getType() == 3) {
                         //USDT
                         detail_textView6.setText(getString(R.string.recharge_h12));
                     } else {
@@ -581,7 +610,7 @@ public class RechargeActivity extends BaseActivity {
                         if (model.getCho().getWallet_addr() != null)
                             params.put("wallet_addr_id", model.getCho().getWallet_addr().getId());
                     }*/
-                    params.put("type", type + "");
+                    params.put("money_type", type + "");
                     params.put("input_money", input_money);
 //                    params.put("pay_type", "");
 //                    params.put("txid", txid);//txid

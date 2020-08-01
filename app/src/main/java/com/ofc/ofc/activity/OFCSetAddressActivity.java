@@ -27,7 +27,7 @@ import java.util.Map;
  */
 
 public class OFCSetAddressActivity extends BaseActivity {
-    int type = 1;
+    int type = 3;
     String address = "";
     //    String qk = "";
     EditText editText1, editText2, editText3;
@@ -43,7 +43,7 @@ public class OFCSetAddressActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        type = getIntent().getIntExtra("type", 1);
+        type = getIntent().getIntExtra("type", 3);
         address = getIntent().getStringExtra("address");
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
@@ -62,9 +62,9 @@ public class OFCSetAddressActivity extends BaseActivity {
             editText1.setHint(getString(R.string.address_h3));
         } else {
             //GUS
-            titleView.setTitle(getString(R.string.address_h16));
-            textView1.setText(getString(R.string.address_h14));
-            editText1.setHint(getString(R.string.address_h15));
+            titleView.setTitle(getString(R.string.qianbao_h48));
+            textView1.setText(getString(R.string.qianbao_h45));
+            editText1.setHint(getString(R.string.qianbao_h49));
         }
         editText1.setText(address);
     }
@@ -92,17 +92,17 @@ public class OFCSetAddressActivity extends BaseActivity {
                     public void onResponse(SetAddressModel response) {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
-                        editText1.setText(response.getUsdt_wallet_addr());
+                        editText1.setText(response.getOfc_wallet_addr());
                         if (response.getTrade_password().equals("")) {
                             showToast(getString(R.string.address_h25),
                                     getString(R.string.password_h5), getString(R.string.password_h6),
                                     new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    CommonUtil.gotoActivity(OFCSetAddressActivity.this, SetTransactionPasswordActivity.class, false);
-                                }
-                            }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            CommonUtil.gotoActivity(OFCSetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                                        }
+                                    }, new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
                                             dialog.dismiss();
@@ -110,6 +110,7 @@ public class OFCSetAddressActivity extends BaseActivity {
                                         }
                                     });
                         }
+
                     }
                 });
     }
@@ -138,7 +139,7 @@ public class OFCSetAddressActivity extends BaseActivity {
                     HashMap<String, String> params = new HashMap<>();
 //                    params.put("qk", qk);
                     params.put("wallet_addr", addr);
-//                    params.put("money_type", type + "");
+                    params.put("money_type", type + "");
 //                    params.put("xrp_wallet_addr", xrp_wallet_addr);
                     params.put("code", code);//手机验证码
                     params.put("token", localUserInfo.getToken());
@@ -221,24 +222,24 @@ public class OFCSetAddressActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
 
-                if (response.getCode() == 1) {
+                if (response.getTrade_password().equals("")) {
                     showToast(getString(R.string.address_h25),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCSetAddressActivity.this, SetTransactionPasswordActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(OFCSetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
                                     finish();
                                 }
                             });
-                } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.address_h26),
+                }/* else if (response.getCode() == 2) {
+                    showToast(getString(R.string.qianbao_h47),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                         @Override
@@ -253,8 +254,8 @@ public class OFCSetAddressActivity extends BaseActivity {
                                     finish();
                                 }
                             });
-                } else {
-                    myToast(getString(R.string.address_h11));
+                } */ else {
+                    myToast(getString(R.string.qianbao_h50));
                     finish();
                 }
 
@@ -308,10 +309,10 @@ public class OFCSetAddressActivity extends BaseActivity {
 
     private boolean match() {
         addr = editText1.getText().toString().trim();
-        /*if (TextUtils.isEmpty(phonenum)) {
-            myToast(getString(R.string.settransactionpassword_phone));
+        if (TextUtils.isEmpty(addr)) {
+            myToast(getString(R.string.qianbao_h49));
             return false;
-        }*/
+        }
 //        eth_wallet_addr = editText2.getText().toString().trim();
         /*if (TextUtils.isEmpty(password1)) {
             myToast(getString(R.string.settransactionpassword_pwd));

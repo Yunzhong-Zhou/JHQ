@@ -7,20 +7,50 @@ import java.io.Serializable;
  */
 public class Fragment4Model implements Serializable {
     /**
+     * ofc_top_up_max_money : 100000
+     * ofc_top_up_min_money : 100
+     * ofc_money : 0.00
      * usdt_top_up_max_money : 100000
-     * usdt_top_up_min_money : 1
+     * usdt_top_up_min_money : 100
      * usdt_price : 1
      * aud_conver_usd : 0.6889
-     * usable_money : 1015.84
-     * id : bc074ffaa8923d040e17c4fc0f6f71b9
+     * usable_money : 88895.01
+     * id :
      */
 
+    private String ofc_top_up_max_money;
+    private String ofc_top_up_min_money;
+    private String ofc_money;
     private String usdt_top_up_max_money;
     private String usdt_top_up_min_money;
     private String usdt_price;
     private String aud_conver_usd;
     private String usable_money;
     private String id;
+
+    public String getOfc_top_up_max_money() {
+        return ofc_top_up_max_money;
+    }
+
+    public void setOfc_top_up_max_money(String ofc_top_up_max_money) {
+        this.ofc_top_up_max_money = ofc_top_up_max_money;
+    }
+
+    public String getOfc_top_up_min_money() {
+        return ofc_top_up_min_money;
+    }
+
+    public void setOfc_top_up_min_money(String ofc_top_up_min_money) {
+        this.ofc_top_up_min_money = ofc_top_up_min_money;
+    }
+
+    public String getOfc_money() {
+        return ofc_money;
+    }
+
+    public void setOfc_money(String ofc_money) {
+        this.ofc_money = ofc_money;
+    }
 
     public String getUsdt_top_up_max_money() {
         return usdt_top_up_max_money;

@@ -145,6 +145,9 @@
             android:name="com.ofc.ofc.activity.SelectAddressActivity"
             android:label="地址管理" />
         <activity
+            android:name="com.ofc.ofc.activity.SelectWalletAddressActivity"
+            android:label="地址管理" />
+        <activity
             android:name="com.ofc.ofc.activity.SetAddressActivity"
             android:label="ETH地址管理和GUS地址管理" />
         <activity

@@ -61,7 +61,8 @@ public class OFCTakeCashActivity extends BaseActivity {
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                String string = "?token=" + localUserInfo.getToken();
+                String string = "?token=" + localUserInfo.getToken()
+                        + "&money_type=" + "3";
                 RequestAvailableAmount(string);//获取可用币数
             }
 
@@ -149,12 +150,13 @@ public class OFCTakeCashActivity extends BaseActivity {
                     params.put("trade_password", password);//交易密码（不能小于6位数）
                     params.put("input_money", money);//提现金额
                     params.put("token", localUserInfo.getToken());
+                    params.put("money_type", "3");
                     params.put("hk", model.getHk());
                     RequestTakeCash(params);//提现
                 }
                 break;
             case R.id.textView1:
-                CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetAddressActivity.class);
+                CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class);
                 break;
             case R.id.textView8:
                     /*String string = "?mobile=" + localUserInfo.getPhonenumber() +
@@ -187,10 +189,10 @@ public class OFCTakeCashActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>可用余额" + response);
                 model = response;
-                if (model.getUsdt_wallet_addr() != null && !model.getUsdt_wallet_addr().equals("")) {
+                if (model.getOfc_wallet_addr() != null && !model.getOfc_wallet_addr().equals("")) {
                     textView3.setVisibility(View.VISIBLE);
                     textView1.setVisibility(View.GONE);
-                    textView3.setText(response.getUsdt_wallet_addr());//地址
+                    textView3.setText(response.getOfc_wallet_addr());//地址
                 } else {
                     textView3.setVisibility(View.GONE);
                     textView1.setVisibility(View.VISIBLE);
@@ -198,12 +200,12 @@ public class OFCTakeCashActivity extends BaseActivity {
                     showToast(getString(R.string.qianbao_h47),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
@@ -212,14 +214,14 @@ public class OFCTakeCashActivity extends BaseActivity {
                             });
                 }
 
-                textView4.setText(getString(R.string.qianbao_h46) + response.getCommon_usable_money());//可用余额
+                textView4.setText(getString(R.string.qianbao_h46) + response.getOfc_usable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8)
-                        + "(" + model.getMin_withdrawal_money() + "-" +
-                        model.getMax_withdrawal_money() + ")");//请输入提币个数
+                        + "(" + model.getOfc_min_withdrawal_money() + "-" +
+                        model.getOfc_max_withdrawal_money() + ")");//请输入提币个数
 
                 textView5.setText(getString(R.string.takecash_h14) + response.getWithdrawal_service_charge()
-                        + getString(R.string.recharge_h32));//手续费
-                textView7.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());//手机号码
+                        + "OFC");//手续费
+                textView7.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());//手机号码
             }
         });
     }
@@ -277,7 +279,7 @@ public class OFCTakeCashActivity extends BaseActivity {
                                         dialog.dismiss();
                                     }
                                 });
-                    } */else {
+                    } */ else {
                         showToast(info);
                     }
                 }
@@ -298,39 +300,39 @@ public class OFCTakeCashActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }*/
-                if (response.getCode() ==1){
+                if (response.getCode() == 1) {
                     showToast(getString(R.string.address_h25),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetTransactionPasswordActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(OFCTakeCashActivity.this, SetTransactionPasswordActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
                                     finish();
                                 }
                             });
-                }else if (response.getCode() ==2){
+                } else if (response.getCode() == 2) {
                     showToast(getString(R.string.qianbao_h47),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(OFCTakeCashActivity.this, OFCSetAddressActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
                                     finish();
                                 }
                             });
-                }else {
+                } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("id", response.getId());
                     CommonUtil.gotoActivityWithData(OFCTakeCashActivity.this, TakeCashDetailActivity.class, bundle, true);
@@ -386,7 +388,8 @@ public class OFCTakeCashActivity extends BaseActivity {
         super.requestServer();
 //        this.showLoadingPage();
         showProgress(true, getString(R.string.app_loading2));
-        String string = "?token=" + localUserInfo.getToken();
+        String string = "?token=" + localUserInfo.getToken()
+                + "&money_type=" + "3";
         RequestAvailableAmount(string);//获取可用币数
     }
 

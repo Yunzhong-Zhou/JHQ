@@ -204,8 +204,9 @@ public class MyProfileActivity extends BaseActivity {
 
             case R.id.linearLayout6:
                 //ETH地址管理
-//                CommonUtil.gotoActivity(this, SelectAddressActivity.class, false);
-                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
+                CommonUtil.gotoActivity(this, SelectWalletAddressActivity.class, false);
+
+//                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
 
                 break;
             case R.id.linearLayout10:

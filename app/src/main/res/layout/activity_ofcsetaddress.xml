@@ -34,7 +34,7 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
                 android:paddingTop="14dp"
-                android:text="@string/address_h2"
+                android:text="@string/qianbao_h45"
                 android:textColor="@color/black1"
                 android:textColorHint="@color/black4" />
 
@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:gravity="end"
-                android:hint="@string/address_h3"
+                android:hint="@string/qianbao_h49"
                 android:paddingBottom="14dp"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
@@ -199,7 +199,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address_h19"
+            android:text="@string/qianbao_h51"
             android:textColor="@color/red"
             android:padding="15dp"/>
 

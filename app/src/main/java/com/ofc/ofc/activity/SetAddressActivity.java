@@ -56,15 +56,15 @@ public class SetAddressActivity extends BaseActivity {
 
         textView2.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
         if (type == 1) {
-            //ETH
+            //USDT
             titleView.setTitle(getString(R.string.address_h1));
             textView1.setText(getString(R.string.address_h2));
             editText1.setHint(getString(R.string.address_h3));
         } else {
-            //GUS
-            titleView.setTitle(getString(R.string.address_h16));
-            textView1.setText(getString(R.string.address_h14));
-            editText1.setHint(getString(R.string.address_h15));
+            //OFC
+            titleView.setTitle(getString(R.string.qianbao_h48));
+            textView1.setText(getString(R.string.qianbao_h45));
+            editText1.setHint(getString(R.string.qianbao_h49));
         }
         editText1.setText(address);
     }
@@ -97,12 +97,12 @@ public class SetAddressActivity extends BaseActivity {
                             showToast(getString(R.string.address_h25),
                                     getString(R.string.password_h5), getString(R.string.password_h6),
                                     new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
-                                }
-                            }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                                        }
+                                    }, new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
                                             dialog.dismiss();
@@ -138,7 +138,7 @@ public class SetAddressActivity extends BaseActivity {
                     HashMap<String, String> params = new HashMap<>();
 //                    params.put("qk", qk);
                     params.put("wallet_addr", addr);
-//                    params.put("money_type", type + "");
+                    params.put("money_type", type + "");
 //                    params.put("xrp_wallet_addr", xrp_wallet_addr);
                     params.put("code", code);//手机验证码
                     params.put("token", localUserInfo.getToken());
@@ -220,43 +220,30 @@ public class SetAddressActivity extends BaseActivity {
                 textView4.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
-
-                if (response.getCode() == 1) {
+                /*if (response.getTrade_password().equals("")) {
                     showToast(getString(R.string.address_h25),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(SetAddressActivity.this, SetTransactionPasswordActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
                                     finish();
                                 }
                             });
-                } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.address_h26),
-                            getString(R.string.password_h5), getString(R.string.password_h6),
-                            new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                } else {
-                    myToast(getString(R.string.address_h11));
+                } else {*/
+                    if (type == 1) {
+                        myToast(getString(R.string.address_h11));
+                    } else {
+                        myToast(getString(R.string.qianbao_h50));
+                    }
                     finish();
-                }
+//                }
 
                 /*JSONObject jObj;
                 try {
@@ -292,26 +279,26 @@ public class SetAddressActivity extends BaseActivity {
                     e.printStackTrace();
                 }*/
 
-            }
-        }, true);
-    }
-
-    public static boolean isGoodJson(String json) {
-
-        try {
-            new JsonParser().parse(json);
-            return true;
-        } catch (JsonParseException e) {
-            return false;
+                }
+            },true);
         }
-    }
 
-    private boolean match() {
-        addr = editText1.getText().toString().trim();
-        /*if (TextUtils.isEmpty(phonenum)) {
-            myToast(getString(R.string.settransactionpassword_phone));
-            return false;
-        }*/
+        public static boolean isGoodJson (String json){
+
+            try {
+                new JsonParser().parse(json);
+                return true;
+            } catch (JsonParseException e) {
+                return false;
+            }
+        }
+
+        private boolean match () {
+            addr = editText1.getText().toString().trim();
+            if (TextUtils.isEmpty(addr)) {
+                myToast(getString(R.string.address_h3));
+                return false;
+            }
 //        eth_wallet_addr = editText2.getText().toString().trim();
         /*if (TextUtils.isEmpty(password1)) {
             myToast(getString(R.string.settransactionpassword_pwd));
@@ -322,40 +309,40 @@ public class SetAddressActivity extends BaseActivity {
             myToast(getString(R.string.settransactionpassword_pwd1));
             return false;
         }*/
-        code = editText2.getText().toString().trim();
-        if (TextUtils.isEmpty(code)) {
-            myToast(getString(R.string.address_h7));
-            return false;
-        }
-        password = editText3.getText().toString().trim();
-        if (TextUtils.isEmpty(password)) {
-            myToast(getString(R.string.address_h9));
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    protected void updateView() {
-
-    }
-
-    //获取验证码倒计时
-    class TimeCount extends CountDownTimer {
-        public TimeCount(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            code = editText2.getText().toString().trim();
+            if (TextUtils.isEmpty(code)) {
+                myToast(getString(R.string.address_h7));
+                return false;
+            }
+            password = editText3.getText().toString().trim();
+            if (TextUtils.isEmpty(password)) {
+                myToast(getString(R.string.address_h9));
+                return false;
+            }
+            return true;
         }
 
         @Override
-        public void onFinish() {//计时完毕时触发
-            textView3.setText(getString(R.string.app_reacquirecode));
-            textView3.setClickable(true);
+        protected void updateView () {
+
         }
 
-        @Override
-        public void onTick(long millisUntilFinished) {//计时过程显示
-            textView3.setClickable(false);
-            textView3.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
+        //获取验证码倒计时
+        class TimeCount extends CountDownTimer {
+            public TimeCount(long millisInFuture, long countDownInterval) {
+                super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            }
+
+            @Override
+            public void onFinish() {//计时完毕时触发
+                textView3.setText(getString(R.string.app_reacquirecode));
+                textView3.setClickable(true);
+            }
+
+            @Override
+            public void onTick(long millisUntilFinished) {//计时过程显示
+                textView3.setClickable(false);
+                textView3.setText(millisUntilFinished / 1000 + getString(R.string.app_codethen));
+            }
         }
     }
-}
