@@ -498,6 +498,7 @@ public class Fragment1 extends BaseFragment {
 
                             TextView tv4 = holder.getView(R.id.tv4);
                             tv4.setText(bean.getStatus_title());
+
                             if (bean.getStatus() != 1) {//进行中
                                 holder.setText(R.id.tv2, getText(R.string.fragment1_h31) + "  " + bean.getInit_at() + "(" + bean.getInit_num() + ")"
                                         + "—" + bean.getWin_at() + "(" + bean.getWin_num() + ")");

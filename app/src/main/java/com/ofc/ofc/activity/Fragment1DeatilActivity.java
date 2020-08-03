@@ -315,13 +315,21 @@ public class Fragment1DeatilActivity extends BaseActivity {
                 tv_time_left.setText(model.getChange_game().getInit_at());
                 tv_money_right.setText(model.getChange_game().getWin_num());
                 tv_time_right.setText(model.getChange_game().getWin_at());
-                if (model.getChange_game().getWin_rise_fall() == 1) {////看涨、做多
-                    tv_jieguo.setText(getString(R.string.fragment1_h9));
-                    tv_jieguo.setTextColor(getResources().getColor(R.color.green_1));
-                } else {
-                    tv_jieguo.setText(getString(R.string.fragment1_h8));
-                    tv_jieguo.setTextColor(getResources().getColor(R.color.red_1));
+
+                if (model.getChange_game().getStatus() ==2){
+                    //待交割
+                    tv_jieguo.setText(model.getChange_game().getStatus_title());
+                    tv_jieguo.setTextColor(getResources().getColor(R.color.white3));
+                }else {
+                    if (model.getChange_game().getWin_rise_fall() == 1) {////看涨、做多
+                        tv_jieguo.setText(getString(R.string.fragment1_h9));
+                        tv_jieguo.setTextColor(getResources().getColor(R.color.green_1));
+                    } else {
+                        tv_jieguo.setText(getString(R.string.fragment1_h8));
+                        tv_jieguo.setTextColor(getResources().getColor(R.color.red_1));
+                    }
                 }
+
 
 
                 //持有仓位
