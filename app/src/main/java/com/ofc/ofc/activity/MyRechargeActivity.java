@@ -82,7 +82,7 @@ public class MyRechargeActivity extends BaseActivity {
                 //刷新
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&type=" + money_type
+                        + "&money_type=" + money_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -94,7 +94,7 @@ public class MyRechargeActivity extends BaseActivity {
                 page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&type=" + money_type
+                        + "&money_type=" + money_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -263,7 +263,7 @@ public class MyRechargeActivity extends BaseActivity {
         this.showLoadingPage();
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&type=" + money_type
+                + "&money_type=" + money_type
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();

@@ -315,6 +315,9 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
+        <!--保活-->
+        <service android:name="com.ofc.ofc.utils.TraceServiceImpl"/>
+
     </application>
 
     <!--人脸-->

@@ -29,6 +29,7 @@ import com.ofc.ofc.popupwindow.SelectLanguagePopupWindow;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
+import com.xdandroid.hellodaemon.IntentWrapper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -91,6 +92,10 @@ public class RegisteredActivity extends BaseActivity {
         initLocation();
         mLocationClient.start();*/
 
+    }
+    //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
+    public void onBackPressed() {
+        IntentWrapper.onBackPressed(this);
     }
 
     @Override

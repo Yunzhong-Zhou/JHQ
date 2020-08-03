@@ -21,10 +21,12 @@ import com.ofc.ofc.activity.PredictionDetailActivity;
 import com.ofc.ofc.activity.WebContentActivity;
 import com.ofc.ofc.base.ScreenAdaptation;
 import com.ofc.ofc.utils.MyLogger;
+import com.ofc.ofc.utils.TraceServiceImpl;
 import com.ofc.ofc.utils.changelanguage.LanguageUtil;
 import com.ofc.ofc.utils.changelanguage.SpUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
+import com.xdandroid.hellodaemon.DaemonEnv;
 
 import java.util.List;
 
@@ -49,6 +51,11 @@ public class MyApplication extends Application {
         super.onCreate();
 
 //        LogcatHelper.getInstance(this).start();//打印log
+
+        //保活 需要在 Application 的 onCreate() 中调用一次 DaemonEnv.initialize()
+        DaemonEnv.initialize(this, TraceServiceImpl.class, DaemonEnv.DEFAULT_WAKE_UP_INTERVAL);
+        TraceServiceImpl.sShouldStopService = false;
+        DaemonEnv.startServiceMayBind(TraceServiceImpl.class);
 
         mContext = this;
         myApplication = this;

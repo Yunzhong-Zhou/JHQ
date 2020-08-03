@@ -222,7 +222,8 @@ public class OFCSetAddressActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
 
-                if (response.getTrade_password().equals("")) {
+//                if (response.getTrade_password().equals("")) {
+                if (response.getCode() == 1) {
                     showToast(getString(R.string.address_h25),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {

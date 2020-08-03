@@ -35,9 +35,11 @@ import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.LocalUserInfo;
 import com.ofc.ofc.utils.MyLogger;
+import com.ofc.ofc.utils.TraceServiceImpl;
 import com.ofc.ofc.utils.permission.PermissionsActivity;
 import com.ofc.ofc.utils.permission.PermissionsChecker;
 import com.squareup.okhttp.Request;
+import com.xdandroid.hellodaemon.IntentWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,6 +134,10 @@ public class MainActivity extends BaseActivity {
 
 
         mImmersionBar.reset().init();
+    }
+    //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
+    public void onBackPressed() {
+        IntentWrapper.onBackPressed(this);
     }
 
     @Override
@@ -493,6 +499,8 @@ public class MainActivity extends BaseActivity {
 
         } else {
             //退出
+//            AbsWorkService.cancelJobAlarmSub();//取消定时唤醒
+            TraceServiceImpl.stopService();//停止服务.
             finish();
         }
     }

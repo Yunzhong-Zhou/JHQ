@@ -15,6 +15,15 @@ public class SetAddressModel implements Serializable {
     private String usdt_wallet_addr;
     private String ofc_wallet_addr;
     private String trade_password;
+    private int code;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public String getUsdt_wallet_addr() {
         return usdt_wallet_addr;
