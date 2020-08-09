@@ -54,14 +54,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="80dp"
-                            android:gravity="center_horizontal|bottom"
+                            android:gravity="center_horizontal|center_vertical"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="5dp"
-                                android:drawableLeft="@mipmap/ic_usdt_white"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginRight="6dp"
+                                android:drawableLeft="@mipmap/ic_ofc_white"
                                 android:textColor="@color/white"
                                 android:textSize="15sp"
                                 android:visibility="visible" />
@@ -256,7 +257,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:drawableLeft="@mipmap/ic_accountdetail1"
+                                    android:drawableLeft="@mipmap/ic_ofcaccountdetail1"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
                                     android:text="@string/qianbao_h6"
@@ -268,7 +269,7 @@
                                 android:layout_width="0.5dp"
                                 android:layout_height="28dp"
                                 android:background="@color/xian"
-                                android:visibility="gone" />
+                                android:visibility="visible" />
 
                             <LinearLayout
                                 android:id="@+id/head1_linearLayout2"
@@ -279,16 +280,45 @@
                                 android:onClick="onClick"
                                 android:orientation="vertical"
                                 android:padding="14dp"
-                                android:visibility="gone">
+                                android:visibility="visible">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:drawableLeft="@mipmap/ic_accountdetail2"
+                                    android:drawableLeft="@mipmap/ic_ofcaccountdetail2"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
-                                    android:text="@string/qianbao_h41"
+                                    android:text="@string/qianbao_h54"
+                                    android:textColor="@color/black1"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="0.5dp"
+                                android:layout_height="28dp"
+                                android:background="@color/xian"
+                                android:visibility="visible" />
+
+                            <LinearLayout
+                                android:id="@+id/head1_linearLayout4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:orientation="vertical"
+                                android:padding="14dp"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:drawableLeft="@mipmap/ic_ofcaccountdetail3"
+                                    android:drawablePadding="10dp"
+                                    android:gravity="center"
+                                    android:text="@string/qianbao_h55"
                                     android:textColor="@color/black1"
                                     android:textSize="13sp" />
                             </LinearLayout>

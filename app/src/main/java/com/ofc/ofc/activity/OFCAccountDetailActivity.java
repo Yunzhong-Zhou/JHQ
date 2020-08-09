@@ -20,7 +20,6 @@ import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.AccountDetailModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
-import com.ofc.ofc.okhttp.websocket.WebSocketManager;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
@@ -260,11 +259,21 @@ public class OFCAccountDetailActivity extends BaseActivity {
 //                CommonUtil.gotoActivity(this, TransferActivity.class, false);
                 //分红
                 //关闭连接
-                WebSocketManager.getInstance().close();
-                CommonUtil.gotoActivity(this, AddFenHongActivity.class, false);
+                /*WebSocketManager.getInstance().close();
+                CommonUtil.gotoActivity(this, AddFenHongActivity.class, false);*/
+
 //                Bundle bundle1 = new Bundle();
 //                bundle1.putInt("item", 0);
 //                CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class,bundle1, true);
+
+//                CommonUtil.gotoActivity(this, FenHongOFCActivity.class, false);
+
+                //质押
+                CommonUtil.gotoActivity(this, ZhiYaOFCActivity.class, false);
+                break;
+            case R.id.head1_linearLayout4:
+                //回购
+                CommonUtil.gotoActivity(this, HuiGouOFCActivity.class, false);
                 break;
 
             case R.id.head1_linearLayout3:

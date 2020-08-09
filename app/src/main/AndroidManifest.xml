@@ -181,6 +181,12 @@
             android:name="com.ofc.ofc.activity.RechargeActivity"
             android:label="充值" />
         <activity
+            android:name="com.ofc.ofc.activity.HuiGouOFCActivity"
+            android:label="回购" />
+        <activity
+            android:name="com.ofc.ofc.activity.ZhiYaOFCActivity"
+            android:label="质押" />
+        <activity
             android:name="com.ofc.ofc.activity.OFCRechargeActivity"
             android:label="OFC充值" />
         <activity
