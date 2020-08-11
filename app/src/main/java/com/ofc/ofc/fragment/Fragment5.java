@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.AccountDetailActivity;
+import com.ofc.ofc.activity.HuiGouListActivity;
 import com.ofc.ofc.activity.InformationActivity;
 import com.ofc.ofc.activity.InvitationRewardActivity;
 import com.ofc.ofc.activity.MainActivity;
@@ -54,7 +55,7 @@ public class Fragment5 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13,linearLayout14, linearLayout_yue, linearLayout_yongjin;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout_yue, linearLayout_yongjin, linearLayout_huigou;
     ImageView imageView1;
 
 
@@ -166,6 +167,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout14 = findViewByID_My(R.id.linearLayout14);
         linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
         linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
+        linearLayout_huigou = findViewByID_My(R.id.linearLayout_huigou);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -183,6 +185,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout14.setOnClickListener(this);
         linearLayout_yue.setOnClickListener(this);
         linearLayout_yongjin.setOnClickListener(this);
+        linearLayout_huigou.setOnClickListener(this);
 
         relativeLayout = findViewByID_My(R.id.relativeLayout);
         relativeLayout.setOnClickListener(this);
@@ -322,6 +325,10 @@ public class Fragment5 extends BaseFragment {
             case R.id.linearLayout8:
                 //充币记录
                 CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
+                break;
+            case R.id.linearLayout_huigou:
+                //回购记录
+                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
                 break;
             case R.id.linearLayout9:
                 //资料管理

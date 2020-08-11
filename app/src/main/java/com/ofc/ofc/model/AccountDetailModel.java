@@ -18,7 +18,8 @@ public class AccountDetailModel implements Serializable {
      * expenditure_list : [{"id":"3ebf0f0130fdc976f8251f9ace75fdbe","type":1,"ofc_money":"0.00","ofc_price":"1.00","interest_money":"0.00","status":1,"created_at":"2020-07-21 19:29:56","type_title":"Buy","status_title":"Underway","unfreeze_at":"2021-07-16","appreciation":0}]
      */
 
-    private String ofc_money;
+    private String ofc_usable_money;
+    private String ofc_invest_money;
     private String ofc_commission_money;
     private String interest_money;
     private String appreciation;
@@ -26,12 +27,20 @@ public class AccountDetailModel implements Serializable {
     private List<EarningListBean> earning_list;
     private List<ExpenditureListBean> expenditure_list;
 
-    public String getOfc_money() {
-        return ofc_money;
+    public String getOfc_usable_money() {
+        return ofc_usable_money;
     }
 
-    public void setOfc_money(String ofc_money) {
-        this.ofc_money = ofc_money;
+    public void setOfc_usable_money(String ofc_usable_money) {
+        this.ofc_usable_money = ofc_usable_money;
+    }
+
+    public String getOfc_invest_money() {
+        return ofc_invest_money;
+    }
+
+    public void setOfc_invest_money(String ofc_invest_money) {
+        this.ofc_invest_money = ofc_invest_money;
     }
 
     public String getOfc_commission_money() {

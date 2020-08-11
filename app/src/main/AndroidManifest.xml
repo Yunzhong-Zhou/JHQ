@@ -99,7 +99,7 @@
             android:label="注册" />
         <activity
             android:name="com.ofc.ofc.activity.WebContentActivity"
-            android:label="网页" >
+            android:label="网页">
             <!--点击通知默认打开-->
             <!--<intent-filter>
                 <action android:name="${applicationId}.default.MAIN" />
@@ -118,7 +118,7 @@
             android:label="往期列表" />
         <activity
             android:name="com.ofc.ofc.activity.PredictionDetailActivity"
-            android:label="预测详情" >
+            android:label="预测详情">
             <!--点击通知默认打开-->
             <!--<intent-filter>
                 <action android:name="${applicationId}.default.MAIN" />
@@ -183,6 +183,9 @@
         <activity
             android:name="com.ofc.ofc.activity.HuiGouOFCActivity"
             android:label="回购" />
+        <activity
+            android:name="com.ofc.ofc.activity.HuiGouListActivity"
+            android:label="回购记录" />
         <activity
             android:name="com.ofc.ofc.activity.ZhiYaOFCActivity"
             android:label="质押" />
@@ -322,7 +325,7 @@
             android:required="false" />
 
         <!--保活-->
-        <service android:name="com.ofc.ofc.utils.TraceServiceImpl"/>
+        <service android:name="com.ofc.ofc.utils.TraceServiceImpl" />
 
     </application>
 

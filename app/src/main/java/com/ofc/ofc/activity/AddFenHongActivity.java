@@ -261,16 +261,16 @@ public class AddFenHongActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>分红" + response);
                 model = response;
-                tv_usdt.setText(model.getOfc_money());
+                tv_usdt.setText(model.getOfc_usable_money());
                 tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
-                if (model.getToal_appreciation() >= 0) {
+                if (Double.valueOf(model.getToal_appreciation()) >= 0) {
                     tv_toal.setTextColor(getResources().getColor(R.color.green_1));
                     tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
                 } else {
                     tv_toal.setTextColor(getResources().getColor(R.color.red_1));
                     tv_toal.setText("Toal -" + model.getToal_appreciation() + "%");
                 }
-                if (model.getLast_appreciation() >= 0) {
+                if (Double.valueOf(model.getLast_appreciation()) >= 0) {
                     tv_24h.setTextColor(getResources().getColor(R.color.green_1));
                     tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
 
@@ -284,7 +284,7 @@ public class AddFenHongActivity extends BaseActivity {
                     tv_zengzhi.setText(model.getLast_appreciation() + "%");
                 }
                 et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
-                tv_ofc_yue.setText(model.getOfc_money());
+                tv_ofc_yue.setText(model.getOfc_usable_money());
                 tv_usdt_yue.setText(model.getCommon_usable_money());
 
                 tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price());

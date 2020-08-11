@@ -163,8 +163,8 @@ public class OFCAccountDetailActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>账户详情" + response);
                 model = response;
 
-                head1_textView1.setText(response.getOfc_money());
-                head1_textView2.setText(response.getUnfreeze_money());//解冻
+                head1_textView1.setText(response.getOfc_usable_money());
+                head1_textView2.setText(response.getOfc_invest_money());//解冻
                 head1_textView3.setText(response.getInterest_money());//分红
                 head1_textView4.setText(response.getOfc_commission_money());//佣金
                 head1_textView5.setText(response.getAppreciation() + "%");//增值
@@ -315,11 +315,11 @@ public class OFCAccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.VISIBLE);
 //            head2_view2.setVisibility(View.INVISIBLE);
 
-            if (list1.size()>0){
+            if (list1.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter1);
                 mAdapter1.notifyDataSetChanged();
-            }else {
+            } else {
                 showEmptyPage();
             }
 
@@ -334,11 +334,11 @@ public class OFCAccountDetailActivity extends BaseActivity {
 //            head2_view1.setVisibility(View.INVISIBLE);
 //            head2_view2.setVisibility(View.VISIBLE);
 
-            if (list2.size()>0){
+            if (list2.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter2);
                 mAdapter2.notifyDataSetChanged();
-            }else {
+            } else {
                 showEmptyPage();
             }
         }

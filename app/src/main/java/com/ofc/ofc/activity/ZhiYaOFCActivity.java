@@ -1,12 +1,14 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
+import com.ofc.ofc.model.ZhiYaOFCModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.MyLogger;
@@ -15,6 +17,7 @@ import com.squareup.okhttp.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -23,8 +26,11 @@ import java.util.Map;
  */
 
 public class ZhiYaOFCActivity extends BaseActivity {
-    TextView textView1, textView2,textView3;
+    TextView textView1, textView2, textView3;
     EditText editText;
+
+    ZhiYaOFCModel model;
+    String input_money = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,39 @@ public class ZhiYaOFCActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        requestServer();
+    }
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+        this.showLoadingPage();
+//        showProgress(true, getString(R.string.app_loading));
+        Request("?token=" + localUserInfo.getToken());
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(ZhiYaOFCActivity.this, URLs.ZhiYaOFC + string, new OkHttpClientManager.ResultCallback<ZhiYaOFCModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(ZhiYaOFCModel response) {
+//                showContentPage();
+                model = response;
+                hideProgress();
+                textView1.setText(response.getInvest_cycle() + getString(R.string.app_tian));
+                textView2.setText(response.getOfc_index() + "USDT/" + getString(R.string.app_ge));
+                textView3.setText(response.getOfc_price() + "USDT");
+                editText.setHint(getString(R.string.qianbao_h59) + "(" + getString(R.string.qianbao_h60) + response.getOfc_usable_money() + ")");
+            }
+        });
 
     }
 
@@ -59,27 +98,26 @@ public class ZhiYaOFCActivity extends BaseActivity {
                 //确认
                 if (match()) {
                     this.showProgress(true, getString(R.string.app_loading1));
-                    /*HashMap<String, String> params = new HashMap<>();
-                    params.put("new_password", password1);//密码（不能小于6位数）
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("money", input_money);
                     params.put("token", localUserInfo.getToken());
-                    params.put("old_password", oldpassword);
-                    RequestConfrim(params);*/
+                    RequestConfrim(params);
                 }
                 break;
         }
     }
 
     private boolean match() {
-       /* oldpassword = editText.getText().toString().trim();
-        if (TextUtils.isEmpty(oldpassword)) {
+        input_money = editText.getText().toString().trim();
+        if (TextUtils.isEmpty(input_money)) {
             myToast(getString(R.string.qianbao_h59));
             return false;
-        }*/
+        }
         return true;
     }
 
     private void RequestConfrim(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(ZhiYaOFCActivity.this, URLs.ChangePassword, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(ZhiYaOFCActivity.this, URLs.ZhiYaOFC, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -104,7 +142,7 @@ public class ZhiYaOFCActivity extends BaseActivity {
                 }
 //
             }
-        }, true);
+        }, false);
 
     }
 

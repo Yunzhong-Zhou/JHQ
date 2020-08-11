@@ -173,6 +173,18 @@ public class URLs {
      */
     public static final String FenHongDetail = "/api/invest/detail";
     /**
+     * 质押OFC
+     */
+    public static final String ZhiYaOFC = "/api/invest/pledge";
+    /**
+     * 回购OFC
+     */
+    public static final String HuiGouOFC = "/api/invest/buy-back";
+    /**
+     * 回购列表
+     */
+    public static final String HuiGouOFCList = "/api/buy-back/record";
+    /**
      * 账户详情
      */
     public static final String AccountDetail = "/api/member/account";

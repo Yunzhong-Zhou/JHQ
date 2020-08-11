@@ -290,7 +290,7 @@ public class Fragment4 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>分红" + response);
                 model = response;
-                tv_usdt.setText(model.getOfc_money());
+                tv_usdt.setText(model.getOfc_usable_money());
                 tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
 
                 tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
@@ -318,7 +318,7 @@ public class Fragment4 extends BaseFragment {
                     tv_zengzhi.setText(model.getLast_appreciation() + "%");
                 }*/
                 et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
-                tv_ofc_yue.setText(model.getOfc_money());
+                tv_ofc_yue.setText(model.getOfc_usable_money());
                 tv_usdt_yue.setText(model.getCommon_usable_money());
 
                 tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price());

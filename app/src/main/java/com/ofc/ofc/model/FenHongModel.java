@@ -8,30 +8,40 @@ import java.util.List;
  */
 public class FenHongModel implements Serializable {
     /**
+     * ofc_usable_money : 0.00
      * usdt_price : 1
-     * ofc_price : null
-     * ofc_index : 0.001
-     * toal_appreciation : 0
+     * ofc_price : 210
+     * ofc_index : 0.007
+     * toal_appreciation : 20900
      * last_appreciation : 0
-     * common_usable_money : 98997.50
+     * common_usable_money : 0.00
      * interest_money : 0.00
      * contract_money : 0.00
-     * ofc_money : 0.00
+     * ofc_invest_money : 0.00
      * ofc_issue_price : 1
-     * ofc_price_list : []
+     * ofc_price_list : [{"price":"210.0000","created_at":"2020-07-22 16:44:29"},{"price":"200.0000","created_at":"2020-07-22 16:44:17"}]
      */
 
+    private String ofc_usable_money;
     private String usdt_price;
     private String ofc_price;
     private String ofc_index;
-    private double toal_appreciation;
-    private double last_appreciation;
+    private String toal_appreciation;
+    private String last_appreciation;
     private String common_usable_money;
     private String interest_money;
     private String contract_money;
-    private String ofc_money;
-    private double ofc_issue_price;
-    private List<?> ofc_price_list;
+    private String ofc_invest_money;
+    private String ofc_issue_price;
+    private List<OfcPriceListBean> ofc_price_list;
+
+    public String getOfc_usable_money() {
+        return ofc_usable_money;
+    }
+
+    public void setOfc_usable_money(String ofc_usable_money) {
+        this.ofc_usable_money = ofc_usable_money;
+    }
 
     public String getUsdt_price() {
         return usdt_price;
@@ -57,19 +67,19 @@ public class FenHongModel implements Serializable {
         this.ofc_index = ofc_index;
     }
 
-    public double getToal_appreciation() {
+    public String getToal_appreciation() {
         return toal_appreciation;
     }
 
-    public void setToal_appreciation(double toal_appreciation) {
+    public void setToal_appreciation(String toal_appreciation) {
         this.toal_appreciation = toal_appreciation;
     }
 
-    public double getLast_appreciation() {
+    public String getLast_appreciation() {
         return last_appreciation;
     }
 
-    public void setLast_appreciation(double last_appreciation) {
+    public void setLast_appreciation(String last_appreciation) {
         this.last_appreciation = last_appreciation;
     }
 
@@ -97,27 +107,53 @@ public class FenHongModel implements Serializable {
         this.contract_money = contract_money;
     }
 
-    public String getOfc_money() {
-        return ofc_money;
+    public String getOfc_invest_money() {
+        return ofc_invest_money;
     }
 
-    public void setOfc_money(String ofc_money) {
-        this.ofc_money = ofc_money;
+    public void setOfc_invest_money(String ofc_invest_money) {
+        this.ofc_invest_money = ofc_invest_money;
     }
 
-    public double getOfc_issue_price() {
+    public String getOfc_issue_price() {
         return ofc_issue_price;
     }
 
-    public void setOfc_issue_price(double ofc_issue_price) {
+    public void setOfc_issue_price(String ofc_issue_price) {
         this.ofc_issue_price = ofc_issue_price;
     }
 
-    public List<?> getOfc_price_list() {
+    public List<OfcPriceListBean> getOfc_price_list() {
         return ofc_price_list;
     }
 
-    public void setOfc_price_list(List<?> ofc_price_list) {
+    public void setOfc_price_list(List<OfcPriceListBean> ofc_price_list) {
         this.ofc_price_list = ofc_price_list;
+    }
+
+    public static class OfcPriceListBean {
+        /**
+         * price : 210.0000
+         * created_at : 2020-07-22 16:44:29
+         */
+
+        private String price;
+        private String created_at;
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
     }
 }
