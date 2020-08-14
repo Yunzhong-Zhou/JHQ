@@ -251,14 +251,15 @@
                                 android:gravity="center"
                                 android:onClick="onClick"
                                 android:orientation="vertical"
-                                android:padding="14dp">
+                                android:paddingTop="14dp"
+                                android:paddingBottom="14dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:drawableLeft="@mipmap/ic_ofcaccountdetail1"
-                                    android:drawablePadding="10dp"
+                                    android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:text="@string/qianbao_h6"
                                     android:textColor="@color/black1"
@@ -279,7 +280,8 @@
                                 android:gravity="center"
                                 android:onClick="onClick"
                                 android:orientation="vertical"
-                                android:padding="14dp"
+                                android:paddingTop="14dp"
+                                android:paddingBottom="14dp"
                                 android:visibility="visible">
 
                                 <TextView
@@ -287,7 +289,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:drawableLeft="@mipmap/ic_ofcaccountdetail2"
-                                    android:drawablePadding="10dp"
+                                    android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:text="@string/qianbao_h54"
                                     android:textColor="@color/black1"
@@ -308,7 +310,8 @@
                                 android:gravity="center"
                                 android:onClick="onClick"
                                 android:orientation="vertical"
-                                android:padding="14dp"
+                                android:paddingTop="14dp"
+                                android:paddingBottom="14dp"
                                 android:visibility="visible">
 
                                 <TextView
@@ -316,7 +319,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:drawableLeft="@mipmap/ic_ofcaccountdetail3"
-                                    android:drawablePadding="10dp"
+                                    android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:text="@string/qianbao_h55"
                                     android:textColor="@color/black1"
@@ -336,14 +339,15 @@
                                 android:gravity="center"
                                 android:onClick="onClick"
                                 android:orientation="vertical"
-                                android:padding="14dp">
+                                android:paddingTop="14dp"
+                                android:paddingBottom="14dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:drawableLeft="@mipmap/ic_accountdetail3"
-                                    android:drawablePadding="10dp"
+                                    android:drawablePadding="5dp"
                                     android:gravity="center"
                                     android:text="@string/qianbao_h8"
                                     android:textColor="@color/black1"

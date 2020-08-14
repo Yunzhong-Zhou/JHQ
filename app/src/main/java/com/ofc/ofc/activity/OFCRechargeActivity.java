@@ -346,7 +346,7 @@ public class OFCRechargeActivity extends BaseActivity {
                     linearLayout_2.setVisibility(View.GONE);
                     detail_textView_title.setVisibility(View.GONE);
 
-                    textView3.setText(response.getOfc_money());//可用余币
+                    textView3.setText(response.getOfc_usable_money());//可用余币
 //                    textView5.setText(getString(R.string.fragment4_h6) + response.getUsdt_price());//可用余币
                     /*//首次充币
                     if (Double.valueOf(response.getPrincipal_money()) == 0) {

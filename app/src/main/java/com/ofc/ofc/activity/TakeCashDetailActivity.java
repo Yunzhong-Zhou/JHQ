@@ -92,7 +92,6 @@ public class TakeCashDetailActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>提现详情" + response);
                 hideProgress();
                 if (response != null) {
-
 //                textView1.setText(getString(R.string.takecash_h18) + "(" + getString(R.string.app_type_CHO) + ")");//提现个数
                     textView2.setText("-" + response.getInput_money());//提现个数
 //                textView3.setText("" + response.getStatus_title());//提现个数
@@ -100,14 +99,16 @@ public class TakeCashDetailActivity extends BaseActivity {
                     textView5.setText("" + response.getShow_created_at());//提现处理中时间
                     textView7.setText("" + response.getShow_updated_at());//提现完成时间
 
-                    textView8.setText(response.getMember_usdt_wallet_addr());//提现地址
+
 //                textView9.setText(response.getTxid());//txid
 
                     if (response.getType() == 1) {
+                        textView8.setText(response.getMember_usdt_wallet_addr());//提现地址
                         textView3.setText(getString(R.string.takecash_h18));
                         textView9.setText(response.getMoney() + getString(R.string.recharge_h32));//实际到账
                         textView10.setText(response.getService_charge_money() + getString(R.string.recharge_h32));//手续费
                     } else {
+                        textView8.setText(response.getMember_ofc_wallet_addr());//提现地址
                         textView3.setText(getString(R.string.qianbao_h53));
                         textView9.setText(response.getMoney() + "OFC");//实际到账
                         textView10.setText(response.getService_charge_money() + "OFC");//手续费

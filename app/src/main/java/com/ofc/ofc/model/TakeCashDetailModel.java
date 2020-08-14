@@ -7,26 +7,28 @@ import java.io.Serializable;
  */
 public class TakeCashDetailModel implements Serializable {
     /**
-     * id : 93664743ab1f5b3333112961
-     * sn : WL1596270907975055
+     * id : 547feef664614d56fa55ee04
+     * sn : WL1597107206101571
      * member_usdt_wallet_addr : 1384656372727626272
+     * member_ofc_wallet_addr : sfgddfghhhhgfddssfggh
      * service_charge_money : 1.00
      * type : 3
-     * input_money : 1000.00
-     * money : 999.00
+     * input_money : 100.00
+     * money : 99.00
      * status : 1
      * status_rejected_cause :
-     * created_at : 2020-08-01 16:35:07
-     * updated_at : 2020-08-01 16:35:07
+     * created_at : 2020-08-11 08:53:26
+     * updated_at : 2020-08-11 08:53:26
      * type_title : OFC
      * status_title : 待审核
-     * show_created_at : 08-01 16:35
-     * show_updated_at : 08-01 16:35
+     * show_created_at : 08-11 08:53
+     * show_updated_at : 08-11 08:53
      */
 
     private String id;
     private String sn;
     private String member_usdt_wallet_addr;
+    private String member_ofc_wallet_addr;
     private String service_charge_money;
     private int type;
     private String input_money;
@@ -62,6 +64,14 @@ public class TakeCashDetailModel implements Serializable {
 
     public void setMember_usdt_wallet_addr(String member_usdt_wallet_addr) {
         this.member_usdt_wallet_addr = member_usdt_wallet_addr;
+    }
+
+    public String getMember_ofc_wallet_addr() {
+        return member_ofc_wallet_addr;
+    }
+
+    public void setMember_ofc_wallet_addr(String member_ofc_wallet_addr) {
+        this.member_ofc_wallet_addr = member_ofc_wallet_addr;
     }
 
     public String getService_charge_money() {

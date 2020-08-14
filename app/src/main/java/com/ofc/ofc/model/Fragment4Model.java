@@ -9,18 +9,18 @@ public class Fragment4Model implements Serializable {
     /**
      * ofc_top_up_max_money : 100000
      * ofc_top_up_min_money : 100
-     * ofc_money : 0.00
+     * ofc_usable_money : 89800.00
      * usdt_top_up_max_money : 100000
      * usdt_top_up_min_money : 100
      * usdt_price : 1
      * aud_conver_usd : 0.6889
-     * usable_money : 88895.01
+     * usable_money : 109001.01
      * id :
      */
 
     private String ofc_top_up_max_money;
     private String ofc_top_up_min_money;
-    private String ofc_money;
+    private String ofc_usable_money;
     private String usdt_top_up_max_money;
     private String usdt_top_up_min_money;
     private String usdt_price;
@@ -44,12 +44,12 @@ public class Fragment4Model implements Serializable {
         this.ofc_top_up_min_money = ofc_top_up_min_money;
     }
 
-    public String getOfc_money() {
-        return ofc_money;
+    public String getOfc_usable_money() {
+        return ofc_usable_money;
     }
 
-    public void setOfc_money(String ofc_money) {
-        this.ofc_money = ofc_money;
+    public void setOfc_usable_money(String ofc_usable_money) {
+        this.ofc_usable_money = ofc_usable_money;
     }
 
     public String getUsdt_top_up_max_money() {
