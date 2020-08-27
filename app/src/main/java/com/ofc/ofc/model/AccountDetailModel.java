@@ -21,11 +21,20 @@ public class AccountDetailModel implements Serializable {
     private String ofc_usable_money;
     private String ofc_invest_money;
     private String ofc_commission_money;
+    private String ofc_amount_money;
     private String interest_money;
     private String appreciation;
     private String unfreeze_money;
     private List<EarningListBean> earning_list;
     private List<ExpenditureListBean> expenditure_list;
+
+    public String getOfc_amount_money() {
+        return ofc_amount_money;
+    }
+
+    public void setOfc_amount_money(String ofc_amount_money) {
+        this.ofc_amount_money = ofc_amount_money;
+    }
 
     public String getOfc_usable_money() {
         return ofc_usable_money;
@@ -116,7 +125,7 @@ public class AccountDetailModel implements Serializable {
         private String type_title;
         private String status_title;
         private String unfreeze_at;
-        private int appreciation;
+        private String appreciation;
 
         public String getId() {
             return id;
@@ -198,11 +207,11 @@ public class AccountDetailModel implements Serializable {
             this.unfreeze_at = unfreeze_at;
         }
 
-        public int getAppreciation() {
+        public String getAppreciation() {
             return appreciation;
         }
 
-        public void setAppreciation(int appreciation) {
+        public void setAppreciation(String appreciation) {
             this.appreciation = appreciation;
         }
     }
@@ -232,7 +241,7 @@ public class AccountDetailModel implements Serializable {
         private String type_title;
         private String status_title;
         private String unfreeze_at;
-        private int appreciation;
+        private String appreciation;
 
         public String getId() {
             return id;
@@ -314,11 +323,11 @@ public class AccountDetailModel implements Serializable {
             this.unfreeze_at = unfreeze_at;
         }
 
-        public int getAppreciation() {
+        public String getAppreciation() {
             return appreciation;
         }
 
-        public void setAppreciation(int appreciation) {
+        public void setAppreciation(String appreciation) {
             this.appreciation = appreciation;
         }
     }

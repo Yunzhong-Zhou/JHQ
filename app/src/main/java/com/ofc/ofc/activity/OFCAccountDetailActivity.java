@@ -163,8 +163,9 @@ public class OFCAccountDetailActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>账户详情" + response);
                 model = response;
 
-                head1_textView1.setText(response.getOfc_usable_money());
-                head1_textView2.setText(response.getOfc_invest_money());//解冻
+                head1_textView1.setText(response.getOfc_amount_money());//总资产
+//                head1_textView2.setText(response.getOfc_invest_money());//解冻
+                head1_textView2.setText(response.getOfc_usable_money());//可用
                 head1_textView3.setText(response.getInterest_money());//分红
                 head1_textView4.setText(response.getOfc_commission_money());//佣金
                 head1_textView5.setText(response.getAppreciation() + "%");//增值

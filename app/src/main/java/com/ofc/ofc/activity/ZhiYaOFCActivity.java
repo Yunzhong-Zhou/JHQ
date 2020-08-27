@@ -83,7 +83,7 @@ public class ZhiYaOFCActivity extends BaseActivity {
                 model = response;
                 hideProgress();
                 textView1.setText(response.getInvest_cycle() + getString(R.string.app_tian));
-                textView2.setText(response.getOfc_index() + "USDT/" + getString(R.string.app_ge));
+                textView2.setText(response.getOfc_index() + "USDT");
                 textView3.setText(response.getOfc_price() + "USDT");
                 editText.setHint(getString(R.string.qianbao_h59) + "(" + getString(R.string.qianbao_h60) + response.getOfc_usable_money() + ")");
             }

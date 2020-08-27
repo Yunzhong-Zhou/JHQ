@@ -77,6 +77,7 @@ public class Fragment4 extends BaseFragment {
 
     KLineEntity kLineEntity;
     Gson mGson = new Gson();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_addfenhong, container, false);
@@ -187,7 +188,8 @@ public class Fragment4 extends BaseFragment {
             public void afterTextChanged(Editable editable) {
                 if (model.getOfc_price() != null) {
                     if (!et_keyong.getText().toString().trim().equals("")) {
-                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+//                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getOfc_price());
                         tv_jisuan.setText("=" + String.format("%.2f", shouxufei) + "USDT");
                     }
                 }
@@ -259,11 +261,13 @@ public class Fragment4 extends BaseFragment {
 
         changeUI();
     }
+
     @Override
     protected void initData() {
 //        requestServer();
         requestWebSocket();
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -290,7 +294,7 @@ public class Fragment4 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>分红" + response);
                 model = response;
-                tv_usdt.setText(model.getOfc_usable_money());
+                tv_usdt.setText(model.getOfc_price());
                 tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
 
                 tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
@@ -317,11 +321,11 @@ public class Fragment4 extends BaseFragment {
                     tv_zengzhi.setTextColor(getResources().getColor(R.color.red_1));
                     tv_zengzhi.setText(model.getLast_appreciation() + "%");
                 }*/
-                et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
+//                et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
                 tv_ofc_yue.setText(model.getOfc_usable_money());
                 tv_usdt_yue.setText(model.getCommon_usable_money());
 
-                tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price());
+                tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price() + "USDT");
 
 
                 tv_heyue.setText(getString(R.string.qianbao_h39) + model.getContract_money());
@@ -349,7 +353,8 @@ public class Fragment4 extends BaseFragment {
                 }
 
                 //计算手续费 输入币数 * usdt_price / ofc_price;
-                double shouxufei1 = tempMoney_jian_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+//                double shouxufei1 = tempMoney_jian_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                double shouxufei1 = tempMoney_jian_left * Double.valueOf(model.getOfc_price());
                 tv_jisuan.setText("=" + String.format("%.2f", shouxufei1) + "USDT");
 
                 break;
@@ -359,17 +364,20 @@ public class Fragment4 extends BaseFragment {
                 if (!et_keyong.getText().toString().trim().equals("")) {
                     tempMoney_jia_left = Double.valueOf(et_keyong.getText().toString().trim());
                 }
-                if (Double.valueOf(model.getCommon_usable_money()) > tempMoney_jia_left) {
+                /*if (Double.valueOf(model.getCommon_usable_money()) > tempMoney_jia_left) {
                     if ((Double.valueOf(model.getCommon_usable_money()) - tempMoney_jia_left) >= 10) {
                         tempMoney_jia_left += 10;
                     } else {
                         tempMoney_jia_left = Double.valueOf(model.getCommon_usable_money());
                     }
-                }
+                }*/
+                tempMoney_jia_left += 10;
+
                 et_keyong.setText((int) tempMoney_jia_left + "");
 
                 //计算手续费 输入币数 * usdt_price / ofc_price;
-                double shouxufei2 = tempMoney_jia_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+//                double shouxufei2 = tempMoney_jia_left * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
+                double shouxufei2 = tempMoney_jia_left * Double.valueOf(model.getOfc_price());
                 tv_jisuan.setText("=" + String.format("%.2f", shouxufei2) + "USDT");
 
                 break;
@@ -501,6 +509,8 @@ public class Fragment4 extends BaseFragment {
 //                hideProgress();
                 MyLogger.i(">>>>>>>>>合约买入" + response);
 
+                et_keyong.setText("");
+
                 requestServer();
                 JSONObject jObj;
                 try {
@@ -518,9 +528,8 @@ public class Fragment4 extends BaseFragment {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-
             }
-        }, true);
+        }, false);
     }
 
     @Override

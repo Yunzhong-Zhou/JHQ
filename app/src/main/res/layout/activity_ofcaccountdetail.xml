@@ -135,7 +135,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="6dp"
-                                    android:text="@string/qianbao_h15"
+                                    android:text="@string/qianbao_h71"
                                     android:textColor="@color/white1"
                                     android:textSize="10sp" />
                             </LinearLayout>
