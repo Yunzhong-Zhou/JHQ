@@ -373,7 +373,7 @@
                 <TextView
                     android:id="@+id/tv_jisuan"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="11dp"
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="13dp"

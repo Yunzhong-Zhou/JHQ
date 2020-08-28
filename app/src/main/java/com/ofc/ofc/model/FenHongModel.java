@@ -23,6 +23,7 @@ public class FenHongModel implements Serializable {
      */
 
     private String ofc_usable_money;
+    private String ofc_amount_money;
     private String usdt_price;
     private String ofc_price;
     private String ofc_index;
@@ -34,6 +35,14 @@ public class FenHongModel implements Serializable {
     private String ofc_invest_money;
     private String ofc_issue_price;
     private List<OfcPriceListBean> ofc_price_list;
+
+    public String getOfc_amount_money() {
+        return ofc_amount_money;
+    }
+
+    public void setOfc_amount_money(String ofc_amount_money) {
+        this.ofc_amount_money = ofc_amount_money;
+    }
 
     public String getOfc_usable_money() {
         return ofc_usable_money;

@@ -322,7 +322,7 @@ public class Fragment4 extends BaseFragment {
                     tv_zengzhi.setText(model.getLast_appreciation() + "%");
                 }*/
 //                et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
-                tv_ofc_yue.setText(model.getOfc_usable_money());
+                tv_ofc_yue.setText(model.getOfc_amount_money());
                 tv_usdt_yue.setText(model.getCommon_usable_money());
 
                 tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price() + "USDT");
@@ -510,6 +510,7 @@ public class Fragment4 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>合约买入" + response);
 
                 et_keyong.setText("");
+                tv_jisuan.setText("0USDT");
 
                 requestServer();
                 JSONObject jObj;
