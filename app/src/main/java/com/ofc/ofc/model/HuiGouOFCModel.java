@@ -15,6 +15,15 @@ public class HuiGouOFCModel implements Serializable {
     private String ofc_price;
     private String usdt_price;
     private String ofc_usable_money;
+    private String hk;
+
+    public String getHk() {
+        return hk;
+    }
+
+    public void setHk(String hk) {
+        this.hk = hk;
+    }
 
     public String getOfc_price() {
         return ofc_price;

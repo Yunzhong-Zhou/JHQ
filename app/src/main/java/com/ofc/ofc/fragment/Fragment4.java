@@ -191,6 +191,8 @@ public class Fragment4 extends BaseFragment {
 //                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
                         double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getOfc_price());
                         tv_jisuan.setText("=" + String.format("%.2f", shouxufei) + "USDT");
+                    }else {
+                        tv_jisuan.setText("=0USDT");
                     }
                 }
             }
@@ -297,7 +299,7 @@ public class Fragment4 extends BaseFragment {
                 tv_usdt.setText(model.getOfc_price());
                 tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
 
-                tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
+                tv_toal.setText("Total +" + model.getToal_appreciation() + "%");
                 /*if (model.getToal_appreciation() >= 0) {
                     tv_toal.setTextColor(getResources().getColor(R.color.green_1));
                     tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
@@ -307,7 +309,7 @@ public class Fragment4 extends BaseFragment {
                 }*/
 
                 tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
-                tv_zengzhi.setText(model.getLast_appreciation() + "%");
+                tv_zengzhi.setText(model.getAppreciation() + "%");
                 /*if (model.getLast_appreciation() >= 0) {
                     tv_24h.setTextColor(getResources().getColor(R.color.green_1));
                     tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
@@ -388,10 +390,10 @@ public class Fragment4 extends BaseFragment {
                         tv_mairu.setClickable(false);
                         showProgress(true, getString(R.string.app_loading1));
                         HashMap<String, String> params = new HashMap<>();
-//                        params.put("hk", model.getHk());
+                        params.put("hk", model.getHk());
 //                        params.put("change_game_id", model.getChange_game().getId());
 //                        params.put("type", "1");//类型（1.看涨 2.看跌）
-                        params.put("money", et_keyong.getText().toString().trim());
+                        params.put("ofc_money", et_keyong.getText().toString().trim());
                         params.put("token", localUserInfo.getToken());
                         requestAdd(params);
 
@@ -510,7 +512,7 @@ public class Fragment4 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>合约买入" + response);
 
                 et_keyong.setText("");
-                tv_jisuan.setText("0USDT");
+                tv_jisuan.setText("=0USDT");
 
                 requestServer();
                 JSONObject jObj;

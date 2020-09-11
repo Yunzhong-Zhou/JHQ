@@ -99,7 +99,8 @@ public class ZhiYaOFCActivity extends BaseActivity {
                 if (match()) {
                     this.showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("money", input_money);
+                    params.put("hk", model.getHk());
+                    params.put("ofc_money", input_money);
                     params.put("token", localUserInfo.getToken());
                     RequestConfrim(params);
                 }
@@ -124,6 +125,7 @@ public class ZhiYaOFCActivity extends BaseActivity {
                 if (!info.equals("")) {
                     showToast(info);
                 }
+                requestServer();
             }
 
             @Override

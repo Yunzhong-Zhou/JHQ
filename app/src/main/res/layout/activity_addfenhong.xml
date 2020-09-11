@@ -96,7 +96,7 @@
                                 android:id="@+id/tv_toal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Toal +0%"
+                                android:text="Total +0%"
                                 android:textColor="@color/green_1"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -373,7 +373,7 @@
                 <TextView
                     android:id="@+id/tv_jisuan"
                     android:layout_width="wrap_content"
-                    android:layout_height="11dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="13dp"

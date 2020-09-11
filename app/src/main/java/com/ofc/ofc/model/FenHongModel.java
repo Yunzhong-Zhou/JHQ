@@ -29,12 +29,30 @@ public class FenHongModel implements Serializable {
     private String ofc_index;
     private String toal_appreciation;
     private String last_appreciation;
+    private String appreciation;
     private String common_usable_money;
     private String interest_money;
     private String contract_money;
     private String ofc_invest_money;
     private String ofc_issue_price;
     private List<OfcPriceListBean> ofc_price_list;
+    private String hk;
+
+    public String getAppreciation() {
+        return appreciation;
+    }
+
+    public void setAppreciation(String appreciation) {
+        this.appreciation = appreciation;
+    }
+
+    public String getHk() {
+        return hk;
+    }
+
+    public void setHk(String hk) {
+        this.hk = hk;
+    }
 
     public String getOfc_amount_money() {
         return ofc_amount_money;

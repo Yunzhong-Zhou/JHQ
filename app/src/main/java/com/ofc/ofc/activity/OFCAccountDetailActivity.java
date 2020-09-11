@@ -39,7 +39,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * 我的钱包
  */
 public class OFCAccountDetailActivity extends BaseActivity {
-    int type = 1;
+    int type = 3;
     AccountDetailModel model;
     private RecyclerView recyclerView;
     List<AccountDetailModel.EarningListBean> list1 = new ArrayList<>();
@@ -47,6 +47,9 @@ public class OFCAccountDetailActivity extends BaseActivity {
 
     List<AccountDetailModel.ExpenditureListBean> list2 = new ArrayList<>();
     CommonAdapter<AccountDetailModel.ExpenditureListBean> mAdapter2;
+
+    List<AccountDetailModel.InvestListBean> list3 = new ArrayList<>();
+    CommonAdapter<AccountDetailModel.InvestListBean> mAdapter3;
     //头部一
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
@@ -60,9 +63,9 @@ public class OFCAccountDetailActivity extends BaseActivity {
 
     //悬浮部分
     LinearLayout invis;
-    LinearLayout linearLayout1, linearLayout2;
-    TextView textView1, textView2;
-    View view1, view2;
+    LinearLayout linearLayout1, linearLayout2, linearLayout3;
+    TextView textView1, textView2, textView3;
+    View view1, view2, view3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,12 +102,16 @@ public class OFCAccountDetailActivity extends BaseActivity {
         invis = findViewByID_My(R.id.invis);
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
+        linearLayout3 = findViewByID_My(R.id.linearLayout3);
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
+        linearLayout3.setOnClickListener(this);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
         view1 = findViewByID_My(R.id.view1);
         view2 = findViewByID_My(R.id.view2);
+        view3 = findViewByID_My(R.id.view3);
 
         pop_view = findViewByID_My(R.id.pop_view);
         tv_paixu = findViewByID_My(R.id.tv_paixu);
@@ -169,11 +176,12 @@ public class OFCAccountDetailActivity extends BaseActivity {
                 head1_textView3.setText(response.getInterest_money());//分红
                 head1_textView4.setText(response.getOfc_commission_money());//佣金
                 head1_textView5.setText(response.getAppreciation() + "%");//增值
-                list1 = response.getEarning_list();
-                mAdapter1 = new CommonAdapter<AccountDetailModel.EarningListBean>
-                        (OFCAccountDetailActivity.this, R.layout.item_ofcaccountdetail, list1) {
+
+                list3 = response.getInvest_list();
+                mAdapter3 = new CommonAdapter<AccountDetailModel.InvestListBean>
+                        (OFCAccountDetailActivity.this, R.layout.item_ofcaccountdetail, list3) {
                     @Override
-                    protected void convert(ViewHolder holder, final AccountDetailModel.EarningListBean model, int position) {
+                    protected void convert(ViewHolder holder, final AccountDetailModel.InvestListBean model, int position) {
                         holder.setText(R.id.textView1, model.getType_title());//类型
                         holder.setText(R.id.textView2, model.getOfc_money());//币数量
                         holder.setText(R.id.textView3, model.getOfc_price());//买入价
@@ -182,11 +190,11 @@ public class OFCAccountDetailActivity extends BaseActivity {
                         holder.setText(R.id.textView6, model.getInterest_money());//已分红
                     }
                 };
-                mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                mAdapter3.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("id", list1.get(i).getId());
+                        bundle.putString("id", list3.get(i).getId());
                         CommonUtil.gotoActivityWithData(OFCAccountDetailActivity.this, FenHongListActivity.class, bundle, false);
                     }
 
@@ -195,33 +203,30 @@ public class OFCAccountDetailActivity extends BaseActivity {
                         return false;
                     }
                 });
+
+                list1 = response.getEarning_list();
+                mAdapter1 = new CommonAdapter<AccountDetailModel.EarningListBean>
+                        (OFCAccountDetailActivity.this, R.layout.item_accountdetail, list1) {
+                    @Override
+                    protected void convert(ViewHolder holder, final AccountDetailModel.EarningListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getTitle() + "：+" + model.getMoney());//标题
+//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.get);//流水号
+                        holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
+                        holder.setText(R.id.textView4, model.getStatus());//状态
+                    }
+                };
 
                 list2 = response.getExpenditure_list();
                 mAdapter2 = new CommonAdapter<AccountDetailModel.ExpenditureListBean>
-                        (OFCAccountDetailActivity.this, R.layout.item_ofcaccountdetail, list2) {
+                        (OFCAccountDetailActivity.this, R.layout.item_accountdetail, list2) {
                     @Override
                     protected void convert(ViewHolder holder, final AccountDetailModel.ExpenditureListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getType_title());//类型
-                        holder.setText(R.id.textView2, model.getOfc_money());//币数量
-                        holder.setText(R.id.textView3, model.getOfc_price());//买入价
-                        holder.setText(R.id.textView4, model.getAppreciation() + "%");//已增值
-                        holder.setText(R.id.textView5, model.getUnfreeze_at());//时间
-                        holder.setText(R.id.textView6, model.getInterest_money());//已分红
+                        holder.setText(R.id.textView1, model.getTitle() + "：-" + model.getMoney());//标题
+//                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.getId());//流水号
+                        holder.setText(R.id.textView3, getString(R.string.recharge_h22) + model.getCreated_at());//时间
+                        holder.setText(R.id.textView4, model.getStatus());//状态
                     }
                 };
-                mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("id", list1.get(i).getId());
-                        CommonUtil.gotoActivityWithData(OFCAccountDetailActivity.this, FenHongListActivity.class, bundle, false);
-                    }
-
-                    @Override
-                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                        return false;
-                    }
-                });
                 changeUI();
 
                 hideProgress();
@@ -238,6 +243,10 @@ public class OFCAccountDetailActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.left_btn:
                 finish();
+                break;
+            case R.id.linearLayout3:
+                type = 3;
+                changeUI();
                 break;
             case R.id.linearLayout1:
                 type = 1;
@@ -308,11 +317,13 @@ public class OFCAccountDetailActivity extends BaseActivity {
         if (type == 1) {
             textView1.setTextColor(getResources().getColor(R.color.green));
             textView2.setTextColor(getResources().getColor(R.color.black4));
+            textView3.setTextColor(getResources().getColor(R.color.black4));
 //            head2_textView1.setTextColor(getResources().getColor(R.color.blue));
 //            head2_textView2.setTextColor(getResources().getColor(R.color.black4));
 
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.INVISIBLE);
+            view3.setVisibility(View.INVISIBLE);
 //            head2_view1.setVisibility(View.VISIBLE);
 //            head2_view2.setVisibility(View.INVISIBLE);
 
@@ -327,11 +338,13 @@ public class OFCAccountDetailActivity extends BaseActivity {
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black4));
             textView2.setTextColor(getResources().getColor(R.color.green));
+            textView3.setTextColor(getResources().getColor(R.color.black4));
 //            head2_textView1.setTextColor(getResources().getColor(R.color.black4));
 //            head2_textView2.setTextColor(getResources().getColor(R.color.blue));
 
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
+            view3.setVisibility(View.INVISIBLE);
 //            head2_view1.setVisibility(View.INVISIBLE);
 //            head2_view2.setVisibility(View.VISIBLE);
 
@@ -339,6 +352,26 @@ public class OFCAccountDetailActivity extends BaseActivity {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter2);
                 mAdapter2.notifyDataSetChanged();
+            } else {
+                showEmptyPage();
+            }
+        } else if (type == 3) {
+            textView1.setTextColor(getResources().getColor(R.color.black4));
+            textView2.setTextColor(getResources().getColor(R.color.black4));
+            textView3.setTextColor(getResources().getColor(R.color.green));
+//            head2_textView1.setTextColor(getResources().getColor(R.color.black4));
+//            head2_textView2.setTextColor(getResources().getColor(R.color.blue));
+
+            view1.setVisibility(View.INVISIBLE);
+            view2.setVisibility(View.INVISIBLE);
+            view3.setVisibility(View.VISIBLE);
+//            head2_view1.setVisibility(View.INVISIBLE);
+//            head2_view2.setVisibility(View.VISIBLE);
+
+            if (list3.size() > 0) {
+                showContentPage();
+                recyclerView.setAdapter(mAdapter3);
+                mAdapter3.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }
