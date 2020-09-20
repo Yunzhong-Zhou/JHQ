@@ -191,7 +191,7 @@ public class Fragment4 extends BaseFragment {
 //                        double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getUsdt_price()) / Double.valueOf(model.getOfc_price());
                         double shouxufei = Double.valueOf(et_keyong.getText().toString().trim()) * Double.valueOf(model.getOfc_price());
                         tv_jisuan.setText("=" + String.format("%.2f", shouxufei) + "USDT");
-                    }else {
+                    } else {
                         tv_jisuan.setText("=0USDT");
                     }
                 }
@@ -309,7 +309,8 @@ public class Fragment4 extends BaseFragment {
                 }*/
 
                 tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
-                tv_zengzhi.setText(model.getAppreciation() + "%");
+//                tv_zengzhi.setText(model.getAppreciation() + "%");
+                tv_zengzhi.setText(model.getInterest_money() + "");
                 /*if (model.getLast_appreciation() >= 0) {
                     tv_24h.setTextColor(getResources().getColor(R.color.green_1));
                     tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
@@ -325,12 +326,11 @@ public class Fragment4 extends BaseFragment {
                 }*/
 //                et_keyong.setHint(getString(R.string.fragment1_h10) + model.getCommon_usable_money());
                 tv_ofc_yue.setText(model.getOfc_amount_money());
-                tv_usdt_yue.setText(model.getCommon_usable_money());
+                tv_usdt_yue.setText(model.getTeam_performance_ofc_money());
 
                 tv_faxingjia.setText(getString(R.string.qianbao_h36) + model.getOfc_issue_price() + "USDT");
 
-
-                tv_heyue.setText(getString(R.string.qianbao_h39) + model.getContract_money());
+                tv_heyue.setText("" + model.getDirect_performance_ofc_money());
                 tv_yifenhong.setText(model.getInterest_money());
 
             }

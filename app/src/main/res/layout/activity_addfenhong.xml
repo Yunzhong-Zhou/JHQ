@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="15dp"
-                        android:text="OFC/USDT"
+                        android:text="DRVT/USDT"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 
@@ -413,7 +413,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OFC"
+                            android:text="DRVT"
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
@@ -467,19 +467,21 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
+
                             <TextView
                                 android:id="@+id/tv_zengzhi"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textStyle="bold"
                                 android:textColor="@color/green_1"
-                                android:textSize="16sp" />
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
                             <ImageView
                                 android:id="@+id/iv_zengzhi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
+                                android:visibility="gone"
                                 android:src="@mipmap/ic_jiantou_up1" />
                         </LinearLayout>
 
@@ -488,7 +490,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="@string/qianbao_h38"
+                            android:text="@string/app_type_yijiangli"
                             android:textColor="@color/white2"
                             android:textSize="11sp" />
 
@@ -523,19 +525,19 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_heyue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="USDT"
+                            android:text="0"
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/tv_heyue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="@string/qianbao_h39"
+                            android:text="@string/share_h8"
                             android:textColor="@color/white2"
                             android:textSize="11sp" />
 
@@ -561,7 +563,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="@string/qianbao_h37"
+                            android:text="@string/share_h12"
                             android:textColor="@color/white2"
                             android:textSize="11sp" />
 
@@ -571,6 +573,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:visibility="invisible"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
@@ -587,7 +590,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="@string/qianbao_h16"
+                            android:text="@string/qianbao_h17"
                             android:textColor="@color/white2"
                             android:textSize="11sp" />
 

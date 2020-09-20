@@ -166,7 +166,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="6dp"
-                                    android:text="@string/qianbao_h16"
+                                    android:text="@string/app_type_yijiangli"
                                     android:textColor="@color/white1"
                                     android:textSize="10sp" />
                             </LinearLayout>

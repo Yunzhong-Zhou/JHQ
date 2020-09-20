@@ -411,6 +411,7 @@
                             android:layout_height="0.2dp"
                             android:layout_marginLeft="35dp"
                             android:layout_marginRight="35dp"
+                            android:visibility="gone"
                             android:background="@color/xian" />
                         <LinearLayout
                             android:id="@+id/linearLayout_huigou"
@@ -421,6 +422,7 @@
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:paddingTop="14dp"
+                            android:visibility="gone"
                             android:paddingBottom="14dp">
 
                             <ImageView

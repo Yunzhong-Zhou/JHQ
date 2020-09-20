@@ -82,6 +82,7 @@
                             android:drawablePadding="4dp"
                             android:gravity="center_vertical"
                             android:padding="4dp"
+                            android:visibility="invisible"
                             android:text="@string/qianbao_h14"
                             android:textColor="#387F9F"
                             android:textSize="15sp" />

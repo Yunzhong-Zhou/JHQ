@@ -37,6 +37,24 @@ public class FenHongModel implements Serializable {
     private String ofc_issue_price;
     private List<OfcPriceListBean> ofc_price_list;
     private String hk;
+    private String direct_performance_ofc_money;
+    private String team_performance_ofc_money;
+
+    public String getDirect_performance_ofc_money() {
+        return direct_performance_ofc_money;
+    }
+
+    public void setDirect_performance_ofc_money(String direct_performance_ofc_money) {
+        this.direct_performance_ofc_money = direct_performance_ofc_money;
+    }
+
+    public String getTeam_performance_ofc_money() {
+        return team_performance_ofc_money;
+    }
+
+    public void setTeam_performance_ofc_money(String team_performance_ofc_money) {
+        this.team_performance_ofc_money = team_performance_ofc_money;
+    }
 
     public String getAppreciation() {
         return appreciation;

@@ -1,13 +1,13 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
 import com.ofc.ofc.model.InformationModel;
@@ -15,8 +15,6 @@ import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.bumptech.glide.Glide;
-import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -24,6 +22,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
@@ -41,11 +42,12 @@ public class InformationActivity extends BaseActivity {
 //    List<InformationModel.BusinessNewsBean> list2 = new ArrayList<>();
 //    CommonAdapter<InformationModel.BusinessNewsBean> adapter2;
 
-
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
     private View view1, view2;
     int type = 1;
+
+    int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +58,25 @@ public class InformationActivity extends BaseActivity {
     @Override
     protected void initView() {
         //刷新
-        setSpringViewMore(false);//不需要加载更多
+        setSpringViewMore(true);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
-                Request("?token=" + localUserInfo.getToken());
+                page = 1;
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                Request(string);
             }
 
             @Override
             public void onLoadmore() {
+                page = page + 1;
+                //加载更多
+                String string = "?page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMore(string);
             }
         });
 
@@ -198,12 +210,12 @@ public class InformationActivity extends BaseActivity {
                         (InformationActivity.this, R.layout.item_information, list1) {
                     @Override
                     protected void convert(ViewHolder holder, InformationModel.ArticleCategory1Bean.ArticleListBean model, int position) {
-                        holder.setText(R.id.textView1,model.getTitle());
-                        holder.setText(R.id.textView2,model.getDigest());
+                        holder.setText(R.id.textView1, model.getTitle());
+                        holder.setText(R.id.textView2, model.getDigest());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
                         if (!model.getCover().equals(""))
                             Glide.with(InformationActivity.this)
-                                    .load(OkHttpClientManager.IMGHOST+model.getCover())
+                                    .load(OkHttpClientManager.IMGHOST + model.getCover())
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
                                     .into(imageView1);//加载图片
@@ -229,12 +241,12 @@ public class InformationActivity extends BaseActivity {
                         (InformationActivity.this, R.layout.item_information, list2) {
                     @Override
                     protected void convert(ViewHolder holder, InformationModel.ArticleCategory2Bean.ArticleListBeanX model, int position) {
-                        holder.setText(R.id.textView1,model.getTitle());
-                        holder.setText(R.id.textView2,model.getDigest());
+                        holder.setText(R.id.textView1, model.getTitle());
+                        holder.setText(R.id.textView2, model.getDigest());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
                         if (!model.getCover().equals(""))
                             Glide.with(InformationActivity.this)
-                                    .load(OkHttpClientManager.IMGHOST+model.getCover())
+                                    .load(OkHttpClientManager.IMGHOST + model.getCover())
 //                                    .placeholder(R.mipmap.headimg)//加载站位图
 //                                    .error(R.mipmap.headimg)//加载失败
                                     .into(imageView1);//加载图片
@@ -289,8 +301,50 @@ public class InformationActivity extends BaseActivity {
                 });*/
 
 
-
                 changeUI();
+
+            }
+        });
+
+    }
+
+    private void RequestMore(String string) {
+        OkHttpClientManager.getAsyn(InformationActivity.this, URLs.Notice + string, new OkHttpClientManager.ResultCallback<InformationModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                onHttpResult();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+                page--;
+            }
+
+            @Override
+            public void onResponse(InformationModel response) {
+                showContentPage();
+                onHttpResult();
+                MyLogger.i(">>>>>>>>>列表更多" + response);
+
+                List<InformationModel.ArticleCategory1Bean.ArticleListBean> list1_1 = new ArrayList<>();
+                list1_1 = response.getArticle_category_1().getArticle_list();
+
+                List<InformationModel.ArticleCategory2Bean.ArticleListBeanX> list2_1 = new ArrayList<>();
+                list2_1 = response.getArticle_category_2().getArticle_list();
+
+                if (list1_1.size() == 0 && list2_1.size() == 0) {
+                    page --;
+                    myToast(getString(R.string.app_nomore));
+                }else {
+                    if (list1_1.size() != 0) {
+                        list1.addAll(list1_1);
+                        adapter1.notifyDataSetChanged();
+                    }
+                    if (list2_1.size() != 0) {
+                        list2.addAll(list2_1);
+                        adapter2.notifyDataSetChanged();
+                    }
+                }
 
             }
         });
