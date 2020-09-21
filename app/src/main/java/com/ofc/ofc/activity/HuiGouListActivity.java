@@ -146,7 +146,7 @@ public class HuiGouListActivity extends BaseActivity {
                                 (HuiGouListActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, HuiGouListModel model, int position) {
-                                holder.setText(R.id.textView1, "OFC：-" + model.getMoney());//标题
+                                holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
                                 holder.setText(R.id.textView2, getString(R.string.qianbao_h69));//流水号
 //                                holder.getView(R.id.textView2).setVisibility(View.GONE);
                                 holder.setText(R.id.textView3, model.getCreated_at());//时间

@@ -369,7 +369,7 @@ public class Fragment4_1 extends BaseFragment {
             public void onResponse(Fragment4Model response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 model = response;
-                if (response.getId().equals("")) {
+                if (response.getId_1().equals("") && response.getId_2().equals("")) {
                     hideProgress();
                     linearLayout_1.setVisibility(View.VISIBLE);
                     linearLayout_2.setVisibility(View.GONE);
@@ -404,7 +404,12 @@ public class Fragment4_1 extends BaseFragment {
                     changeUI();
                     MainActivity.isOver = true;
                 } else {
-                    id = model.getId();
+                    if (!response.getId_1().equals("")){
+                        id = model.getId_1();
+                    }
+                    if (!response.getId_2().equals("")){
+                        id = model.getId_2();
+                    }
                     //加载充币详情
                     linearLayout_1.setVisibility(View.GONE);
                     linearLayout_2.setVisibility(View.VISIBLE);
@@ -412,7 +417,7 @@ public class Fragment4_1 extends BaseFragment {
 
                     //加载充值详情
                     requestDetail("?token=" + localUserInfo.getToken()
-                            + "&id=" + model.getId());
+                            + "&id=" + id);
                 }
 
             }

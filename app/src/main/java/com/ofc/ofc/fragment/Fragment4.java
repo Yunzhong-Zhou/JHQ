@@ -21,7 +21,6 @@ import com.ofc.ofc.R;
 import com.ofc.ofc.activity.FenHongListActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.OFCAccountDetailActivity;
-import com.ofc.ofc.activity.RechargeActivity;
 import com.ofc.ofc.base.BaseFragment;
 import com.ofc.ofc.model.FenHongModel;
 import com.ofc.ofc.model.WebSocketModel;
@@ -410,7 +409,7 @@ public class Fragment4 extends BaseFragment {
                 break;
             case R.id.ll_usdt:
                 //usdt
-                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
             case R.id.rl_1min:
                 //1分钟

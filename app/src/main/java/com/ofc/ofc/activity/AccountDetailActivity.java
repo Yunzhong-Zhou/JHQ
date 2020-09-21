@@ -141,11 +141,11 @@ public class AccountDetailActivity extends BaseActivity {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>账户详情1" + response);
                 model1 = response;
-                if (!response.getTop_up_usdt_wallet_addr().equals("")) {
+                /*if (!response.getTop_up_usdt_wallet_addr().equals("")) {
                     head1_textView5.setVisibility(View.VISIBLE);
                 } else {
                     head1_textView5.setVisibility(View.GONE);
-                }
+                }*/
 
                 head1_textView1.setText(response.getCommon_usable_money());
                 head1_textView2.setText(response.getContract_money());

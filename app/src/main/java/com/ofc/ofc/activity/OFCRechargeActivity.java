@@ -340,13 +340,13 @@ public class OFCRechargeActivity extends BaseActivity {
             public void onResponse(Fragment4Model response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
                 model = response;
-                if (response.getId().equals("")) {
+                if (response.getId_3().equals("")) {
                     hideProgress();
                     linearLayout_1.setVisibility(View.VISIBLE);
                     linearLayout_2.setVisibility(View.GONE);
                     detail_textView_title.setVisibility(View.GONE);
 
-                    textView3.setText(response.getOfc_usable_money());//可用余币
+                    textView3.setText(response.getOfc_amount_money());//可用余币
 //                    textView5.setText(getString(R.string.fragment4_h6) + response.getUsdt_price());//可用余币
                     /*//首次充币
                     if (Double.valueOf(response.getPrincipal_money()) == 0) {
@@ -375,7 +375,7 @@ public class OFCRechargeActivity extends BaseActivity {
                     changeUI();
                     MainActivity.isOver = true;
                 } else {
-                    id = model.getId();
+                   id = model.getId_3();
                    /* Bundle bundle1 = new Bundle();
                     bundle1.putString("id", id);
                     CommonUtil.gotoActivityWithData(RechargeActivity.this, RechargeDetailActivity.class, bundle1, true);*/
@@ -386,7 +386,7 @@ public class OFCRechargeActivity extends BaseActivity {
 
                     //加载充值详情
                     requestDetail("?token=" + localUserInfo.getToken()
-                            + "&id=" + model.getId());
+                            + "&id=" + id);
                 }
 
             }

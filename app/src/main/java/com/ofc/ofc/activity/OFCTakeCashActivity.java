@@ -220,7 +220,7 @@ public class OFCTakeCashActivity extends BaseActivity {
                         model.getOfc_max_withdrawal_money() + ")");//请输入提币个数
 
                 textView5.setText(getString(R.string.takecash_h14) + response.getWithdrawal_service_charge()
-                        + "OFC");//手续费
+                        + "DRVT");//手续费
                 textView7.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());//手机号码
             }
         });

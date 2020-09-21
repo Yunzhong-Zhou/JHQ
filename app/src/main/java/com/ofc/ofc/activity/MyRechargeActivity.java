@@ -306,7 +306,7 @@ public class MyRechargeActivity extends BaseActivity {
         list.add(getString(R.string.app_type_quanbu));
         list.add(getString(R.string.app_type_USDT));
         list.add(getString(R.string.app_type_AY));
-        list.add("OFC");
+        list.add("DRVT");
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyRechargeActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);

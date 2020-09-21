@@ -110,8 +110,8 @@ public class TakeCashDetailActivity extends BaseActivity {
                     } else {
                         textView8.setText(response.getMember_ofc_wallet_addr());//提现地址
                         textView3.setText(getString(R.string.qianbao_h53));
-                        textView9.setText(response.getMoney() + "OFC");//实际到账
-                        textView10.setText(response.getService_charge_money() + "OFC");//手续费
+                        textView9.setText(response.getMoney() + "DRVT");//实际到账
+                        textView10.setText(response.getService_charge_money() + "DRVT");//手续费
                     }
 
                     textView11.setText(response.getCreated_at());//提现时间
