@@ -182,11 +182,21 @@ public class OFCAccountDetailActivity extends BaseActivity {
                         (OFCAccountDetailActivity.this, R.layout.item_ofcaccountdetail, list3) {
                     @Override
                     protected void convert(ViewHolder holder, final AccountDetailModel.InvestListBean model, int position) {
-                        holder.setText(R.id.textView1, model.getType_title());//类型
+                        TextView tv1 = holder.getView(R.id.textView1);
+                        tv1.setText(model.getStatus_title());//类型
                         holder.setText(R.id.textView2, model.getOfc_money());//币数量
                         holder.setText(R.id.textView3, model.getOfc_price());//买入价
                         holder.setText(R.id.textView4, model.getAppreciation() + "%");//已增值
-                        holder.setText(R.id.textView5, model.getUnfreeze_at());//时间
+
+                        holder.setText(R.id.textView5, model.getUnfreeze_at());//显示时间
+                        if (model.getStatus() == 2) {//已结束
+//                            holder.setText(R.id.textView5, getString(R.string.qianbao_h75));//显示已兑换
+                            tv1.setBackgroundResource(R.drawable.yuanjiao_10_huise_bottom1);
+                        } else {
+//                            holder.setText(R.id.textView5, model.getUnfreeze_at());//显示时间
+                            tv1.setBackgroundResource(R.drawable.yuanjiao_10_lvse_bottom);
+                        }
+
                         holder.setText(R.id.textView6, model.getInterest_money());//已分红
                     }
                 };

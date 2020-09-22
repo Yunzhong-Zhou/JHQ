@@ -84,21 +84,20 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
-
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
                 android:text="0"
-                android:textStyle="bold"
-                android:textColor="@color/green"
-                android:textSize="20sp" />
+                android:drawableLeft="@mipmap/ic_usdt_hongse"
+                android:textColor="#FE032C"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/qianbao_h23"
+                android:text="@string/app_type_yijiangli"
                 android:textColor="@color/black3"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -124,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:onClick="onClick"
             android:orientation="horizontal">
 
@@ -132,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/qianbao_h24"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black3"
                 android:textSize="12sp" />
 
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textColor="@color/black1"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -150,26 +150,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="center_vertical|right"
             android:onClick="onClick"
+            android:paddingRight="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/qianbao_h30"
+                android:text="@string/qianbao_h29"
                 android:textColor="@color/black3"
                 android:textSize="12sp" />
-
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:text="0"
-                android:drawableLeft="@mipmap/ic_usdt_hongse"
-                android:textColor="#FE032C"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:textSize="13sp" />
 
         </LinearLayout>
 

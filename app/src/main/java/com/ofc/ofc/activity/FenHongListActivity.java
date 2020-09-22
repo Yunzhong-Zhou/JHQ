@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class FenHongListActivity extends BaseActivity {
     String id = "";
-    TextView textView1, textView2, textView3, textView4, textView5, textView6;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6,textView7;
     private RecyclerView recyclerView;
     List<FenHongListModel.InvestBean.InterestListBean> list = new ArrayList<>();
     CommonAdapter<FenHongListModel.InvestBean.InterestListBean> mAdapter;
@@ -61,6 +61,7 @@ public class FenHongListActivity extends BaseActivity {
         textView4 = findViewByID_My(R.id.textView4);
         textView5 = findViewByID_My(R.id.textView5);
         textView6 = findViewByID_My(R.id.textView6);
+        textView7 = findViewByID_My(R.id.textView7);
 
         recyclerView = findViewByID_My(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,13 +90,19 @@ public class FenHongListActivity extends BaseActivity {
                 showContentPage();
                 MyLogger.i(">>>>>>>>>分红详情" + response);
 
-                if (response.getInvest() !=null){
+                if (response.getInvest() != null) {
                     textView1.setText(response.getInvest().getOfc_money());//币数量
                     textView2.setText(response.getInvest().getAppreciation() + "%");//已增值
                     textView3.setText(response.getInvest().getInterest_money());//已分红
                     textView4.setText(response.getInvest().getOfc_price());//买入价
                     textView5.setText(response.getInvest().getType_title());//币来源
-                    textView6.setText(response.getInvest().getUnfreeze_at());//解冻时间
+                    textView6.setText(response.getInvest().getUnfreeze_at());//显示时间
+                    textView7.setText(response.getInvest().getStatus_title());//质押状态
+                    /*if (response.getInvest().getStatus() == 2) {//已结束
+
+                    } else {
+
+                    }*/
 
                     list = response.getInvest().getInterest_list();
                     if (list.size() > 0) {
@@ -104,7 +111,7 @@ public class FenHongListActivity extends BaseActivity {
                                 (FenHongListActivity.this, R.layout.item_fenhonglist, list) {
                             @Override
                             protected void convert(ViewHolder holder, final FenHongListModel.InvestBean.InterestListBean model, int position) {
-                                holder.setText(R.id.textView1, "+"+model.getRate() );//指数
+                                holder.setText(R.id.textView1, "+" + model.getRate());//指数
                                 holder.setText(R.id.textView2, model.getMoney() + "USDT");//标题
 //                            holder.setText(R.id.textView3, );//时间
                                 holder.setText(R.id.textView4, model.getCreated_at());//状态
@@ -146,6 +153,6 @@ public class FenHongListActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.qianbao_h26));
+        titleView.setTitle(getString(R.string.qianbao_h74));
     }
 }

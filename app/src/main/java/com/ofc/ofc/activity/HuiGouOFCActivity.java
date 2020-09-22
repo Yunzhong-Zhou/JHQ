@@ -186,7 +186,7 @@ public class HuiGouOFCActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setTitle(getString(R.string.qianbao_h56));
-        titleView.showRightTextview(getString(R.string.qianbao_h66), new View.OnClickListener() {
+        titleView.showRightTextview(getString(R.string.qianbao_h66),R.mipmap.ic_huigoujilu, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CommonUtil.gotoActivity(HuiGouOFCActivity.this, HuiGouListActivity.class, false);

@@ -486,10 +486,10 @@
     <string name="qianbao_h21">币数量</string>
     <string name="qianbao_h22">买入价</string>
     <string name="qianbao_h23">已增值</string>
-    <string name="qianbao_h24">解冻时间：</string>
+    <string name="qianbao_h24">兑换时间：</string>
     <string name="qianbao_h25">已分红：</string>
-    <string name="qianbao_h26">流动奖励记录</string>
-    <string name="qianbao_h27">数据明细</string>
+    <string name="qianbao_h26">流动奖励明细</string>
+    <string name="qianbao_h27">质押明细</string>
     <string name="qianbao_h28">币数量：</string>
     <string name="qianbao_h29">已增值：</string>
     <string name="qianbao_h30">已奖励：</string>
@@ -522,11 +522,11 @@
     <string name="qianbao_h57">当前DRVT价格</string>
     <string name="qianbao_h58">回购数量</string>
     <string name="qianbao_h59">请输入DRVT数量</string>
-    <string name="qianbao_h60">可用:</string>
+    <string name="qianbao_h60">可用：</string>
     <string name="qianbao_h61">可得</string>
     <string name="qianbao_h62">质押DRVT</string>
     <string name="qianbao_h63">当前流动周期</string>
-    <string name="qianbao_h64">当前分红系数</string>
+    <string name="qianbao_h64">当前流动指数</string>
     <string name="qianbao_h65">质押数量</string>
     <string name="qianbao_h66">回购记录</string>
     <string name="qianbao_h67">按数量</string>
@@ -536,6 +536,13 @@
     <string name="qianbao_h71">可用</string>
     <string name="qianbao_h72">质押记录</string>
     <string name="qianbao_h73">已奖励(USDT)</string>
+    <string name="qianbao_h74">明细</string>
+    <string name="qianbao_h75">已兑换</string>
+    <string name="qianbao_h76">质押状态：</string>
+    <string name="qianbao_h77">币数量不能小于1</string>
+    <string name="qianbao_h78">查看直推</string>
+
+
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
     <string name="recharge_h2">可用余币：</string>

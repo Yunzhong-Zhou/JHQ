@@ -165,6 +165,10 @@ public class URLs {
      */
     public static final String FenHong = "/api/invest/index";
     /**
+     * 分红主页-chart
+     */
+    public static final String FenHong_Chart = "/api/invest/k-line-chart";
+    /**
      * 买入分红
      */
     public static final String AddFenHong = "/api/invest/create";
@@ -236,6 +240,10 @@ public class URLs {
      * 推广用户
      */
     public static final String DirectMember = "/api/member/direct-recommend";
+    /**
+     * 推广用户
+     */
+    public static final String DirectMember_OFC = "/api/invest/direct-recommend";
     /**
      * 资讯
      */

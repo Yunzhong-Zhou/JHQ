@@ -26,8 +26,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@mipmap/bg_addfenhong1"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/bg_addfenhong"
                     android:orientation="vertical">
 
                     <TextView
@@ -136,72 +136,30 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="260dp"
+                    android:layout_height="320dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
 
-                    <!-- <com.github.tifezh.kchartlib.chart.KChartView
-                         android:id="@+id/mKChartView"
-                         android:layout_width="match_parent"
-                         android:layout_height="match_parent"
-                         android:layout_weight="1"
-                         android:minHeight="300dp"
-                         app:kc_background_color="#031F2C"
-                         app:kc_candle_width="8dp"
-                         app:kc_grid_line_color="#FFFFFF"
-                         app:kc_point_width="10dp" />-->
-                    <com.github.mikephil.charting.charts.LineChart
-                        android:id="@+id/lineChart"
+                    <com.github.tifezh.kchartlib.chart.KChartView
+                        android:id="@+id/mKChartView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:minHeight="300dp"
+                        app:kc_background_color="#031F2C"
+                        app:kc_candle_width="8dp"
+                        app:kc_grid_line_color="#FFFFFF"
+                        app:kc_point_width="10dp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="DRVT/usdt"
-                            android:textColor="@color/white2"
-                            android:textSize="12sp"
-                            android:visibility="gone"/>
-
-                        <TextView
-                            android:id="@+id/tv_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:drawableLeft="@mipmap/ic_usdt_gray"
-                            android:text=""
-                            android:textColor="@color/white2"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
-
-                        <TextView
-                            android:id="@+id/tv_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text=""
-                            android:textColor="@color/white2"
-                            android:textSize="12sp"
-                            android:visibility="gone"/>
-
-                    </LinearLayout>
-
-                </RelativeLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:orientation="horizontal">
 
                     <RelativeLayout
                         android:id="@+id/rl_1min"
@@ -340,8 +298,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="7dp"
-                    android:background="#072533"
-                    android:visibility="gone"/>
+                    android:background="#072533" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -361,10 +319,10 @@
 
                         <ImageView
                             android:id="@+id/iv_jian"
+                            android:onClick="onClick"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:background="#263548"
-                            android:onClick="onClick"
                             android:padding="10dp"
                             android:src="@mipmap/ic_jian" />
 
@@ -387,10 +345,10 @@
 
                         <ImageView
                             android:id="@+id/iv_jia"
+                            android:onClick="onClick"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:background="#263548"
-                            android:onClick="onClick"
                             android:padding="10dp"
                             android:src="@mipmap/ic_jia" />
 
@@ -398,13 +356,13 @@
 
                     <TextView
                         android:id="@+id/tv_mairu"
+                        android:onClick="onClick"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:background="@color/green_1"
                         android:gravity="center"
-                        android:onClick="onClick"
                         android:padding="10dp"
                         android:text="@string/qianbao_h35"
                         android:textColor="@color/white"
@@ -412,36 +370,16 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_jisuan"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tv_jisuan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="13dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="13dp"
-                        android:layout_weight="1"
-                        android:text="=0usdt"
-                        android:textColor="@color/white2"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/tv_keyong"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="13dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="13dp"
-                        android:layout_marginBottom="13dp"
-                        android:text="@string/qianbao_h60"
-                        android:textColor="@color/white2"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="=0usdt"
+                    android:textColor="@color/white2"
+                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -450,18 +388,19 @@
 
                 <LinearLayout
                     android:id="@+id/ll_ofc"
+                    android:onClick="onClick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="13dp"
                     android:background="@mipmap/bg_addfenhong"
                     android:gravity="center_vertical"
-                    android:onClick="onClick"
                     android:orientation="horizontal"
                     android:padding="13dp">
 
                     <ImageView
-                        android:layout_width="54dp"
-                        android:layout_height="54dp"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:layout_marginTop="5dp"
                         android:background="@mipmap/ic_addfenhong1" />
 
                     <LinearLayout
@@ -475,9 +414,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="DRVT"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/tv_faxingjia"
@@ -502,9 +441,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -526,8 +465,8 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
 
                             <TextView
                                 android:id="@+id/tv_zengzhi"
@@ -537,14 +476,13 @@
                                 android:textColor="@color/green_1"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                             <ImageView
                                 android:id="@+id/iv_zengzhi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
-                                android:src="@mipmap/ic_jiantou_up1"
-                                android:visibility="gone" />
+                                android:visibility="gone"
+                                android:src="@mipmap/ic_jiantou_up1" />
                         </LinearLayout>
 
 
@@ -562,6 +500,7 @@
 
                 <LinearLayout
                     android:id="@+id/ll_usdt"
+                    android:onClick="onClick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="13dp"
@@ -569,14 +508,13 @@
                     android:layout_marginBottom="20dp"
                     android:background="@mipmap/bg_addfenhong"
                     android:gravity="center_vertical"
-                    android:onClick="onClick"
                     android:orientation="horizontal"
                     android:padding="13dp">
 
                     <ImageView
                         android:layout_width="54dp"
                         android:layout_height="54dp"
-                        android:background="@mipmap/ic_addfenhong3" />
+                        android:background="@mipmap/ic_addfenhong2" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -590,9 +528,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -616,9 +554,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -631,13 +569,12 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/ll_tuiguang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:visibility="invisible"
                         android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        android:visibility="visible">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_yifenhong"
@@ -645,9 +582,8 @@
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:textColor="@color/red_1"
-                            android:textSize="16sp"
                             android:textStyle="bold"
-                            android:visibility="gone" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -655,19 +591,10 @@
                             android:layout_marginTop="5dp"
                             android:text="@string/qianbao_h17"
                             android:textColor="@color/white2"
-                            android:textSize="11sp"
-                            android:visibility="gone" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableRight="@mipmap/ic_next_black"
-                            android:gravity="center_vertical"
-                            android:text="@string/qianbao_h78"
-                            android:textColor="@color/white2"
                             android:textSize="11sp" />
 
                     </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -680,6 +607,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:src="@mipmap/ic_return1"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:src="@mipmap/ic_return1" />
 </RelativeLayout>

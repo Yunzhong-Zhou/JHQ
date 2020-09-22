@@ -1,6 +1,10 @@
 package com.ofc.ofc.fragment;
 
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -9,37 +13,44 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.github.tifezh.kchartlib.chart.BaseKChartView;
-import com.github.tifezh.kchartlib.chart.KChartView;
-import com.github.tifezh.kchartlib.chart.formatter.DateFormatter;
-import com.google.gson.Gson;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.activity.FenHongListActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.OFCAccountDetailActivity;
+import com.ofc.ofc.activity.OFCSharePeopleActivity;
 import com.ofc.ofc.base.BaseFragment;
 import com.ofc.ofc.model.FenHongModel;
-import com.ofc.ofc.model.WebSocketModel;
-import com.ofc.ofc.model.WebSocket_ListModel;
+import com.ofc.ofc.model.FenHong_ChartModel;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
-import com.ofc.ofc.okhttp.websocket.IReceiveMessage;
 import com.ofc.ofc.okhttp.websocket.WebSocketManager;
 import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
-import com.ofc.ofc.view.chart.DataHelper;
-import com.ofc.ofc.view.chart.KChartAdapter;
-import com.ofc.ofc.view.chart.KLineEntity;
+import com.ofc.ofc.view.LineChartMarkView;
 import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,31 +62,16 @@ import java.util.List;
 public class Fragment4 extends BaseFragment {
     FenHongModel model;
     TextView tv_usdt, tv_fenhongzhishu, tv_toal, tv_24h, tv_mairu, tv_jisuan, tv_faxingjia, tv_ofc_yue, tv_zengzhi,
-            tv_heyue, tv_usdt_yue, tv_yifenhong;
+            tv_heyue, tv_usdt_yue, tv_yifenhong, tv_keyong;
     ImageView iv_toal, iv_24h, iv_jian, iv_jia, iv_zengzhi;
     EditText et_keyong;
-    LinearLayout ll_ofc, ll_usdt;
+    LinearLayout ll_ofc, ll_usdt, ll_tuiguang;
 
 
-    //走势图
-    RelativeLayout rl_1min, rl_5min, rl_30min, rl_1h, rl_1day, rl_1mon;
-    TextView tv_1min, tv_5min, tv_30min, tv_1h, tv_1day, tv_1mon;
-    boolean isShowOver = false, isNew = true;
-    //wss://api.hadax.com/ws
-    //wss://api.huobi.pro/ws
-    //wss://api-aws.huobi.pro/ws
-    String url = "wss://api.hadax.com/ws",
-            fenshi = "1min", id = "btcusdt",
-            sub = "market." + id + ".kline." + fenshi;
-
-    long tempTime = 0, from = 0, to = 0, num = 720, time = 60 * num;
-    KChartView mKChartView;
-    private KChartAdapter mAdapter;
-    List<KLineEntity> datas = new ArrayList<>();
-    List<KLineEntity> newlist = new ArrayList<>();
-
-    KLineEntity kLineEntity;
-    Gson mGson = new Gson();
+    //折线图
+    LineChart lineChart;
+    Handler handler = new Handler();
+    TextView tv_name, tv_value, tv_date;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -101,8 +97,6 @@ public class Fragment4 extends BaseFragment {
         super.onResume();
         if (MainActivity.item == 3) {
             requestServer();
-
-            requestWebSocket();
         }
     }
 
@@ -128,10 +122,7 @@ public class Fragment4 extends BaseFragment {
         if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
                 if (MainActivity.item == 3) {
-                    //关闭连接
-                    WebSocketManager.getInstance().close();
                     requestServer();
-                    requestWebSocket();
                 }
             }
         }
@@ -171,6 +162,8 @@ public class Fragment4 extends BaseFragment {
         iv_jia = findViewByID_My(R.id.iv_jia);
         iv_zengzhi = findViewByID_My(R.id.iv_zengzhi);
         et_keyong = findViewByID_My(R.id.et_keyong);
+        tv_keyong = findViewByID_My(R.id.tv_keyong);
+        tv_keyong.setText(getString(R.string.qianbao_h60) + "0.00USDT");
         //输入监听
         et_keyong.addTextChangedListener(new TextWatcher() {
             @Override
@@ -203,70 +196,19 @@ public class Fragment4 extends BaseFragment {
         tv_mairu.setOnClickListener(this);
         ll_ofc.setOnClickListener(this);
         ll_usdt.setOnClickListener(this);
+        ll_tuiguang = findViewByID_My(R.id.ll_tuiguang);
+        ll_tuiguang.setOnClickListener(this);
 
-        //k线图
-        mKChartView = findViewByID_My(R.id.mKChartView);
-        mAdapter = new KChartAdapter();
-        mKChartView.setAdapter(mAdapter);
-        mKChartView.setDateTimeFormatter(new DateFormatter());
-        //设置表格行数
-        mKChartView.setGridRows(4);
-        //设置表格列数
-        mKChartView.setGridColumns(4);
-        mKChartView.setOnSelectedChangedListener(new BaseKChartView.OnSelectedChangedListener() {
-            @Override
-            public void onSelectedChanged(BaseKChartView view, Object point, int index) {
-                /*KLineEntity data = (KLineEntity) point;
-                MyLogger.i("index:" + index + " closePrice:" + data.getClosePrice());*/
-            }
-        });
-        mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
-        mKChartView.setRefreshListener(new KChartView.KChartRefreshListener() {
-            @Override
-            public void onLoadMoreBegin(KChartView chart) {
-                if (isShowOver) {
-                    MyLogger.i(">>>加载更多");
-                    //获取历史数据
-                    isShowOver = false;
-                    isNew = false;
-                    to = from;
-                    from = (Long) (to - time);
-                    showHistory(from, to);
-                }
-            }
-        });
-        //分时
-        tv_1min = findViewByID_My(R.id.tv_1min);
-        rl_1min = findViewByID_My(R.id.rl_1min);
-        rl_1min.setOnClickListener(this);
-
-        tv_5min = findViewByID_My(R.id.tv_5min);
-        rl_5min = findViewByID_My(R.id.rl_5min);
-        rl_5min.setOnClickListener(this);
-
-        tv_30min = findViewByID_My(R.id.tv_30min);
-        rl_30min = findViewByID_My(R.id.rl_30min);
-        rl_30min.setOnClickListener(this);
-
-        tv_1h = findViewByID_My(R.id.tv_1h);
-        rl_1h = findViewByID_My(R.id.rl_1h);
-        rl_1h.setOnClickListener(this);
-
-        tv_1day = findViewByID_My(R.id.tv_1day);
-        rl_1day = findViewByID_My(R.id.rl_1day);
-        rl_1day.setOnClickListener(this);
-
-        tv_1mon = findViewByID_My(R.id.tv_1mon);
-        rl_1mon = findViewByID_My(R.id.rl_1mon);
-        rl_1mon.setOnClickListener(this);
-
-        changeUI();
+        //折线图
+        lineChart = findViewByID_My(R.id.lineChart);
+        tv_name = findViewByID_My(R.id.tv_name);
+        tv_value = findViewByID_My(R.id.tv_value);
+        tv_date = findViewByID_My(R.id.tv_date);
     }
 
     @Override
     protected void initData() {
 //        requestServer();
-        requestWebSocket();
     }
 
     @Override
@@ -276,6 +218,8 @@ public class Fragment4 extends BaseFragment {
         showProgress(true, getString(R.string.app_loading));
         String string = "?token=" + localUserInfo.getToken();
         Request(string);
+
+        RequestChart(string);
     }
 
     private void Request(String string) {
@@ -299,6 +243,7 @@ public class Fragment4 extends BaseFragment {
                 tv_fenhongzhishu.setText(getString(R.string.qianbao_h34) + "：" + model.getOfc_index() + "USDT");
 
                 tv_toal.setText("Total +" + model.getToal_appreciation() + "%");
+
                 /*if (model.getToal_appreciation() >= 0) {
                     tv_toal.setTextColor(getResources().getColor(R.color.green_1));
                     tv_toal.setText("Toal +" + model.getToal_appreciation() + "%");
@@ -310,6 +255,7 @@ public class Fragment4 extends BaseFragment {
                 tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
 //                tv_zengzhi.setText(model.getAppreciation() + "%");
                 tv_zengzhi.setText(model.getInterest_money() + "");
+                tv_keyong.setText(getString(R.string.qianbao_h60) + model.getCommon_usable_money() + "USDT");//可用
                 /*if (model.getLast_appreciation() >= 0) {
                     tv_24h.setTextColor(getResources().getColor(R.color.green_1));
                     tv_24h.setText("24H +" + model.getLast_appreciation() + "%");
@@ -331,6 +277,38 @@ public class Fragment4 extends BaseFragment {
 
                 tv_heyue.setText("" + model.getDirect_performance_ofc_money());
                 tv_yifenhong.setText(model.getInterest_money());
+
+            }
+        });
+    }
+
+    private void RequestChart(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.FenHong_Chart + string, new OkHttpClientManager.ResultCallback<FenHong_ChartModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(final FenHong_ChartModel response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>分红Chart" + response);
+                //折线图
+                initChart(lineChart);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        showLineChart(response.getOfc_price_list(), "", getResources().getColor(R.color.green_1), lineChart, response.getMin(), response.getMax());
+                        //显示线条渐变色
+                        Drawable drawable = getResources().getDrawable(R.drawable.lvsejianbian);
+                        setChartFillDrawable(lineChart, drawable);
+                    }
+                });
 
             }
         });
@@ -385,7 +363,7 @@ public class Fragment4 extends BaseFragment {
             case R.id.tv_mairu:
                 //买入
                 if (!et_keyong.getText().toString().trim().equals("")) {
-                    if (Double.valueOf(et_keyong.getText().toString().trim()) >= 10) {
+                    if (Double.valueOf(et_keyong.getText().toString().trim()) >= 1) {
                         tv_mairu.setClickable(false);
                         showProgress(true, getString(R.string.app_loading1));
                         HashMap<String, String> params = new HashMap<>();
@@ -397,7 +375,7 @@ public class Fragment4 extends BaseFragment {
                         requestAdd(params);
 
                     } else {
-                        myToast(getString(R.string.fragment1_h26));
+                        myToast(getString(R.string.qianbao_h77));
                     }
                 } else {
                     myToast(getString(R.string.fragment1_h25));
@@ -411,59 +389,9 @@ public class Fragment4 extends BaseFragment {
                 //usdt
 //                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
-            case R.id.rl_1min:
-                //1分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_5min:
-                //5分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "5min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 5 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_30min:
-                //30分钟
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "30min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 30 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1h:
-                //1小时
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "60min";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1day:
-                //1天
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1day";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 24 * num;//60*12条
-                changeKChart();
-                break;
-            case R.id.rl_1mon:
-                //1月
-                cancelDingYue();//先取消订阅-再订阅最新
-                fenshi = "1mon";
-                changeUI();
-                sub = "market." + id + ".kline." + fenshi;
-                time = 60 * 60 * 24 * 30 * 60;//60条
-                changeKChart();
+            case R.id.ll_tuiguang:
+                //推广
+                CommonUtil.gotoActivity(getActivity(), OFCSharePeopleActivity.class, false);
                 break;
         }
     }
@@ -541,270 +469,306 @@ public class Fragment4 extends BaseFragment {
 
 
     /**
-     * 连接websocket、解析、展示
+     * ************************************初始化图表***********************************************
      */
-    private void requestWebSocket() {
-        isNew = true;
-        MyLogger.i(">>>是否连接" + WebSocketManager.getInstance().isConnect());
-        if (!WebSocketManager.getInstance().isConnect()) {//是否连接
-            //没有连接时，开始连接
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    /*try {
-                        synchronized (this) {
-                            wait(2000);
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }*/
-                    WebSocketManager.getInstance().init(url, new IReceiveMessage() {
-                        @Override
-                        public void onConnectSuccess() {
-                            MyLogger.i(">>>>>>连接成功");
-                            changeKChart();
-                        }
+    private XAxis xAxis;                //X轴
+    private YAxis leftYAxis;            //左侧Y轴
+    private YAxis rightYaxis;           //右侧Y轴
+    private Legend legend;              //图例
+    private LimitLine limitLine;        //限制线
 
-                        @Override
-                        public void onConnectFailed() {
-                            isShowOver = false;
-                            MyLogger.i(">>>>>>连接失败");
-                            WebSocketManager.getInstance().reconnect();//重连
-                        }
+    private void initChart(LineChart lineChart) {
+        /***图表设置***/
+        //背景色
+        lineChart.setBackgroundColor(Color.TRANSPARENT);
+        //无数据时
+        lineChart.setNoDataText(getString(R.string.app_loading2));//如果没有数据的时候，会显示这个
+        lineChart.setNoDataTextColor(getResources().getColor(R.color.green_1));
+        //是否展示网格线
+        lineChart.setDrawGridBackground(false);
+        //是否显示边界
+        lineChart.setDrawBorders(false);
+        //是否可以拖动
+        lineChart.setDragEnabled(true);
+        //是否有触摸事件
+        lineChart.setTouchEnabled(true);
+        // 设置 是否可以缩放
+        lineChart.setScaleEnabled(false);
+        // 比例缩放
+        lineChart.setPinchZoom(true);
+        //设置 是否可以展示弹窗
+        lineChart.setDrawMarkers(true);
+        //设置XY轴动画效果
+        lineChart.animateY(1000);
+        lineChart.animateX(2500);
+        //是否 自适应最大最小值
+        lineChart.setAutoScaleMinMaxEnabled(false);
 
-                        @Override
-                        public void onClose() {
-                            isShowOver = false;
-                            MyLogger.i(">>>>>>关闭成功");
-                        }
+//        lineChart.getLegend().setEnabled(false);// 不显示图例
 
-                        @Override
-                        public void onMessage(String text) {
-//                        MyLogger.i("接收消息", text);
-                            //得到心跳 {"ping":1592998031971}，发送心跳{"pong":1592998031971}
-                            JSONObject jObj;
-                            String ping = "";
-                            try {
-                                //解析数据
-                                if (text.indexOf("ping") != -1) {
-                                    //TODO 判断有无ping数据
-                                    jObj = new JSONObject(text);
-                                    ping = jObj.getString("ping");
 
-                                    JSONObject jObj_pong = new JSONObject();
-                                    //发送心跳
-                                    jObj_pong.put("pong", ping);
-                                    WebSocketManager.getInstance().sendMessage(jObj_pong.toString());
-                                } else if (text.indexOf("data") != -1) {
-                                    //TODO 判断有无data数据
-//                                MyLogger.i("接收消息-历史记录", text);
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            //解析数据
-                                            WebSocket_ListModel model = mGson.fromJson(text, WebSocket_ListModel.class);
-                                            newlist.clear();
-                                            for (WebSocket_ListModel.DataBean bean : model.getData()) {
-                                                if (bean != null) {
-                                                    kLineEntity = new KLineEntity(
-                                                            bean.getId() + "",
-                                                            (float) bean.getOpen(),
-                                                            (float) bean.getHigh(),
-                                                            (float) bean.getLow(),
-                                                            (float) bean.getClose(),
-                                                            (float) bean.getVol(),
-                                                            (float) bean.getAmount(), 0, 0, 0, 0, 0, 0,
-                                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                                            "-1"
-                                                    );
-                                                    newlist.add(kLineEntity);
-                                                }
-                                            }
-                                            datas.addAll(0, newlist);
-                                            if (isNew) {//是新数据
-//                                            MyLogger.i(">>>>>>历史新数据");
-                                                tempTime = model.getData().get(newlist.size() - 1).getId();
-//                                            mKChartView.setAdapter(mAdapter);
-                                                mAdapter.changeData(datas);//更新数据
-                                                isNew = false;
-                                            } else {//不是新数据
-//                                            MyLogger.i(">>>>>>历史更多数据");
-                                                mAdapter.addFooterData(newlist);//添加尾部数据
-                                            }
-                                            mAdapter.notifyDataSetChanged();
-                                            DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
-                                            mKChartView.refreshComplete();//加载完成
-                                            isShowOver = true;
-//                                        MyLogger.i(">>>>>>"+mKChartView.getWidth());
-                                        }
-                                    });
+        //右下角还有一个描述标签 Descripition Lable 需要在LineChart初始化时设置
+        Description description = new Description();
+//        description.setText("需要展示的内容");
+        description.setEnabled(false);
+        lineChart.setDescription(description);
 
-                                } else {
-//                                    MyLogger.i("接收消息-订阅数据", text);
-                                    if (isNew == false) {//有了历史数据后展示最新数据
-                                        getActivity().runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                //解析数据
-                                                WebSocketModel model = mGson.fromJson(text, WebSocketModel.class);
-                                                if (model != null && model.getTick() != null) {
-//                                            MyLogger.i(">>>>>" + CommonUtil.timedate(model.getTick().getId() + ""));
-                                                    kLineEntity = new KLineEntity(
-                                                            model.getTick().getId() + "",
-                                                            (float) model.getTick().getOpen(),
-                                                            (float) model.getTick().getHigh(),
-                                                            (float) model.getTick().getLow(),
-                                                            (float) model.getTick().getClose(),
-                                                            (float) model.getTick().getVol(),
-                                                            (float) model.getTick().getAmount(), 0, 0, 0, 0, 0, 0,
-                                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                                            "-1"
-                                                    );
-                                                    newlist.clear();
-                                                    newlist.add(kLineEntity);
-                                                    if (tempTime != model.getTick().getId()) {
-                                                        tempTime = model.getTick().getId();
-                                                        datas.add(kLineEntity);
-                                                        mAdapter.addHeaderData(newlist);//添加头部数据
-                                                    } else {
-                                                        if (datas.size() > 0) {
-                                                            datas.set(datas.size() - 1, kLineEntity);
-                                                            mAdapter.changeItem(datas.size() - 1, kLineEntity);//改变某个值
-                                                        }
-                                                    }
-//                                            MyLogger.i(">>>>>"+datas.size());
-//                                            mAdapter.notifyDataSetChanged();
 
-                                                    DataHelper.calculate(datas);//计算MA BOLL RSI KDJ MACD
-                                                    mKChartView.refreshComplete();//加载完成
-                                                }
+        /***XY轴的设置***/
+        xAxis = lineChart.getXAxis();
+        leftYAxis = lineChart.getAxisLeft();
+        rightYaxis = lineChart.getAxisRight();
+        //X轴设置显示位置在底部
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setAxisMinimum(0f);
+        xAxis.setGranularity(1f);
+        //保证Y轴从0开始，不然会上移一点
+//        leftYAxis.setAxisMinimum(0f);
+//        rightYaxis.setAxisMinimum(0f);
+        //禁用网格线
+        xAxis.setDrawGridLines(false);
+        rightYaxis.setDrawGridLines(false);
+        leftYAxis.setDrawGridLines(false);
+        //去掉右侧Y轴
+        rightYaxis.setEnabled(true);
+        leftYAxis.setEnabled(false);
+        xAxis.setEnabled(true);
 
-                                            }
-                                        });
-                                    }
+        //设置X、Y轴
+        rightYaxis.setTextColor(getResources().getColor(R.color.white));//右侧Y轴文字颜色
+        rightYaxis.setAxisLineColor(getResources().getColor(R.color.transparent));//X轴线的颜色
+        xAxis.setTextColor(getResources().getColor(R.color.white));//X轴文字颜色
+        xAxis.setAxisLineColor(getResources().getColor(R.color.transparent));//X轴线的颜色
+        xAxis.setLabelCount(6, false);//设置数量
+//        xAxis.setGranularity(20f);//设置x轴间距
 
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-                }
-            }).start();
+
+        /***折线图例 标签 设置***/
+        legend = lineChart.getLegend();
+        //设置显示类型，LINE CIRCLE SQUARE EMPTY 等等 多种方式，查看LegendForm 即可
+        legend.setForm(Legend.LegendForm.LINE);
+        legend.setTextSize(12f);
+        //显示位置 左下方
+        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        //是否绘制在图表里面
+        legend.setDrawInside(false);
+        //不显示标签
+        legend.setEnabled(false);
+
+    }
+
+    /**
+     * 曲线初始化设置 一个LineDataSet 代表一条曲线
+     *
+     * @param lineDataSet 线条
+     * @param color       线条颜色
+     * @param mode
+     */
+    private void initLineDataSet(LineDataSet lineDataSet, int color, LineDataSet.Mode mode) {
+        lineDataSet.setColor(color);
+        lineDataSet.setCircleColor(color);
+        lineDataSet.setLineWidth(1f);
+        lineDataSet.setCircleRadius(3f);
+        //设置曲线值的圆点是实心还是空心
+        lineDataSet.setDrawCircleHole(false);
+        lineDataSet.setValueTextSize(10f);
+        //设置折线图填充
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFormLineWidth(1f);
+        lineDataSet.setFormSize(15.f);
+        //是否显示点
+        lineDataSet.setDrawCircles(false);
+        lineDataSet.setDrawIcons(true);
+        //是否显示值
+        lineDataSet.setDrawValues(false);
+        //是否可以点击显示高亮（辅助线）
+        lineDataSet.setHighlightEnabled(true);
+        //设置辅助线颜色
+//        lineDataSet.setHighLightColor(getResources().getColor(R.color.green_1));
+        lineDataSet.setHighLightColor(getResources().getColor(R.color.transparent));
+
+        // 点击圆点显示高亮
+//        lineDataSet.setDrawHighlightIndicators(false);
+
+        if (mode == null) {
+            //设置曲线展示为圆滑曲线（如果不设置则默认折线）
+            lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         } else {
-            //有连接-加载历史
-            cancelDingYue();//先取消订阅-再订阅最新
-            changeKChart();
+            lineDataSet.setMode(mode);
         }
     }
 
     /**
-     * 选择分时，更改k线图
+     * 展示曲线
+     *
+     * @param dataList 数据集合
+     * @param name     曲线名称
+     * @param color    曲线颜色
      */
-    private void changeKChart() {
+    public void showLineChart(List<FenHong_ChartModel.OfcPriceListBean> dataList, String name, int color, LineChart lineChart, String min, String max) {
+        //反转数据
+        Collections.reverse(dataList);
+        List<Entry> entries = new ArrayList<>();
+//        List<Float> floatList = new ArrayList<>();
+        for (int i = 0; i < dataList.size(); i++) {
+            FenHong_ChartModel.OfcPriceListBean data = dataList.get(i);
+            /**
+             * 在此可查看 Entry构造方法，可发现 可传入数值 Entry(float x, float y)
+             * 也可传入Drawable， Entry(float x, float y, Drawable icon) 可在XY轴交点 设置Drawable图像展示
+             */
+            Entry entry = new Entry(i, Float.valueOf(data.getPrice()));
+//            Entry entry = new Entry(i, Float.valueOf(data.getPrice()),getResources().getDrawable(R.mipmap.ic_xuanze));
 
-        datas.clear();
-        isShowOver = false;
-        isNew = true;
-        mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
-        from = (Long) (System.currentTimeMillis() / 1000 - time);
-        to = (Long) System.currentTimeMillis() / 1000;
+            entries.add(entry);
 
-        showHistory(from, to);
+//            floatList.add(Float.valueOf(data.getPrice()));
+        }
+        //显示x轴的值
+        xAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                String tradeDate = dataList.get((int) value % dataList.size()).getCreated_at();
+                return formatDate(tradeDate);
+            }
+        });
+
+        //显示MarkerView
+//        setMarkerView();
+
+        //最大值
+//        leftYAxis.setAxisMinimum(Float.valueOf(min)/2);
+//        leftYAxis.setAxisMaximum(Float.valueOf(max)*2);
+//        rightYaxis.setAxisMinimum(Float.valueOf(min)/2);
+//        rightYaxis.setAxisMaximum(Float.valueOf(max)*2);
+//        leftYAxis.setAxisMinimum(Float.valueOf(min));
+//        leftYAxis.setAxisMaximum(Float.valueOf(max));
+        rightYaxis.setAxisMinimum(Float.valueOf(min));
+        rightYaxis.setAxisMaximum(Float.valueOf(max));
+
+//        MyLogger.i(">>>>>>>最大>"+Collections.max(floatList));
+//        MyLogger.i(">>>>>>>最小>"+Collections.min(floatList));
+
+        // 每一个LineDataSet代表一条线
+        LineDataSet lineDataSet = new LineDataSet(entries, name);
+        initLineDataSet(lineDataSet, color, LineDataSet.Mode.CUBIC_BEZIER);
+        LineData lineData = new LineData(lineDataSet);
+
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(1.0F, 1.0F);
+        lineChart.getViewPortHandler().refresh(matrix, lineChart, false);
+
+        lineChart.setData(lineData);
+        lineChart.moveViewToX((dataList.size() - 1));//移动到最后一个值
+
+        //点击某个值的监听
+        lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                tv_name.setVisibility(View.VISIBLE);
+                tv_value.setVisibility(View.VISIBLE);
+                tv_date.setVisibility(View.VISIBLE);
+                tv_value.setText(dataList.get((int) e.getX()).getPrice());
+                tv_date.setText(formatDate1(dataList.get((int) e.getX()).getCreated_at()));
+
+                for (int i = 0; i < entries.size(); i++) {
+                    if (i == (int) e.getX()) {
+                        e.setIcon(getResources().getDrawable(R.mipmap.ic_chartdian));
+                    } else {
+                        entries.get(i).setIcon(null);
+                    }
+                }
+                lineChart.getData().notifyDataChanged();
+                lineChart.notifyDataSetChanged();
+                lineChart.invalidate();
+
+
+//                MyLogger.i(">>>>>>"+entries.get((int) e.getX()).getIcon().toString());
+            }
+
+            @Override
+            public void onNothingSelected() {//没有选择的时候
+                tv_name.setVisibility(View.GONE);
+                tv_value.setVisibility(View.GONE);
+                tv_date.setVisibility(View.GONE);
+                tv_value.setText("");
+                tv_date.setText("");
+
+                for (int i = 0; i < entries.size(); i++) {
+                    entries.get(i).setIcon(null);
+                }
+                lineChart.getData().notifyDataChanged();
+                lineChart.notifyDataSetChanged();
+                lineChart.invalidate();
+
+//                lineChart.notifyDataSetChanged();
+//                lineChart.invalidate();//刷新
+            }
+        });
+
+    }
+
+
+    /**
+     * 设置线条填充背景颜色
+     *
+     * @param drawable
+     */
+    public void setChartFillDrawable(LineChart lineChart, Drawable drawable) {
+        if (lineChart.getData() != null && lineChart.getData().getDataSetCount() > 0) {
+            LineDataSet lineDataSet = (LineDataSet) lineChart.getData().getDataSetByIndex(0);
+            //避免在 initLineDataSet()方法中 设置了 lineDataSet.setDrawFilled(false); 而无法实现效果
+            lineDataSet.setDrawFilled(true);
+            lineDataSet.setFillDrawable(drawable);
+            lineChart.invalidate();
+        }
     }
 
     /**
-     * 取消订阅
+     * 转换X轴时间显示
+     *
+     * @param str
+     * @return
      */
-    private void cancelDingYue() {
+    private String formatDate(String str) {
+        SimpleDateFormat sf1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//接收格式
+        SimpleDateFormat sf2 = new SimpleDateFormat("MM-dd");//转换格式
+        String formatStr = "";
         try {
-            JSONObject jObj_dingyue = new JSONObject();
-            jObj_dingyue.put("unsub", sub);
-            jObj_dingyue.put("id", id);
-            WebSocketManager.getInstance().sendMessage(jObj_dingyue.toString());
-            MyLogger.i(">>>>>>>取消订阅：" + jObj_dingyue.toString());
-        } catch (JSONException e) {
+            formatStr = sf2.format(sf1.parse(str));
+        } catch (ParseException e) {
             e.printStackTrace();
         }
+        return formatStr;
     }
-
     /**
-     * 查看历史数据
+     * 转换X轴时间显示
+     *
+     * @param str
+     * @return
      */
-    private void showHistory(Long from, Long to) {
-        isShowOver = false;
-        mKChartView.showLoading();//这里有调用onLoadMoreBegin，会加载一次数据
+    private String formatDate1(String str) {
+        SimpleDateFormat sf1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//接收格式
+        SimpleDateFormat sf2 = new SimpleDateFormat("yyyy-MM-dd");//转换格式
+        String formatStr = "";
         try {
-            JSONObject jObj_lishi = new JSONObject();
-            jObj_lishi.put("req", sub);
-            jObj_lishi.put("id", id);
-            jObj_lishi.put("from", from);
-            jObj_lishi.put("to", to);
-            WebSocketManager.getInstance().sendMessage(jObj_lishi.toString());
-            MyLogger.i(">>>>>>>历史数据提交：" + jObj_lishi.toString());
-
-            //订阅前需要先取消订阅
-            JSONObject jObj_dingyue = new JSONObject();
-            jObj_dingyue.put("sub", sub);
-            jObj_dingyue.put("id", id);
-            WebSocketManager.getInstance().sendMessage(jObj_dingyue.toString());
-            MyLogger.i(">>>>>>>订阅提交：" + jObj_dingyue.toString());
-
-        } catch (JSONException e) {
+            formatStr = sf2.format(sf1.parse(str));
+        } catch (ParseException e) {
             e.printStackTrace();
         }
+        return formatStr;
     }
 
-    private void changeUI() {
-        switch (fenshi) {
-            case "1min":
-                tv_1min.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                tv_5min.setBackgroundResource(R.color.transparent);
-                tv_30min.setBackgroundResource(R.color.transparent);
-                tv_1h.setBackgroundResource(R.color.transparent);
-                tv_1day.setBackgroundResource(R.color.transparent);
-                tv_1mon.setBackgroundResource(R.color.transparent);
-                break;
-            case "5min":
-                tv_1min.setBackgroundResource(R.color.transparent);
-                tv_5min.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                tv_30min.setBackgroundResource(R.color.transparent);
-                tv_1h.setBackgroundResource(R.color.transparent);
-                tv_1day.setBackgroundResource(R.color.transparent);
-                tv_1mon.setBackgroundResource(R.color.transparent);
-                break;
-            case "30min":
-                tv_1min.setBackgroundResource(R.color.transparent);
-                tv_5min.setBackgroundResource(R.color.transparent);
-                tv_30min.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                tv_1h.setBackgroundResource(R.color.transparent);
-                tv_1day.setBackgroundResource(R.color.transparent);
-                tv_1mon.setBackgroundResource(R.color.transparent);
-                break;
-            case "60min":
-                tv_1min.setBackgroundResource(R.color.transparent);
-                tv_5min.setBackgroundResource(R.color.transparent);
-                tv_30min.setBackgroundResource(R.color.transparent);
-                tv_1h.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                tv_1day.setBackgroundResource(R.color.transparent);
-                tv_1mon.setBackgroundResource(R.color.transparent);
-                break;
-            case "1day":
-                tv_1min.setBackgroundResource(R.color.transparent);
-                tv_5min.setBackgroundResource(R.color.transparent);
-                tv_30min.setBackgroundResource(R.color.transparent);
-                tv_1h.setBackgroundResource(R.color.transparent);
-                tv_1day.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                tv_1mon.setBackgroundResource(R.color.transparent);
-                break;
-            case "1mon":
-                tv_1min.setBackgroundResource(R.color.transparent);
-                tv_5min.setBackgroundResource(R.color.transparent);
-                tv_30min.setBackgroundResource(R.color.transparent);
-                tv_1h.setBackgroundResource(R.color.transparent);
-                tv_1day.setBackgroundResource(R.color.transparent);
-                tv_1mon.setBackgroundResource(R.drawable.yuanjiao_10_heise);
-                break;
-        }
+
+    /**
+     * 设置 可以显示X Y 轴自定义值的 MarkerView
+     */
+    public void setMarkerView() {
+        LineChartMarkView mv = new LineChartMarkView(getActivity(), xAxis.getValueFormatter());
+        mv.setChartView(lineChart);
+        lineChart.setMarker(mv);
+        lineChart.invalidate();
     }
 }

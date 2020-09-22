@@ -172,6 +172,9 @@
             android:name="com.ofc.ofc.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
+            android:name="com.ofc.ofc.activity.OFCSharePeopleActivity"
+            android:label="推广用户-OFC" />
+        <activity
             android:name="com.ofc.ofc.activity.OFCAccountDetailActivity"
             android:label="OFC钱包" />
         <activity
