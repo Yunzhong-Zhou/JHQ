@@ -623,6 +623,15 @@ public class Fragment4 extends BaseFragment {
 
             entries.add(entry);
 
+            //取最后一条数据展示
+            if (i == dataList.size() - 1) {
+                tv_name.setVisibility(View.VISIBLE);
+                tv_value.setVisibility(View.VISIBLE);
+                tv_date.setVisibility(View.VISIBLE);
+                tv_value.setText(dataList.get(i).getPrice());
+                tv_date.setText(formatDate1(dataList.get(i).getCreated_at()));
+            }
+
 //            floatList.add(Float.valueOf(data.getPrice()));
         }
         //显示x轴的值
@@ -743,6 +752,7 @@ public class Fragment4 extends BaseFragment {
         }
         return formatStr;
     }
+
     /**
      * 转换X轴时间显示
      *

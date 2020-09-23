@@ -462,7 +462,6 @@ public class Fragment2 extends BaseFragment {
 
     }
 
-
     /**
      * 设置线条填充背景颜色
      *

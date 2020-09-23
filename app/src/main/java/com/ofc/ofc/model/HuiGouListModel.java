@@ -7,15 +7,17 @@ import java.io.Serializable;
  */
 public class HuiGouListModel implements Serializable {
     /**
-     * id : 240aa3a74894b353420821dc35c399b2
-     * money : 0.00
-     * usdt_money : 0.00
-     * created_at : 2020-08-10 13:25:10
+     * id : a5fb7a454f48246cd167f655807e3132
+     * money : 1.00
+     * usdt_money : 1.07
+     * ofc_price : 1.0670
+     * created_at : 2020-09-23 20:46:02
      */
 
     private String id;
     private String money;
     private String usdt_money;
+    private String ofc_price;
     private String created_at;
 
     public String getId() {
@@ -40,6 +42,14 @@ public class HuiGouListModel implements Serializable {
 
     public void setUsdt_money(String usdt_money) {
         this.usdt_money = usdt_money;
+    }
+
+    public String getOfc_price() {
+        return ofc_price;
+    }
+
+    public void setOfc_price(String ofc_price) {
+        this.ofc_price = ofc_price;
     }
 
     public String getCreated_at() {
