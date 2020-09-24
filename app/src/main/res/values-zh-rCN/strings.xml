@@ -216,6 +216,7 @@
     <string name="fragment1_h38">提交中...\n生成倒计时：</string>
     <string name="fragment1_h39">生成中</string>
 
+
     <!--fragment2-->
     <string name="fragment2_h1">24H交易量</string>
     <string name="fragment2_h2">1H交易量：</string>
@@ -474,6 +475,74 @@
     <string name="qianbao_h12">订单号</string>
     <string name="qianbao_h13">时间：</string>
     <string name="qianbao_h14">资产地址</string>
+
+    <string name="fragment4_1">DRVT</string>
+    <string name="qianbao_h15">已解冻</string>
+    <string name="qianbao_h16">已分红</string>
+    <string name="qianbao_h17">总佣金</string>
+    <string name="qianbao_h18">总增值</string>
+    <string name="qianbao_h19">买入明细</string>
+    <string name="qianbao_h20">支出记录</string>
+    <string name="qianbao_h21">币数量</string>
+    <string name="qianbao_h22">买入价</string>
+    <string name="qianbao_h23">已增值</string>
+    <string name="qianbao_h24">兑换时间：</string>
+    <string name="qianbao_h25">已分红：</string>
+    <string name="qianbao_h26">流动奖励明细</string>
+    <string name="qianbao_h27">质押明细</string>
+    <string name="qianbao_h28">币数量：</string>
+    <string name="qianbao_h29">已增值：</string>
+    <string name="qianbao_h30">已奖励：</string>
+    <string name="qianbao_h31">买入价：</string>
+    <string name="qianbao_h32">币来源：</string>
+    <string name="qianbao_h33">兑换时间：</string>
+    <string name="qianbao_h34">流动指数</string>
+    <string name="qianbao_h35">买入DRVT</string>
+    <string name="qianbao_h36">发行价:</string>
+    <string name="qianbao_h37">总资产</string>
+    <string name="qianbao_h38">增值</string>
+    <string name="qianbao_h39">合约:</string>
+    <string name="qianbao_h40">钱包</string>
+    <string name="qianbao_h41">分红</string>
+    <string name="qianbao_h42">DRVT钱包</string>
+    <string name="qianbao_h43">总资产（DRVT）</string>
+    <string name="qianbao_h44">请输入DRVT个数</string>
+    <string name="qianbao_h45">DRVT地址</string>
+    <string name="qianbao_h46">可用(DRVT)：</string>
+    <string name="qianbao_h47">需设置DRVT地址后才可操作</string>
+    <string name="qianbao_h48">DRVT地址管理</string>
+    <string name="qianbao_h49">请输入DRVT地址</string>
+    <string name="qianbao_h50">DRVT地址设置成功</string>
+    <string name="qianbao_h51">请提供ERC-20格式的DRVT地址，否则您的资产将无法找回</string>
+    <string name="qianbao_h52">充币数量(DRVT)</string>
+    <string name="qianbao_h53">提币个数(DRVT)</string>
+    <string name="qianbao_h54">质押</string>
+    <string name="qianbao_h55">回购</string>
+    <string name="qianbao_h56">回购DRVT</string>
+    <string name="qianbao_h57">当前DRVT价格</string>
+    <string name="qianbao_h58">回购数量</string>
+    <string name="qianbao_h59">请输入DRVT数量</string>
+    <string name="qianbao_h60">可用：</string>
+    <string name="qianbao_h61">可得</string>
+    <string name="qianbao_h62">质押DRVT</string>
+    <string name="qianbao_h63">当前流动周期</string>
+    <string name="qianbao_h64">当前流动指数</string>
+    <string name="qianbao_h65">质押数量</string>
+    <string name="qianbao_h66">回购记录</string>
+    <string name="qianbao_h67">按数量</string>
+    <string name="qianbao_h68">按币价</string>
+    <string name="qianbao_h69">完成</string>
+    <string name="qianbao_h70">输入DRVT数量</string>
+    <string name="qianbao_h71">可用</string>
+    <string name="qianbao_h72">质押记录</string>
+    <string name="qianbao_h73">已奖励(USDT)</string>
+    <string name="qianbao_h74">明细</string>
+    <string name="qianbao_h75">已兑换</string>
+    <string name="qianbao_h76">质押状态：</string>
+    <string name="qianbao_h77">币数量不能小于1</string>
+    <string name="qianbao_h78">查看直推</string>
+    <string name="qianbao_h79">回购价格</string>
+
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

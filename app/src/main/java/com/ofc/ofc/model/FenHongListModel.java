@@ -158,6 +158,15 @@ public class FenHongListModel implements Serializable {
             private String rate;
             private String money;
             private String created_at;
+            private String ofc_money;
+
+            public String getOfc_money() {
+                return ofc_money;
+            }
+
+            public void setOfc_money(String ofc_money) {
+                this.ofc_money = ofc_money;
+            }
 
             public String getInvest_id() {
                 return invest_id;

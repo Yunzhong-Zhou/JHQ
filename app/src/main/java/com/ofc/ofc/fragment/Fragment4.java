@@ -137,6 +137,7 @@ public class Fragment4 extends BaseFragment {
             public void onRefresh() {
                 String string = "?token=" + localUserInfo.getToken();
                 Request(string);
+                RequestChart(string);
             }
 
             @Override
