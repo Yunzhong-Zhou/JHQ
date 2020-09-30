@@ -111,8 +111,8 @@ public class FenHongListActivity extends BaseActivity {
                                 (FenHongListActivity.this, R.layout.item_fenhonglist, list) {
                             @Override
                             protected void convert(ViewHolder holder, final FenHongListModel.InvestBean.InterestListBean model, int position) {
-                                holder.setText(R.id.textView1, "+" + model.getRate());//指数
-                                holder.setText(R.id.textView2, model.getMoney() + "USDT");//标题
+                                holder.setText(R.id.textView1, model.getRate()+"USDT");//指数
+                                holder.setText(R.id.textView2, "+" + model.getMoney() + "USDT");//标题
                                 holder.setText(R.id.textView5,model.getOfc_money()+"");
                                 holder.setText(R.id.textView4, model.getCreated_at());//状态
 

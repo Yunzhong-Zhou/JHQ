@@ -376,8 +376,10 @@
     <string name="myprofile_h32">申请审核中...</string>
     <string name="myprofile_h33">服务ID：</string>
     <string name="myprofile_h34">服务人数</string>
-    <string name="myprofile_h35">服务业绩</string>
-    <string name="myprofile_h36">累计分红</string>
+    <string name="myprofile_h35">服务业绩(USDT)</string>
+    <string name="myprofile_h36">累计分红(USDT)</string>
+    <string name="myprofile_h35_1">服务业绩(DRVT)</string>
+    <string name="myprofile_h36_1">累计分红(DRVT)</string>
     <string name="myprofile_h37">申请时间：</string>
     <string name="myprofile_h38">查看更多</string>
     <string name="myprofile_h39">服务中心列表</string>
@@ -542,7 +544,6 @@
     <string name="qianbao_h77">币数量不能小于1</string>
     <string name="qianbao_h78">查看直推</string>
     <string name="qianbao_h79">回购价格</string>
-
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

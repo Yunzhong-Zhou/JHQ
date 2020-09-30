@@ -23,7 +23,25 @@ public class ServiceCenterModel implements Serializable {
     private String service_count;
     private String service_performance;
     private String amount_earning;
+    private String ofc_service_performance;
+    private String ofc_amount_earning;
     private ServiceCenterBean service_center;
+
+    public String getOfc_service_performance() {
+        return ofc_service_performance;
+    }
+
+    public void setOfc_service_performance(String ofc_service_performance) {
+        this.ofc_service_performance = ofc_service_performance;
+    }
+
+    public String getOfc_amount_earning() {
+        return ofc_amount_earning;
+    }
+
+    public void setOfc_amount_earning(String ofc_amount_earning) {
+        this.ofc_amount_earning = ofc_amount_earning;
+    }
 
     public String getHead() {
         return head;
