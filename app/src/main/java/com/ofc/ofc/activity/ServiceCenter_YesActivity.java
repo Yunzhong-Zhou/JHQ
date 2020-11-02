@@ -25,7 +25,7 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  */
 public class ServiceCenter_YesActivity extends BaseActivity {
     RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5,textView4_1, textView5_1, textView6, textView7, textView8, textView9, textView10;
+    TextView textView1, textView2, textView3, textView4, textView5,textView4_1, textView5_1,textView4_2, textView5_2, textView6, textView7, textView8, textView9, textView10;
     ImageView imageView1, imageView2;
 
     @Override
@@ -61,6 +61,8 @@ public class ServiceCenter_YesActivity extends BaseActivity {
         textView5 = findViewByID_My(R.id.textView5);
         textView4_1 = findViewByID_My(R.id.textView4_1);
         textView5_1= findViewByID_My(R.id.textView5_1);
+        textView4_2 = findViewByID_My(R.id.textView4_2);
+        textView5_2= findViewByID_My(R.id.textView5_2);
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
@@ -111,6 +113,9 @@ public class ServiceCenter_YesActivity extends BaseActivity {
 
                 textView4_1.setText(response.getOfc_service_performance());//服务业绩
                 textView5_1.setText(response.getOfc_amount_earning());//累计分红
+
+                textView4_2.setText(response.getDrvt_deal_performance());//交易业绩
+                textView5_2.setText(response.getDrvt_deal_bonus());//交易分红
 
                 textView6.setText(getString(R.string.myprofile_h37) + response.getService_center().getShow_created_at());//申请时间
 

@@ -42,7 +42,7 @@ public class URLs {
     /**
      * 新人领取
      */
-    public static final String NewcomerReward= "/api/member/sign";
+    public static final String NewcomerReward = "/api/member/sign";
     /**
      * 实名认证1
      */
@@ -67,15 +67,15 @@ public class URLs {
     /**
      * 合约
      */
-    public static final String HeYue= "/api/change-game/index";
+    public static final String HeYue = "/api/change-game/index";
     /**
      * 合约-买入
      */
-    public static final String HeYue_Add= "/api/change-game-participation/create";
+    public static final String HeYue_Add = "/api/change-game-participation/create";
     /**
      * 合约-详情
      */
-    public static final String HeYue_Detail= "/api/change-game/detail";
+    public static final String HeYue_Detail = "/api/change-game/detail";
     //区块
     /**
      * 区块
@@ -267,11 +267,11 @@ public class URLs {
     /**
      * 创建转币（获取可用金额）
      */
-    public static final String Transfer= "/api/transfer/create";
+    public static final String Transfer = "/api/transfer/create";
     /**
      * 转币记录
      */
-    public static final String TransferRecord= "/api/transfer/record";
+    public static final String TransferRecord = "/api/transfer/record";
     /**
      * 银行卡设置
      */
@@ -280,6 +280,35 @@ public class URLs {
      * 银行卡设置_验证码
      */
     public static final String Collection_code = "/api/sms-code/send-code";
+
+    /**
+     * DRVT交易列表
+     */
+    public static final String DRVTJiaoYiList1 = "/api/drvt-buy/index";
+    /**
+     * DRVT交易列表-我的购买
+     */
+    public static final String DRVTJiaoYiList2 = "/api/drvt-buy/my-buy";
+    /**
+     * 交易列表
+     */
+    public static final String JiaoYiList = "/api/drvt-sell/index";
+    /**
+     * DRVT购买
+     */
+    public static final String DRVTBuy = "/api/drvt-buy/create";
+    /**
+     * DRVT购买-取消
+     */
+    public static final String DRVTCancel = "/api/drvt-buy/cancel";
+    /**
+     * DRVT出售
+     */
+    public static final String DRVTSell = "/api/drvt-sell/create";
+    /**
+     * 推广用户
+     */
+    public static final String DirectMember_DRVT = "/api/drvt-buy/direct-recommend";
     /**
      * 拼接请求路径
      *

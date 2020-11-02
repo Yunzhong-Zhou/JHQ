@@ -169,7 +169,7 @@
                             android:text="DRVT/usdt"
                             android:textColor="@color/white2"
                             android:textSize="12sp"
-                            android:visibility="gone"/>
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/tv_value"
@@ -191,7 +191,7 @@
                             android:text=""
                             android:textColor="@color/white2"
                             android:textSize="12sp"
-                            android:visibility="gone"/>
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -341,7 +341,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="7dp"
                     android:background="#072533"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -555,6 +555,103 @@
                             android:text="@string/qianbao_h73"
                             android:textColor="@color/white2"
                             android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_drvt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="13dp"
+                    android:background="@mipmap/bg_addfenhong"
+                    android:gravity="center_vertical"
+                    android:onClick="onClick"
+                    android:orientation="horizontal"
+                    android:padding="13dp">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:background="@mipmap/ic_addfenhong4" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_zhituijiaoyi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_drvt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h81"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_drvt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/qianbao_h82"
+                            android:textColor="@color/white2"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_drvt_jiaoyi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_yzm"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="13dp"
+                            android:paddingTop="6dp"
+                            android:paddingRight="13dp"
+                            android:paddingBottom="6dp"
+                            android:text="@string/qianbao_h80"
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 

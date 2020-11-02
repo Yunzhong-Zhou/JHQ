@@ -29,6 +29,8 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
+import com.ofc.ofc.activity.DRVTJiaoYiActivity;
+import com.ofc.ofc.activity.DRVTSharePeopleActivity;
 import com.ofc.ofc.activity.FenHongListActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.OFCAccountDetailActivity;
@@ -62,10 +64,10 @@ import java.util.List;
 public class Fragment4 extends BaseFragment {
     FenHongModel model;
     TextView tv_usdt, tv_fenhongzhishu, tv_toal, tv_24h, tv_mairu, tv_jisuan, tv_faxingjia, tv_ofc_yue, tv_zengzhi,
-            tv_heyue, tv_usdt_yue, tv_yifenhong, tv_keyong;
+            tv_heyue, tv_usdt_yue, tv_yifenhong, tv_keyong,tv_drvt1,tv_drvt2;
     ImageView iv_toal, iv_24h, iv_jian, iv_jia, iv_zengzhi;
     EditText et_keyong;
-    LinearLayout ll_ofc, ll_usdt, ll_tuiguang;
+    LinearLayout ll_ofc, ll_usdt, ll_tuiguang,ll_drvt_jiaoyi,ll_zhituijiaoyi;
 
 
     //折线图
@@ -200,6 +202,13 @@ public class Fragment4 extends BaseFragment {
         ll_tuiguang = findViewByID_My(R.id.ll_tuiguang);
         ll_tuiguang.setOnClickListener(this);
 
+        tv_drvt1 = findViewByID_My(R.id.tv_drvt1);
+        tv_drvt2 = findViewByID_My(R.id.tv_drvt2);
+        ll_drvt_jiaoyi = findViewByID_My(R.id.ll_drvt_jiaoyi);
+        ll_drvt_jiaoyi.setOnClickListener(this);
+        ll_zhituijiaoyi = findViewByID_My(R.id.ll_zhituijiaoyi);
+        ll_zhituijiaoyi.setOnClickListener(this);
+
         //折线图
         lineChart = findViewByID_My(R.id.lineChart);
         tv_name = findViewByID_My(R.id.tv_name);
@@ -278,6 +287,10 @@ public class Fragment4 extends BaseFragment {
 
                 tv_heyue.setText("" + model.getDirect_performance_ofc_money());
                 tv_yifenhong.setText(model.getInterest_money());
+
+                tv_drvt1.setText(model.getDirect_performance_drvt_buy_money());
+                tv_drvt2.setText(model.getTeam_performance_drvt_buy_money());
+
 
             }
         });
@@ -393,6 +406,12 @@ public class Fragment4 extends BaseFragment {
             case R.id.ll_tuiguang:
                 //推广
                 CommonUtil.gotoActivity(getActivity(), OFCSharePeopleActivity.class, false);
+                break;
+            case R.id.ll_drvt_jiaoyi:
+                CommonUtil.gotoActivity(getActivity(), DRVTJiaoYiActivity.class, false);
+                break;
+            case R.id.ll_zhituijiaoyi:
+                CommonUtil.gotoActivity(getActivity(), DRVTSharePeopleActivity.class, false);
                 break;
         }
     }

@@ -545,6 +545,45 @@
     <string name="qianbao_h78">查看直推</string>
     <string name="qianbao_h79">回购价格</string>
 
+    <string name="qianbao_h80">DRVT交易</string>
+    <string name="qianbao_h81">直推交易</string>
+    <string name="qianbao_h82">团队交易</string>
+    <string name="qianbao_h83">发布购买</string>
+    <string name="qianbao_h84">购买信息</string>
+    <string name="qianbao_h85">我的购买</string>
+    <string name="qianbao_h86">数量</string>
+    <string name="qianbao_h87">单价</string>
+    <string name="qianbao_h88">总量</string>
+    <string name="qianbao_h89">出售</string>
+    <string name="qianbao_h90">成交记录</string>
+    <string name="qianbao_h91">已购</string>
+    <string name="qianbao_h92">增加</string>
+    <string name="qianbao_h93">总价</string>
+    <string name="qianbao_h94">交易记录</string>
+    <string name="qianbao_h95">取消</string>
+    <string name="qianbao_h96">交易量</string>
+    <string name="qianbao_h97"></string>
+    <string name="qianbao_h98">价格（USDT）</string>
+    <string name="qianbao_h99">交易总额（USDT）</string>
+    <string name="qianbao_h100">对方昵称</string>
+    <string name="qianbao_h101">DRVT数量</string>
+    <string name="qianbao_h102">请输入购买数量</string>
+    <string name="qianbao_h103">DRVT单价</string>
+    <string name="qianbao_h104">请输入DRVT单价</string>
+    <string name="qianbao_h105">支付USDT</string>
+    <string name="qianbao_h106">交易手续费:</string>
+    <string name="qianbao_h107">可用:</string>
+    <string name="qianbao_h108">发布购买</string>
+    <string name="qianbao_h109">出售DRVT</string>
+    <string name="qianbao_h110">可得USDT</string>
+    <string name="qianbao_h111">本单最大量</string>
+    <string name="qianbao_h112">请输入出售数量</string>
+    <string name="qianbao_h113">请输入价格不能低于</string>
+    <string name="qianbao_h114">已取消</string>
+    <string name="qianbao_h115">确认取消本次购买吗？</string>
+    <string name="qianbao_h116">交易业绩(DRVT)</string>
+    <string name="qianbao_h117">交易分红(DRVT)</string>
+
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
     <string name="recharge_h2">可用余币：</string>

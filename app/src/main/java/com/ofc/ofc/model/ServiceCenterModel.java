@@ -25,6 +25,25 @@ public class ServiceCenterModel implements Serializable {
     private String amount_earning;
     private String ofc_service_performance;
     private String ofc_amount_earning;
+    private String drvt_deal_performance;
+    private String drvt_deal_bonus;
+
+    public String getDrvt_deal_performance() {
+        return drvt_deal_performance;
+    }
+
+    public void setDrvt_deal_performance(String drvt_deal_performance) {
+        this.drvt_deal_performance = drvt_deal_performance;
+    }
+
+    public String getDrvt_deal_bonus() {
+        return drvt_deal_bonus;
+    }
+
+    public void setDrvt_deal_bonus(String drvt_deal_bonus) {
+        this.drvt_deal_bonus = drvt_deal_bonus;
+    }
+
     private ServiceCenterBean service_center;
 
     public String getOfc_service_performance() {

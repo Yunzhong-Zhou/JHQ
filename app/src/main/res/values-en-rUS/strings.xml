@@ -544,6 +544,45 @@
     <string name="qianbao_h78">Check Direct Ref</string>
     <string name="qianbao_h79">Buyback Price</string>
 
+    <string name="qianbao_h80">DRVT Trade</string>
+    <string name="qianbao_h81">Direct</string>
+    <string name="qianbao_h82">Group</string>
+    <string name="qianbao_h83">Buy Now</string>
+    <string name="qianbao_h84">Buy</string>
+    <string name="qianbao_h85">My Purchase</string>
+    <string name="qianbao_h86">Amount</string>
+    <string name="qianbao_h87">Price</string>
+    <string name="qianbao_h88">Total</string>
+    <string name="qianbao_h89">Sell</string>
+    <string name="qianbao_h90">History</string>
+    <string name="qianbao_h91">Purchased</string>
+    <string name="qianbao_h92">+</string>
+    <string name="qianbao_h93">Total</string>
+    <string name="qianbao_h94">History</string>
+    <string name="qianbao_h95">Cancel</string>
+    <string name="qianbao_h96">Volume</string>
+    <string name="qianbao_h97"></string>
+    <string name="qianbao_h98">Price(USDT)</string>
+    <string name="qianbao_h99">Total(USDT)</string>
+    <string name="qianbao_h100">Nickname</string>
+    <string name="qianbao_h101">DRVT Amount</string>
+    <string name="qianbao_h102">Enter Amount</string>
+    <string name="qianbao_h103">DRVT Price</string>
+    <string name="qianbao_h104">Enter DRVT Price</string>
+    <string name="qianbao_h105">Pay USDT</string>
+    <string name="qianbao_h106">Fee:</string>
+    <string name="qianbao_h107">Total:</string>
+    <string name="qianbao_h108">Buy Now</string>
+    <string name="qianbao_h109">Sell DRVT</string>
+    <string name="qianbao_h110">USDT You Get</string>
+    <string name="qianbao_h111">Max.</string>
+    <string name="qianbao_h112">Enter Amount</string>
+    <string name="qianbao_h113">Enter Amt(>1.023)</string>
+    <string name="qianbao_h114">Cancelled</string>
+    <string name="qianbao_h115">Cancel?</string>
+    <string name="qianbao_h116">Total Trade(DRVT)</string>
+    <string name="qianbao_h117">Commission(DRVT)</string>
+
     <!--充币-->
     <string name="recharge_h1">Deposit History</string>
     <string name="recharge_h2">Balance:</string>

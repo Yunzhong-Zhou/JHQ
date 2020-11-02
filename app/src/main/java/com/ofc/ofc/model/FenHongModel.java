@@ -39,6 +39,24 @@ public class FenHongModel implements Serializable {
     private String hk;
     private String direct_performance_ofc_money;
     private String team_performance_ofc_money;
+    private String direct_performance_drvt_buy_money;
+    private String team_performance_drvt_buy_money;
+
+    public String getDirect_performance_drvt_buy_money() {
+        return direct_performance_drvt_buy_money;
+    }
+
+    public void setDirect_performance_drvt_buy_money(String direct_performance_drvt_buy_money) {
+        this.direct_performance_drvt_buy_money = direct_performance_drvt_buy_money;
+    }
+
+    public String getTeam_performance_drvt_buy_money() {
+        return team_performance_drvt_buy_money;
+    }
+
+    public void setTeam_performance_drvt_buy_money(String team_performance_drvt_buy_money) {
+        this.team_performance_drvt_buy_money = team_performance_drvt_buy_money;
+    }
 
     public String getDirect_performance_ofc_money() {
         return direct_performance_ofc_money;

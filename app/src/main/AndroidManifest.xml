@@ -274,6 +274,23 @@
             android:name="com.ofc.ofc.activity.VerfiedResultActivity"
             android:label="认证结果" />
 
+
+        <activity
+            android:name="com.ofc.ofc.activity.DRVTJiaoYiActivity"
+            android:label="DRVT交易" />
+        <activity
+            android:name="com.ofc.ofc.activity.JiaoyiListActivity"
+            android:label="交易记录" />
+        <activity
+            android:name="com.ofc.ofc.activity.DRVTBuyActivity"
+            android:label="DRVT购买" />
+        <activity
+            android:name="com.ofc.ofc.activity.DRVTSellActivity"
+            android:label="DRVT出售" />
+        <activity
+            android:name="com.ofc.ofc.activity.DRVTSharePeopleActivity"
+            android:label="推广用户-DRVT" />
+
         <!--全面屏适配-->
         <meta-data
             android:name="design_width_in_dp"
