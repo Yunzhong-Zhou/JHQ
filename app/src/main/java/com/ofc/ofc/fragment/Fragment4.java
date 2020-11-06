@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -29,9 +30,12 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
+import com.ofc.ofc.activity.DRVTBuyActivity;
 import com.ofc.ofc.activity.DRVTJiaoYiActivity;
+import com.ofc.ofc.activity.DRVTSellActivity;
 import com.ofc.ofc.activity.DRVTSharePeopleActivity;
 import com.ofc.ofc.activity.FenHongListActivity;
+import com.ofc.ofc.activity.JiaoyiListActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.OFCAccountDetailActivity;
 import com.ofc.ofc.activity.OFCSharePeopleActivity;
@@ -45,6 +49,8 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.LineChartMarkView;
 import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +62,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
+
 
 /**
  * Created by zyz on 2016/1/6.
@@ -64,11 +75,15 @@ import java.util.List;
 public class Fragment4 extends BaseFragment {
     FenHongModel model;
     TextView tv_usdt, tv_fenhongzhishu, tv_toal, tv_24h, tv_mairu, tv_jisuan, tv_faxingjia, tv_ofc_yue, tv_zengzhi,
-            tv_heyue, tv_usdt_yue, tv_yifenhong, tv_keyong,tv_drvt1,tv_drvt2;
-    ImageView iv_toal, iv_24h, iv_jian, iv_jia, iv_zengzhi;
+            tv_heyue, tv_usdt_yue, tv_yifenhong, tv_keyong,tv_drvt1,tv_drvt2,tv_danjia,tv_zongliang,tv_more;
+    ImageView iv_toal, iv_24h, iv_jian, iv_jia, iv_zengzhi,iv_goumai,iv_xinxi;
     EditText et_keyong;
     LinearLayout ll_ofc, ll_usdt, ll_tuiguang,ll_drvt_jiaoyi,ll_zhituijiaoyi;
 
+
+    RecyclerView recyclerView;
+    CommonAdapter<FenHongModel.DrvtBuyListBean> mAdapter;
+    List<FenHongModel.DrvtBuyListBean> list = new ArrayList<>();
 
     //折线图
     LineChart lineChart;
@@ -209,6 +224,19 @@ public class Fragment4 extends BaseFragment {
         ll_zhituijiaoyi = findViewByID_My(R.id.ll_zhituijiaoyi);
         ll_zhituijiaoyi.setOnClickListener(this);
 
+        tv_danjia = findViewByID_My(R.id.tv_danjia);
+        tv_danjia.setOnClickListener(this);
+        tv_zongliang = findViewByID_My(R.id.tv_zongliang);
+        tv_zongliang.setOnClickListener(this);
+        tv_more = findViewByID_My(R.id.tv_more);
+        tv_more.setOnClickListener(this);
+        iv_goumai = findViewByID_My(R.id.iv_goumai);
+        iv_goumai.setOnClickListener(this);
+        iv_xinxi = findViewByID_My(R.id.iv_xinxi);
+        iv_xinxi.setOnClickListener(this);
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         //折线图
         lineChart = findViewByID_My(R.id.lineChart);
         tv_name = findViewByID_My(R.id.tv_name);
@@ -291,6 +319,41 @@ public class Fragment4 extends BaseFragment {
                 tv_drvt1.setText(model.getDirect_performance_drvt_buy_money());
                 tv_drvt2.setText(model.getTeam_performance_drvt_buy_money());
 
+                tv_danjia.setText(model.getDrvt_buy_max_drvt_price());
+                tv_zongliang.setText(model.getDrvt_buy_amount_money());
+
+                list = response.getDrvt_buy_list();
+                if (list.size()>0){
+                    mAdapter = new CommonAdapter<FenHongModel.DrvtBuyListBean>(
+                            getActivity(), R.layout.item_drvtjiaoyi_fragment4, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, FenHongModel.DrvtBuyListBean model, int position) {
+                            holder.setText(R.id.tv_name, model.getMember_nickname());//昵称
+                            holder.setText(R.id.tv_num, String.format("%.2f", Double.valueOf(model.getAmount_money())-Double.valueOf(model.getCurrent_money())) +"");//数量
+                            holder.setText(R.id.tv_price, model.getDrvt_price()+"USDT");//单价
+                            holder.setText(R.id.tv_all, model.getAmount_money());//总量
+                            ImageView imageView1 = holder.getView(R.id.imageView1);
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+//                    .placeholder(R.mipmap.headimg)//加载站位图
+//                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+
+                            holder.getView(R.id.tv_sell).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("id", model.getId());
+                                    CommonUtil.gotoActivityWithData(getActivity(), DRVTSellActivity.class, bundle, false);
+                                }
+                            });
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                }else {
+                    showEmptyPage();
+                }
 
             }
         });
@@ -412,6 +475,20 @@ public class Fragment4 extends BaseFragment {
                 break;
             case R.id.ll_zhituijiaoyi:
                 CommonUtil.gotoActivity(getActivity(), DRVTSharePeopleActivity.class, false);
+                break;
+
+            case R.id.iv_goumai:
+                CommonUtil.gotoActivity(getActivity(), DRVTBuyActivity.class, false);
+                break;
+            case R.id.iv_xinxi:
+                Bundle bundle = new Bundle();
+                bundle.putString("id", "");
+                CommonUtil.gotoActivityWithData(getActivity(), JiaoyiListActivity.class, bundle, false);
+                break;
+
+            case R.id.tv_more:
+                //更多
+                CommonUtil.gotoActivity(getActivity(), DRVTJiaoYiActivity.class, false);
                 break;
         }
     }

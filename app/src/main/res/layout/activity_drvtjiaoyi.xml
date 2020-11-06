@@ -153,6 +153,66 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
                 android:background="@color/xian" />
+            <LinearLayout
+                android:id="@+id/pop_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/down_black"
+                        android:gravity="center"
+                        android:text="@string/qianbao_h129"
+                        android:textColor="@color/black3"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/down_black"
+                        android:gravity="center"
+                        android:text="@string/qianbao_h130"
+                        android:textColor="@color/black3"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/xian"/>
             <com.ofc.ofc.view.LoadingLayout
                 android:id="@+id/loading_layout"
                 android:layout_width="match_parent"

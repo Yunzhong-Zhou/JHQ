@@ -33,7 +33,9 @@ public class ShareActivity extends BaseActivity {
     ShareModel model;
     ImageView imageView, imageView1, imageView2, imageView3;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
-            textView10, textView11, textView12, textView13, textView14, textView15;
+            textView10, textView11, textView12, textView13, textView14, textView15,
+            textView10_1, textView13_1, textView14_1, textView15_1,
+            textView10_2, textView13_2, textView14_2, textView15_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,13 @@ public class ShareActivity extends BaseActivity {
         textView13 = findViewByID_My(R.id.textView13);
         textView14 = findViewByID_My(R.id.textView14);
         textView15 = findViewByID_My(R.id.textView15);
+
+        textView13_1 = findViewByID_My(R.id.textView13_1);
+        textView14_1 = findViewByID_My(R.id.textView14_1);
+        textView15_1 = findViewByID_My(R.id.textView15_1);
+        textView13_2 = findViewByID_My(R.id.textView13_2);
+        textView14_2 = findViewByID_My(R.id.textView14_2);
+        textView15_2 = findViewByID_My(R.id.textView15_2);
 
 
         imageView = findViewByID_My(R.id.imageView);
@@ -148,6 +157,14 @@ public class ShareActivity extends BaseActivity {
                 textView13.setText(response.getDirect_recommend_IB() + "");//直推IB
                 textView14.setText(response.getDirect_recommend_MIB() + "");//直推MIB
                 textView15.setText(response.getDirect_recommend_PIB() + "");//直推PIB
+
+                textView13_1.setText(response.getDirect_performance_ofc_money() + "");//直推IB
+                textView14_1.setText(response.getTeam_performance_ofc_money() + "");//直推MIB
+                textView15_1.setText(response.getOfc_commission_money() + "");//直推PIB
+
+                textView13_2.setText(response.getDirect_performance_drvt_buy_money() + "");//直推IB
+                textView14_2.setText(response.getTeam_performance_drvt_buy_money() + "");//直推MIB
+                textView15_2.setText(response.getDrvt_buy_commission_money() + "");//直推PIB
             }
 
         });
@@ -163,6 +180,14 @@ public class ShareActivity extends BaseActivity {
             case R.id.textView10:
                 //直推会员
                 CommonUtil.gotoActivity(ShareActivity.this, SharePeopleActivity.class, false);
+                break;
+            case R.id.textView10_1:
+                //直推会员
+                CommonUtil.gotoActivity(ShareActivity.this, OFCSharePeopleActivity.class, false);
+                break;
+            case R.id.textView10_2:
+                //直推会员
+                CommonUtil.gotoActivity(ShareActivity.this, DRVTSharePeopleActivity.class, false);
                 break;
             case R.id.tv_share:
             case R.id.imageView2:

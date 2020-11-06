@@ -39,6 +39,61 @@ public class ShareModel implements Serializable {
     private String direct_recommend_MIB;
     private String direct_recommend_PIB;
 
+    private String direct_performance_drvt_buy_money;
+    private String team_performance_drvt_buy_money;
+    private String drvt_buy_commission_money;
+    private String direct_performance_ofc_money;
+    private String team_performance_ofc_money;
+    private String ofc_commission_money;
+
+    public String getDirect_performance_drvt_buy_money() {
+        return direct_performance_drvt_buy_money;
+    }
+
+    public void setDirect_performance_drvt_buy_money(String direct_performance_drvt_buy_money) {
+        this.direct_performance_drvt_buy_money = direct_performance_drvt_buy_money;
+    }
+
+    public String getTeam_performance_drvt_buy_money() {
+        return team_performance_drvt_buy_money;
+    }
+
+    public void setTeam_performance_drvt_buy_money(String team_performance_drvt_buy_money) {
+        this.team_performance_drvt_buy_money = team_performance_drvt_buy_money;
+    }
+
+    public String getDrvt_buy_commission_money() {
+        return drvt_buy_commission_money;
+    }
+
+    public void setDrvt_buy_commission_money(String drvt_buy_commission_money) {
+        this.drvt_buy_commission_money = drvt_buy_commission_money;
+    }
+
+    public String getDirect_performance_ofc_money() {
+        return direct_performance_ofc_money;
+    }
+
+    public void setDirect_performance_ofc_money(String direct_performance_ofc_money) {
+        this.direct_performance_ofc_money = direct_performance_ofc_money;
+    }
+
+    public String getTeam_performance_ofc_money() {
+        return team_performance_ofc_money;
+    }
+
+    public void setTeam_performance_ofc_money(String team_performance_ofc_money) {
+        this.team_performance_ofc_money = team_performance_ofc_money;
+    }
+
+    public String getOfc_commission_money() {
+        return ofc_commission_money;
+    }
+
+    public void setOfc_commission_money(String ofc_commission_money) {
+        this.ofc_commission_money = ofc_commission_money;
+    }
+
     public String getHead() {
         return head;
     }
