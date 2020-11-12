@@ -35,7 +35,6 @@ import com.ofc.ofc.activity.DRVTJiaoYiActivity;
 import com.ofc.ofc.activity.DRVTSellActivity;
 import com.ofc.ofc.activity.DRVTSharePeopleActivity;
 import com.ofc.ofc.activity.FenHongListActivity;
-import com.ofc.ofc.activity.JiaoyiListActivity;
 import com.ofc.ofc.activity.MainActivity;
 import com.ofc.ofc.activity.OFCAccountDetailActivity;
 import com.ofc.ofc.activity.OFCSharePeopleActivity;
@@ -481,9 +480,10 @@ public class Fragment4 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), DRVTBuyActivity.class, false);
                 break;
             case R.id.iv_xinxi:
-                Bundle bundle = new Bundle();
+                CommonUtil.gotoActivity(getActivity(), DRVTJiaoYiActivity.class, false);
+                /*Bundle bundle = new Bundle();
                 bundle.putString("id", "");
-                CommonUtil.gotoActivityWithData(getActivity(), JiaoyiListActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(getActivity(), JiaoyiListActivity.class, bundle, false);*/
                 break;
 
             case R.id.tv_more:

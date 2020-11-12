@@ -36,7 +36,7 @@
     <string name="app_tian">Ngày</string>
     <string name="app_ren">người</string>
     <string name="app_yuan">Nhân Dân Tệ</string>
-    <string name="app_ge">/</string>
+    <string name="app_ge"></string>
     <string name="app_bei">X</string>
     <string name="app_ji">Cấp</string>
     <string name="app_shi">giờ</string>
@@ -582,6 +582,22 @@
     <string name="qianbao_h115">Huỷ bỏ?</string>
     <string name="qianbao_h116">Tổng thương mại(DRVT)</string>
     <string name="qianbao_h117">tiền hoa hồng(DRVT)</string>
+
+    <string name="qianbao_h118">Giá cao nhất</string>
+    <string name="qianbao_h119">Tổng số lần mua</string>
+    <string name="qianbao_h120">Mua</string>
+    <string name="qianbao_h121">Mua hàng</string>
+    <string name="qianbao_h122">Hơn</string>
+    <string name="qianbao_h123">Tiền gửi DRVT</string>
+    <string name="qianbao_h124">Thẳng thắn</string>
+    <string name="qianbao_h125">Trực tiếp của tôi</string>
+    <string name="qianbao_h126">Nhóm của tôi</string>
+    <string name="qianbao_h127">Tổng tiền hoa hồng</string>
+    <string name="qianbao_h128">DRVT của tôi</string>
+    <string name="qianbao_h129">Theo giá</string>
+    <string name="qianbao_h130">Bởi âm lượng</string>
+    <string name="qianbao_h131">Bằng thương mại</string>
+    <string name="qianbao_h132">Toàn bộ</string>
 
     <!--充币-->
     <string name="recharge_h1">Lịch sử nạp tiền</string>

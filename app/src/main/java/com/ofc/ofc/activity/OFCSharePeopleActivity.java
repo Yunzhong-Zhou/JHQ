@@ -83,7 +83,7 @@ public class OFCSharePeopleActivity extends BaseActivity {
                     list = response.getDirect_recommend_list();
                     if (list.size()>0){
                         CommonAdapter<OFCDirectMemberModel.DirectRecommendListBean> mAdapter = new CommonAdapter<OFCDirectMemberModel.DirectRecommendListBean>(
-                                OFCSharePeopleActivity.this, R.layout.item_directmember, list) {
+                                OFCSharePeopleActivity.this, R.layout.item_directmember_drvt, list) {
                             @Override
                             protected void convert(ViewHolder holder, OFCDirectMemberModel.DirectRecommendListBean model, int position) {
                                 holder.setText(R.id.textView1, model.getNickname());

@@ -32,7 +32,7 @@
                 android:layout_marginLeft="13dp"
                 android:text="NAME"
                 android:textColor="@color/white2"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -44,15 +44,15 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="46dp"
                 android:layout_height="wrap_content"
-                android:text="@string/qianbao_h86"
-                android:textColor="@color/white2"
-                android:textSize="14sp"
+                android:text="@string/qianbao_h87"
+                android:textColor="@color/white"
+                android:textSize="17sp"
                 android:textStyle="normal" />
 
             <TextView
-                android:id="@+id/tv_num"
+                android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -68,20 +68,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="46dp"
                 android:layout_height="wrap_content"
-                android:text="@string/qianbao_h87"
-                android:textColor="@color/white2"
-                android:textSize="14sp" />
+                android:text="@string/qianbao_h88"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_sell"
@@ -101,20 +101,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="46dp"
                 android:layout_height="wrap_content"
-                android:text="@string/qianbao_h88"
+                android:text="@string/qianbao_h86"
                 android:textColor="@color/white2"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tv_all"
+                android:id="@+id/tv_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textColor="@color/white2"
+                android:textSize="12sp" />
 
         </LinearLayout>
     </LinearLayout>

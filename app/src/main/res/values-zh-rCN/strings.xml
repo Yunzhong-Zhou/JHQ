@@ -584,6 +584,22 @@
     <string name="qianbao_h116">交易业绩(DRVT)</string>
     <string name="qianbao_h117">交易分红(DRVT)</string>
 
+    <string name="qianbao_h118">最高单价</string>
+    <string name="qianbao_h119">购买总量</string>
+    <string name="qianbao_h120">发布购买</string>
+    <string name="qianbao_h121">购买信息</string>
+    <string name="qianbao_h122">查看更多交易</string>
+    <string name="qianbao_h123">DRVT质押统计</string>
+    <string name="qianbao_h124">查看直推</string>
+    <string name="qianbao_h125">直推业绩</string>
+    <string name="qianbao_h126">团队业绩</string>
+    <string name="qianbao_h127">累计佣金</string>
+    <string name="qianbao_h128">DRVT交易统计</string>
+    <string name="qianbao_h129">按价格</string>
+    <string name="qianbao_h130">按数量</string>
+    <string name="qianbao_h131">交易量</string>
+    <string name="qianbao_h132">总量</string>
+
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
     <string name="recharge_h2">可用余币：</string>

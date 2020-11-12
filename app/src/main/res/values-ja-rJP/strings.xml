@@ -36,7 +36,7 @@
     <string name="app_tian">Day</string>
     <string name="app_ren">ppl</string>
     <string name="app_yuan">CNY</string>
-    <string name="app_ge">/</string>
+    <string name="app_ge"></string>
     <string name="app_bei">X</string>
     <string name="app_ji">Lv.</string>
     <string name="app_shi">h</string>
@@ -550,7 +550,7 @@
     <string name="qianbao_h83">Buy Now</string>
     <string name="qianbao_h84">Buy</string>
     <string name="qianbao_h85">My Purchase</string>
-    <string name="qianbao_h86">Amount</string>
+    <string name="qianbao_h86">Amt</string>
     <string name="qianbao_h87">Price</string>
     <string name="qianbao_h88">Total</string>
     <string name="qianbao_h89">Sell</string>
@@ -582,6 +582,22 @@
     <string name="qianbao_h115">Cancel?</string>
     <string name="qianbao_h116">Total Trade(DRVT)</string>
     <string name="qianbao_h117">Commission(DRVT)</string>
+
+    <string name="qianbao_h118">Max. Price</string>
+    <string name="qianbao_h119">Total Purchase</string>
+    <string name="qianbao_h120">Buy</string>
+    <string name="qianbao_h121">Purchase Info</string>
+    <string name="qianbao_h122">More</string>
+    <string name="qianbao_h123">DRVT Staking</string>
+    <string name="qianbao_h124">Direct</string>
+    <string name="qianbao_h125">My Direct</string>
+    <string name="qianbao_h126">My Group</string>
+    <string name="qianbao_h127">Total Comm.</string>
+    <string name="qianbao_h128">My DRVT</string>
+    <string name="qianbao_h129">By Price</string>
+    <string name="qianbao_h130">By Volume</string>
+    <string name="qianbao_h131">By Trade</string>
+    <string name="qianbao_h132">Total</string>
     <!--充币-->
     <string name="recharge_h1">Deposit History</string>
     <string name="recharge_h2">Balance:</string>

@@ -622,8 +622,8 @@ public class DRVTJiaoYiActivity extends BaseActivity {
         ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView2);
         final List<String> list = new ArrayList<String>();
 
-        list.add(getString(R.string.qianbao_h131));
-        list.add(getString(R.string.qianbao_h132));
+        list.add(getString(R.string.app_type_shengxu));
+        list.add(getString(R.string.app_type_jiangxu));
 
         final Pop_ListAdapter adapter = new Pop_ListAdapter(DRVTJiaoYiActivity.this, list);
         adapter.setSelectItem(i2);
