@@ -57,7 +57,7 @@ public class MyProfileActivity extends BaseActivity {
     ArrayList<String> listFileNames;
     ArrayList<File> listFiles;
     ImageView imageView1;
-    TextView textView1, textView2, textView3, textView4, textView5;
+    TextView textView1, textView2, textView3, textView4, textView5, textView_tuiguang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +111,7 @@ public class MyProfileActivity extends BaseActivity {
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
         textView5 = findViewByID_My(R.id.textView5);
+        textView_tuiguang = findViewByID_My(R.id.textView_tuiguang);
 
     }
 
@@ -168,6 +169,7 @@ public class MyProfileActivity extends BaseActivity {
                 }
                 //服务码
                 textView5.setText(response.getService_code());
+                textView_tuiguang.setText(response.getRecommend_ambassador());
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
@@ -208,6 +210,10 @@ public class MyProfileActivity extends BaseActivity {
 
 //                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
 
+                break;
+            case R.id.linearLayout_bank:
+                //绑定银行卡
+                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
                 break;
             case R.id.linearLayout10:
             case R.id.textView5:

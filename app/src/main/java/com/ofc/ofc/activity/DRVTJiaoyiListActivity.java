@@ -1,9 +1,12 @@
 package com.ofc.ofc.activity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.base.BaseActivity;
@@ -14,6 +17,7 @@ import com.ofc.ofc.utils.CommonUtil;
 import com.ofc.ofc.utils.MyLogger;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -26,13 +30,13 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by Mr.Z on 2020/10/22.
  * DRVT交易记录
  */
-public class JiaoyiListActivity extends BaseActivity {
+public class DRVTJiaoyiListActivity extends BaseActivity {
     String id = "";
     private RecyclerView recyclerView;
     List<JiaoyiListModel.DoDrvtSellListBean> list = new ArrayList<>();
     CommonAdapter<JiaoyiListModel.DoDrvtSellListBean> mAdapter;
 
-    int page = 1;
+    int page = 1,status=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class JiaoyiListActivity extends BaseActivity {
                 page = 1;
                 String string = "?token=" + localUserInfo.getToken()
                         + "&drvt_buy_id=" + id
+                        + "&status=" + status
                         + "&page=" + page//当前页号
                         + "&count=" + "10";//页面行数;
                 Request(string);
@@ -61,6 +66,7 @@ public class JiaoyiListActivity extends BaseActivity {
                 page = page + 1;
                 String string = "?token=" + localUserInfo.getToken()
                         + "&drvt_buy_id=" + id
+                        + "&status=" + status
                         + "&page=" + page//当前页号
                         + "&count=" + "10";//页面行数
                 RequestMore(string);
@@ -99,20 +105,20 @@ public class JiaoyiListActivity extends BaseActivity {
                     if (list.size() > 0) {
                         showContentPage();
                         mAdapter = new CommonAdapter<JiaoyiListModel.DoDrvtSellListBean>
-                                (JiaoyiListActivity.this, R.layout.item_jiaoyilist, list) {
+                                (DRVTJiaoyiListActivity.this, R.layout.item_jiaoyilist, list) {
                             @Override
                             protected void convert(ViewHolder holder, JiaoyiListModel.DoDrvtSellListBean model, int position) {
                                 TextView tv_title = holder.getView(R.id.tv_title);//标题
-                                tv_title.setText("【"+model.getType_title()+"】"+model.getMoney()+"DRVT");
+                                tv_title.setText("【" + model.getType_title() + "】" + model.getMoney() + "DRVT");
 
-                                if (model.getType().equals("sell")){
+                                if (model.getType().equals("sell")) {
                                     tv_title.setTextColor(getResources().getColor(R.color.red_1));
-                                }else {
+                                } else {
                                     tv_title.setTextColor(getResources().getColor(R.color.green_1));
                                 }
                                 holder.setText(R.id.tv_time, model.getCreated_at());//时间
-                                holder.setText(R.id.tv_jiage,  model.getDrvt_price() + "");//价格
-                                holder.setText(R.id.tv_zonge,model.getUsdt_money()+"");//交易总额
+                                holder.setText(R.id.tv_jiage, model.getDrvt_price() + "");//价格
+                                holder.setText(R.id.tv_zonge, model.getUsdt_money() + "");//交易总额
                                 holder.setText(R.id.tv_nickneame, model.getOpposite_member_nickname());//昵称
 
                             }
@@ -167,6 +173,47 @@ public class JiaoyiListActivity extends BaseActivity {
             case R.id.left_btn:
                 finish();
                 break;
+            case R.id.right_btn:
+                //筛选
+                dialog.contentView(R.layout.dialog_shaixuan)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.BOTTOM)
+                        .canceledOnTouchOutside(true)
+                        .gravity(Gravity.BOTTOM)
+                        .dimAmount(0.6f)
+                        .show();
+                //标签
+                RecyclerView rv = dialog.findViewById(R.id.rv);
+                rv.setLayoutManager(new LinearLayoutManager(DRVTJiaoyiListActivity.this));
+                List<String> list = new ArrayList<>();
+                list.add(getString(R.string.qianbao_h134));
+                list.add(getString(R.string.qianbao_h135));
+                list.add(getString(R.string.qianbao_h136));
+                list.add(getString(R.string.qianbao_h137));
+                list.add(getString(R.string.qianbao_h138));
+                list.add(getString(R.string.qianbao_h139));
+                CommonAdapter<String> adapter = new CommonAdapter<String>
+                        (DRVTJiaoyiListActivity.this, R.layout.item_shaixuan, list) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        holder.setText(R.id.tv, model);
+                    }
+                };
+                adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        status = i;
+                        requestServer();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv.setAdapter(adapter);
+                break;
         }
     }
 
@@ -178,6 +225,7 @@ public class JiaoyiListActivity extends BaseActivity {
         page = 1;
         String string = "?token=" + localUserInfo.getToken()
                 + "&drvt_buy_id=" + id
+                + "&status=" + status
                 + "&page=" + page//当前页号
                 + "&count=" + "10";//页面行数;
         Request(string);

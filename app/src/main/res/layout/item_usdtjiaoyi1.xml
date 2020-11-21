@@ -17,32 +17,28 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <com.joooonho.SelectableRoundedImageView
+                android:id="@+id/imageView1"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/headimg"
+                app:sriv_oval="true" />
+
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="time"
+                android:layout_marginLeft="13dp"
+                android:text="NAME"
                 android:textColor="@color/black3"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_jilu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableRight="@mipmap/ic_next_black"
-                android:gravity="center_vertical"
-                android:text="@string/qianbao_h90"
-                android:textColor="@color/black2"
-                android:textSize="12sp" />
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,13 +55,13 @@
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/qianbao_h88"
+                        android:text="@string/qianbao_h87"
                         android:textColor="@color/black1"
                         android:textSize="17sp"
                         android:textStyle="normal" />
 
                     <TextView
-                        android:id="@+id/tv_zongliang"
+                        android:id="@+id/tv_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -77,67 +73,44 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="14dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/qianbao_h87"
+                        android:text="@string/qianbao_h86"
                         android:textColor="@color/black1"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/tv_danjia"
+                        android:id="@+id/tv_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="0"
                         android:textColor="@color/black1"
                         android:textSize="12sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="14dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="46dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/qianbao_h93"
+                        android:text="@string/qianbao_h151"
                         android:textColor="@color/black3"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/tv_zonge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="0"
-                        android:textColor="@color/black3"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="46dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/qianbao_h91"
-                        android:textColor="@color/black3"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/tv_yigou"
+                        android:id="@+id/tv_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -146,51 +119,33 @@
                         android:textSize="12sp" />
 
                 </LinearLayout>
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal|bottom"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_type"
-                    android:layout_width="70dp"
+                android:orientation="vertical"
+                android:gravity="bottom">
+                <ImageView
+                    android:id="@+id/iv_bank"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="13dp"
-                    android:gravity="center"
-                    android:text="TYPE"
-                    android:textColor="@color/green_1"
-                    android:textSize="14sp" />
-
+                    android:padding="10dp"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/ic_bank_blue"/>
                 <TextView
-                    android:id="@+id/tv_zengjia"
-                    android:layout_width="70dp"
-                    android:layout_height="25dp"
-                    android:layout_marginBottom="4dp"
+                    android:id="@+id/tv_sell"
+                    android:layout_width="100dp"
+                    android:layout_height="36dp"
                     android:background="@drawable/yuanjiao_15_lanse"
                     android:gravity="center"
-                    android:text="@string/qianbao_h92"
+                    android:layout_marginBottom="14dp"
+                    android:text="@string/qianbao_h89"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
-                    android:visibility="gone" />
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tv_quxiao"
-                    android:layout_width="70dp"
-                    android:layout_height="25dp"
-                    android:background="@drawable/yuanjiaobiankuang_15_lanse"
-                    android:gravity="center"
-                    android:text="@string/qianbao_h95"
-                    android:textColor="#0C4965"
-                    android:textSize="11sp" />
             </LinearLayout>
 
         </LinearLayout>
-
-
     </LinearLayout>
 
     <View

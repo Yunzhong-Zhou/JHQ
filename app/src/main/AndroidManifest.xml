@@ -279,7 +279,7 @@
             android:name="com.ofc.ofc.activity.DRVTJiaoYiActivity"
             android:label="DRVT交易" />
         <activity
-            android:name="com.ofc.ofc.activity.JiaoyiListActivity"
+            android:name="com.ofc.ofc.activity.DRVTJiaoyiListActivity"
             android:label="交易记录" />
         <activity
             android:name="com.ofc.ofc.activity.DRVTBuyActivity"
@@ -290,6 +290,22 @@
         <activity
             android:name="com.ofc.ofc.activity.DRVTSharePeopleActivity"
             android:label="推广用户-DRVT" />
+
+        <activity
+            android:name="com.ofc.ofc.activity.USDTJiaoYiActivity"
+            android:label="USDT交易" />
+        <activity
+            android:name="com.ofc.ofc.activity.USDTBuyActivity"
+            android:label="USDT购买" />
+        <activity
+            android:name="com.ofc.ofc.activity.USDTJiaoyiListActivity"
+            android:label="交易记录" />
+        <activity
+            android:name="com.ofc.ofc.activity.USDTOrderInfoActivity"
+            android:label="交易详情" />
+        <activity
+            android:name="com.ofc.ofc.activity.BankCardSettingActivity"
+            android:label="绑定银行卡" />
 
         <!--全面屏适配-->
         <meta-data

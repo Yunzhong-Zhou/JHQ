@@ -18,8 +18,8 @@ import com.liaoinstan.springview.widget.SpringView;
 import com.ofc.ofc.R;
 import com.ofc.ofc.adapter.Pop_ListAdapter;
 import com.ofc.ofc.base.BaseActivity;
-import com.ofc.ofc.model.DRVTListModel1;
-import com.ofc.ofc.model.DRVTListModel2;
+import com.ofc.ofc.model.USDTListModel1;
+import com.ofc.ofc.model.USDTListModel2;
 import com.ofc.ofc.net.OkHttpClientManager;
 import com.ofc.ofc.net.URLs;
 import com.ofc.ofc.utils.CommonUtil;
@@ -27,13 +27,16 @@ import com.ofc.ofc.utils.MyLogger;
 import com.ofc.ofc.view.FixedPopupWindow;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,12 +47,12 @@ import static com.ofc.ofc.net.OkHttpClientManager.IMGHOST;
  * Created by Mr.Z on 2020/10/22.
  * DRVT交易
  */
-public class DRVTJiaoYiActivity extends BaseActivity {
+public class USDTJiaoYiActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<DRVTListModel1.DrvtBuyListBean> list1 = new ArrayList<>();
-    CommonAdapter<DRVTListModel1.DrvtBuyListBean> mAdapter1;
-    List<DRVTListModel2.DrvtBuyListBean> list2 = new ArrayList<>();
-    CommonAdapter<DRVTListModel2.DrvtBuyListBean> mAdapter2;
+    List<USDTListModel1.UsdtDealListBean> list1 = new ArrayList<>();
+    CommonAdapter<USDTListModel1.UsdtDealListBean> mAdapter1;
+    List<USDTListModel2.UsdtDealListBean> list2 = new ArrayList<>();
+    CommonAdapter<USDTListModel2.UsdtDealListBean> mAdapter2;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -57,20 +60,19 @@ public class DRVTJiaoYiActivity extends BaseActivity {
 
     int page1 = 1, page2 = 1, type = 1;
 
-
     //筛选
     private LinearLayout linearLayout_1, linearLayout_2;
     private TextView textView_1, textView_2;
 
     private LinearLayout pop_view;
-    String sort = "asc", field = "drvt_price";
+    String sort = "asc", field = "usdt_cny_price";
     int i1 = 0;
     int i2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drvtjiaoyi);
+        setContentView(R.layout.activity_usdtjiaoyi);
         findViewByID_My(R.id.title).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
     }
 
@@ -157,7 +159,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestDRVTList1(String string) {
-        OkHttpClientManager.getAsyn(DRVTJiaoYiActivity.this, URLs.DRVTJiaoYiList1 + string, new OkHttpClientManager.ResultCallback<DRVTListModel1>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTJiaoYiList1 + string, new OkHttpClientManager.ResultCallback<USDTListModel1>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -168,25 +170,25 @@ public class DRVTJiaoYiActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(DRVTListModel1 response) {
+            public void onResponse(USDTListModel1 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>DRVT列表列表" + response);
+                MyLogger.i(">>>>>>>>>USDT交易信息列表列表" + response);
 
-                list1 = response.getDrvt_buy_list();
+                list1 = response.getUsdt_deal_list();
                 if (list1.size() > 0) {
                     showContentPage();
-                    mAdapter1 = new CommonAdapter<DRVTListModel1.DrvtBuyListBean>
-                            (DRVTJiaoYiActivity.this, R.layout.item_drvtjiaoyi1, list1) {
+                    mAdapter1 = new CommonAdapter<USDTListModel1.UsdtDealListBean>
+                            (USDTJiaoYiActivity.this, R.layout.item_usdtjiaoyi1, list1) {
                         @Override
-                        protected void convert(ViewHolder holder, DRVTListModel1.DrvtBuyListBean model, int position) {
-                            holder.setText(R.id.tv_name, model.getMember_nickname());//昵称
-                            holder.setText(R.id.tv_num, String.format("%.2f", Double.valueOf(model.getAmount_money()) - Double.valueOf(model.getCurrent_money())) + "");//数量
-                            holder.setText(R.id.tv_price, model.getDrvt_price() + "USDT");//单价
-                            holder.setText(R.id.tv_all, model.getAmount_money());//总量
+                        protected void convert(ViewHolder holder, USDTListModel1.UsdtDealListBean model, int position) {
+                            holder.setText(R.id.tv_name, model.getBuy_member_nickname());//昵称
+                            holder.setText(R.id.tv_num, model.getMoney() + "");//数量
+                            holder.setText(R.id.tv_price, model.getUsdt_cny_price() + "CNY");//单价
+                            holder.setText(R.id.tv_all, String.format("%.2f", Double.valueOf(model.getMoney()) * Double.valueOf(model.getUsdt_cny_price())) + "");//总量
                             ImageView imageView1 = holder.getView(R.id.imageView1);
-                            Glide.with(DRVTJiaoYiActivity.this)
-                                    .load(IMGHOST + model.getMember_head())
+                            Glide.with(USDTJiaoYiActivity.this)
+                                    .load(IMGHOST + model.getBuy_member_head())
                                     .centerCrop()
 //                    .placeholder(R.mipmap.headimg)//加载站位图
 //                    .error(R.mipmap.headimg)//加载失败
@@ -195,9 +197,31 @@ public class DRVTJiaoYiActivity extends BaseActivity {
                             holder.getView(R.id.tv_sell).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("id", model.getId());
-                                    CommonUtil.gotoActivityWithData(DRVTJiaoYiActivity.this, DRVTSellActivity.class, bundle, false);
+                                    showToast(getString(R.string.qianbao_h152)
+                                            , getString(R.string.app_confirm),
+                                            getString(R.string.app_cancel), new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                    /*String string = "?id=" + model.getId()
+                                                            + "&token=" + localUserInfo.getToken();*/
+                                                    HashMap<String, String> params = new HashMap<>();
+                                                    params.put("token", localUserInfo.getToken());
+                                                    params.put("id", model.getId());
+                                                    RequestSell(params);
+                                                }
+                                            }, new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                }
+                            });
+                            holder.getView(R.id.iv_bank).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    CommonUtil.gotoActivity(USDTJiaoYiActivity.this, BankCardSettingActivity.class, false);
                                 }
                             });
                         }
@@ -215,7 +239,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestDRVTListMore1(String string) {
-        OkHttpClientManager.getAsyn(DRVTJiaoYiActivity.this, URLs.DRVTJiaoYiList1 + string, new OkHttpClientManager.ResultCallback<DRVTListModel1>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTJiaoYiList1 + string, new OkHttpClientManager.ResultCallback<USDTListModel1>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -227,13 +251,13 @@ public class DRVTJiaoYiActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(DRVTListModel1 response) {
+            public void onResponse(USDTListModel1 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>DRVT列表更多" + response);
+                MyLogger.i(">>>>>>>>>USDT交易信息列表更多" + response);
 
-                List<DRVTListModel1.DrvtBuyListBean> list_1 = new ArrayList<>();
-                list_1 = response.getDrvt_buy_list();
+                List<USDTListModel1.UsdtDealListBean> list_1 = new ArrayList<>();
+                list_1 = response.getUsdt_deal_list();
                 if (list_1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page1--;
@@ -247,7 +271,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestDRVTList2(String string) {
-        OkHttpClientManager.getAsyn(DRVTJiaoYiActivity.this, URLs.DRVTJiaoYiList2 + string, new OkHttpClientManager.ResultCallback<DRVTListModel2>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTJiaoYiList2 + string, new OkHttpClientManager.ResultCallback<USDTListModel2>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -258,75 +282,72 @@ public class DRVTJiaoYiActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(DRVTListModel2 response) {
+            public void onResponse(USDTListModel2 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>DRVT列表列表" + response);
+                MyLogger.i(">>>>>>>>>USDT我的购买列表列表" + response);
 
-                list2 = response.getDrvt_buy_list();
+                list2 = response.getUsdt_deal_list();
                 if (list2.size() > 0) {
                     showContentPage();
-                    mAdapter2 = new CommonAdapter<DRVTListModel2.DrvtBuyListBean>
-                            (DRVTJiaoYiActivity.this, R.layout.item_drvtjiaoyi2, list2) {
+                    mAdapter2 = new CommonAdapter<USDTListModel2.UsdtDealListBean>
+                            (USDTJiaoYiActivity.this, R.layout.item_usdtjiaoyi2, list2) {
                         @Override
-                        protected void convert(ViewHolder holder, DRVTListModel2.DrvtBuyListBean model, int position) {
+                        protected void convert(ViewHolder holder, USDTListModel2.UsdtDealListBean model, int position) {
                             holder.setText(R.id.tv_time, model.getCreated_at());//时间
-                            holder.setText(R.id.tv_zongliang, model.getAmount_money() + "");//总量
-                            holder.setText(R.id.tv_danjia, model.getDrvt_price() + "USDT");//单价
-                            holder.setText(R.id.tv_zonge, model.getUsdt_money() + "USDT");//总额
-                            holder.setText(R.id.tv_yigou, model.getCurrent_money() + "");//已购
+                            holder.setText(R.id.tv_zongliang, model.getMoney() + "");//总量
+                            holder.setText(R.id.tv_danjia, model.getUsdt_cny_price() + "CNY");//单价
+//                            holder.setText(R.id.tv_zonge, model.getUsdt_money() + "USDT");//总额
+//                            holder.setText(R.id.tv_yigou, model.getCurrent_money() + "");//已购
 
                             TextView tv_type = holder.getView(R.id.tv_type);
 //                            TextView tv_zengjia = holder.getView(R.id.tv_zengjia);
                             TextView tv_quxiao = holder.getView(R.id.tv_quxiao);
 
                             tv_type.setText(model.getStatus_title());
+                            tv_type.setVisibility(View.VISIBLE);
                             switch (model.getStatus()) {
+                                //状态（1.待匹配 2.待付款 3.已付款 4.已完成 5.申诉中 6.申诉成功 7.申诉失败 8.取消）
                                 case 1:
-                                    //进行中
-                                    tv_type.setVisibility(View.VISIBLE);
+                                    //待匹配
+                                case 2:
+                                    //待付款
 //                                    tv_zengjia.setVisibility(View.VISIBLE);
                                     tv_quxiao.setVisibility(View.VISIBLE);
-
 //                                    tv_type.setText(getString(R.string.app_type_jinxingzhong));
                                     tv_type.setTextColor(getResources().getColor(R.color.orange_1));
-
-                                    break;
-                                case 2:
-                                    //已完成
-                                    tv_type.setVisibility(View.VISIBLE);
-//                                    tv_zengjia.setVisibility(View.GONE);
-                                    tv_quxiao.setVisibility(View.GONE);
-
-//                                    tv_type.setText(getString(R.string.app_type_yiwancheng));
-                                    tv_type.setTextColor(getResources().getColor(R.color.green_1));
-
                                     break;
                                 case 3:
-                                    //已取消
-                                    tv_type.setVisibility(View.VISIBLE);
+                                    //已付款
+                                case 4:
+                                    //已完成
 //                                    tv_zengjia.setVisibility(View.GONE);
                                     tv_quxiao.setVisibility(View.GONE);
-
 //                                    tv_type.setText(getString(R.string.qianbao_h114));
+                                    tv_type.setTextColor(getResources().getColor(R.color.green_1));
+                                    break;
+                                default:
+                                    tv_quxiao.setVisibility(View.GONE);
                                     tv_type.setTextColor(getResources().getColor(R.color.black3));
-
                                     break;
                             }
 
                             holder.getView(R.id.tv_jilu).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("id", model.getId());
-                                    CommonUtil.gotoActivityWithData(DRVTJiaoYiActivity.this, DRVTJiaoyiListActivity.class, bundle, false);
+                                    if (model.getStatus() != 1) {
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("id", model.getId());
+//                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
+                                        CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
+                                    }
 
                                 }
                             });
                             holder.getView(R.id.tv_zengjia).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    CommonUtil.gotoActivity(DRVTJiaoYiActivity.this, DRVTBuyActivity.class, false);
+                                    CommonUtil.gotoActivity(USDTJiaoYiActivity.this, DRVTBuyActivity.class, false);
                                 }
                             });
                             holder.getView(R.id.tv_quxiao).setOnClickListener(new View.OnClickListener() {
@@ -353,6 +374,22 @@ public class DRVTJiaoYiActivity extends BaseActivity {
 
                         }
                     };
+                    mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            if (list2.get(i).getStatus() != 1) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id", list2.get(i).getId());
+//                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
+                                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
+                            }
+                        }
+
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            return false;
+                        }
+                    });
                     recyclerView.setAdapter(mAdapter2);
 //                    mAdapter2.notifyDataSetChanged();
                 } else {
@@ -365,7 +402,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestDRVTListMore2(String string) {
-        OkHttpClientManager.getAsyn(DRVTJiaoYiActivity.this, URLs.DRVTJiaoYiList2 + string, new OkHttpClientManager.ResultCallback<DRVTListModel2>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTJiaoYiList2 + string, new OkHttpClientManager.ResultCallback<USDTListModel2>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -377,12 +414,12 @@ public class DRVTJiaoYiActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(DRVTListModel2 response) {
+            public void onResponse(USDTListModel2 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>DRVT列表更多" + response);
-                List<DRVTListModel2.DrvtBuyListBean> list_2 = new ArrayList<>();
-                list_2 = response.getDrvt_buy_list();
+                MyLogger.i(">>>>>>>>>USDT我的购买列表更多" + response);
+                List<USDTListModel2.UsdtDealListBean> list_2 = new ArrayList<>();
+                list_2 = response.getUsdt_deal_list();
                 if (list_2.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page2--;
@@ -396,24 +433,27 @@ public class DRVTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestCancel(String string) {
-        OkHttpClientManager.getAsyn(DRVTJiaoYiActivity.this, URLs.DRVTCancel + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTCancel + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
                 }
+
             }
 
             @Override
             public void onResponse(String response) {
                 hideProgress();
-                MyLogger.i(">>>>>>>>>DRVT购买取消" + response);
+                MyLogger.i(">>>>>>>>>USDT购买取消" + response);
                 JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
                     String info = jObj.getString("msg");
-                    myToast(info);
+                    MyLogger.i(">>>>>>>"+info);
+                    showToast(info);
+
                     requestServer();
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
@@ -425,27 +465,110 @@ public class DRVTJiaoYiActivity extends BaseActivity {
 
     }
 
+    private void RequestSell(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(USDTJiaoYiActivity.this, URLs.USDTSell, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    if (info.contains(getString(R.string.qianbao_h140))) {
+                        showToast(getString(R.string.qianbao_h181),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(USDTJiaoYiActivity.this, BankCardSettingActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } /*else if (info.contains(getString(R.string.password_h3))) {
+                        showToast(getString(R.string.password_h4),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }*/ /*else if (info.contains(getString(R.string.password_h7))) {
+                        showToast(getString(R.string.password_h8),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } */ else {
+                        showToast(info);
+                    }
+                }
+                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                MyLogger.i(">>>>>>>>>USDT出售" + response);
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    String info = jObj.getString("msg");
+                    myToast(info);
+//                    requestServer();
+
+                    JSONObject jObj1 = jObj.getJSONObject("data");
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", jObj1.getString("id"));
+                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+//
+            }
+        }, false);
+
+    }
 
 
     @Override
     public void onClick(View v) {
         Drawable drawable1 = getResources().getDrawable(R.mipmap.down_green);//选中-蓝色
         Drawable drawable2 = getResources().getDrawable(R.mipmap.down_black);//未选-灰色
-        drawable1.setBounds(0,0,drawable1.getMinimumWidth(),drawable1.getMinimumHeight());
-        drawable2.setBounds(0,0,drawable2.getMinimumWidth(),drawable2.getMinimumHeight());
+        drawable1.setBounds(0, 0, drawable1.getMinimumWidth(), drawable1.getMinimumHeight());
+        drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
         switch (v.getId()) {
             case R.id.left_btn:
                 finish();
                 break;
             case R.id.tv_buy:
                 //购买
-                CommonUtil.gotoActivity(DRVTJiaoYiActivity.this, DRVTBuyActivity.class, false);
+                CommonUtil.gotoActivity(USDTJiaoYiActivity.this, USDTBuyActivity.class, false);
                 break;
             case R.id.imageView:
                 //记录
                 Bundle bundle = new Bundle();
                 bundle.putString("id", "");
-                CommonUtil.gotoActivityWithData(DRVTJiaoYiActivity.this, DRVTJiaoyiListActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
                 break;
             case R.id.linearLayout1:
                 type = 1;
@@ -457,7 +580,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
                 break;
 
             case R.id.linearLayout_1:
-                field = "drvt_price";
+                field = "usdt_cny_price";
 //                textView_1.setTextColor(getResources().getColor(R.color.green));
 //                textView_2.setTextColor(getResources().getColor(R.color.black3));
 //                textView_1.setCompoundDrawables(null, null, drawable1, null);
@@ -465,13 +588,14 @@ public class DRVTJiaoYiActivity extends BaseActivity {
                 showPopupWindow1(pop_view);
                 break;
             case R.id.linearLayout_2:
-                field = "amount_money";
+                field = "money";
 //                textView_1.setTextColor(getResources().getColor(R.color.black3));
 //                textView_2.setTextColor(getResources().getColor(R.color.green));
 //                textView_1.setCompoundDrawables(null, null, drawable2, null);
 //                textView_2.setCompoundDrawables(null, null, drawable1, null);
                 showPopupWindow2(pop_view);
                 break;
+
         }
     }
 
@@ -531,7 +655,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
 
     private void showPopupWindow1(View v) {
         // 一个自定义的布局，作为显示的内容
-        final View contentView = LayoutInflater.from(DRVTJiaoYiActivity.this).inflate(
+        final View contentView = LayoutInflater.from(USDTJiaoYiActivity.this).inflate(
                 R.layout.pop_list2, null);
         final FixedPopupWindow popupWindow = new FixedPopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
@@ -558,7 +682,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.app_type_shengxu));
         list.add(getString(R.string.app_type_jiangxu));
-        final Pop_ListAdapter adapter = new Pop_ListAdapter(DRVTJiaoYiActivity.this, list);
+        final Pop_ListAdapter adapter = new Pop_ListAdapter(USDTJiaoYiActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);
         pop_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -597,7 +721,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
 
     private void showPopupWindow2(View v) {
         // 一个自定义的布局，作为显示的内容
-        final View contentView = LayoutInflater.from(DRVTJiaoYiActivity.this).inflate(
+        final View contentView = LayoutInflater.from(USDTJiaoYiActivity.this).inflate(
                 R.layout.pop_list2, null);
         final FixedPopupWindow popupWindow = new FixedPopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
@@ -626,7 +750,7 @@ public class DRVTJiaoYiActivity extends BaseActivity {
         list.add(getString(R.string.app_type_shengxu));
         list.add(getString(R.string.app_type_jiangxu));
 
-        final Pop_ListAdapter adapter = new Pop_ListAdapter(DRVTJiaoYiActivity.this, list);
+        final Pop_ListAdapter adapter = new Pop_ListAdapter(USDTJiaoYiActivity.this, list);
         adapter.setSelectItem(i2);
         pop_listView.setAdapter(adapter);
         pop_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -635,16 +759,16 @@ public class DRVTJiaoYiActivity extends BaseActivity {
                 adapter.setSelectItem(i);
                 i2 = i;
                 adapter.notifyDataSetChanged();
-                /*if (i == 0) {
-                    field = "drvt_price";
-                } else {
-                    field = "amount_money";
-                }*/
                 if (i == 0) {
                     sort = "asc";
                 } else {
                     sort = "desc";
                 }
+                /*if (i == 0) {
+                    field = "usdt_cny_price";
+                } else {
+                    field = "money";
+                }*/
 //                textView_2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();

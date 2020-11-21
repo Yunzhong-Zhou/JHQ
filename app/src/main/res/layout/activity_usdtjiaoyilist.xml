@@ -38,7 +38,7 @@
             android:padding="18dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_shaixuan"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 

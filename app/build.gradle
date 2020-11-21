@@ -6,8 +6,8 @@ android {
         applicationId "com.ofc.ofc"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 7
-        versionName "2.5"
+        versionCode 8
+        versionName "3.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -131,7 +131,7 @@ dependencies {
     implementation 'com.github.forvv231:EasyNavigation:1.0.2'
 
     //toast提示框
-    implementation 'com.hjq:toast:8.0'
+    implementation 'com.hjq:toast:8.8'
 
     //侧滑返回
     implementation 'me.imid.swipebacklayout.lib:library:1.1.0'

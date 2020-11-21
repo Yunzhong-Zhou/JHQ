@@ -27,6 +27,15 @@ public class MyProfileModel implements Serializable {
     private int auth;
     private int service_center_status;
     private String service_code;
+    private String recommend_ambassador;
+
+    public String getRecommend_ambassador() {
+        return recommend_ambassador;
+    }
+
+    public void setRecommend_ambassador(String recommend_ambassador) {
+        this.recommend_ambassador = recommend_ambassador;
+    }
 
     public int getAuth() {
         return auth;

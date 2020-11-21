@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:drawableRight="@mipmap/ic_next_black"
                 android:gravity="center_vertical"
-                android:text="@string/qianbao_h90"
+                android:text="@string/qianbao_h194"
                 android:textColor="@color/black2"
                 android:textSize="12sp" />
 
@@ -85,7 +85,7 @@
                         android:layout_width="46dp"
                         android:layout_height="wrap_content"
                         android:text="@string/qianbao_h87"
-                        android:textColor="@color/black1"
+                        android:textColor="@color/black3"
                         android:textSize="12sp" />
 
                     <TextView
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="0"
-                        android:textColor="@color/black1"
+                        android:textColor="@color/black3"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -103,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -127,6 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -159,7 +161,7 @@
                     android:id="@+id/tv_type"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="13dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="TYPE"
                     android:textColor="@color/green_1"

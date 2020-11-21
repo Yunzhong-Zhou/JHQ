@@ -34,6 +34,7 @@ import com.ofc.ofc.activity.ServiceCenter_YesActivity;
 import com.ofc.ofc.activity.ShareActivity;
 import com.ofc.ofc.activity.TransferActivity;
 import com.ofc.ofc.activity.TransferListActivity;
+import com.ofc.ofc.activity.USDTJiaoYiActivity;
 import com.ofc.ofc.base.BaseFragment;
 import com.ofc.ofc.model.Fragment5Model;
 import com.ofc.ofc.net.OkHttpClientManager;
@@ -55,7 +56,8 @@ public class Fragment5 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14, linearLayout_yue, linearLayout_yongjin, linearLayout_huigou;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout_yue, linearLayout_yongjin,
+            linearLayout_huigou,linearLayout_usdt;
     ImageView imageView1;
 
 
@@ -168,6 +170,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
         linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
         linearLayout_huigou = findViewByID_My(R.id.linearLayout_huigou);
+        linearLayout_usdt = findViewByID_My(R.id.linearLayout_usdt);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -186,6 +189,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout_yue.setOnClickListener(this);
         linearLayout_yongjin.setOnClickListener(this);
         linearLayout_huigou.setOnClickListener(this);
+        linearLayout_usdt.setOnClickListener(this);
 
         relativeLayout = findViewByID_My(R.id.relativeLayout);
         relativeLayout.setOnClickListener(this);
@@ -280,6 +284,10 @@ public class Fragment5 extends BaseFragment {
                 // 将ClipData内容放到系统剪贴板里。
                 cm.setPrimaryClip(mClipData);
                 myToast(getString(R.string.recharge_h34));
+                break;
+            case R.id.linearLayout_usdt:
+                //USDT交易
+                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
                 break;
             case R.id.relativeLayout:
                 //个人资料
