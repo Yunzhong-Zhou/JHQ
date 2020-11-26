@@ -275,6 +275,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white2"
@@ -305,6 +306,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_phonenum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white2"
@@ -318,7 +320,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/myprofile_h2"
+                        android:text="@string/qianbao_h198"
                         android:textColor="@color/black3"
                         android:textSize="15sp"
                         android:textStyle="normal" />
@@ -479,10 +481,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_img1"
+                        android:background="@mipmap/bg_yuanjiaobiankuang_lansejianbian"
                         android:gravity="center"
                         android:text="@string/qianbao_h171"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black1"
                         android:textSize="13sp"
                         android:textStyle="normal" />
 
@@ -492,7 +494,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_img1"
+                        android:layout_marginLeft="20dp"
+                        android:background="@mipmap/bg_lansejianbian"
                         android:gravity="center"
                         android:text="@string/qianbao_h172"
                         android:textColor="@color/white"

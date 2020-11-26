@@ -67,6 +67,25 @@ public class USDTOrderInfoModel {
         private String member_type;
         private String sell_member_nickname;
 
+        private String opposite_member_nickname;
+        private String opposite_member_mobile;
+
+        public String getOpposite_member_nickname() {
+            return opposite_member_nickname;
+        }
+
+        public void setOpposite_member_nickname(String opposite_member_nickname) {
+            this.opposite_member_nickname = opposite_member_nickname;
+        }
+
+        public String getOpposite_member_mobile() {
+            return opposite_member_mobile;
+        }
+
+        public void setOpposite_member_mobile(String opposite_member_mobile) {
+            this.opposite_member_mobile = opposite_member_mobile;
+        }
+
         public String getSell_member_nickname() {
             return sell_member_nickname;
         }

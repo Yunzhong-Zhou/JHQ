@@ -30,7 +30,7 @@ import org.json.JSONObject;
  */
 public class USDTOrderInfoActivity extends BaseActivity {
     String id = "";
-    LinearLayout linearLayout1;
+    LinearLayout linearLayout1,ll_nickname,ll_phonenum;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
             textView10, textView11, textView12, textView13, textView14, tv_cancel, tv_confirm;
     USDTOrderInfoModel model;
@@ -65,6 +65,9 @@ public class USDTOrderInfoActivity extends BaseActivity {
         });
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
+        ll_nickname = findViewByID_My(R.id.ll_nickname);
+        ll_phonenum = findViewByID_My(R.id.ll_phonenum);
+
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
@@ -118,8 +121,8 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 textView7.setText(response.getUsdt_deal().getMoney());//数量
                 textView8.setText(response.getUsdt_deal().getSn());//订单号
                 textView9.setText(response.getUsdt_deal().getMatching_at());//创建时间
-                textView10.setText(response.getUsdt_deal().getSell_member_nickname());//卖家昵称
-                textView11.setText(response.getUsdt_deal().getSell_member_mobile());//手机号
+                textView10.setText(response.getUsdt_deal().getOpposite_member_nickname());//卖家昵称
+                textView11.setText(response.getUsdt_deal().getOpposite_member_mobile());//手机号
                 textView12.setText(response.getUsdt_deal().getSell_member_bank_card_proceeds_name());//姓名
                 textView13.setText(response.getUsdt_deal().getSell_member_bank_card_account());//银行卡号
                 textView14.setText(response.getUsdt_deal().getSell_member_bank_title());//银行
@@ -128,6 +131,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 linearLayout1.setVisibility(View.GONE);
                 tv_cancel.setVisibility(View.VISIBLE);
                 tv_confirm.setVisibility(View.VISIBLE);
+
                 switch (response.getUsdt_deal().getStatus()) {
                     case 2:
                         //待付款
@@ -144,6 +148,8 @@ public class USDTOrderInfoActivity extends BaseActivity {
                         if (response.getCount_down() > 0) {
                             showTime();
                         }
+                        ll_nickname.setVisibility(View.VISIBLE);
+                        ll_phonenum.setVisibility(View.VISIBLE);
                         break;
                     case 3:
                         //已付款
@@ -160,15 +166,22 @@ public class USDTOrderInfoActivity extends BaseActivity {
                         if (response.getCount_down() > 0) {
                             showTime();
                         }
+                        ll_nickname.setVisibility(View.VISIBLE);
+                        ll_phonenum.setVisibility(View.VISIBLE);
                         break;
                     case 5:
                         //申述中
                         tv_cancel.setText(getString(R.string.qianbao_h196));
                         tv_confirm.setVisibility(View.GONE);
+                        ll_nickname.setVisibility(View.VISIBLE);
+                        ll_phonenum.setVisibility(View.VISIBLE);
                         break;
                     default:
                         tv_cancel.setVisibility(View.GONE);
                         tv_confirm.setVisibility(View.GONE);
+
+                        ll_nickname.setVisibility(View.GONE);
+                        ll_phonenum.setVisibility(View.GONE);
                         break;
                 }
 
