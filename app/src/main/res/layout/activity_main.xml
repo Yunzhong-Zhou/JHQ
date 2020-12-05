@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:Easy_lineHeight="0dp"
-        app:Easy_addIconSize="70dp"
+        app:Easy_addIconSize="45dp"
         app:Easy_tabIconSize="20dp"
         app:Easy_navigationBackground="#053B54"
         app:Easy_navigationHeight="51dp"
-        app:Easy_addTextTopMargin="-20dp">
+        app:Easy_addTextTopMargin="0dp">
 
     </com.next.easynavigation.view.EasyNavigationBar>
 

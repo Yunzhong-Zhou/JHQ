@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OFC</string>
+    <string name="app_name">FONE</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -107,10 +107,10 @@
     <string name="app_refresh6">查看更多</string>
 
     <!--底部栏-->
-    <string name="fragment1">合约学院</string>
-    <string name="fragment2">预测</string>
-    <string name="fragment3">合约</string>
-    <string name="fragment4">充币</string>
+    <string name="fragment1">矿机</string>
+    <string name="fragment2">算力</string>
+    <string name="fragment3">拼团</string>
+    <string name="fragment4">钱包</string>
     <string name="fragment5">我的</string>
 
     <!--自动更新提示框-->
@@ -232,53 +232,53 @@
     <string name="fragment2_h12">建议买入时机</string>
 
     <!--fragment3-->
-    <string name="fragment3_h1">合约仓位</string>
-    <string name="fragment3_h2">盈利</string>
-    <string name="fragment3_h3">累计盈利</string>
-    <string name="fragment3_h4">累计赔付</string>
-    <string name="fragment3_h5">合约交易</string>
-    <string name="fragment3_h6">合约类型</string>
-    <string name="fragment3_h7">合约方向</string>
-    <string name="fragment3_h8">合约杠杆</string>
-    <string name="fragment3_h9">买入价格</string>
-    <string name="fragment3_h10">买入时间</string>
-    <string name="fragment3_h11">卖出价格</string>
-    <string name="fragment3_h12">卖出时间</string>
-    <string name="fragment3_h13">上期盈利</string>
-    <string name="fragment3_h14">合约动态</string>
-    <string name="fragment3_h15">我的交易</string>
-    <string name="fragment3_h16">我的赔付</string>
-    <string name="fragment3_h17">合约仓位</string>
-    <string name="fragment3_h18">合约盈利</string>
-    <string name="fragment3_h19">等待中</string>
-    <string name="fragment3_h20">交易中</string>
-    <string name="fragment3_h21">亏损</string>
-    <string name="fragment3_h22">当前盈利</string>
-    <string name="fragment3_h23">当前赔付</string>
-    <string name="fragment3_h24">交易所</string>
-    <string name="fragment3_h25">交易对</string>
-    <string name="fragment3_h26">状态</string>
-    <string name="fragment3_h27">BTC永续</string>
-    <string name="fragment3_h28">申请平仓</string>
-    <string name="fragment3_h29">赔付/USDT</string>
-    <string name="fragment3_h30">赔付时间</string>
-    <string name="fragment3_h31">合约建仓</string>
-    <string name="fragment3_h32">用户</string>
-    <string name="fragment3_h33">合约仓位/USDT</string>
-    <string name="fragment3_h34">收益</string>
-    <string name="fragment3_h35">平仓</string>
-    <string name="fragment3_h36">持平</string>
-    <string name="fragment3_h37">确认平仓吗？</string>
-    <string name="fragment3_h38">转出成功</string>
-    <string name="fragment3_h39">若本轮交易盈利，则在结束后立即平仓；若本轮交易亏损，则需等待至下一轮交易盈利后执行平仓。</string>
-    <string name="fragment3_h40">平仓成功</string>
-    <string name="fragment3_h41">取消平仓</string>
-    <string name="fragment3_h42">确定取消平仓吗？</string>
-    <string name="fragment3_h43">加仓</string>
-    <string name="fragment3_h44">保险金：</string>
-    <string name="fragment3_h45">确定申请</string>
-    <string name="fragment3_h46">确认取消</string>
-    <string name="fragment3_h47">上期亏损</string>
+    <string name="fragment3_h1">算力大小</string>
+    <string name="fragment3_h2">挖矿周期</string>
+    <string name="fragment3_h3">预计产值(FIL)</string>
+    <string name="fragment3_h4">矿机机房</string>
+    <string name="fragment3_h5">加入拼团</string>
+    <string name="fragment3_h6">完成拼团</string>
+    <string name="fragment3_h7">算力排行</string>
+    <string name="fragment3_h8">拼中用户</string>
+    <string name="fragment3_h9"></string>
+    <string name="fragment3_h10"></string>
+    <string name="fragment3_h11"></string>
+    <string name="fragment3_h12"></string>
+    <string name="fragment3_h13"></string>
+    <string name="fragment3_h14"></string>
+    <string name="fragment3_h15"></string>
+    <string name="fragment3_h16"></string>
+    <string name="fragment3_h17"></string>
+    <string name="fragment3_h18"></string>
+    <string name="fragment3_h19"></string>
+    <string name="fragment3_h20"></string>
+    <string name="fragment3_h21"></string>
+    <string name="fragment3_h22"></string>
+    <string name="fragment3_h23"></string>
+    <string name="fragment3_h24"></string>
+    <string name="fragment3_h25"></string>
+    <string name="fragment3_h26"></string>
+    <string name="fragment3_h27"></string>
+    <string name="fragment3_h28"></string>
+    <string name="fragment3_h29"></string>
+    <string name="fragment3_h30"></string>
+    <string name="fragment3_h31"></string>
+    <string name="fragment3_h32"></string>
+    <string name="fragment3_h33"></string>
+    <string name="fragment3_h34"></string>
+    <string name="fragment3_h35"></string>
+    <string name="fragment3_h36"></string>
+    <string name="fragment3_h37"></string>
+    <string name="fragment3_h38"></string>
+    <string name="fragment3_h39"></string>
+    <string name="fragment3_h40"></string>
+    <string name="fragment3_h41"></string>
+    <string name="fragment3_h42"></string>
+    <string name="fragment3_h43"></string>
+    <string name="fragment3_h44"></string>
+    <string name="fragment3_h45"></string>
+    <string name="fragment3_h46"></string>
+    <string name="fragment3_h47"></string>
 
     <!--fragment4-->
     <string name="fragment4_h1">可用（USDT）</string>

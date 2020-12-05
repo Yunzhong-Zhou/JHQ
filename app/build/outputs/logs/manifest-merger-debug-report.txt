@@ -20,10 +20,8 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-382:12
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-382:12
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-382:12
-MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:2:1-56:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5a4a04f62311dee5a9a8a6c3a0a5f21c/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b89078ff19c797e6061cb70394a4c7bd/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:2:1-17:12
-MERGED from [com.github.forvv231:EasyNavigation:1.0.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed7a2a6e16d3cc6544ba86be4067c3e3/jetified-EasyNavigation-1.0.2/AndroidManifest.xml:2:1-11:12
+MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2b485f35082a24eae0a736ee3f0715c9/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f9e5a8c4504949c5057f06d20e87abe1/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:2:1-30:12
@@ -41,6 +39,7 @@ MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transfor
 MERGED from [com.joooonho:selectableroundedimageview:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/08fa332258aa5c3eb30d2a5f30080436/jetified-selectableroundedimageview-1.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02e3fa651caf88f865e4b9eefb450367/jetified-circleimageview-3.1.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/044c246b5ab081cc8af8306f8d09b356/jetified-library-1.4.1/AndroidManifest.xml:2:1-14:12
+MERGED from [com.lijiankun24:shadowlayout:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78932050cabea17c6ab7c5e6072d4808/jetified-shadowlayout-1.1.0/AndroidManifest.xml:2:1-16:12
 MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4ac8ff4d26a244240054cfbace7e9e96/jetified-banner-1.4.10/AndroidManifest.xml:2:1-11:12
 MERGED from [com.gyf.immersionbar:immersionbar:3.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/933f16edcd1070e689b2e44b07bf327e/jetified-immersionbar-3.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.hjq:toast:8.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fd5fc7d125ae9c813f2493c9cfbcd107/jetified-toast-8.8/AndroidManifest.xml:2:1-9:12
@@ -51,6 +50,7 @@ MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/c
 MERGED from [:cllc_sdk_android_v2.0.0:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0bd032d30babee89aa637bac1a389264/jetified-cllc_sdk_android_v2.0.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dae20fb06c7c18c640048b6f0c1da55a/jetified-sdk-43697/AndroidManifest.xml:2:1-11:12
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ffba15d92141aeb160b0b2dbe18eb54/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:2:1-11:12
+MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:2:1-56:12
 MERGED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:2:1-75:12
 MERGED from [com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a213cc7d53c50640d101e63cb9cbc808/jetified-meizu-3.9.0/AndroidManifest.xml:2:1-33:12
 MERGED from [com.mob.push.plugins:xiaomi:3.7.2.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/41d78aec557b3836218e415eeb4e4de6/jetified-xiaomi-3.7.2.0/AndroidManifest.xml:2:1-9:12
@@ -256,10 +256,6 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:42:22-63
 application
 ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:48:5-366:19
-MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:15:5-54:19
-MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:15:5-54:19
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b89078ff19c797e6061cb70394a4c7bd/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b89078ff19c797e6061cb70394a4c7bd/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:11:5-15:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f9e5a8c4504949c5057f06d20e87abe1/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f9e5a8c4504949c5057f06d20e87abe1/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
@@ -284,8 +280,12 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02e3fa651caf88f865e4b9eefb450367/jetified-circleimageview-3.1.0/AndroidManifest.xml:9:5-20
 MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/044c246b5ab081cc8af8306f8d09b356/jetified-library-1.4.1/AndroidManifest.xml:11:5-12:19
 MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/044c246b5ab081cc8af8306f8d09b356/jetified-library-1.4.1/AndroidManifest.xml:11:5-12:19
+MERGED from [com.lijiankun24:shadowlayout:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78932050cabea17c6ab7c5e6072d4808/jetified-shadowlayout-1.1.0/AndroidManifest.xml:11:5-14:38
+MERGED from [com.lijiankun24:shadowlayout:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78932050cabea17c6ab7c5e6072d4808/jetified-shadowlayout-1.1.0/AndroidManifest.xml:11:5-14:38
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d4fd29b2593f6353a0cbb4167b7b34e/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
 MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d4fd29b2593f6353a0cbb4167b7b34e/jetified-library-1.1.0/AndroidManifest.xml:13:5-20
+MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:15:5-54:19
+MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:15:5-54:19
 MERGED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:23:5-73:19
 MERGED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:23:5-73:19
 MERGED from [com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a213cc7d53c50640d101e63cb9cbc808/jetified-meizu-3.9.0/AndroidManifest.xml:17:5-31:19
@@ -912,14 +912,10 @@ uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5a4a04f62311dee5a9a8a6c3a0a5f21c/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/5a4a04f62311dee5a9a8a6c3a0a5f21c/multidex-2.0.0/AndroidManifest.xml:20:5-43
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b89078ff19c797e6061cb70394a4c7bd/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.hjm:BottomTabBar:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b89078ff19c797e6061cb70394a4c7bd/jetified-BottomTabBar-1.2.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.forvv231:EasyNavigation:1.0.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed7a2a6e16d3cc6544ba86be4067c3e3/jetified-EasyNavigation-1.0.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.forvv231:EasyNavigation:1.0.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ed7a2a6e16d3cc6544ba86be4067c3e3/jetified-EasyNavigation-1.0.2/AndroidManifest.xml:7:5-9:41
+MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2b485f35082a24eae0a736ee3f0715c9/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2b485f35082a24eae0a736ee3f0715c9/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f9e5a8c4504949c5057f06d20e87abe1/jetified-library-1.5.1/AndroidManifest.xml:7:5-9:41
@@ -954,6 +950,8 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02e3fa651caf88f865e4b9eefb450367/jetified-circleimageview-3.1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/044c246b5ab081cc8af8306f8d09b356/jetified-library-1.4.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.bm.photoview:library:1.4.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/044c246b5ab081cc8af8306f8d09b356/jetified-library-1.4.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lijiankun24:shadowlayout:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78932050cabea17c6ab7c5e6072d4808/jetified-shadowlayout-1.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.lijiankun24:shadowlayout:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/78932050cabea17c6ab7c5e6072d4808/jetified-shadowlayout-1.1.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4ac8ff4d26a244240054cfbace7e9e96/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
 MERGED from [com.youth.banner:banner:1.4.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4ac8ff4d26a244240054cfbace7e9e96/jetified-banner-1.4.10/AndroidManifest.xml:7:5-9:41
 MERGED from [com.gyf.immersionbar:immersionbar:3.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/933f16edcd1070e689b2e44b07bf327e/jetified-immersionbar-3.0.0/AndroidManifest.xml:5:5-7:41
@@ -974,6 +972,8 @@ MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/tr
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dae20fb06c7c18c640048b6f0c1da55a/jetified-sdk-43697/AndroidManifest.xml:7:5-9:41
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ffba15d92141aeb160b0b2dbe18eb54/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ffba15d92141aeb160b0b2dbe18eb54/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:5:5-7:41
 MERGED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:5:5-7:41
 MERGED from [com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a213cc7d53c50640d101e63cb9cbc808/jetified-meizu-3.9.0/AndroidManifest.xml:7:5-9:41
@@ -1122,6 +1122,58 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:355:17-54
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:354:17-67
+provider#com.maning.updatelibrary.MNUpdateApkFileProvider
+ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
+	android:grantUriPermissions
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
+	android:authorities
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
+	android:exported
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
+activity#com.lljjcoder.style.citylist.CityListSelectActivity
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
+activity#com.lljjcoder.style.citythreelist.ProvinceActivity
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
+activity#com.lljjcoder.style.citythreelist.CityActivity
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
+activity#com.lljjcoder.style.citythreelist.AreaActivity
+ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
+	android:screenOrientation
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
+	android:windowSoftInputMode
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
+	android:name
+		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
+provider#me.jessyan.autosize.InitProvider
+ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:12:9-16:43
+	android:authorities
+		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:14:13-74
+	android:multiprocess
+		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:16:13-40
+	android:exported
+		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
 ADDED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:11:5-81
 	android:name
@@ -1212,58 +1264,6 @@ ADDED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/tran
 		ADDED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:53:13-37
 	android:name
 		ADDED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/48f1b314fc2399f28dfdd3cb7145051a/jetified-hellodaemon-1.2.2/AndroidManifest.xml:52:13-97
-provider#com.maning.updatelibrary.MNUpdateApkFileProvider
-ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
-	android:grantUriPermissions
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
-	android:authorities
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
-	android:exported
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
-	android:name
-		ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/12ce9e3dbf294ecec6bed7a7dc59d9ce/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
-activity#com.lljjcoder.style.citylist.CityListSelectActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
-	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
-	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
-	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
-activity#com.lljjcoder.style.citythreelist.ProvinceActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
-	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
-	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
-	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
-activity#com.lljjcoder.style.citythreelist.CityActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
-	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
-	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
-	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
-activity#com.lljjcoder.style.citythreelist.AreaActivity
-ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
-	android:screenOrientation
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
-	android:windowSoftInputMode
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
-	android:name
-		ADDED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/59e324ca09cdef338273b8bb876e8d79/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
-provider#me.jessyan.autosize.InitProvider
-ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:12:9-16:43
-	android:authorities
-		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:14:13-74
-	android:multiprocess
-		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:16:13-40
-	android:exported
-		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
-	android:name
-		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/02f3f4b359da72dea3b64f5768aa3876/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
 permission#${applicationId}.permission.PROCESS_PUSH_MSG
 ADDED from [com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/AndroidManifest.xml:10:5-12:55
 	android:protectionLevel

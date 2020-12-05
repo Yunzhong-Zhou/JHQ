@@ -656,6 +656,12 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr shadowColor
+attr shadowDx
+attr shadowDy
+attr shadowRadius
+attr shadowShape
+attr shadowSide
 attr shadow_bottom
 attr shadow_left
 attr shadow_right
@@ -730,17 +736,6 @@ attr tabStyle
 attr tabTextAppearance
 attr tabTextColor
 attr tabUnboundedRipple
-attr tab_bar_background
-attr tab_divider_background
-attr tab_font_size
-attr tab_img_font_padding
-attr tab_img_height
-attr tab_img_width
-attr tab_isshow_divider
-attr tab_padding_bottom
-attr tab_padding_top
-attr tab_selected_color
-attr tab_unselected_color
 attr textAllCaps
 attr textAppearanceBody1
 attr textAppearanceBody2
@@ -1553,7 +1548,6 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icon
 drawable input_close
-drawable little_red_spot_bg
 drawable lvsejianbian
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1608,6 +1602,7 @@ drawable yuanhuan_huise
 drawable yuanhuan_lvse
 drawable yuanjiao_0_baiseyinying
 drawable yuanjiao_0_lvse
+drawable yuanjiao_0_lvsejianbian
 drawable yuanjiao_0_red
 drawable yuanjiao_0_touming
 drawable yuanjiao_10_baiise_bottom
@@ -1624,6 +1619,7 @@ drawable yuanjiao_10_huise
 drawable yuanjiao_10_huise_bottom
 drawable yuanjiao_10_huise_bottom1
 drawable yuanjiao_10_huise_left_down
+drawable yuanjiao_10_huise_right
 drawable yuanjiao_10_huisetouming_right
 drawable yuanjiao_10_lanse_right_down
 drawable yuanjiao_10_lansejianbian
@@ -2011,7 +2007,6 @@ id iv_jian
 id iv_jian_left
 id iv_jian_right
 id iv_left
-id iv_page1_1
 id iv_phone
 id iv_r
 id iv_ray_light
@@ -2073,7 +2068,6 @@ id linearLayout_yue
 id listMode
 id listView
 id list_item
-id little_red_spot
 id liveness_face_round
 id ll
 id ll_bg
@@ -2084,19 +2078,12 @@ id ll_drvt_jiaoyi
 id ll_i
 id ll_nickname
 id ll_ofc
-id ll_page1
-id ll_page2
-id ll_page3
 id ll_paixu
 id ll_phonenum
-id ll_shangqi
 id ll_title
 id ll_title_background
 id ll_top
 id ll_tuiguang
-id ll_type1
-id ll_type2
-id ll_type3
 id ll_usdt
 id ll_zhituijiaoyi
 id ll_zhuangtai
@@ -2136,6 +2123,7 @@ id numIndicatorInside
 id off
 id on
 id outline
+id oval
 id overlap
 id overlapFragment
 id packed
@@ -2169,7 +2157,7 @@ id push_pure_bigview_banner
 id push_pure_bigview_expanded
 id quit
 id radio
-id realtabcontent
+id rectangle
 id recyclerView
 id red_point
 id relativeLayout
@@ -2190,7 +2178,7 @@ id rl_30min
 id rl_5min
 id rl_title
 id rv
-id rv_jiaoyizhong
+id rv_join
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -2231,7 +2219,6 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
-id split
 id split_action_bar
 id spread
 id spread_inside
@@ -2248,8 +2235,6 @@ id surfaceViewCamera
 id swipe
 id tabMode
 id tab_icon_iv
-id tab_item_iv
-id tab_item_tv
 id tab_text
 id tab_text_tv
 id tag_accessibility_actions
@@ -2311,7 +2296,6 @@ id textView_dazhe_2
 id textView_dazhe_3
 id textView_liyou
 id textView_moeny
-id textView_shangqi
 id textView_shouxufei
 id textView_tuiguang
 id text_input_password_toggle
@@ -2362,8 +2346,6 @@ id tv_5min
 id tv_all
 id tv_bankname
 id tv_banknum
-id tv_baoxianjin
-id tv_bucang
 id tv_buy
 id tv_cancel
 id tv_confirm
@@ -2378,7 +2360,6 @@ id tv_faxingjia
 id tv_fenhongzhishu
 id tv_fullScreen
 id tv_heyue
-id tv_huazhuan
 id tv_jiage
 id tv_jieguo
 id tv_jilu
@@ -2388,7 +2369,6 @@ id tv_kandie
 id tv_kanzhang
 id tv_keyong
 id tv_mairu
-id tv_money
 id tv_money_left
 id tv_money_right
 id tv_more
@@ -2397,17 +2377,6 @@ id tv_name
 id tv_nickneame
 id tv_num
 id tv_ofc_yue
-id tv_page1_1
-id tv_page1_10
-id tv_page1_11
-id tv_page1_2
-id tv_page1_3
-id tv_page1_4
-id tv_page1_5
-id tv_page1_6
-id tv_page1_7
-id tv_page1_8
-id tv_page1_9
 id tv_paixu
 id tv_price
 id tv_qiandao
@@ -2430,11 +2399,8 @@ id tv_usdt_yue
 id tv_value
 id tv_yifenhong
 id tv_yigou
-id tv_yingli
 id tv_zengjia
 id tv_zengzhi
-id tv_zhanwei
-id tv_zhongzhi
 id tv_zhuangtai
 id tv_zonge
 id tv_zongliang
@@ -2602,7 +2568,6 @@ layout ali_footer
 layout ali_header
 layout banner
 layout base_layout
-layout bottom_tab_bar
 layout cllc_aler_dialog
 layout container_layout
 layout custom_dialog
@@ -2743,7 +2708,6 @@ layout select_dialog_singlechoice_material
 layout sortlistview_item
 layout support_simple_spinner_dropdown_item
 layout swipeback_layout
-layout tab_item
 layout upsdk_app_dl_progress_dialog
 layout upsdk_ota_update_view
 layout view_empty
@@ -2783,7 +2747,6 @@ mipmap bg_fragment1
 mipmap bg_fragment1_left
 mipmap bg_fragment1_right
 mipmap bg_fragment1_zh
-mipmap bg_fragment3
 mipmap bg_fragment3_btn_hong
 mipmap bg_fragment3_btn_huang
 mipmap bg_fragment3_btn_lan
@@ -2841,7 +2804,6 @@ mipmap bg_yuanjiaobiankuang_lansejianbian
 mipmap down_black
 mipmap down_green
 mipmap empty_img
-mipmap erweima
 mipmap flash_off
 mipmap flash_on
 mipmap headimg
@@ -2990,6 +2952,7 @@ mipmap tab1_1
 mipmap tab2_0
 mipmap tab2_1
 mipmap tab3_0
+mipmap tab3_1
 mipmap tab4_0
 mipmap tab4_1
 mipmap tab5_0
@@ -4552,7 +4515,6 @@ styleable Banner banner_default_image banner_layout delay_time image_scale_type 
 styleable BottomAppBar backgroundTint fabAlignmentMode fabCradleMargin fabCradleRoundedCornerRadius fabCradleVerticalOffset hideOnScroll
 styleable BottomNavigationView elevation itemBackground itemHorizontalTranslationEnabled itemIconSize itemIconTint itemTextAppearanceActive itemTextAppearanceInactive itemTextColor labelVisibilityMode menu
 styleable BottomSheetBehavior_Layout behavior_fitToContents behavior_hideable behavior_peekHeight behavior_skipCollapsed
-styleable BottomTabBar tab_bar_background tab_divider_background tab_font_size tab_img_font_padding tab_img_height tab_img_width tab_isshow_divider tab_padding_bottom tab_padding_top tab_selected_color tab_unselected_color
 styleable BubbleSeekBar android_enabled bsb_always_show_bubble bsb_always_show_bubble_delay bsb_anim_duration bsb_auto_adjust_section_mark bsb_bubble_color bsb_bubble_text_color bsb_bubble_text_size bsb_hide_bubble bsb_is_float_type bsb_max bsb_min bsb_progress bsb_rtl bsb_second_track_color bsb_second_track_size bsb_section_count bsb_section_text_color bsb_section_text_interval bsb_section_text_position bsb_section_text_size bsb_seek_by_section bsb_seek_step_section bsb_show_progress_in_float bsb_show_section_mark bsb_show_section_text bsb_show_thumb_text bsb_thumb_color bsb_thumb_radius bsb_thumb_radius_on_dragging bsb_thumb_text_color bsb_thumb_text_size bsb_touch_to_seek bsb_track_color bsb_track_size
 styleable ButtonBarLayout allowStacking
 styleable CalendarView cv_dateFormatPattern cv_dayBackground cv_isChangeDateStatus cv_selectDayBackground cv_selectDayBackground2 cv_selectTextColor cv_selectTextColor2 cv_selectTextSize cv_selectTextSize2 cv_textColor cv_textSize
@@ -4608,6 +4570,7 @@ styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable SelectableRoundedImageView android_scaleType sriv_border_color sriv_border_width sriv_left_bottom_corner_radius sriv_left_top_corner_radius sriv_oval sriv_right_bottom_corner_radius sriv_right_top_corner_radius
+styleable ShadowLayout shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth

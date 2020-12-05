@@ -89,6 +89,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -400,6 +401,43 @@ Android 10 停用过滤视图，使用旧版存储模式
         <!-- 保活 -->
         <service android:name="com.fone.fone.utils.TraceServiceImpl" />
 
+        <provider
+            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
+            android:authorities="com.fone.fone.updateFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/mn_update_file_provider" />
+        </provider>
+
+        <activity
+            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.CityActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+
+        <provider
+            android:name="me.jessyan.autosize.InitProvider"
+            android:authorities="com.fone.fone.autosize-init-provider"
+            android:exported="false"
+            android:multiprocess="true" />
+
         <receiver
             android:name="com.xdandroid.hellodaemon.WakeUpReceiver"
             android:process=":watch" >
@@ -438,43 +476,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         <service
             android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
             android:process=":watch" />
-
-        <provider
-            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
-            android:authorities="com.fone.fone.updateFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/mn_update_file_provider" />
-        </provider>
-
-        <activity
-            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-        </activity>
-        <activity
-            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-        </activity>
-        <activity
-            android:name="com.lljjcoder.style.citythreelist.CityActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-        </activity>
-        <activity
-            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-        </activity>
-
-        <provider
-            android:name="me.jessyan.autosize.InitProvider"
-            android:authorities="com.fone.fone.autosize-init-provider"
-            android:exported="false"
-            android:multiprocess="true" />
 
         <receiver
             android:name="com.huawei.hms.support.api.push.PushMsgReceiver"

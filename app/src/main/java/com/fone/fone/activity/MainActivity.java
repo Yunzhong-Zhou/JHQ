@@ -19,9 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cy.dialog.BaseDialog;
-import com.maning.updatelibrary.InstallUtils;
-import com.mob.pushsdk.MobPush;
-import com.next.easynavigation.view.EasyNavigationBar;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.fragment.Fragment1;
@@ -38,6 +35,9 @@ import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.TraceServiceImpl;
 import com.fone.fone.utils.permission.PermissionsActivity;
 import com.fone.fone.utils.permission.PermissionsChecker;
+import com.maning.updatelibrary.InstallUtils;
+import com.mob.pushsdk.MobPush;
+import com.next.easynavigation.view.EasyNavigationBar;
 import com.squareup.okhttp.Request;
 import com.xdandroid.hellodaemon.IntentWrapper;
 
@@ -135,6 +135,7 @@ public class MainActivity extends BaseActivity {
 
         mImmersionBar.reset().init();
     }
+
     //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
     public void onBackPressed() {
         IntentWrapper.onBackPressed(this);
@@ -158,15 +159,15 @@ public class MainActivity extends BaseActivity {
         fragments.add(new Fragment3());
         fragments.add(new Fragment4());
         fragments.add(new Fragment5());
-        String[] tabText = {getString(R.string.fragment3) + "",
+        String[] tabText = {getString(R.string.fragment1) + "",
                 getString(R.string.fragment2) + "",
-                "",
-                getString(R.string.fragment4_1) + "",
+                getString(R.string.fragment3) + "",
+                getString(R.string.fragment4) + "",
                 getString(R.string.fragment5) + ""};
         //未选中icon
         int[] normalIcon = {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};
         //选中时icon
-        int[] selectIcon = {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_0, R.mipmap.tab4_1, R.mipmap.tab5_1};
+        int[] selectIcon = {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_1, R.mipmap.tab4_1, R.mipmap.tab5_1};
 
         navigationBar.titleItems(tabText)//文字
                 .normalIconItems(normalIcon)//未选中
@@ -178,6 +179,7 @@ public class MainActivity extends BaseActivity {
                 .fragmentList(fragments)
                 .anim(null)
                 .addLayoutRule(EasyNavigationBar.RULE_BOTTOM)
+                .navigationBackground(R.drawable.yuanjiao_0_lvsejianbian)
                 .addLayoutBottom(0)
                 .addAlignBottom(true)
                 .addAsFragment(true)

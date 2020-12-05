@@ -116,6 +116,9 @@ dependencies {
     //图片点击放大
     implementation 'com.bm.photoview:library:1.4.1'
 
+    //自定义阴影库
+    implementation 'com.lijiankun24:shadowlayout:1.1.0'
+
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
 
@@ -127,8 +130,8 @@ dependencies {
 //    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta03'
 
     //底部选项栏
-    implementation 'com.hjm:BottomTabBar:1.2.2'
-    implementation 'com.github.forvv231:EasyNavigation:1.0.2'
+    implementation project(':easynavigation')
+//    implementation 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
 
     //toast提示框
     implementation 'com.hjq:toast:8.8'
@@ -197,7 +200,7 @@ dependencies {
     implementation 'com.lahm.library:easy-protector-release:1.1.2'
 
     //android 保活
-    compile 'com.xdandroid:hellodaemon:+'
+    implementation 'com.xdandroid:hellodaemon:+'
 
 }
 apply plugin: 'com.google.gms.google-services'//谷歌服务
