@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "103853129476",
-    "firebase_url": "https://ofcapital.firebaseio.com",
-    "project_id": "ofcapital",
-    "storage_bucket": "ofcapital.appspot.com"
+    "firebase_url": "https://foneapital.firebaseio.com",
+    "project_id": "foneapital",
+    "storage_bucket": "foneapital.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:103853129476:android:3b190e1ea7aece15e9da51",
         "android_client_info": {
-          "package_name": "com.ofc.ofc"
+          "package_name": "com.fone.fone"
         }
       },
       "oauth_client": [

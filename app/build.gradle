@@ -3,7 +3,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.ofc.ofc"
+        applicationId "com.fone.fone"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 8
@@ -46,9 +46,9 @@ android {
     //签名
     signingConfigs {
         release {
-            keyAlias 'ofc'
+            keyAlias 'fone'
             keyPassword '123456'
-            storeFile file('/Users/YunZhong/Desktop/OFC/OFC.keystore')
+            storeFile file('/Users/YunZhong/Desktop/FONE/FONE.keystore')
             storePassword '123456'
         }
     }
@@ -203,8 +203,8 @@ dependencies {
 apply plugin: 'com.google.gms.google-services'//谷歌服务
 apply plugin: 'com.mob.sdk'
 MobSDK {
-    appKey "2e203bbc66b2a"
-    appSecret "1f0bcee1f26f892737d09be0192d98e3"
+    appKey ""
+    appSecret ""
     MobPush {
         version "3.0.4"
         bradge true//设置是否开启角标开关

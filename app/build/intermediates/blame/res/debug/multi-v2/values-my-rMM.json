@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-my-rMM/values-my-rMM.xml",
+            "map": [
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c4acd02b763d8142a320222f0c7af902/jetified-push-4.0.2.300/res/values-my-rMM/values-my-rMM.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

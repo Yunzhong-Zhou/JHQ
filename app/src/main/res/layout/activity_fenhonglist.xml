@@ -251,7 +251,7 @@
                         android:background="@color/xian" />
 
 
-                    <com.ofc.ofc.view.LoadingLayout
+                    <com.fone.fone.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -261,7 +261,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
-                    </com.ofc.ofc.view.LoadingLayout>
+                    </com.fone.fone.view.LoadingLayout>
 
                 </LinearLayout>
 

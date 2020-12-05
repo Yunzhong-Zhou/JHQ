@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.ofc.ofc.view.MyNestedScrollView
+        <com.fone.fone.view.MyNestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -599,7 +599,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </com.ofc.ofc.view.MyNestedScrollView>
+        </com.fone.fone.view.MyNestedScrollView>
     </com.liaoinstan.springview.widget.SpringView>
 
     <ImageView

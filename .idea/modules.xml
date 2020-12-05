@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CFO.iml" filepath="$PROJECT_DIR$/CFO.iml" group="CFO" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FONE.iml" filepath="$PROJECT_DIR$/.idea/modules/FONE.iml" group="FONE" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="FONE/app" />
+      <module fileurl="file://$PROJECT_DIR$/kchartlib/kchartlib.iml" filepath="$PROJECT_DIR$/kchartlib/kchartlib.iml" group="FONE/kchartlib" />
+    </modules>
+  </component>
+</project>

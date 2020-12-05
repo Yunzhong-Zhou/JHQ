@@ -50,7 +50,7 @@
         android:background="@drawable/yuanjiao_25_baise_top"
         android:orientation="vertical">
 
-        <com.ofc.ofc.view.LoadingLayout
+        <com.fone.fone.view.LoadingLayout
             android:id="@+id/loading_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -67,7 +67,7 @@
 
             </com.liaoinstan.springview.widget.SpringView>
 
-        </com.ofc.ofc.view.LoadingLayout>
+        </com.fone.fone.view.LoadingLayout>
 
     </LinearLayout>
 

@@ -550,7 +550,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <!--列表-->
-                    <com.ofc.ofc.view.LoadingLayout
+                    <com.fone.fone.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -561,7 +561,7 @@
                             android:layout_height="match_parent"
                             android:paddingBottom="20dp"/>
 
-                    </com.ofc.ofc.view.LoadingLayout>
+                    </com.fone.fone.view.LoadingLayout>
                 </LinearLayout>
 
             </LinearLayout>

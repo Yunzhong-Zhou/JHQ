@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.ofc.ofc.view.MyNestedScrollView
+        <com.fone.fone.view.MyNestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -600,7 +600,7 @@
 
                 </LinearLayout>
 
-                <com.ofc.ofc.view.LoadingLayout
+                <com.fone.fone.view.LoadingLayout
                     android:id="@+id/loading_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -610,9 +610,9 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-                </com.ofc.ofc.view.LoadingLayout>
+                </com.fone.fone.view.LoadingLayout>
             </LinearLayout>
-        </com.ofc.ofc.view.MyNestedScrollView>
+        </com.fone.fone.view.MyNestedScrollView>
     </com.liaoinstan.springview.widget.SpringView>
 
     <ImageView
