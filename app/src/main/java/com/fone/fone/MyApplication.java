@@ -11,19 +11,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.fone.fone.activity.PredictionDetailActivity;
+import com.fone.fone.activity.WebContentActivity;
+import com.fone.fone.utils.MyLogger;
+import com.fone.fone.utils.TraceServiceImpl;
+import com.fone.fone.utils.changelanguage.LanguageUtil;
+import com.fone.fone.utils.changelanguage.SpUtil;
 import com.hjq.toast.ToastUtils;
 import com.mob.MobSDK;
 import com.mob.pushsdk.MobPush;
 import com.mob.pushsdk.MobPushCustomMessage;
 import com.mob.pushsdk.MobPushNotifyMessage;
 import com.mob.pushsdk.MobPushReceiver;
-import com.fone.fone.activity.PredictionDetailActivity;
-import com.fone.fone.activity.WebContentActivity;
-import com.fone.fone.base.ScreenAdaptation;
-import com.fone.fone.utils.MyLogger;
-import com.fone.fone.utils.TraceServiceImpl;
-import com.fone.fone.utils.changelanguage.LanguageUtil;
-import com.fone.fone.utils.changelanguage.SpUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
 import com.xdandroid.hellodaemon.DaemonEnv;
@@ -238,7 +237,8 @@ public class MyApplication extends Application {
             LanguageUtil.changeAppLanguage(mContext, language);
         }
 
-        new ScreenAdaptation(this, 828, 1792).register();
+//        new ScreenAdaptation(this, 828, 1792).register();
+//        new ScreenAdaptation(this, 1125, 2436).register();
 //        new ScreenAdaptation(this,720,1280).register();
 
     }

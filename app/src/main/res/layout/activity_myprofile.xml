@@ -48,13 +48,11 @@
                             android:textColor="@color/black1"
                             android:textSize="15sp" />
 
-                        <com.joooonho.SelectableRoundedImageView
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/imageView1"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginRight="10dp"
-                            android:background="@mipmap/headimg"
-                            app:sriv_oval="true" />
+                            android:background="@mipmap/headimg" />
 
                     </LinearLayout>
 

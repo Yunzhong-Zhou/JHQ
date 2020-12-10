@@ -682,13 +682,6 @@ attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
 attr srcCompat
-attr sriv_border_color
-attr sriv_border_width
-attr sriv_left_bottom_corner_radius
-attr sriv_left_top_corner_radius
-attr sriv_oval
-attr sriv_right_bottom_corner_radius
-attr sriv_right_top_corner_radius
 attr stackFromEnd
 attr state_above_anchor
 attr state_collapsed
@@ -1625,9 +1618,11 @@ drawable yuanjiao_10_lanse_right_down
 drawable yuanjiao_10_lansejianbian
 drawable yuanjiao_10_lansejianbian_bottom
 drawable yuanjiao_10_lvse_bottom
+drawable yuanjiao_10_lvsejianbian
 drawable yuanjiao_10_zisejianbian
 drawable yuanjiao_10_zisejianbian1
 drawable yuanjiao_15_baise_left
+drawable yuanjiao_15_bg_top
 drawable yuanjiao_15_lanse
 drawable yuanjiao_16_zisejianbian
 drawable yuanjiao_1_huise
@@ -1999,6 +1994,7 @@ id iv_change
 id iv_cover
 id iv_edit
 id iv_goumai
+id iv_head_bg
 id iv_icon
 id iv_jia
 id iv_jia_left
@@ -2034,6 +2030,9 @@ id linearLayout11
 id linearLayout12
 id linearLayout13
 id linearLayout14
+id linearLayout15
+id linearLayout16
+id linearLayout17
 id linearLayout1_0
 id linearLayout1_1
 id linearLayout2
@@ -2051,7 +2050,6 @@ id linearLayout_2
 id linearLayout_addr
 id linearLayout_bank
 id linearLayout_daozhang
-id linearLayout_huigou
 id linearLayout_huzhao1
 id linearLayout_huzhao2
 id linearLayout_jiage
@@ -2060,11 +2058,8 @@ id linearLayout_money
 id linearLayout_num
 id linearLayout_shiji
 id linearLayout_test
-id linearLayout_usdt
 id linearLayout_wu
-id linearLayout_yongjin
 id linearLayout_you
-id linearLayout_yue
 id listMode
 id listView
 id list_item
@@ -2622,6 +2617,7 @@ layout item_fragment3_1
 layout item_fragment3_2
 layout item_fragment3_3
 layout item_fragment3_4
+layout item_fragment3_join
 layout item_help
 layout item_huigoulist
 layout item_information
@@ -2752,15 +2748,13 @@ mipmap bg_fragment3_btn_huang
 mipmap bg_fragment3_btn_lan
 mipmap bg_fragment3_btn_lv
 mipmap bg_fragment3_btn_qing
+mipmap bg_fragment3_head
+mipmap bg_fragment3_left
 mipmap bg_fragment3_top_baise
 mipmap bg_fragment3_top_mise
 mipmap bg_fragment4_1
 mipmap bg_fragment5
-mipmap bg_fragment5_1
 mipmap bg_fragment5_2
-mipmap bg_fragment5_3
-mipmap bg_fragment5_4
-mipmap bg_fragment5_5
 mipmap bg_gonglian
 mipmap bg_invitationreward1
 mipmap bg_invitationreward2
@@ -4569,7 +4563,6 @@ styleable RecyclerView android_orientation android_descendantFocusability fastSc
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
-styleable SelectableRoundedImageView android_scaleType sriv_border_color sriv_border_width sriv_left_bottom_corner_radius sriv_left_top_corner_radius sriv_oval sriv_right_bottom_corner_radius sriv_right_top_corner_radius
 styleable ShadowLayout shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle

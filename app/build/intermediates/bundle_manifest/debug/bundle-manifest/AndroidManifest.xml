@@ -351,6 +351,15 @@ Android 10 停用过滤视图，使用旧版存储模式
         <meta-data
             android:name="design_height_in_dp"
             android:value="896" />
+        <!--
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="562" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="1218" />
+        -->
+
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />

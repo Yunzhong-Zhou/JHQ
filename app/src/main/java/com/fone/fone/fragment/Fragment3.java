@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.base.BaseFragment;
@@ -28,8 +26,6 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -121,7 +117,6 @@ public class Fragment3 extends BaseFragment {
             }
         });
 
-
         //悬浮部分
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
@@ -141,6 +136,17 @@ public class Fragment3 extends BaseFragment {
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
+
+
+        //设置图片宽度为屏幕宽度，高度自适应-android:adjustViewBounds="true"
+        /*ImageView iv_head_bg = findViewByID_My(R.id.iv_head_bg);
+        ViewGroup.LayoutParams lp = iv_head_bg.getLayoutParams();
+        lp.width = CommonUtil.getScreenWidth(getActivity());
+        lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        iv_head_bg.setLayoutParams(lp);
+        iv_head_bg.setMaxWidth(lp.width);
+        iv_head_bg.setMaxHeight(lp.height);*/
+
     }
 
     @Override
@@ -188,7 +194,7 @@ public class Fragment3 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment3_1, list1) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment3Model.NewestContractListBean model, int position) {
-                            holder.setText(R.id.textView1, model.getMember_nickname());//昵称
+                            /*holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                             holder.setText(R.id.textView2, model.getMoney());//合约数
                             TextView tv3 = holder.getView(R.id.textView3);
                             if (model.getProfit_money() > 0) {
@@ -208,7 +214,7 @@ public class Fragment3 extends BaseFragment {
                                         .centerCrop()
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
-                                        .into(iv);//加载图片
+                                        .into(iv);//加载图片*/
 
                         }
                     };
@@ -218,7 +224,7 @@ public class Fragment3 extends BaseFragment {
                             (getActivity(), R.layout.item_fragment3_2, list2) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment3Model.ContractTradingListBean model, int position) {
-                            holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
+                            /*holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
                             holder.setText(R.id.textView2, model.getMoney());//合约数
                             TextView tv3 = holder.getView(R.id.textView3);
                             double moeny = Double.valueOf(model.getEarning_money());
@@ -229,12 +235,12 @@ public class Fragment3 extends BaseFragment {
                             } else {
                                 tv3.setText("-" + moeny);
                                 tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                            }
+                            }*/
 
                         }
                     };
                     //我的补仓
-                    list3 = response.getContract_call_margin_list();
+                   /* list3 = response.getContract_call_margin_list();
                     mAdapter3 = new CommonAdapter<Fragment3Model.ContractCallMarginListBean>
                             (getActivity(), R.layout.item_fragment3_3, list3) {
                         @Override
@@ -242,7 +248,7 @@ public class Fragment3 extends BaseFragment {
                             holder.setText(R.id.textView1, model.getMoney());
                             holder.setText(R.id.textView2, model.getShow_created_at());
                         }
-                    };
+                    };*/
 
                     changeUI();
                     hideProgress();

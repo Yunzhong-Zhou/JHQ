@@ -133,7 +133,7 @@ public class MainActivity extends BaseActivity {
         mPermissionsChecker = new PermissionsChecker(this);
 
 
-        mImmersionBar.reset().init();
+        mImmersionBar.reset().statusBarDarkFont(true, 0.2f).init();
     }
 
     //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
@@ -172,8 +172,8 @@ public class MainActivity extends BaseActivity {
         navigationBar.titleItems(tabText)//文字
                 .normalIconItems(normalIcon)//未选中
                 .selectIconItems(selectIcon)//选中
-                .normalTextColor(getResources().getColor(R.color.tab_black))//未选中字体颜色
-                .selectTextColor(getResources().getColor(R.color.white))//选中字体颜色
+                .normalTextColor(getResources().getColor(R.color.white))//未选中字体颜色
+                .selectTextColor(getResources().getColor(R.color.white2))//选中字体颜色
                 .tabTextTop(4)//Tab文字距Tab图标的距离
                 .tabTextSize(10)//Tab文字大小
                 .fragmentList(fragments)
@@ -209,7 +209,7 @@ public class MainActivity extends BaseActivity {
                                 mImmersionBar.reset()
 //                                        .fitsSystemWindows(true)
 //                                        .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
-//                                        .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
+                                        .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
                                         .init();
                                 break;
                             case 3:

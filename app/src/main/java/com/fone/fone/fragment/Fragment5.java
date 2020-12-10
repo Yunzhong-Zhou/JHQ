@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.activity.AccountDetailActivity;
 import com.fone.fone.activity.HuiGouListActivity;
@@ -27,7 +26,6 @@ import com.fone.fone.activity.MyTakeCashActivity;
 import com.fone.fone.activity.NewcomerRewardActivity;
 import com.fone.fone.activity.OnlineServiceActivity;
 import com.fone.fone.activity.QRCodeActivity;
-import com.fone.fone.activity.RechargeActivity;
 import com.fone.fone.activity.SchoolActivity;
 import com.fone.fone.activity.ServiceCenter_NoActivity;
 import com.fone.fone.activity.ServiceCenter_YesActivity;
@@ -41,6 +39,7 @@ import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
@@ -53,11 +52,10 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 public class Fragment5 extends BaseFragment {
     Fragment5Model model;
     RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,textView9;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14, linearLayout_yue, linearLayout_yongjin,
-            linearLayout_huigou,linearLayout_usdt;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout15, linearLayout16,linearLayout17;
     ImageView imageView1;
 
 
@@ -112,7 +110,7 @@ public class Fragment5 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-//        findViewByID_My(R.id.springView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
+        findViewByID_My(R.id.linearLayout).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
         //刷新
         setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
@@ -134,12 +132,11 @@ public class Fragment5 extends BaseFragment {
         textView2.setOnClickListener(this);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
-        textView4.setOnClickListener(this);
         textView5 = findViewByID_My(R.id.textView5);
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
-
+        textView9 = findViewByID_My(R.id.textView9);
 
         textView1.setText(localUserInfo.getNickname());
         textView2.setText(getString(R.string.fragment5_h1) + localUserInfo.getInvuteCode());
@@ -167,10 +164,9 @@ public class Fragment5 extends BaseFragment {
         linearLayout12 = findViewByID_My(R.id.linearLayout12);
         linearLayout13 = findViewByID_My(R.id.linearLayout13);
         linearLayout14 = findViewByID_My(R.id.linearLayout14);
-        linearLayout_yongjin = findViewByID_My(R.id.linearLayout_yongjin);
-        linearLayout_yue = findViewByID_My(R.id.linearLayout_yue);
-        linearLayout_huigou = findViewByID_My(R.id.linearLayout_huigou);
-        linearLayout_usdt = findViewByID_My(R.id.linearLayout_usdt);
+        linearLayout15 = findViewByID_My(R.id.linearLayout15);
+        linearLayout16 = findViewByID_My(R.id.linearLayout16);
+        linearLayout17 = findViewByID_My(R.id.linearLayout17);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -186,24 +182,23 @@ public class Fragment5 extends BaseFragment {
         linearLayout12.setOnClickListener(this);
         linearLayout13.setOnClickListener(this);
         linearLayout14.setOnClickListener(this);
-        linearLayout_yue.setOnClickListener(this);
-        linearLayout_yongjin.setOnClickListener(this);
-        linearLayout_huigou.setOnClickListener(this);
-        linearLayout_usdt.setOnClickListener(this);
+        linearLayout15.setOnClickListener(this);
+        linearLayout16.setOnClickListener(this);
+        linearLayout17.setOnClickListener(this);
 
         relativeLayout = findViewByID_My(R.id.relativeLayout);
         relativeLayout.setOnClickListener(this);
 
-        /*LinearLayout linearLayout = findViewByID_My(R.id.linearLayout);
-         *//*LinearLayout.LayoutParams sp_params = new LinearLayout.LayoutParams(
+        LinearLayout linearLayout = findViewByID_My(R.id.linearLayout);
+         /*LinearLayout.LayoutParams sp_params = new LinearLayout.LayoutParams(
         RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
         sp_params.height = CommonUtil.getScreenHeight(getActivity()) / 4;
-        linearLayout.setLayoutParams(sp_params);*//*
+        linearLayout.setLayoutParams(sp_params);*/
 
         //动态设置linearLayout的高度为屏幕高度的1/4
         ViewGroup.LayoutParams lp = linearLayout.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(getActivity()) / 3;*/
+        lp.height = (int) CommonUtil.getScreenHeight(getActivity()) / 3;
 
     }
 
@@ -285,10 +280,7 @@ public class Fragment5 extends BaseFragment {
                 cm.setPrimaryClip(mClipData);
                 myToast(getString(R.string.recharge_h34));
                 break;
-            case R.id.linearLayout_usdt:
-                //USDT交易
-                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
-                break;
+
             case R.id.relativeLayout:
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
@@ -298,10 +290,11 @@ public class Fragment5 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
                 break;
             case R.id.linearLayout1:
-                //充值
+                //USDT交易
+                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
                /* MainActivity.item = 3;
                 MainActivity.navigationBar.selectTab(3);*/
-                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
                 break;
             case R.id.linearLayout2:
                 //划转
@@ -313,12 +306,10 @@ public class Fragment5 extends BaseFragment {
 //                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
                 break;
             case R.id.linearLayout4:
-            case R.id.linearLayout_yongjin:
                 //推广
                 CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout5:
-            case R.id.linearLayout_yue:
                 //我的钱包
                 CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
                 break;
@@ -334,10 +325,6 @@ public class Fragment5 extends BaseFragment {
                 //充币记录
                 CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
                 break;
-            case R.id.linearLayout_huigou:
-                //回购记录
-                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
-                break;
             case R.id.linearLayout9:
                 //资料管理
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
@@ -345,10 +332,6 @@ public class Fragment5 extends BaseFragment {
             case R.id.linearLayout10:
                 //有奖邀请
                 CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
-                break;
-            case R.id.linearLayout14:
-                //学院
-                CommonUtil.gotoActivity(getActivity(), SchoolActivity.class, false);
                 break;
             case R.id.linearLayout11:
                 //公告通知
@@ -382,7 +365,22 @@ public class Fragment5 extends BaseFragment {
                 }
 
                 break;
-
+            case R.id.linearLayout14:
+                //学院
+                CommonUtil.gotoActivity(getActivity(), SchoolActivity.class, false);
+                break;
+            case R.id.linearLayout15:
+                //回购记录
+                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                break;
+            case R.id.linearLayout16:
+                //回购记录
+                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                break;
+            case R.id.linearLayout17:
+                //回购记录
+                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                break;
         }
 
     }
