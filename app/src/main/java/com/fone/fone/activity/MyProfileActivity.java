@@ -1,9 +1,6 @@
 package com.fone.fone.activity;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -12,13 +9,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.liaoinstan.springview.widget.SpringView;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.ChangeProfileModel;
@@ -26,11 +24,10 @@ import com.fone.fone.model.MyProfileModel;
 import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
-import com.fone.fone.popupwindow.SelectLanguagePopupWindow;
 import com.fone.fone.utils.CommonUtil;
-import com.fone.fone.utils.FileUtil;
 import com.fone.fone.utils.MyChooseImages;
 import com.fone.fone.utils.MyLogger;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
@@ -56,8 +53,10 @@ public class MyProfileActivity extends BaseActivity {
     //选择图片及上传
     ArrayList<String> listFileNames;
     ArrayList<File> listFiles;
+
     ImageView imageView1;
-    TextView textView1, textView2, textView3, textView4, textView5, textView_tuiguang;
+    TextView textView1;
+    EditText editText1, editText2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,24 +68,7 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
-        textView2.setText(localUserInfo.getNickname());
-        textView3.setText(localUserInfo.getInvuteCode());
-//        textView4.setText(localUserInfo.getEmail());
 
-        if (!localUserInfo.getUserImage().equals(""))
-            Glide.with(MyProfileActivity.this)
-                    .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.headimg)//加载站位图
-//                    .error(R.mipmap.headimg)//加载失败
-                    .into(imageView1);//加载图片
-        else
-            imageView1.setImageResource(R.mipmap.headimg);
-
-        //获取个人信息
-        showProgress(true, getString(R.string.app_loading2));
-        requestInfo("?token=" + localUserInfo.getToken());
     }
 
     @Override
@@ -107,18 +89,32 @@ public class MyProfileActivity extends BaseActivity {
 
         imageView1 = findViewByID_My(R.id.imageView1);
         textView1 = findViewByID_My(R.id.textView1);
-        textView2 = findViewByID_My(R.id.textView2);
-        textView3 = findViewByID_My(R.id.textView3);
-        textView4 = findViewByID_My(R.id.textView4);
-        textView5 = findViewByID_My(R.id.textView5);
-        textView_tuiguang = findViewByID_My(R.id.textView_tuiguang);
+        editText1 = findViewByID_My(R.id.editText1);
+        editText2 = findViewByID_My(R.id.editText2);
 
     }
 
     @Override
     protected void initData() {
-        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
+        /*String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
+        RequestSmsCodeList(string3);//手机号国家代码集合*/
+        textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
+        editText1.setText(localUserInfo.getNickname());
+//        editText2.setText(localUserInfo.getInvuteCode());
+//        editText2.setText(localUserInfo.getEmail());
+
+        Glide.with(MyProfileActivity.this)
+                .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
+                .centerCrop()
+                .apply(RequestOptions.bitmapTransform(new
+                        RoundedCorners(CommonUtil.dip2px(this, 10))))
+                .placeholder(R.mipmap.loading)//加载站位图
+                .error(R.mipmap.loading)//加载失败
+                .into(imageView1);//加载图片
+
+        //获取个人信息
+        showProgress(true, getString(R.string.app_loading2));
+        requestInfo("?token=" + localUserInfo.getToken());
     }
 
     private void requestInfo(String string) {
@@ -136,44 +132,26 @@ public class MyProfileActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>个人信息" + response);
                 model = response;
                 //头像
-                if (!response.getHead().equals(""))
-                    Glide.with(MyProfileActivity.this)
-                            .load(OkHttpClientManager.IMGHOST + response.getHead())
-                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);
+                Glide.with(MyProfileActivity.this)
+                        .load(OkHttpClientManager.IMGHOST + response.getHead())
+                        .centerCrop()
+                        .apply(RequestOptions.bitmapTransform(new
+                                RoundedCorners(CommonUtil.dip2px(MyProfileActivity.this, 10))))
+                        .placeholder(R.mipmap.loading)//加载站位图
+                        .error(R.mipmap.zanwutupian)//加载失败
+                        .into(imageView1);//加载图片
 
                 //手机号
                 textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + response.getMobile());
                 //昵称
-                textView2.setText(response.getNickname());
+                editText1.setText(response.getNickname());
                 //邀请码
-                textView3.setText(response.getInvite_code());
-                //等级
-                switch (response.getGrade()) {
-                    case 1:
-                        textView4.setText("LP");
-                        break;
-                    case 2:
-                        textView4.setText("IB");
-                        break;
-                    case 3:
-                        textView4.setText("MIB");
-                        break;
-                    case 4:
-                        textView4.setText("PIB");
-                        break;
-                }
-                //服务码
-                textView5.setText(response.getService_code());
-                textView_tuiguang.setText(response.getRecommend_ambassador());
+//                editText2.setText(response.getInvite_code());
+
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
-                localUserInfo.setInvuteCode(response.getInvite_code());
+//                localUserInfo.setInvuteCode(response.getInvite_code());
 //                localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 
@@ -185,7 +163,7 @@ public class MyProfileActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.textView3:
+            /*case R.id.textView3:
                 //获取剪贴板管理器：
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 // 创建普通字符型ClipData
@@ -193,83 +171,12 @@ public class MyProfileActivity extends BaseActivity {
                 // 将ClipData内容放到系统剪贴板里。
                 cm.setPrimaryClip(mClipData);
                 myToast(getString(R.string.recharge_h34));
-                break;
+                break;*/
             case R.id.linearLayout1:
                 //头像
                 MyChooseImages.showPhotoDialog(MyProfileActivity.this);
                 break;
-
-            case R.id.linearLayout5:
-                //邮箱
-//                CommonUtil.gotoActivity(this, EmailActivity.class, false);
-                break;
-
-            case R.id.linearLayout6:
-                //ETH地址管理
-                CommonUtil.gotoActivity(this, SelectWalletAddressActivity.class, false);
-
-//                CommonUtil.gotoActivity(this, SetAddressActivity.class, false);
-
-                break;
-            case R.id.linearLayout_bank:
-                //绑定银行卡
-                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
-                break;
-            case R.id.linearLayout10:
-            case R.id.textView5:
-                //修改服务码
-                CommonUtil.gotoActivity(this, ChangeServiceNumActivity.class, false);
-                //                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
-                break;
-            case R.id.linearLayout7:
-                //交易密码
-                CommonUtil.gotoActivity(this, SetTransactionPasswordActivity.class, false);
-                break;
-            case R.id.linearLayout8:
-                //登录密码
-                CommonUtil.gotoActivity(this, ChangePasswordActivity.class, false);
-                break;
-            case R.id.linearLayout12:
-                //选择语言
-                if (list.size() > 0) {
-                    SelectLanguagePopupWindow popupwindow = new SelectLanguagePopupWindow(MyProfileActivity.this, LoginActivity.class, list);
-                    popupwindow.showAtLocation(MyProfileActivity.this.findViewById(R.id.linearLayout12), Gravity.CENTER, 0, 0);
-                } else {
-                    String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-                    RequestSmsCodeList(string3);//手机号国家代码集合
-                }
-                break;
-            case R.id.linearLayout11:
-                //申请服务中心
-                switch (model.getService_center_status()) {
-                    case 1:
-                        //待申请
-                        CommonUtil.gotoActivity(this, ServiceCenter_NoActivity.class, false);
-                        break;
-                    case 2:
-                        //审核中
-                        myToast(getString(R.string.myprofile_h32));
-                        break;
-                    case 3:
-                        //已通过
-                        CommonUtil.gotoActivity(this, ServiceCenter_YesActivity.class, false);
-                        break;
-                }
-
-                break;
-            case R.id.linearLayout13:
-                if (model.getAuth() == 1) {
-                    //未认证
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("type", 2);//1、服务中心 2、实名认证
-                    CommonUtil.gotoActivityWithData(this, SelectAddressActivity.class, bundle, false);
-                } else {
-                    //已认证
-                    myToast(getString(R.string.fragment5_h27));
-                }
-
-                break;
-            case R.id.linearLayout9:
+            case R.id.tv_confirm:
                 //退出登录
                 showToast(getString(R.string.myprofile_h11),
                         getString(R.string.app_confirm),
@@ -292,15 +199,6 @@ public class MyProfileActivity extends BaseActivity {
                                 dialog.dismiss();
                             }
                         });
-                break;
-
-            case R.id.linearLayout_test:
-//                CommonUtil.gotoActivity(MyProfileActivity.this, TESTActivity.class, false);
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("symbol", "BTC");
-//                CommonUtil.gotoActivityWithData(MyProfileActivity.this, PredictionDetailActivity_MPChart.class, bundle1, false);
-                CommonUtil.gotoActivityWithData(MyProfileActivity.this, TESTActivity_MPChart.class, bundle1, false);
-
                 break;
         }
     }
@@ -332,7 +230,7 @@ public class MyProfileActivity extends BaseActivity {
                 else
                     imageView1.setImageResource(R.mipmap.headimg);
                 //邮箱
-//                textView3.setText(response.getEmail());
+//                editText2.setText(response.getEmail());
                 hideProgress();
             }
         });
@@ -419,9 +317,10 @@ public class MyProfileActivity extends BaseActivity {
                 listFileNames = new ArrayList<>();
                 listFileNames.add("head");
 
-                Uri uri1 = Uri.parse("");
+                /*Uri uri1 = Uri.parse("");
                 uri1 = Uri.fromFile(new File(imagePath));
-                File file1 = new File(FileUtil.getPath(this, uri1));
+                File file1 = new File(FileUtil.getPath(this, uri1));*/
+                File file1 = new File(imagePath);
                 listFiles = new ArrayList<>();
                 File newFile = null;
                 try {

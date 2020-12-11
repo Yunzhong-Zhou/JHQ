@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.fone.fone" android:versionName="3.0" android:versionCode="8">
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.fone.fone" android:versionName="1.0" android:versionCode="1">
   <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="19"/>
   <uses-permission android:name="android.permission.INTERNET" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -56,6 +56,9 @@
     <activity android:name="com.fone.fone.activity.PredictionDetailActivity" android:label="预测详情"/>
     <activity android:name="com.fone.fone.activity.PredictionDetailActivity_MPChart" android:label="预测详情_MPChart"/>
     <activity android:name="com.fone.fone.activity.Fragment1DeatilActivity" android:label="合约详情"/>
+    <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
+    <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
+    <activity android:name="com.fone.fone.activity.HelpCenterActivity" android:label="帮助中心"/>
     <activity android:name="com.fone.fone.activity.MyProfileActivity" android:label="资料管理"/>
     <activity android:name="com.fone.fone.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
     <activity android:name="com.fone.fone.activity.ChangePasswordActivity" android:label="修改登录密码"/>
@@ -79,6 +82,7 @@
     <activity android:name="com.fone.fone.activity.OFCRechargeActivity" android:label="OFC充值"/>
     <activity android:name="com.fone.fone.activity.AddFenHongActivity" android:label="分红"/>
     <activity android:name="com.fone.fone.activity.FenHongListActivity" android:label="分红记录"/>
+    <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
     <activity android:name="com.fone.fone.activity.AddressActivity" android:label="币地址"/>
     <activity android:name="com.fone.fone.activity.OFCSetAddressActivity" android:label="OFC币地址"/>
     <activity android:name="com.fone.fone.activity.MyRechargeActivity" android:label="我的充值"/>
@@ -87,7 +91,7 @@
     <activity android:name="com.fone.fone.activity.OFCTakeCashActivity" android:label="OFC提现"/>
     <activity android:name="com.fone.fone.activity.MyTakeCashActivity" android:label="我的提现"/>
     <activity android:name="com.fone.fone.activity.TakeCashDetailActivity" android:label="提现详情"/>
-    <activity android:name="com.fone.fone.activity.InvitationRewardActivity" android:label="有奖邀请"/>
+    <activity android:name="com.fone.fone.activity.SharePosterActivity" android:label="有奖邀请"/>
     <activity android:name="com.fone.fone.activity.SchoolActivity" android:label="学院"/>
     <activity android:name="com.fone.fone.activity.OnlineServiceActivity" android:label="在线客服"/>
     <activity android:name="com.fone.fone.activity.InformationActivity" android:label="公告通知"/>

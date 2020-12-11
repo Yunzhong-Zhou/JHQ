@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/yuanjiao_5_baise"
+        android:padding="15dp"
         android:gravity="center_vertical">
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@mipmap/headimg"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="10dp">
+            android:gravity="center_vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,9 +26,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="话题标题"
+                    android:text="title"
+                    android:maxLines="2"
                     android:singleLine="true"
-                    android:textSize="15sp"
+                    android:lineSpacingExtra="5dp"
+                    android:textSize="13sp"
                     android:textColor="@color/black1"/>
             </LinearLayout>
 
@@ -50,12 +44,22 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="爱生活、爱居家、爱折腾\n爱生活、爱居家、爱折腾"
+                    android:text="content"
                     android:maxLines="2"
-                    android:textSize="13sp"
+                    android:lineSpacingExtra="5dp"
+                    android:textSize="10sp"
                     android:textColor="@color/black2"/>
             </LinearLayout>
 
         </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="135dp"
+            android:layout_height="89dp"
+            android:src="@color/green"/>
     </LinearLayout>
-</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/xian"/>
+</LinearLayout>

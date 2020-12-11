@@ -236,8 +236,8 @@ public class MyRechargeActivity extends BaseActivity {
                 textView2.setTextColor(getResources().getColor(R.color.black3));
                 textView1.setCompoundDrawables(null, null, drawable1, null);
                 textView2.setCompoundDrawables(null, null, drawable2, null);
-                view1.setVisibility(View.VISIBLE);
-                view2.setVisibility(View.INVISIBLE);
+//                view1.setVisibility(View.VISIBLE);
+//                view2.setVisibility(View.INVISIBLE);
                 showPopupWindow1(pop_view);
                 break;
             case R.id.linearLayout2:
@@ -245,8 +245,8 @@ public class MyRechargeActivity extends BaseActivity {
                 textView2.setTextColor(getResources().getColor(R.color.green));
                 textView1.setCompoundDrawables(null, null, drawable2, null);
                 textView2.setCompoundDrawables(null, null, drawable1, null);
-                view1.setVisibility(View.INVISIBLE);
-                view2.setVisibility(View.VISIBLE);
+//                view1.setVisibility(View.INVISIBLE);
+//                view2.setVisibility(View.VISIBLE);
                 showPopupWindow2(pop_view);
                 break;
         }
@@ -321,7 +321,7 @@ public class MyRechargeActivity extends BaseActivity {
                 } else {
                     money_type = i + "";
                 }
-                textView1.setText(list.get(i));
+//                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -390,7 +390,7 @@ public class MyRechargeActivity extends BaseActivity {
                 } else {
                     status = i + "";
                 }
-                textView2.setText(list.get(i));
+//                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

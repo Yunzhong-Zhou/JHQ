@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/yuanjiao_0_lvsejianbian">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@mipmap/bg_fragment5" />
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/bg_fragment5" />
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
@@ -30,7 +31,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="289dp"
                     android:orientation="vertical">
 
                     <View
@@ -83,7 +84,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5.0dip"
-                                android:drawableRight="@mipmap/ic_fuzhi"
+                                android:drawableRight="@mipmap/ic_fuzhi_gray"
                                 android:text="@string/fragment5_h1"
                                 android:textColor="@color/white2"
                                 android:textIsSelectable="true"
@@ -109,7 +110,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/yuanxing_huangsejianbian"
+                                android:background="@mipmap/ic_fragment5_edit"
                                 android:gravity="center"
                                 android:text=""
                                 android:textColor="@color/white"
@@ -234,10 +235,11 @@
                 <!--中部-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="111dp"
                     android:orientation="horizontal"
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
+                    android:layout_marginTop="-10dp"
                     android:paddingTop="10dp"
                     android:background="@drawable/yuanjiao_10_lvsejianbian">
                     <LinearLayout
@@ -261,7 +263,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dip"
+                            android:layout_marginTop="0dip"
                             android:singleLine="true"
                             android:text="@string/fragment5_h5"
                             android:textColor="@color/white"
@@ -288,7 +290,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dip"
+                            android:layout_marginTop="0dip"
                             android:singleLine="true"
                             android:text="@string/fragment5_h6"
                             android:textColor="@color/white"
@@ -299,7 +301,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_next_double"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="15dp"
                         android:padding="10dp"/>
 
 

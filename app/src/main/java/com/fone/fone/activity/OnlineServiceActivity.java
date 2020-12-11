@@ -170,7 +170,7 @@ public class OnlineServiceActivity extends BaseActivity {
     protected void initData() {
         requestServer();
         //帮助列表
-        RequestHelpList("?token=" + localUserInfo.getToken());
+//        RequestHelpList("?token=" + localUserInfo.getToken());
     }
 
     private void RequestHelpList(String string) {

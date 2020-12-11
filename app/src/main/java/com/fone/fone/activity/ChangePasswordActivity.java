@@ -52,7 +52,7 @@ public class ChangePasswordActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.linearLayout:
+            case R.id.tv_confirm:
                 //确认
                 if (match()) {
                     this.showProgress(true, getString(R.string.app_loading1));

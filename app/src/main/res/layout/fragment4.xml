@@ -681,7 +681,7 @@
                                 android:paddingTop="10dp"
                                 android:paddingRight="20dp"
                                 android:paddingBottom="20dp"
-                                android:src="@mipmap/ic_fuzhi" />
+                                android:src="@mipmap/ic_fuzhi_gray" />
 
                         </RelativeLayout>
                     </LinearLayout>

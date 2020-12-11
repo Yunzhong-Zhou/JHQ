@@ -18,8 +18,11 @@
     </style>
 
     <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/white1</item>
-        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlNormal">@color/xian</item>
+<!--        <item name="colorBackgroundFloating">@color/xian</item>-->
+        <item name="colorControlActivated">@color/black3</item>
+<!--        <item name="colorControlHighlight">@color/black3</item>-->
+
     </style>
     <!--popupwindow 底部弹出动画-->
     <style name="take_pop_anim" parent="android:Animation">

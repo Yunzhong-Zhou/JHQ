@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fone.fone"
     android:targetSandboxVersion="2"
-    android:versionCode="8"
-    android:versionName="3.0" >
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -174,6 +174,15 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:label="合约详情" />
         <!-- 我的 -->
         <activity
+            android:name="com.fone.fone.activity.AboutActivity"
+            android:label="关于我们" />
+        <activity
+            android:name="com.fone.fone.activity.SetUpActivity"
+            android:label="设置" />
+        <activity
+            android:name="com.fone.fone.activity.HelpCenterActivity"
+            android:label="帮助中心" />
+        <activity
             android:name="com.fone.fone.activity.MyProfileActivity"
             android:label="资料管理" />
         <activity
@@ -243,6 +252,9 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.FenHongListActivity"
             android:label="分红记录" />
         <activity
+            android:name="com.fone.fone.activity.AddressManagementActivity"
+            android:label="币地址管理" />
+        <activity
             android:name="com.fone.fone.activity.AddressActivity"
             android:label="币地址" />
         <activity
@@ -267,7 +279,7 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.TakeCashDetailActivity"
             android:label="提现详情" />
         <activity
-            android:name="com.fone.fone.activity.InvitationRewardActivity"
+            android:name="com.fone.fone.activity.SharePosterActivity"
             android:label="有奖邀请" />
         <activity
             android:name="com.fone.fone.activity.SchoolActivity"

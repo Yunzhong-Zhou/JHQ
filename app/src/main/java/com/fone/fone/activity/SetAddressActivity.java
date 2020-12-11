@@ -30,8 +30,8 @@ public class SetAddressActivity extends BaseActivity {
     int type = 1;
     String address = "";
     //    String qk = "";
-    EditText editText1, editText2, editText3;
-    TextView textView1, textView2, textView3, textView4;
+    EditText editText1, textView2, editText2, editText3;
+    TextView textView1, textView3, textView4, textView5;
     private TimeCount time;
     String code = "", addr = "", password = "";
 
@@ -53,6 +53,7 @@ public class SetAddressActivity extends BaseActivity {
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
 
         textView2.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
         if (type == 1) {
@@ -60,11 +61,13 @@ public class SetAddressActivity extends BaseActivity {
             titleView.setTitle(getString(R.string.address_h1));
             textView1.setText(getString(R.string.address_h2));
             editText1.setHint(getString(R.string.address_h3));
+            textView5.setText(getString(R.string.address_h19));
         } else {
             //OFC
             titleView.setTitle(getString(R.string.qianbao_h48));
             textView1.setText(getString(R.string.qianbao_h45));
             editText1.setHint(getString(R.string.qianbao_h49));
+            textView5.setText(getString(R.string.qianbao_h51));
         }
         editText1.setText(address);
     }
@@ -194,21 +197,6 @@ public class SetAddressActivity extends BaseActivity {
                                         dialog.dismiss();
                                     }
                                 });
-                    } else if (info.contains(getString(R.string.password_h3))) {
-                        showToast(getString(R.string.password_h4),
-                                getString(R.string.password_h5), getString(R.string.password_h6),
-                                new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        dialog.dismiss();
-                                        CommonUtil.gotoActivity(SetAddressActivity.this, SetAddressActivity.class, false);
-                                    }
-                                }, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        dialog.dismiss();
-                                    }
-                                });
                     } else {
                         showToast(info);
                     }
@@ -313,7 +301,11 @@ public class SetAddressActivity extends BaseActivity {
     private boolean match() {
         addr = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(addr)) {
-            myToast(getString(R.string.address_h3));
+            if (type == 1) {
+                myToast(getString(R.string.address_h3));
+            } else {
+                myToast(getString(R.string.qianbao_h49));
+            }
             return false;
         }
 //        eth_wallet_addr = editText2.getText().toString().trim();

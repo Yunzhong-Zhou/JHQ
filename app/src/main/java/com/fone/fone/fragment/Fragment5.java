@@ -15,24 +15,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
-import com.fone.fone.activity.AccountDetailActivity;
-import com.fone.fone.activity.HuiGouListActivity;
+import com.fone.fone.activity.AboutActivity;
+import com.fone.fone.activity.AddressManagementActivity;
+import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
-import com.fone.fone.activity.InvitationRewardActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.MyProfileActivity;
 import com.fone.fone.activity.MyRechargeActivity;
 import com.fone.fone.activity.MyTakeCashActivity;
-import com.fone.fone.activity.NewcomerRewardActivity;
-import com.fone.fone.activity.OnlineServiceActivity;
-import com.fone.fone.activity.QRCodeActivity;
-import com.fone.fone.activity.SchoolActivity;
-import com.fone.fone.activity.ServiceCenter_NoActivity;
-import com.fone.fone.activity.ServiceCenter_YesActivity;
+import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
-import com.fone.fone.activity.TransferActivity;
-import com.fone.fone.activity.TransferListActivity;
-import com.fone.fone.activity.USDTJiaoYiActivity;
+import com.fone.fone.activity.SharePosterActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment5Model;
 import com.fone.fone.net.OkHttpClientManager;
@@ -285,101 +278,77 @@ public class Fragment5 extends BaseFragment {
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
                 break;
-            case R.id.textView4:
+           /* case R.id.textView4:
                 //签到
                 CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
-                break;
+                break;*/
             case R.id.linearLayout1:
-                //USDT交易
-                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
-               /* MainActivity.item = 3;
-                MainActivity.navigationBar.selectTab(3);*/
-//                CommonUtil.gotoActivity(getActivity(), RechargeActivity.class, false);
+                //余额
+//                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
                 break;
             case R.id.linearLayout2:
-                //划转
-                CommonUtil.gotoActivity(getActivity(), TransferActivity.class, false);
+                //累计佣金
+//                CommonUtil.gotoActivity(getActivity(), TransferActivity.class, false);
                 break;
             case R.id.linearLayout3:
-                //转币
-                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
-//                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class, false);
+                //拼中次数
+//                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
                 break;
             case R.id.linearLayout4:
-                //推广
-                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
+                //已产FIL
+//                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout5:
-                //我的钱包
-                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
+                //总算力
+//                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
                 break;
             case R.id.linearLayout6:
-                //合约记录
-                CommonUtil.gotoActivity(getActivity(), TransferListActivity.class, false);
+                //团队
+                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout7:
-                //提币记录
-                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
+                //算力
+//                CommonUtil.gotoActivity(getActivity(), AddressActivity.class, false);
                 break;
             case R.id.linearLayout8:
+                //矿机
+//                CommonUtil.gotoActivity(getActivity(), .class, false);
+                break;
+            case R.id.linearLayout9:
+                //合同
+//                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
+                break;
+            case R.id.linearLayout10:
+                //币地址管理
+                CommonUtil.gotoActivity(getActivity(), AddressManagementActivity.class, false);
+                break;
+            case R.id.linearLayout11:
                 //充币记录
                 CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
                 break;
-            case R.id.linearLayout9:
-                //资料管理
-                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
-                break;
-            case R.id.linearLayout10:
-                //有奖邀请
-                CommonUtil.gotoActivity(getActivity(), InvitationRewardActivity.class, false);
-                break;
-            case R.id.linearLayout11:
-                //公告通知
-                CommonUtil.gotoActivity(getActivity(), InformationActivity.class, false);
-                break;
             case R.id.linearLayout12:
-                //在线客服
-                CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
+                //提币记录
+                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
                 break;
             case R.id.linearLayout13:
-                //申请服务中心
-                if (model != null) {
-                    switch (model.getService_center_status()) {
-                        case -1:
-                            //待申请
-                        case 1:
-                            //待审核
-                        case 3:
-                            //未通过
-                            Bundle bundle = new Bundle();
-                            bundle.putInt("status", model.getService_center_status());
-                            bundle.putString("cause", model.getStatus_rejected_cause());
-                            CommonUtil.gotoActivityWithData(getActivity(), ServiceCenter_NoActivity.class, bundle, false);
-//                        myToast(getString(R.string.myprofile_h32));
-                            break;
-                        case 2:
-                            //已通过
-                            CommonUtil.gotoActivity(getActivity(), ServiceCenter_YesActivity.class, false);
-                            break;
-                    }
-                }
-
+                //设置中心
+                CommonUtil.gotoActivity(getActivity(), SetUpActivity.class, false);
                 break;
             case R.id.linearLayout14:
-                //学院
-                CommonUtil.gotoActivity(getActivity(), SchoolActivity.class, false);
+                //关于我们
+                CommonUtil.gotoActivity(getActivity(), AboutActivity.class, false);
                 break;
             case R.id.linearLayout15:
-                //回购记录
-                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                //分享海报
+                CommonUtil.gotoActivity(getActivity(), SharePosterActivity.class, false);
                 break;
             case R.id.linearLayout16:
-                //回购记录
-                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                //消息快讯
+                CommonUtil.gotoActivity(getActivity(), InformationActivity.class, false);
                 break;
             case R.id.linearLayout17:
-                //回购记录
-                CommonUtil.gotoActivity(getActivity(), HuiGouListActivity.class, false);
+                //帮助中心
+                CommonUtil.gotoActivity(getActivity(), HelpCenterActivity.class, false);
                 break;
         }
 

@@ -174,6 +174,32 @@
     <string name="forgetpassword_h8">重置密码成功</string>
     <string name="forgetpassword_h9">正在重置密码，请稍后...</string>
 
+    <!--关于我们-->
+    <string name="about_title">关于我们</string>
+    <string name="about_h1">FileOne官网</string>
+    <string name="about_h2">FileOne介绍</string>
+    <string name="about_h3">FileOne更新</string>
+    <string name="about_h4">FileOne版权所有\nCopyright @2020 FileOne\nAll Rights Reserved</string>
+    <string name="about_h5">已经是最新版，无需更新</string>
+
+    <!--设置-->
+    <string name="setup_title">设置</string>
+    <string name="setup_h1">交易密码设置</string>
+    <string name="setup_h2">登录密码设置</string>
+    <string name="setup_h3">语言设置</string>
+
+    <!--在线客服-->
+    <string name="onlineservice_title">在线留言</string>
+    <string name="onlineservice_hint">请输入您想要咨询的问题</string>
+    <string name="onlineservice_system1">手机厂商：</string>
+    <string name="onlineservice_system2">手机型号：</string>
+    <string name="onlineservice_system3">Android系统版本号：</string>
+    <string name="onlineservice_system4">本程序版本号：</string>
+    <string name="onlineservice_h1">常见问题</string>
+    <string name="onlineservice_h2">竭诚为您服务</string>
+    <string name="onlineservice_h3">服务热线：</string>
+    <string name="onlineservice_h4">联系客服</string>
+
     <!--fragment1-->
     <string name="fragment1_h1">基础知识</string>
     <string name="fragment1_h2">进阶知识</string>
@@ -347,14 +373,16 @@
     <string name="myprofile_h1">资料管理</string>
     <string name="myprofile_h2">手机号</string>
     <string name="myprofile_h3">昵称</string>
-    <string name="myprofile_h4">邀请码</string>
-    <string name="myprofile_h5">推广等级</string>
-    <string name="myprofile_h6">提币地址管理</string>
-    <string name="myprofile_h7">交易密码</string>
-    <string name="myprofile_h8">登录密码</string>
+    <string name="myprofile_h4">请输入昵称</string>
+    <string name="myprofile_h5">邮箱</string>
+    <string name="myprofile_h6">请输入邮箱</string>
+    <string name="myprofile_h7"></string>
+    <string name="myprofile_h8"></string>
     <string name="myprofile_h9">退出登录</string>
-    <string name="myprofile_h10">头像</string>
+    <string name="myprofile_h10">个人头像</string>
     <string name="myprofile_h11">确认退出该账号吗？</string>
+
+
     <string name="myprofile_h12">服务ID</string>
     <string name="myprofile_h13">修改成功</string>
     <string name="myprofile_h14">语言切换</string>
@@ -463,6 +491,11 @@
     <string name="address_h25">需设置交易密码后才可操作</string>
     <string name="address_h26">需设置USDT地址后才可操作</string>
 
+    <string name="qianbao_h48">FIL地址管理</string>
+    <string name="qianbao_h45">FIL地址</string>
+    <string name="qianbao_h49">请输入FIL地址</string>
+    <string name="qianbao_h50">FIL地址设置成功</string>
+    <string name="qianbao_h51">请提供ERC-20格式的FIL地址，否则您的资产将无法找回</string>
     <!--钱包-->
     <string name="qianbao_h1">USDT钱包</string>
     <string name="qianbao_h2">可用（USDT）</string>
@@ -510,13 +543,13 @@
     <string name="qianbao_h42">DRVT钱包</string>
     <string name="qianbao_h43">总资产（DRVT）</string>
     <string name="qianbao_h44">请输入DRVT个数</string>
-    <string name="qianbao_h45">DRVT地址</string>
+
     <string name="qianbao_h46">可用(DRVT)：</string>
     <string name="qianbao_h47">需设置DRVT地址后才可操作</string>
-    <string name="qianbao_h48">DRVT地址管理</string>
-    <string name="qianbao_h49">请输入DRVT地址</string>
-    <string name="qianbao_h50">DRVT地址设置成功</string>
-    <string name="qianbao_h51">请提供ERC-20格式的DRVT地址，否则您的资产将无法找回</string>
+
+
+
+
     <string name="qianbao_h52">充币数量(DRVT)</string>
     <string name="qianbao_h53">提币个数(DRVT)</string>
     <string name="qianbao_h54">质押</string>
@@ -708,34 +741,44 @@
     <string name="recharge_h34">已复制</string>
 
     <!--推广-->
-    <string name="share_h1">推广</string>
-    <string name="share_h2">复制邀请码：</string>
-    <string name="share_h3">累计佣金</string>
-    <string name="share_h4">USDT/手</string>
-    <string name="share_h5">手续费分润</string>
-    <string name="share_h6">团队盈利分润</string>
-    <string name="share_h7">领导奖</string>
-    <string name="share_h8">直推业绩</string>
-    <string name="share_h9">直推人数</string>
-    <string name="share_h10">推广统计</string>
-    <string name="share_h11">直推用户</string>
-    <string name="share_h12">团队业绩</string>
-    <string name="share_h13">团队人数</string>
-    <string name="share_h14">直推IB</string>
-    <string name="share_h15">直推MIB</string>
-    <string name="share_h16">直推PIB</string>
-    <string name="share_h17">工作室补贴</string>
-    <string name="share_h18">工作室列表</string>
-    <string name="share_h19">补贴额度</string>
-    <string name="share_h20">立即申请</string>
-    <string name="share_h26">暂未获取到推广链接</string>
-    <string name="share_h27">分享</string>
-    <string name="share_h28">OFC·数字货币合约投顾交易，SAFU保险金模式本金亏损可赔，随进随出，澳洲正规数字货币持牌公司。</string>
-    <string name="share_h29">用户名</string>
-    <string name="share_h30">合约仓位</string>
-    <string name="share_h31">会员等级</string>
-    <string name="share_h32">经纪人体系</string>
-    <string name="share_h33">推广用户</string>
+    <string name="share_h1">团队</string>
+    <string name="share_h2">邀请码：</string>
+    <string name="share_h3">拼团分成</string>
+    <string name="share_h4">累计佣金</string>
+    <string name="share_h5">销售分成</string>
+    <string name="share_h6">距离下个等级还差</string>
+    <string name="share_h7">拼团业绩</string>
+    <string name="share_h8">同级分成</string>
+    <string name="share_h9">累计直推有效</string>
+    <string name="share_h10"></string>
+    <string name="share_h11">等级考核</string>
+    <string name="share_h12">考核期：</string>
+    <string name="share_h13">新增业绩</string>
+    <string name="share_h14">新增有效</string>
+    <string name="share_h15">目标</string>
+    <string name="share_h16">直推有效</string>
+    <string name="share_h17">否则被降一级</string>
+    <string name="share_h18">推广人数</string>
+    <string name="share_h19">查看直推</string>
+    <string name="share_h20">直推人数</string>
+    <string name="share_h26">团队人数</string>
+    <string name="share_h30">拼团业绩</string>
+    <string name="share_h31">直推业绩</string>
+    <string name="share_h32">团队业绩</string>
+    <string name="share_h33">算力业绩</string>
+    <string name="share_h50">直推算力</string>
+    <string name="share_h51">团队算力</string>
+    <string name="share_h52">矿机业绩</string>
+    <string name="share_h53">直推矿机</string>
+    <string name="share_h54">团队矿机</string>
+    <string name="share_h55">团队等级统计</string>
+    <string name="share_h56">直推会员</string>
+    <string name="share_h57">等级</string>
+    <string name="share_h58">用户</string>
+    <string name="share_h59">总业绩</string>
+    <string name="share_h60"></string>
+
+    <!--签到-->
     <string name="share_h34">签到</string>
     <string name="share_h35">今日获得</string>
     <string name="share_h36">累计获得</string>
@@ -744,6 +787,32 @@
     <string name="share_h39">签到中...</string>
     <string name="share_h40">立即分享</string>
     <string name="share_h41">正在获取分享数据...</string>
+    <!--分享-->
+    <string name="share_h27">分享</string>
+    <string name="share_h28">OFC·数字货币合约投顾交易，SAFU保险金模式本金亏损可赔，随进随出，澳洲正规数字货币持牌公司。</string>
+    <string name="share_h29">用户名</string>
+
+    <!--币地址管理-->
+    <string name="addrmanage_h1">币地址管理</string>
+    <string name="addrmanage_h2">USDT提币</string>
+    <string name="addrmanage_h3">添加USDT(ERC20)地址</string>
+    <string name="addrmanage_h4">请填写USDT的ERC20地址，否则资产损失</string>
+    <string name="addrmanage_h5">FIL提币</string>
+    <string name="addrmanage_h6">添加FIL地址</string>
+    <string name="addrmanage_h7">请填写FIL地址，否则资产损失</string>
+    <string name="addrmanage_h8"><u>USDT地址</u></string>
+    <string name="addrmanage_h9"><u>FIL地址</u></string>
+    <string name="addrmanage_h10"></string>
+    <string name="addrmanage_h11"></string>
+    <string name="addrmanage_h12"></string>
+    <string name="addrmanage_h13"></string>
+    <string name="addrmanage_h14"></string>
+    <string name="addrmanage_h15"></string>
+    <string name="addrmanage_h16"></string>
+    <string name="addrmanage_h17"></string>
+    <string name="addrmanage_h18"></string>
+    <string name="addrmanage_h19"></string>
+    <string name="addrmanage_h20"></string>
 
     <!--提币-->
     <string name="takecash_h1">提币</string>
@@ -781,14 +850,6 @@
     <string name="takecash_h33">银行卡号</string>
     <string name="takecash_h34">银行账户</string>
 
-    <!--在线客服-->
-    <string name="onlineservice_title">在线留言</string>
-    <string name="onlineservice_hint">请输入您想要咨询的问题</string>
-    <string name="onlineservice_system1">手机厂商：</string>
-    <string name="onlineservice_system2">手机型号：</string>
-    <string name="onlineservice_system3">Android系统版本号：</string>
-    <string name="onlineservice_system4">本程序版本号：</string>
-    <string name="onlineservice_h1">常见问题</string>
 
     <!--资讯-->
     <string name="information_title">公告资讯</string>

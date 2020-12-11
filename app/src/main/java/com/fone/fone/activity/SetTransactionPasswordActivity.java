@@ -5,7 +5,6 @@ import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +29,7 @@ import java.util.Map;
 
 public class SetTransactionPasswordActivity extends BaseActivity {
     EditText editText1, editText2, editText3, editText4;
-    TextView textView1;
-    LinearLayout linearLayout;
+    TextView textView1,tv_confirm;
     private TimeCount time;
     String phonenum = "", password1 = "", password2 = "", code = "";
 
@@ -58,7 +56,7 @@ public class SetTransactionPasswordActivity extends BaseActivity {
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                phonenum = editText1.getText().toString().trim();
+                phonenum = localUserInfo.getPhonenumber();
                 if (TextUtils.isEmpty(phonenum)) {
                     Toast.makeText(SetTransactionPasswordActivity.this, getString(R.string.settransactionpassword_h3), Toast.LENGTH_SHORT).show();
                 } else {
@@ -75,8 +73,8 @@ public class SetTransactionPasswordActivity extends BaseActivity {
                 }
             }
         });
-        linearLayout = findViewByID_My(R.id.linearLayout);
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+        tv_confirm = findViewByID_My(R.id.tv_confirm);
+        tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (match()) {
@@ -150,7 +148,7 @@ public class SetTransactionPasswordActivity extends BaseActivity {
     }
 
     private boolean match() {
-        phonenum = editText1.getText().toString().trim();
+        phonenum = localUserInfo.getPhonenumber();
         if (TextUtils.isEmpty(phonenum)) {
             myToast(getString(R.string.settransactionpassword_h3));
             return false;

@@ -27,6 +27,6 @@
         android:drawablePadding="10dp"
         android:padding="50dp"
         android:text="@string/app_reload1"
-        android:textColor="@color/black4" />
+        android:textColor="@color/black2" />
 
 </LinearLayout>

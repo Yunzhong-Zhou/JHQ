@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#03ad90</color>
     <color name="colorPrimaryDark">#03ad90</color>
-    <color name="colorAccent">#4292B4</color><!--加载圈的颜色-->
+    <color name="colorAccent">#02B399</color><!--加载圈的颜色-->
 
     <color name="background">#F5F4F9</color>
     <color name="title_bg">#253e5d</color>
@@ -42,7 +42,7 @@
     <color name="black">#111111</color>
     <color name="black1">#333333</color>
     <color name="black2">#555555</color>
-    <color name="black3">#bfbfbf</color>
+    <color name="black3">#BFBFBF</color>
     <color name="black4">#F2F2F2</color>
     <color name="black5">#FAFAFA</color>
 

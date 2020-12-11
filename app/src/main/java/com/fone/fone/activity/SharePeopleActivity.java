@@ -1,8 +1,6 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +17,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
@@ -119,6 +120,7 @@ public class SharePeopleActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.share_h33));
+        titleView.setTitle(getString(R.string.share_h56));
+//        titleView.setVisibility(View.GONE);
     }
 }

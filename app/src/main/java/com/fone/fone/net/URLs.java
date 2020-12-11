@@ -351,6 +351,14 @@ public class URLs {
      */
     public static final String ShouKuan = "/api/usdt-deal/finish";
     /**
+     * 关于
+     */
+    public static final String About = "/api/index/about";
+    /**
+      * 币地址管理
+     */
+    public static final String AddressManage = "/api/withdrawal/type";
+    /**
      * 拼接请求路径
      *
      * @PARAM URI
