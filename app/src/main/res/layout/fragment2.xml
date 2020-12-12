@@ -171,7 +171,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:src="@mipmap/ic_jia_green" />
+                            android:src="@mipmap/ic_jian_green" />
 
                         <TextView
                             android:layout_width="wrap_content"

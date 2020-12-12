@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:paddingBottom="26sp"
+            android:paddingBottom="26dp"
             android:text="@string/update_hint12"
             android:textColor="@color/black3"
             android:textSize="13sp" />

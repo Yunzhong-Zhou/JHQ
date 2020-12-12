@@ -55,7 +55,6 @@
     <activity android:name="com.fone.fone.activity.PastListActivity" android:label="往期列表"/>
     <activity android:name="com.fone.fone.activity.PredictionDetailActivity" android:label="预测详情"/>
     <activity android:name="com.fone.fone.activity.PredictionDetailActivity_MPChart" android:label="预测详情_MPChart"/>
-    <activity android:name="com.fone.fone.activity.Fragment1DeatilActivity" android:label="合约详情"/>
     <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
     <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
     <activity android:name="com.fone.fone.activity.HelpCenterActivity" android:label="帮助中心"/>
@@ -94,7 +93,6 @@
     <activity android:name="com.fone.fone.activity.MyTakeCashActivity" android:label="我的提现"/>
     <activity android:name="com.fone.fone.activity.TakeCashDetailActivity" android:label="提现详情"/>
     <activity android:name="com.fone.fone.activity.SharePosterActivity" android:label="有奖邀请"/>
-    <activity android:name="com.fone.fone.activity.SchoolActivity" android:label="学院"/>
     <activity android:name="com.fone.fone.activity.OnlineServiceActivity" android:label="在线客服"/>
     <activity android:name="com.fone.fone.activity.InformationActivity" android:label="公告通知"/>
     <activity android:name="com.fone.fone.activity.MyPosterActivity" android:label="我的海报"/>

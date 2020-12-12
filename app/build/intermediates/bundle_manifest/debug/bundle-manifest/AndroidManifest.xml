@@ -168,9 +168,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.PredictionDetailActivity_MPChart"
             android:label="预测详情_MPChart" />
-        <activity
-            android:name="com.fone.fone.activity.Fragment1DeatilActivity"
-            android:label="合约详情" />
         <!-- 我的 -->
         <activity
             android:name="com.fone.fone.activity.AboutActivity"
@@ -286,9 +283,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.SharePosterActivity"
             android:label="有奖邀请" />
-        <activity
-            android:name="com.fone.fone.activity.SchoolActivity"
-            android:label="学院" />
         <activity
             android:name="com.fone.fone.activity.OnlineServiceActivity"
             android:label="在线客服" />

@@ -29,8 +29,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
- * Created by fafukeji01 on 2016/1/6.
- * 大厅
+ * Created by Mr.Z on 2016/1/6.
+ * 拼团
  */
 public class Fragment3 extends BaseFragment {
     //    boolean isOver = false;
