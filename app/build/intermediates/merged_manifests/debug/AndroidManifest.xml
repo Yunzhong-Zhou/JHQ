@@ -62,9 +62,14 @@
     <activity android:name="com.fone.fone.activity.MyProfileActivity" android:label="资料管理"/>
     <activity android:name="com.fone.fone.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
     <activity android:name="com.fone.fone.activity.ChangePasswordActivity" android:label="修改登录密码"/>
-    <activity android:name="com.fone.fone.activity.SelectAddressActivity" android:label="地址管理"/>
-    <activity android:name="com.fone.fone.activity.SelectWalletAddressActivity" android:label="地址管理"/>
-    <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="ETH地址管理和GUS地址管理"/>
+    <activity android:name="com.fone.fone.activity.MyMachineActivity" android:label="我的矿机"/>
+    <activity android:name="com.fone.fone.activity.MyCalculateActivity" android:label="算力列表"/>
+    <activity android:name="com.fone.fone.activity.SelectAddressActivity" android:label="选择地区"/>
+    <activity android:name="com.fone.fone.activity.SelectWalletAddressActivity" android:label="币地址管理"/>
+    <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="设置币地址"/>
+    <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
+    <activity android:name="com.fone.fone.activity.AddressActivity" android:label="币地址"/>
+    <activity android:name="com.fone.fone.activity.OFCSetAddressActivity" android:label="OFC币地址"/>
     <activity android:name="com.fone.fone.activity.ChangeServiceNumActivity" android:label="修改服务代码"/>
     <activity android:name="com.fone.fone.activity.ServiceCenter_NoActivity" android:label="服务中心-未申请"/>
     <activity android:name="com.fone.fone.activity.ServiceCenter_YesActivity" android:label="服务中心-申请通过"/>
@@ -82,9 +87,6 @@
     <activity android:name="com.fone.fone.activity.OFCRechargeActivity" android:label="OFC充值"/>
     <activity android:name="com.fone.fone.activity.AddFenHongActivity" android:label="分红"/>
     <activity android:name="com.fone.fone.activity.FenHongListActivity" android:label="分红记录"/>
-    <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
-    <activity android:name="com.fone.fone.activity.AddressActivity" android:label="币地址"/>
-    <activity android:name="com.fone.fone.activity.OFCSetAddressActivity" android:label="OFC币地址"/>
     <activity android:name="com.fone.fone.activity.MyRechargeActivity" android:label="我的充值"/>
     <activity android:name="com.fone.fone.activity.RechargeDetailActivity" android:label="充值详情"/>
     <activity android:name="com.fone.fone.activity.TakeCashActivity" android:label="提现"/>

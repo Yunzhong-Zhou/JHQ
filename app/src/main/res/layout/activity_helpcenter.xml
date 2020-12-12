@@ -1,85 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/bg_helpcenter" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@mipmap/bg_fragment3_head"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/onlineservice_h2"
-            android:textColor="@color/black1"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/onlineservice_h2"
+                android:textColor="@color/black1"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="10dp"
+                android:onClick="onClick"
+                android:text="@string/onlineservice_h3"
+                android:textColor="@color/black1"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yuanjiao_20_lvse"
+                android:onClick="onClick"
+                android:paddingLeft="44dp"
+                android:paddingTop="10dp"
+                android:paddingRight="44dp"
+                android:paddingBottom="10dp"
+                android:text="@string/onlineservice_h4"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="10dp"
-            android:onClick="onClick"
-            android:text="@string/onlineservice_h3"
+            android:layout_marginTop="60dp"
+            android:text="@string/onlineservice_h1"
             android:textColor="@color/black1"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/yuanjiao_20_lvse"
-            android:onClick="onClick"
-            android:paddingLeft="44dp"
-            android:paddingTop="10dp"
-            android:paddingRight="44dp"
-            android:paddingBottom="10dp"
-            android:text="@string/onlineservice_h4"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/onlineservice_h1"
-        android:textColor="@color/black1"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <com.fone.fone.view.LoadingLayout
-        android:id="@+id/loading_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.liaoinstan.springview.widget.SpringView
-            android:id="@+id/springView"
+        <com.fone.fone.view.LoadingLayout
+            android:id="@+id/loading_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <com.liaoinstan.springview.widget.SpringView
+                android:id="@+id/springView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="14dp" />
-        </com.liaoinstan.springview.widget.SpringView>
-    </com.fone.fone.view.LoadingLayout>
+                android:layout_height="match_parent">
 
-</LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp" />
+            </com.liaoinstan.springview.widget.SpringView>
+        </com.fone.fone.view.LoadingLayout>
+
+    </LinearLayout>
+</RelativeLayout>

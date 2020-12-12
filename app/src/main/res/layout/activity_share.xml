@@ -106,7 +106,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4.0dip"
-                                android:drawableRight="@mipmap/ic_fuzhi_gray"
+                                android:drawableRight="@mipmap/ic_fuzhi_white"
                                 android:drawablePadding="5dp"
                                 android:onClick="onClick"
                                 android:text="@string/share_h2"

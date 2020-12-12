@@ -1564,6 +1564,7 @@ drawable progress
 drawable progress_small
 drawable progressbar_bg_lansejianbian
 drawable progressbar_bg_lvse
+drawable progressbar_bg_lvsejianbian
 drawable progressbar_dianci
 drawable progressbar_yellow_black
 drawable sanjiaoxing_left_hongse
@@ -1574,6 +1575,7 @@ drawable sanjiaoxing_top_baise
 drawable sanjiaoxing_top_huise
 drawable sanjiaoxing_top_huise4
 drawable search_bar_icon_normal
+drawable seek_bar_thumb
 drawable shadow_bottom
 drawable shadow_left
 drawable shadow_right
@@ -1610,6 +1612,7 @@ drawable yuanjiao_10_bg_bottom
 drawable yuanjiao_10_bg_top
 drawable yuanjiao_10_heise
 drawable yuanjiao_10_heise1
+drawable yuanjiao_10_heise4
 drawable yuanjiao_10_huise
 drawable yuanjiao_10_huise_bottom
 drawable yuanjiao_10_huise_bottom1
@@ -1620,13 +1623,17 @@ drawable yuanjiao_10_lanse_right_down
 drawable yuanjiao_10_lansejianbian
 drawable yuanjiao_10_lansejianbian_bottom
 drawable yuanjiao_10_lvse_bottom
+drawable yuanjiao_10_lvse_left
 drawable yuanjiao_10_lvsejianbian
+drawable yuanjiao_10_lvsejianbian1
+drawable yuanjiao_10_lvsejianbian_h
 drawable yuanjiao_10_zisejianbian
 drawable yuanjiao_10_zisejianbian1
 drawable yuanjiao_15_baise_left
 drawable yuanjiao_15_bg_top
 drawable yuanjiao_15_huise_top
 drawable yuanjiao_15_lanse
+drawable yuanjiao_15_lvse
 drawable yuanjiao_15_lvsejianbian_top
 drawable yuanjiao_16_zisejianbian
 drawable yuanjiao_1_huise
@@ -2539,6 +2546,8 @@ layout activity_jiaoyilist
 layout activity_liveness
 layout activity_login
 layout activity_main
+layout activity_mycalculate
+layout activity_mymachine
 layout activity_myposter
 layout activity_myprofile
 layout activity_mytakecash
@@ -2643,7 +2652,6 @@ layout item_fenhonglist
 layout item_fragment1_1
 layout item_fragment1_2
 layout item_fragment1_3
-layout item_fragment2
 layout item_fragment3_1
 layout item_fragment3_2
 layout item_fragment3_3
@@ -2654,6 +2662,8 @@ layout item_huigoulist
 layout item_information
 layout item_jiaoyilist
 layout item_leaderboard
+layout item_mycalculate
+layout item_mymachine
 layout item_myrecharge
 layout item_ofcaccountdetail
 layout item_onlineservice
@@ -2769,11 +2779,11 @@ mipmap bg_dazhe_1
 mipmap bg_dialog
 mipmap bg_dianci
 mipmap bg_f3_1
-mipmap bg_f3_1_zh
 mipmap bg_fragment1
 mipmap bg_fragment1_left
 mipmap bg_fragment1_right
 mipmap bg_fragment1_zh
+mipmap bg_fragment2
 mipmap bg_fragment3_btn_hong
 mipmap bg_fragment3_btn_huang
 mipmap bg_fragment3_btn_lan
@@ -2787,6 +2797,7 @@ mipmap bg_fragment4_1
 mipmap bg_fragment5
 mipmap bg_gonglian
 mipmap bg_head
+mipmap bg_helpcenter
 mipmap bg_invitationreward1
 mipmap bg_invitationreward2
 mipmap bg_invitationreward3
@@ -2804,6 +2815,7 @@ mipmap bg_newcomerreward1
 mipmap bg_newcomerreward2
 mipmap bg_newcomerreward2_0
 mipmap bg_predictiondetail
+mipmap bg_qipao_yellow
 mipmap bg_qrcode
 mipmap bg_rechargedetail
 mipmap bg_scancodepayment1
@@ -2894,6 +2906,7 @@ mipmap ic_fragment5_9
 mipmap ic_fragment5_edit
 mipmap ic_fragment5_jinbi
 mipmap ic_fuzhi_gray
+mipmap ic_fuzhi_white
 mipmap ic_gantanhao
 mipmap ic_gouxuan
 mipmap ic_guoqi
@@ -2904,7 +2917,9 @@ mipmap ic_info_white
 mipmap ic_item_fragment1_1
 mipmap ic_item_transferlist
 mipmap ic_jia
+mipmap ic_jia_green
 mipmap ic_jian
+mipmap ic_jian_green
 mipmap ic_jiantou_down
 mipmap ic_jiantou_down1
 mipmap ic_jiantou_up
@@ -2920,6 +2935,7 @@ mipmap ic_login_title
 mipmap ic_ltc
 mipmap ic_next_black
 mipmap ic_next_double
+mipmap ic_next_double_white
 mipmap ic_next_white
 mipmap ic_ofc_black
 mipmap ic_ofc_white
@@ -2985,6 +3001,7 @@ mipmap tab4_0
 mipmap tab4_1
 mipmap tab5_0
 mipmap tab5_1
+mipmap txt_fragment2
 mipmap weixuan
 mipmap xuanzhong
 mipmap zanwutupian
@@ -3305,6 +3322,8 @@ string fragment2_h1
 string fragment2_h10
 string fragment2_h11
 string fragment2_h12
+string fragment2_h13
+string fragment2_h14
 string fragment2_h2
 string fragment2_h3
 string fragment2_h4

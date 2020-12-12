@@ -20,6 +20,8 @@ import com.fone.fone.activity.AddressManagementActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.MyCalculateActivity;
+import com.fone.fone.activity.MyMachineActivity;
 import com.fone.fone.activity.MyProfileActivity;
 import com.fone.fone.activity.MyRechargeActivity;
 import com.fone.fone.activity.MyTakeCashActivity;
@@ -308,11 +310,11 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout7:
                 //算力
-//                CommonUtil.gotoActivity(getActivity(), AddressActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), MyCalculateActivity.class, false);
                 break;
             case R.id.linearLayout8:
                 //矿机
-//                CommonUtil.gotoActivity(getActivity(), .class, false);
+                CommonUtil.gotoActivity(getActivity(), MyMachineActivity.class, false);
                 break;
             case R.id.linearLayout9:
                 //合同

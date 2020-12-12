@@ -44,7 +44,8 @@ public class ShareActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-        mImmersionBar.reset().init();
+
+//        mImmersionBar.reset().init();
 
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
 //        CommonUtil.setMargins(findViewById(R.id.headview),0,(int) CommonUtil.getStatusBarHeight(this), 0, 0);

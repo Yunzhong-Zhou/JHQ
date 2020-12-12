@@ -13,6 +13,6 @@
         android:width="0dp"
         android:color="@android:color/white" /><!--外环-->
     <size
-        android:width="10dp"
-        android:height="10dp" /><!--直径?-->
+        android:width="15dp"
+        android:height="15dp" /><!--直径?-->
 </shape>

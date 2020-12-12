@@ -27,7 +27,7 @@ import com.squareup.okhttp.Request;
 import androidx.appcompat.app.AlertDialog;
 
 /**
- * Created by zyz on 2020-03-31.
+ * Created by Mr.Z on 2020-03-31.
  * 关于
  */
 public class AboutActivity extends BaseActivity {

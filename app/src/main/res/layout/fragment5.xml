@@ -73,8 +73,11 @@
                                     android:layout_height="wrap_content"
                                     android:text="0"
                                     android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:paddingLeft="3dp"
+                                    android:textColor="@color/white"
                                     android:layout_toRightOf="@id/textView1"
-                                    android:background="@drawable/yuanjiao_5_hongse"/>
+                                    android:background="@mipmap/bg_qipao_yellow"/>
 
                             </RelativeLayout>
 
@@ -84,7 +87,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5.0dip"
-                                android:drawableRight="@mipmap/ic_fuzhi_gray"
+                                android:drawableRight="@mipmap/ic_fuzhi_white"
                                 android:text="@string/fragment5_h1"
                                 android:textColor="@color/white2"
                                 android:textIsSelectable="true"
@@ -300,7 +303,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_next_double"
+                        android:src="@mipmap/ic_next_double_white"
                         android:layout_marginTop="15dp"
                         android:padding="10dp"/>
 

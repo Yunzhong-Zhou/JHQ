@@ -192,14 +192,29 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.ChangePasswordActivity"
             android:label="修改登录密码" />
         <activity
+            android:name="com.fone.fone.activity.MyMachineActivity"
+            android:label="我的矿机" />
+        <activity
+            android:name="com.fone.fone.activity.MyCalculateActivity"
+            android:label="算力列表" />
+        <activity
             android:name="com.fone.fone.activity.SelectAddressActivity"
-            android:label="地址管理" />
+            android:label="选择地区" />
         <activity
             android:name="com.fone.fone.activity.SelectWalletAddressActivity"
-            android:label="地址管理" />
+            android:label="币地址管理" />
         <activity
             android:name="com.fone.fone.activity.SetAddressActivity"
-            android:label="ETH地址管理和GUS地址管理" />
+            android:label="设置币地址" />
+        <activity
+            android:name="com.fone.fone.activity.AddressManagementActivity"
+            android:label="币地址管理" />
+        <activity
+            android:name="com.fone.fone.activity.AddressActivity"
+            android:label="币地址" />
+        <activity
+            android:name="com.fone.fone.activity.OFCSetAddressActivity"
+            android:label="OFC币地址" />
         <activity
             android:name="com.fone.fone.activity.ChangeServiceNumActivity"
             android:label="修改服务代码" />
@@ -251,15 +266,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.FenHongListActivity"
             android:label="分红记录" />
-        <activity
-            android:name="com.fone.fone.activity.AddressManagementActivity"
-            android:label="币地址管理" />
-        <activity
-            android:name="com.fone.fone.activity.AddressActivity"
-            android:label="币地址" />
-        <activity
-            android:name="com.fone.fone.activity.OFCSetAddressActivity"
-            android:label="OFC币地址" />
         <activity
             android:name="com.fone.fone.activity.MyRechargeActivity"
             android:label="我的充值" />

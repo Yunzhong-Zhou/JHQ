@@ -106,6 +106,61 @@
     <string name="app_refresh5">松开载入更多</string>
     <string name="app_refresh6">查看更多</string>
 
+    <!--人脸认证-->
+    <string name="faceverified_h1">认证结果</string>
+    <string name="faceverified_h2">认证成功</string>
+    <string name="faceverified_h3">认证失败</string>
+    <string name="faceverified_h4">重新认证</string>
+    <string name="faceverified_h5">认证完成</string>
+    <string name="faceverified_h6">无法访问摄像头，没有权限或摄像头被占用</string>
+    <string name="faceverified_h7">人脸识别</string>
+    <string name="faceverified_h8">开始测试</string>
+    <string name="faceverified_h9">光线充足</string>
+    <string name="faceverified_h10">正对手机</string>
+    <string name="faceverified_h11">去除遮挡</string>
+    <string name="faceverified_h12">放缓速度</string>
+    <string name="faceverified_h13">我知道了</string>
+    <string name="faceverified_h14">请勿移出框外，并连续完成检测动作</string>
+    <string name="faceverified_h15">动作超时</string>
+    <string name="faceverified_h16">追踪目标丢失</string>
+    <string name="faceverified_h17">未获取到图片数据</string>
+    <string name="faceverified_h18">内部错误</string>
+    <string name="faceverified_h19">包名绑定错误</string>
+    <string name="faceverified_h20">sdk初始化失败,模型加载失败</string>
+    <string name="faceverified_h21">license过期</string>
+    <string name="faceverified_h22">license读取失败</string>
+    <string name="faceverified_h23">未知异常</string>
+    <string name="faceverified_h24">活体照片与身份证照片置信度过低</string>
+    <string name="faceverified_h25">姓名与身份证号不匹配</string>
+    <string name="faceverified_h26">参数非UTF-8编码</string>
+    <string name="faceverified_h27">图片不存在</string>
+    <string name="faceverified_h28">图片体积过大</string>
+    <string name="faceverified_h29">上传图片未检测出人脸</string>
+    <string name="faceverified_h30">不是图片文件或图片文件已经损坏</string>
+    <string name="faceverified_h31">图片大小或者格式不符合要求</string>
+    <string name="faceverified_h32">调用频率超出限额</string>
+    <string name="faceverified_h33">调用次数超出限额</string>
+    <string name="faceverified_h34">请求路径错误</string>
+    <string name="faceverified_h35">服务器内部错误</string>
+    <string name="faceverified_h36">数据源服务服务出错</string>
+    <string name="faceverified_h37">姓名和身份证号匹配，近照不存在</string>
+    <string name="faceverified_h38">姓名与身份证号不匹配</string>
+    <string name="faceverified_h39">查无此身份证号</string>
+    <string name="faceverified_h40">接口获取超时</string>
+    <string name="faceverified_h41">服务不可用</string>
+    <string name="faceverified_h42">网络错误</string>
+    <string name="faceverified_h43">身份证姓名有误</string>
+    <string name="faceverified_h44">认证失败</string>
+    <string name="faceverified_h45">请等待...</string>
+    <string name="faceverified_h46">正在校验...</string>
+    <string name="faceverified_h47">检测到多个人脸，请重新尝试检测</string>
+
+    <string name="note_blink">请眨眨眼</string>
+    <string name="note_nod">请点点头</string>
+    <string name="note_mouth">请张张嘴</string>
+    <string name="note_yaw">请摇摇头</string>
+    <string name="time_out">动作超时</string>
+
     <!--底部栏-->
     <string name="fragment1">矿机</string>
     <string name="fragment2">算力</string>
@@ -200,6 +255,56 @@
     <string name="onlineservice_h3">服务热线：</string>
     <string name="onlineservice_h4">联系客服</string>
 
+    <!--修改登录密码-->
+    <string name="changepassword_h1">修改登录密码</string>
+    <string name="changepassword_h2">旧密码</string>
+    <string name="changepassword_h3">新密码</string>
+    <string name="changepassword_h4">确认新密码</string>
+    <string name="changepassword_h5">请输入旧密码</string>
+    <string name="changepassword_h6">请输入新密码</string>
+    <string name="changepassword_h7">请再次确认新密码</string>
+    <string name="changepassword_h8">两次输入的密码不一致</string>
+    <string name="changepassword_h9">修改密码成功，请重新登录</string>
+    <string name="changepassword_h10">确定</string>
+
+    <!--修改交易密码-->
+    <string name="settransactionpassword_h1">设置交易密码</string>
+    <string name="settransactionpassword_h2">手机号</string>
+    <string name="settransactionpassword_h3">请输入手机号</string>
+    <string name="settransactionpassword_h4">验证码</string>
+    <string name="settransactionpassword_h5">请输入验证码</string>
+    <string name="settransactionpassword_h6">交易密码</string>
+    <string name="settransactionpassword_h7">请输入交易密码</string>
+    <string name="settransactionpassword_h8">确认交易密码</string>
+    <string name="settransactionpassword_h9">请再次确认交易密码</string>
+    <string name="settransactionpassword_h10">两次输入的密码不一致</string>
+    <string name="settransactionpassword_h11">交易密码修改成功</string>
+    <string name="settransactionpassword_h12">确定</string>
+
+    <!--提示框-->
+    <string name="password_h1">交易密码</string>
+    <string name="password_h2">交易密码错误或未设置，是否前往设置？</string>
+    <string name="password_h3">币地址</string>
+    <string name="password_h4">币地址暂未设置，是否前往设置？</string>
+    <string name="password_h5">确认</string>
+    <string name="password_h6">取消</string>
+    <string name="password_h7">实名认证</string>
+    <string name="password_h8">您暂未实名认证，是否前往认证？</string>
+
+    <!--签到-->
+    <string name="share_h34">签到</string>
+    <string name="share_h35">今日获得</string>
+    <string name="share_h36">累计获得</string>
+    <string name="share_h37">已签</string>
+    <string name="share_h38">未签</string>
+    <string name="share_h39">签到中...</string>
+    <string name="share_h40">立即分享</string>
+    <string name="share_h41">正在获取分享数据...</string>
+    <!--分享-->
+    <string name="share_h27">分享</string>
+    <string name="share_h28">OFC·数字货币合约投顾交易，SAFU保险金模式本金亏损可赔，随进随出，澳洲正规数字货币持牌公司。</string>
+    <string name="share_h29">用户名</string>
+
     <!--fragment1-->
     <string name="fragment1_h1">基础知识</string>
     <string name="fragment1_h2">进阶知识</string>
@@ -244,18 +349,20 @@
 
 
     <!--fragment2-->
-    <string name="fragment2_h1">24H交易量</string>
-    <string name="fragment2_h2">1H交易量：</string>
-    <string name="fragment2_h3">预测详情</string>
-    <string name="fragment2_h4">建议卖出</string>
-    <string name="fragment2_h5">建议买入</string>
-    <string name="fragment2_h6">建议卖出价格</string>
-    <string name="fragment2_h7">建议买入价格</string>
-    <string name="fragment2_h8">当前价格</string>
-    <string name="fragment2_h9">支撑位</string>
-    <string name="fragment2_h10">压力位</string>
-    <string name="fragment2_h11">建议卖出时机</string>
-    <string name="fragment2_h12">建议买入时机</string>
+    <string name="fragment2_h1">矿机可查</string>
+    <string name="fragment2_h2">矿机托管于\n中国移动和DELL机房</string>
+    <string name="fragment2_h3">无封装期</string>
+    <string name="fragment2_h4">由平台提前封装\n购买即可挖矿产值</string>
+    <string name="fragment2_h5">产值稳定</string>
+    <string name="fragment2_h6">由平台回填\n挖矿衰减产币稳定</string>
+    <string name="fragment2_h7">选择算力</string>
+    <string name="fragment2_h8">最小:</string>
+    <string name="fragment2_h9">最大:</string>
+    <string name="fragment2_h10">矿机编号</string>
+    <string name="fragment2_h11">挖矿周期</string>
+    <string name="fragment2_h12">算力费用</string>
+    <string name="fragment2_h13">预计产值</string>
+    <string name="fragment2_h14">立即购买</string>
 
     <!--fragment3-->
     <string name="fragment3_h1">算力大小</string>
@@ -353,12 +460,13 @@
     <string name="fragment5_h17">消息快讯</string>
     <string name="fragment5_h18">帮助中心</string>
 
-    <string name="fragment5_h19">累计盈利：</string>
-    <string name="fragment5_h20">实名认证</string>
-    <string name="fragment5_h21">证件类型</string>
-    <string name="fragment5_h22">请选择证件类型</string>
-    <string name="fragment5_h23">姓名</string>
-    <string name="fragment5_h24">请输入姓名</string>
+    <string name="fragment5_h19">我的矿机</string>
+    <string name="fragment5_h20">总算力（有效)</string>
+    <string name="fragment5_h21">总产值（FIL)</string>
+    <string name="fragment5_h22">算力值</string>
+    <string name="fragment5_h23">已产值</string>
+
+    <string name="fragment5_h24">算力列表</string>
     <string name="fragment5_h25">证件号</string>
     <string name="fragment5_h26">请输入证件号</string>
     <string name="fragment5_h27">您已认证过</string>
@@ -427,41 +535,6 @@
     <string name="myprofile_h52">审核中</string>
     <string name="myprofile_h53">昵称：</string>
 
-    <!--修改登录密码-->
-    <string name="changepassword_h1">修改登录密码</string>
-    <string name="changepassword_h2">旧密码</string>
-    <string name="changepassword_h3">新密码</string>
-    <string name="changepassword_h4">确认新密码</string>
-    <string name="changepassword_h5">请输入旧密码</string>
-    <string name="changepassword_h6">请输入新密码</string>
-    <string name="changepassword_h7">请再次确认新密码</string>
-    <string name="changepassword_h8">两次输入的密码不一致</string>
-    <string name="changepassword_h9">修改密码成功，请重新登录</string>
-    <string name="changepassword_h10">确定</string>
-
-    <!--修改交易密码-->
-    <string name="settransactionpassword_h1">设置交易密码</string>
-    <string name="settransactionpassword_h2">手机号</string>
-    <string name="settransactionpassword_h3">请输入手机号</string>
-    <string name="settransactionpassword_h4">验证码</string>
-    <string name="settransactionpassword_h5">请输入验证码</string>
-    <string name="settransactionpassword_h6">交易密码</string>
-    <string name="settransactionpassword_h7">请输入交易密码</string>
-    <string name="settransactionpassword_h8">确认交易密码</string>
-    <string name="settransactionpassword_h9">请再次确认交易密码</string>
-    <string name="settransactionpassword_h10">两次输入的密码不一致</string>
-    <string name="settransactionpassword_h11">交易密码修改成功</string>
-    <string name="settransactionpassword_h12">确定</string>
-
-    <!--提示框-->
-    <string name="password_h1">交易密码</string>
-    <string name="password_h2">交易密码错误或未设置，是否前往设置？</string>
-    <string name="password_h3">币地址</string>
-    <string name="password_h4">币地址暂未设置，是否前往设置？</string>
-    <string name="password_h5">确认</string>
-    <string name="password_h6">取消</string>
-    <string name="password_h7">实名认证</string>
-    <string name="password_h8">您暂未实名认证，是否前往认证？</string>
 
     <!--地址管理-->
     <string name="address_h1">USDT地址管理</string>
@@ -778,19 +851,6 @@
     <string name="share_h59">总业绩</string>
     <string name="share_h60"></string>
 
-    <!--签到-->
-    <string name="share_h34">签到</string>
-    <string name="share_h35">今日获得</string>
-    <string name="share_h36">累计获得</string>
-    <string name="share_h37">已签</string>
-    <string name="share_h38">未签</string>
-    <string name="share_h39">签到中...</string>
-    <string name="share_h40">立即分享</string>
-    <string name="share_h41">正在获取分享数据...</string>
-    <!--分享-->
-    <string name="share_h27">分享</string>
-    <string name="share_h28">OFC·数字货币合约投顾交易，SAFU保险金模式本金亏损可赔，随进随出，澳洲正规数字货币持牌公司。</string>
-    <string name="share_h29">用户名</string>
 
     <!--币地址管理-->
     <string name="addrmanage_h1">币地址管理</string>
@@ -935,58 +995,4 @@
     <string name="transferrecord_h3">转出</string>
     <string name="transferrecord_h4">对方昵称：</string>
 
-    <!--人脸认证-->
-    <string name="faceverified_h1">认证结果</string>
-    <string name="faceverified_h2">认证成功</string>
-    <string name="faceverified_h3">认证失败</string>
-    <string name="faceverified_h4">重新认证</string>
-    <string name="faceverified_h5">认证完成</string>
-    <string name="faceverified_h6">无法访问摄像头，没有权限或摄像头被占用</string>
-    <string name="faceverified_h7">人脸识别</string>
-    <string name="faceverified_h8">开始测试</string>
-    <string name="faceverified_h9">光线充足</string>
-    <string name="faceverified_h10">正对手机</string>
-    <string name="faceverified_h11">去除遮挡</string>
-    <string name="faceverified_h12">放缓速度</string>
-    <string name="faceverified_h13">我知道了</string>
-    <string name="faceverified_h14">请勿移出框外，并连续完成检测动作</string>
-    <string name="faceverified_h15">动作超时</string>
-    <string name="faceverified_h16">追踪目标丢失</string>
-    <string name="faceverified_h17">未获取到图片数据</string>
-    <string name="faceverified_h18">内部错误</string>
-    <string name="faceverified_h19">包名绑定错误</string>
-    <string name="faceverified_h20">sdk初始化失败,模型加载失败</string>
-    <string name="faceverified_h21">license过期</string>
-    <string name="faceverified_h22">license读取失败</string>
-    <string name="faceverified_h23">未知异常</string>
-    <string name="faceverified_h24">活体照片与身份证照片置信度过低</string>
-    <string name="faceverified_h25">姓名与身份证号不匹配</string>
-    <string name="faceverified_h26">参数非UTF-8编码</string>
-    <string name="faceverified_h27">图片不存在</string>
-    <string name="faceverified_h28">图片体积过大</string>
-    <string name="faceverified_h29">上传图片未检测出人脸</string>
-    <string name="faceverified_h30">不是图片文件或图片文件已经损坏</string>
-    <string name="faceverified_h31">图片大小或者格式不符合要求</string>
-    <string name="faceverified_h32">调用频率超出限额</string>
-    <string name="faceverified_h33">调用次数超出限额</string>
-    <string name="faceverified_h34">请求路径错误</string>
-    <string name="faceverified_h35">服务器内部错误</string>
-    <string name="faceverified_h36">数据源服务服务出错</string>
-    <string name="faceverified_h37">姓名和身份证号匹配，近照不存在</string>
-    <string name="faceverified_h38">姓名与身份证号不匹配</string>
-    <string name="faceverified_h39">查无此身份证号</string>
-    <string name="faceverified_h40">接口获取超时</string>
-    <string name="faceverified_h41">服务不可用</string>
-    <string name="faceverified_h42">网络错误</string>
-    <string name="faceverified_h43">身份证姓名有误</string>
-    <string name="faceverified_h44">认证失败</string>
-    <string name="faceverified_h45">请等待...</string>
-    <string name="faceverified_h46">正在校验...</string>
-    <string name="faceverified_h47">检测到多个人脸，请重新尝试检测</string>
-
-    <string name="note_blink">请眨眨眼</string>
-    <string name="note_nod">请点点头</string>
-    <string name="note_mouth">请张张嘴</string>
-    <string name="note_yaw">请摇摇头</string>
-    <string name="time_out">动作超时</string>
 </resources>

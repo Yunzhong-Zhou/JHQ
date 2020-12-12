@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
@@ -25,6 +24,7 @@ import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.view.FixedPopupWindow;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
@@ -42,6 +42,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
+
 
 /**
  * Created by Mr.Z on 2020/10/22.
