@@ -304,8 +304,8 @@ public class MyRechargeActivity extends BaseActivity {
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
         list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_USDT));
-        list.add(getString(R.string.app_type_AY));
+        list.add(getString(R.string.app_type_usdt));
+        list.add(getString(R.string.app_type_fil));
         list.add("DRVT");
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyRechargeActivity.this, list);
         adapter.setSelectItem(i1);

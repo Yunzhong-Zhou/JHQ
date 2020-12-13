@@ -47,6 +47,7 @@
                         app:shadowSide="all">
 
                         <LinearLayout
+                            android:id="@+id/ll_usdt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/yuanjiao_10_baise"
@@ -62,6 +63,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/tv_keyong"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -83,6 +85,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_shouyi"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="0TB"
@@ -106,6 +109,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_yongjin"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="0"
@@ -130,9 +134,10 @@
                                 android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/tv_recharge1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableTop="@mipmap/ic_usdt_green"
+                                    android:drawableTop="@mipmap/ic_fragment4_1"
                                     android:drawablePadding="10dp"
                                     android:paddingRight="10dp"
                                     android:text="@string/fragment4_h4"
@@ -145,9 +150,10 @@
                                     android:layout_weight="1" />
 
                                 <TextView
+                                    android:id="@+id/tv_takecash"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableTop="@mipmap/ic_usdt_green"
+                                    android:drawableTop="@mipmap/ic_fragment4_2"
                                     android:drawablePadding="10dp"
                                     android:paddingLeft="10dp"
                                     android:paddingRight="10dp"
@@ -161,9 +167,10 @@
                                     android:layout_weight="1" />
 
                                 <TextView
+                                    android:id="@+id/tv_transfer"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableTop="@mipmap/ic_usdt_green"
+                                    android:drawableTop="@mipmap/ic_fragment4_3"
                                     android:drawablePadding="10dp"
                                     android:paddingLeft="10dp"
                                     android:paddingRight="10dp"
@@ -177,6 +184,7 @@
                     </com.lijiankun24.shadowlayout.ShadowLayout>
 
                     <ImageView
+                        android:id="@+id/iv_usdt"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_alignParentRight="true"
@@ -200,6 +208,7 @@
                     app:shadowSide="all">
 
                     <LinearLayout
+                        android:id="@+id/ll_fil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yuanjiao_10_baise"
@@ -216,17 +225,18 @@
                             android:textStyle="bold"
                             android:textSize="18sp" />
                         <TextView
+                            android:id="@+id/tv_filmoney"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:text="0"
                             android:gravity="center_vertical"
-                            android:drawableLeft="@mipmap/ic_fil_green"
+                            android:drawableLeft="@mipmap/ic_fragment4_4"
                             android:textColor="@color/black1"
                             android:drawablePadding="10dp"
                             android:drawableRight="@mipmap/ic_next_black"
                             android:textStyle="bold"
-                            android:textSize="18sp" />
+                            android:textSize="22sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -240,7 +250,7 @@
                     </LinearLayout>
                 </com.lijiankun24.shadowlayout.ShadowLayout>
                 <TextView
-                    android:id="@+id/tv_confirm"
+                    android:id="@+id/tv_recharge2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

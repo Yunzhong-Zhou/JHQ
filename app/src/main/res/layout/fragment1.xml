@@ -36,6 +36,9 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"
                     android:text="@string/fragment1_h1"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@mipmap/ic_fragment1_left"
+                    android:drawableRight="@mipmap/ic_fragment1_right"
                     android:textColor="@color/black1"
                     android:textSize="15sp"
                     android:textStyle="bold" />

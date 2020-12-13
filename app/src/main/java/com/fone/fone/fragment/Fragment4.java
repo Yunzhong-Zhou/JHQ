@@ -2,10 +2,16 @@ package com.fone.fone.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.RechargeDetailActivity;
@@ -30,6 +36,10 @@ import java.util.Map;
  * 钱包
  */
 public class Fragment4 extends BaseFragment {
+    TextView tv_keyong,tv_shouyi,tv_yongjin,tv_filmoney,
+            tv_recharge1,tv_takecash,tv_transfer,tv_recharge2;
+    LinearLayout ll_usdt,ll_fil;
+    ImageView iv_usdt;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment4, container, false);
@@ -91,6 +101,27 @@ public class Fragment4 extends BaseFragment {
             public void onLoadmore() {
             }
         });
+
+        tv_keyong = findViewByID_My(R.id.tv_keyong);
+        tv_shouyi = findViewByID_My(R.id.tv_shouyi);
+        tv_yongjin = findViewByID_My(R.id.tv_yongjin);
+        tv_filmoney = findViewByID_My(R.id.tv_filmoney);
+
+        tv_recharge1 = findViewByID_My(R.id.tv_recharge1);
+        tv_recharge1.setOnClickListener(this);
+        tv_takecash = findViewByID_My(R.id.tv_takecash);
+        tv_takecash.setOnClickListener(this);
+        tv_transfer = findViewByID_My(R.id.tv_transfer);
+        tv_transfer.setOnClickListener(this);
+        tv_recharge2 = findViewByID_My(R.id.tv_recharge2);
+        tv_recharge2.setOnClickListener(this);
+        ll_usdt = findViewByID_My(R.id.ll_usdt);
+        ll_usdt.setOnClickListener(this);
+        ll_fil = findViewByID_My(R.id.ll_fil);
+        ll_fil.setOnClickListener(this);
+        iv_usdt = findViewByID_My(R.id.iv_usdt);
+        iv_usdt.setOnClickListener(this);
+
     }
 
     private void request(String string) {
@@ -122,7 +153,43 @@ public class Fragment4 extends BaseFragment {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_recharge1:
+            case R.id.tv_recharge2:
+                //充值
+                dialog.contentView(R.layout.dialog_recharge)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.BOTTOM)
+                        .canceledOnTouchOutside(true)
+                        .gravity(Gravity.BOTTOM)
+                        .dimAmount(0.8f)
+                        .show();
+                EditText et_usdtmoney = dialog.findViewById(R.id.et_usdtmoney);
+                TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                tv_confirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
+                    }
+                });
+                break;
+            case R.id.tv_takecash:
+                //提现
+
+                break;
+            case R.id.tv_transfer:
+                //划转
+
+                break;
+            case R.id.ll_usdt:
+            case R.id.iv_usdt:
+                //USDT
+
+                break;
+            case R.id.ll_fil:
+                //FIL
+
+                break;
         }
 
     }

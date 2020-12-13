@@ -193,7 +193,7 @@ public class ShareActivity extends BaseActivity {
                 textView21.setText(response.getContract_commission_money() + "");// 合约累计佣金
 
                 tv_haicha.setText(getString(R.string.share_h6) + response.getUpgrade_money_warn()
-                        +getString(R.string.app_type_USDT)
+                        +getString(R.string.app_type_usdt)
                         + getString(R.string.share_h7));
                 tv_tixing.setText(getString(R.string.share_h13) + response.getRecommend_hold_target_money()+"，"
                         + getString(R.string.share_h14) + response.getRecommend_hold_target() + getString(R.string.app_ren)+"，"

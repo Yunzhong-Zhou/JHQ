@@ -56,8 +56,8 @@
     <string name="app_type_quanbu">全部</string>
     <string name="app_type_zhuangtai">状态</string>
     <string name="app_type_bizhong">币种</string>
-    <string name="app_type_USDT">USDT</string>
-    <string name="app_type_AY">澳元</string>
+    <string name="app_type_usdt">USDT</string>
+    <string name="app_type_fil">FIL</string>
     <string name="app_type_paixu">排序</string>
     <string name="app_type_leixing">类型</string>
     <string name="app_type_daishenhe">待审核</string>
@@ -419,16 +419,16 @@
     <string name="fragment4_h3">累计佣金</string>
     <string name="fragment4_h4">充值</string>
     <string name="fragment4_h5">提币</string>
-    <string name="fragment4_h6">转账</string>
+    <string name="fragment4_h6">划转</string>
     <string name="fragment4_h7">FIL钱包</string>
     <string name="fragment4_h8">可用FIL</string>
     <string name="fragment4_h9">充值USDT</string>
+    <string name="fragment4_h10">选择主网</string>
+    <string name="fragment4_h11">ERC20</string>
+    <string name="fragment4_h12">USDT充值个数</string>
+    <string name="fragment4_h13">请输入充币数量</string>
+    <string name="fragment4_h14">下一步</string>
 
-    <string name="fragment4_h10">前往设置ERC20充币地址</string>
-    <string name="fragment4_h11">USDT</string>
-    <string name="fragment4_h12">澳元电汇</string>
-    <string name="fragment4_h13">重要提示：\n1.充值到帐时间以实际到帐为准，正常3—5个工作日；\n2.海外银行电汇双向手续费50澳元；\n3.到帐金额以实际到帐为准。</string>
-    <string name="fragment4_h14">请在提交后，查看ERC20充币地址</string>
     <string name="fragment4_h15">金额（AUD）</string>
     <string name="fragment4_h16">电汇信息</string>
     <string name="fragment4_h17">折合（USDT）</string>
