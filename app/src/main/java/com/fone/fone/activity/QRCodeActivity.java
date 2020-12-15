@@ -12,26 +12,43 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.TransferRecordModel;
+import com.fone.fone.net.OkHttpClientManager;
+import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.ZxingUtils;
 import com.fone.fone.view.zxing.CaptureActivity;
 import com.fone.fone.view.zxing.Constant;
+import com.liaoinstan.springview.widget.SpringView;
+import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
@@ -42,9 +59,22 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
  */
 
 public class QRCodeActivity extends BaseActivity {
-    RelativeLayout relativeLayout;
+    private RecyclerView recyclerView;
+    List<TransferRecordModel> list = new ArrayList<>();
+    CommonAdapter<TransferRecordModel> mAdapter;
+    //筛选
+    private LinearLayout linearLayout1, linearLayout2;
+    private TextView textView1, textView2;
+    private View view1, view2;
+
+    int page = 1;
+    String sort = "desc", type = "";
+    int i1 = 0;
+    int i2 = 0;
+
+
     ImageView imageView1, imageView2;
-    TextView textView1, textView2, textView3, textView4;
+    TextView tv_name, tv_scan, tv_save;
 
     Handler handler = new Handler();
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
@@ -78,24 +108,68 @@ public class QRCodeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     protected void initView() {
-        relativeLayout = findViewByID_My(R.id.relativeLayout);
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        tv_name = findViewByID_My(R.id.tv_name);
+        tv_scan = findViewByID_My(R.id.tv_scan);
+        tv_save = findViewByID_My(R.id.tv_save);
+
+        //列表
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(QRCodeActivity.this);
+        recyclerView.setLayoutManager(mLinearLayoutManager);
+        setSpringViewMore(true);//需要加载更多
+        springView.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                //刷新
+                page = 1;
+                String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
+                        + "&sort=" + sort
+                        + "&page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMyInvestmentList(string);
+            }
+
+            @Override
+            public void onLoadmore() {
+                page = page + 1;
+                //加载更多
+                String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
+                        + "&sort=" + sort
+                        + "&page=" + page//当前页号
+                        + "&count=" + "10"//页面行数
+                        + "&token=" + localUserInfo.getToken();
+                RequestMyInvestmentListMore(string);
+            }
+        });
+        linearLayout1 = findViewByID_My(R.id.linearLayout1);
+        linearLayout2 = findViewByID_My(R.id.linearLayout2);
+        linearLayout1.setOnClickListener(this);
+        linearLayout2.setOnClickListener(this);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
-        textView3 = findViewByID_My(R.id.textView3);
-        textView4 = findViewByID_My(R.id.textView4);
+        view1 = findViewByID_My(R.id.view1);
+        view2 = findViewByID_My(R.id.view2);
     }
 
     @Override
     protected void initData() {
 //        showProgress(true, getString(R.string.zxing_h7));
         //昵称
-        textView1.setText(localUserInfo.getNickname());
+        tv_name.setText(localUserInfo.getNickname());
         //头像
         if (!localUserInfo.getUserImage().equals(""))
             Glide.with(QRCodeActivity.this).load(IMGHOST + localUserInfo.getUserImage()).centerCrop().into(imageView1);//加载图片
@@ -104,68 +178,172 @@ public class QRCodeActivity extends BaseActivity {
         //生成二维码
         Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(localUserInfo.getUserId(), 480, 480);
         imageView2.setImageBitmap(mBitmap);
+
+        requestServer();//获取数据
     }
+    private void RequestMyInvestmentList(String string) {
+        OkHttpClientManager.getAsyn(QRCodeActivity.this, URLs.TransferRecord + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(String response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>转币记录列表" + response);
+                JSONObject jObj;
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    list = JSON.parseArray(jsonArray.toString(), TransferRecordModel.class);
+                    if (list.size() == 0) {
+                        showEmptyPage();//空数据
+                    } else {
+                        mAdapter = new CommonAdapter<TransferRecordModel>
+                                (QRCodeActivity.this, R.layout.item_myrecharge, list) {
+                            @Override
+                            protected void convert(ViewHolder holder, TransferRecordModel model, int position) {
+
+
+                                if (model.getType() == 1){
+                                    //转出
+                                    holder.setText(R.id.textView1, model.getType_title() + "：-" + model.getMoney());//标题
+                                }else {
+                                    //转入
+                                    holder.setText(R.id.textView1, model.getType_title() + "：+" + model.getMoney());//标题
+                                }
+                                holder.setText(R.id.textView2, model.getShow_created_at());//流水号
+                                holder.setText(R.id.textView3, QRCodeActivity.this.getString(R.string.transferrecord_h4) + model.getNickname());//时间
+                                holder.setText(R.id.textView4, model.getStatus_title());//状态
+                            }
+                        };
+                        recyclerView.setAdapter(mAdapter);
+
+                        /*mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                                Bundle bundle1 = new Bundle();
+                                bundle1.putString("id", list.get(position).getId());
+                                CommonUtil.gotoActivityWithData(TransferRecordActivity.this, RechargeDetailActivity.class, bundle1, false);
+                            }
+
+                            @Override
+                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                                return false;
+                            }
+                        });*/
+                    }
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+    }
+    private void RequestMyInvestmentListMore(String string) {
+        OkHttpClientManager.getAsyn(QRCodeActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+                page--;
+            }
+
+            @Override
+            public void onResponse(String response) {
+                showContentPage();
+                hideProgress();
+                MyLogger.i(">>>>>>>>>转币记录列表更多" + response);
+                JSONObject jObj;
+                List<TransferRecordModel> list1 = new ArrayList<>();
+                try {
+                    jObj = new JSONObject(response);
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    list1 = JSON.parseArray(jsonArray.toString(), TransferRecordModel.class);
+                    if (list1.size() == 0) {
+                        myToast(getString(R.string.app_nomore));
+                        page--;
+                    } else {
+                        list.addAll(list1);
+                        mAdapter.notifyDataSetChanged();
+                    }
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.textView2:
+            case R.id.tv_scan:
                 //扫一扫
                 startQrCode();
                 break;
-            case R.id.textView3:
-                //转币记录
-                CommonUtil.gotoActivity(QRCodeActivity.this, TransferRecordActivity.class, false);
-
-                /*//分享给好友
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        uri = printScreen(relativeLayout, "btworldqrcode");
-                        *//** * 分享图片 *//*
-                        if (!uri.equals("")){
-                            Intent share_intent = new Intent();
-                            share_intent.setAction(Intent.ACTION_SEND);//设置分享行为
-                            share_intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            share_intent.setType("image/*");  //设置分享内容的类型
-                            //图片
-                            share_intent.putExtra(Intent.EXTRA_STREAM, uri);
-                            //文本
-//                share_intent.setType("text/plain");
-//                share_intent.putExtra(Intent.EXTRA_TEXT, "这是一段分享的文字");
-//                share_intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
-                            startActivity(Intent.createChooser(share_intent, getString(R.string.share_h1)));
-
-                        }else {
-                            showToast("暂未获取到分享数据，请刷新重试", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    initData();
-                                }
-                            });
-                        }
-                    }
-                });*/
-
-                break;
-            case R.id.textView4:
+            case R.id.tv_save:
                 //保存到相册
                 //截取图片存到本地
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        printScreen(relativeLayout, "OFC_qrcode" + System.currentTimeMillis());
+                        printScreen(imageView2, getString(R.string.app_name)+"_qrcode" + System.currentTimeMillis());
                     }
                 });
 //                showToast(getString(R.string.zxing_h21));
                 break;
+            case R.id.linearLayout1:
+                textView1.setTextColor(getResources().getColor(R.color.green));
+                textView2.setTextColor(getResources().getColor(R.color.black3));
+//                textView1.setCompoundDrawables(null, null, drawable1, null);
+//                textView2.setCompoundDrawables(null, null, drawable2, null);
+                view1.setVisibility(View.VISIBLE);
+                view2.setVisibility(View.INVISIBLE);
+//                showPopupWindow1(pop_view);
+                break;
+            case R.id.linearLayout2:
+                textView1.setTextColor(getResources().getColor(R.color.black3));
+                textView2.setTextColor(getResources().getColor(R.color.green));
+//                textView1.setCompoundDrawables(null, null, drawable2, null);
+//                textView2.setCompoundDrawables(null, null, drawable1, null);
+                view1.setVisibility(View.INVISIBLE);
+                view2.setVisibility(View.VISIBLE);
+//                showPopupWindow2(pop_view);
+                break;
         }
     }
-
+    @Override
+    public void requestServer() {
+        super.requestServer();
+        this.showLoadingPage();
+        page = 1;
+        String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
+                + "&sort=" + sort
+                + "&page=" + page//当前页号
+                + "&count=" + "10"//页面行数
+                + "&token=" + localUserInfo.getToken();
+        RequestMyInvestmentList(string);
+    }
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.zxing_h5));
+//        titleView.setTitle(getString(R.string.zxing_h25));
+        titleView.setVisibility(View.GONE);
     }
 
     // 开始扫码

@@ -2,12 +2,7 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
@@ -18,7 +13,6 @@ import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -27,8 +21,8 @@ import java.util.Map;
  */
 public class TransferActivity extends BaseActivity {
     TransferModel model;
-    TextView textView1, textView2, textView3,textView4;
-    EditText editText1;
+    /*TextView textView1, textView2, textView3,textView4;
+    EditText editText1;*/
 
     Handler handler = new Handler();
     Runnable runnable;
@@ -36,13 +30,18 @@ public class TransferActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
-        findViewByID_My(R.id.titleView).setPadding(0, (int) CommonUtil.getStatusBarHeight(TransferActivity.this), 0, 0);
-
+        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(TransferActivity.this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     protected void initView() {
-        textView1 = findViewByID_My(R.id.textView1);
+        /*textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
@@ -80,7 +79,7 @@ public class TransferActivity extends BaseActivity {
                 Log.v("tag", "(((((" + s.toString());
                 handler.postDelayed(runnable, 1000);
             }
-        });
+        });*/
     }
 
     @Override
@@ -111,7 +110,7 @@ public class TransferActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转" + response);
                 model = response;
-                textView1.setText(response.getCommon_usable_money() + "");
+//                textView1.setText(response.getCommon_usable_money() + "");
             }
         });
     }
@@ -125,7 +124,7 @@ public class TransferActivity extends BaseActivity {
                 break;
             case R.id.textView3:
                 //确定
-                if (!editText1.getText().toString().trim().equals("")) {
+                /*if (!editText1.getText().toString().trim().equals("")) {
                     textView3.setClickable(false);
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
@@ -135,7 +134,7 @@ public class TransferActivity extends BaseActivity {
                     RequestAdd(params);
                 } else {
                     myToast(getString(R.string.scavengingpayment_h15));
-                }
+                }*/
                 break;
         }
     }
@@ -144,7 +143,7 @@ public class TransferActivity extends BaseActivity {
         OkHttpClientManager.postAsyn(TransferActivity.this, URLs.Transfer_Add, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                textView3.setClickable(true);
+//                textView3.setClickable(true);
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -154,7 +153,7 @@ public class TransferActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-                textView3.setClickable(true);
+//                textView3.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转提交" + response);
 

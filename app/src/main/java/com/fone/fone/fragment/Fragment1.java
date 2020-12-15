@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
+import com.fone.fone.activity.MachineDetailActivity;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.PayDetailActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment1Model;
 import com.fone.fone.net.OkHttpClientManager;
@@ -30,6 +32,7 @@ import com.squareup.okhttp.Request;
 
 public class Fragment1 extends BaseFragment {
 
+    int type = 1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -152,14 +155,18 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onClick(View v) {
                         //USDT
+                        type = 1;
                         iv_usdt.setImageResource(R.mipmap.ic_gouxuan);
                         iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+
+
                     }
                 });
                 ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //转账
+                        type = 2;
                         iv_usdt.setImageResource(R.drawable.yuanxingbiankuang_baise);
                         iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
                     }
@@ -167,6 +174,13 @@ public class Fragment1 extends BaseFragment {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (type ==1){
+                            //USDT支付
+                            CommonUtil.gotoActivity(getActivity(), MachineDetailActivity.class);
+                        }else {
+                            //转账
+                            CommonUtil.gotoActivity(getActivity(), PayDetailActivity.class);
+                        }
 
                     }
                 });

@@ -2038,6 +2038,7 @@ id launch_product_query
 id layout_body
 id left
 id left_btn
+id left_btn1
 id left_text
 id light
 id line1
@@ -2068,7 +2069,6 @@ id linearLayout9
 id linearLayout_1
 id linearLayout_2
 id linearLayout_addr
-id linearLayout_bank
 id linearLayout_daozhang
 id linearLayout_huzhao1
 id linearLayout_huzhao2
@@ -2094,10 +2094,12 @@ id ll_nickname
 id ll_ofc
 id ll_paixu
 id ll_phonenum
+id ll_shouru
 id ll_title
 id ll_title_background
 id ll_tuiguang
 id ll_usdt
+id ll_zhichu
 id ll_zhituijiaoyi
 id ll_zhuangtai
 id ll_zhuanzhang
@@ -2394,6 +2396,8 @@ id tv_quxiao
 id tv_r
 id tv_recharge1
 id tv_recharge2
+id tv_save
+id tv_scan
 id tv_sell
 id tv_shenqing
 id tv_shouyi
@@ -2524,15 +2528,16 @@ layout activity_drvtsell
 layout activity_drvtsharepeople
 layout activity_endisable_service
 layout activity_fenhonglist
+layout activity_filtwallet
 layout activity_forgetpassword
 layout activity_guide
 layout activity_helpcenter
-layout activity_huigoulist
 layout activity_huigouofc
 layout activity_information
 layout activity_jiaoyilist
 layout activity_liveness
 layout activity_login
+layout activity_machinedetail
 layout activity_main
 layout activity_mycalculate
 layout activity_mymachine
@@ -2547,6 +2552,7 @@ layout activity_ofcsharepeople
 layout activity_ofctakecash
 layout activity_onlineservice
 layout activity_pastlist
+layout activity_paydetail
 layout activity_permissions
 layout activity_predictiondetail
 layout activity_predictiondetail_mpchart
@@ -2568,6 +2574,7 @@ layout activity_settransactionpassword
 layout activity_share
 layout activity_sharepeople
 layout activity_shareposter
+layout activity_shourulist
 layout activity_takecash
 layout activity_takecashdetail
 layout activity_test
@@ -2579,6 +2586,7 @@ layout activity_usdtbuy
 layout activity_usdtjiaoyi
 layout activity_usdtjiaoyilist
 layout activity_usdtorderinfo
+layout activity_usdtwallet
 layout activity_verified
 layout activity_verifiedresult
 layout activity_webcontent
@@ -2644,7 +2652,6 @@ layout item_fragment3_3
 layout item_fragment3_4
 layout item_fragment3_join
 layout item_help
-layout item_huigoulist
 layout item_information
 layout item_jiaoyilist
 layout item_leaderboard
@@ -2660,6 +2667,7 @@ layout item_selectlanguage
 layout item_servicecenter_more
 layout item_shaixuan
 layout item_share
+layout item_shourulist
 layout item_tab
 layout item_transferdetail
 layout item_transferdetail_1
@@ -2667,6 +2675,7 @@ layout item_transferlist
 layout item_usdtjiaoyi1
 layout item_usdtjiaoyi2
 layout item_usdtjiaoyilist
+layout item_usdtwallet
 layout layout_tab
 layout linkface_fragment_camera_overlap
 layout markview_chart
@@ -2780,6 +2789,8 @@ mipmap bg_fragment4_1
 mipmap bg_fragment5
 mipmap bg_gonglian
 mipmap bg_head
+mipmap bg_head1
+mipmap bg_head2
 mipmap bg_helpcenter
 mipmap bg_invitationreward1
 mipmap bg_invitationreward2
@@ -2799,7 +2810,6 @@ mipmap bg_newcomerreward2
 mipmap bg_newcomerreward2_0
 mipmap bg_predictiondetail
 mipmap bg_qipao_yellow
-mipmap bg_qrcode
 mipmap bg_rechargedetail
 mipmap bg_scancodepayment1
 mipmap bg_servicecenter1
@@ -2816,7 +2826,6 @@ mipmap bg_share3_2
 mipmap bg_share3_3
 mipmap bg_share3_4
 mipmap bg_transfer
-mipmap bg_transfer1
 mipmap bg_upgrade
 mipmap bg_xian
 mipmap bg_yuanjiaobiankuang_lansejianbian
@@ -2937,7 +2946,6 @@ mipmap ic_ofcaccountdetail2
 mipmap ic_ofcaccountdetail3
 mipmap ic_qrcode1
 mipmap ic_qrcode2
-mipmap ic_qrcode3
 mipmap ic_rechargedetail1
 mipmap ic_rechargedetail2
 mipmap ic_rechargedetail3
@@ -2961,6 +2969,7 @@ mipmap ic_shaixuan
 mipmap ic_share1
 mipmap ic_share2
 mipmap ic_shibai
+mipmap ic_transfer
 mipmap ic_trx
 mipmap ic_usdt_black
 mipmap ic_usdt_black1
@@ -2970,6 +2979,7 @@ mipmap ic_usdt_green
 mipmap ic_usdt_hongse
 mipmap ic_usdt_juse
 mipmap ic_usdt_white
+mipmap ic_usdt_white1
 mipmap ic_weigouxuan
 mipmap ic_wenhao_gray
 mipmap ic_xiexian
@@ -3308,8 +3318,29 @@ string fragment1_h37
 string fragment1_h38
 string fragment1_h39
 string fragment1_h4
+string fragment1_h40
+string fragment1_h41
+string fragment1_h42
+string fragment1_h43
+string fragment1_h44
+string fragment1_h45
+string fragment1_h46
+string fragment1_h47
+string fragment1_h48
+string fragment1_h49
 string fragment1_h5
+string fragment1_h50
+string fragment1_h51
+string fragment1_h52
+string fragment1_h53
+string fragment1_h54
+string fragment1_h55
+string fragment1_h56
+string fragment1_h57
+string fragment1_h58
+string fragment1_h59
 string fragment1_h6
+string fragment1_h60
 string fragment1_h7
 string fragment1_h8
 string fragment1_h9
@@ -4066,6 +4097,7 @@ string zxing_h4
 string zxing_h5
 string zxing_h6
 string zxing_h7
+string zxing_h8
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AlertDialogStyle

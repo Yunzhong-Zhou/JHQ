@@ -299,13 +299,14 @@ public class Fragment5 extends BaseFragment {
             case R.id.linearLayout4:
                 //已产FIL
 //                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
-                break;
+//                break;
             case R.id.linearLayout5:
                 //总算力
-//                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), MyCalculateActivity.class, false);
                 break;
             case R.id.linearLayout6:
-                //团队
+                //团队- 需要参与5次拼团即可达到V1
+
                 CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 break;
             case R.id.linearLayout7:

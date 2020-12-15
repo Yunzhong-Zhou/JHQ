@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.lijiankun24.shadowlayout.ShadowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:shadowColor="#21555555"
+        app:shadowDx="0dp"
+        app:shadowDy="5dp"
+        app:shadowRadius="5dp"
+        app:shadowShape="rectangle"
+        app:shadowSide="all">
+
+        <LinearLayout
+            android:id="@+id/ll_fil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yuanjiao_10_baise"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/fragment4_h16"
+                android:textColor="@color/black3"
+                android:textStyle="normal"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tv_filmoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="0"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/ic_fragment4_4"
+                android:textColor="@color/black1"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/ic_next_black"
+                android:textStyle="bold"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/fragment4_h17"
+                android:textColor="@color/black3"
+                android:textSize="13sp"
+                android:paddingBottom="10dp"/>
+
+        </LinearLayout>
+    </com.lijiankun24.shadowlayout.ShadowLayout>
+
+</LinearLayout>

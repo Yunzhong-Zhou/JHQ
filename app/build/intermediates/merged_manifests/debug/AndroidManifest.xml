@@ -62,6 +62,8 @@
     <activity android:name="com.fone.fone.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
     <activity android:name="com.fone.fone.activity.ChangePasswordActivity" android:label="修改登录密码"/>
     <activity android:name="com.fone.fone.activity.MyMachineActivity" android:label="我的矿机"/>
+    <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
+    <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.MyCalculateActivity" android:label="算力列表"/>
     <activity android:name="com.fone.fone.activity.SelectAddressActivity" android:label="选择地区"/>
     <activity android:name="com.fone.fone.activity.SelectWalletAddressActivity" android:label="币地址管理"/>
@@ -77,11 +79,14 @@
     <activity android:name="com.fone.fone.activity.ShareActivity" android:label="推广"/>
     <activity android:name="com.fone.fone.activity.SharePeopleActivity" android:label="推广用户"/>
     <activity android:name="com.fone.fone.activity.OFCSharePeopleActivity" android:label="推广用户-OFC"/>
+    <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
+    <activity android:name="com.fone.fone.activity.FILWalletActivity" android:label="FIL钱包"/>
+    <activity android:name="com.fone.fone.activity.ShouRuListActivity" android:label="收入记录"/>
+    <activity android:name="com.fone.fone.activity.ZhiChuListActivity" android:label="支出记录"/>
     <activity android:name="com.fone.fone.activity.OFCAccountDetailActivity" android:label="OFC钱包"/>
     <activity android:name="com.fone.fone.activity.AccountDetailActivity" android:label="我的钱包"/>
     <activity android:name="com.fone.fone.activity.RechargeActivity" android:label="充值"/>
     <activity android:name="com.fone.fone.activity.HuiGouOFCActivity" android:label="回购"/>
-    <activity android:name="com.fone.fone.activity.HuiGouListActivity" android:label="回购记录"/>
     <activity android:name="com.fone.fone.activity.ZhiYaOFCActivity" android:label="质押"/>
     <activity android:name="com.fone.fone.activity.OFCRechargeActivity" android:label="OFC充值"/>
     <activity android:name="com.fone.fone.activity.AddFenHongActivity" android:label="分红"/>

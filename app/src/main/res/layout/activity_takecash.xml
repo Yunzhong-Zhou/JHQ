@@ -2,351 +2,290 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E6E6E6">
 
-    <!--MATERIAL、CIRCLES、 WATER_DROP、RING and SMARTISAN-->
-    <com.liaoinstan.springview.widget.SpringView
-        android:id="@+id/springView"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/bg_head1" />
 
-        <ScrollView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/headView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/left_btn1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:onClick="onClick"
+                android:padding="21dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_return1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/takecash_h1"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/right_btn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:onClick="onClick"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_fenxiang"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <!--只需要刷新只写header-->
+        <com.liaoinstan.springview.widget.SpringView
+            android:id="@+id/springView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                //ETH地址
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_addr"
-                    android:layout_width="match_parent"
-                    android:layout_height="190dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:lineSpacingExtra="5dp"
-                        android:padding="14dp"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:visibility="gone"/>
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_img2"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:text="@string/takecash_h26"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:visibility="visible" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="14dp"
-                        android:text="@string/takecash_h2"
-                        android:textColor="@color/white1"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                //下部
+                android:fillViewport="true"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/yuanjiao_10_bg"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="14dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="14dp">
-
-                            <TextView
-                                android:id="@+id/textView4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/takecash_h3"
-                                android:textColor="@color/green"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="28dp"
-                                android:text="@string/takecash_h4"
-                                android:textColor="@color/blue"
-                                android:textSize="15sp"
-                                android:visibility="gone" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yuanjiao_5_baise"
-                            android:elevation="2dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingTop="5dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:paddingBottom="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="14dp"
-                                android:text="@string/takecash_h7"
-                                android:textColor="@color/black1"
-                                android:textSize="15sp" />
-
-                            <EditText
-                                android:id="@+id/editText1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@color/transparent"
-                                android:gravity="right"
-                                android:hint="@string/takecash_h8"
-                                android:inputType="number"
-                                android:padding="14dp"
-                                android:textColor="@color/black1"
-                                android:textColorHint="@color/black4"
-                                android:textSize="15sp" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="right|center_vertical"
-                            android:paddingTop="8dp"
-                            android:paddingBottom="8dp"
-                            android:layout_marginRight="14dp"
-                            android:text="@string/takecash_h14"
-                            android:textColor="@color/black4"
-                            android:textColorHint="@color/black4"
-                            android:textSize="15sp" />
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baise"
-                            android:elevation="2dp"
-                            android:gravity="center"
-                            android:visibility="gone"
-                            android:orientation="horizontal"
-                            android:paddingTop="5dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:paddingBottom="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="14dp"
-                                android:text="@string/takecash_h11"
-                                android:textColor="@color/black1"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:id="@+id/textView6"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="right|center_vertical"
-                                android:text="0"
-                                android:padding="14dp"
-                                android:textColor="@color/black1"
-                                android:textColorHint="@color/black4"
-                                android:textSize="15sp" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baise"
-                            android:elevation="2dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingTop="5dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:paddingBottom="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="14dp"
-                                android:text="@string/takecash_h9"
-                                android:textColor="@color/black1"
-                                android:textSize="15sp" />
-
-                            <EditText
-                                android:id="@+id/editText2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@color/transparent"
-                                android:gravity="right"
-                                android:hint="@string/takecash_h10"
-                                android:inputType="textPassword"
-                                android:padding="14dp"
-                                android:textColor="@color/black1"
-                                android:textColorHint="@color/black4"
-                                android:textSize="15sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/yuanjiao_5_baise"
-                            android:elevation="2dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingTop="5dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:paddingBottom="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="14dp"
-                                android:text="@string/takecash_h6"
-                                android:textColor="@color/black1"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:id="@+id/textView7"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="right|center_vertical"
-                                android:hint=""
-                                android:padding="14dp"
-                                android:textColor="@color/black1"
-                                android:textColorHint="@color/black4"
-                                android:textSize="15sp" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yuanjiao_5_baise"
-                            android:elevation="2dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="8dp"
-                            android:paddingTop="5dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:layout_marginBottom="14dp"
-                            android:paddingBottom="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="14dp"
-                                android:text="@string/settransactionpassword_h4"
-                                android:textColor="@color/black1"
-                                android:visibility="visible" />
-
-                            <EditText
-                                android:id="@+id/editText3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@color/transparent"
-                                android:hint="@string/settransactionpassword_h5"
-                                android:inputType="number"
-                                android:padding="14dp"
-                                android:singleLine="true"
-                                android:textColor="@color/black1"
-                                android:textColorHint="@color/black4"
-                                android:textSize="15sp" />
-
-                            <TextView
-                                android:id="@+id/textView8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="14dp"
-                                android:background="@drawable/yuanjiao_5_lvse"
-                                android:onClick="onClick"
-                                android:paddingBottom="6dp"
-                                android:paddingLeft="14dp"
-                                android:paddingRight="14dp"
-                                android:paddingTop="6dp"
-                                android:singleLine="true"
-                                android:text="@string/app_sendcode"
-                                android:textColor="@color/white"
-                                android:textSize="11sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
                     <TextView
-                        android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/btn_img1"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:padding="12dp"
-                        android:text="@string/takecash_h1"
-                        android:textColor="@color/white"
+                        android:layout_marginLeft="26dp"
+                        android:text="@string/takecash_h3"
+                        android:textColor="@color/white1"
                         android:textSize="15sp" />
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:drawableLeft="@mipmap/ic_usdt_white1"
+                        android:drawablePadding="12dp"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+                    <com.lijiankun24.shadowlayout.ShadowLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        app:shadowColor="#21555555"
+                        app:shadowDx="0dp"
+                        app:shadowDy="5dp"
+                        app:shadowRadius="5dp"
+                        app:shadowShape="rectangle"
+                        app:shadowSide="all">
 
-            </LinearLayout>
-        </ScrollView>
-    </com.liaoinstan.springview.widget.SpringView>
+                        <LinearLayout
+                            android:id="@+id/ll_usdt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yuanjiao_10_baise"
+                            android:orientation="vertical"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:text="@string/takecash_h7"
+                                android:textColor="@color/black3"
+                                android:textSize="13sp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="28dp"
+                                    android:layout_centerVertical="true"
+                                    android:src="@mipmap/ic_usdt_black1"/>
+
+                                <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/editText1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:hint="@string/takecash_h8"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="50dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black1"
+                                    android:textColorHint="@color/black3"
+                                    android:textSize="15sp"
+                                    android:theme="@style/MyEditText" />
+
+                            </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/takecash_h2"
+                                android:textColor="@color/black3"
+                                android:textSize="13sp" />
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/editText2"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:focusable="false"
+                                android:gravity="center_vertical"
+                                android:text="0USDT"
+                                android:textColor="@color/black1"
+                                android:textColorHint="@color/black3"
+                                android:textSize="15sp"
+                                android:theme="@style/MyEditText" />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="2dp"
+                                    android:text="@string/takecash_h14"
+                                    android:textColor="@color/black3"
+                                    android:textSize="15sp" />
+
+                                <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/editText3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:focusable="false"
+                                    android:gravity="center_vertical|right"
+                                    android:hint=""
+                                    android:paddingLeft="100dp"
+                                    android:paddingRight="10dp"
+                                    android:textColor="@color/black1"
+                                    android:textColorHint="@color/black3"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:theme="@style/MyEditText" />
+                            </RelativeLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="14dp"
+                                    android:text="@string/settransactionpassword_h6"
+                                    android:textColor="@color/black1"
+                                    android:visibility="gone" />
+
+                                <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/editText4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:hint="@string/settransactionpassword_h7"
+                                    android:inputType="textPassword"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black1"
+                                    android:textColorHint="@color/black3"
+                                    android:textSize="15sp"
+                                    android:theme="@style/MyEditText" />
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/editText5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:hint="@string/settransactionpassword_h5"
+                                    android:inputType="number"
+                                    android:paddingRight="200dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black1"
+                                    android:textColorHint="@color/black3"
+                                    android:textSize="15sp"
+                                    android:theme="@style/MyEditText" />
+
+                                <TextView
+                                    android:id="@+id/textView1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:onClick="onClick"
+                                    android:paddingLeft="20dp"
+                                    android:paddingTop="8dp"
+                                    android:paddingRight="20dp"
+                                    android:paddingBottom="8dp"
+                                    android:singleLine="true"
+                                    android:text="@string/app_sendcode"
+                                    android:textColor="@color/black1"
+                                    android:textSize="13sp" />
+                                <View
+                                    android:layout_width="0.5dp"
+                                    android:layout_height="27dp"
+                                    android:layout_toLeftOf="@id/textView1"
+                                    android:layout_centerVertical="true"
+                                    android:background="@color/xian"/>
+
+                            </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:text="@string/takecash_h31"
+                                android:textColor="@color/black3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tv_confirm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_img1"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:text="@string/settransactionpassword_h12"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+                    </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </com.liaoinstan.springview.widget.SpringView>
+
+
+    </LinearLayout>
+
+
 </RelativeLayout>

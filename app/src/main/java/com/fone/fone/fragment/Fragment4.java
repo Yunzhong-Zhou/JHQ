@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
+import com.fone.fone.activity.FILWalletActivity;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.QRCodeActivity;
 import com.fone.fone.activity.RechargeDetailActivity;
 import com.fone.fone.activity.SelectAddressActivity;
 import com.fone.fone.activity.SetAddressActivity;
 import com.fone.fone.activity.SetTransactionPasswordActivity;
+import com.fone.fone.activity.TakeCashActivity;
+import com.fone.fone.activity.USDTWalletActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment4Model;
 import com.fone.fone.model.RechargeDetailModel;
@@ -169,26 +173,28 @@ public class Fragment4 extends BaseFragment {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("id", "");
+                        CommonUtil.gotoActivityWithData(getActivity(), RechargeDetailActivity.class, bundle1, false);
                     }
                 });
                 break;
             case R.id.tv_takecash:
                 //提现
-
+                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class);
                 break;
             case R.id.tv_transfer:
-                //划转
-
+                //转账
+                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class);
                 break;
             case R.id.ll_usdt:
             case R.id.iv_usdt:
                 //USDT
-
+                CommonUtil.gotoActivity(getActivity(), USDTWalletActivity.class);
                 break;
             case R.id.ll_fil:
                 //FIL
-
+                CommonUtil.gotoActivity(getActivity(), FILWalletActivity.class);
                 break;
         }
 

@@ -187,7 +187,7 @@ public class URLs {
     /**
      * 回购列表
      */
-    public static final String HuiGouOFCList = "/api/buy-back/record";
+    public static final String ShouRuList = "/api/buy-back/record";
     /**
      * 账户详情
      */

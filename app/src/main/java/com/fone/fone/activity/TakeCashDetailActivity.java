@@ -1,7 +1,6 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,7 +23,7 @@ public class TakeCashDetailActivity extends BaseActivity {
     ProgressBar prograssBar;
     ImageView imageView1, imageView2;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, textView13, textView14;
+            textView14,textView15,textView16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +60,11 @@ public class TakeCashDetailActivity extends BaseActivity {
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
-        textView9 = findViewByID_My(R.id.textView9);
-        textView10 = findViewByID_My(R.id.textView10);
-        textView11 = findViewByID_My(R.id.textView11);
-        textView12 = findViewByID_My(R.id.textView12);
-        textView13 = findViewByID_My(R.id.textView13);
-        textView14 = findViewByID_My(R.id.textView14);
 
+
+        textView14 = findViewByID_My(R.id.textView14);
+        textView15 = findViewByID_My(R.id.textView15);
+        textView16 = findViewByID_My(R.id.textView16);
 
     }
 
@@ -91,7 +88,7 @@ public class TakeCashDetailActivity extends BaseActivity {
             public void onResponse(TakeCashDetailModel response) {
                 MyLogger.i(">>>>>>>>>提现详情" + response);
                 hideProgress();
-                if (response != null) {
+                /*if (response != null) {
 //                textView1.setText(getString(R.string.takecash_h18) + "(" + getString(R.string.app_type_CHO) + ")");//提现个数
                     textView2.setText("-" + response.getInput_money());//提现个数
 //                textView3.setText("" + response.getStatus_title());//提现个数
@@ -147,7 +144,7 @@ public class TakeCashDetailActivity extends BaseActivity {
 
                         textView14.setVisibility(View.GONE);
                     }
-                }
+                }*/
             }
         });
     }

@@ -2,16 +2,9 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.AvailableAmountModel;
@@ -20,9 +13,9 @@ import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -32,7 +25,7 @@ import java.util.Map;
  */
 
 public class TakeCashActivity extends BaseActivity {
-    LinearLayout linearLayout_addr;
+    /*LinearLayout linearLayout_addr;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
     EditText editText1, editText2, editText3;
 
@@ -40,12 +33,19 @@ public class TakeCashActivity extends BaseActivity {
     AvailableAmountModel model;
 
     String input_money = "";
-    private TimeCount time;
+    private TimeCount time;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_takecash);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -72,7 +72,7 @@ public class TakeCashActivity extends BaseActivity {
             }
         });
 
-        textView1 = findViewByID_My(R.id.textView1);
+        /*textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
@@ -115,7 +115,7 @@ public class TakeCashActivity extends BaseActivity {
                     textView6.setText("0");//实际到账
                 }
             }
-        });
+        });*/
 
 //        LinearLayout linearLayout = findViewByID_My(R.id.linearLayout);
         /*LinearLayout.LayoutParams sp_params = new LinearLayout.LayoutParams(
@@ -126,9 +126,9 @@ public class TakeCashActivity extends BaseActivity {
 
 
         //动态设置linearLayout的高度为屏幕高度的1/4
-        linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
+        /*linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
         ViewGroup.LayoutParams lp = linearLayout_addr.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(TakeCashActivity.this) / 4;
+        lp.height = (int) CommonUtil.getScreenHeight(TakeCashActivity.this) / 4;*/
 
 
     }
@@ -143,7 +143,7 @@ public class TakeCashActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.textView9:
                 if (match()) {
-                    textView9.setClickable(false);
+                    /*textView9.setClickable(false);
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("code", code);
@@ -152,7 +152,7 @@ public class TakeCashActivity extends BaseActivity {
                     params.put("money_type", "1");
                     params.put("token", localUserInfo.getToken());
                     params.put("hk", model.getHk());
-                    RequestTakeCash(params);//提现
+                    RequestTakeCash(params);//提现*/
                 }
                 break;
             case R.id.textView1:
@@ -162,13 +162,13 @@ public class TakeCashActivity extends BaseActivity {
                     /*String string = "?mobile=" + localUserInfo.getPhonenumber() +
                             "&type=" + "5" +
                             "&mobile_state_code=" + localUserInfo.getMobile_State_Code();*/
-                TakeCashActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
+               /* TakeCashActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
                 textView8.setClickable(false);
                 HashMap<String, String> params = new HashMap<>();
                 params.put("mobile", localUserInfo.getPhonenumber());
                 params.put("type", "20");
                 params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
-                RequestCode(params);//获取验证码
+                RequestCode(params);//获取验证码*/
                 break;
         }
     }
@@ -188,7 +188,7 @@ public class TakeCashActivity extends BaseActivity {
             public void onResponse(AvailableAmountModel response) {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>可用余额" + response);
-                model = response;
+                /*model = response;
                 if (model.getUsdt_wallet_addr() != null && !model.getUsdt_wallet_addr().equals("")) {
                     textView3.setVisibility(View.VISIBLE);
                     textView1.setVisibility(View.GONE);
@@ -221,7 +221,7 @@ public class TakeCashActivity extends BaseActivity {
 
                 textView5.setText(getString(R.string.takecash_h14) + response.getWithdrawal_service_charge()
                         + getString(R.string.recharge_h32));//手续费
-                textView7.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());//手机号码
+                textView7.setText("+"+localUserInfo.getMobile_State_Code()+"  "+localUserInfo.getPhonenumber());//手机号码*/
             }
         });
     }
@@ -231,7 +231,7 @@ public class TakeCashActivity extends BaseActivity {
         OkHttpClientManager.postAsyn(TakeCashActivity.this, URLs.TakeCash, params, new OkHttpClientManager.ResultCallback<TakeCashModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                textView9.setClickable(true);
+//                textView9.setClickable(true);
                 hideProgress();
                 if (!info.equals("")) {
                     if (info.contains(getString(R.string.password_h1))) {
@@ -288,7 +288,7 @@ public class TakeCashActivity extends BaseActivity {
 
             @Override
             public void onResponse(TakeCashModel response) {
-                textView9.setClickable(true);
+//                textView9.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>提现" + response);
 //                myToast(getString(R.string.takecash_h13));
@@ -347,7 +347,7 @@ public class TakeCashActivity extends BaseActivity {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
-                textView8.setClickable(true);
+//                textView8.setClickable(true);
                 if (!info.equals("")) {
                     showToast(info);
                 }
@@ -356,7 +356,7 @@ public class TakeCashActivity extends BaseActivity {
             @Override
             public void onResponse(String response) {
                 hideProgress();
-                time.start();
+//                time.start();
                 MyLogger.i(">>>>>>>>>发送验证码" + response);
                 myToast(getString(R.string.app_sendcode_hint));
             }
@@ -365,7 +365,7 @@ public class TakeCashActivity extends BaseActivity {
     }
 
     private boolean match() {
-        money = editText1.getText().toString().trim();
+        /*money = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(money)) {
             myToast(getString(R.string.takecash_h8));
             return false;
@@ -379,7 +379,7 @@ public class TakeCashActivity extends BaseActivity {
         if (TextUtils.isEmpty(code)) {
             myToast(getString(R.string.login_h12));
             return false;
-        }
+        }*/
         return true;
     }
 
@@ -395,7 +395,8 @@ public class TakeCashActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.takecash_h1));
+//        titleView.setTitle(getString(R.string.takecash_h1));
+        titleView.setVisibility(View.GONE);
     }
 
     //获取验证码倒计时

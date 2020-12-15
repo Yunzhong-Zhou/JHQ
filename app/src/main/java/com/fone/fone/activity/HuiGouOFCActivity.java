@@ -177,7 +177,7 @@ public class HuiGouOFCActivity extends BaseActivity {
                     String info = jObj.getString("msg");
                     myToast(info);
 //                    finish();
-                    CommonUtil.gotoActivity(HuiGouOFCActivity.this, HuiGouListActivity.class, false);
+                    CommonUtil.gotoActivity(HuiGouOFCActivity.this, ShouRuListActivity.class, false);
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -195,7 +195,7 @@ public class HuiGouOFCActivity extends BaseActivity {
         titleView.showRightTextview(getString(R.string.qianbao_h66),R.mipmap.ic_huigoujilu, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.gotoActivity(HuiGouOFCActivity.this, HuiGouListActivity.class, false);
+                CommonUtil.gotoActivity(HuiGouOFCActivity.this, ShouRuListActivity.class, false);
             }
         });
     }

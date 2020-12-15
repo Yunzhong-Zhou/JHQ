@@ -334,18 +334,38 @@
     <string name="fragment1_h26">在线USDT支付</string>
     <string name="fragment1_h27">对公帐户转款</string>
     <string name="fragment1_h28">提交订单</string>
-
-    <string name="fragment1_h29">做多交易量(USDT)</string>
-    <string name="fragment1_h30">做空交易量(USDT)</string>
-    <string name="fragment1_h31">BTC价格</string>
-    <string name="fragment1_h32">待交割</string>
-    <string name="fragment1_h33">已交割</string>
-    <string name="fragment1_h34">正在关闭连接，请稍候...</string>
-    <string name="fragment1_h35">亏损</string>
-    <string name="fragment1_h36">结果</string>
-    <string name="fragment1_h37">手续费(USDT)</string>
-    <string name="fragment1_h38">提交中...\n生成倒计时：</string>
-    <string name="fragment1_h39">生成中</string>
+    <string name="fragment1_h29">算力详情</string>
+    <string name="fragment1_h30">算力大小</string>
+    <string name="fragment1_h31">已产(FIL)</string>
+    <string name="fragment1_h32">矿机状态</string>
+    <string name="fragment1_h33">机房位置</string>
+    <string name="fragment1_h34">矿机编号</string>
+    <string name="fragment1_h35">节点编号</string>
+    <string name="fragment1_h36">挖矿周期</string>
+    <string name="fragment1_h37">预期产值</string>
+    <string name="fragment1_h38">算力来源</string>
+    <string name="fragment1_h39">购买时间</string>
+    <string name="fragment1_h40">结束时间</string>
+    <string name="fragment1_h41">产值记录</string>
+    <string name="fragment1_h42">立即支付</string>
+    <string name="fragment1_h43">支付信息</string>
+    <string name="fragment1_h44">1.请向指定的支付宝帐号进行付款</string>
+    <string name="fragment1_h45">转帐时请备注您在FileOne注册的手机号</string>
+    <string name="fragment1_h46">收款方姓名</string>
+    <string name="fragment1_h47">支付宝帐号</string>
+    <string name="fragment1_h48">转帐金额</string>
+    <string name="fragment1_h49">2.请勿备注含有IPFS储能国际云矿机，算力，挖矿，BTC，USDT以及其他的数字资产名称等信息，防止汇款被拦截，银行卡被冻结等问题；</string>
+    <string name="fragment1_h50">3.周未充值到帐速度较慢，若未到帐，则顺延至工作日处理；</string>
+    <string name="fragment1_h51">4.如果有任何疑问，您可联系客服进行处理（请在工作日9:00~21:00之间完成汇款）；</string>
+    <string name="fragment1_h52">付款姓名</string>
+    <string name="fragment1_h53">请输入姓名</string>
+    <string name="fragment1_h54">支付宝付款订单号</string>
+    <string name="fragment1_h55">请输入订单号</string>
+    <string name="fragment1_h56">我已确认转载</string>
+    <string name="fragment1_h57">复制</string>
+    <string name="fragment1_h58">转账方式</string>
+    <string name="fragment1_h59">支付宝转账</string>
+    <string name="fragment1_h60"></string>
 
 
     <!--fragment2-->
@@ -428,18 +448,17 @@
     <string name="fragment4_h12">USDT充值个数</string>
     <string name="fragment4_h13">请输入充币数量</string>
     <string name="fragment4_h14">下一步</string>
-
-    <string name="fragment4_h15">金额（AUD）</string>
-    <string name="fragment4_h16">电汇信息</string>
-    <string name="fragment4_h17">折合（USDT）</string>
-    <string name="fragment4_h18">请在提交后，查看电汇账号</string>
-    <string name="fragment4_h19">输入电汇金额</string>
-    <string name="fragment4_h20"></string>
-    <string name="fragment4_h21">正在前往充值...</string>
-    <string name="fragment4_h26">9.7折</string>
-    <string name="fragment4_h27">重要提示：\n1.充值到帐时间以实际到帐为准；\n2.请注意转帐GAS费，到帐数量以实际为准；\n3.请勿提交虚假充值。</string>
-    <string name="fragment4_h28">手续费：50(AUD)</string>
-    <string name="fragment4_h29">确认提交</string>
+    <string name="fragment4_h15">USDT钱包</string>
+    <string name="fragment4_h16">收入明细</string>
+    <string name="fragment4_h17">充币、佣金、拼团收益等</string>
+    <string name="fragment4_h18">已产FIL</string>
+    <string name="fragment4_h19">预估产值</string>
+    <string name="fragment4_h20">支出明细</string>
+    <string name="fragment4_h21">转账</string>
+    <string name="fragment4_h26"></string>
+    <string name="fragment4_h27"></string>
+    <string name="fragment4_h28"></string>
+    <string name="fragment4_h29"></string>
 
     <!--fragment5-->
     <string name="fragment5_h1">邀请码：</string>
@@ -781,23 +800,23 @@
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
     <string name="recharge_h2">可用余币：</string>
-    <string name="recharge_h3">电汇金额（澳元）</string>
-    <string name="recharge_h4">电汇处理中</string>
-    <string name="recharge_h5">电汇成功</string>
-    <string name="recharge_h6">取消电汇</string>
-    <string name="recharge_h7">银行名称</string>
-    <string name="recharge_h8">收款人姓名</string>
-    <string name="recharge_h9">收款人帐号</string>
+    <string name="recharge_h3">不包括交易所手续费</string>
+    <string name="recharge_h4">提交时间</string>
+    <string name="recharge_h5"></string>
+    <string name="recharge_h6"></string>
+    <string name="recharge_h7"></string>
+    <string name="recharge_h8"></string>
+    <string name="recharge_h9"></string>
     <string name="recharge_h10">充币详情</string>
-    <string name="recharge_h11">充币数量(USDT)</string>
+    <string name="recharge_h11">充币数量</string>
     <string name="recharge_h12">充币成功</string>
     <string name="recharge_h13">充币处理中</string>
-    <string name="recharge_h14">ERC20充币地址</string>
+    <string name="recharge_h14">USDT(ERC20)充币地址</string>
     <string name="recharge_h15">银行电汇SWIFT代码</string>
     <string name="recharge_h16">实际到账</string>
-    <string name="recharge_h17">充币时间</string>
-    <string name="recharge_h18">流水号</string>
-    <string name="recharge_h19">状态</string>
+    <string name="recharge_h17">到帐时间</string>
+    <string name="recharge_h18">充币单号</string>
+    <string name="recharge_h19">充币状态</string>
     <string name="recharge_h20">充币个数：</string>
     <string name="recharge_h21">流水号：</string>
     <string name="recharge_h22">时间：</string>
@@ -877,8 +896,8 @@
 
     <!--提币-->
     <string name="takecash_h1">提币</string>
-    <string name="takecash_h2">USDT地址</string>
-    <string name="takecash_h3">可用(USDT)：</string>
+    <string name="takecash_h2">提币至</string>
+    <string name="takecash_h3">可提USDT</string>
     <string name="takecash_h4">USDT价格：</string>
     <string name="takecash_h5">美元</string>
     <string name="takecash_h6">手机号码</string>
@@ -889,14 +908,14 @@
     <string name="takecash_h11">实际到账</string>
     <string name="takecash_h12">确定</string>
     <string name="takecash_h13">提币提交成功</string>
-    <string name="takecash_h14">手续费：</string>
+    <string name="takecash_h14">手续费</string>
     <string name="takecash_h15">USDT提币</string>
     <string name="takecash_h16">提币记录</string>
     <string name="takecash_h17"><u>USDT地址</u></string>
     <string name="takecash_h18">提币个数(USDT)</string>
     <string name="takecash_h19">提币成功</string>
     <string name="takecash_h20">提币处理中</string>
-    <string name="takecash_h21">提币时间</string>
+    <string name="takecash_h21">到账时间</string>
     <string name="takecash_h22">提币地址</string>
     <string name="takecash_h23">USDT地址</string>
     <string name="takecash_h24">提币个数：</string>
@@ -906,10 +925,10 @@
     <string name="takecash_h28">提币失败原因：</string>
     <string name="takecash_h29">手续费</string>
     <string name="takecash_h30">USDT提币</string>
-    <string name="takecash_h31">暂无银行卡\n请添加</string>
-    <string name="takecash_h32">银行名称</string>
-    <string name="takecash_h33">银行卡号</string>
-    <string name="takecash_h34">银行账户</string>
+    <string name="takecash_h31">验证码已发送至</string>
+    <string name="takecash_h32">提币单号</string>
+    <string name="takecash_h33">申请时间</string>
+    <string name="takecash_h34">提币状态</string>
 
 
     <!--资讯-->
@@ -925,16 +944,17 @@
     <!--二维码-->
     <string name="zxing_h1">将二维码放入框内，即可自动扫描</string>
     <string name="zxing_h2">暂时无法开启闪光灯</string>
-    <string name="zxing_h3">扫一扫</string>
+    <string name="zxing_h3">扫码转帐</string>
     <string name="zxing_h4">正在扫描...</string>
     <string name="zxing_h5">扫码转币</string>
-    <string name="zxing_h6">保存相册</string>
+    <string name="zxing_h6">保存二维码</string>
     <string name="zxing_h7">正在生成二维码</string>
-    <string name="zxing_h12">转币</string>
+    <string name="zxing_h8">转出明细</string>
+    <string name="zxing_h12">转账</string>
     <string name="zxing_h21">保存成功</string>
     <string name="zxing_h22">正在生成分享图片，请稍后...</string>
     <string name="zxing_h23">图片已保存</string>
-    <string name="zxing_h24">转币记录</string>
+    <string name="zxing_h24">转入明细</string>
     <string name="zxing_h25">二维码</string>
     <string name="zxing_h26">相册</string>
     <string name="zxing_h27">选择二维码图片</string>
@@ -944,15 +964,16 @@
 
 
     <!--转币-->
-    <string name="scavengingpayment_h1">转币数量</string>
-    <string name="scavengingpayment_h2">可用(USDT)：</string>
-    <string name="scavengingpayment_h3">确认转币</string>
-    <string name="scavengingpayment_h4">请输入向对方转币的个数</string>
+    <string name="scavengingpayment_h1">划转</string>
+    <string name="scavengingpayment_h2">请输入划转个数</string>
+    <string name="scavengingpayment_h3">FIL余币：</string>
+    <string name="scavengingpayment_h4">FIL价格：</string>
     <string name="scavengingpayment_h5">转币提交成功</string>
-    <string name="scavengingpayment_h6">请输入交易密码</string>
-    <string name="scavengingpayment_h7">向</string>
-    <string name="scavengingpayment_h8">转币</string>
-    <string name="scavengingpayment_h9">合约建仓</string>
+    <string name="scavengingpayment_h6">获得</string>
+    <string name="scavengingpayment_h7">转帐数量</string>
+    <string name="scavengingpayment_h8">输入转币数量</string>
+    <string name="scavengingpayment_h9">可用余币：</string>
+
     <string name="scavengingpayment_h10">手续费：</string>
     <string name="scavengingpayment_h11">转币确认</string>
     <string name="scavengingpayment_h12">验证码已发送到：</string>

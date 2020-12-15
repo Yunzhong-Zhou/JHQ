@@ -14,18 +14,18 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.RechargeDetailModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.ZxingUtils;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
@@ -35,6 +35,7 @@ import java.io.IOException;
 
 /**
  * Created by zyz on 2019/5/27.
+ * 充币详情
  */
 public class RechargeDetailActivity extends BaseActivity {
     RechargeDetailModel detailModel;
@@ -42,9 +43,9 @@ public class RechargeDetailActivity extends BaseActivity {
     ProgressBar prograssBar;
     ImageView imageView1, imageView2, imageView_addr, imageView_fuzhi;
     TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, textView13, textView14, textView15,
+            textView14, textView15,
             textView16, textView17, textView18, textView_baocun;
-    LinearLayout linearLayout_addr, linearLayout_bank, linearLayout_shiji, linearLayout_jiage;
+//    LinearLayout linearLayout_addr, linearLayout_bank, linearLayout_shiji, linearLayout_jiage;
 
     Handler handler = new Handler();
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
@@ -79,11 +80,17 @@ public class RechargeDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechargedetail);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     protected void initView() {
-
         //刷新
         setSpringViewMore(false);//不需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
@@ -125,11 +132,11 @@ public class RechargeDetailActivity extends BaseActivity {
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
-        textView9 = findViewByID_My(R.id.textView9);
+        /*textView9 = findViewByID_My(R.id.textView9);
         textView10 = findViewByID_My(R.id.textView10);
         textView11 = findViewByID_My(R.id.textView11);
         textView12 = findViewByID_My(R.id.textView12);
-        textView13 = findViewByID_My(R.id.textView13);
+        textView13 = findViewByID_My(R.id.textView13);*/
         textView14 = findViewByID_My(R.id.textView14);
         textView15 = findViewByID_My(R.id.textView15);
         textView16 = findViewByID_My(R.id.textView16);
@@ -137,10 +144,10 @@ public class RechargeDetailActivity extends BaseActivity {
         textView18 = findViewByID_My(R.id.textView18);
         textView_baocun = findViewByID_My(R.id.textView_baocun);
 
-        linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
+       /* linearLayout_addr = findViewByID_My(R.id.linearLayout_addr);
         linearLayout_bank = findViewByID_My(R.id.linearLayout_bank);
         linearLayout_shiji = findViewByID_My(R.id.linearLayout_shiji);
-        linearLayout_jiage = findViewByID_My(R.id.linearLayout_jiage);
+        linearLayout_jiage = findViewByID_My(R.id.linearLayout_jiage);*/
         textView18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,10 +238,10 @@ public class RechargeDetailActivity extends BaseActivity {
                             480, 480);
                     imageView_addr.setImageBitmap(mBitmap);
 
-                    linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
+                    /*linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
                     linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
                     linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格
-                    linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账
+                    linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账*/
                     imageView_addr.setVisibility(View.VISIBLE);//显示二维码
                     textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
 
@@ -256,10 +263,10 @@ public class RechargeDetailActivity extends BaseActivity {
 
                 } else if (response.getTop_up().getType() == 2) {
                     //澳元电汇
-                    linearLayout_addr.setVisibility(View.GONE);//隐藏充币地址
+                    /*linearLayout_addr.setVisibility(View.GONE);//隐藏充币地址
                     linearLayout_bank.setVisibility(View.VISIBLE);//显示银行信息
                     linearLayout_jiage.setVisibility(View.VISIBLE);//显示USDT价格
-                    linearLayout_shiji.setVisibility(View.VISIBLE);//显示实际到账
+                    linearLayout_shiji.setVisibility(View.VISIBLE);//显示实际到账*/
                     imageView_addr.setVisibility(View.GONE);//隐藏二维码
                     textView_baocun.setVisibility(View.GONE);//隐藏保存二维码
 
@@ -271,11 +278,11 @@ public class RechargeDetailActivity extends BaseActivity {
                     textView5.setText("" + response.getTop_up().getShow_created_at());//充值处理中时间
                     textView7.setText("" + response.getTop_up().getShow_updated_at());//充值完成时间
 
-                    textView9.setText("" + response.getAud_wire_transfer().getBank_title());//银行名称
+                    /*textView9.setText("" + response.getAud_wire_transfer().getBank_title());//银行名称
                     textView10.setText("" + response.getAud_wire_transfer().getBank_card_proceeds_name());//收款人姓名
                     textView11.setText("" + response.getAud_wire_transfer().getBank_card_account());//收款人帐号
                     textView12.setText("" + response.getAud_wire_transfer().getBank_swift_code());//银行电汇SWIFT代码
-                    textView13.setText("" + response.getAud_wire_transfer().getBank_aba_code());//银行代码ABA#
+                    textView13.setText("" + response.getAud_wire_transfer().getBank_aba_code());//银行代码ABA#*/
 
                     textView.setText("$" + response.getTop_up().getUsdt_price());//USDT价格
                     textView1.setText(response.getTop_up().getMoney() + getString(R.string.recharge_h32));//实际到账
@@ -291,10 +298,10 @@ public class RechargeDetailActivity extends BaseActivity {
                             480, 480);
                     imageView_addr.setImageBitmap(mBitmap);
 
-                    linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
+                    /*linearLayout_addr.setVisibility(View.VISIBLE);//显示充币地址
                     linearLayout_bank.setVisibility(View.GONE);//隐藏银行信息
                     linearLayout_jiage.setVisibility(View.GONE);//隐藏USDT价格
-                    linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账
+                    linearLayout_shiji.setVisibility(View.GONE);//隐藏实际到账*/
                     imageView_addr.setVisibility(View.VISIBLE);//显示二维码
                     textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
 
@@ -404,7 +411,8 @@ public class RechargeDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.recharge_h10));
+//        titleView.setTitle(getString(R.string.recharge_h10));
+        titleView.setVisibility(View.GONE);
     }
 
     /**
