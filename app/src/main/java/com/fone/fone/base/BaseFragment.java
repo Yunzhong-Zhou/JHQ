@@ -328,7 +328,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
         }*/
         if (!getActivity().isFinishing()) {
             if (dialog.isShowing() == false) {
-                dialog.contentView(R.layout.dialog_shenqing)
+                dialog.contentView(R.layout.dialog_fragment3)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)

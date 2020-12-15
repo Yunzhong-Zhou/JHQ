@@ -172,7 +172,7 @@ dependencies {
 //    implementation 'com.geetest.sensebot:sensebot:4.1.8'
 
     //带气泡的进度条
-    implementation 'com.xw.repo:bubbleseekbar:3.20-lite'
+//    implementation 'com.xw.repo:bubbleseekbar:3.20-lite'
 
     //zxing 二维码框架
     implementation 'com.google.zxing:core:3.3.0'
@@ -183,13 +183,13 @@ dependencies {
     //折线图
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 //    implementation project(':MPChartLib')
-    implementation project(':kchartlib')
+//    implementation project(':kchartlib')
 
     //长连接-websocket
-    implementation "org.java-websocket:Java-WebSocket:1.4.0"
+//    implementation "org.java-websocket:Java-WebSocket:1.4.0"
 
     //人脸识别
-    implementation(name: 'cllc_sdk_android_v2.0.0', ext: 'aar')
+//    implementation(name: 'cllc_sdk_android_v2.0.0', ext: 'aar')
 
     //腾讯X5 WebView
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'

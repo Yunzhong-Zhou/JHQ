@@ -79,7 +79,7 @@
                                 android:singleLine="true"
                                 android:text="title"
                                 android:textColor="@color/black3"
-                                android:textSize="10sp" />
+                                android:textSize="12sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -106,14 +106,14 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black2"
-                                            android:textSize="12sp" />
+                                            android:textSize="14sp" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="TB"
                                             android:textColor="@color/black2"
-                                            android:textSize="9sp" />
+                                            android:textSize="14sp" />
                                     </LinearLayout>
 
                                     <TextView
@@ -121,8 +121,9 @@
                                         android:layout_height="wrap_content"
                                         android:singleLine="true"
                                         android:text="@string/fragment3_h1"
+                                        android:layout_marginTop="5dp"
                                         android:textColor="@color/black3"
-                                        android:textSize="8sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
 
@@ -150,14 +151,14 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black2"
-                                            android:textSize="12sp" />
+                                            android:textSize="14sp" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/app_tian"
                                             android:textColor="@color/black2"
-                                            android:textSize="9sp" />
+                                            android:textSize="10sp" />
                                     </LinearLayout>
 
                                     <TextView
@@ -165,8 +166,9 @@
                                         android:layout_height="wrap_content"
                                         android:singleLine="true"
                                         android:text="@string/fragment3_h2"
+                                        android:layout_marginTop="5dp"
                                         android:textColor="@color/black3"
-                                        android:textSize="8sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
                             </LinearLayout>
@@ -200,14 +202,14 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black2"
-                                            android:textSize="12sp" />
+                                            android:textSize="14sp" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/app_ge"
                                             android:textColor="@color/black2"
-                                            android:textSize="9sp" />
+                                            android:textSize="10sp" />
                                     </LinearLayout>
 
                                     <TextView
@@ -215,8 +217,9 @@
                                         android:layout_height="wrap_content"
                                         android:singleLine="true"
                                         android:text="@string/fragment3_h3"
+                                        android:layout_marginTop="5dp"
                                         android:textColor="@color/black3"
-                                        android:textSize="8sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
 
@@ -244,14 +247,14 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black2"
-                                            android:textSize="12sp" />
+                                            android:textSize="14sp" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text=""
                                             android:textColor="@color/black2"
-                                            android:textSize="9sp" />
+                                            android:textSize="10sp" />
                                     </LinearLayout>
 
                                     <TextView
@@ -259,8 +262,9 @@
                                         android:layout_height="wrap_content"
                                         android:singleLine="true"
                                         android:text="@string/fragment3_h4"
+                                        android:layout_marginTop="5dp"
                                         android:textColor="@color/black3"
-                                        android:textSize="8sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
                             </LinearLayout>
@@ -290,7 +294,7 @@
                     <!--选项栏-->
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="57dp"
+                        android:layout_height="46dp"
                         android:layout_marginLeft="14dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="14dp"
@@ -330,7 +334,7 @@
                                     android:gravity="center"
                                     android:text="@string/fragment3_h6"
                                     android:textColor="@color/black"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <View
                                     android:id="@+id/view1"
@@ -361,7 +365,7 @@
                                     android:gravity="center"
                                     android:text="@string/fragment3_h7"
                                     android:textColor="@color/black3"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <View
                                     android:id="@+id/view2"

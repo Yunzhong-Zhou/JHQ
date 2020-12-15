@@ -224,8 +224,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
-//                        finish();
-                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
+                                    finish();
                                 }
                             });
                 }

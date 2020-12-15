@@ -150,7 +150,7 @@ public class AddressManagementActivity extends BaseActivity {
                 } else {
                     CommonUtil.gotoActivity(this, BankCardSettingActivity.class, true);
                 }*/
-                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
+//                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
                 break;
             case R.id.relativeLayout2:
             case R.id.linearLayout2:

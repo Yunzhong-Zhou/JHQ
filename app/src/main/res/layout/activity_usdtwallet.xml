@@ -99,7 +99,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="-4dp"
-                                    android:text="@string/fragment4_h1"
+                                    android:text="@string/fragment4_h26"
                                     android:textColor="@color/black3"
                                     android:textSize="15sp" />
 
@@ -173,7 +173,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="30dp"
                                     android:orientation="horizontal">
-
                                     <TextView
                                         android:id="@+id/tv_recharge1"
                                         android:onClick="onClick"
@@ -183,9 +182,9 @@
                                         android:drawablePadding="10dp"
                                         android:paddingRight="10dp"
                                         android:text="@string/fragment4_h4"
+                                        android:visibility="visible"
                                         android:textColor="@color/black2"
                                         android:textSize="17sp" />
-
                                     <View
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -198,7 +197,6 @@
                                         android:layout_height="wrap_content"
                                         android:drawableTop="@mipmap/ic_fragment4_2"
                                         android:drawablePadding="10dp"
-                                        android:paddingLeft="10dp"
                                         android:paddingRight="10dp"
                                         android:text="@string/fragment4_h5"
                                         android:textColor="@color/black2"
@@ -218,7 +216,7 @@
                                         android:drawablePadding="10dp"
                                         android:paddingLeft="10dp"
                                         android:paddingRight="10dp"
-                                        android:text="@string/fragment4_h21"
+                                        android:text="@string/fragment4_h6"
                                         android:textColor="@color/black2"
                                         android:textSize="17sp" />
                                 </LinearLayout>
@@ -242,8 +240,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="-15dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginTop="-15dp"
                         app:shadowColor="#21555555"
                         app:shadowDx="0dp"
                         app:shadowDy="5dp"
@@ -274,7 +272,7 @@
                                 android:layout_marginTop="15dp"
                                 android:text="0"
                                 android:gravity="center_vertical"
-                                android:drawableLeft="@mipmap/ic_fragment4_4"
+                                android:drawableLeft="@mipmap/ic_usdt_green1"
                                 android:textColor="@color/black1"
                                 android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"
@@ -295,9 +293,9 @@
                     <com.lijiankun24.shadowlayout.ShadowLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="-15dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginTop="-15dp"
                         app:shadowColor="#21555555"
                         app:shadowDx="0dp"
                         app:shadowDy="5dp"
@@ -328,7 +326,7 @@
                                 android:layout_marginTop="15dp"
                                 android:text="0"
                                 android:gravity="center_vertical"
-                                android:drawableLeft="@mipmap/ic_fragment4_4"
+                                android:drawableLeft="@mipmap/ic_usdt_green1"
                                 android:textColor="@color/black1"
                                 android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"

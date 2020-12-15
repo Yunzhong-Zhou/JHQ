@@ -209,7 +209,7 @@ public class Fragment1 extends BaseFragment {
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.HeYue + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 MainActivity.isOver = true;

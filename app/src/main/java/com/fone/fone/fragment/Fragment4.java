@@ -17,7 +17,6 @@ import com.fone.fone.activity.FILWalletActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.QRCodeActivity;
 import com.fone.fone.activity.RechargeDetailActivity;
-import com.fone.fone.activity.SelectAddressActivity;
 import com.fone.fone.activity.SetAddressActivity;
 import com.fone.fone.activity.SetTransactionPasswordActivity;
 import com.fone.fone.activity.TakeCashActivity;
@@ -238,7 +237,7 @@ public class Fragment4 extends BaseFragment {
                                         dialog.dismiss();
                                     }
                                 });
-                    } else if (info.contains(getString(R.string.password_h7))) {
+                    } /*else if (info.contains(getString(R.string.password_h7))) {
                         showToast(getString(R.string.password_h8),
                                 getString(R.string.password_h5), getString(R.string.password_h6),
                                 new View.OnClickListener() {
@@ -255,7 +254,7 @@ public class Fragment4 extends BaseFragment {
                                         dialog.dismiss();
                                     }
                                 });
-                    } else {
+                    }*/ else {
                         showToast(info);
                     }
                 }

@@ -24,7 +24,7 @@ public class USDTWalletActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usdtwallet);
+        setContentView(R.layout.activity_filtwallet);
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
     }
 
@@ -204,7 +204,9 @@ public class USDTWalletActivity extends BaseActivity {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("id", "");
+                        CommonUtil.gotoActivityWithData(USDTWalletActivity.this, RechargeDetailActivity.class, bundle1, false);
                     }
                 });
                 break;
@@ -213,10 +215,9 @@ public class USDTWalletActivity extends BaseActivity {
                 CommonUtil.gotoActivity(USDTWalletActivity.this, TakeCashActivity.class);
                 break;
             case R.id.tv_transfer:
-                //转账
-                CommonUtil.gotoActivity(USDTWalletActivity.this, QRCodeActivity.class);
+                //划转
+                CommonUtil.gotoActivity(USDTWalletActivity.this, TransferActivity.class);
                 break;
-
             case R.id.ll_shouru:
                 //收入记录
                 CommonUtil.gotoActivity(USDTWalletActivity.this, ShouRuListActivity.class);

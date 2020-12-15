@@ -50,11 +50,7 @@
     <activity android:name="com.fone.fone.activity.ForgetPasswordActivity" android:label="忘记密码"/>
     <activity android:name="com.fone.fone.activity.RegisteredActivity" android:label="注册"/>
     <activity android:name="com.fone.fone.activity.WebContentActivity" android:label="网页"/>
-    <activity android:name="com.fone.fone.activity.TESTActivity" android:label="测试"/>
-    <activity android:name="com.fone.fone.activity.TESTActivity_MPChart" android:label="测试"/>
     <activity android:name="com.fone.fone.activity.PastListActivity" android:label="往期列表"/>
-    <activity android:name="com.fone.fone.activity.PredictionDetailActivity" android:label="预测详情"/>
-    <activity android:name="com.fone.fone.activity.PredictionDetailActivity_MPChart" android:label="预测详情_MPChart"/>
     <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
     <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
     <activity android:name="com.fone.fone.activity.HelpCenterActivity" android:label="帮助中心"/>
@@ -65,36 +61,19 @@
     <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
     <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.MyCalculateActivity" android:label="算力列表"/>
-    <activity android:name="com.fone.fone.activity.SelectAddressActivity" android:label="选择地区"/>
-    <activity android:name="com.fone.fone.activity.SelectWalletAddressActivity" android:label="币地址管理"/>
+    <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>
+    <activity android:name="com.fone.fone.activity.ContractListActivity" android:label="开票列表"/>
     <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="设置币地址"/>
     <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
-    <activity android:name="com.fone.fone.activity.AddressActivity" android:label="币地址"/>
-    <activity android:name="com.fone.fone.activity.OFCSetAddressActivity" android:label="OFC币地址"/>
-    <activity android:name="com.fone.fone.activity.ChangeServiceNumActivity" android:label="修改服务代码"/>
-    <activity android:name="com.fone.fone.activity.ServiceCenter_NoActivity" android:label="服务中心-未申请"/>
-    <activity android:name="com.fone.fone.activity.ServiceCenter_YesActivity" android:label="服务中心-申请通过"/>
-    <activity android:name="com.fone.fone.activity.ServiceCenter_MoreActivity" android:label="服务中心-列表"/>
-    <activity android:name="com.fone.fone.activity.SetServiceCenterActivity" android:label="服务中心-创建"/>
     <activity android:name="com.fone.fone.activity.ShareActivity" android:label="推广"/>
     <activity android:name="com.fone.fone.activity.SharePeopleActivity" android:label="推广用户"/>
-    <activity android:name="com.fone.fone.activity.OFCSharePeopleActivity" android:label="推广用户-OFC"/>
-    <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
     <activity android:name="com.fone.fone.activity.FILWalletActivity" android:label="FIL钱包"/>
+    <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
     <activity android:name="com.fone.fone.activity.ShouRuListActivity" android:label="收入记录"/>
     <activity android:name="com.fone.fone.activity.ZhiChuListActivity" android:label="支出记录"/>
-    <activity android:name="com.fone.fone.activity.OFCAccountDetailActivity" android:label="OFC钱包"/>
-    <activity android:name="com.fone.fone.activity.AccountDetailActivity" android:label="我的钱包"/>
-    <activity android:name="com.fone.fone.activity.RechargeActivity" android:label="充值"/>
-    <activity android:name="com.fone.fone.activity.HuiGouOFCActivity" android:label="回购"/>
-    <activity android:name="com.fone.fone.activity.ZhiYaOFCActivity" android:label="质押"/>
-    <activity android:name="com.fone.fone.activity.OFCRechargeActivity" android:label="OFC充值"/>
-    <activity android:name="com.fone.fone.activity.AddFenHongActivity" android:label="分红"/>
-    <activity android:name="com.fone.fone.activity.FenHongListActivity" android:label="分红记录"/>
     <activity android:name="com.fone.fone.activity.MyRechargeActivity" android:label="我的充值"/>
     <activity android:name="com.fone.fone.activity.RechargeDetailActivity" android:label="充值详情"/>
     <activity android:name="com.fone.fone.activity.TakeCashActivity" android:label="提现"/>
-    <activity android:name="com.fone.fone.activity.OFCTakeCashActivity" android:label="OFC提现"/>
     <activity android:name="com.fone.fone.activity.MyTakeCashActivity" android:label="我的提现"/>
     <activity android:name="com.fone.fone.activity.TakeCashDetailActivity" android:label="提现详情"/>
     <activity android:name="com.fone.fone.activity.SharePosterActivity" android:label="有奖邀请"/>
@@ -102,26 +81,10 @@
     <activity android:name="com.fone.fone.activity.InformationActivity" android:label="公告通知"/>
     <activity android:name="com.fone.fone.activity.MyPosterActivity" android:label="我的海报"/>
     <activity android:name="com.fone.fone.activity.TransferActivity" android:label="划转-创建合约"/>
-    <activity android:name="com.fone.fone.activity.TransferListActivity" android:label="合约记录"/>
-    <activity android:name="com.fone.fone.activity.TransferDetailActivity" android:label="合约详情"/>
     <activity android:name="com.fone.fone.activity.QRCodeActivity" android:label="收款二维码"/>
     <activity android:name="com.fone.fone.view.zxing.CaptureActivity" android:label="扫一扫"/>
     <activity android:name="com.fone.fone.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
-    <activity android:name="com.fone.fone.activity.TransferRecordActivity" android:label="转账记录"/>
-    <activity android:name="com.fone.fone.activity.NewcomerRewardActivity" android:label="签到有奖"/>
-    <activity android:name="com.fone.fone.activity.VerifiedActivity" android:label="实名认证"/>
     <activity android:name="com.fone.fone.view.face.LivenessActivity" android:label="人脸识别"/>
-    <activity android:name="com.fone.fone.activity.VerfiedResultActivity" android:label="认证结果"/>
-    <activity android:name="com.fone.fone.activity.DRVTJiaoYiActivity" android:label="DRVT交易"/>
-    <activity android:name="com.fone.fone.activity.DRVTJiaoyiListActivity" android:label="交易记录"/>
-    <activity android:name="com.fone.fone.activity.DRVTBuyActivity" android:label="DRVT购买"/>
-    <activity android:name="com.fone.fone.activity.DRVTSellActivity" android:label="DRVT出售"/>
-    <activity android:name="com.fone.fone.activity.DRVTSharePeopleActivity" android:label="推广用户-DRVT"/>
-    <activity android:name="com.fone.fone.activity.USDTJiaoYiActivity" android:label="USDT交易"/>
-    <activity android:name="com.fone.fone.activity.USDTBuyActivity" android:label="USDT购买"/>
-    <activity android:name="com.fone.fone.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
-    <activity android:name="com.fone.fone.activity.USDTOrderInfoActivity" android:label="交易详情"/>
-    <activity android:name="com.fone.fone.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>

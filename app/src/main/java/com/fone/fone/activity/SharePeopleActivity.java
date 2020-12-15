@@ -1,9 +1,7 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.DirectMemberModel;
@@ -20,8 +18,6 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -83,17 +79,17 @@ public class SharePeopleActivity extends BaseActivity {
                     list = response.getDirect_recommend_list();
                     if (list.size()>0){
                         CommonAdapter<DirectMemberModel.DirectRecommendListBean> mAdapter = new CommonAdapter<DirectMemberModel.DirectRecommendListBean>(
-                                SharePeopleActivity.this, R.layout.item_directmember, list) {
+                                SharePeopleActivity.this, R.layout.item_sharepeople, list) {
                             @Override
                             protected void convert(ViewHolder holder, DirectMemberModel.DirectRecommendListBean model, int position) {
-                                holder.setText(R.id.textView1, model.getNickname());
+                                /*holder.setText(R.id.textView1, model.getNickname());
                                 holder.setText(R.id.textView2, model.getContract_money()+"");
                                 holder.setText(R.id.textView3, model.getGrade_title());
                                 ImageView imageView = holder.getView(R.id.imageView1);
                                 if (!model.getHead().equals(""))
                                     Glide.with(SharePeopleActivity.this).load(IMGHOST + model.getHead()).centerCrop().into(imageView);//加载图片
                                 else
-                                    imageView.setImageResource(R.mipmap.headimg);
+                                    imageView.setImageResource(R.mipmap.headimg);*/
 
                             }
                         };

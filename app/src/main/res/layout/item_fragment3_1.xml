@@ -1,51 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/yuanjiaobiankuang_10_huise"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="13dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="num"
+                    android:textColor="@color/black3"
+                    android:textSize="11sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="time"
+                    android:textColor="@color/black3"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_fragment3_1"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="name"
+                        android:textColor="#546778"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="7dp"
+                        android:drawableLeft="@mipmap/ic_fragment3_fil_1"
+                        android:textColor="@color/green"
+                        android:textSize="20sp" />
+                </LinearLayout>
 
 
-        <RelativeLayout
-            android:layout_width="66dp"
-            android:layout_height="78dp"
-            android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="64dp"
+            android:background="@color/xian" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView1"
-                android:layout_width="66dp"
-                android:layout_height="66dp"
-                android:background="@drawable/yuanxing_huise" />
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:background="@mipmap/headimg" />
 
             <TextView
-                android:id="@+id/textView1"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="name"
+                android:textColor="#546778"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="66dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/yuanjiaobiankuang_10_lvse"
                 android:gravity="center"
-                android:background="@drawable/yuanxing_lvse"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:text="type"
+                android:textColor="@color/green"
+                android:textSize="12sp" />
 
-        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="name"
-            android:textColor="@color/black2"
-            android:textSize="15sp" />
-
+        </LinearLayout>
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

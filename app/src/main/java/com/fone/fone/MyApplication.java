@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.fone.fone.activity.PredictionDetailActivity;
 import com.fone.fone.activity.WebContentActivity;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.TraceServiceImpl;
@@ -173,11 +172,11 @@ public class MyApplication extends Application {
                             //订单详情
                             MyLogger.i(">>>>>>>>>symbol:" + msg.obj.toString());
 //                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
-                            Intent i2 = new Intent(mContext, PredictionDetailActivity.class);
+                            /*Intent i2 = new Intent(mContext, PredictionDetailActivity.class);
                             bundle.putString("symbol", msg.obj.toString());
                             i2.putExtras(bundle);
                             i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            mContext.startActivity(i2);
+                            mContext.startActivity(i2);*/
                             break;
                         default:
                             break;

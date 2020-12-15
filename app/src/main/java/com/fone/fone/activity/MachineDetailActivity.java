@@ -86,7 +86,7 @@ public class MachineDetailActivity extends BaseActivity {
         requestServer();//获取数据
     }
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.MachineDetail + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -144,7 +144,7 @@ public class MachineDetailActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.MachineDetail + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();

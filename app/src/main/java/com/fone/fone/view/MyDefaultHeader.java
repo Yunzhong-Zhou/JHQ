@@ -1,7 +1,6 @@
 package com.fone.fone.view;
 
 import android.content.Context;
-import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +60,7 @@ public class MyDefaultHeader extends BaseHeader {
         headerTime = (TextView) view.findViewById(R.id.default_header_time);
         headerArrow = (ImageView) view.findViewById(R.id.default_header_arrow);
         headerProgressbar = (ProgressBar) view.findViewById(R.id.default_header_progressbar);
-        headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
+//        headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
         headerArrow.setImageResource(arrowSrc);
         return view;
     }

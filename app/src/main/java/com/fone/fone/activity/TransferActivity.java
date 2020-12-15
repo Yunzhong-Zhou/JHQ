@@ -96,7 +96,7 @@ public class TransferActivity extends BaseActivity {
     }
 
     private void request(String string) {
-        OkHttpClientManager.getAsyn(TransferActivity.this, URLs.Transfer_Add + string, new OkHttpClientManager.ResultCallback<TransferModel>() {
+        OkHttpClientManager.getAsyn(TransferActivity.this, URLs.Transfer+ string, new OkHttpClientManager.ResultCallback<TransferModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -140,7 +140,7 @@ public class TransferActivity extends BaseActivity {
     }
 
     private void RequestAdd(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(TransferActivity.this, URLs.Transfer_Add, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(TransferActivity.this, URLs.Transfer, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView3.setClickable(true);

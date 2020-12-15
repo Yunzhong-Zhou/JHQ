@@ -17,11 +17,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.TransferRecordModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
@@ -31,19 +29,11 @@ import com.fone.fone.view.zxing.CaptureActivity;
 import com.fone.fone.view.zxing.Constant;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -60,8 +50,8 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 public class QRCodeActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<TransferRecordModel> list = new ArrayList<>();
-    CommonAdapter<TransferRecordModel> mAdapter;
+   /* List<TransferRecordModel> list = new ArrayList<>();
+    CommonAdapter<TransferRecordModel> mAdapter;*/
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -197,7 +187,7 @@ public class QRCodeActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>转币记录列表" + response);
-                JSONObject jObj;
+                /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
@@ -225,7 +215,7 @@ public class QRCodeActivity extends BaseActivity {
                         };
                         recyclerView.setAdapter(mAdapter);
 
-                        /*mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        *//*mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 Bundle bundle1 = new Bundle();
@@ -237,13 +227,13 @@ public class QRCodeActivity extends BaseActivity {
                             public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 return false;
                             }
-                        });*/
+                        });*//*
                     }
 
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
 
             }
         });
@@ -266,7 +256,7 @@ public class QRCodeActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>转币记录列表更多" + response);
-                JSONObject jObj;
+                /*JSONObject jObj;
                 List<TransferRecordModel> list1 = new ArrayList<>();
                 try {
                     jObj = new JSONObject(response);
@@ -283,7 +273,7 @@ public class QRCodeActivity extends BaseActivity {
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
             }
         });
 

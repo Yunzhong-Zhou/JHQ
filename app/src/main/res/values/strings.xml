@@ -349,14 +349,14 @@
     <string name="fragment1_h41">产值记录</string>
     <string name="fragment1_h42">立即支付</string>
     <string name="fragment1_h43">支付信息</string>
-    <string name="fragment1_h44">1.请向指定的支付宝帐号进行付款</string>
+    <string name="fragment1_h44">1.请向指定的支付宝帐号进行付款（%1$s）</string>
     <string name="fragment1_h45">转帐时请备注您在FileOne注册的手机号</string>
     <string name="fragment1_h46">收款方姓名</string>
     <string name="fragment1_h47">支付宝帐号</string>
     <string name="fragment1_h48">转帐金额</string>
-    <string name="fragment1_h49">2.请勿备注含有IPFS储能国际云矿机，算力，挖矿，BTC，USDT以及其他的数字资产名称等信息，防止汇款被拦截，银行卡被冻结等问题；</string>
-    <string name="fragment1_h50">3.周未充值到帐速度较慢，若未到帐，则顺延至工作日处理；</string>
-    <string name="fragment1_h51">4.如果有任何疑问，您可联系客服进行处理（请在工作日9:00~21:00之间完成汇款）；</string>
+    <string name="fragment1_h49">2.请勿备注含有IPFS储能国际云矿机，算力，挖矿，BTC，USDT以及其他的数字资产名称等信息，防止汇款被拦截，银行卡被冻结等问题；\n\n3.周未充值到帐速度较慢，若未到帐，则顺延至工作日处理；\n\n4.如果有任何疑问，您可联系客服进行处理（请在工作日9:00~21:00之间完成汇款）；</string>
+    <string name="fragment1_h50">矿机详情</string>
+    <string name="fragment1_h51"></string>
     <string name="fragment1_h52">付款姓名</string>
     <string name="fragment1_h53">请输入姓名</string>
     <string name="fragment1_h54">支付宝付款订单号</string>
@@ -455,7 +455,7 @@
     <string name="fragment4_h19">预估产值</string>
     <string name="fragment4_h20">支出明细</string>
     <string name="fragment4_h21">转账</string>
-    <string name="fragment4_h26"></string>
+    <string name="fragment4_h26">可用余额</string>
     <string name="fragment4_h27"></string>
     <string name="fragment4_h28"></string>
     <string name="fragment4_h29"></string>
@@ -479,14 +479,14 @@
     <string name="fragment5_h16">分享海报</string>
     <string name="fragment5_h17">消息快讯</string>
     <string name="fragment5_h18">帮助中心</string>
-
     <string name="fragment5_h19">我的矿机</string>
     <string name="fragment5_h20">总算力（有效)</string>
     <string name="fragment5_h21">总产值（FIL)</string>
     <string name="fragment5_h22">算力值</string>
     <string name="fragment5_h23">已产值</string>
-
     <string name="fragment5_h24">算力列表</string>
+
+
     <string name="fragment5_h25">证件号</string>
     <string name="fragment5_h26">请输入证件号</string>
     <string name="fragment5_h27">您已认证过</string>
@@ -1016,5 +1016,57 @@
     <string name="transferrecord_h2">转入</string>
     <string name="transferrecord_h3">转出</string>
     <string name="transferrecord_h4">对方昵称：</string>
+
+    <!--合同-->
+    <string name="contract_h1">合同</string>
+    <string name="contract_h2">可开增值税普通发票金额</string>
+    <string name="contract_h3">主体信息</string>
+    <string name="contract_h4">电子合同</string>
+    <string name="contract_h5">申请开票</string>
+    <string name="contract_h6">主体设置</string>
+    <string name="contract_h7">主体类型</string>
+    <string name="contract_h8">个人</string>
+    <string name="contract_h9">企业</string>
+    <string name="contract_h10">姓名</string>
+    <string name="contract_h11">请填写姓名</string>
+    <string name="contract_h12">身份证号</string>
+    <string name="contract_h13">请填写身份证号</string>
+    <string name="contract_h14">主体信息一旦填写将无法更改，同时申请发票是抬头与主体信息一致；</string>
+    <string name="contract_h15">收件地址</string>
+    <string name="contract_h16">选择地址</string>
+    <string name="contract_h17">请选择地址</string>
+    <string name="contract_h18">详细地址</string>
+    <string name="contract_h19">请填写详细地址</string>
+    <string name="contract_h20">手机号</string>
+    <string name="contract_h21">请填写手机号</string>
+    <string name="contract_h22">合同已签署成功！</string>
+    <string name="contract_h23">查阅电子合同</string>
+    <string name="contract_h24">邮寄地址</string>
+    <string name="contract_h25">申请纸质合同</string>
+    <string name="contract_h26">发票主体</string>
+    <string name="contract_h27">企业名称</string>
+    <string name="contract_h28">统一社会代码</string>
+    <string name="contract_h29">发票信息</string>
+    <string name="contract_h30">开票金额</string>
+    <string name="contract_h31">输入发票金额</string>
+    <string name="contract_h32">应补税费</string>
+    <string name="contract_h33">发票类型</string>
+    <string name="contract_h34">电子</string>
+    <string name="contract_h35">纸质</string>
+    <string name="contract_h36">请填写企业名称</string>
+    <string name="contract_h37">请填写社会代码</string>
+    <string name="contract_h38">请输入应补税费</string>
+    <string name="contract_h39">开票记录</string>
+    <string name="contract_h40">已开发票</string>
+    <string name="contract_h41">未开发票</string>
+    <string name="contract_h42">开票日期</string>
+    <string name="contract_h43">开票金额</string>
+    <string name="contract_h44">发票形式</string>
+    <string name="contract_h45"></string>
+    <string name="contract_h46"></string>
+    <string name="contract_h47"></string>
+    <string name="contract_h48"></string>
+    <string name="contract_h49"></string>
+    <string name="contract_h50"></string>
 
 </resources>

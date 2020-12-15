@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AboutActivity;
 import com.fone.fone.activity.AddressManagementActivity;
+import com.fone.fone.activity.ContractActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
@@ -319,7 +320,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合同
-//                CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), ContractActivity.class, false);
                 break;
             case R.id.linearLayout10:
                 //币地址管理

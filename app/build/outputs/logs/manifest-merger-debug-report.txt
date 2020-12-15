@@ -5,30 +5,28 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/Androi
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:87:25-69
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:392:9-400:20
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:270:9-278:20
 	android:grantUriPermissions
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:396:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:13-47
 	android:authorities
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:394:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:13-64
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:395:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:273:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:393:13-62
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:13-62
 manifest
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c65db6dacccd5762ffe3f11b7254056b/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/448aea6816cadd70a8fa294d37b4f966/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9406d4cd0aa34540ae6cc1589cee0a4e/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ef7c348e66e1c7e58998c858e04a0254/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:2:1-30:12
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23af637b3b2c3f2e9a7cd6261bdea7e8/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:2:1-17:12
-MERGED from [com.xw.repo:bubbleseekbar:3.20-lite] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23a87771f6304650f75fd5d1896f67aa/jetified-bubbleseekbar-3.20-lite/AndroidManifest.xml:2:1-13:12
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8fdce274c16e9a644ee3304345f70892/jetified-citypickerview-4.1.1/AndroidManifest.xml:2:1-37:12
-MERGED from [:kchartlib] /Users/YunZhong/AndroidStudioProject/FONE/FONE/kchartlib/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/050ef5223e8312eb9d0498472c2731ba/material-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/227c8735316a636e3af9b44d79820b1b/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/72a904288025fa88bd9278da2aba4d05/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
@@ -46,7 +44,6 @@ MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] /Users/YunZhong/.gradle/
 MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/73f97e6e8160af208bfcae689c21d968/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:2:1-12:12
 MERGED from [com.tencent.bugly:crashreport:3.3.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/049e197894922e25d45538e56ed94fa4/jetified-crashreport-3.3.1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66af733f6a94d28e341e6afd410f23f3/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
-MERGED from [:cllc_sdk_android_v2.0.0:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e06e2817d119c637c613628c3c2f777/jetified-cllc_sdk_android_v2.0.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7471e50561ab3bc93c67e494f47a8335/jetified-sdk-43697/AndroidManifest.xml:2:1-11:12
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/69117394bca410f3cc5d57b795ddc46b/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:2:1-11:12
 MERGED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb7166dbb2a180bb4177ccee89795172/jetified-hellodaemon-1.2.2/AndroidManifest.xml:2:1-56:12
@@ -116,22 +113,22 @@ MERGED from [com.huawei.hmf:tasks:1.3.3.300] /Users/YunZhong/.gradle/caches/tran
 MERGED from [com.huawei.hms:network-grs:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7a46932e4c03257689c32740dad7c5f9/jetified-network-grs-4.0.2.300/AndroidManifest.xml:2:1-11:12
 MERGED from [com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7b9af4ea779a80bef5d10f0f7737c4c6/jetified-update-2.0.6.300/AndroidManifest.xml:2:1-41:12
 MERGED from [com.huawei.hms:network-common:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cce45d7e11e3ef569f4f9e13d3eb5460/jetified-network-common-4.0.2.300/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
 	package
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:4:5-28
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-426:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-304:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:11-69
@@ -254,19 +251,15 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:42:22-63
 application
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:48:5-410:19
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:48:5-288:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9406d4cd0aa34540ae6cc1589cee0a4e/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9406d4cd0aa34540ae6cc1589cee0a4e/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ef7c348e66e1c7e58998c858e04a0254/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ef7c348e66e1c7e58998c858e04a0254/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23af637b3b2c3f2e9a7cd6261bdea7e8/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23af637b3b2c3f2e9a7cd6261bdea7e8/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:11:5-15:19
-MERGED from [com.xw.repo:bubbleseekbar:3.20-lite] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23a87771f6304650f75fd5d1896f67aa/jetified-bubbleseekbar-3.20-lite/AndroidManifest.xml:11:5-20
-MERGED from [com.xw.repo:bubbleseekbar:3.20-lite] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23a87771f6304650f75fd5d1896f67aa/jetified-bubbleseekbar-3.20-lite/AndroidManifest.xml:11:5-20
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8fdce274c16e9a644ee3304345f70892/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8fdce274c16e9a644ee3304345f70892/jetified-citypickerview-4.1.1/AndroidManifest.xml:11:5-35:19
-MERGED from [:kchartlib] /Users/YunZhong/AndroidStudioProject/FONE/FONE/kchartlib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-15:19
-MERGED from [:kchartlib] /Users/YunZhong/AndroidStudioProject/FONE/FONE/kchartlib/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/050ef5223e8312eb9d0498472c2731ba/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/050ef5223e8312eb9d0498472c2731ba/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/72a904288025fa88bd9278da2aba4d05/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -433,534 +426,312 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:102:13-31
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:101:13-69
-activity#com.fone.fone.activity.TESTActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:109:9-111:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:111:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:110:13-63
-activity#com.fone.fone.activity.TESTActivity_MPChart
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:112:9-114:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:114:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:113:13-71
 activity#com.fone.fone.activity.PastListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:116:9-118:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:110:9-112:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:118:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:112:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:117:13-67
-activity#com.fone.fone.activity.PredictionDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:119:9-127:20
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:121:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:120:13-75
-activity#com.fone.fone.activity.PredictionDetailActivity_MPChart
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:128:9-130:44
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:130:13-41
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:129:13-83
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:111:13-67
 activity#com.fone.fone.activity.AboutActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:132:9-134:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:114:9-116:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:134:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:116:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:133:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:115:13-64
 activity#com.fone.fone.activity.SetUpActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:135:9-137:34
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:117:9-119:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:137:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:119:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:136:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:118:13-64
 activity#com.fone.fone.activity.HelpCenterActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:138:9-140:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:120:9-122:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:140:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:122:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:139:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:121:13-69
 activity#com.fone.fone.activity.MyProfileActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:141:9-143:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:123:9-125:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:143:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:125:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:142:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:124:13-68
 activity#com.fone.fone.activity.SetTransactionPasswordActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:144:9-146:38
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:126:9-128:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:146:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:128:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:145:13-81
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:127:13-81
 activity#com.fone.fone.activity.ChangePasswordActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:147:9-149:38
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:129:9-131:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:149:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:131:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:148:13-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:130:13-73
 activity#com.fone.fone.activity.MyMachineActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:151:9-153:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:133:9-135:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:153:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:135:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:152:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:134:13-68
 activity#com.fone.fone.activity.MachineDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:154:9-156:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:136:9-138:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:156:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:138:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:155:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:137:13-72
 activity#com.fone.fone.activity.PayDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:157:9-159:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:139:9-141:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:159:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:141:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:158:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:140:13-68
 activity#com.fone.fone.activity.MyCalculateActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:160:9-162:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:142:9-144:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:162:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:144:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:161:13-70
-activity#com.fone.fone.activity.SelectAddressActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:166:9-168:36
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:143:13-70
+activity#com.fone.fone.activity.ContractActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:147:9-149:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:168:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:149:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:167:13-72
-activity#com.fone.fone.activity.SelectWalletAddressActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:148:13-67
+activity#com.fone.fone.activity.ContractListActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:150:9-152:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:152:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:151:13-71
+activity#com.fone.fone.activity.SetAddressActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:154:9-156:37
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:156:13-34
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:155:13-69
+activity#com.fone.fone.activity.AddressManagementActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:157:9-159:37
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:159:13-34
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:158:13-76
+activity#com.fone.fone.activity.ShareActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:162:9-164:34
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:164:13-31
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:163:13-64
+activity#com.fone.fone.activity.SharePeopleActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:165:9-167:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:167:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:166:13-70
+activity#com.fone.fone.activity.FILWalletActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:169:9-171:37
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:171:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:170:13-78
-activity#com.fone.fone.activity.SetAddressActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:172:9-174:37
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:170:13-68
+activity#com.fone.fone.activity.USDTWalletActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:172:9-174:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:174:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:174:13-35
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:173:13-69
-activity#com.fone.fone.activity.AddressManagementActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:175:9-177:37
+activity#com.fone.fone.activity.ShouRuListActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:175:9-177:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:177:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:177:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:176:13-76
-activity#com.fone.fone.activity.AddressActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:178:9-180:35
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:176:13-69
+activity#com.fone.fone.activity.ZhiChuListActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:178:9-180:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:180:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:180:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:179:13-66
-activity#com.fone.fone.activity.OFCSetAddressActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:181:9-183:38
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:179:13-69
+activity#com.fone.fone.activity.MyRechargeActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:182:9-184:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:183:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:184:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:182:13-72
-activity#com.fone.fone.activity.ChangeServiceNumActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:186:9-188:38
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:183:13-69
+activity#com.fone.fone.activity.RechargeDetailActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:185:9-187:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:188:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:187:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:187:13-75
-activity#com.fone.fone.activity.ServiceCenter_NoActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:189:9-191:40
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:186:13-73
+activity#com.fone.fone.activity.TakeCashActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:188:9-190:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:191:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:190:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:190:13-75
-activity#com.fone.fone.activity.ServiceCenter_YesActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:192:9-194:41
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:189:13-67
+activity#com.fone.fone.activity.MyTakeCashActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:191:9-193:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:194:13-38
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:193:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:193:13-76
-activity#com.fone.fone.activity.ServiceCenter_MoreActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:195:9-197:39
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:192:13-69
+activity#com.fone.fone.activity.TakeCashDetailActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:194:9-196:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:197:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:196:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:196:13-77
-activity#com.fone.fone.activity.SetServiceCenterActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:198:9-200:39
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:195:13-73
+activity#com.fone.fone.activity.SharePosterActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:197:9-199:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:200:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:199:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:199:13-75
-activity#com.fone.fone.activity.ShareActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:203:9-205:34
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:198:13-70
+activity#com.fone.fone.activity.OnlineServiceActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:200:9-202:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:205:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:202:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:204:13-64
-activity#com.fone.fone.activity.SharePeopleActivity
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:201:13-72
+activity#com.fone.fone.activity.InformationActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:203:9-205:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:205:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:204:13-70
+activity#com.fone.fone.activity.MyPosterActivity
 ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:206:9-208:36
 	android:label
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:208:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:207:13-70
-activity#com.fone.fone.activity.OFCSharePeopleActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:209:9-211:40
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:211:13-37
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:210:13-73
-activity#com.fone.fone.activity.USDTWalletActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:213:9-215:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:215:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:214:13-69
-activity#com.fone.fone.activity.FILWalletActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:216:9-218:37
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:218:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:217:13-68
-activity#com.fone.fone.activity.ShouRuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:219:9-221:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:221:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:220:13-69
-activity#com.fone.fone.activity.ZhiChuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:222:9-224:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:224:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:223:13-69
-activity#com.fone.fone.activity.OFCAccountDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:226:9-228:37
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:228:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:227:13-75
-activity#com.fone.fone.activity.AccountDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:229:9-231:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:231:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:230:13-72
-activity#com.fone.fone.activity.RechargeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:232:9-234:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:234:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:233:13-67
-activity#com.fone.fone.activity.HuiGouOFCActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:235:9-237:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:237:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:236:13-68
-activity#com.fone.fone.activity.ZhiYaOFCActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:238:9-240:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:240:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:239:13-67
-activity#com.fone.fone.activity.OFCRechargeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:241:9-243:37
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:243:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:242:13-70
-activity#com.fone.fone.activity.AddFenHongActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:244:9-246:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:246:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:245:13-69
-activity#com.fone.fone.activity.FenHongListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:247:9-249:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:249:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:248:13-70
-activity#com.fone.fone.activity.MyRechargeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:251:9-253:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:253:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:252:13-69
-activity#com.fone.fone.activity.RechargeDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:254:9-256:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:256:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:255:13-73
-activity#com.fone.fone.activity.TakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:257:9-259:34
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:259:13-31
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:258:13-67
-activity#com.fone.fone.activity.OFCTakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:260:9-262:37
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:262:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:261:13-70
-activity#com.fone.fone.activity.MyTakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:263:9-265:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:265:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:264:13-69
-activity#com.fone.fone.activity.TakeCashDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:266:9-268:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:268:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:267:13-73
-activity#com.fone.fone.activity.SharePosterActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:269:9-271:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:270:13-70
-activity#com.fone.fone.activity.OnlineServiceActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:9-274:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:273:13-72
-activity#com.fone.fone.activity.InformationActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:9-277:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:277:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:276:13-70
-activity#com.fone.fone.activity.MyPosterActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:278:9-280:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:280:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:279:13-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:207:13-67
 activity#com.fone.fone.activity.TransferActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:281:9-283:39
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:209:9-211:39
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:283:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:211:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:282:13-67
-activity#com.fone.fone.activity.TransferListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:284:9-286:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:285:13-71
-activity#com.fone.fone.activity.TransferDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:287:9-289:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:289:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:288:13-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:210:13-67
 activity#com.fone.fone.activity.QRCodeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:290:9-292:37
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:212:9-214:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:292:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:214:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:291:13-65
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:213:13-65
 activity#com.fone.fone.view.zxing.CaptureActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:293:9-295:35
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:215:9-217:35
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:295:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:217:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:294:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:216:13-68
 activity#com.fone.fone.activity.ScavengingPaymentActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:296:9-298:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:218:9-220:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:298:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:220:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:297:13-76
-activity#com.fone.fone.activity.TransferRecordActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:299:9-301:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:300:13-73
-activity#com.fone.fone.activity.NewcomerRewardActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:302:9-304:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:304:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:303:13-73
-activity#com.fone.fone.activity.VerifiedActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:305:9-307:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:307:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:306:13-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:219:13-76
 activity#com.fone.fone.view.face.LivenessActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:308:9-310:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:221:9-223:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:310:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:223:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:309:13-68
-activity#com.fone.fone.activity.VerfiedResultActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:311:9-313:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:313:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:312:13-72
-activity#com.fone.fone.activity.DRVTJiaoYiActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:316:9-318:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:318:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:317:13-69
-activity#com.fone.fone.activity.DRVTJiaoyiListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:319:9-321:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:321:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:320:13-73
-activity#com.fone.fone.activity.DRVTBuyActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:322:9-324:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:324:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:323:13-66
-activity#com.fone.fone.activity.DRVTSellActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:325:9-327:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:327:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:326:13-67
-activity#com.fone.fone.activity.DRVTSharePeopleActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:328:9-330:41
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:330:13-38
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:329:13-74
-activity#com.fone.fone.activity.USDTJiaoYiActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:332:9-334:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:334:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:333:13-69
-activity#com.fone.fone.activity.USDTBuyActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:335:9-337:38
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:337:13-35
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:336:13-66
-activity#com.fone.fone.activity.USDTJiaoyiListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:338:9-340:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:340:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:339:13-73
-activity#com.fone.fone.activity.USDTOrderInfoActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:341:9-343:36
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:343:13-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:342:13-72
-activity#com.fone.fone.activity.BankCardSettingActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:344:9-346:37
-	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:346:13-34
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:345:13-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:222:13-68
 meta-data#design_width_in_dp
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:349:9-351:35
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:227:9-229:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:351:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:229:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:350:13-46
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:228:13-46
 meta-data#design_height_in_dp
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:352:9-354:35
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:230:9-232:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:354:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:232:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:353:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:231:13-47
 meta-data#android.max_aspect
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:362:9-364:35
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:240:9-242:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:364:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:242:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:363:13-46
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:241:13-46
 meta-data#android.notch_support
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:366:9-368:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:244:9-246:36
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:368:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:246:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:367:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:245:13-49
 meta-data#notch.config
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:370:9-372:50
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:248:9-250:50
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:372:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:250:13-47
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:371:13-40
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:249:13-40
 meta-data#com.mob.mobpush.debugLevel
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:375:9-377:33
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:253:9-255:33
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:377:13-30
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:255:13-30
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:376:13-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:254:13-54
 receiver#com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:379:9-387:20
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:257:9-265:20
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:379:19-82
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:257:19-82
 intent-filter#action:name:com.huawei.android.push.intent.CLICK+action:name:com.huawei.android.push.intent.RECEIVE+action:name:com.huawei.android.push.intent.REGISTRATION+action:name:com.huawei.intent.action.PUSH_DELAY_NOTIFY+action:name:com.huawei.intent.action.PUSH_STATE
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:380:13-386:29
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:258:13-264:29
 action#com.huawei.android.push.intent.REGISTRATION
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:381:17-86
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:259:17-86
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:381:25-83
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:259:25-83
 action#com.huawei.android.push.intent.RECEIVE
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:382:17-81
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:260:17-81
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:382:25-78
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:260:25-78
 action#com.huawei.android.push.intent.CLICK
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:383:17-79
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:261:17-79
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:383:25-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:261:25-76
 action#com.huawei.intent.action.PUSH_STATE
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:384:17-78
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:262:17-78
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:384:25-75
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:262:25-75
 action#com.huawei.intent.action.PUSH_DELAY_NOTIFY
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:385:17-85
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:263:17-85
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:385:25-82
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:263:25-82
 uses-library#org.apache.http.legacy
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:403:9-405:40
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:281:9-283:40
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:405:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:283:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:404:13-50
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:282:13-50
 service#com.fone.fone.utils.TraceServiceImpl
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:408:9-72
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:9-72
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:408:18-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:18-69
 uses-feature#android.hardware.camera
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:413:5-415:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:291:5-293:36
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:415:9-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:293:9-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:414:9-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:292:9-47
 uses-feature#android.hardware.camera.front
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:416:5-418:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:294:5-296:36
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:418:9-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:296:9-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:417:9-53
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:295:9-53
 uses-feature#android.hardware.camera.autofocus
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:419:5-421:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:297:5-299:36
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:421:9-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:299:9-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:420:9-57
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:298:9-57
 uses-feature#android.hardware.camera.flash
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:422:5-424:36
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:300:5-302:36
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:424:9-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:302:9-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:423:9-53
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:9-53
 uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
@@ -977,12 +748,8 @@ MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/c
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ef7c348e66e1c7e58998c858e04a0254/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23af637b3b2c3f2e9a7cd6261bdea7e8/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.AnJiaoDe:BaseDialog:V1.1.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23af637b3b2c3f2e9a7cd6261bdea7e8/jetified-BaseDialog-V1.1.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.xw.repo:bubbleseekbar:3.20-lite] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23a87771f6304650f75fd5d1896f67aa/jetified-bubbleseekbar-3.20-lite/AndroidManifest.xml:7:5-9:41
-MERGED from [com.xw.repo:bubbleseekbar:3.20-lite] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/23a87771f6304650f75fd5d1896f67aa/jetified-bubbleseekbar-3.20-lite/AndroidManifest.xml:7:5-9:41
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8fdce274c16e9a644ee3304345f70892/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
 MERGED from [liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8fdce274c16e9a644ee3304345f70892/jetified-citypickerview-4.1.1/AndroidManifest.xml:7:5-9:41
-MERGED from [:kchartlib] /Users/YunZhong/AndroidStudioProject/FONE/FONE/kchartlib/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:kchartlib] /Users/YunZhong/AndroidStudioProject/FONE/FONE/kchartlib/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/050ef5223e8312eb9d0498472c2731ba/material-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/050ef5223e8312eb9d0498472c2731ba/material-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/227c8735316a636e3af9b44d79820b1b/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -1017,8 +784,6 @@ MERGED from [com.tencent.bugly:crashreport:3.3.1] /Users/YunZhong/.gradle/caches
 MERGED from [com.tencent.bugly:crashreport:3.3.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/049e197894922e25d45538e56ed94fa4/jetified-crashreport-3.3.1/AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66af733f6a94d28e341e6afd410f23f3/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66af733f6a94d28e341e6afd410f23f3/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
-MERGED from [:cllc_sdk_android_v2.0.0:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e06e2817d119c637c613628c3c2f777/jetified-cllc_sdk_android_v2.0.0/AndroidManifest.xml:7:5-9:41
-MERGED from [:cllc_sdk_android_v2.0.0:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e06e2817d119c637c613628c3c2f777/jetified-cllc_sdk_android_v2.0.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7471e50561ab3bc93c67e494f47a8335/jetified-sdk-43697/AndroidManifest.xml:7:5-9:41
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7471e50561ab3bc93c67e494f47a8335/jetified-sdk-43697/AndroidManifest.xml:7:5-9:41
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/69117394bca410f3cc5d57b795ddc46b/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:7:5-9:41
@@ -1168,11 +933,11 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/Androi
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:397:13-399:57
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:13-277:57
 	android:resource
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:399:17-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:277:17-54
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:398:17-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:276:17-67
 provider#com.maning.updatelibrary.MNUpdateApkFileProvider
 ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ef7c348e66e1c7e58998c858e04a0254/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 	android:grantUriPermissions
