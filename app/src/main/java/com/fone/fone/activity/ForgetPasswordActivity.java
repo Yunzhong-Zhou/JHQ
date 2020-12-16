@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
@@ -130,7 +129,7 @@ public class ForgetPasswordActivity extends BaseActivity {
                 //发送验证码
                 phonenum = editText1.getText().toString().trim();
                 if (TextUtils.isEmpty(phonenum)) {
-                    Toast.makeText(this, getString(R.string.forgetpassword_h1), Toast.LENGTH_SHORT).show();
+                    myToast(getString(R.string.registered_h1));
                 } else {
                         /*String string = "?mobile=" + phonenum +
                                 "&type=" + "2" +

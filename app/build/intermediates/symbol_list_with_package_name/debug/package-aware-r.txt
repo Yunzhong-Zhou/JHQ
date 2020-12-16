@@ -1480,7 +1480,7 @@ drawable sanjiaoxing_right_huangse
 drawable sanjiaoxing_right_lvse
 drawable sanjiaoxing_top_baise
 drawable sanjiaoxing_top_huise
-drawable sanjiaoxing_top_huise4
+drawable sanjiaoxing_top_lvse
 drawable search_bar_icon_normal
 drawable seek_bar_thumb
 drawable shadow_bottom
@@ -1548,6 +1548,7 @@ drawable yuanjiao_1_lvse
 drawable yuanjiao_20_baise_top
 drawable yuanjiao_20_huise
 drawable yuanjiao_20_lvse
+drawable yuanjiao_20_lvse1
 drawable yuanjiao_20_lvsejianbian
 drawable yuanjiao_25_baise_top
 drawable yuanjiao_25_baise_top1
@@ -1607,6 +1608,7 @@ drawable yuanxing_baise
 drawable yuanxing_hongse
 drawable yuanxing_huangsejianbian
 drawable yuanxing_huise
+drawable yuanxing_huise1
 drawable yuanxing_lanse
 drawable yuanxing_lansetouming
 drawable yuanxing_lvse
@@ -1862,6 +1864,7 @@ id invis
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id iv
 id ivBanner
 id ivIcon
 id iv_head_bg
@@ -2146,6 +2149,7 @@ id tv_filmoney
 id tv_h1
 id tv_h2
 id tv_haicha
+id tv_join
 id tv_keyong
 id tv_money1
 id tv_money2
@@ -2162,6 +2166,10 @@ id tv_recharge2
 id tv_save
 id tv_scan
 id tv_shouyi
+id tv_tab1
+id tv_tab2
+id tv_tab3
+id tv_tab4
 id tv_takecash
 id tv_title
 id tv_tixing
@@ -2268,6 +2276,7 @@ layout activity_forgetpassword
 layout activity_guide
 layout activity_helpcenter
 layout activity_information
+layout activity_joindetail
 layout activity_liveness
 layout activity_login
 layout activity_machinedetail
@@ -2350,6 +2359,7 @@ layout item_fragment3_2
 layout item_fragment3_join
 layout item_help
 layout item_information
+layout item_joindetaillist
 layout item_leaderboard
 layout item_mycalculate
 layout item_mymachine
@@ -2436,7 +2446,6 @@ mipmap background
 mipmap background1
 mipmap background2
 mipmap background3
-mipmap bg
 mipmap bg_btn1
 mipmap bg_btn1_1
 mipmap bg_dialog
@@ -2457,6 +2466,8 @@ mipmap bg_invitationreward4
 mipmap bg_invitationreward5
 mipmap bg_invitationreward6
 mipmap bg_invitationreward7
+mipmap bg_login
+mipmap bg_login_head
 mipmap bg_qipao_yellow
 mipmap bg_scancodepayment1
 mipmap bg_share
@@ -2539,8 +2550,6 @@ mipmap ic_launcher_round
 mipmap ic_login1
 mipmap ic_login2
 mipmap ic_login3
-mipmap ic_login_title
-mipmap ic_ltc
 mipmap ic_next_black
 mipmap ic_next_double
 mipmap ic_next_double_white

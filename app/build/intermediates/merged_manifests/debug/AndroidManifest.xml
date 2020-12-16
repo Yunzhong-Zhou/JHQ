@@ -61,6 +61,7 @@
     <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
     <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.MyCalculateActivity" android:label="算力列表"/>
+    <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼团详情"/>
     <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>
     <activity android:name="com.fone.fone.activity.ContractListActivity" android:label="开票列表"/>
     <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="设置币地址"/>

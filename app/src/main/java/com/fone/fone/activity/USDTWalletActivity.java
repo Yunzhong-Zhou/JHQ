@@ -24,7 +24,7 @@ public class USDTWalletActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filtwallet);
+        setContentView(R.layout.activity_usdtwallet);
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
     }
 

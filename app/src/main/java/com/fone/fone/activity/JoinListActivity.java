@@ -1,8 +1,6 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.fone.fone.R;
@@ -20,19 +18,22 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 /**
  * Created by zyz on 2019/1/7.
- * 往期列表
+ * 加入拼团列表
  */
-public class PastListActivity extends BaseActivity {
+public class JoinListActivity extends BaseActivity {
     private RecyclerView recyclerView;
     List<PastListModel.LikeGameListBean> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pastlist);
+        setContentView(R.layout.activity_joinlist);
     }
 
     @Override
@@ -82,12 +83,12 @@ public class PastListActivity extends BaseActivity {
                     list = response.getLike_game_list();
                     if (list.size() > 0) {
                         CommonAdapter<PastListModel.LikeGameListBean> mAdapter = new CommonAdapter<PastListModel.LikeGameListBean>(
-                                PastListActivity.this, R.layout.item_pastlist, list) {
+                                JoinListActivity.this, R.layout.item_joinlist, list) {
                             @Override
                             protected void convert(ViewHolder holder, PastListModel.LikeGameListBean model, int position) {
-                                holder.setText(R.id.textView1, model.getPeriod());//期次号
+                                /*holder.setText(R.id.textView1, model.getPeriod());//期次号
                                 holder.setText(R.id.textView2, model.getWin_chain_title() + "");//胜利方
-                                holder.setText(R.id.textView3, model.getAmount_money() + getString(R.string.app_ge));//竞猜额
+                                holder.setText(R.id.textView3, model.getAmount_money() + getString(R.string.app_ge));//竞猜额*/
                                 /*ImageView imageView = holder.getView(R.id.imageView1);
                                 if (!model.getHead().equals(""))
                                     Glide.with(PastListActivity.this).load(OkHttpClientManager.IMGHOST + model.getHead()).centerCrop().into(imageView);//加载图片

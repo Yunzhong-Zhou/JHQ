@@ -179,6 +179,9 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.MyCalculateActivity"
             android:label="算力列表" />
         <activity
+            android:name="com.fone.fone.activity.JoinDetailActivity"
+            android:label="加入拼团详情" />
+        <activity
             android:name="com.fone.fone.activity.ContractActivity"
             android:label="合同" />
         <activity

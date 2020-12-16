@@ -40,7 +40,7 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by zyz on 2019-10-09.
- * 有奖邀请
+ * 分享海报
  */
 public class SharePosterActivity extends BaseActivity {
     ImageView imageView1, imageView2;

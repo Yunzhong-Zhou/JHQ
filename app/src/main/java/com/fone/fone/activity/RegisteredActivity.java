@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
@@ -69,14 +68,13 @@ public class RegisteredActivity extends BaseActivity {
 
     boolean isgouxuan = true;
     ImageView imageView1;
+
     /**
      * 定位
      */
     // 定位相关
     /*public LocationClient mLocationClient = null;
     private MyLocationListener myListener = new MyLocationListener();*/
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +91,7 @@ public class RegisteredActivity extends BaseActivity {
         mLocationClient.start();*/
 
     }
+
     //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
     public void onBackPressed() {
         IntentWrapper.onBackPressed(this);
@@ -227,7 +226,7 @@ public class RegisteredActivity extends BaseActivity {
                 phonenum = editText1.getText().toString().trim();
 
                 if (TextUtils.isEmpty(phonenum)) {
-                    Toast.makeText(this, getString(R.string.registered_h1), Toast.LENGTH_SHORT).show();
+                    myToast(getString(R.string.registered_h1));
                 } else {
 //                    customVerity();//极验
 
@@ -272,7 +271,7 @@ public class RegisteredActivity extends BaseActivity {
                     params.put("mobile", phonenum);//手机号
                     params.put("password", password1);//密码（不能小于6位数）
                     params.put("code", code);//手机验证码
-                    params.put("nickname", nickname);//昵称
+//                    params.put("nickname", nickname);//昵称
                     params.put("invite_code", num);//邀请码
                     params.put("uuid", CommonUtil.getIMEI(RegisteredActivity.this));//IMEI
                     params.put("register_addr", register_addr);//注册地址
@@ -312,7 +311,7 @@ public class RegisteredActivity extends BaseActivity {
             myToast(getString(R.string.registered_h3));
             return false;
         }
-        password2 = editText4.getText().toString().trim();
+        /*password2 = editText4.getText().toString().trim();
         if (TextUtils.isEmpty(password2)) {
             myToast(getString(R.string.registered_h4));
             return false;
@@ -320,18 +319,18 @@ public class RegisteredActivity extends BaseActivity {
         if (!password1.equals(password2)) {
             myToast(getString(R.string.registered_h12));
             return false;
-        }
+        }*/
         num = editText5.getText().toString().trim();
         if (TextUtils.isEmpty(num)) {
             myToast(getString(R.string.registered_h5));
             return false;
         }
 
-        nickname = editText6.getText().toString().trim();
+        /*nickname = editText6.getText().toString().trim();
         if (TextUtils.isEmpty(nickname)) {
             myToast(getString(R.string.registered_h11));
             return false;
-        }
+        }*/
 
         if (!isgouxuan) {
             myToast(getString(R.string.registered_h15));

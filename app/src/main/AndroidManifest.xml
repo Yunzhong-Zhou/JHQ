@@ -108,7 +108,7 @@
         </activity>
 
         <activity
-            android:name="com.fone.fone.activity.PastListActivity"
+            android:name="com.fone.fone.activity.JoinListActivity"
             android:label="往期列表" />
         <!--我的-->
         <activity
@@ -143,6 +143,9 @@
             android:name="com.fone.fone.activity.MyCalculateActivity"
             android:label="算力列表" />
 
+        <activity
+            android:name="com.fone.fone.activity.JoinDetailActivity"
+            android:label="加入拼团详情" />
 
         <activity
             android:name="com.fone.fone.activity.ContractActivity"
@@ -218,9 +221,6 @@
         <activity
             android:name="com.fone.fone.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
-        <activity
-            android:name="com.fone.fone.view.face.LivenessActivity"
-            android:label="人脸识别" />
 
 
         <!--全面屏适配-->

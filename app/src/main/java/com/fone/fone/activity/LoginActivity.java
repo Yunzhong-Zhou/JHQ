@@ -188,9 +188,9 @@ public class LoginActivity extends BaseActivity {
                 return true;
             }
         });
-        View view1 = findViewByID_My(R.id.view1);
+        /*View view1 = findViewByID_My(R.id.view1);
         ViewGroup.LayoutParams lp = view1.getLayoutParams();
-        lp.height = (int) CommonUtil.getScreenHeight(this) / 5;
+        lp.height = (int) CommonUtil.getScreenHeight(this) / 5;*/
     }
 
     @Override

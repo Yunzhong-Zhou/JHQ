@@ -2,13 +2,16 @@ package com.fone.fone.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
+import com.fone.fone.activity.JoinDetailActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment3Model;
@@ -38,7 +41,7 @@ public class Fragment3 extends BaseFragment {
     Fragment3Model model;
     int type = 1;
 
-    private RecyclerView rv_join,recyclerView;
+    private RecyclerView rv_join, recyclerView;
     List<Fragment3Model.NewestContractListBean> list1 = new ArrayList<>();
     CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
 
@@ -53,6 +56,8 @@ public class Fragment3 extends BaseFragment {
     LinearLayout linearLayout1, linearLayout2, linearLayout3;
     TextView textView1, textView2, textView3;
     View view1, view2, view3;
+
+    TextView tv_title, tv_tab1, tv_tab2, tv_tab3, tv_tab4, tv_join;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -115,6 +120,7 @@ public class Fragment3 extends BaseFragment {
 
             @Override
             public void onLoadmore() {
+
             }
         });
 
@@ -134,11 +140,19 @@ public class Fragment3 extends BaseFragment {
 
 
         rv_join = findViewByID_My(R.id.rv_join);
-        rv_join.setLayoutManager(new GridLayoutManager(getActivity(),5));
+        rv_join.setLayoutManager(new GridLayoutManager(getActivity(), 5));
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
+
+        tv_title = findViewByID_My(R.id.tv_title);
+        tv_tab1 = findViewByID_My(R.id.tv_tab1);
+        tv_tab2 = findViewByID_My(R.id.tv_tab2);
+        tv_tab3 = findViewByID_My(R.id.tv_tab3);
+        tv_tab4 = findViewByID_My(R.id.tv_tab4);
+        tv_join = findViewByID_My(R.id.tv_join);
+        tv_join.setOnClickListener(this);
 
 
         //设置图片宽度为屏幕宽度，高度自适应-android:adjustViewBounds="true"
@@ -279,6 +293,28 @@ public class Fragment3 extends BaseFragment {
                 changeUI();
                 break;
 
+            case R.id.tv_join:
+                //加入拼团
+                dialog.contentView(R.layout.dialog_fragment3)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.CENTER)
+                        .canceledOnTouchOutside(true)
+                        .gravity(Gravity.CENTER)
+                        .dimAmount(0.8f)
+                        .show();
+                TextView textView1 = dialog.findViewById(R.id.textView1);
+                dialog.findViewById(R.id.textView2).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("id", "");
+                        CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle1, false);
+                    }
+                });
+                break;
+
         }
     }
 
@@ -319,6 +355,7 @@ public class Fragment3 extends BaseFragment {
         }
 
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

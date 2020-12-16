@@ -77,7 +77,8 @@ public class URLs {
     public static final String Fragment3 = "/api/index";
     //往期列表
     public static final String PastList = "/api/like-game/history";
-
+    //排行榜
+    public static final String Leaderboard = "/api/change-game/rank";
 
     /**
      * 账户
