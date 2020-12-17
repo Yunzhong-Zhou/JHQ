@@ -63,6 +63,21 @@ public class ForgetPasswordActivity extends BaseActivity {
         RequestSmsCodeList(string3);//手机号国家代码集合
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
+        switch (localUserInfo.getMobile_State_Code().length()){
+            case 2:
+                editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,60), 0, 0, 0);
+                break;
+            case 3:
+                editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,70), 0, 0, 0);
+                break;
+            case 4:
+                editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,75), 0, 0, 0);
+                break;
+            case 5:
+                editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,80), 0, 0, 0);
+                break;
+
+        }
     }
 
     @Override

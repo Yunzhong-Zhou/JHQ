@@ -174,7 +174,7 @@ public class LoginActivity extends BaseActivity {
         editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     if (match()) {
                         textView3.setClickable(false);
                         LoginActivity.this.showProgress(true, getString(R.string.login_h7));
@@ -277,7 +277,7 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.textView3:
                 //确认登录
-                /*if (match()) {
+                if (match()) {
                     textView3.setClickable(false);
                     this.showProgress(true, getString(R.string.login_h7));
                     params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
@@ -285,8 +285,8 @@ public class LoginActivity extends BaseActivity {
                     params.put("password", password);
                     params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     RequestLogin(params);//登录
-                }*/
-                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
+                }
+//                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                 break;
             case R.id.imageView1:
                 editText1.setText("");
@@ -411,19 +411,20 @@ public class LoginActivity extends BaseActivity {
                             });*/
                 } else {
                     //保存Token
-//                            String token = jObj1.getString("fresh_token");
                     localUserInfo.setToken(response.getFresh_token());
-//                            String id = jObj1.getString("id");
+                    //保存id
                     localUserInfo.setUserId(response.getId());
+                    //保存邀请码
+                    localUserInfo.setInvuteCode(response.getInvite_code());
                     //保存电话号码
-//                            String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(response.getMobile());
-
-
-//                            localUserInfo.setPhoneNumber(phonenum);
                     //保存用户昵称
-//                            String nickname = jObj1.getString("nickname");
                     localUserInfo.setNickname(response.getNickname());
+                    //保存头像
+                    localUserInfo.setUserImage(response.getHead());
+                    //保存地区代码
+                    localUserInfo.setMobile_State_Code(response.getMobile_state_code());
+
 
                     //是否为商户
 //                    localUserInfo.setMerchant(response.getMerchant() + "");
@@ -431,17 +432,12 @@ public class LoginActivity extends BaseActivity {
 //                    localUserInfo.setPay(response.getPay() + "");
                     //是否开通收款
 //                    localUserInfo.setGather(response.getGather() + "");
-
                     //保存钱包地址
-//                        String walletaddr = jObj1.getString("wallet_addr");
 //                        localUserInfo.setWalletaddr(walletaddr);
                     //保存邮箱
-//                        String email = jObj1.getString("email");
 //                        localUserInfo.setEmail(email);
                     //保存姓名
 //                    localUserInfo.setUserName(jObj1.getString("name"));
-                    //保存头像
-//                        localUserInfo.setUserImage(jObj1.getString("head"));
 
                     hideProgress();
                     MainActivity.isOver = false;
@@ -814,6 +810,22 @@ public class LoginActivity extends BaseActivity {
         RequestSmsCodeList(string3);//手机号国家代码集合
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
+        switch (localUserInfo.getMobile_State_Code().length()){
+            case 2:
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,60), 0, 0, 0);
+                break;
+            case 3:
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,70), 0, 0, 0);
+                break;
+            case 4:
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,75), 0, 0, 0);
+                break;
+            case 5:
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,80), 0, 0, 0);
+                break;
+
+        }
+
 
         MyLogger.i(">>>>>" + IMGHOST + localUserInfo.getCountry_IMG());
         if (!localUserInfo.getCountry_IMG().equals(""))

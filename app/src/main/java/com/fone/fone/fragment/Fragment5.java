@@ -137,12 +137,12 @@ public class Fragment5 extends BaseFragment {
         textView1.setText(localUserInfo.getNickname());
         textView2.setText(getString(R.string.fragment5_h1) + localUserInfo.getInvuteCode());
 //        if (!localUserInfo.getUserImage().equals(""))
-            Glide.with(getActivity())
-                    .load(IMGHOST + localUserInfo.getUserImage())
-                    .centerCrop()
-                    .placeholder(R.mipmap.loading)//加载站位图
-                    .error(R.mipmap.headimg)//加载失败
-                    .into(imageView1);//加载图片
+        Glide.with(getActivity())
+                .load(IMGHOST + localUserInfo.getUserImage())
+                .centerCrop()
+                .placeholder(R.mipmap.loading)//加载站位图
+                .error(R.mipmap.headimg)//加载失败
+                .into(imageView1);//加载图片
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
@@ -236,7 +236,14 @@ public class Fragment5 extends BaseFragment {
                     textView6.setText("" + response.getCommission_money());//佣金
                     textView7.setText("" + response.getGame_win_time());//次数
                     textView8.setText("" + response.getFil_money());//已产FIL
-                    textView9.setText("" + response.getHashrate()+"TB");//总算力
+                    textView9.setText("" + response.getHashrate() + "TB");//总算力
+
+
+//                    localUserInfo.setPhoneNumber(response.getMobile());
+                    localUserInfo.setNickname(response.getNickname());
+                    localUserInfo.setInvuteCode(response.getInvite_code());
+//                    localUserInfo.setEmail(response.getEmail());
+                    localUserInfo.setUserImage(response.getHead());
 
                 }
 
@@ -252,12 +259,15 @@ public class Fragment5 extends BaseFragment {
         switch (v.getId()) {
             case R.id.textView2:
                 //获取剪贴板管理器：
-                ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                // 创建普通字符型ClipData
-                ClipData mClipData = ClipData.newPlainText("Label", model.getInvite_code());
-                // 将ClipData内容放到系统剪贴板里。
-                cm.setPrimaryClip(mClipData);
-                myToast(getString(R.string.recharge_h34));
+                if (!localUserInfo.getInvuteCode().equals("")) {
+                    ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    // 创建普通字符型ClipData
+                    ClipData mClipData = ClipData.newPlainText("Label", localUserInfo.getInvuteCode());
+                    // 将ClipData内容放到系统剪贴板里。
+                    cm.setPrimaryClip(mClipData);
+                    myToast(getString(R.string.recharge_h34));
+                }
+
                 break;
 
             case R.id.relativeLayout:

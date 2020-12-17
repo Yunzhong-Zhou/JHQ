@@ -190,9 +190,9 @@ public class MyProfileActivity extends BaseActivity {
                 editText2.setText(response.getEmail());
 
 
-//                localUserInfo.setPhoneNumber(response.getMobile());
+                localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
-//                localUserInfo.setInvuteCode(response.getInvite_code());
+                localUserInfo.setInvuteCode(response.getInvite_code());
                 localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 

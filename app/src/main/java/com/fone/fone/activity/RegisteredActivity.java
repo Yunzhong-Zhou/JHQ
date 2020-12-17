@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.RegisteredModel;
 import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -29,9 +30,6 @@ import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.squareup.okhttp.Request;
 import com.xdandroid.hellodaemon.IntentWrapper;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -105,6 +103,21 @@ public class RegisteredActivity extends BaseActivity {
         RequestSmsCodeList(string3);//手机号国家代码集合
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
+        switch (localUserInfo.getMobile_State_Code().length()){
+            case 2:
+                editText1.setPadding(CommonUtil.dip2px(RegisteredActivity.this,60), 0, 0, 0);
+                break;
+            case 3:
+                editText1.setPadding(CommonUtil.dip2px(RegisteredActivity.this,70), 0, 0, 0);
+                break;
+            case 4:
+                editText1.setPadding(CommonUtil.dip2px(RegisteredActivity.this,75), 0, 0, 0);
+                break;
+            case 5:
+                editText1.setPadding(CommonUtil.dip2px(RegisteredActivity.this,80), 0, 0, 0);
+                break;
+
+        }
 
         if (!localUserInfo.getCountry_IMG().equals(""))
             Glide.with(RegisteredActivity.this)
@@ -507,7 +520,7 @@ public class RegisteredActivity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<RegisteredModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -518,9 +531,49 @@ public class RegisteredActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(final String response) {
+            public void onResponse(RegisteredModel response) {
                 MyLogger.i(">>>>>>>>>注册" + response);
                 textView3.setClickable(true);
+                hideProgress();
+
+                //保存Token
+                localUserInfo.setToken(response.getFresh_token());
+                //保存id
+                localUserInfo.setUserId(response.getId());
+                //保存邀请码
+                localUserInfo.setInvuteCode(response.getInvite_code());
+                //保存电话号码
+                localUserInfo.setPhoneNumber(response.getMobile());
+                //保存用户昵称
+                localUserInfo.setNickname(response.getNickname());
+                //保存头像
+                localUserInfo.setUserImage(response.getHead());
+                //保存地区代码
+                localUserInfo.setMobile_State_Code(response.getMobile_state_code());
+
+
+                //是否为商户
+//                    localUserInfo.setMerchant(response.getMerchant() + "");
+                //是否开通支付
+//                    localUserInfo.setPay(response.getPay() + "");
+                //是否开通收款
+//                    localUserInfo.setGather(response.getGather() + "");
+                //保存钱包地址
+//                        localUserInfo.setWalletaddr(walletaddr);
+                //保存邮箱
+//                        localUserInfo.setEmail(email);
+                //保存姓名
+//                    localUserInfo.setUserName(jObj1.getString("name"));
+
+
+                hideProgress();
+                MainActivity.isOver = false;
+
+                Bundle bundle = new Bundle();
+//                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
+                bundle.putInt("isShowAd", 1);
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
+
 //                localUserInfo.setTime(System.currentTimeMillis() + "");
                 /*showToast("该账户尚未激活，请完成人脸识别后进行操作", new View.OnClickListener() {
                     @Override
@@ -533,8 +586,9 @@ public class RegisteredActivity extends BaseActivity {
                     }
                 });
                 hideProgress();*/
-                hideProgress();
-                JSONObject jObj;
+
+
+                /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
 
@@ -544,11 +598,12 @@ public class RegisteredActivity extends BaseActivity {
                     localUserInfo.setToken(token);
                     //保存用户id
                     final String id = jObj1.getString("id");
+                    localUserInfo.setUserId(id);
 
                     //保存电话号码
                     String mobile = jObj1.getString("mobile");
                     localUserInfo.setPhoneNumber(mobile);
-//                    localUserInfo.setPhoneNumber(phonenum);
+
                     //保存用户昵称
                     String nickname = jObj1.getString("nickname");
                     localUserInfo.setNickname(nickname);
@@ -557,7 +612,10 @@ public class RegisteredActivity extends BaseActivity {
                     String invite_code = jObj1.getString("invite_code");
                     localUserInfo.setInvuteCode(invite_code);
 
-                    localUserInfo.setUserId(id);
+                    //保存头像
+                    localUserInfo.setUserImage(jObj1.getString("head"));
+
+
 
                     Bundle bundle = new Bundle();
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
@@ -568,7 +626,7 @@ public class RegisteredActivity extends BaseActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
 
-                }
+                }*/
 
             }
         }, true);

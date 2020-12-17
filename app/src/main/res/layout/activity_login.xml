@@ -63,30 +63,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="14dp">
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:drawableRight="@mipmap/ic_down_white"
-                            android:drawablePadding="4dp"
-                            android:gravity="center_vertical"
-                            android:onClick="onClick"
-                            android:text="+86"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-                        <View
-                            android:layout_width="0.5dp"
-                            android:layout_height="24dp"
-                            android:layout_toRightOf="@id/textView"
-                            android:layout_marginLeft="10dp"
-                            android:layout_centerVertical="true"
-                            android:background="@color/white"/>
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/editText1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="65dp"
+                            android:paddingLeft="60dp"
                             android:gravity="center_vertical"
                             android:hint="@string/login_h1"
                             android:inputType="phone"
@@ -105,6 +87,24 @@
                             android:padding="20dp"
                             android:src="@mipmap/ic_login3"
                             android:visibility="gone" />
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:drawableRight="@mipmap/ic_down_white"
+                            android:drawablePadding="4dp"
+                            android:gravity="center_vertical"
+                            android:onClick="onClick"
+                            android:text="+86"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="24dp"
+                            android:layout_toRightOf="@id/textView"
+                            android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:background="@color/white"/>
                     </RelativeLayout>
 
                 </LinearLayout>
