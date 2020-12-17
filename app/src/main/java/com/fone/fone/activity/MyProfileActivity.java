@@ -217,7 +217,7 @@ public class MyProfileActivity extends BaseActivity {
             @Override
             public void onResponse(ChangeProfileModel response) {
                 MyLogger.i(">>>>>>>>>修改信息" + response);
-                myToast(getString(R.string.myprofile_h13));
+                myToast(getString(R.string.myprofile_h7));
                 localUserInfo.setUserImage(response.getHead());
                 //头像
                 if (!response.getHead().equals(""))

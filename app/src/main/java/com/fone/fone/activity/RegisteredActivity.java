@@ -288,7 +288,7 @@ public class RegisteredActivity extends BaseActivity {
                 //勾选协议
                 isgouxuan = !isgouxuan;
                 if (isgouxuan)
-                    imageView1.setImageResource(R.mipmap.ic_gouxuan);
+                    imageView1.setImageResource(R.mipmap.ic_xuanze);
                 else
                     imageView1.setImageResource(R.mipmap.ic_weigouxuan);
                 break;

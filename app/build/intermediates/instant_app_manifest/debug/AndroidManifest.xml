@@ -146,7 +146,7 @@ Android 10 停用过滤视图，使用旧版存储模式
             -->
         </activity>
         <activity
-            android:name="com.fone.fone.activity.PastListActivity"
+            android:name="com.fone.fone.activity.JoinListActivity"
             android:label="往期列表" />
         <!-- 我的 -->
         <activity
@@ -251,9 +251,6 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
-        <activity
-            android:name="com.fone.fone.view.face.LivenessActivity"
-            android:label="人脸识别" />
 
         <!-- 全面屏适配 -->
         <meta-data
@@ -486,6 +483,13 @@ Android 10 停用过滤视图，使用旧版存储模式
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
+            <!--
+                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+                clients to use it as well, by defining this registrar in their own core/common library.
+            -->
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
         <service
             android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService"
@@ -514,6 +518,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="com.fone.fone.firebaseinitprovider"
+            android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
 

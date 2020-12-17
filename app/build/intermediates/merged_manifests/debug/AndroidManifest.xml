@@ -50,7 +50,7 @@
     <activity android:name="com.fone.fone.activity.ForgetPasswordActivity" android:label="忘记密码"/>
     <activity android:name="com.fone.fone.activity.RegisteredActivity" android:label="注册"/>
     <activity android:name="com.fone.fone.activity.WebContentActivity" android:label="网页"/>
-    <activity android:name="com.fone.fone.activity.PastListActivity" android:label="往期列表"/>
+    <activity android:name="com.fone.fone.activity.JoinListActivity" android:label="往期列表"/>
     <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
     <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
     <activity android:name="com.fone.fone.activity.HelpCenterActivity" android:label="帮助中心"/>
@@ -85,7 +85,6 @@
     <activity android:name="com.fone.fone.activity.QRCodeActivity" android:label="收款二维码"/>
     <activity android:name="com.fone.fone.view.zxing.CaptureActivity" android:label="扫一扫"/>
     <activity android:name="com.fone.fone.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
-    <activity android:name="com.fone.fone.view.face.LivenessActivity" android:label="人脸识别"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>
@@ -175,6 +174,7 @@
       <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
       <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
       <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
     </service>
     <service android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService" android:exported="true">
       <intent-filter>
@@ -191,7 +191,7 @@
         <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
       </intent-filter>
     </receiver>
-    <provider android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.fone.fone.firebaseinitprovider"/>
+    <provider android:initOrder="100" android:directBootAware="true" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.fone.fone.firebaseinitprovider"/>
     <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false"/>
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
     <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">

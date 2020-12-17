@@ -145,9 +145,9 @@ public class ZhiChuListActivity extends BaseActivity {
                                 (ZhiChuListActivity.this, R.layout.item_shourulist, list) {
                             @Override
                             protected void convert(ViewHolder holder, ShouRuListModel model, int position) {
-                                holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
+                                /*holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
                                 holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");
+                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");*/
                             }
                         };
                         recyclerView.setAdapter(mAdapter);

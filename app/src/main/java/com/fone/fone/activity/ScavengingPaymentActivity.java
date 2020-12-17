@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.cy.dialog.BaseDialog;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.ScavengingPaymentModel;
@@ -19,6 +16,7 @@ import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
@@ -299,7 +297,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 //确认转账
                 if (match()) {
                     //弹出弹窗
-                    dialog = new BaseDialog(ScavengingPaymentActivity.this);
+                    /*dialog = new BaseDialog(ScavengingPaymentActivity.this);
                     dialog.contentView(R.layout.dialog_scavengingpayment)
                             .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                     ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -322,8 +320,8 @@ public class ScavengingPaymentActivity extends BaseActivity {
 
                             ScavengingPaymentActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
                             tv2.setClickable(false);
-                                /*String string = "?mobile=" + phonenum +
-                                        "&type=" + "10";//类型*/
+                                *//*String string = "?mobile=" + phonenum +
+                                        "&type=" + "10";//类型*//*
                             tv3.setText(getString(R.string.scavengingpayment_h12) + "+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
 
                             HashMap<String, String> params = new HashMap<>();
@@ -367,9 +365,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                         public void onClick(View v) {
                             dialog.dismiss();
                         }
-                    });
-
-                } else {
+                    });*/
 
                 }
                 break;

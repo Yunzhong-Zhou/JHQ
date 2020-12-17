@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical">
     <!--只需要刷新只写header-->
     <com.liaoinstan.springview.widget.SpringView
@@ -21,141 +22,104 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@mipmap/bg_invitationreward1"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:background="@mipmap/bg_invitationreward2" />
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/bg_shareposter1" />
 
                 <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="-15dp"
+                    android:layout_marginRight="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/bg_shareposter2" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="14dp"
-                    android:src="@mipmap/bg_invitationreward3" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@mipmap/bg_invitationreward4" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="14dp"
-                    android:background="@mipmap/bg_invitationreward5" />
+                    android:layout_marginTop="30dp"
+                    android:drawableLeft="@mipmap/bg_shareposter3"
+                    android:drawableRight="@mipmap/bg_shareposter4"
+                    android:drawablePadding="15dp"
+                    android:text="@string/fragment5_h25"
+                    android:textColor="@color/black1"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="14dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@mipmap/bg_invitationreward6"
                     android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_weight="1">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/imageView1"
-                            android:layout_width="92dp"
-                            android:layout_height="92dp"
-                            android:background="@mipmap/headimg"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="8dp"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:text="ID"
-                                android:gravity="right"
-                                android:textColor="@color/white2"/>
-                            <TextView
-                                android:id="@+id/textView1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textIsSelectable="true"
-                                android:layout_marginLeft="10dp"
-                                android:textColor="@color/white"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="8dp"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/share_h29"
-                                android:gravity="right"
-                                android:textColor="@color/white2"/>
-                            <TextView
-                                android:id="@+id/textView2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textIsSelectable="true"
-                                android:layout_marginLeft="10dp"
-                                android:textColor="@color/white"/>
-                        </LinearLayout>
 
-                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="93dp"
-                            android:layout_height="93dp"
-                            android:background="@color/white"/>
-                        <LinearLayout
+                        android:orientation="vertical">
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:layout_marginTop="20dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:background="@mipmap/bg_invitationreward7">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/fragment5_h19"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"/>
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:gravity="center"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/ic_usdt_white"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"/>
-
-                        </LinearLayout>
-
+                            android:layout_gravity="center_horizontal"
+                            android:drawableLeft="@mipmap/bg_shareposter5"
+                            android:drawablePadding="14dp"
+                            android:text="@string/fragment5_h26"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:drawableLeft="@mipmap/bg_shareposter5"
+                            android:drawablePadding="14dp"
+                            android:text="@string/fragment5_h27"
+                            android:layout_marginTop="18dp"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:drawableLeft="@mipmap/bg_shareposter5"
+                            android:drawablePadding="14dp"
+                            android:text="@string/fragment5_h28"
+                            android:layout_marginTop="18dp"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:drawableLeft="@mipmap/bg_shareposter5"
+                            android:drawablePadding="14dp"
+                            android:text="@string/fragment5_h29"
+                            android:layout_marginTop="18dp"
+                            android:textColor="@color/black1"
+                            android:textSize="15sp"
+                            />
                     </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="145dp"
+                        android:layout_height="145dp"
+                        android:padding="8dp"
+                        android:background="@mipmap/bg_shareposter6" />
 
 
                 </LinearLayout>
@@ -185,9 +149,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/fragment5_h15"
-            android:visibility="invisible"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/right_btn"

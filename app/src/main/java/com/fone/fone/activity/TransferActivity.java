@@ -157,7 +157,7 @@ public class TransferActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转提交" + response);
 
-                showToast(getString(R.string.scavengingpayment_h20), new View.OnClickListener() {
+                showToast(getString(R.string.scavengingpayment_h10), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();

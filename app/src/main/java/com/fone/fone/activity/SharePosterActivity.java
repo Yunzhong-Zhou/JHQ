@@ -14,9 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.InvitationRewardModel;
@@ -35,8 +33,6 @@ import java.io.IOException;
 
 import androidx.core.content.FileProvider;
 
-import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
-
 
 /**
  * Created by zyz on 2019-10-09.
@@ -44,7 +40,7 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
  */
 public class SharePosterActivity extends BaseActivity {
     ImageView imageView1, imageView2;
-    TextView textView1, textView2, textView3;
+//    TextView textView1, textView2, textView3;
 
     LinearLayout linearLayout;
     ScrollView scrollView;
@@ -88,11 +84,11 @@ public class SharePosterActivity extends BaseActivity {
 
             }
         });
-        imageView1 = findViewByID_My(R.id.imageView1);
+//        imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
-        textView1 = findViewByID_My(R.id.textView1);
-        textView2 = findViewByID_My(R.id.textView2);
-        textView3 = findViewByID_My(R.id.textView3);
+//        textView1 = findViewByID_My(R.id.textView1);
+//        textView2 = findViewByID_My(R.id.textView2);
+//        textView3 = findViewByID_My(R.id.textView3);
         linearLayout = findViewByID_My(R.id.linearLayout);
         scrollView = findViewByID_My(R.id.scrollView);
     }
@@ -118,12 +114,12 @@ public class SharePosterActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>有奖邀请" + response);
                 hideProgress();
                 //头像
-                if (!response.getHead().equals(""))
+                /*if (!response.getHead().equals(""))
                     Glide.with(SharePosterActivity.this).load(IMGHOST + response.getHead())
                             .centerCrop()
 //                            .placeholder(R.mipmap.headimg)//加载站位图
 //                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
+                            .into(imageView1);//加载图片*/
                 /*if (!response.getUrl().equals(""))
                     Glide.with(InvitationRewardActivity.this).load(IMGHOST + response.getUrl())
                             .centerCrop()
@@ -133,9 +129,9 @@ public class SharePosterActivity extends BaseActivity {
                 Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(response.getUrl(), 480, 480);
                 imageView2.setImageBitmap(mBitmap);
 
-                textView1.setText(response.getNickname() + "");//昵称
-                textView2.setText(response.getInvite_code() + "");//邀请码
-                textView3.setText(response.getProfit_money() + "");//合约金额
+//                textView1.setText(response.getNickname() + "");//昵称
+//                textView2.setText(response.getInvite_code() + "");//邀请码
+//                textView3.setText(response.getProfit_money() + "");//合约金额
 //                scrollView.fullScroll(View.FOCUS_DOWN);//滑动到最底部
             }
 
@@ -167,7 +163,7 @@ public class SharePosterActivity extends BaseActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        printScreen(scrollView, "OFC_share");
+                        printScreen(scrollView, getString(R.string.app_name)+"_share");
                     }
                 });
                 break;

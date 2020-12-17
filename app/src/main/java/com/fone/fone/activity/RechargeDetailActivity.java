@@ -306,7 +306,7 @@ public class RechargeDetailActivity extends BaseActivity {
                     textView_baocun.setVisibility(View.VISIBLE);//显示保存二维码
 
                     textView2.setText("+" + response.getTop_up().getMoney());//充值个数
-                    textView3.setText("" + getString(R.string.qianbao_h52));//充币个数（USDT）
+                    textView3.setText("" + getString(R.string.app_type_usdt));//充币个数（USDT）
 
                     textView4.setText(getString(R.string.recharge_h13));//充币处理中
 
