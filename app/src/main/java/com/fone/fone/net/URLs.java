@@ -109,10 +109,6 @@ public class URLs {
      * 修改密码
      */
     public static final String ChangePassword = "/api/member/update-password";
-    /**
-     * 钱包地址（get）
-     */
-    public static final String WalletAddress = "/api/member/set-wallet-addr";
 
     /**
      * 我的充值
@@ -210,7 +206,7 @@ public class URLs {
     /**
       * 币地址管理
      */
-    public static final String AddressManage = "/api/withdrawal/type";
+    public static final String AddressManage = "/api/member/set-wallet-addr";
     /**
      * 拼接请求路径
      *

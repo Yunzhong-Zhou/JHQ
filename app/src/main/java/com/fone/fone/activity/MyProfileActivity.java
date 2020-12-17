@@ -9,7 +9,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +21,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.ChangeProfileModel;
 import com.fone.fone.model.MyProfileModel;
 import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.net.OkHttpClientManager;
@@ -92,6 +93,46 @@ public class MyProfileActivity extends BaseActivity {
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
 
+        editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    MyLogger.i(">>>>>>>>>" + editText1.getText().toString().trim());
+                    if (!editText1.getText().toString().trim().equals("")) {
+                        showProgress(false, getString(R.string.app_loading1));
+                        String[] filenames = new String[]{};
+                        File[] files = new File[]{};
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("nickname", editText1.getText().toString().trim());
+                        params.put("email", "");
+                        RequestChangeProfile(filenames, files, params);//修改
+                    }
+                }
+                return true;
+            }
+        });
+
+        editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    MyLogger.i(">>>>>>>>>" + editText2.getText().toString().trim());
+                    if (!editText2.getText().toString().trim().equals("")) {
+                        showProgress(false, getString(R.string.app_loading1));
+                        String[] filenames = new String[]{};
+                        File[] files = new File[]{};
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("nickname", "");
+                        params.put("email", editText2.getText().toString().trim());
+                        RequestChangeProfile(filenames, files, params);//修改
+                    }
+                }
+                return true;
+            }
+        });
+
     }
 
     @Override
@@ -109,7 +150,7 @@ public class MyProfileActivity extends BaseActivity {
                 .apply(RequestOptions.bitmapTransform(new
                         RoundedCorners(CommonUtil.dip2px(this, 10))))
                 .placeholder(R.mipmap.loading)//加载站位图
-                .error(R.mipmap.loading)//加载失败
+                .error(R.mipmap.headimg)//加载失败
                 .into(imageView1);//加载图片
 
         //获取个人信息
@@ -138,21 +179,21 @@ public class MyProfileActivity extends BaseActivity {
                         .apply(RequestOptions.bitmapTransform(new
                                 RoundedCorners(CommonUtil.dip2px(MyProfileActivity.this, 10))))
                         .placeholder(R.mipmap.loading)//加载站位图
-                        .error(R.mipmap.zanwutupian)//加载失败
+                        .error(R.mipmap.headimg)//加载失败
                         .into(imageView1);//加载图片
 
                 //手机号
                 textView1.setText("+" + localUserInfo.getMobile_State_Code() + "  " + response.getMobile());
                 //昵称
                 editText1.setText(response.getNickname());
-                //邀请码
-//                editText2.setText(response.getInvite_code());
+                //邮箱
+                editText2.setText(response.getEmail());
 
 
-                localUserInfo.setPhoneNumber(response.getMobile());
+//                localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
 //                localUserInfo.setInvuteCode(response.getInvite_code());
-//                localUserInfo.setEmail(response.getEmail());
+                localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 
                 hideProgress();
@@ -188,6 +229,7 @@ public class MyProfileActivity extends BaseActivity {
                                 localUserInfo.setToken("");
                                 localUserInfo.setPhoneNumber("");
                                 localUserInfo.setNickname("");
+                                localUserInfo.setInvuteCode("");
                                 localUserInfo.setWalletaddr("");
                                 localUserInfo.setEmail("");
                                 localUserInfo.setUserImage("");
@@ -205,7 +247,7 @@ public class MyProfileActivity extends BaseActivity {
 
     //修改信息
     private void RequestChangeProfile(String[] fileKeys, File[] files, HashMap<String, String> params) {
-        OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<ChangeProfileModel>() {
+        OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -215,23 +257,32 @@ public class MyProfileActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(ChangeProfileModel response) {
+            public void onResponse(MyProfileModel response) {
                 MyLogger.i(">>>>>>>>>修改信息" + response);
                 myToast(getString(R.string.myprofile_h7));
-                localUserInfo.setUserImage(response.getHead());
-                //头像
-                if (!response.getHead().equals(""))
-                    Glide.with(MyProfileActivity.this)
-                            .load(OkHttpClientManager.IMGHOST + response.getHead())
-                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                else
-                    imageView1.setImageResource(R.mipmap.headimg);
+                requestInfo("?token=" + localUserInfo.getToken());
+
+                /*//头像
+                Glide.with(MyProfileActivity.this)
+                        .load(OkHttpClientManager.IMGHOST + response.getHead())
+                        .centerCrop()
+                            .placeholder(R.mipmap.loading)//加载站位图
+                            .error(R.mipmap.headimg)//加载失败
+                        .into(imageView1);//加载图片
+
+                //昵称
+                editText1.setText(response.getNickname());
                 //邮箱
-//                editText2.setText(response.getEmail());
-                hideProgress();
+                editText2.setText(response.getEmail());
+
+
+                //                localUserInfo.setPhoneNumber(response.getMobile());
+                localUserInfo.setNickname(response.getNickname());
+//                localUserInfo.setInvuteCode(response.getInvite_code());
+                localUserInfo.setEmail(response.getEmail());
+                localUserInfo.setUserImage(response.getHead());
+
+                hideProgress();*/
             }
         });
     }
@@ -309,7 +360,7 @@ public class MyProfileActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>>获取到的图片路径1：" + imagePath);
                 //图片过大解决方法
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = 32;
+                options.inSampleSize = 8;
                 Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
 
                 imageView1.setImageBitmap(bitmap);
@@ -334,8 +385,10 @@ public class MyProfileActivity extends BaseActivity {
                         files = listFiles.toArray(new File[i]);
                     }
                     this.showProgress(true, getString(R.string.app_loading1));
+                    HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
-//                    params.put("email", "");
+                    params.put("email", "");
+                    params.put("nickname", "");
                     RequestChangeProfile(filenames, files, params);//修改
                 } catch (IOException e) {
                     e.printStackTrace();

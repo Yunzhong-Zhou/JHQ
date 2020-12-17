@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,6 +30,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
@@ -150,7 +151,7 @@ public class SelectLanguagePopupWindow extends PopupWindow {
                 LinearLayout linearLayout = holder.getView(R.id.linearLayout);
                 if (model.getLang_type().equals(LocalUserInfo.getInstance(mContext).getLanguage_Type())){
                     imageView2.setVisibility(View.VISIBLE);
-                    linearLayout.setBackgroundResource(R.drawable.yuanjiao_5_baise_huangsebiankuang);
+                    linearLayout.setBackgroundResource(R.drawable.yuanjiao_5_baise_lvsebiankuang);
                 }else {
                     imageView2.setVisibility(View.GONE);
                     linearLayout.setBackgroundResource(R.drawable.yuanjiao_5_baise);

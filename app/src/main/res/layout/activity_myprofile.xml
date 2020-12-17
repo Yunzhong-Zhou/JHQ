@@ -89,7 +89,7 @@
                     android:paddingTop="14dp"
                     android:paddingBottom="14dp"
                     android:text="phonenum"
-                    android:textColor="@color/black3"
+                    android:textColor="@color/black2"
                     android:textIsSelectable="true"
                     android:textSize="15sp" />
 
@@ -115,8 +115,11 @@
                     android:hint="@string/myprofile_h4"
                     android:paddingLeft="10dp"
                     android:paddingTop="14dp"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:paddingBottom="14dp"
-                    android:textColor="@color/black3"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black2"
                     android:textColorHint="@color/black3"
                     android:textSize="15sp" />
 
@@ -142,8 +145,11 @@
                     android:hint="@string/myprofile_h6"
                     android:paddingLeft="10dp"
                     android:paddingTop="14dp"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
                     android:paddingBottom="14dp"
-                    android:textColor="@color/black3"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black2"
                     android:textColorHint="@color/black3"
                     android:textSize="15sp" />
 

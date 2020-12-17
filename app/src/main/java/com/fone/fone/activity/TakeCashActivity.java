@@ -156,7 +156,7 @@ public class TakeCashActivity extends BaseActivity {
                 }
                 break;
             case R.id.textView1:
-                CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class);
+                CommonUtil.gotoActivity(TakeCashActivity.this, AddressManagementActivity.class);
                 break;
             case R.id.textView8:
                     /*String string = "?mobile=" + localUserInfo.getPhonenumber() +
@@ -256,7 +256,7 @@ public class TakeCashActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(TakeCashActivity.this, AddressManagementActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -317,13 +317,13 @@ public class TakeCashActivity extends BaseActivity {
                                 }
                             });
                 }else if (response.getCode() ==2){
-                    showToast(getString(R.string.address_h26),
+                    showToast(getString(R.string.password_h4),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
-                            CommonUtil.gotoActivity(TakeCashActivity.this, SetAddressActivity.class, false);
+                            CommonUtil.gotoActivity(TakeCashActivity.this, AddressManagementActivity.class, false);
                         }
                     }, new View.OnClickListener() {
                                 @Override

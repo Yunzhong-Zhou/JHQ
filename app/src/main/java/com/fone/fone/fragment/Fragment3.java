@@ -307,10 +307,16 @@ public class Fragment3 extends BaseFragment {
                 dialog.findViewById(R.id.textView2).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        dialog.dismiss();
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("id", "");
                         CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle1, false);
+                    }
+                });
+                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
                     }
                 });
                 break;

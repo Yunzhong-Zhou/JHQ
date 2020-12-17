@@ -38,6 +38,7 @@ public class AddressManagementActivity extends BaseActivity {
         showProgress(true, getString(R.string.app_loading2));
         request("?token=" + localUserInfo.getToken());
     }
+
     private void request(String string) {
         OkHttpClientManager.getAsyn(this, URLs.AddressManage + string,
                 new OkHttpClientManager.ResultCallback<AddressManagementModel>() {
@@ -73,44 +74,48 @@ public class AddressManagementActivity extends BaseActivity {
                                 linearLayout1.setVisibility(View.GONE);
                             }
                         }*/
-                        if (response.getWithdrawal_usdt_switch().equals("1")){//关闭
-                            relativeLayout2.setVisibility(View.GONE);
-                            linearLayout2.setVisibility(View.GONE);
-//                            view_2.setVisibility(View.GONE);
-                        }else {
 
-//                            view_2.setVisibility(View.VISIBLE);
-
-                            if (!model.getUsdt_wallet_addr().equals("")) {
-                                relativeLayout2.setVisibility(View.GONE);
-                                linearLayout2.setVisibility(View.VISIBLE);
-                                type2_tv1.setText(model.getUsdt_wallet_addr());//USDT地址
-                            } else {
-                                relativeLayout2.setVisibility(View.VISIBLE);
-                                linearLayout2.setVisibility(View.GONE);
-                            }
+                        if (model.getTrade_password().equals("")) {
+                            showToast(getString(R.string.address_h25),
+                                    getString(R.string.password_h5), getString(R.string.password_h6),
+                                    new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            CommonUtil.gotoActivity(AddressManagementActivity.this, SetTransactionPasswordActivity.class, false);
+                                        }
+                                    }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            dialog.dismiss();
+                                            finish();
+                                        }
+                                    });
                         }
-                        if (response.getWithdrawal_bwin_switch().equals("1")){//关闭
-                            relativeLayout3.setVisibility(View.GONE);
-                            linearLayout3.setVisibility(View.GONE);
-//                            view_3.setVisibility(View.GONE);
-                        }else {
-//                            view_3.setVisibility(View.VISIBLE);
 
-                            if (!model.getBwin_wallet_addr().equals("")) {
-                                relativeLayout3.setVisibility(View.GONE);
-                                linearLayout3.setVisibility(View.VISIBLE);
-                                type3_tv1.setText(model.getBwin_wallet_addr());//USDT地址
-                            } else {
-                                relativeLayout3.setVisibility(View.VISIBLE);
-                                linearLayout3.setVisibility(View.GONE);
-                            }
+                        if (!model.getUsdt_wallet_addr().equals("")) {
+                            relativeLayout2.setVisibility(View.GONE);
+                            linearLayout2.setVisibility(View.VISIBLE);
+                            type2_tv1.setText(model.getUsdt_wallet_addr());//USDT地址
+                        } else {
+                            relativeLayout2.setVisibility(View.VISIBLE);
+                            linearLayout2.setVisibility(View.GONE);
+                        }
+
+                        if (!model.getFil_wallet_addr().equals("")) {
+                            relativeLayout3.setVisibility(View.GONE);
+                            linearLayout3.setVisibility(View.VISIBLE);
+                            type3_tv1.setText(model.getFil_wallet_addr());//FIL地址
+                        } else {
+                            relativeLayout3.setVisibility(View.VISIBLE);
+                            linearLayout3.setVisibility(View.GONE);
                         }
 
 
                     }
                 });
     }
+
     @Override
     protected void initView() {
         relativeLayout1 = findViewByID_My(R.id.relativeLayout1);
@@ -167,7 +172,7 @@ public class AddressManagementActivity extends BaseActivity {
                 break;
             case R.id.relativeLayout3:
             case R.id.linearLayout3:
-                //BWIN
+                //FIL
                 /*if (!model.getBwin_wallet_addr().equals("")) {
                     bundle.putInt("type", 3);
                     CommonUtil.gotoActivityWithData(this, TakeCashActivity.class, bundle, false);

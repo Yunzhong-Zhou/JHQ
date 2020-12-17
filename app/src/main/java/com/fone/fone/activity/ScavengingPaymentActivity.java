@@ -162,7 +162,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, AddressManagementActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override
@@ -207,7 +207,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
-                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
+                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, AddressManagementActivity.class, false);
                                 }
                             }, new View.OnClickListener() {
                                 @Override

@@ -553,6 +553,10 @@ public class RegisteredActivity extends BaseActivity {
                     String nickname = jObj1.getString("nickname");
                     localUserInfo.setNickname(nickname);
 
+                    //保存邀请码
+                    String invite_code = jObj1.getString("invite_code");
+                    localUserInfo.setInvuteCode(invite_code);
+
                     localUserInfo.setUserId(id);
 
                     Bundle bundle = new Bundle();

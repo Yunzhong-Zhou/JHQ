@@ -174,6 +174,7 @@ public class Fragment1 extends BaseFragment {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialog.dismiss();
                         if (type ==1){
                             //USDT支付
                             CommonUtil.gotoActivity(getActivity(), MachineDetailActivity.class);

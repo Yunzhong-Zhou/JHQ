@@ -13,11 +13,11 @@ import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
+import com.fone.fone.activity.AddressManagementActivity;
 import com.fone.fone.activity.FILWalletActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.QRCodeActivity;
 import com.fone.fone.activity.RechargeDetailActivity;
-import com.fone.fone.activity.SetAddressActivity;
 import com.fone.fone.activity.SetTransactionPasswordActivity;
 import com.fone.fone.activity.TakeCashActivity;
 import com.fone.fone.activity.USDTWalletActivity;
@@ -172,6 +172,7 @@ public class Fragment4 extends BaseFragment {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        dialog.dismiss();
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("id", "");
                         CommonUtil.gotoActivityWithData(getActivity(), RechargeDetailActivity.class, bundle1, false);
@@ -229,7 +230,7 @@ public class Fragment4 extends BaseFragment {
                                     @Override
                                     public void onClick(View view) {
                                         dialog.dismiss();
-                                        CommonUtil.gotoActivity(getActivity(), SetAddressActivity.class, false);
+                                        CommonUtil.gotoActivity(getActivity(), AddressManagementActivity.class, false);
                                     }
                                 }, new View.OnClickListener() {
                                     @Override

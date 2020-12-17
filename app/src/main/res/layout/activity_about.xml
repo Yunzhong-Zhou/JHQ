@@ -126,6 +126,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="15sp"
+            android:layout_marginRight="14dp"
             android:textColor="@color/black2"/>
 
         <ImageView

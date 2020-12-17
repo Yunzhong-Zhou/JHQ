@@ -48,10 +48,10 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 public class Fragment5 extends BaseFragment {
     Fragment5Model model;
     RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,textView9;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14, linearLayout15, linearLayout16,linearLayout17;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout15, linearLayout16, linearLayout17;
     ImageView imageView1;
 
 
@@ -136,15 +136,13 @@ public class Fragment5 extends BaseFragment {
 
         textView1.setText(localUserInfo.getNickname());
         textView2.setText(getString(R.string.fragment5_h1) + localUserInfo.getInvuteCode());
-        if (!localUserInfo.getUserImage().equals(""))
+//        if (!localUserInfo.getUserImage().equals(""))
             Glide.with(getActivity())
                     .load(IMGHOST + localUserInfo.getUserImage())
                     .centerCrop()
-//                    .placeholder(R.mipmap.headimg)//加载站位图
-//                    .error(R.mipmap.headimg)//加载失败
+                    .placeholder(R.mipmap.loading)//加载站位图
+                    .error(R.mipmap.headimg)//加载失败
                     .into(imageView1);//加载图片
-        else
-            imageView1.setImageResource(R.mipmap.headimg);
 
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
@@ -219,42 +217,27 @@ public class Fragment5 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>我的" + response);
                 if (response != null) {
                     model = response;
-                    //等级
-                    switch (response.getGrade()) {
-                        case 1:
-                            textView3.setText("LP");
-                            break;
-                        case 2:
-                            textView3.setText("IB");
-                            break;
-                        case 3:
-                            textView3.setText("MIB");
-                            break;
-                        case 4:
-                            textView3.setText("PIB");
-                            break;
-                    }
-
-                    //头像
-                    localUserInfo.setUserImage(response.getHead());
-                    if (!response.getHead().equals("") && getActivity() != null)
-                        Glide.with(getActivity()).load(IMGHOST + response.getHead())
-                                .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                                .into(imageView1);//加载图片
-                    else
-                        imageView1.setImageResource(R.mipmap.headimg);
-
-                    textView5.setText("" + response.getCommon_usable_money());//余额
-                    textView6.setText("" + response.getProfit_money());//盈利
-                    textView7.setText("" + response.getCommission_money());//佣金
-//                textView8.setText("" + response.getCommission_money());//
-
                     //昵称
                     textView1.setText(response.getNickname());
                     //邀请码
                     textView2.setText(getString(R.string.fragment5_h1) + response.getInvite_code());
+                    //等级
+                    textView3.setText(response.getGrade_title());
+
+                    //头像
+                    localUserInfo.setUserImage(response.getHead());
+                    Glide.with(getActivity()).load(IMGHOST + response.getHead())
+                            .centerCrop()
+                            .placeholder(R.mipmap.loading)//加载站位图
+                            .error(R.mipmap.headimg)//加载失败
+                            .into(imageView1);//加载图片
+
+                    textView5.setText("" + response.getUsable_money());//余额
+                    textView6.setText("" + response.getCommission_money());//佣金
+                    textView7.setText("" + response.getGame_win_time());//次数
+                    textView8.setText("" + response.getFil_money());//已产FIL
+                    textView9.setText("" + response.getHashrate()+"TB");//总算力
+
                 }
 
                 hideProgress();

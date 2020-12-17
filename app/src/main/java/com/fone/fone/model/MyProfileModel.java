@@ -8,42 +8,24 @@ import java.io.Serializable;
 
 public class MyProfileModel implements Serializable {
     /**
-     * id : 5f961028d7235607fd3763283e3fcbcf
+     * id : ec75507f915cb412b35299b11e672fa5
      * mobile : 18306043086
-     * nickname : 18306043086
-     * head : /head/562.png
-     * invite_code : 703696
+     * nickname : FIL_pour
+     * head : /head/606.png
+     * email :
+     * invite_code : pour
      * grade : 1
-     * service_center_status : 3
-     * service_code : 604012
+     * grade_title : V0
      */
 
     private String id;
     private String mobile;
     private String nickname;
     private String head;
+    private String email;
     private String invite_code;
     private int grade;
-    private int auth;
-    private int service_center_status;
-    private String service_code;
-    private String recommend_ambassador;
-
-    public String getRecommend_ambassador() {
-        return recommend_ambassador;
-    }
-
-    public void setRecommend_ambassador(String recommend_ambassador) {
-        this.recommend_ambassador = recommend_ambassador;
-    }
-
-    public int getAuth() {
-        return auth;
-    }
-
-    public void setAuth(int auth) {
-        this.auth = auth;
-    }
+    private String grade_title;
 
     public String getId() {
         return id;
@@ -77,6 +59,14 @@ public class MyProfileModel implements Serializable {
         this.head = head;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getInvite_code() {
         return invite_code;
     }
@@ -93,19 +83,11 @@ public class MyProfileModel implements Serializable {
         this.grade = grade;
     }
 
-    public int getService_center_status() {
-        return service_center_status;
+    public String getGrade_title() {
+        return grade_title;
     }
 
-    public void setService_center_status(int service_center_status) {
-        this.service_center_status = service_center_status;
-    }
-
-    public String getService_code() {
-        return service_code;
-    }
-
-    public void setService_code(String service_code) {
-        this.service_code = service_code;
+    public void setGrade_title(String grade_title) {
+        this.grade_title = grade_title;
     }
 }

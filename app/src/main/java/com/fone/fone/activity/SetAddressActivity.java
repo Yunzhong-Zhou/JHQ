@@ -44,8 +44,10 @@ public class SetAddressActivity extends BaseActivity {
     @Override
     protected void initView() {
         type = getIntent().getIntExtra("type", 1);
-        address = getIntent().getStringExtra("address");
+
         editText1 = findViewByID_My(R.id.editText1);
+//        address = getIntent().getStringExtra("address");
+//        editText1.setText(address);
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
 
@@ -69,7 +71,7 @@ public class SetAddressActivity extends BaseActivity {
             editText1.setHint(getString(R.string.qianbao_h49));
             textView5.setText(getString(R.string.qianbao_h51));
         }
-        editText1.setText(address);
+
     }
 
     @Override
@@ -81,7 +83,7 @@ public class SetAddressActivity extends BaseActivity {
     }
 
     private void request(String string) {
-        OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.WalletAddress + string,
+        OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.AddressManage + string,
                 new OkHttpClientManager.ResultCallback<SetAddressModel>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
@@ -95,7 +97,6 @@ public class SetAddressActivity extends BaseActivity {
                     public void onResponse(SetAddressModel response) {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
-                        editText1.setText(response.getUsdt_wallet_addr());
                         if (response.getTrade_password().equals("")) {
                             showToast(getString(R.string.address_h25),
                                     getString(R.string.password_h5), getString(R.string.password_h6),
@@ -113,6 +114,14 @@ public class SetAddressActivity extends BaseActivity {
                                         }
                                     });
                         }
+
+                        if (type == 1) {
+                            editText1.setText(response.getUsdt_wallet_addr());
+                        } else {
+                            editText1.setText(response.getFil_wallet_addr());
+                        }
+
+
                     }
                 });
     }
@@ -176,7 +185,7 @@ public class SetAddressActivity extends BaseActivity {
 
     //钱包地址设置
     private void RequestSetWalletAddress(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.WalletAddress, params, new OkHttpClientManager.ResultCallback<SetAddressModel>() {
+        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.AddressManage, params, new OkHttpClientManager.ResultCallback<SetAddressModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 textView4.setClickable(true);
@@ -208,9 +217,16 @@ public class SetAddressActivity extends BaseActivity {
                 textView4.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>地址设置" + response);
-                //                if (response.getTrade_password().equals("")) {
-                if (response.getCode() == 1) {
-                    showToast(getString(R.string.address_h25),
+
+                if (response == null) {
+                    if (type == 1) {
+                        myToast(getString(R.string.address_h11));
+                    } else {
+                        myToast(getString(R.string.qianbao_h50));
+                    }
+                    finish();
+                } else if (response != null || response.getCode() == 1) {
+                    showToast(getString(R.string.password_h2),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                                 @Override
@@ -222,32 +238,8 @@ public class SetAddressActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
-                                    finish();
                                 }
                             });
-                }/* else if (response.getCode() == 2) {
-                    showToast(getString(R.string.qianbao_h47),
-                            getString(R.string.password_h5), getString(R.string.password_h6),
-                            new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            CommonUtil.gotoActivity(OFCSetAddressActivity.this, OFCSetAddressActivity.class, false);
-                        }
-                    }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                } */ else {
-                    if (type == 1) {
-                        myToast(getString(R.string.address_h11));
-                    } else {
-                        myToast(getString(R.string.qianbao_h50));
-                    }
-                    finish();
                 }
 
                 /*JSONObject jObj;
