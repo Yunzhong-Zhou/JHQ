@@ -657,7 +657,7 @@
     <string name="addrmanage_h20"></string>
 
     <!--提币-->
-    <string name="takecash_h1">提币</string>
+    <string name="takecash_h1">FIL提币</string>
     <string name="takecash_h2">提币至</string>
     <string name="takecash_h3">可提USDT</string>
     <string name="takecash_h4">USDT价格：</string>
@@ -691,6 +691,9 @@
     <string name="takecash_h32">提币单号</string>
     <string name="takecash_h33">申请时间</string>
     <string name="takecash_h34">提币状态</string>
+    <string name="takecash_h35"><u>币地址暂未设置，点此跳转设置</u></string>
+    <string name="takecash_h36">确认提币</string>
+    <string name="takecash_h37">可提FIL</string>
 
 
     <!--资讯-->

@@ -212,7 +212,9 @@ public class USDTWalletActivity extends BaseActivity {
                 break;
             case R.id.tv_takecash:
                 //提现
-                CommonUtil.gotoActivity(USDTWalletActivity.this, TakeCashActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("money_type",1);
+                CommonUtil.gotoActivityWithData(USDTWalletActivity.this, TakeCashActivity.class,bundle,false);
                 break;
             case R.id.tv_transfer:
                 //划转

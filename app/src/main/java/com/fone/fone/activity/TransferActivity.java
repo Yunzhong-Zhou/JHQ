@@ -2,7 +2,13 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
@@ -13,6 +19,7 @@ import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,8 +28,9 @@ import java.util.Map;
  */
 public class TransferActivity extends BaseActivity {
     TransferModel model;
-    /*TextView textView1, textView2, textView3,textView4;
-    EditText editText1;*/
+    ImageView imageView1,imageView2;
+    TextView textView1, textView2, textView3,textView4,textView5,tv_confirm;
+    EditText editText1,editText2;
 
     Handler handler = new Handler();
     Runnable runnable;
@@ -41,11 +49,17 @@ public class TransferActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        /*textView1 = findViewByID_My(R.id.textView1);
+        imageView1 = findViewByID_My(R.id.imageView1);
+        imageView2 = findViewByID_My(R.id.imageView2);
+
+        textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
+        tv_confirm = findViewByID_My(R.id.tv_confirm);
         editText1 = findViewByID_My(R.id.editText1);
+        editText2 = findViewByID_My(R.id.editText2);
 
         editText1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -69,17 +83,17 @@ public class TransferActivity extends BaseActivity {
                     public void run() {
                         if (!editText1.getText().toString().trim().equals("")){
                             double money = Double.valueOf(editText1.getText().toString().trim());
-                            textView4.setText(String.format("%.2f", (money*0.8)));
+                            editText2.setText(String.format("%.2f", (money*0.8)));
                         }else {
 //                            myToast(getString(R.string.myprofile_h48));
-                            textView4.setText("0");
+                            editText2.setText("0");
                         }
                     }
                 };
                 Log.v("tag", "(((((" + s.toString());
                 handler.postDelayed(runnable, 1000);
             }
-        });*/
+        });
     }
 
     @Override
@@ -110,7 +124,8 @@ public class TransferActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转" + response);
                 model = response;
-//                textView1.setText(response.getCommon_usable_money() + "");
+                textView3.setText(getString(R.string.scavengingpayment_h3)+response.getCommon_usable_money() + "");
+                textView5.setText(response.getCommon_usable_money()+"usdt");
             }
         });
     }
@@ -122,10 +137,10 @@ public class TransferActivity extends BaseActivity {
             case R.id.left_btn:
                 finish();
                 break;
-            case R.id.textView3:
+            case R.id.tv_confirm:
                 //确定
-                /*if (!editText1.getText().toString().trim().equals("")) {
-                    textView3.setClickable(false);
+                if (!editText1.getText().toString().trim().equals("")) {
+                    tv_confirm.setClickable(false);
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("money", editText1.getText().toString().trim());
@@ -133,8 +148,8 @@ public class TransferActivity extends BaseActivity {
                     params.put("hk", model.getHk());
                     RequestAdd(params);
                 } else {
-                    myToast(getString(R.string.scavengingpayment_h15));
-                }*/
+                    myToast(getString(R.string.scavengingpayment_h2));
+                }
                 break;
         }
     }
@@ -143,7 +158,7 @@ public class TransferActivity extends BaseActivity {
         OkHttpClientManager.postAsyn(TransferActivity.this, URLs.Transfer, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-//                textView3.setClickable(true);
+                tv_confirm.setClickable(true);
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -153,7 +168,7 @@ public class TransferActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-//                textView3.setClickable(true);
+                tv_confirm.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转提交" + response);
 
@@ -161,10 +176,11 @@ public class TransferActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                        finish();
 //                requestServer();
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("item", 2);
-                        CommonUtil.gotoActivityWithFinishOtherAllAndData(TransferActivity.this, MainActivity.class, bundle, true);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt("item", 2);
+//                        CommonUtil.gotoActivityWithFinishOtherAllAndData(TransferActivity.this, MainActivity.class, bundle, true);
 
                     }
                 });

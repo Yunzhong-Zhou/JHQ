@@ -186,7 +186,9 @@ public class FILWalletActivity extends BaseActivity {
                 break;
             case R.id.tv_takecash:
                 //提现
-                CommonUtil.gotoActivity(FILWalletActivity.this, TakeCashActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("money_type",2);
+                CommonUtil.gotoActivityWithData(FILWalletActivity.this, TakeCashActivity.class,bundle,false);
                 break;
             case R.id.tv_transfer:
                 //划转

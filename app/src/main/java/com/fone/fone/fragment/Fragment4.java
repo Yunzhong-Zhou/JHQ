@@ -181,7 +181,9 @@ public class Fragment4 extends BaseFragment {
                 break;
             case R.id.tv_takecash:
                 //提现
-                CommonUtil.gotoActivity(getActivity(), TakeCashActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("money_type",1);
+                CommonUtil.gotoActivityWithData(getActivity(), TakeCashActivity.class,bundle,false);
                 break;
             case R.id.tv_transfer:
                 //转账

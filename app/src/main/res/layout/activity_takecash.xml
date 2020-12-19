@@ -33,6 +33,7 @@
                 android:src="@mipmap/ic_return1" />
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,24 +72,38 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="26dp"
                         android:text="@string/takecash_h3"
                         android:textColor="@color/white1"
                         android:textSize="15sp" />
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
                         android:layout_marginLeft="26dp"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:drawableLeft="@mipmap/ic_usdt_white1"
-                        android:drawablePadding="12dp"
-                        android:text="0"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="29dp"
+                            android:layout_height="29dp"
+                            android:src="@mipmap/ic_usdt_white1"/>
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:text="0"
+                            android:layout_marginBottom="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="30sp"
+                            android:textStyle="normal"/>
+                    </LinearLayout>
+
                     <com.lijiankun24.shadowlayout.ShadowLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -125,6 +140,7 @@
                                 android:orientation="horizontal">
 
                                 <ImageView
+                                    android:id="@+id/imageView2"
                                     android:layout_width="30dp"
                                     android:layout_height="28dp"
                                     android:layout_centerVertical="true"
@@ -140,7 +156,7 @@
                                     android:singleLine="true"
                                     android:textColor="@color/black1"
                                     android:textColorHint="@color/black3"
-                                    android:textSize="15sp"
+                                    android:textSize="13sp"
                                     android:theme="@style/MyEditText" />
 
                             </RelativeLayout>
@@ -151,18 +167,20 @@
                                 android:text="@string/takecash_h2"
                                 android:textColor="@color/black3"
                                 android:textSize="13sp" />
-                            <androidx.appcompat.widget.AppCompatEditText
-                                android:id="@+id/editText2"
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:onClick="onClick"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
-                                android:focusable="false"
                                 android:gravity="center_vertical"
-                                android:text="0USDT"
+                                android:text="@string/takecash_h35"
                                 android:textColor="@color/black1"
-                                android:textColorHint="@color/black3"
-                                android:textSize="15sp"
-                                android:theme="@style/MyEditText" />
-                            <RelativeLayout
+                                android:textSize="14sp" />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/xian"/>
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
@@ -174,23 +192,23 @@
                                     android:layout_marginLeft="2dp"
                                     android:text="@string/takecash_h14"
                                     android:textColor="@color/black3"
-                                    android:textSize="15sp" />
+                                    android:textSize="13sp" />
 
-                                <androidx.appcompat.widget.AppCompatEditText
-                                    android:id="@+id/editText3"
+                                <TextView
+                                    android:id="@+id/textView4"
                                     android:layout_width="match_parent"
                                     android:layout_height="70dp"
-                                    android:focusable="false"
+                                    android:layout_weight="1"
                                     android:gravity="center_vertical|right"
-                                    android:hint=""
-                                    android:paddingLeft="100dp"
-                                    android:paddingRight="10dp"
+                                    android:text="0USDT"
                                     android:textColor="@color/black1"
-                                    android:textColorHint="@color/black3"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold"
+                                    android:textSize="14sp"
                                     android:theme="@style/MyEditText" />
-                            </RelativeLayout>
+                            </LinearLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/xian"/>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -206,7 +224,7 @@
                                     android:visibility="gone" />
 
                                 <androidx.appcompat.widget.AppCompatEditText
-                                    android:id="@+id/editText4"
+                                    android:id="@+id/editText2"
                                     android:layout_width="match_parent"
                                     android:layout_height="70dp"
                                     android:hint="@string/settransactionpassword_h7"
@@ -214,7 +232,7 @@
                                     android:singleLine="true"
                                     android:textColor="@color/black1"
                                     android:textColorHint="@color/black3"
-                                    android:textSize="15sp"
+                                    android:textSize="14sp"
                                     android:theme="@style/MyEditText" />
                             </LinearLayout>
                             <RelativeLayout
@@ -223,7 +241,7 @@
                                 android:orientation="horizontal">
 
                                 <androidx.appcompat.widget.AppCompatEditText
-                                    android:id="@+id/editText5"
+                                    android:id="@+id/editText3"
                                     android:layout_width="match_parent"
                                     android:layout_height="70dp"
                                     android:hint="@string/settransactionpassword_h5"
@@ -232,11 +250,11 @@
                                     android:singleLine="true"
                                     android:textColor="@color/black1"
                                     android:textColorHint="@color/black3"
-                                    android:textSize="15sp"
+                                    android:textSize="14sp"
                                     android:theme="@style/MyEditText" />
 
                                 <TextView
-                                    android:id="@+id/textView1"
+                                    android:id="@+id/textView5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
@@ -253,12 +271,13 @@
                                 <View
                                     android:layout_width="0.5dp"
                                     android:layout_height="27dp"
-                                    android:layout_toLeftOf="@id/textView1"
+                                    android:layout_toLeftOf="@id/textView5"
                                     android:layout_centerVertical="true"
                                     android:background="@color/xian"/>
 
                             </RelativeLayout>
                             <TextView
+                                android:id="@+id/textView6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
@@ -273,7 +292,7 @@
                                 android:background="@drawable/btn_img1"
                                 android:gravity="center"
                                 android:onClick="onClick"
-                                android:text="@string/settransactionpassword_h12"
+                                android:text="@string/takecash_h36"
                                 android:textColor="@color/white"
                                 android:textSize="15sp" />
 

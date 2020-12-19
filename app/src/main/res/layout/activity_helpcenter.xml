@@ -64,7 +64,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginTop="60dp"
             android:text="@string/onlineservice_h1"
             android:textColor="@color/black1"
@@ -84,10 +84,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="14dp" />
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp" />
             </com.liaoinstan.springview.widget.SpringView>
         </com.fone.fone.view.LoadingLayout>
 

@@ -138,7 +138,7 @@ public class SetAddressActivity extends BaseActivity {
                 textView3.setClickable(false);
                 HashMap<String, String> params1 = new HashMap<>();
                 params1.put("mobile", localUserInfo.getPhonenumber());
-                params1.put("type", "6");
+                params1.put("type", "5");
                 params1.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                 RequestCode(params1);//获取验证码
                 break;

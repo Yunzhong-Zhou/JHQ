@@ -292,6 +292,13 @@ public class ScavengingPaymentActivity extends BaseActivity {
             case R.id.textView3:
                 //选择卖出账户
 //                showPopupWindow1(textView3);
+                showProgress(true, getString(R.string.app_sendcode_hint1));
+                textView3.setClickable(false);
+                HashMap<String, String> params = new HashMap<>();
+                params.put("mobile", localUserInfo.getPhonenumber());
+                params.put("type", "9");
+                params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                RequestCode(params,textView3);//获取验证码
                 break;
             case R.id.textView4:
                 //确认转账
@@ -373,13 +380,13 @@ public class ScavengingPaymentActivity extends BaseActivity {
     }
 
     //获取验证码
-    private void RequestCode(HashMap<String, String> params, final TextView tv, final TextView tv3) {
+    private void RequestCode(HashMap<String, String> params, final TextView tv) {
         OkHttpClientManager.postAsyn(ScavengingPaymentActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 tv.setClickable(true);
-                tv3.setVisibility(View.GONE);
+//                tv3.setVisibility(View.GONE);
                 if (!info.equals("")) {
                     myToast(info);
                 }
@@ -390,7 +397,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>验证码" + response);
                 tv.setClickable(true);
-                tv3.setVisibility(View.VISIBLE);
+//                tv3.setVisibility(View.VISIBLE);
                 time.start();//开始计时
                 myToast(getString(R.string.app_sendcode_hint));
             }
