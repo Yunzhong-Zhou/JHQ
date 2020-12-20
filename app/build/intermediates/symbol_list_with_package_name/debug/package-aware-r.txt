@@ -491,9 +491,21 @@ attr layout_goneMarginStart
 attr layout_goneMarginTop
 attr layout_insetEdge
 attr layout_keyline
+attr layout_noSolid
 attr layout_optimizationLevel
+attr layout_roundRadius
+attr layout_roundRadiusLB
+attr layout_roundRadiusLT
+attr layout_roundRadiusRB
+attr layout_roundRadiusRT
 attr layout_scrollFlags
 attr layout_scrollInterpolator
+attr layout_shadowColor
+attr layout_shadowRadius
+attr layout_shadowX
+attr layout_shadowY
+attr layout_solidColor
+attr layout_spaceShadow
 attr liftOnScroll
 attr lightWaveAnimTime
 attr lightWaveColor
@@ -1007,6 +1019,7 @@ color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
 color selector_text_color_tab
+color shengreen
 color sort_catagory
 color split_line_bootom_color
 color split_line_color
@@ -1866,6 +1879,7 @@ id item_touch_helper_previous_elevation
 id iv
 id ivBanner
 id ivIcon
+id iv_head
 id iv_head_bg
 id iv_icon
 id iv_usdt
@@ -2133,6 +2147,7 @@ id tv
 id tvContent
 id tvTitle
 id tv_cancel
+id tv_chanzhi
 id tv_confirm
 id tv_confirm_1
 id tv_confirm_3
@@ -2146,9 +2161,13 @@ id tv_h2
 id tv_haicha
 id tv_join
 id tv_keyong
+id tv_money
 id tv_money1
 id tv_money2
 id tv_name
+id tv_name1
+id tv_name2
+id tv_num
 id tv_num0
 id tv_num1
 id tv_num2
@@ -2160,15 +2179,18 @@ id tv_recharge1
 id tv_recharge2
 id tv_save
 id tv_scan
+id tv_shouru
 id tv_shouyi
 id tv_tab1
 id tv_tab2
 id tv_tab3
 id tv_tab4
 id tv_takecash
+id tv_time
 id tv_title
 id tv_tixing
 id tv_transfer
+id tv_type
 id tv_v0
 id tv_v1
 id tv_v2
@@ -2176,7 +2198,9 @@ id tv_v3
 id tv_v4
 id tv_v5
 id tv_v6
+id tv_yichan
 id tv_yongjin
+id tv_zhichu
 id type1_tv1
 id type1_tv2
 id type1_tv3
@@ -2362,6 +2386,7 @@ layout item_myrecharge
 layout item_onlineservice
 layout item_perioddetail
 layout item_pop_list
+layout item_qrcode
 layout item_selectlanguage
 layout item_shaixuan
 layout item_sharepeople
@@ -3478,6 +3503,10 @@ string zxing_h28
 string zxing_h3
 string zxing_h31
 string zxing_h32
+string zxing_h33
+string zxing_h34
+string zxing_h35
+string zxing_h36
 string zxing_h4
 string zxing_h5
 string zxing_h6
@@ -4073,6 +4102,9 @@ styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable ShadowLayout shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
+styleable ShadowLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor layout_spaceShadow
+styleable ShadowLinearLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor
+styleable ShadowRelativeLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth

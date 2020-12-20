@@ -109,8 +109,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="0"
+                                    android:textStyle="normal"
                                     android:textColor="@color/black1"
-                                    android:textSize="20sp" />
+                                    android:textSize="30sp" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -129,7 +130,8 @@
                                             android:id="@+id/tv_shouyi"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="0TB"
+                                            android:text="0"
+                                            android:textStyle="normal"
                                             android:textColor="@color/black1"
                                             android:textSize="18sp" />
 
@@ -154,6 +156,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
+                                            android:textStyle="normal"
                                             android:textColor="@color/black1"
                                             android:textSize="18sp" />
 
@@ -267,6 +270,7 @@
                                 android:textColor="@color/black3"
                                 android:textSize="18sp" />
                             <TextView
+                                android:id="@+id/tv_shouru"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
@@ -276,7 +280,7 @@
                                 android:textColor="@color/black1"
                                 android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"
-                                android:textStyle="bold"
+                                android:textStyle="normal"
                                 android:textSize="22sp" />
 
                             <TextView
@@ -321,6 +325,7 @@
                                 android:textColor="@color/black3"
                                 android:textSize="18sp" />
                             <TextView
+                                android:id="@+id/tv_zhichu"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
@@ -330,7 +335,7 @@
                                 android:textColor="@color/black1"
                                 android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"
-                                android:textStyle="bold"
+                                android:textStyle="normal"
                                 android:textSize="22sp" />
 
                             <TextView

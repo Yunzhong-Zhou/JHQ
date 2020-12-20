@@ -7,25 +7,25 @@ import java.io.Serializable;
  */
 public class MyRechargeModel implements Serializable {
     /**
-     * id : 536aa2b4cd74f61eec216b7f7809ca05
-     * sn : TU1576565271101529
-     * type : 1
-     * input_money : 10
-     * money : 10
-     * status : 1
-     * created_at : 2019-12-17 14:47:51
-     * type_title : USDT
-     * status_title : 待审核
+     * id : 2329c32c367b9bd590d9690b50c3e434
+     * sn : TU1608437131561005
+     * money_type : 1
+     * input_money : 10000.0000
+     * money : 10000.0000
+     * status : 2
+     * created_at : 2020-12-20 12:05:31
+     * money_type_title : USDT
+     * status_title : 通过
      */
 
     private String id;
     private String sn;
-    private int type;
+    private int money_type;
     private String input_money;
     private String money;
     private int status;
     private String created_at;
-    private String type_title;
+    private String money_type_title;
     private String status_title;
 
     public String getId() {
@@ -44,12 +44,12 @@ public class MyRechargeModel implements Serializable {
         this.sn = sn;
     }
 
-    public int getType() {
-        return type;
+    public int getMoney_type() {
+        return money_type;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setMoney_type(int money_type) {
+        this.money_type = money_type;
     }
 
     public String getInput_money() {
@@ -84,12 +84,12 @@ public class MyRechargeModel implements Serializable {
         this.created_at = created_at;
     }
 
-    public String getType_title() {
-        return type_title;
+    public String getMoney_type_title() {
+        return money_type_title;
     }
 
-    public void setType_title(String type_title) {
-        this.type_title = type_title;
+    public void setMoney_type_title(String money_type_title) {
+        this.money_type_title = money_type_title;
     }
 
     public String getStatus_title() {

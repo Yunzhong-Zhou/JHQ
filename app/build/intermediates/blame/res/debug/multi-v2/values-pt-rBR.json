@@ -4,7 +4,7 @@
             "outputFile": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ecb616bf74bda745e8e8cbf4d245b349/jetified-firebase-messaging-21.0.1/res/values-pt-rBR/values.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/52ede4fb3fa634b79bc2bb35e79e788b/jetified-firebase-messaging-21.0.1/res/values-pt-rBR/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1c35c282be07be23cc0713d3b573eaad/appcompat-1.1.0/res/values-pt-rBR/values-pt-rBR.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/c0d973a321515b84854d7521f2153269/appcompat-1.1.0/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fae2b2842d647f1f24bf157bbb5bf4d6/jetified-play-services-basement-17.0.0/res/values-pt-rBR/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4013",
-                        "endColumns": "203",
-                        "endOffsets": "4212"
-                    }
-                },
-                {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a00ce0389cb04b9539cc8aef17d2bc17/jetified-play-services-base-17.0.0/res/values-pt-rBR/values.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/915d20b8bb2943b4bfb10ac7f26a5a8e/jetified-play-services-base-17.0.0/res/values-pt-rBR/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -72,7 +55,24 @@
                     }
                 },
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7d61cf17752ba2fbfe4f308a44c19d1c/core-1.1.0/res/values-pt-rBR/values-pt-rBR.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdaf6a43510f8fb02270b7ce3fac14dd/jetified-play-services-basement-17.0.0/res/values-pt-rBR/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4013",
+                        "endColumns": "203",
+                        "endOffsets": "4212"
+                    }
+                },
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1f0fc34bd2aaa843316da6bd2f185b89/core-1.1.0/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -24,11 +24,11 @@ public class TakeCashModel implements Serializable {
     private String sn;
     private String member_id;
     private int money_type;
-    private double input_money;
+    private String input_money;
     private int member_type;
     private String wallet_addr;
-    private double service_charge_money;
-    private double money;
+    private String service_charge_money;
+    private String money;
     private String updated_at;
     private String created_at;
     private int code;
@@ -73,11 +73,11 @@ public class TakeCashModel implements Serializable {
         this.money_type = money_type;
     }
 
-    public double getInput_money() {
+    public String getInput_money() {
         return input_money;
     }
 
-    public void setInput_money(double input_money) {
+    public void setInput_money(String input_money) {
         this.input_money = input_money;
     }
 
@@ -97,19 +97,19 @@ public class TakeCashModel implements Serializable {
         this.wallet_addr = wallet_addr;
     }
 
-    public double getService_charge_money() {
+    public String getService_charge_money() {
         return service_charge_money;
     }
 
-    public void setService_charge_money(double service_charge_money) {
+    public void setService_charge_money(String service_charge_money) {
         this.service_charge_money = service_charge_money;
     }
 
-    public double getMoney() {
+    public String getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(String money) {
         this.money = money;
     }
 

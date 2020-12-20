@@ -99,7 +99,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="-4dp"
-                                    android:text="@string/fragment4_h1"
+                                    android:text="@string/fragment4_h28"
                                     android:textColor="@color/black3"
                                     android:textSize="15sp" />
 
@@ -110,7 +110,8 @@
                                     android:layout_marginTop="5dp"
                                     android:text="0"
                                     android:textColor="@color/black1"
-                                    android:textSize="20sp" />
+                                    android:textSize="30sp"
+                                    android:textStyle="normal" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -126,12 +127,13 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/tv_shouyi"
+                                            android:id="@+id/tv_yichan"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="0TB"
+                                            android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="18sp" />
+                                            android:textSize="18sp"
+                                            android:textStyle="normal" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -150,12 +152,13 @@
                                         android:orientation="vertical">
 
                                         <TextView
-                                            android:id="@+id/tv_yongjin"
+                                            android:id="@+id/tv_chanzhi"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="18sp" />
+                                            android:textSize="18sp"
+                                            android:textStyle="normal" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -176,25 +179,25 @@
 
                                     <TextView
                                         android:id="@+id/tv_recharge1"
-                                        android:onClick="onClick"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:drawableTop="@mipmap/ic_fragment4_1"
                                         android:drawablePadding="10dp"
+                                        android:onClick="onClick"
                                         android:paddingRight="10dp"
                                         android:text="@string/fragment4_h4"
-                                        android:visibility="gone"
                                         android:textColor="@color/black2"
-                                        android:textSize="17sp" />
+                                        android:textSize="17sp"
+                                        android:visibility="gone" />
 
 
                                     <TextView
                                         android:id="@+id/tv_takecash"
-                                        android:onClick="onClick"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:drawableTop="@mipmap/ic_fragment4_2"
                                         android:drawablePadding="10dp"
+                                        android:onClick="onClick"
                                         android:paddingRight="10dp"
                                         android:text="@string/fragment4_h5"
                                         android:textColor="@color/black2"
@@ -207,17 +210,18 @@
 
                                     <TextView
                                         android:id="@+id/tv_transfer"
-                                        android:onClick="onClick"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginLeft="30dp"
                                         android:drawableTop="@mipmap/ic_fragment4_3"
                                         android:drawablePadding="10dp"
+                                        android:onClick="onClick"
                                         android:paddingLeft="10dp"
-                                        android:layout_marginLeft="30dp"
                                         android:paddingRight="10dp"
                                         android:text="@string/fragment4_h6"
                                         android:textColor="@color/black2"
                                         android:textSize="17sp" />
+
                                     <View
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
@@ -239,12 +243,13 @@
                             android:padding="10dp"
                             android:src="@mipmap/ic_fil_green" />
                     </RelativeLayout>
+
                     <com.lijiankun24.shadowlayout.ShadowLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="-15dp"
+                        android:layout_marginRight="10dp"
                         app:shadowColor="#21555555"
                         app:shadowDx="0dp"
                         app:shadowDy="5dp"
@@ -254,10 +259,10 @@
 
                         <LinearLayout
                             android:id="@+id/ll_shouru"
-                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/yuanjiao_10_baise"
+                            android:onClick="onClick"
                             android:orientation="vertical"
                             android:paddingLeft="24dp"
                             android:paddingRight="14dp">
@@ -269,36 +274,39 @@
                                 android:text="@string/fragment4_h16"
                                 android:textColor="@color/black3"
                                 android:textSize="18sp" />
+
                             <TextView
+                                android:id="@+id/tv_shouru"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:text="0"
-                                android:gravity="center_vertical"
                                 android:drawableLeft="@mipmap/ic_fragment4_4"
-                                android:textColor="@color/black1"
-                                android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"
-                                android:textStyle="bold"
-                                android:textSize="22sp" />
+                                android:drawablePadding="10dp"
+                                android:gravity="center_vertical"
+                                android:text="0"
+                                android:textColor="@color/black1"
+                                android:textSize="22sp"
+                                android:textStyle="normal" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/fragment4_h17"
                                 android:textColor="@color/black3"
-                                android:textSize="13sp"
-                                android:paddingBottom="10dp"/>
+                                android:textSize="13sp" />
 
                         </LinearLayout>
                     </com.lijiankun24.shadowlayout.ShadowLayout>
+
                     <com.lijiankun24.shadowlayout.ShadowLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="-15dp"
+                        android:layout_marginRight="10dp"
                         app:shadowColor="#21555555"
                         app:shadowDx="0dp"
                         app:shadowDy="5dp"
@@ -308,10 +316,10 @@
 
                         <LinearLayout
                             android:id="@+id/ll_zhichu"
-                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/yuanjiao_10_baise"
+                            android:onClick="onClick"
                             android:orientation="vertical"
                             android:paddingLeft="24dp"
                             android:paddingRight="14dp">
@@ -323,27 +331,29 @@
                                 android:text="@string/fragment4_h20"
                                 android:textColor="@color/black3"
                                 android:textSize="18sp" />
+
                             <TextView
+                                android:id="@+id/tv_zhichu"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:text="0"
-                                android:gravity="center_vertical"
                                 android:drawableLeft="@mipmap/ic_fragment4_4"
-                                android:textColor="@color/black1"
-                                android:drawablePadding="10dp"
                                 android:drawableRight="@mipmap/ic_next_black"
-                                android:textStyle="bold"
-                                android:textSize="22sp" />
+                                android:drawablePadding="10dp"
+                                android:gravity="center_vertical"
+                                android:text="0"
+                                android:textColor="@color/black1"
+                                android:textSize="22sp"
+                                android:textStyle="normal" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/fragment4_h17"
                                 android:textColor="@color/black3"
-                                android:textSize="13sp"
-                                android:paddingBottom="10dp"/>
+                                android:textSize="13sp" />
 
                         </LinearLayout>
                     </com.lijiankun24.shadowlayout.ShadowLayout>

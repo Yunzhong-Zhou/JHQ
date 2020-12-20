@@ -173,7 +173,7 @@ public class MainActivity extends BaseActivity {
                 .normalIconItems(normalIcon)//未选中
                 .selectIconItems(selectIcon)//选中
                 .normalTextColor(getResources().getColor(R.color.white))//未选中字体颜色
-                .selectTextColor(getResources().getColor(R.color.white2))//选中字体颜色
+                .selectTextColor(getResources().getColor(R.color.white))//选中字体颜色
                 .tabTextTop(4)//Tab文字距Tab图标的距离
                 .tabTextSize(10)//Tab文字大小
                 .fragmentList(fragments)

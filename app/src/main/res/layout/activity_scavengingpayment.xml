@@ -130,7 +130,7 @@
                             android:visibility="gone" />
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/editText4"
+                            android:id="@+id/editText2"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:hint="@string/settransactionpassword_h7"
@@ -147,7 +147,7 @@
                         android:orientation="horizontal">
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/editText5"
+                            android:id="@+id/editText3"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:hint="@string/settransactionpassword_h5"
@@ -182,6 +182,15 @@
                             android:background="@color/xian"/>
 
                     </RelativeLayout>
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:text="@string/takecash_h31"
+                        android:textColor="@color/black3"
+                        android:textSize="13sp" />
                     <TextView
                         android:id="@+id/tv_confirm"
                         android:layout_width="match_parent"

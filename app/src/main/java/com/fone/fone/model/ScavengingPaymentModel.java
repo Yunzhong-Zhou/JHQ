@@ -8,20 +8,18 @@ import java.io.Serializable;
 
 public class ScavengingPaymentModel implements Serializable {
     /**
-     * head : /head/313.png
-     * nickname : 18680817626
-     * common_usable_money : 17.19
-     * transfer_service_charge : 1
-     * hk : cbbc6f7394770ed92061b6027b64a25e
+     * head : /head/396.png
+     * nickname : FIL_wjpn
+     * usable_money : 9990.0000
+     * trade_password : e10adc3949ba59abbe56e057f20f883e
+     * hk : 271f8955e08118c18daad30136b234b3
      */
 
     private String head;
     private String nickname;
-    private String common_usable_money;
-    private String transfer_service_charge;
-    private String hk;
+    private String usable_money;
     private String trade_password;
-
+    private String hk;
     private int code;
 
     public int getCode() {
@@ -30,14 +28,6 @@ public class ScavengingPaymentModel implements Serializable {
 
     public void setCode(int code) {
         this.code = code;
-    }
-
-    public String getTrade_password() {
-        return trade_password;
-    }
-
-    public void setTrade_password(String trade_password) {
-        this.trade_password = trade_password;
     }
 
     public String getHead() {
@@ -56,20 +46,20 @@ public class ScavengingPaymentModel implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getCommon_usable_money() {
-        return common_usable_money;
+    public String getUsable_money() {
+        return usable_money;
     }
 
-    public void setCommon_usable_money(String common_usable_money) {
-        this.common_usable_money = common_usable_money;
+    public void setUsable_money(String usable_money) {
+        this.usable_money = usable_money;
     }
 
-    public String getTransfer_service_charge() {
-        return transfer_service_charge;
+    public String getTrade_password() {
+        return trade_password;
     }
 
-    public void setTransfer_service_charge(String transfer_service_charge) {
-        this.transfer_service_charge = transfer_service_charge;
+    public void setTrade_password(String trade_password) {
+        this.trade_password = trade_password;
     }
 
     public String getHk() {

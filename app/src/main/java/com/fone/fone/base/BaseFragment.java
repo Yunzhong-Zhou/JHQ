@@ -2,15 +2,13 @@ package com.fone.fone.base;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
-import com.hjq.toast.ToastUtils;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.utils.LocalUserInfo;
@@ -19,9 +17,13 @@ import com.fone.fone.view.LoadingLayout;
 import com.fone.fone.view.MyDefaultFooter;
 import com.fone.fone.view.MyDefaultHeader;
 import com.fone.fone.view.TitleView;
+import com.hjq.toast.ToastUtils;
+import com.liaoinstan.springview.widget.SpringView;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -221,6 +223,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();
@@ -260,6 +263,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();
@@ -293,6 +297,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();

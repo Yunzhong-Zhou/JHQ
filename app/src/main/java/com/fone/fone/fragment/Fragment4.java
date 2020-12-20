@@ -31,6 +31,7 @@ import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -141,7 +142,13 @@ public class Fragment4 extends BaseFragment {
             @Override
             public void onResponse(Fragment4Model response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
+                tv_keyong.setText(response.getUsable_money());//可用USDT
+                tv_shouyi.setText(response.getChange_game_win_money());//拼团收益
+                tv_yongjin.setText(response.getCommission_money());//佣金
+                tv_filmoney.setText(response.getUsable_fil_money());//可用FIL
 
+                hideProgress();
+                MainActivity.isOver = true;
             }
         });
     }
@@ -172,10 +179,21 @@ public class Fragment4 extends BaseFragment {
                 tv_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("id", "");
-                        CommonUtil.gotoActivityWithData(getActivity(), RechargeDetailActivity.class, bundle1, false);
+                        if (!et_usdtmoney.getText().toString().trim().equals("")){
+                            dialog.dismiss();
+
+                            showProgress(true, getString(R.string.app_loading1));
+                            HashMap<String, String> params = new HashMap<>();
+                            params.put("input_money", et_usdtmoney.getText().toString().trim());//金额
+                            params.put("money_type", "1");//类型（1.USDT 2.fil）
+                            params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                            RequestRecharge(params);
+
+                        }else {
+                            myToast(getString(R.string.fragment4_h13));
+                        }
+
                     }
                 });
                 break;
@@ -204,7 +222,7 @@ public class Fragment4 extends BaseFragment {
 
     //充值
     private void RequestRecharge(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment4, params, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Recharge, params, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -269,34 +287,12 @@ public class Fragment4 extends BaseFragment {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>充值" + response);
-                myToast(getString(R.string.fragment4_h9));
-
-//                requestServer();
+                myToast(getString(R.string.fragment4_h27));
                 Bundle bundle = new Bundle();
                 bundle.putString("id", response.getId());
                 CommonUtil.gotoActivityWithData(getActivity(), RechargeDetailActivity.class, bundle, false);
             }
-        });
-    }
-
-    private boolean match() {
-        /*input_money = "";
-        if (type == 1) {
-            input_money = editText1.getText().toString().trim();
-            if (TextUtils.isEmpty(input_money)) {
-                myToast(getString(R.string.fragment4_h4));
-                return false;
-            }
-        } else {
-            input_money = editText2.getText().toString().trim();
-            if (TextUtils.isEmpty(input_money)) {
-                myToast(getString(R.string.fragment4_h5));
-                return false;
-            }
-        }*/
-
-
-        return true;
+        },true);
     }
 
 

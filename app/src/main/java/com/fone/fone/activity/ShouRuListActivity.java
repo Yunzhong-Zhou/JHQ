@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
@@ -22,14 +20,11 @@ import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.view.FixedPopupWindow;
+import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +39,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ShouRuListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<ShouRuListModel> list = new ArrayList<>();
-    CommonAdapter<ShouRuListModel> mAdapter;
+    List<ShouRuListModel.InMoneyListBean> list = new ArrayList<>();
+    CommonAdapter<ShouRuListModel.InMoneyListBean> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -85,7 +80,7 @@ public class ShouRuListActivity extends BaseActivity {
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentList(string);
+                RequestList(string);
             }
 
             @Override
@@ -97,7 +92,7 @@ public class ShouRuListActivity extends BaseActivity {
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentListMore(string);
+                RequestListMore(string);
             }
         });
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
@@ -118,8 +113,8 @@ public class ShouRuListActivity extends BaseActivity {
 
     }
 
-    private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(ShouRuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+    private void RequestList(String string) {
+        OkHttpClientManager.getAsyn(ShouRuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<ShouRuListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -130,54 +125,45 @@ public class ShouRuListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ShouRuListModel response) {
                 showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>收入列表" + response);
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<ShouRuListModel>
-                                (ShouRuListActivity.this, R.layout.item_shourulist, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, ShouRuListModel model, int position) {
-                                /*holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");*/
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                list = response.getIn_money_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<ShouRuListModel.InMoneyListBean>
+                            (ShouRuListActivity.this, R.layout.item_shourulist, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, ShouRuListModel.InMoneyListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getTitle());//标题
+                            holder.setText(R.id.textView2, model.getCreated_at());//时间
+                            holder.setText(R.id.textView3, "+" + model.getMoney());
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(HuiGouListActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                            }
+                        }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });
                 }
             }
         });
 
     }
 
-    private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(ShouRuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+    private void RequestListMore(String string) {
+        OkHttpClientManager.getAsyn(ShouRuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<ShouRuListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -189,28 +175,21 @@ public class ShouRuListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ShouRuListModel response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
-                JSONObject jObj;
-                List<ShouRuListModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<ShouRuListModel.InMoneyListBean> list1 = new ArrayList<>();
+
+                list1 = response.getIn_money_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
+
             }
         });
 
@@ -259,7 +238,7 @@ public class ShouRuListActivity extends BaseActivity {
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
-        RequestMyInvestmentList(string);
+        RequestList(string);
     }
 
     public void onHttpResult() {

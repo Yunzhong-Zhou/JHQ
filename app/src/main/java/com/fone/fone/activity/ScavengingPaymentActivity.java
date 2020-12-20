@@ -33,10 +33,10 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 public class ScavengingPaymentActivity extends BaseActivity {
     String to_member_id = "";
     ImageView imageView1;
-    TextView textView1, textView2, textView3, textView4;
-    EditText editText1, editText2;
+    TextView textView1, textView2, textView3, textView4, tv_confirm;
+    EditText editText1, editText2, editText3;
     ScavengingPaymentModel model;
-    String money = "", password = "";
+    String money = "", password = "", code = "";
 
     private TimeCount time = null;
 
@@ -66,8 +66,16 @@ public class ScavengingPaymentActivity extends BaseActivity {
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
+        textView4.setText(getString(R.string.takecash_h31)
+                + "+" + localUserInfo.getMobile_State_Code() + " "
+                + localUserInfo.getPhonenumber());
+        textView4.setVisibility(View.GONE);
+        time = new TimeCount(60000, 1000, textView3);//构造CountDownTimer对象
+
+        tv_confirm = findViewByID_My(R.id.tv_confirm);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+        editText3 = findViewByID_My(R.id.editText3);
     }
 
     @Override
@@ -115,8 +123,8 @@ public class ScavengingPaymentActivity extends BaseActivity {
                         );
                     }
 //                    hk = response.getHk();
-                    textView2.setText(response.getCommon_usable_money());//可用余额
-                    textView3.setText(response.getTransfer_service_charge() + "USDT");//手续费
+                    textView2.setText(getString(R.string.scavengingpayment_h9) + response.getUsable_money());//可用余额
+//                    textView3.setText(response.getTransfer_service_charge() + "USDT");//手续费
                     //昵称
                     textView1.setText(response.getNickname());
                     //头像
@@ -138,7 +146,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
             @Override
             public void onError(final Request request, String info, Exception e) {
                 hideProgress();
-                textView4.setClickable(true);
+                tv_confirm.setClickable(true);
                 if (!info.equals("")) {
                     if (info.contains(getString(R.string.password_h1))) {
                         showToast(getString(R.string.password_h2),
@@ -180,43 +188,13 @@ public class ScavengingPaymentActivity extends BaseActivity {
 
             @Override
             public void onResponse(ScavengingPaymentModel response) {
-                textView4.setClickable(true);
+                tv_confirm.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>转账" + response);
 
-                if (response.getCode() == 1) {
-                    showToast(getString(R.string.address_h25),
-                            getString(R.string.password_h5), getString(R.string.password_h6),
-                            new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.address_h26),
-                            getString(R.string.password_h5), getString(R.string.password_h6),
-                            new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    CommonUtil.gotoActivity(ScavengingPaymentActivity.this, AddressManagementActivity.class, false);
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                } else {
+                Request("?token=" + localUserInfo.getToken()
+                        + "&to_member_id=" + to_member_id);
+                if (response==null){
                     showToast(getString(R.string.scavengingpayment_h5),
                             new View.OnClickListener() {
                                 @Override
@@ -225,46 +203,41 @@ public class ScavengingPaymentActivity extends BaseActivity {
                                     finish();
                                 }
                             });
-                }
-
-                /*JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-//                    myToast(jObj.getString("msg"));
-
-                    JSONObject jObj1 = jObj.getJSONObject("data");
-                    int code = jObj1.getInt("code");
-                    if (code == 1) {
-                        showToast(getString(R.string.address_h25), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
-                            }
-                        });
-                    } else if (code == 2) {
-                        showToast(getString(R.string.address_h26), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetAddressActivity.class, false);
-                            }
-                        });
-                    } else {
-                        showToast(getString(R.string.scavengingpayment_h5), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-//                        finish();
-                                CommonUtil.gotoActivity(ScavengingPaymentActivity.this, TransferRecordActivity.class, true);
-                            }
-                        });
+                }else {
+                    if (response.getCode() == 1) {
+                        showToast(getString(R.string.password_h2),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, SetTransactionPasswordActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        finish();
+                                    }
+                                });
+                    } else if (response.getCode() == 2) {
+                        showToast(getString(R.string.password_h4),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(ScavengingPaymentActivity.this, AddressManagementActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        finish();
+                                    }
+                                });
                     }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }*/
+                }
 
 
             }
@@ -275,14 +248,19 @@ public class ScavengingPaymentActivity extends BaseActivity {
     private boolean match() {
         money = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(money)) {
-            myToast(getString(R.string.scavengingpayment_h4));
+            myToast(getString(R.string.scavengingpayment_h8));
             return false;
         }
-        /*password = editText2.getText().toString().trim();
+        password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
-            myToast(getString(R.string.scavengingpayment_h6));
+            myToast(getString(R.string.settransactionpassword_h7));
             return false;
-        }*/
+        }
+        code = editText3.getText().toString().trim();
+        if (TextUtils.isEmpty(code)) {
+            myToast(getString(R.string.settransactionpassword_h5));
+            return false;
+        }
         return true;
     }
 
@@ -298,11 +276,20 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 params.put("mobile", localUserInfo.getPhonenumber());
                 params.put("type", "9");
                 params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
-                RequestCode(params,textView3);//获取验证码
+                RequestCode(params, textView3, textView4);//获取验证码
                 break;
-            case R.id.textView4:
+            case R.id.tv_confirm:
                 //确认转账
                 if (match()) {
+                    showProgress(true, getString(R.string.app_loading1));
+                    HashMap<String, String> params1 = new HashMap<>();
+                    params1.put("token", localUserInfo.getToken());
+                    params1.put("to_member_id", to_member_id + "");
+                    params1.put("code", code);
+                    params1.put("from_money", money);
+                    params1.put("trade_password", password);
+                    params1.put("hk", model.getHk());
+                    RequestScavengingPayment(params1);
                     //弹出弹窗
                     /*dialog = new BaseDialog(ScavengingPaymentActivity.this);
                     dialog.contentView(R.layout.dialog_scavengingpayment)
@@ -380,13 +367,13 @@ public class ScavengingPaymentActivity extends BaseActivity {
     }
 
     //获取验证码
-    private void RequestCode(HashMap<String, String> params, final TextView tv) {
+    private void RequestCode(HashMap<String, String> params, final TextView tv, TextView tv_phone) {
         OkHttpClientManager.postAsyn(ScavengingPaymentActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
                 tv.setClickable(true);
-//                tv3.setVisibility(View.GONE);
+                tv_phone.setVisibility(View.GONE);
                 if (!info.equals("")) {
                     myToast(info);
                 }
@@ -397,7 +384,7 @@ public class ScavengingPaymentActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>验证码" + response);
                 tv.setClickable(true);
-//                tv3.setVisibility(View.VISIBLE);
+                tv_phone.setVisibility(View.VISIBLE);
                 time.start();//开始计时
                 myToast(getString(R.string.app_sendcode_hint));
             }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,9 +16,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
-import com.gyf.immersionbar.ImmersionBar;
-import com.hjq.toast.ToastUtils;
-import com.liaoinstan.springview.widget.SpringView;
 import com.fone.fone.MyApplication;
 import com.fone.fone.R;
 import com.fone.fone.utils.LocalUserInfo;
@@ -27,6 +25,9 @@ import com.fone.fone.view.LoadingLayout;
 import com.fone.fone.view.MyDefaultFooter;
 import com.fone.fone.view.MyDefaultHeader;
 import com.fone.fone.view.TitleView;
+import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.toast.ToastUtils;
+import com.liaoinstan.springview.widget.SpringView;
 
 import java.util.HashMap;
 
@@ -343,6 +344,7 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();
@@ -382,6 +384,7 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();
@@ -415,6 +418,7 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
+                        .gravity(Gravity.CENTER)
                         .canceledOnTouchOutside(true)
                         .dimAmount(0.8f)
                         .show();

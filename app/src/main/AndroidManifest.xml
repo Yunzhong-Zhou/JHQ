@@ -181,6 +181,12 @@
         <activity
             android:name="com.fone.fone.activity.ZhiChuListActivity"
             android:label="支出记录" />
+        <activity
+            android:name="com.fone.fone.activity.FILShouRuListActivity"
+            android:label="收入记录_FIL" />
+        <activity
+            android:name="com.fone.fone.activity.FILZhiChuListActivity"
+            android:label="支出记录_FIL" />
 
         <activity
             android:name="com.fone.fone.activity.MyRechargeActivity"

@@ -42,20 +42,20 @@ public class Fragment3 extends BaseFragment {
     int type = 1;
 
     private RecyclerView rv_join, recyclerView;
-    List<Fragment3Model.NewestContractListBean> list1 = new ArrayList<>();
-    CommonAdapter<Fragment3Model.NewestContractListBean> mAdapter1;
+    List<Fragment3Model.ChangeGameListBean> list1 = new ArrayList<>();
+    CommonAdapter<Fragment3Model.ChangeGameListBean> mAdapter1;
 
-    List<Fragment3Model.ContractTradingListBean> list2 = new ArrayList<>();
-    CommonAdapter<Fragment3Model.ContractTradingListBean> mAdapter2;
+    List<Fragment3Model.MemberListBean> list2 = new ArrayList<>();
+    CommonAdapter<Fragment3Model.MemberListBean> mAdapter2;
 
-    List<Fragment3Model.ContractCallMarginListBean> list_join = new ArrayList<>();
-    CommonAdapter<Fragment3Model.ContractCallMarginListBean> mAdapter_join;
+    List<Fragment3Model.ChangeGameListBean> list_join = new ArrayList<>();
+    CommonAdapter<Fragment3Model.ChangeGameListBean> mAdapter_join;
 
 
     //悬浮部分
-    LinearLayout linearLayout1, linearLayout2, linearLayout3;
-    TextView textView1, textView2, textView3;
-    View view1, view2, view3;
+    LinearLayout linearLayout1, linearLayout2;
+    TextView textView1, textView2;
+    View view1, view2;
 
     TextView tv_title, tv_tab1, tv_tab2, tv_tab3, tv_tab4, tv_join;
 
@@ -127,16 +127,12 @@ public class Fragment3 extends BaseFragment {
         //悬浮部分
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
-        linearLayout3 = findViewByID_My(R.id.linearLayout3);
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
-        linearLayout3.setOnClickListener(this);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
-        textView3 = findViewByID_My(R.id.textView3);
         view1 = findViewByID_My(R.id.view1);
         view2 = findViewByID_My(R.id.view2);
-        view3 = findViewByID_My(R.id.view3);
 
 
         rv_join = findViewByID_My(R.id.rv_join);
@@ -175,10 +171,10 @@ public class Fragment3 extends BaseFragment {
     public void requestServer() {
         super.requestServer();
 //        this.showLoadingPage();
-        /*if (isAdded()) {
+        if (isAdded()) {
             showProgress(true, getString(R.string.app_loading));
             request("?token=" + localUserInfo.getToken());
-        }*/
+        }
     }
 
     @Override
@@ -202,27 +198,28 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(final Fragment3Model response) {
                 MyLogger.i(">>>>>>>>>首页" + response);
+//                showContentPage();
                 if (response != null) {
                     model = response;
                     //加入拼团
-                    list_join = response.getContract_call_margin_list();
-                    mAdapter_join = new CommonAdapter<Fragment3Model.ContractCallMarginListBean>
+                    list_join = response.getChange_game_list();
+                    mAdapter_join = new CommonAdapter<Fragment3Model.ChangeGameListBean>
                             (getActivity(), R.layout.item_fragment3_join, list_join) {
                         @Override
-                        protected void convert(ViewHolder holder, Fragment3Model.ContractCallMarginListBean model, int position) {
+                        protected void convert(ViewHolder holder, Fragment3Model.ChangeGameListBean model, int position) {
                            /* holder.setText(R.id.textView1, model.getMoney());
                             holder.setText(R.id.textView2, model.getShow_created_at());*/
                         }
                     };
-
+                    rv_join.setAdapter(mAdapter_join);
 
                     //完成拼团
-                    list1 = response.getNewest_contract_list();
-                    mAdapter1 = new CommonAdapter<Fragment3Model.NewestContractListBean>
+                    list1 = response.getChange_game_list();
+                    mAdapter1 = new CommonAdapter<Fragment3Model.ChangeGameListBean>
                             (getActivity(), R.layout.item_fragment3_1, list1) {
                         @Override
-                        protected void convert(ViewHolder holder, Fragment3Model.NewestContractListBean model, int position) {
-                            /*holder.setText(R.id.textView1, model.getMember_nickname());//昵称
+                        protected void convert(ViewHolder holder, Fragment3Model.ChangeGameListBean model, int position) {
+                            /*holder.setText(R.id.tv_num, model.getMember_nickname());//昵称
                             holder.setText(R.id.textView2, model.getMoney());//合约数
                             TextView tv3 = holder.getView(R.id.textView3);
                             if (model.getProfit_money() > 0) {
@@ -247,11 +244,11 @@ public class Fragment3 extends BaseFragment {
                         }
                     };
                     //算力排行
-                    list2 = response.getContract_trading_list();
-                    mAdapter2 = new CommonAdapter<Fragment3Model.ContractTradingListBean>
+                    list2 = response.getMember_list();
+                    mAdapter2 = new CommonAdapter<Fragment3Model.MemberListBean>
                             (getActivity(), R.layout.item_fragment3_2, list2) {
                         @Override
-                        protected void convert(ViewHolder holder, Fragment3Model.ContractTradingListBean model, int position) {
+                        protected void convert(ViewHolder holder, Fragment3Model.MemberListBean model, int position) {
                             /*holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
                             holder.setText(R.id.textView2, model.getMoney());//合约数
                             TextView tv3 = holder.getView(R.id.textView3);
@@ -328,16 +325,14 @@ public class Fragment3 extends BaseFragment {
         if (type == 1) {
             textView1.setTextColor(getResources().getColor(R.color.black1));
             textView2.setTextColor(getResources().getColor(R.color.black3));
-            textView3.setTextColor(getResources().getColor(R.color.black3));
 
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.INVISIBLE);
-            view3.setVisibility(View.INVISIBLE);
 
             if (list1.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter1);
-//                mAdapter1.notifyDataSetChanged();
+                mAdapter1.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }
@@ -345,16 +340,14 @@ public class Fragment3 extends BaseFragment {
         } else if (type == 2) {
             textView1.setTextColor(getResources().getColor(R.color.black3));
             textView2.setTextColor(getResources().getColor(R.color.black1));
-            textView3.setTextColor(getResources().getColor(R.color.black3));
 
             view1.setVisibility(View.INVISIBLE);
             view2.setVisibility(View.VISIBLE);
-            view3.setVisibility(View.INVISIBLE);
 
             if (list2.size() > 0) {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter2);
-//                mAdapter2.notifyDataSetChanged();
+                mAdapter2.notifyDataSetChanged();
             } else {
                 showEmptyPage();
             }

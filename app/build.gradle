@@ -116,6 +116,7 @@ dependencies {
 
     //自定义阴影库
     implementation 'com.lijiankun24:shadowlayout:1.1.0'
+    implementation 'com.mosect:AShadow:2.0.5'
 
     //banner
     implementation 'com.youth.banner:banner:1.4.10'

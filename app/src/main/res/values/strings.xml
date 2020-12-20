@@ -456,8 +456,8 @@
     <string name="fragment4_h20">支出明细</string>
     <string name="fragment4_h21">转账</string>
     <string name="fragment4_h26">可用余额</string>
-    <string name="fragment4_h27"></string>
-    <string name="fragment4_h28"></string>
+    <string name="fragment4_h27">充值成功</string>
+    <string name="fragment4_h28">可用FIL</string>
     <string name="fragment4_h29"></string>
 
     <!--fragment5-->
@@ -509,7 +509,7 @@
 
 
     <!--地址管理-->
-    <string name="address_h1">USDT地址管理</string>
+    <string name="address_h1">USDT地址设置</string>
     <string name="address_h2">USDT地址</string>
     <string name="address_h3">请输入USDT地址</string>
     <string name="address_h4">手机号</string>
@@ -535,7 +535,7 @@
     <string name="address_h24">越南用户</string>
     <string name="address_h25">需设置交易密码后才可操作</string>
     <string name="address_h26">需设置币地址后才可操作</string>
-    <string name="qianbao_h48">FIL地址管理</string>
+    <string name="qianbao_h48">FIL地址设置</string>
     <string name="qianbao_h45">FIL地址</string>
     <string name="qianbao_h49">请输入FIL地址</string>
     <string name="qianbao_h50">FIL地址设置成功</string>
@@ -564,8 +564,8 @@
     <string name="recharge_h2">可用余币：</string>
     <string name="recharge_h3">不包括交易所手续费</string>
     <string name="recharge_h4">提交时间</string>
-    <string name="recharge_h5"></string>
-    <string name="recharge_h6"></string>
+    <string name="recharge_h5">充币</string>
+    <string name="recharge_h6">提币</string>
     <string name="recharge_h7"></string>
     <string name="recharge_h8"></string>
     <string name="recharge_h9"></string>
@@ -664,7 +664,7 @@
     <string name="takecash_h5">美元</string>
     <string name="takecash_h6">手机号码</string>
     <string name="takecash_h7">提币数量</string>
-    <string name="takecash_h8">输入提币个数</string>
+    <string name="takecash_h8">请输入提币个数</string>
     <string name="takecash_h9">交易密码</string>
     <string name="takecash_h10">请输入交易密码</string>
     <string name="takecash_h11">实际到账</string>
@@ -726,6 +726,10 @@
     <string name="zxing_h28">图片格式错误</string>
     <string name="zxing_h31">保存二维码</string>
     <string name="zxing_h32">保存二维码到相册</string>
+    <string name="zxing_h33">对方昵称</string>
+    <string name="zxing_h34">转帐时间</string>
+    <string name="zxing_h35">转入数量</string>
+    <string name="zxing_h36">转出数量</string>
 
 
     <!--转币-->
@@ -736,7 +740,7 @@
     <string name="scavengingpayment_h5">转币提交成功</string>
     <string name="scavengingpayment_h6">获得</string>
     <string name="scavengingpayment_h7">转帐数量</string>
-    <string name="scavengingpayment_h8">输入转币数量</string>
+    <string name="scavengingpayment_h8">请输入转币数量</string>
     <string name="scavengingpayment_h9">可用余币：</string>
     <string name="scavengingpayment_h10">划转成功</string>
 

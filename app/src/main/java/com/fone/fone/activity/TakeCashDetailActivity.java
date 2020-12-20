@@ -1,6 +1,7 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.TakeCashDetailModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -22,13 +24,20 @@ public class TakeCashDetailActivity extends BaseActivity {
     String id = "";
     ProgressBar prograssBar;
     ImageView imageView1, imageView2;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView14,textView15,textView16;
+    TextView textView,textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
+            textView14, textView15, textView16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_takecashdetail);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -52,6 +61,7 @@ public class TakeCashDetailActivity extends BaseActivity {
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
 
+        textView = findViewByID_My(R.id.textView);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
@@ -88,32 +98,18 @@ public class TakeCashDetailActivity extends BaseActivity {
             public void onResponse(TakeCashDetailModel response) {
                 MyLogger.i(">>>>>>>>>提现详情" + response);
                 hideProgress();
-                /*if (response != null) {
-//                textView1.setText(getString(R.string.takecash_h18) + "(" + getString(R.string.app_type_CHO) + ")");//提现个数
-                    textView2.setText("-" + response.getInput_money());//提现个数
-//                textView3.setText("" + response.getStatus_title());//提现个数
+                if (response != null) {
+                    textView2.setText("" + response.getMoney());//提现个数
+//                    textView5.setText("" + response.getShow_created_at());//提现处理中时间
+//                    textView7.setText("" + response.getShow_updated_at());//提现完成时间
 
-                    textView5.setText("" + response.getShow_created_at());//提现处理中时间
-                    textView7.setText("" + response.getShow_updated_at());//提现完成时间
+                    textView8.setText(response.getMoney_wallet_addr());//提现地址
 
-
-//                textView9.setText(response.getTxid());//txid
-
-                    if (response.getType() == 1) {
-                        textView8.setText(response.getMember_usdt_wallet_addr());//提现地址
-                        textView3.setText(getString(R.string.takecash_h18));
-                        textView9.setText(response.getMoney() + getString(R.string.recharge_h32));//实际到账
-                        textView10.setText(response.getService_charge_money() + getString(R.string.recharge_h32));//手续费
-                    } else {
-                        textView8.setText(response.getMember_ofc_wallet_addr());//提现地址
-                        textView3.setText(getString(R.string.qianbao_h53));
-                        textView9.setText(response.getMoney() + "DRVT");//实际到账
-                        textView10.setText(response.getService_charge_money() + "DRVT");//手续费
-                    }
-
-                    textView11.setText(response.getCreated_at());//提现时间
-                    textView12.setText(response.getSn());//流水号
-                    textView13.setText(response.getStatus_title());//状态
+                    textView.setText(response.getSn());//单号
+                    textView16.setText(response.getService_charge_money() + getString(R.string.recharge_h32));//手续费
+                    textView1.setText(response.getCreated_at());//提现时间
+                    textView14.setText(response.getVerify_at());//到账时间
+                    textView15.setText(response.getStatus_title());//状态
 
                     if (response.getStatus() == 2) {
                         //通过
@@ -122,7 +118,7 @@ public class TakeCashDetailActivity extends BaseActivity {
                         prograssBar.setProgress(100);
                         textView6.setText(getString(R.string.takecash_h19));
 
-                        textView6.setTextColor(getResources().getColor(R.color.green));
+                        textView6.setTextColor(getResources().getColor(R.color.shengreen));
                         textView14.setVisibility(View.GONE);
                     } else if (response.getStatus() == 3) {
                         //未通过
@@ -130,7 +126,7 @@ public class TakeCashDetailActivity extends BaseActivity {
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail4);
                         prograssBar.setProgress(100);
                         textView6.setText(getString(R.string.takecash_h27));
-                        textView6.setTextColor(getResources().getColor(R.color.green));
+                        textView6.setTextColor(getResources().getColor(R.color.shengreen));
 
                         textView14.setVisibility(View.VISIBLE);
                         textView14.setText(getString(R.string.takecash_h28) + response.getStatus_rejected_cause());
@@ -140,11 +136,11 @@ public class TakeCashDetailActivity extends BaseActivity {
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail2);
                         prograssBar.setProgress(50);
                         textView6.setText(getString(R.string.takecash_h19));
-                        textView6.setTextColor(getResources().getColor(R.color.black2));
+                        textView6.setTextColor(getResources().getColor(R.color.white1));
 
                         textView14.setVisibility(View.GONE);
                     }
-                }*/
+                }
             }
         });
     }
@@ -159,6 +155,7 @@ public class TakeCashDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.takecash_h25));
+//        titleView.setTitle(getString(R.string.takecash_h25));
+        titleView.setVisibility(View.GONE);
     }
 }

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.QRCodeModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
@@ -29,11 +30,15 @@ import com.fone.fone.view.zxing.CaptureActivity;
 import com.fone.fone.view.zxing.Constant;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -49,22 +54,22 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
  */
 
 public class QRCodeActivity extends BaseActivity {
+    int type = 1;
     private RecyclerView recyclerView;
-   /* List<TransferRecordModel> list = new ArrayList<>();
-    CommonAdapter<TransferRecordModel> mAdapter;*/
+    List<QRCodeModel.InTransferListBean> list1 = new ArrayList<>();
+    CommonAdapter<QRCodeModel.InTransferListBean> mAdapter1;
+    List<QRCodeModel.OutTransferListBean> list2 = new ArrayList<>();
+    CommonAdapter<QRCodeModel.OutTransferListBean> mAdapter2;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
     private View view1, view2;
 
     int page = 1;
-    String sort = "desc", type = "";
-    int i1 = 0;
-    int i2 = 0;
 
 
     ImageView imageView1, imageView2;
-    TextView tv_name, tv_scan, tv_save;
+    TextView tv_name, tv_scan, tv_save,textView;
 
     Handler handler = new Handler();
     private static final int MSG_SUCCESS = 0;// 获取成功的标识
@@ -94,6 +99,7 @@ public class QRCodeActivity extends BaseActivity {
             }
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,26 +114,30 @@ public class QRCodeActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();//获取数据
+    }
+
+    @Override
     protected void initView() {
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
         tv_name = findViewByID_My(R.id.tv_name);
         tv_scan = findViewByID_My(R.id.tv_scan);
         tv_save = findViewByID_My(R.id.tv_save);
-
+        textView = findViewByID_My(R.id.textView);
         //列表
         recyclerView = findViewByID_My(R.id.recyclerView);
         final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(QRCodeActivity.this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
-        setSpringViewMore(true);//需要加载更多
+        setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
                 //刷新
                 page = 1;
-                String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort=" + sort
-                        + "&page=" + page//当前页号
+                String string = "?page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentList(string);
@@ -137,12 +147,12 @@ public class QRCodeActivity extends BaseActivity {
             public void onLoadmore() {
                 page = page + 1;
                 //加载更多
-                String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
+                /*String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentListMore(string);
+                RequestMyInvestmentListMore(string);*/
             }
         });
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
@@ -169,10 +179,10 @@ public class QRCodeActivity extends BaseActivity {
         Bitmap mBitmap = ZxingUtils.createQRCodeBitmap(localUserInfo.getUserId(), 480, 480);
         imageView2.setImageBitmap(mBitmap);
 
-        requestServer();//获取数据
     }
+
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(QRCodeActivity.this, URLs.TransferRecord + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(QRCodeActivity.this, URLs.QRCode + string, new OkHttpClientManager.ResultCallback<QRCodeModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -183,97 +193,42 @@ public class QRCodeActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
-                showContentPage();
-                hideProgress();
+            public void onResponse(QRCodeModel response) {
+//                showContentPage();
                 MyLogger.i(">>>>>>>>>转币记录列表" + response);
-                /*JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), TransferRecordModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<TransferRecordModel>
-                                (QRCodeActivity.this, R.layout.item_myrecharge, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, TransferRecordModel model, int position) {
+                //昵称
+                tv_name.setText(response.getNickname());
+                //头像
+                Glide.with(QRCodeActivity.this)
+                        .load(IMGHOST + response.getHead())
+                        .centerCrop()
+                        .placeholder(R.mipmap.loading)//加载站位图
+                        .error(R.mipmap.headimg)//加载失败
+                        .into(imageView1);//加载图片
 
-
-                                if (model.getType() == 1){
-                                    //转出
-                                    holder.setText(R.id.textView1, model.getType_title() + "：-" + model.getMoney());//标题
-                                }else {
-                                    //转入
-                                    holder.setText(R.id.textView1, model.getType_title() + "：+" + model.getMoney());//标题
-                                }
-                                holder.setText(R.id.textView2, model.getShow_created_at());//流水号
-                                holder.setText(R.id.textView3, QRCodeActivity.this.getString(R.string.transferrecord_h4) + model.getNickname());//时间
-                                holder.setText(R.id.textView4, model.getStatus_title());//状态
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-
-                        *//*mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(TransferRecordActivity.this, RechargeDetailActivity.class, bundle1, false);
-                            }
-
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });*//*
+                list1 = response.getIn_transfer_list();
+                mAdapter1 = new CommonAdapter<QRCodeModel.InTransferListBean>
+                        (QRCodeActivity.this, R.layout.item_qrcode, list1) {
+                    @Override
+                    protected void convert(ViewHolder holder, QRCodeModel.InTransferListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getFrom_member_nickname());//流水号
+                        holder.setText(R.id.textView2, model.getCreated_at());//时间
+                        holder.setText(R.id.textView3, model.getTo_money());//状态
                     }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }*/
-
-            }
-        });
-
-    }
-    private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(QRCodeActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    showToast(info);
-                }
-                page--;
-            }
-
-            @Override
-            public void onResponse(String response) {
-                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>转币记录列表更多" + response);
-                /*JSONObject jObj;
-                List<TransferRecordModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), TransferRecordModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
+                };
+                list2 = response.getOut_transfer_list();
+                mAdapter2 = new CommonAdapter<QRCodeModel.OutTransferListBean>
+                        (QRCodeActivity.this, R.layout.item_qrcode, list2) {
+                    @Override
+                    protected void convert(ViewHolder holder, QRCodeModel.OutTransferListBean model, int position) {
+                        holder.setText(R.id.textView1, model.getTo_member_nickname());//流水号
+                        holder.setText(R.id.textView2, model.getCreated_at());//时间
+                        holder.setText(R.id.textView3, model.getFrom_money());//状态
                     }
+                };
+                hideProgress();
+                changeUI();
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }*/
             }
         });
 
@@ -293,43 +248,69 @@ public class QRCodeActivity extends BaseActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        printScreen(imageView2, getString(R.string.app_name)+"_qrcode" + System.currentTimeMillis());
+                        printScreen(imageView2, getString(R.string.app_name) + "_qrcode" + System.currentTimeMillis());
                     }
                 });
 //                showToast(getString(R.string.zxing_h21));
                 break;
             case R.id.linearLayout1:
-                textView1.setTextColor(getResources().getColor(R.color.green));
-                textView2.setTextColor(getResources().getColor(R.color.black3));
-//                textView1.setCompoundDrawables(null, null, drawable1, null);
-//                textView2.setCompoundDrawables(null, null, drawable2, null);
-                view1.setVisibility(View.VISIBLE);
-                view2.setVisibility(View.INVISIBLE);
-//                showPopupWindow1(pop_view);
+                type = 1;
+                changeUI();
                 break;
             case R.id.linearLayout2:
-                textView1.setTextColor(getResources().getColor(R.color.black3));
-                textView2.setTextColor(getResources().getColor(R.color.green));
-//                textView1.setCompoundDrawables(null, null, drawable2, null);
-//                textView2.setCompoundDrawables(null, null, drawable1, null);
-                view1.setVisibility(View.INVISIBLE);
-                view2.setVisibility(View.VISIBLE);
-//                showPopupWindow2(pop_view);
+                type = 2;
+                changeUI();
                 break;
         }
     }
+
+    private void changeUI() {
+        if (type == 1) {
+            textView.setText(getString(R.string.zxing_h35));
+            textView1.setTextColor(getResources().getColor(R.color.green));
+            textView2.setTextColor(getResources().getColor(R.color.black3));
+
+            view1.setVisibility(View.VISIBLE);
+            view2.setVisibility(View.INVISIBLE);
+
+            if (list1.size() > 0) {
+                showContentPage();
+                recyclerView.setAdapter(mAdapter1);
+                mAdapter1.notifyDataSetChanged();
+            } else {
+                showEmptyPage();
+            }
+
+        } else if (type == 2) {
+            textView.setText(getString(R.string.zxing_h36));
+            textView1.setTextColor(getResources().getColor(R.color.black3));
+            textView2.setTextColor(getResources().getColor(R.color.green));
+
+            view1.setVisibility(View.INVISIBLE);
+            view2.setVisibility(View.VISIBLE);
+
+            if (list2.size() > 0) {
+                showContentPage();
+                recyclerView.setAdapter(mAdapter2);
+                mAdapter2.notifyDataSetChanged();
+            } else {
+                showEmptyPage();
+            }
+        }
+
+    }
+
     @Override
     public void requestServer() {
         super.requestServer();
         this.showLoadingPage();
         page = 1;
-        String string = "?type=" + type//状态（1.待审核 2.通过 3.未通过）
-                + "&sort=" + sort
-                + "&page=" + page//当前页号
+        String string = "?page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
         RequestMyInvestmentList(string);
     }
+
     @Override
     protected void updateView() {
 //        titleView.setTitle(getString(R.string.zxing_h25));

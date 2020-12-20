@@ -7,8 +7,7 @@ import java.io.Serializable;
  */
 public class RechargeDetailModel implements Serializable {
     /**
-     * top_up : {"id":"536aa2b4cd74f61eec216b7f7809ca05","sn":"TU1576565271101529","type":1,"wallet_addr":"啊啊啊啊","input_money":"10","money":"10","status":1,"status_rejected_cause":"","created_at":"2019-12-17 14:47:51","updated_at":"2019-12-17 14:47:51","status_title":"待审核","show_created_at":"12-17 14:47","show_updated_at":"12-17 14:47"}
-     * aud_wire_transfer : {"bank_title":"xxx","bank_card_proceeds_name":"xxx","bank_card_account":"xxx","bank_swift_code":"xxx","bank_aba_code":"xxx"}
+     * top_up : {"id":"2329c32c367b9bd590d9690b50c3e434","sn":"TU1608437131561005","money_wallet_addr":"f1a7ba5584f3413caf9eb00e7aeedb15","money_type":1,"input_money":"10000.0000","money":"10000.0000","status":1,"status_rejected_cause":"","verify_at":null,"created_at":"2020-12-20 12:05:31","money_type_title":"USDT","status_title":"待审核"}
      */
     private String id;
 
@@ -21,7 +20,6 @@ public class RechargeDetailModel implements Serializable {
     }
 
     private TopUpBean top_up;
-    private AudWireTransferBean aud_wire_transfer;
 
     public TopUpBean getTop_up() {
         return top_up;
@@ -31,53 +29,34 @@ public class RechargeDetailModel implements Serializable {
         this.top_up = top_up;
     }
 
-    public AudWireTransferBean getAud_wire_transfer() {
-        return aud_wire_transfer;
-    }
-
-    public void setAud_wire_transfer(AudWireTransferBean aud_wire_transfer) {
-        this.aud_wire_transfer = aud_wire_transfer;
-    }
-
     public static class TopUpBean {
         /**
-         * id : 536aa2b4cd74f61eec216b7f7809ca05
-         * sn : TU1576565271101529
-         * type : 1
-         * wallet_addr : 啊啊啊啊
-         * input_money : 10
-         * money : 10
+         * id : 2329c32c367b9bd590d9690b50c3e434
+         * sn : TU1608437131561005
+         * money_wallet_addr : f1a7ba5584f3413caf9eb00e7aeedb15
+         * money_type : 1
+         * input_money : 10000.0000
+         * money : 10000.0000
          * status : 1
          * status_rejected_cause :
-         * created_at : 2019-12-17 14:47:51
-         * updated_at : 2019-12-17 14:47:51
+         * verify_at : null
+         * created_at : 2020-12-20 12:05:31
+         * money_type_title : USDT
          * status_title : 待审核
-         * show_created_at : 12-17 14:47
-         * show_updated_at : 12-17 14:47
          */
 
         private String id;
         private String sn;
-        private int type;
-        private String wallet_addr;
+        private String money_wallet_addr;
+        private int money_type;
         private String input_money;
         private String money;
-        private String usdt_price;
         private int status;
         private String status_rejected_cause;
+        private String verify_at;
         private String created_at;
-        private String updated_at;
+        private String money_type_title;
         private String status_title;
-        private String show_created_at;
-        private String show_updated_at;
-
-        public String getUsdt_price() {
-            return usdt_price;
-        }
-
-        public void setUsdt_price(String usdt_price) {
-            this.usdt_price = usdt_price;
-        }
 
         public String getId() {
             return id;
@@ -95,20 +74,20 @@ public class RechargeDetailModel implements Serializable {
             this.sn = sn;
         }
 
-        public int getType() {
-            return type;
+        public String getMoney_wallet_addr() {
+            return money_wallet_addr;
         }
 
-        public void setType(int type) {
-            this.type = type;
+        public void setMoney_wallet_addr(String money_wallet_addr) {
+            this.money_wallet_addr = money_wallet_addr;
         }
 
-        public String getWallet_addr() {
-            return wallet_addr;
+        public int getMoney_type() {
+            return money_type;
         }
 
-        public void setWallet_addr(String wallet_addr) {
-            this.wallet_addr = wallet_addr;
+        public void setMoney_type(int money_type) {
+            this.money_type = money_type;
         }
 
         public String getInput_money() {
@@ -143,6 +122,14 @@ public class RechargeDetailModel implements Serializable {
             this.status_rejected_cause = status_rejected_cause;
         }
 
+        public String getVerify_at() {
+            return verify_at;
+        }
+
+        public void setVerify_at(String verify_at) {
+            this.verify_at = verify_at;
+        }
+
         public String getCreated_at() {
             return created_at;
         }
@@ -151,12 +138,12 @@ public class RechargeDetailModel implements Serializable {
             this.created_at = created_at;
         }
 
-        public String getUpdated_at() {
-            return updated_at;
+        public String getMoney_type_title() {
+            return money_type_title;
         }
 
-        public void setUpdated_at(String updated_at) {
-            this.updated_at = updated_at;
+        public void setMoney_type_title(String money_type_title) {
+            this.money_type_title = money_type_title;
         }
 
         public String getStatus_title() {
@@ -165,78 +152,6 @@ public class RechargeDetailModel implements Serializable {
 
         public void setStatus_title(String status_title) {
             this.status_title = status_title;
-        }
-
-        public String getShow_created_at() {
-            return show_created_at;
-        }
-
-        public void setShow_created_at(String show_created_at) {
-            this.show_created_at = show_created_at;
-        }
-
-        public String getShow_updated_at() {
-            return show_updated_at;
-        }
-
-        public void setShow_updated_at(String show_updated_at) {
-            this.show_updated_at = show_updated_at;
-        }
-    }
-
-    public static class AudWireTransferBean {
-        /**
-         * bank_title : xxx
-         * bank_card_proceeds_name : xxx
-         * bank_card_account : xxx
-         * bank_swift_code : xxx
-         * bank_aba_code : xxx
-         */
-
-        private String bank_title;
-        private String bank_card_proceeds_name;
-        private String bank_card_account;
-        private String bank_swift_code;
-        private String bank_aba_code;
-
-        public String getBank_title() {
-            return bank_title;
-        }
-
-        public void setBank_title(String bank_title) {
-            this.bank_title = bank_title;
-        }
-
-        public String getBank_card_proceeds_name() {
-            return bank_card_proceeds_name;
-        }
-
-        public void setBank_card_proceeds_name(String bank_card_proceeds_name) {
-            this.bank_card_proceeds_name = bank_card_proceeds_name;
-        }
-
-        public String getBank_card_account() {
-            return bank_card_account;
-        }
-
-        public void setBank_card_account(String bank_card_account) {
-            this.bank_card_account = bank_card_account;
-        }
-
-        public String getBank_swift_code() {
-            return bank_swift_code;
-        }
-
-        public void setBank_swift_code(String bank_swift_code) {
-            this.bank_swift_code = bank_swift_code;
-        }
-
-        public String getBank_aba_code() {
-            return bank_aba_code;
-        }
-
-        public void setBank_aba_code(String bank_aba_code) {
-            this.bank_aba_code = bank_aba_code;
         }
     }
 }

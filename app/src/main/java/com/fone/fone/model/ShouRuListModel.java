@@ -1,62 +1,65 @@
 package com.fone.fone.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Mr.Z on 2020/8/10.
  */
 public class ShouRuListModel implements Serializable {
-    /**
-     * id : a5fb7a454f48246cd167f655807e3132
-     * money : 1.00
-     * usdt_money : 1.07
-     * ofc_price : 1.0670
-     * created_at : 2020-09-23 20:46:02
-     */
+    private List<InMoneyListBean> in_money_list;
 
-    private String id;
-    private String money;
-    private String usdt_money;
-    private String ofc_price;
-    private String created_at;
-
-    public String getId() {
-        return id;
+    public List<InMoneyListBean> getIn_money_list() {
+        return in_money_list;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIn_money_list(List<InMoneyListBean> in_money_list) {
+        this.in_money_list = in_money_list;
     }
 
-    public String getMoney() {
-        return money;
-    }
+    public static class InMoneyListBean {
+        /**
+         * title : 转入
+         * money : 10
+         * status : 完成
+         * created_at : 2020-12-20 16:06:28
+         */
 
-    public void setMoney(String money) {
-        this.money = money;
-    }
+        private String title;
+        private String money;
+        private String status;
+        private String created_at;
 
-    public String getUsdt_money() {
-        return usdt_money;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public void setUsdt_money(String usdt_money) {
-        this.usdt_money = usdt_money;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public String getOfc_price() {
-        return ofc_price;
-    }
+        public String getMoney() {
+            return money;
+        }
 
-    public void setOfc_price(String ofc_price) {
-        this.ofc_price = ofc_price;
-    }
+        public void setMoney(String money) {
+            this.money = money;
+        }
 
-    public String getCreated_at() {
-        return created_at;
-    }
+        public String getStatus() {
+            return status;
+        }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
     }
 }

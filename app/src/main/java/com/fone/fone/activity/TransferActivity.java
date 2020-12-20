@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -74,24 +73,24 @@ public class TransferActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(final Editable s) {
-                if (runnable != null) {
+                if (!editText1.getText().toString().trim().equals("")){
+                    double money = Double.valueOf(editText1.getText().toString().trim());
+                    editText2.setText(String.format("%.2f", money*Double.valueOf(model.getFil_price())));
+                }else {
+                    editText2.setText("0");
+                }
+                /*if (runnable != null) {
                     handler.removeCallbacks(runnable);
                     Log.v("tag", "---" + s.toString());
                 }
                 runnable = new Runnable() {
                     @Override
                     public void run() {
-                        if (!editText1.getText().toString().trim().equals("")){
-                            double money = Double.valueOf(editText1.getText().toString().trim());
-                            editText2.setText(String.format("%.2f", (money*0.8)));
-                        }else {
-//                            myToast(getString(R.string.myprofile_h48));
-                            editText2.setText("0");
-                        }
+
                     }
                 };
                 Log.v("tag", "(((((" + s.toString());
-                handler.postDelayed(runnable, 1000);
+                handler.postDelayed(runnable, 1000);*/
             }
         });
     }
@@ -110,7 +109,7 @@ public class TransferActivity extends BaseActivity {
     }
 
     private void request(String string) {
-        OkHttpClientManager.getAsyn(TransferActivity.this, URLs.Transfer+ string, new OkHttpClientManager.ResultCallback<TransferModel>() {
+        OkHttpClientManager.getAsyn(TransferActivity.this, URLs.HuaZhuan+ string, new OkHttpClientManager.ResultCallback<TransferModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -124,8 +123,8 @@ public class TransferActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转" + response);
                 model = response;
-                textView3.setText(getString(R.string.scavengingpayment_h3)+response.getCommon_usable_money() + "");
-                textView5.setText(response.getCommon_usable_money()+"usdt");
+                textView3.setText(getString(R.string.scavengingpayment_h3)+response.getUsable_fil_money() + "");
+                textView5.setText(response.getFil_price()+"usdt");
             }
         });
     }
@@ -143,7 +142,7 @@ public class TransferActivity extends BaseActivity {
                     tv_confirm.setClickable(false);
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("money", editText1.getText().toString().trim());
+                    params.put("fil_money", editText1.getText().toString().trim());
                     params.put("token", localUserInfo.getToken());
                     params.put("hk", model.getHk());
                     RequestAdd(params);
@@ -155,7 +154,7 @@ public class TransferActivity extends BaseActivity {
     }
 
     private void RequestAdd(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(TransferActivity.this, URLs.Transfer, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(TransferActivity.this, URLs.HuaZhuan, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 tv_confirm.setClickable(true);
@@ -163,7 +162,6 @@ public class TransferActivity extends BaseActivity {
                 if (!info.equals("")) {
                     showToast(info);
                 }
-
             }
 
             @Override
@@ -172,6 +170,7 @@ public class TransferActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>划转提交" + response);
 
+                requestServer();
                 showToast(getString(R.string.scavengingpayment_h10), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -186,7 +185,7 @@ public class TransferActivity extends BaseActivity {
                 });
 
             }
-        });
+        },true);
     }
 
     @Override

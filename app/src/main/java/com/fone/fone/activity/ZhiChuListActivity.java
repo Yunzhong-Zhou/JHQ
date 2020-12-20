@@ -12,11 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.ShouRuListModel;
+import com.fone.fone.model.ZhiChuListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.MyLogger;
@@ -26,10 +25,6 @@ import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +39,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ZhiChuListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<ShouRuListModel> list = new ArrayList<>();
-    CommonAdapter<ShouRuListModel> mAdapter;
+    List<ZhiChuListModel.OutMoneyListBean> list = new ArrayList<>();
+    CommonAdapter<ZhiChuListModel.OutMoneyListBean> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -118,7 +113,7 @@ public class ZhiChuListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(ZhiChuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ZhiChuListActivity.this, URLs.ZhiChuList + string, new OkHttpClientManager.ResultCallback<ZhiChuListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -129,46 +124,37 @@ public class ZhiChuListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ZhiChuListModel response) {
                 showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>支出列表" + response);
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<ShouRuListModel>
-                                (ZhiChuListActivity.this, R.layout.item_shourulist, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, ShouRuListModel model, int position) {
-                                /*holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");*/
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                list = response.getOut_money_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<ZhiChuListModel.OutMoneyListBean>
+                            (ZhiChuListActivity.this, R.layout.item_shourulist, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, ZhiChuListModel.OutMoneyListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getTitle());//标题
+                            holder.setText(R.id.textView2, model.getCreated_at());//时间
+                            holder.setText(R.id.textView3, "-" + model.getMoney());
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(HuiGouListActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                            }
+                        }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });
                 }
             }
         });
@@ -176,7 +162,7 @@ public class ZhiChuListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(ZhiChuListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ZhiChuListActivity.this, URLs.ZhiChuList + string, new OkHttpClientManager.ResultCallback<ZhiChuListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -188,27 +174,19 @@ public class ZhiChuListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ZhiChuListModel response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
-                JSONObject jObj;
-                List<ShouRuListModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<ZhiChuListModel.OutMoneyListBean> list1 = new ArrayList<>();
+
+                list1 = response.getOut_money_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });

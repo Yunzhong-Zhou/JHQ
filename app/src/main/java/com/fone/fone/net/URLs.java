@@ -66,15 +66,15 @@ public class URLs {
     //支付详情
     public static final String PayDetail = "/api/like-game/rank";
     /**
-     * 区块
+     * 算力
      */
-    public static final String Fragment2 = "/api/forecast/record";
+    public static final String Fragment2 = "/api/invest/record";
 
     //首页
     /**
      * 首页
      */
-    public static final String Fragment3 = "/api/index";
+    public static final String Fragment3 = "/api/change-game/index";
     //往期列表
     public static final String PastList = "/api/like-game/history";
     //排行榜
@@ -83,10 +83,21 @@ public class URLs {
     /**
      * 账户
      */
-    public static final String Fragment4 = "/api/top-up/create";
+    public static final String Fragment4 = "/api/member/account";
+    //充值
+    public static final String Recharge = "/api/top-up/create";
+    //USDT钱包
+    public static final String USDTWallet = "/api/member/usdt-account";
+    //FIL钱包
+    public static final String FILWallet = "/api/member/fil-account";
     //收入记录
-    public static final String ShouRuList = "/api/top-up/create";
-
+    public static final String ShouRuList = "/api/member/usdt-in-money-record";
+    //支出记录
+    public static final String ZhiChuList = "/api/member/usdt-out-money-record";
+    //收入记录-fil
+    public static final String ShouRuList_FIL = "/api/member/fil-in-money-record";
+    //支出记录-fil
+    public static final String ZhiChuList_FIL = "/api/member/fil-out-money-record";
 
     // 用户模块
     /**
@@ -167,15 +178,15 @@ public class URLs {
      * 我的海报
      */
     public static final String MyPoster = "/api/index/share";
+
     /**
      * 创建转币（获取可用金额）
      */
     public static final String Transfer = "/api/transfer/create";
-    /**
-     * 转币记录
-     */
-    public static final String TransferRecord = "/api/transfer/record";
-
+    //转账二维码-主页面
+    public static final String QRCode = "/api/transfer/index";
+    //划转
+    public static final String HuaZhuan = "/api/convert/create";
 
     /**
      * 交易列表

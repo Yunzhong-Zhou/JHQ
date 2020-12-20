@@ -88,7 +88,7 @@
                                         android:id="@+id/tv_shouyi"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="0TB"
+                                        android:text="0"
                                         android:textColor="@color/black1"
                                         android:textSize="18sp" />
 
@@ -236,7 +236,7 @@
                             android:textColor="@color/black1"
                             android:drawablePadding="10dp"
                             android:drawableRight="@mipmap/ic_next_black"
-                            android:textStyle="bold"
+                            android:textStyle="normal"
                             android:textSize="22sp" />
 
                         <TextView

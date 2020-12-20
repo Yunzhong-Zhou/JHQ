@@ -7,25 +7,25 @@ import java.io.Serializable;
  */
 public class InvitationRewardModel implements Serializable {
     /**
-     * nickname : 18306043086
-     * head : /head/368.png
-     * profit_money : 0
-     * invite_code : 38272979
-     * url : /register?invite_code=38272979
+     * invite_code : pour
+     * head : /head/606.png
+     * nickname : FIL_pour广告费
+     * change_game_win_money : 0
+     * url : http://app.bwnx.org/register?invite_code=pour
      */
 
-    private String nickname;
-    private String head;
-    private String profit_money;
     private String invite_code;
+    private String head;
+    private String nickname;
+    private String change_game_win_money;
     private String url;
 
-    public String getNickname() {
-        return nickname;
+    public String getInvite_code() {
+        return invite_code;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setInvite_code(String invite_code) {
+        this.invite_code = invite_code;
     }
 
     public String getHead() {
@@ -36,20 +36,20 @@ public class InvitationRewardModel implements Serializable {
         this.head = head;
     }
 
-    public String getProfit_money() {
-        return profit_money;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setProfit_money(String profit_money) {
-        this.profit_money = profit_money;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getInvite_code() {
-        return invite_code;
+    public String getChange_game_win_money() {
+        return change_game_win_money;
     }
 
-    public void setInvite_code(String invite_code) {
-        this.invite_code = invite_code;
+    public void setChange_game_win_money(String change_game_win_money) {
+        this.change_game_win_money = change_game_win_money;
     }
 
     public String getUrl() {

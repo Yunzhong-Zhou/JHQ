@@ -147,15 +147,9 @@ public class MyRechargeActivity extends BaseActivity {
                                 (MyRechargeActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                if (model.getType() == 1 || model.getType() == 3) {
-                                    holder.setText(R.id.textView1, model.getType_title() + "：+" + model.getMoney());//标题
-                                } else {
-                                    holder.setText(R.id.textView1, "USDT：+" + model.getMoney() +
-                                            "(" + model.getType_title() + "：+" + model.getInput_money() + ")");//标题
-                                }
-
-                                holder.setText(R.id.textView2, model.getSn());//流水号
-                                holder.setText(R.id.textView3, MyRechargeActivity.this.getString(R.string.recharge_h22) + model.getCreated_at());//时间
+                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h5));//标题
+                                holder.setText(R.id.textView2, model.getCreated_at());//时间
+                                holder.setText(R.id.textView3, "+"+model.getMoney());//money
                                 holder.setText(R.id.textView4, model.getStatus_title());//状态
                             }
                         };
@@ -306,7 +300,6 @@ public class MyRechargeActivity extends BaseActivity {
         list.add(getString(R.string.app_type_quanbu));
         list.add(getString(R.string.app_type_usdt));
         list.add(getString(R.string.app_type_fil));
-        list.add("DRVT");
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyRechargeActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);

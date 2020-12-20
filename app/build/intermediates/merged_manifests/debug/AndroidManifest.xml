@@ -72,6 +72,8 @@
     <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
     <activity android:name="com.fone.fone.activity.ShouRuListActivity" android:label="收入记录"/>
     <activity android:name="com.fone.fone.activity.ZhiChuListActivity" android:label="支出记录"/>
+    <activity android:name="com.fone.fone.activity.FILShouRuListActivity" android:label="收入记录_FIL"/>
+    <activity android:name="com.fone.fone.activity.FILZhiChuListActivity" android:label="支出记录_FIL"/>
     <activity android:name="com.fone.fone.activity.MyRechargeActivity" android:label="我的充值"/>
     <activity android:name="com.fone.fone.activity.RechargeDetailActivity" android:label="充值详情"/>
     <activity android:name="com.fone.fone.activity.TakeCashActivity" android:label="提现"/>
