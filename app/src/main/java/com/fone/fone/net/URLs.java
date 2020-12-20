@@ -70,16 +70,16 @@ public class URLs {
      */
     public static final String Fragment2 = "/api/invest/record";
 
-    //首页
     /**
      * 首页
      */
     public static final String Fragment3 = "/api/change-game/index";
     //往期列表
-    public static final String PastList = "/api/like-game/history";
+    public static final String JoinList = "/api/change-game/record";
     //排行榜
     public static final String Leaderboard = "/api/change-game/rank";
-
+    //加入拼团
+    public static final String Join = "/api/change-game-participation/create";
     /**
      * 账户
      */
@@ -98,90 +98,19 @@ public class URLs {
     public static final String ShouRuList_FIL = "/api/member/fil-in-money-record";
     //支出记录-fil
     public static final String ZhiChuList_FIL = "/api/member/fil-out-money-record";
-
-    // 用户模块
-    /**
-     * 我的主页
-     */
-    public static final String Center = "/api/member/center";
-    /**
-     * 个人信息
-     */
-    public static final String Info = "/api/member/get-info";
-    /**
-     * 修改信息
-     */
-    public static final String ChangeProfile = "/api/member/update";
-    /**
-     * 设置交易密码
-     */
-    public static final String TransactionPassword = "/api/member/set-trade-password";
-    /**
-     * 修改密码
-     */
-    public static final String ChangePassword = "/api/member/update-password";
-
-    /**
-     * 我的充值
-     */
-    public static final String MyRecharge = "/api/top-up/record";
-    /**
-     * 充值详情
-     */
+    //充值详情
     public static final String RechargeDetail = "/api/top-up/detail";
-    /**
-     * 取消充值
-     */
+    //取消充值
     public static final String RechargeDetail_Cancel = "/api/top-up/cancel";
-    /**
-     * 提币（get）
-     */
+    //提币
     public static final String TakeCash = "/api/withdrawal/create";
-    /**
-     * 提现列表
-     */
+    //我的提币
     public static final String MyTakeCash = "/api/withdrawal/record";
-    /**
-     * 有奖邀请
-     */
-    public static final String InvitationReward = "/api/index/share";
-    /**
-     * 提现详情
-     */
+    //我的充值
+    public static final String MyRecharge = "/api/top-up/record";
+    //提现详情
     public static final String TakeCashDetail = "/api/withdrawal/detail";
-    /**
-     * 我的推广
-     */
-    public static final String Share = "/api/member/team";
-    /**
-     * 推广用户
-     */
-    public static final String DirectMember = "/api/member/direct-recommend";
-
-    /**
-     * 资讯
-     */
-    public static final String Notice = "/api/article/notice";
-    /**
-     * 帮助列表
-     */
-    public static final String Help = "/api/article/help";
-    /**
-     * 在线客服
-     */
-    public static final String OnlineService = "/api/leave-message/record";
-    /**
-     * 添加留言
-     */
-    public static final String AddMessage = "/api/leave-message/create";
-    /**
-     * 我的海报
-     */
-    public static final String MyPoster = "/api/index/share";
-
-    /**
-     * 创建转币（获取可用金额）
-     */
+    //创建转币（获取可用金额）
     public static final String Transfer = "/api/transfer/create";
     //转账二维码-主页面
     public static final String QRCode = "/api/transfer/index";
@@ -189,34 +118,36 @@ public class URLs {
     public static final String HuaZhuan = "/api/convert/create";
 
     /**
-     * 交易列表
+     * 我的主页
      */
-    public static final String JiaoYiList = "/api/drvt-sell/index";
-
-    /**
-     * 推广用户
-     */
-    public static final String DirectMember_DRVT = "/api/drvt-buy/direct-recommend";
-
-    /**
-     * 申诉
-     */
-    public static final String ShenShu = "/api/usdt-deal/appeal";
-    /**
-     * 确认付款
-     */
-    public static final String ConfirmPay = "/api/usdt-deal/has-pay";
-    /**
-     * 确认收款
-     */
-    public static final String ShouKuan = "/api/usdt-deal/finish";
-    /**
-     * 关于
-     */
+    public static final String Center = "/api/member/center";
+    //个人信息
+    public static final String Info = "/api/member/get-info";
+    //修改信息
+    public static final String ChangeProfile = "/api/member/update";
+    //设置交易密码
+    public static final String TransactionPassword = "/api/member/set-trade-password";
+    //修改密码
+    public static final String ChangePassword = "/api/member/update-password";
+    //有奖邀请
+    public static final String InvitationReward = "/api/index/share";
+    //我的推广
+    public static final String Share = "/api/member/team";
+    //推广用户
+    public static final String DirectMember = "/api/member/direct-recommend";
+    //资讯
+    public static final String Notice = "/api/article/notice";
+    //帮助列表
+    public static final String Help = "/api/article/help";
+    //在线客服
+    public static final String OnlineService = "/api/leave-message/record";
+    //添加留言
+    public static final String AddMessage = "/api/leave-message/create";
+    //我的海报
+    public static final String MyPoster = "/api/index/share";
+    //关于
     public static final String About = "/api/index/about";
-    /**
-      * 币地址管理
-     */
+    //币地址管理
     public static final String AddressManage = "/api/member/set-wallet-addr";
     /**
      * 拼接请求路径

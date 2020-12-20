@@ -110,6 +110,9 @@
         <activity
             android:name="com.fone.fone.activity.JoinListActivity"
             android:label="往期列表" />
+        <activity
+            android:name="com.fone.fone.activity.LeaderboardActivity"
+            android:label="排行榜" />
         <!--我的-->
         <activity
             android:name="com.fone.fone.activity.AboutActivity"

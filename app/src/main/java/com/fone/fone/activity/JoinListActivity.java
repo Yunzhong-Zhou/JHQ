@@ -5,9 +5,10 @@ import android.view.View;
 
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.PastListModel;
+import com.fone.fone.model.JoinListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -28,7 +29,8 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class JoinListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<PastListModel.LikeGameListBean> list = new ArrayList<>();
+    List<JoinListModel.ChangeGameListBean> list = new ArrayList<>();
+    CommonAdapter<JoinListModel.ChangeGameListBean> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class JoinListActivity extends BaseActivity {
     }
 
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(this, URLs.PastList + string, new OkHttpClientManager.ResultCallback<PastListModel>() {
+        OkHttpClientManager.getAsyn(this, URLs.JoinList + string, new OkHttpClientManager.ResultCallback<JoinListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -75,25 +77,32 @@ public class JoinListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(PastListModel response) {
+            public void onResponse(JoinListModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>直推会员" + response);
+                MyLogger.i(">>>>>>>>>拼团列表" + response);
                 if (response != null) {
-                    list = response.getLike_game_list();
+                    list = response.getChange_game_list();
                     if (list.size() > 0) {
-                        CommonAdapter<PastListModel.LikeGameListBean> mAdapter = new CommonAdapter<PastListModel.LikeGameListBean>(
+                        mAdapter = new CommonAdapter<JoinListModel.ChangeGameListBean>(
                                 JoinListActivity.this, R.layout.item_joinlist, list) {
                             @Override
-                            protected void convert(ViewHolder holder, PastListModel.LikeGameListBean model, int position) {
-                                /*holder.setText(R.id.textView1, model.getPeriod());//期次号
-                                holder.setText(R.id.textView2, model.getWin_chain_title() + "");//胜利方
-                                holder.setText(R.id.textView3, model.getAmount_money() + getString(R.string.app_ge));//竞猜额*/
+                            protected void convert(ViewHolder holder, JoinListModel.ChangeGameListBean model, int position) {
+                                holder.setText(R.id.tv_num, model.getPeriod());//期次号
+                                holder.setText(R.id.tv_time, model.getCreated_at() + "");//时间
+                                holder.setText(R.id.tv_title, model.getStatus_title());//标题
+//                                holder.setText(R.id.tv_money, model.get);//金额
+//                                holder.setText(R.id.tv_name, model.get);//name
+//                                holder.setText(R.id.tv_type, model.get);//name
+
                                 /*ImageView imageView = holder.getView(R.id.imageView1);
-                                if (!model.getHead().equals(""))
-                                    Glide.with(PastListActivity.this).load(OkHttpClientManager.IMGHOST + model.getHead()).centerCrop().into(imageView);//加载图片
-                                else
-                                    imageView.setImageResource(R.mipmap.headimg);*/
+                                Glide.with(JoinListActivity.this)
+                                        .load(OkHttpClientManager.IMGHOST + model.getWin_member().)
+                                        .centerCrop()
+                                        .placeholder(R.mipmap.loading)//加载站位图
+                                        .error(R.mipmap.headimg)//加载失败
+                                        .into(imageView);//加载图片*/
+
 
                             }
                         };
@@ -101,8 +110,8 @@ public class JoinListActivity extends BaseActivity {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("id", list.get(position).getId());
-//                                CommonUtil.gotoActivityWithData(PastListActivity.this, PeriodDetailActivity.class, bundle, false);
+                                bundle.putString("id", list.get(position).getPeriod());
+                                CommonUtil.gotoActivityWithData(JoinListActivity.this, JoinDetailActivity.class, bundle, false);
                             }
 
                             @Override
@@ -133,6 +142,6 @@ public class JoinListActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.fragment3_h16));
+        titleView.setTitle(getString(R.string.fragment3_h27));
     }
 }

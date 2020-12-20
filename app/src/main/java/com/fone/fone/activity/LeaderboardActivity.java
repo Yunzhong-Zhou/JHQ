@@ -8,6 +8,7 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.LeaderboardModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -39,6 +40,13 @@ public class LeaderboardActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

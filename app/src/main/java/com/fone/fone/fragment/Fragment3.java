@@ -2,16 +2,15 @@ package com.fone.fone.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
-import com.fone.fone.activity.JoinDetailActivity;
+import com.fone.fone.activity.JoinListActivity;
+import com.fone.fone.activity.LeaderboardActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment3Model;
@@ -25,7 +24,9 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -57,7 +58,7 @@ public class Fragment3 extends BaseFragment {
     TextView textView1, textView2;
     View view1, view2;
 
-    TextView tv_title, tv_tab1, tv_tab2, tv_tab3, tv_tab4, tv_join;
+    TextView tv_title, tv_tab1, tv_tab2, tv_tab3, tv_tab4, tv_join, tv_more;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -149,7 +150,8 @@ public class Fragment3 extends BaseFragment {
         tv_tab4 = findViewByID_My(R.id.tv_tab4);
         tv_join = findViewByID_My(R.id.tv_join);
         tv_join.setOnClickListener(this);
-
+        tv_more = findViewByID_My(R.id.tv_more);
+        tv_more.setOnClickListener(this);
 
         //设置图片宽度为屏幕宽度，高度自适应-android:adjustViewBounds="true"
         /*ImageView iv_head_bg = findViewByID_My(R.id.iv_head_bg);
@@ -289,10 +291,36 @@ public class Fragment3 extends BaseFragment {
                 type = 3;
                 changeUI();
                 break;
-
+            case R.id.tv_more:
+                if (type == 1) {
+                    CommonUtil.gotoActivity(getActivity(), JoinListActivity.class);
+                } else {
+                    CommonUtil.gotoActivity(getActivity(), LeaderboardActivity.class);
+                }
+                break;
             case R.id.tv_join:
                 //加入拼团
-                dialog.contentView(R.layout.dialog_fragment3)
+                showToast(getString(R.string.fragment3_h24)
+                        , getString(R.string.app_confirm)
+                        , getString(R.string.app_cancel), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                                showProgress(true, getString(R.string.app_loading1));
+                                HashMap<String, String> params = new HashMap<>();
+                                params.put("hk", model.getHk());//金额
+                                params.put("change_game_id", model.getChange_game().getId());
+                                params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                RequestJoin(params);
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                /*dialog.contentView(R.layout.dialog_fragment3)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
                         .animType(BaseDialog.AnimInType.CENTER)
@@ -315,7 +343,7 @@ public class Fragment3 extends BaseFragment {
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
-                });
+                });*/
                 break;
 
         }
@@ -333,8 +361,11 @@ public class Fragment3 extends BaseFragment {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter1);
                 mAdapter1.notifyDataSetChanged();
+
+                tv_more.setVisibility(View.VISIBLE);
             } else {
                 showEmptyPage();
+                tv_more.setVisibility(View.GONE);
             }
 
         } else if (type == 2) {
@@ -348,11 +379,33 @@ public class Fragment3 extends BaseFragment {
                 showContentPage();
                 recyclerView.setAdapter(mAdapter2);
                 mAdapter2.notifyDataSetChanged();
+                tv_more.setVisibility(View.VISIBLE);
             } else {
                 showEmptyPage();
+                tv_more.setVisibility(View.GONE);
             }
         }
 
+    }
+
+    //加入拼团
+    private void RequestJoin(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Join, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.fragment3_h25));
+            }
+        }, true);
     }
 
     @Override

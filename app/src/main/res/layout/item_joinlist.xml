@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/tv_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -33,6 +34,7 @@
                     android:textColor="@color/black3"
                     android:textSize="11sp" />
                 <TextView
+                    android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="time"
@@ -57,13 +59,15 @@
                     android:layout_marginLeft="10dp"
                     android:orientation="vertical">
                     <TextView
+                        android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="name"
+                        android:text="title"
                         android:textColor="#546778"
                         android:textSize="14sp" />
                     <TextView
+                        android:id="@+id/tv_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -100,6 +104,7 @@
                 android:background="@mipmap/headimg" />
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -108,6 +113,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_type"
                 android:layout_width="66dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="5dp"
