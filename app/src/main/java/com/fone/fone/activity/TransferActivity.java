@@ -75,7 +75,7 @@ public class TransferActivity extends BaseActivity {
             public void afterTextChanged(final Editable s) {
                 if (!editText1.getText().toString().trim().equals("")){
                     double money = Double.valueOf(editText1.getText().toString().trim());
-                    editText2.setText(String.format("%.2f", money*Double.valueOf(model.getFil_price())));
+                    editText2.setText(String.format("%.2f", money*Double.valueOf(model.getFil_price())/Double.valueOf(model.getUsdt_price())));
                 }else {
                     editText2.setText("0");
                 }

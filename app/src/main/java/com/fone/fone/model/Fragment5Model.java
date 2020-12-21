@@ -8,14 +8,15 @@ import java.io.Serializable;
 
 public class Fragment5Model implements Serializable {
     /**
-     * nickname : FIL_pour
+     * nickname : FIL_pour广告费
      * head : /head/606.png
      * grade : 1
      * grade_title : V0
-     * usable_money : 0.0000
+     * usable_money : 8220.0000
      * commission_money : 0.0000
      * fil_money : 0.0000
-     * hashrate : 0
+     * hashrate : 1
+     * change_game_win_time : 0
      * invite_code : pour
      */
 
@@ -27,16 +28,8 @@ public class Fragment5Model implements Serializable {
     private String commission_money;
     private String fil_money;
     private String hashrate;
+    private String change_game_win_time;
     private String invite_code;
-    private String game_win_time;
-
-    public String getGame_win_time() {
-        return game_win_time;
-    }
-
-    public void setGame_win_time(String game_win_time) {
-        this.game_win_time = game_win_time;
-    }
 
     public String getNickname() {
         return nickname;
@@ -102,6 +95,14 @@ public class Fragment5Model implements Serializable {
         this.hashrate = hashrate;
     }
 
+    public String getChange_game_win_time() {
+        return change_game_win_time;
+    }
+
+    public void setChange_game_win_time(String change_game_win_time) {
+        this.change_game_win_time = change_game_win_time;
+    }
+
     public String getInvite_code() {
         return invite_code;
     }
@@ -109,4 +110,5 @@ public class Fragment5Model implements Serializable {
     public void setInvite_code(String invite_code) {
         this.invite_code = invite_code;
     }
+
 }

@@ -6,8 +6,11 @@ import android.view.View;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.MyRechargeModel;
+import com.fone.fone.net.OkHttpClientManager;
+import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.liaoinstan.springview.widget.SpringView;
+import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 
 import java.util.ArrayList;
@@ -21,9 +24,13 @@ import androidx.recyclerview.widget.RecyclerView;
  * 我的矿机
  */
 public class MyMachineActivity extends BaseActivity {
+
     private RecyclerView recyclerView;
     List<MyRechargeModel> list = new ArrayList<>();
     CommonAdapter<MyRechargeModel> mAdapter;
+    int page = 1;
+    String mill_type = "1", status = "";//算力：1,2 矿机：3
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,25 +50,25 @@ public class MyMachineActivity extends BaseActivity {
             @Override
             public void onRefresh() {
                 //刷新
-                /*page = 1;
+                page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&mill_type=" + mill_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentList(string);*/
+                RequestList(string);
             }
 
             @Override
             public void onLoadmore() {
-                /*page = page + 1;
+                page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&money_type=" + money_type
+                        + "&mill_type=" + mill_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentListMore(string);*/
+                RequestListMore(string);
             }
         });
     }
@@ -70,8 +77,8 @@ public class MyMachineActivity extends BaseActivity {
     protected void initData() {
         requestServer();//获取数据
     }
-    /*private void RequestList(String string) {
-        OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+    private void RequestList(String string) {
+        OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MachineList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -85,8 +92,8 @@ public class MyMachineActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>充值记录列表" + response);
-                JSONObject jObj;
+
+                /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
@@ -129,14 +136,14 @@ public class MyMachineActivity extends BaseActivity {
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
             }
         });
 
-    }*/
+    }
 
-    /*private void RequestListMore(String string) {
-        OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+    private void RequestListMore(String string) {
+        OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MachineList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -151,8 +158,7 @@ public class MyMachineActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
-                JSONObject jObj;
+                /*JSONObject jObj;
                 List<MyRechargeModel> list1 = new ArrayList<>();
                 try {
                     jObj = new JSONObject(response);
@@ -169,22 +175,22 @@ public class MyMachineActivity extends BaseActivity {
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                }
+                }*/
             }
         });
 
-    }*/
+    }
     @Override
     public void requestServer() {
         super.requestServer();
         this.showLoadingPage();
-        /*page = 1;
+        page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&money_type=" + money_type
+                + "&mill_type=" + mill_type
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
-        RequestMyInvestmentList(string);*/
+        RequestList(string);
     }
 
     @Override

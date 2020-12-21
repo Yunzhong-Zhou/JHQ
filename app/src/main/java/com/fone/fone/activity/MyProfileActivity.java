@@ -105,7 +105,7 @@ public class MyProfileActivity extends BaseActivity {
                         HashMap<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
                         params.put("nickname", editText1.getText().toString().trim());
-                        params.put("email", "");
+//                        params.put("email", "");
                         RequestChangeProfile(filenames, files, params);//修改
                     }
                 }
@@ -124,7 +124,7 @@ public class MyProfileActivity extends BaseActivity {
                         File[] files = new File[]{};
                         HashMap<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
-                        params.put("nickname", "");
+//                        params.put("nickname", "");
                         params.put("email", editText2.getText().toString().trim());
                         RequestChangeProfile(filenames, files, params);//修改
                     }
@@ -159,7 +159,7 @@ public class MyProfileActivity extends BaseActivity {
     }
 
     private void requestInfo(String string) {
-        OkHttpClientManager.getAsyn(MyProfileActivity.this, URLs.Info + string, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
+        OkHttpClientManager.getAsyn(MyProfileActivity.this, URLs.ChangeProfile + string, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -192,9 +192,15 @@ public class MyProfileActivity extends BaseActivity {
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());
-                localUserInfo.setInvuteCode(response.getInvite_code());
+//                localUserInfo.setInvuteCode(response.getInvite_code());
                 localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
+
+                if (response.getNickname_update()==2){
+                    editText1.setFocusable(false);
+                }else {
+                    editText1.setFocusable(true);
+                }
 
                 hideProgress();
             }
@@ -387,8 +393,8 @@ public class MyProfileActivity extends BaseActivity {
                     this.showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
-                    params.put("email", "");
-                    params.put("nickname", "");
+//                    params.put("email", "");
+//                    params.put("nickname", "");
                     RequestChangeProfile(filenames, files, params);//修改
                 } catch (IOException e) {
                     e.printStackTrace();

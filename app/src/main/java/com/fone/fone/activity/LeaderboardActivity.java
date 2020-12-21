@@ -2,7 +2,10 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.LeaderboardModel;
@@ -13,6 +16,7 @@ import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +24,16 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
+
 
 /**
  * Created by zyz on 2019/5/26.
  * 排行榜
  */
 public class LeaderboardActivity extends BaseActivity {
-    /*ImageView imageView1, imageView2, imageView3, imageView4;
-    TextView textView1_1, textView1_2,
-            textView2_1, textView2_2,
-            textView3_1, textView3_2,
-            textView4_0, textView4_1, textView4_2;*/
+    ImageView iv_head;
+    TextView tv_num, tv_name, tv_pinzhong, tv_kuangji, tv_money;
 
     RecyclerView recyclerView;
     List<LeaderboardModel.RankListBean> list = new ArrayList<>();
@@ -70,19 +73,13 @@ public class LeaderboardActivity extends BaseActivity {
             }
         });
 
-       /* imageView1 = findViewByID_My(R.id.imageView1);
-        imageView2 = findViewByID_My(R.id.imageView2);
-        imageView3 = findViewByID_My(R.id.imageView3);
-        imageView4 = findViewByID_My(R.id.imageView4);
-        textView1_1 = findViewByID_My(R.id.textView1_1);
-        textView1_2 = findViewByID_My(R.id.textView1_2);
-        textView2_1 = findViewByID_My(R.id.textView2_1);
-        textView2_2 = findViewByID_My(R.id.textView2_2);
-        textView3_1 = findViewByID_My(R.id.textView3_1);
-        textView3_2 = findViewByID_My(R.id.textView3_2);
-        textView4_0 = findViewByID_My(R.id.textView4_0);
-        textView4_1 = findViewByID_My(R.id.textView4_1);
-        textView4_2 = findViewByID_My(R.id.textView4_2);*/
+        iv_head = findViewByID_My(R.id.iv_head);
+        tv_num = findViewByID_My(R.id.tv_num);
+        tv_name = findViewByID_My(R.id.tv_name);
+        tv_pinzhong = findViewByID_My(R.id.tv_pinzhong);
+        tv_kuangji = findViewByID_My(R.id.tv_kuangji);
+        tv_money = findViewByID_My(R.id.tv_money);
+
     }
 
     @Override
@@ -94,6 +91,7 @@ public class LeaderboardActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(this, URLs.Leaderboard + string, new OkHttpClientManager.ResultCallback<LeaderboardModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
+                showEmptyPage();
                 hideProgress();
                 if (!info.equals("")) {
                     myToast(info);
@@ -102,78 +100,76 @@ public class LeaderboardActivity extends BaseActivity {
 
             @Override
             public void onResponse(LeaderboardModel response) {
+                hideProgress();
                 MyLogger.i(">>>>>>>>>排行榜" + response);
-                //第一名
-                /*if (response.getRank_list().size() > 0) {
-                    textView1_1.setText(response.getRank_list().get(0).getNickname());
-                    textView1_2.setText(response.getRank_list().get(0).getWin_money());
-                    if (!response.getRank_list().get(0).getHead().equals(""))
-                        Glide.with(LeaderboardActivity.this).load(IMGHOST + response.getRank_list().get(0).getHead())
-                                .centerCrop().into(imageView1);//加载图片
-                }
-
-                //第二名
-                if (response.getRank_list().size() > 1) {
-                    textView2_1.setText(response.getRank_list().get(1).getNickname());
-                    textView2_2.setText(response.getRank_list().get(1).getWin_money());
-                    if (!response.getRank_list().get(1).getHead().equals(""))
-                        Glide.with(LeaderboardActivity.this).load(IMGHOST + response.getRank_list().get(1).getHead())
-                                .centerCrop().into(imageView2);//加载图片
-                }
-                //第三名
-                if (response.getRank_list().size() > 2) {
-                    textView3_1.setText(response.getRank_list().get(2).getNickname());
-                    textView3_2.setText(response.getRank_list().get(2).getWin_money());
-
-                    if (!response.getRank_list().get(2).getHead().equals(""))
-                        Glide.with(LeaderboardActivity.this).load(IMGHOST + response.getRank_list().get(2).getHead())
-                                .centerCrop().into(imageView3);//加载图片
-                }
-
                 //我自己
-                textView4_0.setText(response.getMy_rank().getRank());
-                textView4_1.setText(response.getMy_rank().getNickname());
-                textView4_2.setText(response.getMy_rank().getWin_money());
-                if (!response.getMy_rank().getHead().equals(""))
-                    Glide.with(LeaderboardActivity.this)
-                            .load(IMGHOST + response.getMy_rank().getHead())
-                            .centerCrop().into(imageView4);//加载图片*/
+                tv_num.setText(response.getMy_rank().getRank());
+                tv_name.setText(response.getMy_rank().getNickname());
+                tv_money.setText(response.getMy_rank().getHashrate() + "TB");
+                tv_pinzhong.setText(getString(R.string.fragment3_h28) + response.getMy_rank().getChange_game_win_time() + getString(R.string.app_ci));
+                tv_kuangji.setText(getString(R.string.fragment3_h29) + response.getMy_rank().getChange_game_win_time() + getString(R.string.app_tai));
+
+                Glide.with(LeaderboardActivity.this)
+                        .load(IMGHOST + response.getMy_rank().getHead())
+                        .centerCrop()
+                        .placeholder(R.mipmap.loading)//加载站位图
+                        .error(R.mipmap.headimg)//加载失败
+                        .into(iv_head);//加载图片
 
                 //列表
-                /*list = response.getRank_list();
-                if (response.getRank_list().size() > 3) {
-                    //去掉前三个
+                list = response.getRank_list();
+                /*//去掉前三个
                     for (int i = 0; i < 3; i++) {
                         list.remove(0);
-                    }
+                    }*/
+                if (response.getRank_list().size() > 0) {
+                    showContentPage();
                     mAdapter = new CommonAdapter<LeaderboardModel.RankListBean>(LeaderboardActivity.this, R.layout.item_leaderboard, list) {
                         @Override
                         protected void convert(ViewHolder holder, final LeaderboardModel.RankListBean model, int position) {
+                            TextView tv_num = holder.getView(R.id.tv_num);
+                            switch (position) {
+                                case 0:
+                                    //第一名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_1);
+                                    tv_num.setText("");
+                                    break;
+                                case 1:
+                                    //第二名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_2);
+                                    tv_num.setText("");
+                                    break;
+                                case 2:
+                                    //第三名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_3);
+                                    tv_num.setText("");
+                                    break;
+                                default:
+                                    tv_num.setBackgroundResource(R.color.transparent);
+                                    tv_num.setText(position + 1 + "");
+                                    break;
+                            }
 
-                            holder.setText(R.id.textView_0, position + 4 + "");//排名
-                            holder.setText(R.id.textView_1, model.getNickname());//昵称
-                            holder.setText(R.id.textView_2, model.getWin_money());//累计奖金
-                            ImageView imageView = holder.getView(R.id.imageView);
-                            if (!model.getHead().equals(""))
-                                Glide.with(LeaderboardActivity.this).load(IMGHOST + model.getHead())
-                                        .centerCrop().into(imageView);//加载图片
+                            holder.setText(R.id.tv_name, model.getNickname());//昵称
+                            holder.setText(R.id.tv_money, model.getHashrate() + "TB");//累计奖金
+                            holder.setText(R.id.tv_pinzhong, getString(R.string.fragment3_h28) + model.getChange_game_win_time() + getString(R.string.app_ci));
+                            holder.setText(R.id.tv_kuangji, getString(R.string.fragment3_h29) + model.getChange_game_win_time() + getString(R.string.app_tai));
+
+                            ImageView imageView = holder.getView(R.id.iv_head);
+                            Glide.with(LeaderboardActivity.this)
+                                    .load(IMGHOST + model.getHead())
+                                    .centerCrop()
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView);//加载图片
 
                         }
                     };
                     recyclerView.setAdapter(mAdapter);
-                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
 
-                        }
-
-                        @Override
-                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                            return false;
-                        }
-                    });
-                }*/
-                hideProgress();
+                } else {
+                    showEmptyPage();
+                }
             }
         });
     }

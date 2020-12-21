@@ -234,7 +234,7 @@ public class Fragment5 extends BaseFragment {
 
                     textView5.setText("" + response.getUsable_money());//余额
                     textView6.setText("" + response.getCommission_money());//佣金
-                    textView7.setText("" + response.getGame_win_time());//次数
+                    textView7.setText("" + response.getChange_game_win_time());//次数
                     textView8.setText("" + response.getFil_money());//已产FIL
                     textView9.setText("" + response.getHashrate() + "TB");//总算力
 

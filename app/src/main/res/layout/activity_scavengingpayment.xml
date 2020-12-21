@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#EDEDED">
     <!--MATERIAL、CIRCLES、 WATER_DROP、RING and SMARTISAN-->
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
@@ -24,7 +24,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EDEDED"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -110,7 +109,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/white"
                     android:orientation="vertical"
                     android:paddingLeft="30dp"

@@ -2045,6 +2045,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekBar
 id selectImg
 id select_dialog_listview
 id selected
@@ -2161,6 +2162,7 @@ id tv_h2
 id tv_haicha
 id tv_join
 id tv_keyong
+id tv_kuangji
 id tv_money
 id tv_money1
 id tv_money2
@@ -2176,6 +2178,7 @@ id tv_num3
 id tv_num4
 id tv_num5
 id tv_num6
+id tv_pinzhong
 id tv_recharge1
 id tv_recharge2
 id tv_save
@@ -2738,6 +2741,7 @@ string app_bei
 string app_cancel
 string app_card
 string app_change_true
+string app_ci
 string app_codethen
 string app_confirm
 string app_confirm_true
@@ -2786,6 +2790,7 @@ string app_shi
 string app_si
 string app_submit
 string app_submit_true
+string app_tai
 string app_tian
 string app_type_anjine
 string app_type_anshijian
@@ -3028,6 +3033,8 @@ string fragment2_h11
 string fragment2_h12
 string fragment2_h13
 string fragment2_h14
+string fragment2_h15
+string fragment2_h16
 string fragment2_h2
 string fragment2_h3
 string fragment2_h4

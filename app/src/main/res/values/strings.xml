@@ -51,6 +51,8 @@
     <string name="app_liu">六</string>
     <string name="app_nian">年</string>
     <string name="app_yue">月</string>
+    <string name="app_ci">次</string>
+    <string name="app_tai">台</string>
 
     <!--筛选-->
     <string name="app_type_quanbu">全部</string>
@@ -365,7 +367,7 @@
     <string name="fragment1_h57">复制</string>
     <string name="fragment1_h58">转账方式</string>
     <string name="fragment1_h59">支付宝转账</string>
-    <string name="fragment1_h60"></string>
+    <string name="fragment1_h60">购买方</string>
 
 
     <!--fragment2-->
@@ -383,6 +385,8 @@
     <string name="fragment2_h12">算力费用</string>
     <string name="fragment2_h13">预计产值</string>
     <string name="fragment2_h14">立即购买</string>
+    <string name="fragment2_h15">购买成功</string>
+    <string name="fragment2_h16">确认购买吗？</string>
 
     <!--fragment3-->
     <string name="fragment3_h1">算力大小</string>
@@ -412,8 +416,8 @@
     <string name="fragment3_h25">加入拼团成功</string>
     <string name="fragment3_h26">查看更多</string>
     <string name="fragment3_h27">拼团列表</string>
-    <string name="fragment3_h28"></string>
-    <string name="fragment3_h29"></string>
+    <string name="fragment3_h28">拼中</string>
+    <string name="fragment3_h29">矿机</string>
     <string name="fragment3_h30"></string>
     <string name="fragment3_h31"></string>
     <string name="fragment3_h32"></string>

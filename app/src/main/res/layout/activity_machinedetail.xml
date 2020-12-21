@@ -70,6 +70,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -95,6 +96,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/ic_fil_white"
@@ -122,6 +124,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TYPE"
@@ -191,6 +194,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -218,6 +222,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -245,6 +250,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView6"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -272,6 +278,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -299,6 +306,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView8"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -326,6 +334,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -353,6 +362,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView10"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -380,6 +390,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
+                                android:id="@+id/textView11"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -405,7 +416,6 @@
                                 android:background="@mipmap/bg_xian" />
 
                             <TextView
-                                android:id="@+id/textView3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"

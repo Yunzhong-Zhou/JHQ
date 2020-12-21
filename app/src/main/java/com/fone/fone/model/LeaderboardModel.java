@@ -42,9 +42,9 @@ public class LeaderboardModel implements Serializable {
 
         private String head;
         private String nickname;
-        private int hashrate;
-        private int change_game_win_time;
-        private int rank;
+        private String hashrate;
+        private String change_game_win_time;
+        private String rank;
 
         public String getHead() {
             return head;
@@ -62,27 +62,27 @@ public class LeaderboardModel implements Serializable {
             this.nickname = nickname;
         }
 
-        public int getHashrate() {
+        public String getHashrate() {
             return hashrate;
         }
 
-        public void setHashrate(int hashrate) {
+        public void setHashrate(String hashrate) {
             this.hashrate = hashrate;
         }
 
-        public int getChange_game_win_time() {
+        public String getChange_game_win_time() {
             return change_game_win_time;
         }
 
-        public void setChange_game_win_time(int change_game_win_time) {
+        public void setChange_game_win_time(String change_game_win_time) {
             this.change_game_win_time = change_game_win_time;
         }
 
-        public int getRank() {
+        public String getRank() {
             return rank;
         }
 
-        public void setRank(int rank) {
+        public void setRank(String rank) {
             this.rank = rank;
         }
     }
@@ -98,9 +98,9 @@ public class LeaderboardModel implements Serializable {
 
         private String head;
         private String nickname;
-        private int hashrate;
-        private int change_game_win_time;
-        private int rank;
+        private String hashrate;
+        private String change_game_win_time;
+        private String rank;
 
         public String getHead() {
             return head;
@@ -118,27 +118,27 @@ public class LeaderboardModel implements Serializable {
             this.nickname = nickname;
         }
 
-        public int getHashrate() {
+        public String getHashrate() {
             return hashrate;
         }
 
-        public void setHashrate(int hashrate) {
+        public void setHashrate(String hashrate) {
             this.hashrate = hashrate;
         }
 
-        public int getChange_game_win_time() {
+        public String getChange_game_win_time() {
             return change_game_win_time;
         }
 
-        public void setChange_game_win_time(int change_game_win_time) {
+        public void setChange_game_win_time(String change_game_win_time) {
             this.change_game_win_time = change_game_win_time;
         }
 
-        public int getRank() {
+        public String getRank() {
             return rank;
         }
 
-        public void setRank(int rank) {
+        public void setRank(String rank) {
             this.rank = rank;
         }
     }

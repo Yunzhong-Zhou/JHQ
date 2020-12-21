@@ -20,7 +20,6 @@ import com.fone.fone.model.Fragment1Model;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
-import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
@@ -31,8 +30,10 @@ import com.squareup.okhttp.Request;
  */
 
 public class Fragment1 extends BaseFragment {
-
     int type = 1;
+    Fragment1Model model;
+    TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,
+            textView,tv_confirm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -48,9 +49,9 @@ public class Fragment1 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        /*if (MainActivity.item == 0) {
+        if (MainActivity.item == 0) {
             requestServer();
-        }*/
+        }
     }
 
     @Override
@@ -94,9 +95,77 @@ public class Fragment1 extends BaseFragment {
             public void onLoadmore() {
             }
         });
-        findViewByID_My(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
+        tv_confirm = findViewByID_My(R.id.tv_confirm);
+        tv_confirm.setOnClickListener(this);
+        textView = findViewByID_My(R.id.textView);
+        textView.setOnClickListener(this);
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
+        textView6 = findViewByID_My(R.id.textView6);
+        textView7 = findViewByID_My(R.id.textView7);
+        textView8 = findViewByID_My(R.id.textView8);
+        textView9 = findViewByID_My(R.id.textView9);
+
+    }
+
+    @Override
+    protected void initData() {
+//        requestServer();
+    }
+
+
+    @Override
+    public void requestServer() {
+        super.requestServer();
+//        this.showLoadingPage();
+        if (isAdded()) {
+            showProgress(true, getString(R.string.app_loading));
+            String string = "?token=" + localUserInfo.getToken();
+            Request(string);
+        }
+    }
+
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
-            public void onClick(View v) {
+            public void onError(Request request, String info, Exception e) {
+                MainActivity.isOver = true;
+                showErrorPage();
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(Fragment1Model response) {
+                showContentPage();
+                hideProgress();
+                model = response;
+                textView1.setText(response.getUsable_hashrate()+"TB");//矿机算力
+                textView2.setText(response.getMill_package_cycle()+getString(R.string.app_tian));//封装期
+                textView3.setText(response.getMill_computer_position());//机房位置
+                textView4.setText(response.getMill_production_value_fil_money()+getString(R.string.app_ge)+getString(R.string.app_type_fil));//矿机产值
+                textView5.setText(response.getMill_node_number());//节点编号
+                textView6.setText(response.getMill_pledge_fil_money()+getString(R.string.app_ge)+getString(R.string.app_type_fil));//质押币数
+                textView7.setText(response.getMill_mining_cycle()+getString(R.string.app_tian));//挖矿周期
+                textView8.setText(response.getMill_number());//矿机编号
+                textView9.setText(getString(R.string.fragment1_h60));//残值归属
+
+                MainActivity.isOver = true;
+
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_confirm:
+                //购买
                 dialog.contentView(R.layout.dialog_fragment1)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -177,7 +246,9 @@ public class Fragment1 extends BaseFragment {
                         dialog.dismiss();
                         if (type ==1){
                             //USDT支付
-                            CommonUtil.gotoActivity(getActivity(), MachineDetailActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id", model.getMill_id());
+                            CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);
                         }else {
                             //转账
                             CommonUtil.gotoActivity(getActivity(), PayDetailActivity.class);
@@ -185,58 +256,10 @@ public class Fragment1 extends BaseFragment {
 
                     }
                 });
-
-            }
-        });
-    }
-
-    @Override
-    protected void initData() {
-//        requestServer();
-    }
-
-
-    @Override
-    public void requestServer() {
-        super.requestServer();
-//        this.showLoadingPage();
-        if (isAdded()) {
-            showProgress(true, getString(R.string.app_loading));
-            /*String string = "?page=" + page//当前页号
-                    + "&count=" + "10"//页面行数
-                    + "&token=" + localUserInfo.getToken();
-            Request(string);*/
-        }
-    }
-
-    private void Request(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-                MainActivity.isOver = true;
-                showErrorPage();
-                hideProgress();
-                if (!info.equals("")) {
-                    myToast(info);
-                }
-            }
-
-            @Override
-            public void onResponse(final Fragment1Model response) {
-                showContentPage();
-                hideProgress();
-                MyLogger.i(">>>>>>>>>合约" + response);
-
-                MainActivity.isOver = true;
-
-            }
-        });
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
+                break;
+            case R.id.textView:
+                //详情
+                break;
         }
     }
 

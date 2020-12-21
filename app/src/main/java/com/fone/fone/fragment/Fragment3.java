@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
+import com.fone.fone.activity.JoinDetailActivity;
 import com.fone.fone.activity.JoinListActivity;
 import com.fone.fone.activity.LeaderboardActivity;
 import com.fone.fone.activity.MainActivity;
@@ -21,6 +24,7 @@ import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -31,6 +35,8 @@ import java.util.Map;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -245,24 +251,60 @@ public class Fragment3 extends BaseFragment {
 
                         }
                     };
+                    mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id", list1.get(i).getPeriod());
+                            CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle);
+                        }
+
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                            return false;
+                        }
+                    });
                     //算力排行
                     list2 = response.getMember_list();
                     mAdapter2 = new CommonAdapter<Fragment3Model.MemberListBean>
                             (getActivity(), R.layout.item_fragment3_2, list2) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment3Model.MemberListBean model, int position) {
-                            /*holder.setText(R.id.textView1, model.getBourse_on_title());//昵称
-                            holder.setText(R.id.textView2, model.getMoney());//合约数
-                            TextView tv3 = holder.getView(R.id.textView3);
-                            double moeny = Double.valueOf(model.getEarning_money());
-                            if (model.getResult() == 1) {
-                                tv3.setText("+" + moeny);
-                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
+                            TextView tv_num = holder.getView(R.id.tv_num);
+                            switch (position) {
+                                case 0:
+                                    //第一名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_1);
+                                    tv_num.setText("");
+                                    break;
+                                case 1:
+                                    //第二名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_2);
+                                    tv_num.setText("");
+                                    break;
+                                case 2:
+                                    //第三名
+                                    tv_num.setBackgroundResource(R.mipmap.ic_paihang_3);
+                                    tv_num.setText("");
+                                    break;
+                                default:
+                                    tv_num.setBackgroundResource(R.color.transparent);
+                                    tv_num.setText(position + 1 + "");
+                                    break;
+                            }
 
-                            } else {
-                                tv3.setText("-" + moeny);
-                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                            }*/
+                            holder.setText(R.id.tv_name, model.getNickname());//昵称
+                            holder.setText(R.id.tv_money, model.getHashrate() + "TB");//累计奖金
+                            holder.setText(R.id.tv_pinzhong, getString(R.string.fragment3_h28) + model.getChange_game_win_time() + getString(R.string.app_ci));
+                            holder.setText(R.id.tv_kuangji, getString(R.string.fragment3_h29) + model.getChange_game_win_time() + getString(R.string.app_tai));
+
+                            ImageView imageView = holder.getView(R.id.iv_head);
+                            Glide.with(getActivity())
+                                    .load(IMGHOST + model.getHead())
+                                    .centerCrop()
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView);//加载图片
 
                         }
                     };
@@ -398,12 +440,14 @@ public class Fragment3 extends BaseFragment {
                     showToast(info);
                 }
 
+                requestServer();
             }
 
             @Override
             public void onResponse(String response) {
                 hideProgress();
                 myToast(getString(R.string.fragment3_h25));
+                requestServer();
             }
         }, true);
     }

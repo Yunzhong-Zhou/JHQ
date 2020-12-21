@@ -60,16 +60,17 @@ public class URLs {
     /**
      * 矿机
      */
-    public static final String Fragment1 = "/api/like-game/rank";
+    public static final String Fragment1 = "/api/invest/create-all";
     //矿机详情
-    public static final String MachineDetail = "/api/like-game/rank";
+    public static final String MachineDetail = "/api/invest/detail";
     //支付详情
     public static final String PayDetail = "/api/like-game/rank";
     /**
      * 算力
      */
-    public static final String Fragment2 = "/api/invest/record";
-
+    public static final String Fragment2 = "/api/invest/create-buy";
+    //矿机列表
+    public static final String MachineList = "/api/invest/record";
     /**
      * 首页
      */
@@ -80,6 +81,8 @@ public class URLs {
     public static final String Leaderboard = "/api/change-game/rank";
     //加入拼团
     public static final String Join = "/api/change-game-participation/create";
+    //拼团详情
+    public static final String JoinDetail = "/api/change-game/detail";
     /**
      * 账户
      */
