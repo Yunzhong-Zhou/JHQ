@@ -14,7 +14,6 @@ import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.activity.MachineDetailActivity;
 import com.fone.fone.activity.MainActivity;
-import com.fone.fone.activity.PayDetailActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment1Model;
 import com.fone.fone.net.OkHttpClientManager;
@@ -22,6 +21,9 @@ import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -32,8 +34,9 @@ import com.squareup.okhttp.Request;
 public class Fragment1 extends BaseFragment {
     int type = 1;
     Fragment1Model model;
-    TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,
-            textView,tv_confirm;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
+            textView, tv_confirm;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -145,13 +148,13 @@ public class Fragment1 extends BaseFragment {
                 showContentPage();
                 hideProgress();
                 model = response;
-                textView1.setText(response.getUsable_hashrate()+"TB");//矿机算力
-                textView2.setText(response.getMill_package_cycle()+getString(R.string.app_tian));//封装期
+                textView1.setText(response.getUsable_hashrate() + "TB");//矿机算力
+                textView2.setText(response.getMill_package_cycle() + getString(R.string.app_tian));//封装期
                 textView3.setText(response.getMill_computer_position());//机房位置
-                textView4.setText(response.getMill_production_value_fil_money()+getString(R.string.app_ge)+getString(R.string.app_type_fil));//矿机产值
+                textView4.setText(response.getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//矿机产值
                 textView5.setText(response.getMill_node_number());//节点编号
-                textView6.setText(response.getMill_pledge_fil_money()+getString(R.string.app_ge)+getString(R.string.app_type_fil));//质押币数
-                textView7.setText(response.getMill_mining_cycle()+getString(R.string.app_tian));//挖矿周期
+                textView6.setText(response.getMill_pledge_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//质押币数
+                textView7.setText(response.getMill_mining_cycle() + getString(R.string.app_tian));//挖矿周期
                 textView8.setText(response.getMill_number());//矿机编号
                 textView9.setText(getString(R.string.fragment1_h60));//残值归属
 
@@ -165,6 +168,7 @@ public class Fragment1 extends BaseFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_confirm:
+                type = 1;
                 //购买
                 dialog.contentView(R.layout.dialog_fragment1)
                         .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -191,6 +195,11 @@ public class Fragment1 extends BaseFragment {
                 TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
                 ImageView iv_usdt = dialog.findViewById(R.id.iv_usdt);
                 ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
+
+                tv_money1.setText(String.format("%.2f", Double.valueOf(model.getUsable_hashrate())
+                        * Double.valueOf(model.getHashrate_price())
+                        * Double.valueOf(model.getUsdt_cny_price())));//税前价格
+//                tv_money2.setText(model.getHashrate_price());//税后价格
                 linearLayout1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -244,21 +253,22 @@ public class Fragment1 extends BaseFragment {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-                        if (type ==1){
-                            //USDT支付
-                            Bundle bundle = new Bundle();
-                            bundle.putString("id", model.getMill_id());
-                            CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);
-                        }else {
-                            //转账
-                            CommonUtil.gotoActivity(getActivity(), PayDetailActivity.class);
-                        }
-
+                        showProgress(true, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("hk", model.getHk());
+                        params.put("mill_id", model.getMill_id());
+                        params.put("token", localUserInfo.getToken());
+                        params.put("pay_type", type + "");//支付类型（1.USDT 2.CNY）
+                        RequestBuy(params);
                     }
                 });
                 break;
             case R.id.textView:
                 //详情
+
+                /*Bundle bundle = new Bundle();
+                bundle.putString("id", model.getMill_id());
+                CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);*/
                 break;
         }
     }
@@ -268,5 +278,36 @@ public class Fragment1 extends BaseFragment {
 
     }
 
+    //加入拼团
+    private void RequestBuy(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment1, params, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+                requestServer();
+            }
 
+            @Override
+            public void onResponse(Fragment1Model response) {
+                hideProgress();
+                if (type == 1) {
+                    myToast(getString(R.string.fragment1_h51));
+                    //USDT支付
+
+                } else {
+                    myToast(getString(R.string.fragment1_h61));
+                    //转账
+                    /*Bundle bundle = new Bundle();
+                    bundle.putString("id", model.getMill_id());
+                    CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);*/
+                }
+                Bundle bundle = new Bundle();
+                bundle.putString("id", model.getMill_id());
+                CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);
+            }
+        }, true);
+    }
 }

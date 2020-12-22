@@ -1,10 +1,14 @@
 package com.fone.fone.activity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fone.fone.R;
@@ -12,7 +16,6 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
-import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
@@ -21,60 +24,37 @@ import com.squareup.okhttp.Request;
  * 支付详情
  */
 public class PayDetailActivity extends BaseActivity {
-    TextView textView;
+    String id = "";
+    TextView textView,textView1,textView2,textView3;
+    EditText editText1,editText2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paydetail);
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
-        findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     @Override
     protected void initView() {
-
-        setSpringViewMore(true);//需要加载更多
+        setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {
                 //刷新
-                /*page = 1;
-                String string = "?sort_field1=" + sort_field1//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort_field2=" + sort_field2
-                        + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
+                String string = "?id=" + id
                         + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentList(string);*/
+                Request(string);
             }
 
             @Override
             public void onLoadmore() {
-                /*page = page + 1;
-                //加载更多
-                String string = "?sort_field1=" + sort_field1//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort_field2=" + sort_field2
-                        + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
-                        + "&token=" + localUserInfo.getToken();
-                RequestMyInvestmentListMore(string);*/
             }
         });
 
+        //颜色变化
         textView = findViewByID_My(R.id.textView);
-
-        /*String wholeStr = getResources().getString(R.string.fragment1_h44) + "（";
-        String highlightStr = getResources().getString(R.string.fragment1_h45) + "";
-
-        StringFormatUtil spanStr = new StringFormatUtil(PayDetailActivity.this, wholeStr,
-                highlightStr, R.color.green).fillColor();
-        textView.setText(spanStr.getResult());*/
-
-        String text = String.format(getString(R.string.fragment1_h44), getString(R.string.fragment1_h45));
+//        String text = String.format(getString(R.string.fragment1_h44), getString(R.string.fragment1_h45));
+        String text = String.format(getString(R.string.fragment1_h63), getString(R.string.fragment1_h45));
         int index[] = new int[1];
         index[0] = text.indexOf(getString(R.string.fragment1_h45));
 
@@ -85,10 +65,17 @@ public class PayDetailActivity extends BaseActivity {
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         textView.setText(style);
 
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
+        editText1 = findViewByID_My(R.id.editText1);
+        editText2 = findViewByID_My(R.id.editText2);
+
     }
 
     @Override
     protected void initData() {
+        id = getIntent().getStringExtra("id");
         requestServer();//获取数据
     }
     private void Request(String string) {
@@ -107,7 +94,6 @@ public class PayDetailActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>支出列表" + response);
                 /*JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
@@ -153,9 +139,35 @@ public class PayDetailActivity extends BaseActivity {
     public void requestServer() {
         super.requestServer();
         this.showLoadingPage();
-        String string = "?token=" + localUserInfo.getToken();
+        String string = "?id=" + id
+                + "&token=" + localUserInfo.getToken();
         Request(string);
     }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.left_btn:
+                finish();
+                break;
+            case R.id.tv_confirm:
+                //确定付款
+                break;
+            case R.id.tv_fuzhi:
+                //复制
+                if (!textView1.getText().toString().trim().equals("")) {
+                    ClipboardManager cm = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
+                    // 创建普通字符型ClipData
+                    ClipData mClipData = ClipData.newPlainText("Label", textView1.getText().toString().trim());
+                    // 将ClipData内容放到系统剪贴板里。
+                    cm.setPrimaryClip(mClipData);
+                    myToast(getString(R.string.recharge_h34));
+                }
+                break;
+        }
+    }
+
     @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);

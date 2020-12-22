@@ -89,7 +89,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_shouyi"
+                        android:id="@+id/tv_moeny"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -325,48 +325,54 @@
                                         android:textSize="13sp" />
 
                                     <RelativeLayout
+                                        android:id="@+id/rl_geren"
+                                        android:onClick="onClick"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="30dp">
 
                                         <TextView
                                             android:layout_width="match_parent"
-                                            android:layout_height="30dp"
+                                            android:layout_height="27dp"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_10_lvse"
+                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
                                             android:gravity="center"
                                             android:text="@string/contract_h8"
                                             android:textColor="@color/green"
                                             android:textSize="12sp" />
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:id="@+id/iv_geren"
+                                            android:layout_width="18dp"
+                                            android:layout_height="18dp"
                                             android:layout_alignParentRight="true"
                                             android:src="@mipmap/ic_xuanzhong" />
 
                                     </RelativeLayout>
 
                                     <RelativeLayout
+                                        android:id="@+id/rl_qiye"
+                                        android:onClick="onClick"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="10dp">
 
                                         <TextView
                                             android:layout_width="match_parent"
-                                            android:layout_height="30dp"
+                                            android:layout_height="27dp"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_10_lvse"
+                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
                                             android:gravity="center"
                                             android:text="@string/contract_h9"
                                             android:textColor="@color/green"
                                             android:textSize="12sp" />
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:id="@+id/iv_qiye"
+                                            android:layout_width="18dp"
+                                            android:layout_height="18dp"
                                             android:layout_alignParentRight="true"
                                             android:src="@mipmap/ic_xuanzhong"
                                             android:visibility="invisible" />
@@ -399,7 +405,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText1"
+                                        android:id="@+id/editText1_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -430,7 +436,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText2"
+                                        android:id="@+id/editText2_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -525,6 +531,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText3_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -555,6 +562,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText4_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -585,6 +593,8 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText5_1"
+                                        android:onClick="onClick"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:drawableRight="@mipmap/ic_next_black"
@@ -620,6 +630,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText6_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -689,6 +700,8 @@
                                     android:paddingBottom="15dp"
                                     android:textStyle="bold" />
                                 <TextView
+                                    android:id="@+id/tv_dianzi"
+                                    android:onClick="onClick"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -771,11 +784,13 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText1_2"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
                                         android:hint="@string/contract_h11"
                                         android:inputType="none"
+                                        android:focusable="false"
                                         android:paddingLeft="100dp"
                                         android:paddingRight="10dp"
                                         android:textColor="@color/black1"
@@ -801,10 +816,12 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText2_2"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
                                         android:hint="@string/contract_h21"
+                                        android:focusable="false"
                                         android:inputType="phone"
                                         android:paddingLeft="100dp"
                                         android:paddingRight="10dp"
@@ -826,11 +843,12 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
                                         android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h16"
+                                        android:text="@string/contract_h18"
                                         android:textColor="@color/black1"
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText3_2"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:focusable="false"
@@ -847,6 +865,8 @@
                                 </RelativeLayout>
 
                                 <TextView
+                                    android:id="@+id/tv_zhizhi"
+                                    android:onClick="onClick"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -936,6 +956,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText1_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -967,6 +988,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText2_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -1050,11 +1072,12 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText3_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
                                         android:hint="@string/contract_h31"
-                                        android:inputType="none"
+                                        android:inputType="numberDecimal"
                                         android:paddingLeft="100dp"
                                         android:paddingRight="10dp"
                                         android:textColor="@color/black1"
@@ -1080,6 +1103,7 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText4_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
@@ -1112,48 +1136,54 @@
                                         android:textSize="13sp" />
 
                                     <RelativeLayout
+                                        android:id="@+id/rl_dianzi"
+                                        android:onClick="onClick"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="30dp">
 
                                         <TextView
                                             android:layout_width="match_parent"
-                                            android:layout_height="30dp"
+                                            android:layout_height="27dp"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_10_lvse"
+                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
                                             android:gravity="center"
                                             android:text="@string/contract_h34"
                                             android:textColor="@color/green"
                                             android:textSize="12sp" />
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:id="@+id/iv_dianzi"
+                                            android:layout_width="18dp"
+                                            android:layout_height="18dp"
                                             android:layout_alignParentRight="true"
                                             android:src="@mipmap/ic_xuanzhong" />
 
                                     </RelativeLayout>
 
                                     <RelativeLayout
+                                        android:id="@+id/rl_zhizhi"
+                                        android:onClick="onClick"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="10dp">
 
                                         <TextView
                                             android:layout_width="match_parent"
-                                            android:layout_height="30dp"
+                                            android:layout_height="27dp"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_10_lvse"
+                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
                                             android:gravity="center"
                                             android:text="@string/contract_h35"
                                             android:textColor="@color/green"
                                             android:textSize="12sp" />
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:id="@+id/iv_zhizhi"
+                                            android:layout_width="18dp"
+                                            android:layout_height="18dp"
                                             android:layout_alignParentRight="true"
                                             android:src="@mipmap/ic_xuanzhong"
                                             android:visibility="invisible" />
@@ -1231,11 +1261,13 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText5_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
                                         android:hint="@string/contract_h11"
                                         android:inputType="none"
+                                        android:focusable="false"
                                         android:paddingLeft="100dp"
                                         android:paddingRight="10dp"
                                         android:textColor="@color/black1"
@@ -1261,11 +1293,13 @@
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText6_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:gravity="center_vertical|right"
                                         android:hint="@string/contract_h21"
                                         android:inputType="phone"
+                                        android:focusable="false"
                                         android:paddingLeft="100dp"
                                         android:paddingRight="10dp"
                                         android:textColor="@color/black1"
@@ -1287,11 +1321,12 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
                                         android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h16"
+                                        android:text="@string/contract_h18"
                                         android:textColor="@color/black1"
                                         android:textSize="13sp" />
 
                                     <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/editText7_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="60dp"
                                         android:focusable="false"

@@ -55,8 +55,8 @@ public class Fragment3 extends BaseFragment {
     List<Fragment3Model.MemberListBean> list2 = new ArrayList<>();
     CommonAdapter<Fragment3Model.MemberListBean> mAdapter2;
 
-    List<Fragment3Model.ChangeGameListBean> list_join = new ArrayList<>();
-    CommonAdapter<Fragment3Model.ChangeGameListBean> mAdapter_join;
+    List<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean> list_join = new ArrayList<>();
+    CommonAdapter<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean> mAdapter_join;
 
 
     //悬浮部分
@@ -210,13 +210,19 @@ public class Fragment3 extends BaseFragment {
                 if (response != null) {
                     model = response;
                     //加入拼团
-                    list_join = response.getChange_game_list();
-                    mAdapter_join = new CommonAdapter<Fragment3Model.ChangeGameListBean>
+                    list_join = response.getChange_game().getChange_game_participation_list();
+                    mAdapter_join = new CommonAdapter<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean>
                             (getActivity(), R.layout.item_fragment3_join, list_join) {
                         @Override
-                        protected void convert(ViewHolder holder, Fragment3Model.ChangeGameListBean model, int position) {
-                           /* holder.setText(R.id.textView1, model.getMoney());
-                            holder.setText(R.id.textView2, model.getShow_created_at());*/
+                        protected void convert(ViewHolder holder, Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getIndex());
+                            holder.setText(R.id.textView2, model.getMember_nickname());
+                            ImageView iv = holder.getView(R.id.imageView1);
+                            Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
+                                    .centerCrop()
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(iv);//加载图片
                         }
                     };
                     rv_join.setAdapter(mAdapter_join);
@@ -439,7 +445,6 @@ public class Fragment3 extends BaseFragment {
                 if (!info.equals("")) {
                     showToast(info);
                 }
-
                 requestServer();
             }
 

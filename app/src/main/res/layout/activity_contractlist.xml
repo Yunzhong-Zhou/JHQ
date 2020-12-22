@@ -59,8 +59,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:gravity="center_vertical"
             android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -74,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -81,11 +82,12 @@
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:layout_marginLeft="2dp"
+                        android:text="0"
                         android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -101,10 +103,12 @@
                     android:textColor="@color/white2"
                     android:textSize="15sp" />
             </LinearLayout>
+
             <View
                 android:layout_width="0.5dp"
                 android:layout_height="45dp"
-                android:background="@color/white1"/>
+                android:background="@color/white1" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,11 +128,12 @@
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
                         android:layout_marginLeft="2dp"
+                        android:text="0"
                         android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -161,59 +167,63 @@
             android:layout_marginRight="15dp"
             android:background="@color/white"
             android:orientation="vertical">
-            <!--只需要刷新只写header-->
-            <com.liaoinstan.springview.widget.SpringView
-                android:id="@+id/springView"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="15dp"
-                            android:textColor="@color/black3"
-                            android:text="@string/contract_h42"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="15dp"
-                            android:textColor="@color/black3"
-                            android:text="@string/contract_h43"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="15dp"
-                            android:textColor="@color/black3"
-                            android:text="@string/contract_h44"/>
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="@string/contract_h42"
+                        android:textColor="@color/black3" />
 
-                    </LinearLayout>
-                    <View
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/xian"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"/>
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="@string/contract_h43"
+                        android:textColor="@color/black3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="@string/contract_h44"
+                        android:textColor="@color/black3" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/xian" />
+                <!--只需要刷新只写header-->
+                <com.liaoinstan.springview.widget.SpringView
+                    android:id="@+id/springView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
                     <com.fone.fone.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_height="match_parent">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
@@ -223,10 +233,10 @@
 
                     </com.fone.fone.view.LoadingLayout>
 
+                </com.liaoinstan.springview.widget.SpringView>
+            </LinearLayout>
 
-                </LinearLayout>
 
-            </com.liaoinstan.springview.widget.SpringView>
         </LinearLayout>
 
     </LinearLayout>

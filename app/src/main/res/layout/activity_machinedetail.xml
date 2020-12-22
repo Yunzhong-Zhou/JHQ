@@ -33,6 +33,7 @@
                 android:src="@mipmap/ic_return1" />
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -314,7 +315,6 @@
                                 android:textSize="15sp" />
 
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -342,7 +342,6 @@
                                 android:textSize="15sp" />
 
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -400,6 +399,35 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/ll_pay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="14dp"
+                            android:paddingRight="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:text="@string/fragment1_h25"
+                                android:textColor="@color/black3"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/textView12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/black1"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -437,14 +465,13 @@
                         <com.fone.fone.view.LoadingLayout
                             android:id="@+id/loading_layout"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
+                            android:layout_height="match_parent">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recyclerView"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
+                                android:layout_height="match_parent"
+                                android:paddingBottom="30dp"/>
 
                         </com.fone.fone.view.LoadingLayout>
 
@@ -452,7 +479,6 @@
                             android:id="@+id/tv_confirm"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
                             android:layout_marginBottom="30dp"
                             android:background="@drawable/btn_img1"
                             android:gravity="center"

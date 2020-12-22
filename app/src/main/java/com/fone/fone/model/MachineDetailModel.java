@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MachineDetailModel implements Serializable {
     /**
-     * invest : {"id":"bc7b07eead4431f25092be39d8faed94","sn":"IN1608545352565354","pay_type":1,"mill_type":2,"mill_computer_position":"中国福州","mill_production_value_fil_money":"20.0000","mill_node_number":"0xeeee","mill_number":"0xwww","mill_mining_cycle":360,"hashrate":1,"status":1,"interest_fil_money":"0.0000","verify_at":"2020-12-21 18:09:12","buy_back_apply":1,"created_at":"2020-12-21 18:09:12","pay_type_title":"USDT","mill_type_title":"购买","status_title":"进行中","start_at":"2020-12-21","end_at":"1970-12-27","interest_list":[]}
+     * invest : {"id":"d057d2b8ce0b16c2f253e07106d00a29","sn":"IN1608611906505752","pay_type":2,"mill_type":3,"mill_computer_position":"中国福州","mill_production_value_fil_money":"100.0000","mill_node_number":"0x11111","mill_number":"oxk333","mill_mining_cycle":360,"hashrate":10,"status":1,"interest_fil_money":"0.0000","verify_at":"2020-12-22 12:38:26","buy_back_apply":1,"created_at":"2020-12-22 12:38:26","pay_type_title":"CNY","mill_type_title":"整机","status_title":"进行中","start_at":"2020-12-22","end_at":"1970-12-27","interest_list":[{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:31:19"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:27:07"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:16:21"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:11:10"}]}
      */
 
     private InvestBean invest;
@@ -23,27 +23,27 @@ public class MachineDetailModel implements Serializable {
 
     public static class InvestBean {
         /**
-         * id : bc7b07eead4431f25092be39d8faed94
-         * sn : IN1608545352565354
-         * pay_type : 1
-         * mill_type : 2
+         * id : d057d2b8ce0b16c2f253e07106d00a29
+         * sn : IN1608611906505752
+         * pay_type : 2
+         * mill_type : 3
          * mill_computer_position : 中国福州
-         * mill_production_value_fil_money : 20.0000
-         * mill_node_number : 0xeeee
-         * mill_number : 0xwww
+         * mill_production_value_fil_money : 100.0000
+         * mill_node_number : 0x11111
+         * mill_number : oxk333
          * mill_mining_cycle : 360
-         * hashrate : 1
+         * hashrate : 10
          * status : 1
          * interest_fil_money : 0.0000
-         * verify_at : 2020-12-21 18:09:12
+         * verify_at : 2020-12-22 12:38:26
          * buy_back_apply : 1
-         * created_at : 2020-12-21 18:09:12
-         * pay_type_title : USDT
-         * mill_type_title : 购买
+         * created_at : 2020-12-22 12:38:26
+         * pay_type_title : CNY
+         * mill_type_title : 整机
          * status_title : 进行中
-         * start_at : 2020-12-21
+         * start_at : 2020-12-22
          * end_at : 1970-12-27
-         * interest_list : []
+         * interest_list : [{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:31:19"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:27:07"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:16:21"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:11:10"}]
          */
 
         private String id;
@@ -54,19 +54,19 @@ public class MachineDetailModel implements Serializable {
         private String mill_production_value_fil_money;
         private String mill_node_number;
         private String mill_number;
-        private int mill_mining_cycle;
-        private int hashrate;
+        private String mill_mining_cycle;
+        private String hashrate;
         private int status;
         private String interest_fil_money;
         private String verify_at;
-        private int buy_back_apply;
+        private String buy_back_apply;
         private String created_at;
         private String pay_type_title;
         private String mill_type_title;
         private String status_title;
         private String start_at;
         private String end_at;
-        private List<?> interest_list;
+        private List<InterestListBean> interest_list;
 
         public String getId() {
             return id;
@@ -132,19 +132,19 @@ public class MachineDetailModel implements Serializable {
             this.mill_number = mill_number;
         }
 
-        public int getMill_mining_cycle() {
+        public String getMill_mining_cycle() {
             return mill_mining_cycle;
         }
 
-        public void setMill_mining_cycle(int mill_mining_cycle) {
+        public void setMill_mining_cycle(String mill_mining_cycle) {
             this.mill_mining_cycle = mill_mining_cycle;
         }
 
-        public int getHashrate() {
+        public String getHashrate() {
             return hashrate;
         }
 
-        public void setHashrate(int hashrate) {
+        public void setHashrate(String hashrate) {
             this.hashrate = hashrate;
         }
 
@@ -172,11 +172,11 @@ public class MachineDetailModel implements Serializable {
             this.verify_at = verify_at;
         }
 
-        public int getBuy_back_apply() {
+        public String getBuy_back_apply() {
             return buy_back_apply;
         }
 
-        public void setBuy_back_apply(int buy_back_apply) {
+        public void setBuy_back_apply(String buy_back_apply) {
             this.buy_back_apply = buy_back_apply;
         }
 
@@ -228,12 +228,48 @@ public class MachineDetailModel implements Serializable {
             this.end_at = end_at;
         }
 
-        public List<?> getInterest_list() {
+        public List<InterestListBean> getInterest_list() {
             return interest_list;
         }
 
-        public void setInterest_list(List<?> interest_list) {
+        public void setInterest_list(List<InterestListBean> interest_list) {
             this.interest_list = interest_list;
+        }
+
+        public static class InterestListBean {
+            /**
+             * invest_id : d057d2b8ce0b16c2f253e07106d00a29
+             * fil_money : 0.0000
+             * created_at : 2020-12-22 15:31:19
+             */
+
+            private String invest_id;
+            private String fil_money;
+            private String created_at;
+
+            public String getInvest_id() {
+                return invest_id;
+            }
+
+            public void setInvest_id(String invest_id) {
+                this.invest_id = invest_id;
+            }
+
+            public String getFil_money() {
+                return fil_money;
+            }
+
+            public void setFil_money(String fil_money) {
+                this.fil_money = fil_money;
+            }
+
+            public String getCreated_at() {
+                return created_at;
+            }
+
+            public void setCreated_at(String created_at) {
+                this.created_at = created_at;
+            }
         }
     }
 }

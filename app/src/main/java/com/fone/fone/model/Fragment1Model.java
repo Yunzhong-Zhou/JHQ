@@ -7,10 +7,11 @@ import java.io.Serializable;
  */
 public class Fragment1Model implements Serializable {
     /**
+     * usdt_cny_price : 6.7
      * hashrate_price : 500
-     * usable_money : 8220.0000
+     * usable_money : 220.0000
      * usable_hashrate : 10
-     * mill_id : 0bb7103aafcb1e0d09fab72a46344768
+     * mill_id : 4b33bb88f4759318e5f831c01a09f712
      * mill_package_cycle : 360
      * mill_computer_position : 中国福州
      * mill_node_number : 0x11111
@@ -18,9 +19,10 @@ public class Fragment1Model implements Serializable {
      * mill_pledge_fil_money : 50.0000
      * mill_mining_cycle : 360
      * mill_production_value_fil_money : 100.0000
-     * hk : a41350bf3dbf2e10226072af661abffd
+     * hk : ab8ec9406bfa6aaf88c66789e8be690d
      */
 
+    private String usdt_cny_price;
     private String hashrate_price;
     private String usable_money;
     private String usable_hashrate;
@@ -33,6 +35,14 @@ public class Fragment1Model implements Serializable {
     private String mill_mining_cycle;
     private String mill_production_value_fil_money;
     private String hk;
+
+    public String getUsdt_cny_price() {
+        return usdt_cny_price;
+    }
+
+    public void setUsdt_cny_price(String usdt_cny_price) {
+        this.usdt_cny_price = usdt_cny_price;
+    }
 
     public String getHashrate_price() {
         return hashrate_price;

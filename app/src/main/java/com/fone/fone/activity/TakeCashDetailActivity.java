@@ -23,9 +23,9 @@ import com.squareup.okhttp.Request;
 public class TakeCashDetailActivity extends BaseActivity {
     String id = "";
     ProgressBar prograssBar;
-    ImageView imageView1, imageView2;
+    ImageView imageView1, imageView2,imageView3;
     TextView textView,textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView14, textView15, textView16;
+            textView14, textView15, textView16,textView17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,7 @@ public class TakeCashDetailActivity extends BaseActivity {
         prograssBar = findViewByID_My(R.id.prograssBar);
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        imageView3 = findViewByID_My(R.id.imageView3);
 
         textView = findViewByID_My(R.id.textView);
         textView1 = findViewByID_My(R.id.textView1);
@@ -75,6 +76,7 @@ public class TakeCashDetailActivity extends BaseActivity {
         textView14 = findViewByID_My(R.id.textView14);
         textView15 = findViewByID_My(R.id.textView15);
         textView16 = findViewByID_My(R.id.textView16);
+        textView17 = findViewByID_My(R.id.textView17);
 
     }
 
@@ -106,39 +108,43 @@ public class TakeCashDetailActivity extends BaseActivity {
                     textView8.setText(response.getMoney_wallet_addr());//提现地址
 
                     textView.setText(response.getSn());//单号
-                    textView16.setText(response.getService_charge_money() + getString(R.string.recharge_h32));//手续费
+                    if (response.getMoney_type() ==1){
+                        imageView3.setImageResource(R.mipmap.ic_usdt_green);
+                        textView16.setText(response.getService_charge_money() + getString(R.string.app_type_usdt));//手续费
+                    }else {
+                        imageView3.setImageResource(R.mipmap.ic_fil_green);
+                        textView16.setText(response.getService_charge_money() + getString(R.string.app_type_fil));//手续费
+                    }
+
                     textView1.setText(response.getCreated_at());//提现时间
                     textView14.setText(response.getVerify_at());//到账时间
                     textView15.setText(response.getStatus_title());//状态
 
                     if (response.getStatus() == 2) {
                         //通过
-                        textView7.setVisibility(View.VISIBLE);
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail3);
                         prograssBar.setProgress(100);
                         textView6.setText(getString(R.string.takecash_h19));
-
                         textView6.setTextColor(getResources().getColor(R.color.shengreen));
-                        textView14.setVisibility(View.GONE);
+
+                        textView17.setVisibility(View.GONE);
                     } else if (response.getStatus() == 3) {
                         //未通过
-                        textView7.setVisibility(View.VISIBLE);
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail4);
                         prograssBar.setProgress(100);
                         textView6.setText(getString(R.string.takecash_h27));
                         textView6.setTextColor(getResources().getColor(R.color.shengreen));
 
-                        textView14.setVisibility(View.VISIBLE);
-                        textView14.setText(getString(R.string.takecash_h28) + response.getStatus_rejected_cause());
+                        textView17.setVisibility(View.VISIBLE);
+                        textView17.setText(getString(R.string.takecash_h28) + response.getStatus_rejected_cause());
                     } else {
                         //进行中
-                        textView7.setVisibility(View.GONE);
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail2);
                         prograssBar.setProgress(50);
                         textView6.setText(getString(R.string.takecash_h19));
                         textView6.setTextColor(getResources().getColor(R.color.white1));
 
-                        textView14.setVisibility(View.GONE);
+                        textView17.setVisibility(View.GONE);
                     }
                 }
             }

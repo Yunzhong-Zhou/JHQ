@@ -28,6 +28,12 @@ public class FILWalletActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();//获取数据
+    }
+
+    @Override
     protected void initView() {
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
@@ -53,7 +59,7 @@ public class FILWalletActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();//获取数据
+
     }
     private void RequestWallet(String string) {
         OkHttpClientManager.getAsyn(FILWalletActivity.this, URLs.FILWallet + string, new OkHttpClientManager.ResultCallback<FILWalletModel>() {

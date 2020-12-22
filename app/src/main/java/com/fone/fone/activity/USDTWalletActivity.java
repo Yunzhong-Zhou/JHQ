@@ -58,8 +58,6 @@ public class USDTWalletActivity extends BaseActivity {
         tv_yongjin = findViewByID_My(R.id.tv_yongjin);
         tv_shouru = findViewByID_My(R.id.tv_shouru);
         tv_zhichu = findViewByID_My(R.id.tv_zhichu);
-
-
     }
 
     @Override

@@ -64,7 +64,7 @@ public class URLs {
     //矿机详情
     public static final String MachineDetail = "/api/invest/detail";
     //支付详情
-    public static final String PayDetail = "/api/like-game/rank";
+    public static final String PayDetail = "/api/invest/cny-pay";
     /**
      * 算力
      */
@@ -152,6 +152,10 @@ public class URLs {
     public static final String About = "/api/index/about";
     //币地址管理
     public static final String AddressManage = "/api/member/set-wallet-addr";
+    //合同
+    public static final String Contract = "/api/contract/index";
+    //合同列表
+    public static final String ContractList = "/api/contract/index";
     /**
      * 拼接请求路径
      *

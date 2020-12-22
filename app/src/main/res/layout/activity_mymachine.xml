@@ -98,6 +98,7 @@
                                 android:paddingBottom="35dp">
 
                                 <TextView
+                                    android:id="@+id/textView1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="0TB"
@@ -124,6 +125,7 @@
                                 android:paddingBottom="35dp">
 
                                 <TextView
+                                    android:id="@+id/textView2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="0"
@@ -145,8 +147,7 @@
                     <com.fone.fone.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                        android:layout_height="match_parent">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"

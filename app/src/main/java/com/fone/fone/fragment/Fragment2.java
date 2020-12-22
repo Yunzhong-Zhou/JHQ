@@ -255,14 +255,13 @@ public class Fragment2 extends BaseFragment {
                 if (!info.equals("")) {
                     showToast(info);
                 }
-
+                requestServer();
             }
 
             @Override
             public void onResponse(Fragment2BuyModel response) {
                 hideProgress();
                 myToast(getString(R.string.fragment2_h15));
-
                 Bundle bundle = new Bundle();
                 bundle.putString("id", response.getId());
                 CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);

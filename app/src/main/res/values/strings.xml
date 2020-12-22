@@ -56,11 +56,11 @@
 
     <!--筛选-->
     <string name="app_type_quanbu">全部</string>
-    <string name="app_type_zhuangtai">状态</string>
-    <string name="app_type_bizhong">币种</string>
+    <string name="app_type_zhuangtai">按状态</string>
+    <string name="app_type_bizhong">按币种</string>
     <string name="app_type_usdt">USDT</string>
     <string name="app_type_fil">FIL</string>
-    <string name="app_type_paixu">排序</string>
+    <string name="app_type_paixu">按排序</string>
     <string name="app_type_leixing">类型</string>
     <string name="app_type_daishenhe">待审核</string>
     <string name="app_type_yitongguo">已通过</string>
@@ -358,7 +358,7 @@
     <string name="fragment1_h48">转帐金额</string>
     <string name="fragment1_h49">2.请勿备注含有IPFS储能国际云矿机，算力，挖矿，BTC，USDT以及其他的数字资产名称等信息，防止汇款被拦截，银行卡被冻结等问题；\n\n3.周未充值到帐速度较慢，若未到帐，则顺延至工作日处理；\n\n4.如果有任何疑问，您可联系客服进行处理（请在工作日9:00~21:00之间完成汇款）；</string>
     <string name="fragment1_h50">矿机详情</string>
-    <string name="fragment1_h51"></string>
+    <string name="fragment1_h51">USDT支付成功</string>
     <string name="fragment1_h52">付款姓名</string>
     <string name="fragment1_h53">请输入姓名</string>
     <string name="fragment1_h54">支付宝付款订单号</string>
@@ -368,6 +368,17 @@
     <string name="fragment1_h58">转账方式</string>
     <string name="fragment1_h59">支付宝转账</string>
     <string name="fragment1_h60">购买方</string>
+    <string name="fragment1_h61">订单提交成功</string>
+    <string name="fragment1_h62">银行卡转账</string>
+    <string name="fragment1_h63">1.请向指定的银行卡帐号进行付款（%1$s）</string>
+    <string name="fragment1_h64">银行卡户名</string>
+    <string name="fragment1_h65">银行卡帐号</string>
+    <string name="fragment1_h66">银行付款订单号</string>
+    <string name="fragment1_h67"></string>
+    <string name="fragment1_h68"></string>
+    <string name="fragment1_h69"></string>
+    <string name="fragment1_h70"></string>
+    <string name="fragment1_h71"></string>
 
 
     <!--fragment2-->
@@ -800,7 +811,7 @@
     <string name="contract_h42">开票日期</string>
     <string name="contract_h43">开票金额</string>
     <string name="contract_h44">发票形式</string>
-    <string name="contract_h45"></string>
+    <string name="contract_h45">确认提交主体信息吗？</string>
     <string name="contract_h46"></string>
     <string name="contract_h47"></string>
     <string name="contract_h48"></string>
