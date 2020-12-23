@@ -6,11 +6,10 @@ import android.view.View;
 import com.alibaba.fastjson.JSON;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.ShouRuListModel;
+import com.fone.fone.model.ContractListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
-import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -34,8 +33,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ContractListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<ShouRuListModel> list = new ArrayList<>();
-    CommonAdapter<ShouRuListModel> mAdapter;
+    List<ContractListModel> list = new ArrayList<>();
+    CommonAdapter<ContractListModel> mAdapter;
 
     int page = 1;
 
@@ -86,7 +85,7 @@ public class ContractListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -100,22 +99,21 @@ public class ContractListActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>支出列表" + response);
                 JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
+                    list = JSON.parseArray(jsonArray.toString(), ContractListModel.class);
                     if (list.size() == 0) {
                         showEmptyPage();//空数据
                     } else {
-                        mAdapter = new CommonAdapter<ShouRuListModel>
+                        mAdapter = new CommonAdapter<ContractListModel>
                                 (ContractListActivity.this, R.layout.item_contractlist, list) {
                             @Override
-                            protected void convert(ViewHolder holder, ShouRuListModel model, int position) {
-                                /*holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");*/
+                            protected void convert(ViewHolder holder, ContractListModel model, int position) {
+                                holder.setText(R.id.textView1, model.getCreated_at());//时间
+                                holder.setText(R.id.textView2, "¥"+model.getCny_money());//金额
+                                holder.setText(R.id.textView3, model.getType_title());
                             }
                         };
                         recyclerView.setAdapter(mAdapter);
@@ -144,7 +142,7 @@ public class ContractListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ShouRuList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -159,13 +157,12 @@ public class ContractListActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
-                List<ShouRuListModel> list1 = new ArrayList<>();
+                List<ContractListModel> list1 = new ArrayList<>();
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
+                    list1 = JSON.parseArray(jsonArray.toString(), ContractListModel.class);
                     if (list1.size() == 0) {
                         myToast(getString(R.string.app_nomore));
                         page--;

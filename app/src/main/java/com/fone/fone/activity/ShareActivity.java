@@ -37,8 +37,9 @@ public class ShareActivity extends BaseActivity {
             textView18,textView19,textView20,textView21;
     ProgressBar prograssBar1, prograssBar2;
     TextView tv_haicha, tv_tixing,
-            tv_v0, tv_v1, tv_v2, tv_v3, tv_v4, tv_v5, tv_v6,
-            tv_num0, tv_num1, tv_num2, tv_num3, tv_num4, tv_num5, tv_num6;
+           tv_v1, tv_v2, tv_v3,
+            tv_num0, tv_num1, tv_num2, tv_num3;
+    View view_1,view_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,20 +98,16 @@ public class ShareActivity extends BaseActivity {
         tv_haicha = findViewByID_My(R.id.tv_haicha);
         tv_tixing = findViewByID_My(R.id.tv_tixing);
 
-        tv_v0 = findViewByID_My(R.id.tv_v0);
         tv_v1 = findViewByID_My(R.id.tv_v1);
         tv_v2 = findViewByID_My(R.id.tv_v2);
         tv_v3 = findViewByID_My(R.id.tv_v3);
-        tv_v4 = findViewByID_My(R.id.tv_v4);
-        tv_v5 = findViewByID_My(R.id.tv_v5);
-        tv_v6 = findViewByID_My(R.id.tv_v6);
+        view_1 = findViewByID_My(R.id.view_1);
+        view_2 = findViewByID_My(R.id.view_1);
+
         tv_num0 = findViewByID_My(R.id.tv_num0);
         tv_num1 = findViewByID_My(R.id.tv_num1);
         tv_num2 = findViewByID_My(R.id.tv_num2);
         tv_num3 = findViewByID_My(R.id.tv_num3);
-        tv_num4 = findViewByID_My(R.id.tv_num4);
-        tv_num5 = findViewByID_My(R.id.tv_num5);
-        tv_num6 = findViewByID_My(R.id.tv_num6);
 
 
         /*imageView = findViewByID_My(R.id.imageView);
@@ -145,81 +142,66 @@ public class ShareActivity extends BaseActivity {
                 if (!response.getHead().equals(""))
                     Glide.with(ShareActivity.this).load(IMGHOST + response.getHead())
                             .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
+                            .placeholder(R.mipmap.loading)//加载站位图
+                            .error(R.mipmap.headimg)//加载失败
                             .into(imageView1);//加载图片
 
                 textView1.setText(response.getNickname() + "");//昵称
                 textView2.setText(getString(R.string.share_h2) + response.getInvite_code());//邀请码
-                textView3.setText(response.getCommission_proportion_running() + "%");//流水分成
-                textView4.setText(response.getCommission_money() + "");//累计佣金
-                textView5.setText(response.getCommission_proportion_same_level() + "%");//同级分成
-                textView6.setText(response.getDirect_performance_money() + "");//累计直推流水
-                textView7.setText(response.getValid_direct_recommend() + "");//累计直推有效
-
-                textView8.setText(getString(R.string.share_h12) + response.getRecommend_hold_start_at()
-                        + "-" + response.getRecommend_hold_end_at());//考核期：
-
-                textView9.setText(response.getRecommend_hold_current_money() + "/");//直推流水
-                textView10.setText(getString(R.string.share_h14) + response.getRecommend_hold_target_money() + "");//目标
-                if (response.getRecommend_hold_current_money() != null && !response.getRecommend_hold_current_money().equals("")
-                        && response.getRecommend_hold_target_money() != null && !response.getRecommend_hold_target_money().equals("")) {
-
-                    double max = Double.valueOf(response.getRecommend_hold_target_money());
+                textView3.setText(response.getCommission_running_proportion() + "%");//拼团分成
+                textView4.setText(response.getCommission_sell_proportion() + "");//累计佣金
+                textView5.setText(response.getCommission_money()+ "%");//销售分成
+                textView6.setText(response.getCommission_same_level_proportion() + "%");//同级分成
+                textView7.setText(response.getValid_direct_recommend() + getString(R.string.app_ren));//累计直推有效人数
+                textView8.setText(getString(R.string.share_h12) + response.getHold_start_at()
+                        + "-" + response.getHold_end_at());//考核期：
+                textView9.setText(response.getHold_current_money() + "/");//新增业绩
+                textView10.setText(getString(R.string.share_h15) + response.getHold_target_money()+ "");//目标
+                if (response.getHold_current_money() != null && !response.getHold_current_money().equals("")
+                        && response.getHold_target_money() != null && !response.getHold_target_money().equals("")) {
+                    double max = Double.valueOf(response.getHold_target_money());
                     prograssBar1.setMax((int) max);
-                    double progress = Double.valueOf(response.getRecommend_hold_current_money());
+                    double progress = Double.valueOf(response.getHold_current_money());
                     prograssBar1.setProgress((int) progress);
                 }
-
-                textView11.setText(response.getRecommend_hold_current() + getString(R.string.app_ren) + "/");//直推有效
-                textView12.setText(getString(R.string.share_h14) + response.getRecommend_hold_target() + getString(R.string.app_ren) + "");//目标
-                if (response.getRecommend_hold_current() != null && !response.getRecommend_hold_current().equals("")
-                        && response.getRecommend_hold_target() != null && !response.getRecommend_hold_target().equals("")) {
-                    double max = Double.valueOf(response.getRecommend_hold_target());
+                textView11.setText(response.getHold_current_money_count() + getString(R.string.app_ren) + "/");//直推有效
+                textView12.setText(getString(R.string.share_h15) + response.getHold_target_money_count()+ getString(R.string.app_ren) + "");//目标
+                if (response.getHold_current_money_count() != null && !response.getHold_current_money_count().equals("")
+                        && response.getHold_target_money_count() != null && !response.getHold_target_money_count().equals("")) {
+                    double max = Double.valueOf(response.getHold_target_money_count());
                     prograssBar2.setMax((int) max);
-                    double progress = Double.valueOf(response.getRecommend_hold_current());
+                    double progress = Double.valueOf(response.getHold_current_money_count());
                     prograssBar2.setProgress((int) progress);
                 }
-
-//                textView13.setText(response.get + "");//
-                textView14.setText(response.getDirect_performance_money() + "");//直推流水
-                textView15.setText(response.getDirect_recommend() + "");//直推人数
-                textView16.setText(response.getTeam_performance_money() + "");//团队流水
-                textView17.setText(response.getTeam_recommend() + "");//团队人数
-
-                textView18.setText(response.getDirect_contract_money() + "");//直推有效合约
-                textView19.setText(response.getTeam_contract_money() + "");//团队有效合约
-                textView20.setText(response.getContract_commission_proportion() + "");//合约分成比例
-                textView21.setText(response.getContract_commission_money() + "");// 合约累计佣金
-
-                tv_haicha.setText(getString(R.string.share_h6) + response.getUpgrade_money_warn()
+//                textView13.setText(response.get + "");//查看直推
+                textView14.setText(response.getDirect_recommend() + "");//直推人数
+                textView15.setText(response.getTeam_recommend() + "");//团队人数
+                textView16.setText(response.getDirect_performance_money() + "");//直推业绩
+                textView17.setText(response.getTeam_performance_money() + "");//团队业绩
+                textView18.setText(response.getDirect_performance_buy_invest_money() + "");//直推算力
+                textView19.setText(response.getTeam_performance_buy_invest_money() + "");//团队算力
+                textView20.setText(response.getDirect_performance_all_invest_money() + "");//直推矿机
+                textView21.setText(response.getTeam_performance_all_invest_money()+ "");// 团队矿机
+                /*tv_haicha.setText(getString(R.string.share_h6) + response.getUpgrade_money_warn()
                         +getString(R.string.app_type_usdt)
                         + getString(R.string.share_h7));
                 tv_tixing.setText(getString(R.string.share_h13) + response.getRecommend_hold_target_money()+"，"
                         + getString(R.string.share_h14) + response.getRecommend_hold_target() + getString(R.string.app_ren)+"，"
-                +getString(R.string.share_h17));
+                        +getString(R.string.share_h17));*/
 
-                switch (response.getRecommend_grade()) {
+                switch (response.getGrade()) {
                     case 0:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-
                         tv_v1.setTextColor(getResources().getColor(R.color.black1));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huise);
                         tv_v2.setTextColor(getResources().getColor(R.color.black1));
                         tv_v2.setBackgroundResource(R.drawable.yuanxing_huise);
                         tv_v3.setTextColor(getResources().getColor(R.color.black1));
                         tv_v3.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v4.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v5.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
+
+                        view_1.setBackgroundResource(R.color.white);
+                        view_2.setBackgroundResource(R.color.white);
                         break;
                     case 1:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v1.setTextColor(getResources().getColor(R.color.white));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
 
@@ -227,16 +209,11 @@ public class ShareActivity extends BaseActivity {
                         tv_v2.setBackgroundResource(R.drawable.yuanxing_huise);
                         tv_v3.setTextColor(getResources().getColor(R.color.black1));
                         tv_v3.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v4.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v5.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
+
+                        view_1.setBackgroundResource(R.color.white);
+                        view_2.setBackgroundResource(R.color.white);
                         break;
                     case 2:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v1.setTextColor(getResources().getColor(R.color.white));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v2.setTextColor(getResources().getColor(R.color.white));
@@ -244,16 +221,11 @@ public class ShareActivity extends BaseActivity {
 
                         tv_v3.setTextColor(getResources().getColor(R.color.black1));
                         tv_v3.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v4.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v5.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
+
+                        view_1.setBackgroundResource(R.color.yellow_1);
+                        view_2.setBackgroundResource(R.color.white);
                         break;
                     case 3:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v1.setTextColor(getResources().getColor(R.color.white));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v2.setTextColor(getResources().getColor(R.color.white));
@@ -261,72 +233,15 @@ public class ShareActivity extends BaseActivity {
                         tv_v3.setTextColor(getResources().getColor(R.color.white));
                         tv_v3.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
 
-                        tv_v4.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v5.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
-                        break;
-                    case 4:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v1.setTextColor(getResources().getColor(R.color.white));
-                        tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v2.setTextColor(getResources().getColor(R.color.white));
-                        tv_v2.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v3.setTextColor(getResources().getColor(R.color.white));
-                        tv_v3.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v4.setTextColor(getResources().getColor(R.color.white));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-
-                        tv_v5.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
-                        break;
-                    case 5:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v1.setTextColor(getResources().getColor(R.color.white));
-                        tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v2.setTextColor(getResources().getColor(R.color.white));
-                        tv_v2.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v3.setTextColor(getResources().getColor(R.color.white));
-                        tv_v3.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v4.setTextColor(getResources().getColor(R.color.white));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v5.setTextColor(getResources().getColor(R.color.white));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-
-                        tv_v6.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huise);
-                        break;
-                    case 6:
-                        tv_v0.setTextColor(getResources().getColor(R.color.white));
-                        tv_v0.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v1.setTextColor(getResources().getColor(R.color.white));
-                        tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v2.setTextColor(getResources().getColor(R.color.white));
-                        tv_v2.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v3.setTextColor(getResources().getColor(R.color.white));
-                        tv_v3.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v4.setTextColor(getResources().getColor(R.color.white));
-                        tv_v4.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v5.setTextColor(getResources().getColor(R.color.white));
-                        tv_v5.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-                        tv_v6.setTextColor(getResources().getColor(R.color.white));
-                        tv_v6.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
+                        view_1.setBackgroundResource(R.color.yellow_1);
+                        view_2.setBackgroundResource(R.color.yellow_1);
                         break;
 
                 }
-                tv_num0.setText(response.getRecommend_grade_count_list().getRecommend_grade_0());
-                tv_num1.setText(response.getRecommend_grade_count_list().getRecommend_grade_1());
-                tv_num2.setText(response.getRecommend_grade_count_list().getRecommend_grade_2());
-                tv_num3.setText(response.getRecommend_grade_count_list().getRecommend_grade_3());
-                tv_num4.setText(response.getRecommend_grade_count_list().getRecommend_grade_4());
-                tv_num5.setText(response.getRecommend_grade_count_list().getRecommend_grade_5());
-                tv_num6.setText(response.getRecommend_grade_count_list().getRecommend_grade_6());
+//                tv_num0.setText(response.getGrade_count_list().getGrade_0());
+                tv_num1.setText(response.getGrade_count_list().getGrade_1());
+                tv_num2.setText(response.getGrade_count_list().getGrade_2());
+                tv_num3.setText(response.getGrade_count_list().getGrade_3());
 
             }
 

@@ -244,14 +244,11 @@ public class InformationActivity extends BaseActivity {
                         holder.setText(R.id.textView1, model.getTitle());
                         holder.setText(R.id.textView2, model.getDigest());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
-                        if (!model.getCover().equals(""))
-                            Glide.with(InformationActivity.this)
-                                    .load(OkHttpClientManager.IMGHOST + model.getCover())
-//                                    .placeholder(R.mipmap.headimg)//加载站位图
-//                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(imageView1);//加载图片
-                        else
-                            imageView1.setImageResource(R.mipmap.headimg);
+                        Glide.with(InformationActivity.this)
+                                .load(OkHttpClientManager.IMGHOST + model.getCover())
+                                .placeholder(R.mipmap.loading)//加载站位图
+                                .error(R.mipmap.headimg)//加载失败
+                                .into(imageView1);//加载图片
                     }
                 };
                 adapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
@@ -333,9 +330,9 @@ public class InformationActivity extends BaseActivity {
                 list2_1 = response.getArticle_category_2().getArticle_list();
 
                 if (list1_1.size() == 0 && list2_1.size() == 0) {
-                    page --;
+                    page--;
                     myToast(getString(R.string.app_nomore));
-                }else {
+                } else {
                     if (list1_1.size() != 0) {
                         list1.addAll(list1_1);
                         adapter1.notifyDataSetChanged();

@@ -1,7 +1,9 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import com.fone.fone.model.ContractModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
+import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
@@ -23,33 +26,40 @@ import com.lljjcoder.citywheel.CityConfig;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Mr.Z on 2020/12/15.
  * 合同
  */
 public class ContractActivity extends BaseActivity {
+    ContractModel model;
     //筛选
-    private LinearLayout linearLayout1, linearLayout2,linearLayout3,linearLayout_1, linearLayout_2,linearLayout_3;
-    private TextView textView1, textView2,textView3,tv_moeny;
-    private View view1, view2,view3;
+    private LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout_1, linearLayout_2, linearLayout_3;
+    private TextView textView1, textView2, textView3, tv_moeny;
+    private View view1, view2, view3;
     /**
      * 主体信息
      */
-    ImageView iv_geren,iv_qiye;
-    EditText editText1_1,editText2_1,editText3_1,editText4_1,editText5_1,editText6_1;
+    ImageView iv_geren, iv_qiye;
+    TextView tv_title_1, tv_num_1;
+    EditText editText1_1, editText2_1, editText3_1, editText4_1, editText5_1, editText6_1;
     CityConfig cityConfig = null;
     //开户行控件 申明对象
     CityPickerView mPicker = new CityPickerView();
-    String address_temp = "",type="1",title="",number="",name="",mobile="",addr="";
+    String address_temp = "", type1 = "1", title = "", number = "", name = "", mobile = "", addr = "";
     /**
      * 电子合同
      */
-    EditText editText1_2,editText2_2,editText3_2;
+    EditText editText1_2, editText2_2, editText3_2;
     /**
      * 申请开票
      */
-    ImageView iv_dianzi,iv_zhizhi;
-    EditText editText1_3,editText2_3,editText3_3,editText4_3,editText5_3,editText6_3,editText7_3;
+    TextView tv_title_3, tv_num_3;
+    ImageView iv_dianzi, iv_zhizhi;
+    EditText editText1_3, editText2_3, editText3_3, editText4_3, editText5_3, editText6_3, editText7_3;
+    String cny_money = "", type3 = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +106,8 @@ public class ContractActivity extends BaseActivity {
          */
         iv_geren = findViewByID_My(R.id.iv_geren);
         iv_qiye = findViewByID_My(R.id.iv_qiye);
+        tv_title_1 = findViewByID_My(R.id.tv_title_1);
+        tv_num_1 = findViewByID_My(R.id.tv_num_1);
         editText1_1 = findViewByID_My(R.id.editText1_1);
         editText2_1 = findViewByID_My(R.id.editText2_1);
         editText3_1 = findViewByID_My(R.id.editText3_1);
@@ -167,6 +179,8 @@ public class ContractActivity extends BaseActivity {
          */
         iv_dianzi = findViewByID_My(R.id.iv_dianzi);
         iv_zhizhi = findViewByID_My(R.id.iv_zhizhi);
+        tv_title_3 = findViewByID_My(R.id.tv_title_3);
+        tv_num_3 = findViewByID_My(R.id.tv_num_3);
         editText1_3 = findViewByID_My(R.id.editText1_3);
         editText2_3 = findViewByID_My(R.id.editText2_3);
         editText3_3 = findViewByID_My(R.id.editText3_3);
@@ -174,6 +188,37 @@ public class ContractActivity extends BaseActivity {
         editText5_3 = findViewByID_My(R.id.editText5_3);
         editText6_3 = findViewByID_My(R.id.editText6_3);
         editText7_3 = findViewByID_My(R.id.editText7_3);
+        //输入监听
+        editText3_3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!editText3_3.getText().toString().trim().equals("")) {
+                    cny_money = editText3_3.getText().toString().trim();
+                    MyLogger.i(">>>>>输入币数>>>>>" + cny_money);
+                    //手续费 = 输入币数 * 手续费率 /100
+//                    double service_money = Double.valueOf(model.getWithdrawal_service_charge());
+//                    MyLogger.i(">>>>>手续费>>>>>" + service_money);
+                    //实际到账 =  (输入币数 - 手续费)
+                    double real_money = (Double.valueOf(cny_money) *0.03);
+                    MyLogger.i(">>>>>实际到账>>>>>" + real_money);
+
+                    editText4_3.setText("¥ " + String.format("%.2f", real_money));//实际到账
+
+                } else {
+                    editText4_3.setText("¥ 0");//实际到账
+                }
+            }
+        });
 
     }
 
@@ -181,31 +226,71 @@ public class ContractActivity extends BaseActivity {
     protected void initData() {
         requestServer();//获取数据
     }
-    private void Request(String string) {
-            OkHttpClientManager.getAsyn(ContractActivity.this, URLs.Contract + string,
-                    new OkHttpClientManager.ResultCallback<ContractModel>() {
-                @Override
-                public void onError(Request request, String info, Exception e) {
-                    showErrorPage();
-                    hideProgress();
-                    if (!info.equals("")) {
-                        showToast(info);
-                    }
-                }
 
-                @Override
-                public void onResponse(ContractModel response) {
-                    showContentPage();
-                    hideProgress();
-                    tv_moeny.setText("¥"+response.getResidue_invoice_cny_money());
-                    /**
-                     *  主体信息
-                     */
-                    editText1_1.setText(response.getTitle());//主体姓名
-                    editText2_1.setText(response.getNumber());//身份证号
-                    editText3_1.setText(response.getName());//收件姓名
-                    editText4_1.setText(response.getMobile());//手机号
-//                    editText5_1.setText(response.get);//省市县
+    private void Request(String string) {
+        OkHttpClientManager.getAsyn(ContractActivity.this, URLs.Contract + string,
+                new OkHttpClientManager.ResultCallback<ContractModel>() {
+                    @Override
+                    public void onError(Request request, String info, Exception e) {
+                        showErrorPage();
+                        hideProgress();
+                        if (!info.equals("")) {
+                            showToast(info);
+                        }
+                    }
+
+                    @Override
+                    public void onResponse(ContractModel response) {
+                        showContentPage();
+                        hideProgress();
+                        model = response;
+                        tv_moeny.setText("¥" + response.getResidue_invoice_cny_money());
+                        if (!response.getType().equals("0")) {
+                            editText1_1.setFocusable(false);
+                            editText2_1.setFocusable(false);
+                            editText3_1.setFocusable(false);
+                            editText4_1.setFocusable(false);
+//                            editText5_1.setFocusable(false);
+                            editText6_1.setFocusable(false);
+
+                            if (response.getType().equals("2")) {//公司
+                                type1 = "2";
+                                iv_geren.setVisibility(View.INVISIBLE);
+                                iv_qiye.setVisibility(View.VISIBLE);
+
+                                tv_title_1.setText(getString(R.string.contract_h27));
+                                tv_num_1.setText(getString(R.string.contract_h28));
+                                editText1_1.setHint(getResources().getString(R.string.contract_h36));
+                                editText2_1.setHint(getResources().getString(R.string.contract_h37));
+
+                                tv_title_3.setText(getString(R.string.contract_h27));
+                                tv_num_3.setText(getString(R.string.contract_h28));
+                                editText1_3.setHint(getResources().getString(R.string.contract_h36));
+                                editText2_3.setHint(getResources().getString(R.string.contract_h37));
+
+                            } else {
+                                type1 = "1";//类型（1.个人 2.企业）
+                                iv_geren.setVisibility(View.VISIBLE);
+                                iv_qiye.setVisibility(View.INVISIBLE);
+
+                                tv_title_1.setText(getString(R.string.contract_h10));
+                                tv_num_1.setText(getString(R.string.contract_h12));
+                                editText1_1.setHint(getResources().getString(R.string.contract_h11));
+                                editText2_1.setHint(getResources().getString(R.string.contract_h13));
+
+                                tv_title_3.setText(getString(R.string.contract_h10));
+                                tv_num_3.setText(getString(R.string.contract_h12));
+                                editText1_3.setHint(getResources().getString(R.string.contract_h11));
+                                editText2_3.setHint(getResources().getString(R.string.contract_h13));
+                            }
+                            /**
+                             *  主体信息
+                             */
+                            editText1_1.setText(response.getTitle());//主体姓名
+                            editText2_1.setText(response.getNumber());//身份证号
+                            editText3_1.setText(response.getName());//收件姓名
+                            editText4_1.setText(response.getMobile());//手机号
+                            editText5_1.setText(response.getAddr());//省市县
                      /*//显示省市县
                     String[] strings = response.getMember().getBank_address().split("#");
                     if (strings.length > 2) {
@@ -217,25 +302,37 @@ public class ContractActivity extends BaseActivity {
 //                    editText7.setText("");
                         address_temp = strings[0] + "#" + strings[1];
                     }*/
-                    editText6_1.setText(response.getAddr());//详细地址
+                            editText6_1.setText(response.getAddr());//详细地址
 
-                    /**
-                     * 电子合同
-                     */
-                    editText1_2.setText(response.getName());//姓名
-                    editText2_2.setText(response.getMobile());//手机号
-                    editText3_2.setText(response.getAddr());//详细地址
+                            /**
+                             * 电子合同
+                             */
+                            editText1_2.setText(response.getName());//姓名
+                            editText2_2.setText(response.getMobile());//手机号
+                            editText3_2.setText(response.getAddr());//详细地址
 
-                    /**
-                     * 申请开票
-                     */
-                    editText5_3.setText(response.getName());//姓名
-                    editText6_3.setText(response.getMobile());//手机号
-                    editText7_3.setText(response.getAddr());//详细地址
-                }
-            });
+                            /**
+                             * 申请开票
+                             */
+                            editText1_3.setText(response.getTitle());//主体姓名
+                            editText2_3.setText(response.getNumber());//身份证号
+                            editText5_3.setText(response.getName());//姓名
+                            editText6_3.setText(response.getMobile());//手机号
+                            editText7_3.setText(response.getAddr());//详细地址
+                        } else {
+                            editText1_1.setFocusable(true);
+                            editText2_1.setFocusable(true);
+                            editText3_1.setFocusable(true);
+                            editText4_1.setFocusable(true);
+//                            editText5_1.setFocusable(true);
+                            editText6_1.setFocusable(true);
+                        }
 
-        }
+                    }
+                });
+
+    }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -247,42 +344,144 @@ public class ContractActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.left_btn:
                 finish();
                 break;
             case R.id.linearLayout:
                 //开票记录
-                CommonUtil.gotoActivity(ContractActivity.this,ContractListActivity.class);
+                CommonUtil.gotoActivity(ContractActivity.this, ContractListActivity.class);
                 break;
             /**
              * 主体信息
              */
             case R.id.rl_geren:
                 //个人
-                type = "1";//类型（1.个人 2.企业）
-                iv_geren.setVisibility(View.VISIBLE);
-                iv_qiye.setVisibility(View.INVISIBLE);
+                if (model.getType().equals("0")) {
+                    type1 = "1";//类型（1.个人 2.企业）
+                    iv_geren.setVisibility(View.VISIBLE);
+                    iv_qiye.setVisibility(View.INVISIBLE);
+
+                    tv_title_1.setText(getString(R.string.contract_h10));
+                    tv_num_1.setText(getString(R.string.contract_h12));
+                    editText1_1.setHint(getResources().getString(R.string.contract_h11));
+                    editText2_1.setHint(getResources().getString(R.string.contract_h13));
+
+                    tv_title_3.setText(getString(R.string.contract_h10));
+                    tv_num_3.setText(getString(R.string.contract_h12));
+                    editText1_3.setHint(getResources().getString(R.string.contract_h11));
+                    editText2_3.setHint(getResources().getString(R.string.contract_h13));
+                }
+
                 break;
             case R.id.rl_qiye:
                 //企业
-                type="2";
-                iv_geren.setVisibility(View.INVISIBLE);
-                iv_qiye.setVisibility(View.VISIBLE);
+                if (model.getType().equals("0")) {
+                    type1 = "2";
+                    iv_geren.setVisibility(View.INVISIBLE);
+                    iv_qiye.setVisibility(View.VISIBLE);
+
+                    tv_title_1.setText(getString(R.string.contract_h27));
+                    tv_num_1.setText(getString(R.string.contract_h28));
+                    editText1_1.setHint(getResources().getString(R.string.contract_h36));
+                    editText2_1.setHint(getResources().getString(R.string.contract_h37));
+
+                    tv_title_3.setText(getString(R.string.contract_h27));
+                    tv_num_3.setText(getString(R.string.contract_h28));
+                    editText1_3.setHint(getResources().getString(R.string.contract_h36));
+                    editText2_3.setHint(getResources().getString(R.string.contract_h37));
+                }
                 break;
             case R.id.editText5_1:
                 //选择地址
-                mPicker.showCityPicker();
+                if (model.getType().equals("0")) {
+                    mPicker.showCityPicker();
+                }
                 break;
             case R.id.tv_confirm_1:
-                if (match1()){
-                    showToast(getString(R.string.contract_h45)
+                if (model.getType().equals("0")) {
+                    if (match1()) {
+                        showToast(getString(R.string.contract_h45)
+                                , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        showProgress(true, getString(R.string.app_loading1));
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("type", type1);
+                                        params.put("title", title);
+                                        params.put("number", number);
+                                        params.put("name", name);
+                                        params.put("mobile", mobile);
+                                        params.put("addr", address_temp + addr);
+                                        params.put("token", localUserInfo.getToken());
+                                        RequestUpData(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+
+                                    }
+                                });
+                    }
+                } else {
+                    myToast(getString(R.string.contract_h47));
+                }
+                break;
+
+            /**
+             * 电子合同
+             */
+            case R.id.tv_dianzi:
+                //查阅电子合同
+                if (!model.getType().equals("0")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("url", model.getUrl());
+                    CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity.class, bundle, false);
+                } else {
+                    myToast(getString(R.string.contract_h46));
+                }
+                break;
+            case R.id.tv_zhizhi:
+                //申请纸质合同
+                if (!model.getType().equals("0")) {
+
+                } else {
+                    myToast(getString(R.string.contract_h46));
+                }
+                break;
+            /**
+             * 申请开票
+             */
+            case R.id.rl_dianzi:
+                //电子
+                type3 = "1";
+                iv_dianzi.setVisibility(View.VISIBLE);
+                iv_zhizhi.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.rl_zhizhi:
+                //纸质
+                type3 = "2";
+                iv_dianzi.setVisibility(View.INVISIBLE);
+                iv_zhizhi.setVisibility(View.VISIBLE);
+                break;
+            case R.id.tv_confirm_3:
+                //申请开票
+                if (match3()) {
+                    showToast(getString(R.string.contract_h48)
                             , getString(R.string.app_confirm), getString(R.string.app_cancel),
                             new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
-
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("type", type3);
+                                    params.put("cny_money", cny_money);
+                                    params.put("token", localUserInfo.getToken());
+                                    RequestUpData3(params);
                                 }
                             }, new View.OnClickListener() {
                                 @Override
@@ -292,31 +491,6 @@ public class ContractActivity extends BaseActivity {
                                 }
                             });
                 }
-                break;
-
-            /**
-             * 电子合同
-             */
-            case R.id.tv_dianzi:
-                //电子合同
-
-                break;
-            case R.id.tv_zhizhi:
-                //纸质合同
-
-                break;
-            /**
-             * 申请开票
-             */
-            case R.id.rl_dianzi:
-                //电子
-                iv_dianzi.setVisibility(View.VISIBLE);
-                iv_zhizhi.setVisibility(View.INVISIBLE);
-                break;
-            case R.id.rl_zhizhi:
-                //纸质
-                iv_dianzi.setVisibility(View.INVISIBLE);
-                iv_zhizhi.setVisibility(View.VISIBLE);
                 break;
 
             /**
@@ -358,15 +532,26 @@ public class ContractActivity extends BaseActivity {
 
         }
     }
+
     private boolean match1() {
         title = editText1_1.getText().toString().trim();
         if (TextUtils.isEmpty(title)) {
-            myToast(getString(R.string.contract_h11));
+            if (type1.equals("1")) {
+                myToast(getString(R.string.contract_h11));
+            } else {
+                myToast(getString(R.string.contract_h36));
+            }
+
             return false;
         }
         number = editText2_1.getText().toString().trim();
         if (TextUtils.isEmpty(number)) {
-            myToast(getString(R.string.contract_h13));
+            if (type1.equals("1")) {
+                myToast(getString(R.string.contract_h13));
+            } else {
+                myToast(getString(R.string.contract_h37));
+            }
+
             return false;
         }
         name = editText3_1.getText().toString().trim();
@@ -379,26 +564,81 @@ public class ContractActivity extends BaseActivity {
             myToast(getString(R.string.contract_h21));
             return false;
         }
+        address_temp = editText5_1.getText().toString().trim();
+        if (TextUtils.isEmpty(address_temp)) {
+            myToast(getString(R.string.contract_h17));
+            return false;
+        }
 
         addr = editText6_1.getText().toString().trim();
         if (TextUtils.isEmpty(mobile)) {
             myToast(getString(R.string.contract_h19));
             return false;
         }
-        if (!address_temp.equals("")) {
-            addr = address_temp;
-            /*if (editText7.getText().toString().trim().equals("")) {
-                bank_address = address_temp + "#" + "支行";
-            } else {
-                bank_address = address_temp + "#" + editText7.getText().toString().trim();
-            }*/
-        } else {
-//            bank_address = "";
-            myToast(getString(R.string.takecash_h27));
-            return false;
-        }
+
         return true;
     }
+
+    private boolean match3() {
+        if (model.getType().equals("0")) {
+            myToast(getString(R.string.contract_h46));
+            return false;
+        }
+        cny_money = editText3_3.getText().toString().trim();
+        if (TextUtils.isEmpty(cny_money)) {
+            myToast(getString(R.string.contract_h31));
+            return false;
+        }
+        /*cny_money = editText4_3.getText().toString().trim();
+        if (TextUtils.isEmpty(cny_money)) {
+            myToast(getString(R.string.contract_h38));
+            return false;
+        }*/
+
+        return true;
+    }
+
+    private void RequestUpData(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(ContractActivity.this, URLs.ContractCreate, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.contract_h49));
+                requestServer();
+            }
+        }, true);
+    }
+    private void RequestUpData3(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(ContractActivity.this, URLs.InvoiceCreate, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+//                requestServer();
+                editText3_3.setText("");
+                editText4_3.setText("");
+                showToast(getString(R.string.contract_h50));
+            }
+        }, true);
+    }
+
     @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);

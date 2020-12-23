@@ -189,6 +189,12 @@
         <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
       </intent-filter>
     </service>
+    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+      <intent-filter>
+        <action android:name="com.mob.open.app"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
     <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE"/>

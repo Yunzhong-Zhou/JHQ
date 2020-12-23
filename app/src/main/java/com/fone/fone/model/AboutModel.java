@@ -7,27 +7,25 @@ import java.io.Serializable;
  */
 public class AboutModel implements Serializable {
     /**
-     * about_bwin_url : https://baike.baidu.com/item/Bwin/8622720?fr=aladdin
-     * official_website : https://www.bwincoin.org
-     * download_url : http://
+     * about_fil_url : https://baike.baidu.com/item/Bwin/8622720?fr=aladdin
+     * official_website : https://www.filcoin.org
      * version_code : 1
      * version_title : 1.0
-     * url : http://
+     * download_url : http://
      */
 
-    private String about_bwin_url;
+    private String about_fil_url;
     private String official_website;
-    private String download_url;
     private String version_code;
     private String version_title;
-    private String url;
+    private String download_url;
 
-    public String getAbout_bwin_url() {
-        return about_bwin_url;
+    public String getAbout_fil_url() {
+        return about_fil_url;
     }
 
-    public void setAbout_bwin_url(String about_bwin_url) {
-        this.about_bwin_url = about_bwin_url;
+    public void setAbout_fil_url(String about_fil_url) {
+        this.about_fil_url = about_fil_url;
     }
 
     public String getOfficial_website() {
@@ -36,14 +34,6 @@ public class AboutModel implements Serializable {
 
     public void setOfficial_website(String official_website) {
         this.official_website = official_website;
-    }
-
-    public String getDownload_url() {
-        return download_url;
-    }
-
-    public void setDownload_url(String download_url) {
-        this.download_url = download_url;
     }
 
     public String getVersion_code() {
@@ -62,11 +52,11 @@ public class AboutModel implements Serializable {
         this.version_title = version_title;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDownload_url() {
+        return download_url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDownload_url(String download_url) {
+        this.download_url = download_url;
     }
 }

@@ -197,6 +197,16 @@ public class Fragment3Model implements Serializable {
          * win_member : null
          */
 
+        private String id;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
         private String period;
         private String win_member_id;
         private String created_at;

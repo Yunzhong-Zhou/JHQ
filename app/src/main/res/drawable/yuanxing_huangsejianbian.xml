@@ -9,11 +9,11 @@
         android:right="1dp"
         android:top="1dp" />-->
     <gradient
-        android:angle="270"
-        android:centerColor="#FA9606"
+        android:angle="90"
+        android:centerColor="#BEB083"
         android:centerY="0.5"
-        android:endColor="#F7B000"
-        android:startColor="#FF760E" />
+        android:endColor="#DFD3AD"
+        android:startColor="#B2A373" />
     <stroke
         android:width="0dp"
         android:color="@android:color/white" /><!--外环-->

@@ -1,7 +1,9 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.DirectMemberModel;
@@ -19,6 +21,8 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
+
 
 /**
  * Created by zyz on 2019/1/7.
@@ -27,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SharePeopleActivity extends BaseActivity {
     private RecyclerView recyclerView;
     List<DirectMemberModel.DirectRecommendListBean> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,7 @@ public class SharePeopleActivity extends BaseActivity {
     protected void initData() {
         requestServer();
     }
+
     private void Request(String string) {
         OkHttpClientManager.getAsyn(this, URLs.DirectMember + string, new OkHttpClientManager.ResultCallback<DirectMemberModel>() {
             @Override
@@ -77,24 +83,31 @@ public class SharePeopleActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>直推会员" + response);
                 if (response != null) {
                     list = response.getDirect_recommend_list();
-                    if (list.size()>0){
+                    if (list.size() > 0) {
                         CommonAdapter<DirectMemberModel.DirectRecommendListBean> mAdapter = new CommonAdapter<DirectMemberModel.DirectRecommendListBean>(
                                 SharePeopleActivity.this, R.layout.item_sharepeople, list) {
                             @Override
                             protected void convert(ViewHolder holder, DirectMemberModel.DirectRecommendListBean model, int position) {
-                                /*holder.setText(R.id.textView1, model.getNickname());
-                                holder.setText(R.id.textView2, model.getContract_money()+"");
-                                holder.setText(R.id.textView3, model.getGrade_title());
-                                ImageView imageView = holder.getView(R.id.imageView1);
-                                if (!model.getHead().equals(""))
-                                    Glide.with(SharePeopleActivity.this).load(IMGHOST + model.getHead()).centerCrop().into(imageView);//加载图片
-                                else
-                                    imageView.setImageResource(R.mipmap.headimg);*/
+                                holder.setText(R.id.tv_num, model.getGrade_title());
+                                holder.setText(R.id.tv_name, model.getNickname());
+                                holder.setText(R.id.tv_code, "（"+getString(R.string.fragment5_h1)+model.getInvite_code()+")");
+                                holder.setText(R.id.tv_money, model.getAmount_change_game_money());
+                                holder.setText(R.id.tv_pintuan, getString(R.string.share_h60)+model.getAmount_change_game_money());
+                                holder.setText(R.id.tv_suanli, getString(R.string.share_h61)+model.getBuy_hashrate());
+                                holder.setText(R.id.tv_kuangji, getString(R.string.share_h62)+model.getAll_hashrate());
+
+                                ImageView iv_head = holder.getView(R.id.iv_head);
+                                Glide.with(SharePeopleActivity.this)
+                                        .load(IMGHOST + model.getHead())
+                                        .centerCrop()
+                                        .placeholder(R.mipmap.loading)//加载站位图
+                                        .error(R.mipmap.headimg)//加载失败
+                                        .into(iv_head);//加载图片
 
                             }
                         };
                         recyclerView.setAdapter(mAdapter);
-                    }else {
+                    } else {
                         showEmptyPage();
                     }
 

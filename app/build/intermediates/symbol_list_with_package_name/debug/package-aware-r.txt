@@ -1082,6 +1082,7 @@ color yellow2
 color yellow300
 color yellow500
 color yellow700
+color yellow_1
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -2176,6 +2177,7 @@ id tvContent
 id tvTitle
 id tv_cancel
 id tv_chanzhi
+id tv_code
 id tv_confirm
 id tv_confirm_1
 id tv_confirm_3
@@ -2205,9 +2207,9 @@ id tv_num0
 id tv_num1
 id tv_num2
 id tv_num3
-id tv_num4
-id tv_num5
-id tv_num6
+id tv_num_1
+id tv_num_3
+id tv_pintuan
 id tv_pinzhong
 id tv_recharge1
 id tv_recharge2
@@ -2223,18 +2225,16 @@ id tv_tab4
 id tv_takecash
 id tv_time
 id tv_title
+id tv_title_1
+id tv_title_3
 id tv_tixing
 id tv_transfer
 id tv_type
 id tv_type1
 id tv_type2
-id tv_v0
 id tv_v1
 id tv_v2
 id tv_v3
-id tv_v4
-id tv_v5
-id tv_v6
 id tv_yichan
 id tv_yongjin
 id tv_zhichu
@@ -2256,6 +2256,8 @@ id view1
 id view2
 id view3
 id viewGroup
+id view_1
+id view_2
 id view_offset_helper
 id viewfinder_view
 id visible
@@ -2534,6 +2536,7 @@ mipmap bg_shareposter6
 mipmap bg_transfer
 mipmap bg_upgrade
 mipmap bg_xian
+mipmap bg_yuan_green
 mipmap bg_yuanjiaobiankuang_lansejianbian
 mipmap down_black
 mipmap down_green
@@ -2560,6 +2563,7 @@ mipmap ic_down_white
 mipmap ic_edit
 mipmap ic_editimg
 mipmap ic_fenxiang
+mipmap ic_fil_black
 mipmap ic_fil_green
 mipmap ic_fil_white
 mipmap ic_fil_yellow
@@ -3456,6 +3460,8 @@ string share_h58
 string share_h59
 string share_h6
 string share_h60
+string share_h61
+string share_h62
 string share_h7
 string share_h8
 string share_h9

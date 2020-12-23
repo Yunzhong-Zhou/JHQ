@@ -505,7 +505,7 @@
     <string name="fragment5_h27">中国移动提供托管机房</string>
     <string name="fragment5_h28">阿里云服务商提供支持</string>
     <string name="fragment5_h29">矿机一机一码真实可查</string>
-    <string name="fragment5_h30"></string>
+    <string name="fragment5_h30">需要参与5次拼团即可达到V1</string>
 
 
     <!--个人资料-->
@@ -646,7 +646,9 @@
     <string name="share_h57">等级</string>
     <string name="share_h58">用户</string>
     <string name="share_h59">总业绩</string>
-    <string name="share_h60"></string>
+    <string name="share_h60">拼团：</string>
+    <string name="share_h61">算力：</string>
+    <string name="share_h62">矿机：</string>
 
 
     <!--币地址管理-->
@@ -797,7 +799,7 @@
     <string name="contract_h28">统一社会代码</string>
     <string name="contract_h29">发票信息</string>
     <string name="contract_h30">开票金额</string>
-    <string name="contract_h31">输入发票金额</string>
+    <string name="contract_h31">请输入开票金额</string>
     <string name="contract_h32">应补税费</string>
     <string name="contract_h33">发票类型</string>
     <string name="contract_h34">电子</string>
@@ -812,10 +814,10 @@
     <string name="contract_h43">开票金额</string>
     <string name="contract_h44">发票形式</string>
     <string name="contract_h45">确认提交主体信息吗？</string>
-    <string name="contract_h46"></string>
-    <string name="contract_h47"></string>
-    <string name="contract_h48"></string>
-    <string name="contract_h49"></string>
-    <string name="contract_h50"></string>
+    <string name="contract_h46">请先完善主体信息</string>
+    <string name="contract_h47">您已完善了主体信息，不能再次修改</string>
+    <string name="contract_h48">确认开票吗？</string>
+    <string name="contract_h49">主体信息更新成功</string>
+    <string name="contract_h50">开票申请提交成功</string>
 
 </resources>

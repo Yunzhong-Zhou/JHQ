@@ -161,7 +161,7 @@ public class TakeCashActivity extends BaseActivity {
             tv_title.setText(getString(R.string.takecash_h1));
             textView1.setText(getString(R.string.takecash_h37));
             imageView1.setImageResource(R.mipmap.ic_fil_white);
-            imageView2.setImageResource(R.mipmap.ic_usdt_black1);
+            imageView2.setImageResource(R.mipmap.ic_fil_black);
 //            textView4.setText("3"+getString(R.string.app_type_fil));
         }
 

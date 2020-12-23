@@ -261,7 +261,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                             Bundle bundle = new Bundle();
-                            bundle.putString("id", list1.get(i).getPeriod());
+                            bundle.putString("id", list1.get(i).getId());
                             CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle);
                         }
 

@@ -22,6 +22,16 @@ public class Fragment1Model implements Serializable {
      * hk : ab8ec9406bfa6aaf88c66789e8be690d
      */
 
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     private String usdt_cny_price;
     private String hashrate_price;
     private String usable_money;

@@ -24,7 +24,16 @@ public class ContractModel implements Serializable {
     private String name;
     private String mobile;
     private String addr;
+    private String url;
     private String residue_invoice_cny_money;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getType() {
         return type;

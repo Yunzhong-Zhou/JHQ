@@ -165,7 +165,7 @@
                         <LinearLayout
                             android:layout_width="120dp"
                             android:layout_height="120dp"
-                            android:background="@drawable/yuanxing_lvsejianbian"
+                            android:background="@mipmap/bg_yuan_green"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -253,34 +253,20 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp">
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginRight="35dp">
 
-                            <View
+                           <!-- <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1.5dp"
                                 android:layout_centerVertical="true"
-                                android:background="@color/white" />
+                                android:background="@color/white" />-->
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/tv_v0"
-                                    android:layout_width="34dp"
-                                    android:layout_height="34dp"
-                                    android:background="@drawable/yuanxing_huise"
-                                    android:gravity="center"
-                                    android:text="V0"
-                                    android:textColor="@color/black1"
-                                    android:textSize="13sp" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
 
                                 <TextView
                                     android:id="@+id/tv_v1"
@@ -293,8 +279,10 @@
                                     android:textSize="13sp" />
 
                                 <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
+                                    android:id="@+id/view_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="1.5dp"
+                                    android:background="@color/white"
                                     android:layout_weight="1" />
 
                                 <TextView
@@ -308,9 +296,11 @@
                                     android:textSize="13sp" />
 
                                 <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
+                                    android:id="@+id/view_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="1.5dp"
+                                    android:background="@color/white"
+                                    android:layout_weight="1"  />
 
                                 <TextView
                                     android:id="@+id/tv_v3"
@@ -319,51 +309,6 @@
                                     android:background="@drawable/yuanxing_huise"
                                     android:gravity="center"
                                     android:text="V3"
-                                    android:textColor="@color/black1"
-                                    android:textSize="13sp" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
-
-                                <TextView
-                                    android:id="@+id/tv_v4"
-                                    android:layout_width="34dp"
-                                    android:layout_height="34dp"
-                                    android:background="@drawable/yuanxing_huise"
-                                    android:gravity="center"
-                                    android:text="V4"
-                                    android:textColor="@color/black1"
-                                    android:textSize="13sp" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
-
-                                <TextView
-                                    android:id="@+id/tv_v5"
-                                    android:layout_width="34dp"
-                                    android:layout_height="34dp"
-                                    android:background="@drawable/yuanxing_huise"
-                                    android:gravity="center"
-                                    android:text="V5"
-                                    android:textColor="@color/black1"
-                                    android:textSize="13sp" />
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
-
-                                <TextView
-                                    android:id="@+id/tv_v6"
-                                    android:layout_width="34dp"
-                                    android:layout_height="34dp"
-                                    android:background="@drawable/yuanxing_huise"
-                                    android:gravity="center"
-                                    android:text="V6"
                                     android:textColor="@color/black1"
                                     android:textSize="13sp" />
 
@@ -398,7 +343,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="5dp"
                                         android:text="0"
-                                        android:textColor="@color/yellow"
+                                        android:textColor="#D1C396"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />
 
@@ -437,7 +382,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="0"
-                                        android:textColor="@color/yellow"
+                                        android:textColor="#D1C396"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />
 
@@ -445,7 +390,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/app_ren"
-                                        android:textColor="@color/yellow"
+                                        android:textColor="#D1C396"
                                         android:textSize="10sp" />
                                 </LinearLayout>
 
@@ -727,7 +672,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -771,7 +716,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -857,19 +802,19 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="11dp"
-                                            android:layout_height="16dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:src="@mipmap/ic_usdt_black" />
+                                            android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
                                             android:id="@+id/textView16"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -907,13 +852,19 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:orientation="horizontal">
-
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_gravity="bottom"
+                                            android:layout_marginRight="7dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:src="@mipmap/ic_usdt_green" />
                                         <TextView
                                             android:id="@+id/textView17"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -921,6 +872,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/app_ren"
+                                            android:visibility="gone"
                                             android:textColor="@color/black3"
                                             android:textSize="13sp" />
                                     </LinearLayout>
@@ -999,19 +951,19 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="11dp"
-                                            android:layout_height="16dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:src="@mipmap/ic_usdt_black" />
+                                            android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
                                             android:id="@+id/textView18"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -1051,19 +1003,19 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="11dp"
-                                            android:layout_height="16dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:src="@mipmap/ic_usdt_black" />
+                                            android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
                                             android:id="@+id/textView19"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -1148,13 +1100,19 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:orientation="horizontal">
-
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
+                                            android:layout_gravity="bottom"
+                                            android:layout_marginRight="7dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:src="@mipmap/ic_usdt_green" />
                                         <TextView
                                             android:id="@+id/textView20"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -1163,6 +1121,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="4dp"
                                             android:text="%"
+                                            android:visibility="gone"
                                             android:textColor="@color/black1"
                                             android:textSize="16sp" />
                                     </LinearLayout>
@@ -1194,19 +1153,19 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="11dp"
-                                            android:layout_height="16dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:src="@mipmap/ic_usdt_black" />
+                                            android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
                                             android:id="@+id/textView21"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
-                                            android:textColor="#777777"
+                                            android:textColor="@color/black1"
                                             android:textSize="35sp"
                                             android:textStyle="bold" />
 
@@ -1322,7 +1281,7 @@
 
                                 <View
                                     android:layout_width="8dp"
-                                    android:layout_height="34dp"
+                                    android:layout_height="57dp"
                                     android:layout_marginTop="8dp"
                                     android:layout_marginBottom="10dp"
                                     android:background="@drawable/yuanjiao_5_huangsejianbian" />
@@ -1352,7 +1311,7 @@
 
                                 <View
                                     android:layout_width="8dp"
-                                    android:layout_height="58dp"
+                                    android:layout_height="116dp"
                                     android:layout_marginTop="8dp"
                                     android:layout_marginBottom="10dp"
                                     android:background="@drawable/yuanjiao_5_huangsejianbian" />
@@ -1382,96 +1341,6 @@
 
                                 <View
                                     android:layout_width="8dp"
-                                    android:layout_height="86dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:background="@drawable/yuanjiao_5_huangsejianbian" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="V3"
-                                    android:textColor="@color/black2"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom"
-                                android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_num4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:textColor="@color/yellow" />
-
-                                <View
-                                    android:layout_width="8dp"
-                                    android:layout_height="116dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:background="@drawable/yuanjiao_5_huangsejianbian" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="V4"
-                                    android:textColor="@color/black2"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom"
-                                android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_num5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:textColor="@color/yellow" />
-
-                                <View
-                                    android:layout_width="8dp"
-                                    android:layout_height="150dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:background="@drawable/yuanjiao_5_huangsejianbian" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="V5"
-                                    android:textColor="@color/black2"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom"
-                                android:layout_weight="1"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tv_num6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:textColor="@color/yellow" />
-
-                                <View
-                                    android:layout_width="8dp"
                                     android:layout_height="173dp"
                                     android:layout_marginTop="8dp"
                                     android:layout_marginBottom="10dp"
@@ -1480,7 +1349,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="V6"
+                                    android:text="V3"
                                     android:textColor="@color/black2"
                                     android:textSize="13sp" />
                             </LinearLayout>

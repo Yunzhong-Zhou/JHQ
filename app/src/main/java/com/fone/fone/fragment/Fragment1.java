@@ -305,7 +305,7 @@ public class Fragment1 extends BaseFragment {
                     CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);*/
                 }
                 Bundle bundle = new Bundle();
-                bundle.putString("id", model.getMill_id());
+                bundle.putString("id", response.getId());
                 CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle);
             }
         }, true);
