@@ -157,21 +157,27 @@ public class JoinDetailModel implements Serializable {
         }
 
         public static class WinMemberBean {
+
             /**
-             * head : /head/606.png
-             * nickname : FIL_pour广告费
+             * id : ef5849eae33c2d8e0d18bbfd02f5f7a1
+             * head : /head/400.png
+             * nickname : FIL_tbjr
+             * change_game_participation_created_at : 2020-12-25 19:21:07
+             * change_game_participation_index : 5
              */
 
+            private String id;
             private String head;
             private String nickname;
-            private String index;
+            private String change_game_participation_created_at;
+            private int change_game_participation_index;
 
-            public String getIndex() {
-                return index;
+            public String getId() {
+                return id;
             }
 
-            public void setIndex(String index) {
-                this.index = index;
+            public void setId(String id) {
+                this.id = id;
             }
 
             public String getHead() {
@@ -188,6 +194,22 @@ public class JoinDetailModel implements Serializable {
 
             public void setNickname(String nickname) {
                 this.nickname = nickname;
+            }
+
+            public String getChange_game_participation_created_at() {
+                return change_game_participation_created_at;
+            }
+
+            public void setChange_game_participation_created_at(String change_game_participation_created_at) {
+                this.change_game_participation_created_at = change_game_participation_created_at;
+            }
+
+            public int getChange_game_participation_index() {
+                return change_game_participation_index;
+            }
+
+            public void setChange_game_participation_index(int change_game_participation_index) {
+                this.change_game_participation_index = change_game_participation_index;
             }
         }
 
@@ -248,17 +270,24 @@ public class JoinDetailModel implements Serializable {
         }
 
         public static class ChangeGameParticipationListBean {
+
             /**
-             * change_game_id : 5ac8dbdf0b28b9a2ad429f16ee00b379
-             * member_head : /head/606.png
-             * member_nickname : FIL_pour广告费
-             * index : 0
+             * change_game_id : c6765f9c57d39780a62cd8e556d7e5a2
+             * member_id : bb4e48d2c569beae0f9068f77b0a261d
+             * member_nickname : FIL_mnbj
+             * member_head : /head/233.png
+             * money : 500.0000
+             * index : 9
+             * created_at : 2020-12-25 21:21:31
              */
 
             private String change_game_id;
-            private String member_head;
+            private String member_id;
             private String member_nickname;
-            private String index;
+            private String member_head;
+            private String money;
+            private int index;
+            private String created_at;
 
             public String getChange_game_id() {
                 return change_game_id;
@@ -268,12 +297,12 @@ public class JoinDetailModel implements Serializable {
                 this.change_game_id = change_game_id;
             }
 
-            public String getMember_head() {
-                return member_head;
+            public String getMember_id() {
+                return member_id;
             }
 
-            public void setMember_head(String member_head) {
-                this.member_head = member_head;
+            public void setMember_id(String member_id) {
+                this.member_id = member_id;
             }
 
             public String getMember_nickname() {
@@ -284,12 +313,36 @@ public class JoinDetailModel implements Serializable {
                 this.member_nickname = member_nickname;
             }
 
-            public String getIndex() {
+            public String getMember_head() {
+                return member_head;
+            }
+
+            public void setMember_head(String member_head) {
+                this.member_head = member_head;
+            }
+
+            public String getMoney() {
+                return money;
+            }
+
+            public void setMoney(String money) {
+                this.money = money;
+            }
+
+            public int getIndex() {
                 return index;
             }
 
-            public void setIndex(String index) {
+            public void setIndex(int index) {
                 this.index = index;
+            }
+
+            public String getCreated_at() {
+                return created_at;
+            }
+
+            public void setCreated_at(String created_at) {
+                this.created_at = created_at;
             }
         }
     }

@@ -1427,6 +1427,9 @@ drawable bar_back
 drawable bg_draw1
 drawable bg_draw13
 drawable bg_draw15
+drawable bg_edittext
+drawable bg_edittext_focused
+drawable bg_edittext_normal
 drawable bg_jd_picker
 drawable black_background
 drawable btn_checkbox_checked_mtrl
@@ -1586,6 +1589,7 @@ drawable yuanjiao_1_huise
 drawable yuanjiao_1_lvse
 drawable yuanjiao_20_baise_top
 drawable yuanjiao_20_huise
+drawable yuanjiao_20_huise3
 drawable yuanjiao_20_lvse
 drawable yuanjiao_20_lvse1
 drawable yuanjiao_20_lvsejianbian

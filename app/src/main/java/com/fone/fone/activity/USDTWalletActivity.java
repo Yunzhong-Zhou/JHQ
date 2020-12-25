@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.RechargeDetailModel;
 import com.fone.fone.model.USDTWalletModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -18,11 +19,15 @@ import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Mr.Z on 2020/12/14.
  * USDT钱包
  */
 public class USDTWalletActivity extends BaseActivity {
+    USDTWalletModel model;
     TextView tv_keyong,tv_shouyi,tv_yongjin,tv_shouru, tv_zhichu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +84,7 @@ public class USDTWalletActivity extends BaseActivity {
             public void onResponse(USDTWalletModel response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>USDT钱包" + response);
+                model = response;
                 tv_keyong.setText(response.getUsable_money());//可用USDT
                 tv_shouyi.setText(response.getChange_game_win_money());//拼团收益
                 tv_yongjin.setText(response.getCommission_money());//佣金
@@ -107,24 +112,42 @@ public class USDTWalletActivity extends BaseActivity {
                 break;
             case R.id.tv_recharge1:
                 //充值
-                dialog.contentView(R.layout.dialog_recharge)
-                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT))
-                        .animType(BaseDialog.AnimInType.BOTTOM)
-                        .canceledOnTouchOutside(true)
-                        .gravity(Gravity.BOTTOM)
-                        .dimAmount(0.8f)
-                        .show();
-                EditText et_usdtmoney = dialog.findViewById(R.id.et_usdtmoney);
-                TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
-                tv_confirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("id", "");
-                        CommonUtil.gotoActivityWithData(USDTWalletActivity.this, RechargeDetailActivity.class, bundle1, false);
-                    }
-                });
+                if (model.getTop_up_id().equals("")) {
+                    dialog.contentView(R.layout.dialog_recharge)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.BOTTOM)
+                            .canceledOnTouchOutside(true)
+                            .gravity(Gravity.BOTTOM)
+                            .dimAmount(0.8f)
+                            .show();
+                    EditText et_usdtmoney = dialog.findViewById(R.id.et_usdtmoney);
+                    TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!et_usdtmoney.getText().toString().trim().equals("")){
+                                dialog.dismiss();
+
+                                showProgress(true, getString(R.string.app_loading1));
+                                HashMap<String, String> params = new HashMap<>();
+                                params.put("input_money", et_usdtmoney.getText().toString().trim());//金额
+                                params.put("money_type", "1");//类型（1.USDT 2.fil）
+                                params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                RequestRecharge(params);
+
+                            }else {
+                                myToast(getString(R.string.fragment4_h13));
+                            }
+
+                        }
+                    });
+                }else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", model.getTop_up_id());
+                    CommonUtil.gotoActivityWithData(USDTWalletActivity.this, RechargeDetailActivity.class, bundle, false);
+                }
                 break;
             case R.id.tv_takecash:
                 //提现
@@ -150,5 +173,79 @@ public class USDTWalletActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setVisibility(View.GONE);
+    }
+    //充值
+    private void RequestRecharge(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(USDTWalletActivity.this, URLs.Recharge, params, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                textView7.setClickable(true);
+                hideProgress();
+                if (!info.equals("")) {
+                    if (info.contains(getString(R.string.password_h1))) {
+                        showToast(getString(R.string.password_h2),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(USDTWalletActivity.this, SetTransactionPasswordActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } else if (info.contains(getString(R.string.password_h3))) {
+                        showToast(getString(R.string.password_h4),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        CommonUtil.gotoActivity(USDTWalletActivity.this, AddressManagementActivity.class, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    } /*else if (info.contains(getString(R.string.password_h7))) {
+                        showToast(getString(R.string.password_h8),
+                                getString(R.string.password_h5), getString(R.string.password_h6),
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("type", 2);//1、服务中心 2、实名认证
+                                        CommonUtil.gotoActivityWithData(getActivity(), SelectAddressActivity.class, bundle, false);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }*/ else {
+                        showToast(info);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onResponse(RechargeDetailModel response) {
+//                textView7.setClickable(true);
+                hideProgress();
+                MyLogger.i(">>>>>>>>>充值" + response);
+                myToast(getString(R.string.fragment4_h27));
+                Bundle bundle = new Bundle();
+                bundle.putString("id", response.getId());
+                CommonUtil.gotoActivityWithData(USDTWalletActivity.this, RechargeDetailActivity.class, bundle, false);
+            }
+        },true);
     }
 }

@@ -16,6 +16,11 @@
         <item name="android:typeface">normal</item><!--默认字体-->
         <!--<item name="android:textScaleX">1.0</item>&lt;!&ndash;字体间距&ndash;&gt;-->
     </style>
+    <!--<style name="MyEditText2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/xian</item>
+        <item name="colorControlActivated">@color/black3</item>
+        <item name="colorControlHighlight">@color/black3</item>
+    </style>-->
 
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/xian</item>

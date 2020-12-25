@@ -165,14 +165,14 @@ public class MainActivity extends BaseActivity {
                 getString(R.string.fragment4) + "",
                 getString(R.string.fragment5) + ""};
         //未选中icon
-        int[] normalIcon = {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};
+        int[]  normalIcon= {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_1, R.mipmap.tab4_1, R.mipmap.tab5_1};
         //选中时icon
-        int[] selectIcon = {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_1, R.mipmap.tab4_1, R.mipmap.tab5_1};
+        int[]  selectIcon= {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};
 
         navigationBar.titleItems(tabText)//文字
                 .normalIconItems(normalIcon)//未选中
                 .selectIconItems(selectIcon)//选中
-                .normalTextColor(getResources().getColor(R.color.white))//未选中字体颜色
+                .normalTextColor(getResources().getColor(R.color.green_1))//未选中字体颜色
                 .selectTextColor(getResources().getColor(R.color.white))//选中字体颜色
                 .tabTextTop(4)//Tab文字距Tab图标的距离
                 .tabTextSize(10)//Tab文字大小

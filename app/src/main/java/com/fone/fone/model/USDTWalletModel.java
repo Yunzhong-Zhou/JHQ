@@ -14,6 +14,16 @@ public class USDTWalletModel implements Serializable {
      * out_money : 0.0000
      */
 
+    private String top_up_id;
+
+    public String getTop_up_id() {
+        return top_up_id;
+    }
+
+    public void setTop_up_id(String top_up_id) {
+        this.top_up_id = top_up_id;
+    }
+
     private String usable_money;
     private String change_game_win_money;
     private String commission_money;

@@ -47,7 +47,7 @@
                     <!--上半部分-->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="170dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="20dp"
@@ -56,18 +56,17 @@
                         <ImageView
                             android:layout_width="116dp"
                             android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
                             android:background="@mipmap/bg_fragment3_left" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/yuanjiao_10_huise_right"
                             android:orientation="vertical"
                             android:paddingLeft="10dp"
-                            android:paddingTop="14dp"
-                            android:paddingRight="10dp"
-                            android:paddingBottom="14dp">
+                            android:paddingRight="10dp">
 
                             <TextView
                                 android:id="@+id/tv_title"
@@ -76,6 +75,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:background="@color/black4"
                                 android:paddingLeft="15dp"
+                                android:layout_marginTop="10dp"
                                 android:paddingTop="5dp"
                                 android:paddingRight="15dp"
                                 android:paddingBottom="5dp"
@@ -86,15 +86,15 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:paddingTop="10dp"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:orientation="vertical">
@@ -139,8 +139,6 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:orientation="vertical">
@@ -185,14 +183,15 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:paddingBottom="10dp"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:orientation="vertical">
@@ -237,8 +236,6 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:orientation="vertical">
@@ -282,7 +279,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_join"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"/>
 
                     <TextView
                         android:id="@+id/tv_join"
@@ -291,6 +289,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="17dp"
                         android:layout_marginRight="17dp"
+                        android:padding="10dp"
                         android:background="@drawable/btn_img1"
                         android:gravity="center"
                         android:onClick="onClick"

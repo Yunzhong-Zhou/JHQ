@@ -212,6 +212,16 @@ public class Fragment3 extends BaseFragment {
 //                showContentPage();
                 if (response != null) {
                     model = response;
+                    if (response.getIs_change_game_participation() == 1) {
+                        tv_join.setClickable(true);
+                        tv_join.setText(getString(R.string.fragment3_h5));
+                        tv_join.setBackgroundResource(R.drawable.btn_img1);
+                    } else {
+                        tv_join.setClickable(false);
+                        tv_join.setText(getString(R.string.fragment3_h34));
+                        tv_join.setBackgroundResource(R.drawable.yuanjiao_50_huise);
+                    }
+
                     tv_tab1.setText(response.getChange_game().getMill().getHashrate());
                     tv_tab2.setText(response.getChange_game().getMill().getMining_cycle());
                     tv_tab3.setText(response.getChange_game().getMill().getProduction_value_fil_money());
@@ -229,11 +239,11 @@ public class Fragment3 extends BaseFragment {
                                 showWin(response.getWin_prompt());
                             }
                         } else {
-                            /*//没有中奖
+                            //没有中奖
                             if (localUserInfo.getLosenum().equals("") || !localUserInfo.getLosenum().equals(response.getWin_prompt().getWin_member_id() + response.getWin_prompt().getPeriod())) {
                                 //显示未中奖
-                                showLose(response.getWin_prompt());
-                            }*/
+//                                showLose(response.getWin_prompt());
+                            }
                         }
                     }
                     /**
@@ -313,9 +323,9 @@ public class Fragment3 extends BaseFragment {
                                         .into(iv_head);//加载图片
                                 holder.setText(R.id.tv_type, getString(R.string.fragment3_h20));
                             } else {
-                                tv_name.setText(getString(R.string.fragment3_h32));
+                                tv_name.setText(model.getStatus_title());
                                 iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
-                                holder.setText(R.id.tv_type, getString(R.string.fragment3_h32));
+                                holder.setText(R.id.tv_type, model.getStatus_title());
                             }
                             if (model.getMill() != null) {
                                 tv_money.setText(model.getMill().getProduction_value_fil_money());//金额

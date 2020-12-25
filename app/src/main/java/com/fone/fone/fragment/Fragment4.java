@@ -40,6 +40,7 @@ import java.util.Map;
  * 钱包
  */
 public class Fragment4 extends BaseFragment {
+    Fragment4Model model;
     TextView tv_keyong,tv_shouyi,tv_yongjin,tv_filmoney,
             tv_recharge1,tv_takecash,tv_transfer,tv_recharge2;
     LinearLayout ll_usdt,ll_fil;
@@ -142,6 +143,7 @@ public class Fragment4 extends BaseFragment {
             @Override
             public void onResponse(Fragment4Model response) {
                 MyLogger.i(">>>>>>>>>充值" + response);
+                model = response;
                 tv_keyong.setText(response.getUsable_money());//可用USDT
                 tv_shouyi.setText(response.getChange_game_win_money());//拼团收益
                 tv_yongjin.setText(response.getCommission_money());//佣金
@@ -166,36 +168,43 @@ public class Fragment4 extends BaseFragment {
             case R.id.tv_recharge1:
             case R.id.tv_recharge2:
                 //充值
-                dialog.contentView(R.layout.dialog_recharge)
-                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT))
-                        .animType(BaseDialog.AnimInType.BOTTOM)
-                        .canceledOnTouchOutside(true)
-                        .gravity(Gravity.BOTTOM)
-                        .dimAmount(0.8f)
-                        .show();
-                EditText et_usdtmoney = dialog.findViewById(R.id.et_usdtmoney);
-                TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
-                tv_confirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (!et_usdtmoney.getText().toString().trim().equals("")){
-                            dialog.dismiss();
+                if (model.getTop_up_id().equals("")){
+                    dialog.contentView(R.layout.dialog_recharge)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.BOTTOM)
+                            .canceledOnTouchOutside(true)
+                            .gravity(Gravity.BOTTOM)
+                            .dimAmount(0.8f)
+                            .show();
+                    EditText et_usdtmoney = dialog.findViewById(R.id.et_usdtmoney);
+                    TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!et_usdtmoney.getText().toString().trim().equals("")){
+                                dialog.dismiss();
 
-                            showProgress(true, getString(R.string.app_loading1));
-                            HashMap<String, String> params = new HashMap<>();
-                            params.put("input_money", et_usdtmoney.getText().toString().trim());//金额
-                            params.put("money_type", "1");//类型（1.USDT 2.fil）
-                            params.put("token", localUserInfo.getToken());
+                                showProgress(true, getString(R.string.app_loading1));
+                                HashMap<String, String> params = new HashMap<>();
+                                params.put("input_money", et_usdtmoney.getText().toString().trim());//金额
+                                params.put("money_type", "1");//类型（1.USDT 2.fil）
+                                params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
-                            RequestRecharge(params);
+                                RequestRecharge(params);
 
-                        }else {
-                            myToast(getString(R.string.fragment4_h13));
+                            }else {
+                                myToast(getString(R.string.fragment4_h13));
+                            }
+
                         }
+                    });
+                }else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", model.getTop_up_id());
+                    CommonUtil.gotoActivityWithData(getActivity(), RechargeDetailActivity.class, bundle, false);
+                }
 
-                    }
-                });
                 break;
             case R.id.tv_takecash:
                 //提现

@@ -109,9 +109,9 @@ public class JoinListActivity extends BaseActivity {
                                             .into(iv_head);//加载图片
                                     holder.setText(R.id.tv_type, getString(R.string.fragment3_h20));
                                 } else {
-                                    tv_name.setText(getString(R.string.fragment3_h32));
+                                    tv_name.setText(model.getStatus_title());
                                     iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
-                                    holder.setText(R.id.tv_type, getString(R.string.fragment3_h32));
+                                    holder.setText(R.id.tv_type, model.getStatus_title());
                                 }
                                 if (model.getMill() != null) {
                                     tv_money.setText(model.getMill().getProduction_value_fil_money());//金额
