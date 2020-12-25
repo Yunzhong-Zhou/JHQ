@@ -2,6 +2,7 @@ package com.fone.fone.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.activity.JoinDetailActivity;
 import com.fone.fone.activity.JoinListActivity;
@@ -17,6 +19,7 @@ import com.fone.fone.activity.LeaderboardActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment3Model;
+import com.fone.fone.model.JoinModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
@@ -55,8 +58,8 @@ public class Fragment3 extends BaseFragment {
     List<Fragment3Model.MemberListBean> list2 = new ArrayList<>();
     CommonAdapter<Fragment3Model.MemberListBean> mAdapter2;
 
-    List<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean> list_join = new ArrayList<>();
-    CommonAdapter<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean> mAdapter_join;
+    List<JoinModel> list_join = new ArrayList<>();
+    CommonAdapter<JoinModel> mAdapter_join;
 
 
     //悬浮部分
@@ -209,51 +212,121 @@ public class Fragment3 extends BaseFragment {
 //                showContentPage();
                 if (response != null) {
                     model = response;
-                    //加入拼团
-                    list_join = response.getChange_game().getChange_game_participation_list();
-                    mAdapter_join = new CommonAdapter<Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean>
+                    tv_tab1.setText(response.getChange_game().getMill().getHashrate());
+                    tv_tab2.setText(response.getChange_game().getMill().getMining_cycle());
+                    tv_tab3.setText(response.getChange_game().getMill().getProduction_value_fil_money());
+                    tv_tab4.setText(response.getChange_game().getMill().getComputer_position());
+                    //是否参与
+                    if (response.getWin_prompt() != null && !response.getWin_prompt().getWin_member_id().equals("")) {
+                        //是我中奖
+                        if (localUserInfo.getUserId().equals(response.getWin_prompt().getWin_member_id()) &&
+                                Double.valueOf(response.getWin_prompt().getHashrate()) > 0) {
+                            //没有中奖标识 或者 标识不相同
+                            if (localUserInfo.getWinnum().equals("") ||
+                                    !localUserInfo.getWinnum().equals(response.getWin_prompt().getWin_member_id()
+                                            + response.getWin_prompt().getPeriod())) {
+                                //显示中奖
+                                showWin(response.getWin_prompt());
+                            }
+                        } else {
+                            /*//没有中奖
+                            if (localUserInfo.getLosenum().equals("") || !localUserInfo.getLosenum().equals(response.getWin_prompt().getWin_member_id() + response.getWin_prompt().getPeriod())) {
+                                //显示未中奖
+                                showLose(response.getWin_prompt());
+                            }*/
+                        }
+                    }
+                    /**
+                     * 加入拼团
+                     */
+//                    list_join = response.getChange_game().getChange_game_participation_list();
+                    list_join.clear();
+                    for (Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean bean
+                            : response.getChange_game().getChange_game_participation_list()) {
+                        JoinModel m = new JoinModel(bean.getChange_game_id(),
+                                bean.getMember_head(),
+                                bean.getMember_nickname(),
+                                bean.getIndex());
+                        list_join.add(m);
+                    }
+                    for (int i = list_join.size(); i < 10; i++) {
+                        JoinModel m = new JoinModel("",
+                                "",
+                                "",
+                                i + 1 + "");
+                        list_join.add(m);
+                    }
+                    mAdapter_join = new CommonAdapter<JoinModel>
                             (getActivity(), R.layout.item_fragment3_join, list_join) {
                         @Override
-                        protected void convert(ViewHolder holder, Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean model, int position) {
-                            holder.setText(R.id.textView1, model.getIndex());
-                            holder.setText(R.id.textView2, model.getMember_nickname());
+                        protected void convert(ViewHolder holder, JoinModel model, int position) {
+//                            holder.setText(R.id.textView1, model.getIndex());
+                            holder.setText(R.id.textView1, position + 1 + "");
+                            TextView tv2 = holder.getView(R.id.textView2);
+                            if (!model.getMember_nickname().equals("")) {
+                                tv2.setTextColor(getResources().getColor(R.color.black2));
+                                tv2.setText(model.getMember_nickname());
+                            } else {
+                                tv2.setTextColor(getResources().getColor(R.color.black3));
+                                tv2.setText(getString(R.string.fragment3_h30));
+                            }
+
+
                             ImageView iv = holder.getView(R.id.imageView1);
-                            Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
-                                    .centerCrop()
-                                    .placeholder(R.mipmap.loading)//加载站位图
-                                    .error(R.mipmap.headimg)//加载失败
-                                    .into(iv);//加载图片
+                            if (!model.getMember_head().equals("")) {
+                                Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
+                                        .centerCrop()
+                                        .placeholder(R.mipmap.loading)//加载站位图
+                                        .error(R.mipmap.headimg)//加载失败
+                                        .into(iv);//加载图片
+                            } else {
+                                iv.setImageResource(R.mipmap.ic_wenhao_gray2);
+                            }
+
                         }
                     };
                     rv_join.setAdapter(mAdapter_join);
 
-                    //完成拼团
+                    /**
+                     * 完成拼团
+                     */
                     list1 = response.getChange_game_list();
                     mAdapter1 = new CommonAdapter<Fragment3Model.ChangeGameListBean>
                             (getActivity(), R.layout.item_fragment3_1, list1) {
                         @Override
                         protected void convert(ViewHolder holder, Fragment3Model.ChangeGameListBean model, int position) {
-                            /*holder.setText(R.id.tv_num, model.getMember_nickname());//昵称
-                            holder.setText(R.id.textView2, model.getMoney());//合约数
-                            TextView tv3 = holder.getView(R.id.textView3);
-                            if (model.getProfit_money() > 0) {
-                                tv3.setText("+" + model.getProfit_money());
-                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_lvse);
+                            holder.setText(R.id.tv_num, model.getPeriod());//期次号
+                            holder.setText(R.id.tv_time, model.getCreated_at() + "");//时间
+//                                holder.setText(R.id.tv_title, model.get);//标题
 
-                            } else if (model.getProfit_money() < 0) {
-                                tv3.setText("-" + model.getProfit_money());
-                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                            } else {
-                                tv3.setText("" + model.getProfit_money());
-                                tv3.setBackgroundResource(R.drawable.yuanjiao_0_red);
-                            }
-                            ImageView iv = holder.getView(R.id.imageView1);
-                            if (!model.getMember_head().equals(""))
-                                Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
+                            TextView tv_money = holder.getView(R.id.tv_money);
+                            TextView tv_name = holder.getView(R.id.tv_name);
+                            ImageView iv_head = holder.getView(R.id.iv_head);
+                            ImageView ic_fil = holder.getView(R.id.ic_fil);
+                            if (model.getWin_member() != null) {
+                                tv_name.setText(model.getWin_member().getNickname());
+                                Glide.with(getActivity())
+                                        .load(OkHttpClientManager.IMGHOST + model.getWin_member().getHead())
                                         .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                                        .into(iv);//加载图片*/
+                                        .placeholder(R.mipmap.loading)//加载站位图
+                                        .error(R.mipmap.headimg)//加载失败
+                                        .into(iv_head);//加载图片
+                                holder.setText(R.id.tv_type, getString(R.string.fragment3_h20));
+                            } else {
+                                tv_name.setText(getString(R.string.fragment3_h32));
+                                iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
+                                holder.setText(R.id.tv_type, getString(R.string.fragment3_h32));
+                            }
+                            if (model.getMill() != null) {
+                                tv_money.setText(model.getMill().getProduction_value_fil_money());//金额
+                                ic_fil.setImageResource(R.mipmap.ic_fragment3_fil_1);
+                                tv_money.setTextColor(getResources().getColor(R.color.green_1));
+                            } else {
+                                tv_money.setText("???");//金额
+                                ic_fil.setImageResource(R.mipmap.ic_fil_gray);
+                                tv_money.setTextColor(getResources().getColor(R.color.black3));
+                            }
+
 
                         }
                     };
@@ -270,7 +343,9 @@ public class Fragment3 extends BaseFragment {
                             return false;
                         }
                     });
-                    //算力排行
+                    /**
+                     * 算力排行
+                     */
                     list2 = response.getMember_list();
                     mAdapter2 = new CommonAdapter<Fragment3Model.MemberListBean>
                             (getActivity(), R.layout.item_fragment3_2, list2) {
@@ -368,30 +443,6 @@ public class Fragment3 extends BaseFragment {
                                 dialog.dismiss();
                             }
                         });
-                /*dialog.contentView(R.layout.dialog_fragment3)
-                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT))
-                        .animType(BaseDialog.AnimInType.CENTER)
-                        .canceledOnTouchOutside(true)
-                        .gravity(Gravity.CENTER)
-                        .dimAmount(0.8f)
-                        .show();
-                TextView textView1 = dialog.findViewById(R.id.textView1);
-                dialog.findViewById(R.id.textView2).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        Bundle bundle1 = new Bundle();
-                        bundle1.putString("id", "");
-                        CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle1, false);
-                    }
-                });
-                dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });*/
                 break;
 
         }
@@ -455,6 +506,37 @@ public class Fragment3 extends BaseFragment {
                 requestServer();
             }
         }, true);
+    }
+
+    //显示中奖弹框
+    private void showWin(Fragment3Model.WinPromptBean bean) {
+        localUserInfo.setWinnum(bean.getWin_member_id() + bean.getPeriod());
+        dialog.contentView(R.layout.dialog_fragment3)
+                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                .animType(BaseDialog.AnimInType.CENTER)
+                .canceledOnTouchOutside(true)
+                .gravity(Gravity.CENTER)
+                .dimAmount(0.8f)
+                .show();
+        TextView textView1 = dialog.findViewById(R.id.textView1);
+        textView1.setText(bean.getHashrate() + "TB");
+        dialog.findViewById(R.id.textView2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("id", model.getChange_game().getId());
+                CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle1, false);
+            }
+        });
+        dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
     }
 
     @Override

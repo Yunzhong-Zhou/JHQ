@@ -110,7 +110,7 @@ public class MyMachineActivity extends BaseActivity {
                         protected void convert(ViewHolder holder, MyMachineModel.InvestListBean model, int position) {
                             holder.setText(R.id.tv_type, model.getStatus_title());//状态
                             holder.setText(R.id.tv_suanli, model.getHashrate() + "TB");//算力
-                            holder.setText(R.id.tv_chanzhi, model.getHashrate() + getString(R.string.app_ge));//产值
+                            holder.setText(R.id.tv_chanzhi, model.getInterest_fil_money() + getString(R.string.app_ge));//产值
                         }
                     };
                     recyclerView.setAdapter(mAdapter);

@@ -1,130 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/yuanjiaobiankuang_10_huise"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/yuanjiaobiankuang_10_huise"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="13dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="num"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="time"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_fragment3_1" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
                 <TextView
-                    android:id="@+id/tv_num"
+                    android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="num"
-                    android:textColor="@color/black3"
-                    android:textSize="11sp" />
-                <TextView
-                    android:id="@+id/tv_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="time"
-                    android:textColor="@color/black3"
-                    android:textSize="11sp" />
+                    android:text="@string/fragment3_h33"
+                    android:textColor="#546778"
+                    android:textSize="12sp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_fragment3_1"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="title"
-                        android:textColor="#546778"
-                        android:textSize="14sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ic_fil"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@mipmap/ic_fragment3_fil_1" />
+
                     <TextView
                         android:id="@+id/tv_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:layout_marginLeft="7dp"
                         android:gravity="center_vertical"
-                        android:drawablePadding="7dp"
-                        android:drawableLeft="@mipmap/ic_fragment3_fil_1"
-                        android:textColor="@color/green"
+                        android:text="0"
+                        android:textColor="@color/green_1"
                         android:textSize="20sp" />
                 </LinearLayout>
 
-
             </LinearLayout>
+
+
         </LinearLayout>
+    </LinearLayout>
 
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="64dp"
-            android:background="@color/xian" />
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="64dp"
+        android:background="@color/xian" />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_head"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:background="@drawable/yuanxing_huise"
+            android:padding="1dp" />
+
+        <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+            android:layout_marginTop="3dp"
+            android:text="name"
+            android:textColor="#546778"
+            android:textSize="10sp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView1"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:background="@mipmap/headimg" />
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="66dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/yuanjiaobiankuang_10_lvse"
+            android:gravity="center"
+            android:text="type"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="name"
-                android:textColor="#546778"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="66dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/yuanjiaobiankuang_10_lvse"
-                android:gravity="center"
-                android:text="type"
-                android:textColor="@color/green"
-                android:textSize="12sp" />
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

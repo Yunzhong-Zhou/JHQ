@@ -45,6 +45,15 @@ public class Fragment1Model implements Serializable {
     private String mill_mining_cycle;
     private String mill_production_value_fil_money;
     private String hk;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getUsdt_cny_price() {
         return usdt_cny_price;

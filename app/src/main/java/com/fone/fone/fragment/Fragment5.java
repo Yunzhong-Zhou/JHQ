@@ -300,7 +300,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout6:
                 //团队- 需要参与5次拼团即可达到V1
-                if (model.getGrade()>0){
+                if (model.getGrade()>1){
                     CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                 }else {
                     myToast(getString(R.string.fragment5_h30));

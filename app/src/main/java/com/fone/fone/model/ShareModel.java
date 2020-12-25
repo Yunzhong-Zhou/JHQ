@@ -34,6 +34,25 @@ public class ShareModel implements Serializable {
      * grade_count_list : {"grade_1":0,"grade_2":0,"grade_3":0}
      */
 
+    private String tips_upgrade_money;
+    private String tips_upgrade_money_count;
+
+    public String getTips_upgrade_money_count() {
+        return tips_upgrade_money_count;
+    }
+
+    public void setTips_upgrade_money_count(String tips_upgrade_money_count) {
+        this.tips_upgrade_money_count = tips_upgrade_money_count;
+    }
+
+    public String getTips_upgrade_money() {
+        return tips_upgrade_money;
+    }
+
+    public void setTips_upgrade_money(String tips_upgrade_money) {
+        this.tips_upgrade_money = tips_upgrade_money;
+    }
+
     private String head;
     private String nickname;
     private String invite_code;
@@ -50,6 +69,7 @@ public class ShareModel implements Serializable {
     private String hold_current_money_count;
     private String hold_target_money_count;
     private String tips_hold_target_money;
+    private String tips_hold_target_money_count;
     private String direct_recommend;
     private String team_recommend;
     private String direct_performance_money;
@@ -188,6 +208,14 @@ public class ShareModel implements Serializable {
         this.tips_hold_target_money = tips_hold_target_money;
     }
 
+    public String getTips_hold_target_money_count() {
+        return tips_hold_target_money_count;
+    }
+
+    public void setTips_hold_target_money_count(String tips_hold_target_money_count) {
+        this.tips_hold_target_money_count = tips_hold_target_money_count;
+    }
+
     public String getDirect_recommend() {
         return direct_recommend;
     }
@@ -270,6 +298,7 @@ public class ShareModel implements Serializable {
         private String grade_1;
         private String grade_2;
         private String grade_3;
+        private String grade_4;
 
         public String getGrade_1() {
             return grade_1;
@@ -293,6 +322,14 @@ public class ShareModel implements Serializable {
 
         public void setGrade_3(String grade_3) {
             this.grade_3 = grade_3;
+        }
+
+        public String getGrade_4() {
+            return grade_4;
+        }
+
+        public void setGrade_4(String grade_4) {
+            this.grade_4 = grade_4;
         }
     }
 }

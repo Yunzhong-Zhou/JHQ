@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.EditText;
@@ -13,19 +14,23 @@ import android.widget.TextView;
 
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.PayDetailModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Mr.Z on 2020/12/14.
  * 支付详情
  */
 public class PayDetailActivity extends BaseActivity {
-    String id = "";
-    TextView textView,textView1,textView2,textView3;
+    String id = "",pay_name="",pay_order_id="";
+    TextView textView,textView1,textView2,textView3,textView4;
     EditText editText1,editText2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,7 @@ public class PayDetailActivity extends BaseActivity {
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
 
@@ -79,7 +85,7 @@ public class PayDetailActivity extends BaseActivity {
         requestServer();//获取数据
     }
     private void Request(String string) {
-        OkHttpClientManager.getAsyn(PayDetailActivity.this, URLs.PayDetail + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(PayDetailActivity.this, URLs.PayDetail + string, new OkHttpClientManager.ResultCallback<PayDetailModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -91,46 +97,13 @@ public class PayDetailActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(PayDetailModel response) {
                 showContentPage();
                 hideProgress();
-                /*JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), ShouRuListModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<ShouRuListModel>
-                                (MachineDetailActivity.this, R.layout.item_shourulist, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, ShouRuListModel model, int position) {
-                                holder.setText(R.id.textView1, "DRVT：-" + model.getMoney());//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, getString(R.string.qianbao_h79) + ":" + model.getOfc_price() + "usdt");
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                *//*Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(HuiGouListActivity.this, RechargeDetailActivity.class, bundle1, false);*//*
-                            }
-
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }*/
+                textView1.setText(response.getInvest().getBank_card_account());//银行账号
+                textView2.setText(response.getInvest().getBank_card_proceeds_name());//银行户名
+                textView3.setText(response.getInvest().getBank_title());//银行名称
+                textView4.setText("¥ "+response.getInvest().getCny_money());//金额
             }
         });
 
@@ -153,6 +126,29 @@ public class PayDetailActivity extends BaseActivity {
                 break;
             case R.id.tv_confirm:
                 //确定付款
+                if (match()){
+                    showToast(getString(R.string.fragment1_h68)
+                            , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("id", id);
+                                    params.put("pay_name", pay_name);
+                                    params.put("pay_order_id", pay_order_id);
+                                    params.put("token", localUserInfo.getToken());
+                                    RequestUpData(params);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+
+                                }
+                            });
+                }
                 break;
             case R.id.tv_fuzhi:
                 //复制
@@ -166,6 +162,38 @@ public class PayDetailActivity extends BaseActivity {
                 }
                 break;
         }
+    }
+    private boolean match() {
+        pay_name = editText1.getText().toString().trim();
+        if (TextUtils.isEmpty(pay_name)) {
+            myToast(getString(R.string.fragment1_h53));
+            return false;
+        }
+        pay_order_id = editText2.getText().toString().trim();
+        if (TextUtils.isEmpty(pay_order_id)) {
+            myToast(getString(R.string.fragment1_h55));
+            return false;
+        }
+        return true;
+    }
+    private void RequestUpData(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(PayDetailActivity.this, URLs.PayDetail, params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.fragment1_h69));
+                finish();
+            }
+        }, true);
     }
 
     @Override

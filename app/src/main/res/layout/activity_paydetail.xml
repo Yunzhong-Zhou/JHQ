@@ -137,7 +137,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:paddingTop="18dp"
                                 android:paddingBottom="18dp"
-                                android:text="@string/fragment1_h64"
+                                android:text="@string/fragment1_h65"
                                 android:textColor="@color/black3"
                                 android:textSize="13sp" />
 
@@ -186,7 +186,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:paddingTop="18dp"
                                 android:paddingBottom="18dp"
-                                android:text="@string/fragment1_h65"
+                                android:text="@string/fragment1_h64"
                                 android:textColor="@color/black3"
                                 android:textSize="13sp" />
 
@@ -226,12 +226,51 @@
                                 android:layout_marginLeft="10dp"
                                 android:paddingTop="18dp"
                                 android:paddingBottom="18dp"
-                                android:text="@string/fragment1_h48"
+                                android:text="@string/fragment1_h67"
                                 android:textColor="@color/black3"
                                 android:textSize="13sp" />
 
                             <TextView
                                 android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingTop="18dp"
+                                android:paddingRight="14dp"
+                                android:paddingBottom="18dp"
+                                android:text=""
+                                android:textColor="@color/black1"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#E5E5E5"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="14dp">
+
+                            <View
+                                android:layout_width="5dp"
+                                android:layout_height="5dp"
+                                android:background="@drawable/yuanxing_hongse" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingTop="18dp"
+                                android:paddingBottom="18dp"
+                                android:text="@string/fragment1_h48"
+                                android:textColor="@color/black3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/textView4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

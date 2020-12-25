@@ -50,6 +50,12 @@ public class MachineDetailActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();//获取数据
+    }
+
+    @Override
     protected void initView() {
         recyclerView = findViewByID_My(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,7 +95,6 @@ public class MachineDetailActivity extends BaseActivity {
     @Override
     protected void initData() {
         id = getIntent().getStringExtra("id");
-        requestServer();//获取数据
     }
 
     private void RequestDetail(String string) {
@@ -124,6 +129,7 @@ public class MachineDetailActivity extends BaseActivity {
                 if (response.getInvest().getMill_type() == 3) {
                     tv_title.setText(getString(R.string.fragment1_h50));
                     ll_pay.setVisibility(View.VISIBLE);
+
                     if (response.getInvest().getStatus() == -1) {
                         tv_confirm.setVisibility(View.VISIBLE);
                         tv_confirm.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +149,21 @@ public class MachineDetailActivity extends BaseActivity {
                     tv_confirm.setVisibility(View.GONE);
                     ll_pay.setVisibility(View.GONE);
                 }
+
+                /*if (response.getInvest().getStatus() == -1) {
+                    tv_confirm.setVisibility(View.VISIBLE);
+                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id", response.getInvest().getId());
+                            CommonUtil.gotoActivityWithData(MachineDetailActivity.this, PayDetailActivity.class, bundle);
+                        }
+                    });
+                } else {
+                    tv_confirm.setVisibility(View.GONE);
+                }*/
+
                 list = response.getInvest().getInterest_list();
                 if (list.size()>0){
                     showContentPage();

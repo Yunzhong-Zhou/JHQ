@@ -105,7 +105,7 @@ public class MyProfileActivity extends BaseActivity {
                         HashMap<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
                         params.put("nickname", editText1.getText().toString().trim());
-//                        params.put("email", "");
+                        params.put("email", editText2.getText().toString().trim());
                         RequestChangeProfile(filenames, files, params);//修改
                     }
                 }
@@ -124,7 +124,7 @@ public class MyProfileActivity extends BaseActivity {
                         File[] files = new File[]{};
                         HashMap<String, String> params = new HashMap<>();
                         params.put("token", localUserInfo.getToken());
-//                        params.put("nickname", "");
+                        params.put("nickname", editText1.getText().toString().trim());
                         params.put("email", editText2.getText().toString().trim());
                         RequestChangeProfile(filenames, files, params);//修改
                     }
@@ -393,8 +393,8 @@ public class MyProfileActivity extends BaseActivity {
                     this.showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
                     params.put("token", localUserInfo.getToken());
-//                    params.put("email", "");
-//                    params.put("nickname", "");
+                    params.put("nickname", editText1.getText().toString().trim());
+                    params.put("email", editText2.getText().toString().trim());
                     RequestChangeProfile(filenames, files, params);//修改
                 } catch (IOException e) {
                     e.printStackTrace();

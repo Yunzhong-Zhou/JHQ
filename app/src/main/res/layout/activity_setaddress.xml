@@ -100,7 +100,7 @@
                 android:paddingLeft="100dp"
                 android:paddingRight="150dp"
                 android:textColor="@color/black1"
-                android:textColorHint="@color/black4"
+                android:textColorHint="@color/black3"
                 android:textSize="15sp"
                 android:theme="@style/MyEditText" />
 
@@ -148,7 +148,7 @@
                 android:paddingLeft="100dp"
                 android:paddingRight="10dp"
                 android:textColor="@color/black1"
-                android:textColorHint="@color/black4"
+                android:textColorHint="@color/black3"
                 android:textSize="15sp"
                 android:theme="@style/MyEditText" />
 

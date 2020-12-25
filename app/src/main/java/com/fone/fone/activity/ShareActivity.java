@@ -152,7 +152,7 @@ public class ShareActivity extends BaseActivity {
                 textView4.setText(response.getCommission_sell_proportion() + "");//累计佣金
                 textView5.setText(response.getCommission_money()+ "%");//销售分成
                 textView6.setText(response.getCommission_same_level_proportion() + "%");//同级分成
-                textView7.setText(response.getValid_direct_recommend() + getString(R.string.app_ren));//累计直推有效人数
+                textView7.setText(response.getValid_direct_recommend());//累计直推有效人数
                 textView8.setText(getString(R.string.share_h12) + response.getHold_start_at()
                         + "-" + response.getHold_end_at());//考核期：
                 textView9.setText(response.getHold_current_money() + "/");//新增业绩
@@ -182,29 +182,17 @@ public class ShareActivity extends BaseActivity {
                 textView19.setText(response.getTeam_performance_buy_invest_money() + "");//团队算力
                 textView20.setText(response.getDirect_performance_all_invest_money() + "");//直推矿机
                 textView21.setText(response.getTeam_performance_all_invest_money()+ "");// 团队矿机
-                /*tv_haicha.setText(getString(R.string.share_h6) + response.getUpgrade_money_warn()
+                tv_haicha.setText(getString(R.string.share_h6) + response.getTips_upgrade_money()
                         +getString(R.string.app_type_usdt)
                         + getString(R.string.share_h7));
-                tv_tixing.setText(getString(R.string.share_h13) + response.getRecommend_hold_target_money()+"，"
-                        + getString(R.string.share_h14) + response.getRecommend_hold_target() + getString(R.string.app_ren)+"，"
-                        +getString(R.string.share_h17));*/
+                tv_tixing.setText(getString(R.string.share_h13) + response.getTips_hold_target_money()+"，"
+                        + getString(R.string.share_h14) + response.getTips_hold_target_money_count() + getString(R.string.app_ren)+"，"
+                        +getString(R.string.share_h17));
 
                 switch (response.getGrade()) {
-                    case 0:
+                    case 1:
                         tv_v1.setTextColor(getResources().getColor(R.color.black1));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v2.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v2.setBackgroundResource(R.drawable.yuanxing_huise);
-                        tv_v3.setTextColor(getResources().getColor(R.color.black1));
-                        tv_v3.setBackgroundResource(R.drawable.yuanxing_huise);
-
-                        view_1.setBackgroundResource(R.color.white);
-                        view_2.setBackgroundResource(R.color.white);
-                        break;
-                    case 1:
-                        tv_v1.setTextColor(getResources().getColor(R.color.white));
-                        tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
-
                         tv_v2.setTextColor(getResources().getColor(R.color.black1));
                         tv_v2.setBackgroundResource(R.drawable.yuanxing_huise);
                         tv_v3.setTextColor(getResources().getColor(R.color.black1));
@@ -216,6 +204,18 @@ public class ShareActivity extends BaseActivity {
                     case 2:
                         tv_v1.setTextColor(getResources().getColor(R.color.white));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
+
+                        tv_v2.setTextColor(getResources().getColor(R.color.black1));
+                        tv_v2.setBackgroundResource(R.drawable.yuanxing_huise);
+                        tv_v3.setTextColor(getResources().getColor(R.color.black1));
+                        tv_v3.setBackgroundResource(R.drawable.yuanxing_huise);
+
+                        view_1.setBackgroundResource(R.color.white);
+                        view_2.setBackgroundResource(R.color.white);
+                        break;
+                    case 3:
+                        tv_v1.setTextColor(getResources().getColor(R.color.white));
+                        tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v2.setTextColor(getResources().getColor(R.color.white));
                         tv_v2.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
 
@@ -225,7 +225,7 @@ public class ShareActivity extends BaseActivity {
                         view_1.setBackgroundResource(R.color.yellow_1);
                         view_2.setBackgroundResource(R.color.white);
                         break;
-                    case 3:
+                    case 4:
                         tv_v1.setTextColor(getResources().getColor(R.color.white));
                         tv_v1.setBackgroundResource(R.drawable.yuanxing_huangsejianbian);
                         tv_v2.setTextColor(getResources().getColor(R.color.white));
@@ -238,10 +238,10 @@ public class ShareActivity extends BaseActivity {
                         break;
 
                 }
-//                tv_num0.setText(response.getGrade_count_list().getGrade_0());
-                tv_num1.setText(response.getGrade_count_list().getGrade_1());
-                tv_num2.setText(response.getGrade_count_list().getGrade_2());
-                tv_num3.setText(response.getGrade_count_list().getGrade_3());
+                tv_num0.setText(response.getGrade_count_list().getGrade_1());
+                tv_num1.setText(response.getGrade_count_list().getGrade_2());
+                tv_num2.setText(response.getGrade_count_list().getGrade_3());
+                tv_num3.setText(response.getGrade_count_list().getGrade_4());
 
             }
 

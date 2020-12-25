@@ -228,6 +228,7 @@ attr civ_border_color
 attr civ_border_overlay
 attr civ_border_width
 attr civ_circle_background_color
+attr clickable
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -384,6 +385,37 @@ attr hideOnScroll
 attr hintAnimationEnabled
 attr hintEnabled
 attr hintTextAppearance
+attr hl_angle
+attr hl_bindTextView
+attr hl_centerColor
+attr hl_cornerRadius
+attr hl_cornerRadius_leftBottom
+attr hl_cornerRadius_leftTop
+attr hl_cornerRadius_rightBottom
+attr hl_cornerRadius_rightTop
+attr hl_endColor
+attr hl_layoutBackground
+attr hl_layoutBackground_clickFalse
+attr hl_layoutBackground_true
+attr hl_shadowColor
+attr hl_shadowHidden
+attr hl_shadowHiddenBottom
+attr hl_shadowHiddenLeft
+attr hl_shadowHiddenRight
+attr hl_shadowHiddenTop
+attr hl_shadowLimit
+attr hl_shadowOffsetX
+attr hl_shadowOffsetY
+attr hl_shadowSymmetry
+attr hl_shapeMode
+attr hl_startColor
+attr hl_strokeColor
+attr hl_strokeColor_true
+attr hl_strokeWith
+attr hl_text
+attr hl_textColor
+attr hl_textColor_true
+attr hl_text_true
 attr homeAsUpIndicator
 attr homeLayout
 attr hoveredFocusedTranslationZ
@@ -491,21 +523,9 @@ attr layout_goneMarginStart
 attr layout_goneMarginTop
 attr layout_insetEdge
 attr layout_keyline
-attr layout_noSolid
 attr layout_optimizationLevel
-attr layout_roundRadius
-attr layout_roundRadiusLB
-attr layout_roundRadiusLT
-attr layout_roundRadiusRB
-attr layout_roundRadiusRT
 attr layout_scrollFlags
 attr layout_scrollInterpolator
-attr layout_shadowColor
-attr layout_shadowRadius
-attr layout_shadowX
-attr layout_shadowY
-attr layout_solidColor
-attr layout_spaceShadow
 attr liftOnScroll
 attr lightWaveAnimTime
 attr lightWaveColor
@@ -858,6 +878,9 @@ color deeporange700
 color deeppurple300
 color deeppurple500
 color deeppurple700
+color default_shadow_color
+color default_shadowback_color
+color default_textColor
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -1219,6 +1242,9 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen dp_0
+dimen dp_15
+dimen dp_5
 dimen emui_master_body_2
 dimen emui_master_subtitle
 dimen fastscroll_default_thickness
@@ -1864,6 +1890,7 @@ id hms_progress_text
 id home
 id homeAsUp
 id horizontal
+id ic_fil
 id icon
 id icon_group
 id icon_only
@@ -1895,7 +1922,6 @@ id invis
 id invisible
 id italic
 id item_touch_helper_previous_elevation
-id iv
 id ivBanner
 id ivIcon
 id iv_dianzi
@@ -1962,6 +1988,7 @@ id loading_layout
 id loading_view
 id localCity
 id localCityTag
+id mShadowLayout
 id mViewPager
 id masked
 id matrix
@@ -2008,6 +2035,7 @@ id pop_listView
 id pop_listView1
 id pop_listView2
 id pop_view
+id pressed
 id prograssBar
 id prograssBar1
 id prograssBar2
@@ -2043,6 +2071,7 @@ id right_btn
 id right_icon
 id right_side
 id right_text
+id ripple
 id rl_dianzi
 id rl_geren
 id rl_qiye
@@ -2200,8 +2229,6 @@ id tv_money1
 id tv_money2
 id tv_more
 id tv_name
-id tv_name1
-id tv_name2
 id tv_num
 id tv_num0
 id tv_num1
@@ -2564,6 +2591,7 @@ mipmap ic_edit
 mipmap ic_editimg
 mipmap ic_fenxiang
 mipmap ic_fil_black
+mipmap ic_fil_gray
 mipmap ic_fil_green
 mipmap ic_fil_white
 mipmap ic_fil_yellow
@@ -2655,6 +2683,7 @@ mipmap ic_usdt_white
 mipmap ic_usdt_white1
 mipmap ic_weigouxuan
 mipmap ic_wenhao_gray
+mipmap ic_wenhao_gray2
 mipmap ic_xiexian
 mipmap ic_xuanze
 mipmap ic_xuanzhong
@@ -4164,10 +4193,7 @@ styleable RecyclerView android_orientation android_descendantFocusability fastSc
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
-styleable ShadowLayout shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
-styleable ShadowLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor layout_spaceShadow
-styleable ShadowLinearLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor
-styleable ShadowRelativeLayout_Layout layout_noSolid layout_roundRadius layout_roundRadiusLB layout_roundRadiusLT layout_roundRadiusRB layout_roundRadiusRT layout_shadowColor layout_shadowRadius layout_shadowX layout_shadowY layout_solidColor
+styleable ShadowLayout clickable hl_angle hl_bindTextView hl_centerColor hl_cornerRadius hl_cornerRadius_leftBottom hl_cornerRadius_leftTop hl_cornerRadius_rightBottom hl_cornerRadius_rightTop hl_endColor hl_layoutBackground hl_layoutBackground_clickFalse hl_layoutBackground_true hl_shadowColor hl_shadowHidden hl_shadowHiddenBottom hl_shadowHiddenLeft hl_shadowHiddenRight hl_shadowHiddenTop hl_shadowLimit hl_shadowOffsetX hl_shadowOffsetY hl_shadowSymmetry hl_shapeMode hl_startColor hl_strokeColor hl_strokeColor_true hl_strokeWith hl_text hl_textColor hl_textColor_true hl_text_true shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth

@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class JoinDetailModel implements Serializable {
     /**
-     * change_game : {"id":"ef347f2c756ea6bd86d697106fa93f3a","mill_id":"","period":"202011010130","win_num":"","win_at":null,"status":2,"last_participation_at":null,"status_title":"待开奖","mill":null,"change_game_participation_list":[]}
+     * change_game : {"id":"ef347f2c756ea6bd86d697106fa93f3a","mill_id":"","period":"202011010130","win_num":"","win_at":"","win_member_id":"","status":2,"last_participation_at":"","status_title":"待开奖","win_member":{"head":"/head/606.png","nickname":"FIL_pour广告费"},"mill":{"id":"b6a39b54e0bc799b0617b1f3d258e8c2","hashrate":10,"mining_cycle":360,"production_value_fil_money":"10.0000","computer_position":"中国福州"},"change_game_participation_list":[{"change_game_id":"5ac8dbdf0b28b9a2ad429f16ee00b379","member_head":"/head/606.png","member_nickname":"FIL_pour广告费","index":0}]}
      * count_down : 0
      */
 
@@ -37,24 +37,28 @@ public class JoinDetailModel implements Serializable {
          * mill_id :
          * period : 202011010130
          * win_num :
-         * win_at : null
+         * win_at :
+         * win_member_id :
          * status : 2
-         * last_participation_at : null
+         * last_participation_at :
          * status_title : 待开奖
-         * mill : null
-         * change_game_participation_list : []
+         * win_member : {"head":"/head/606.png","nickname":"FIL_pour广告费"}
+         * mill : {"id":"b6a39b54e0bc799b0617b1f3d258e8c2","hashrate":10,"mining_cycle":360,"production_value_fil_money":"10.0000","computer_position":"中国福州"}
+         * change_game_participation_list : [{"change_game_id":"5ac8dbdf0b28b9a2ad429f16ee00b379","member_head":"/head/606.png","member_nickname":"FIL_pour广告费","index":0}]
          */
 
         private String id;
         private String mill_id;
         private String period;
         private String win_num;
-        private Object win_at;
+        private String win_at;
+        private String win_member_id;
         private int status;
-        private Object last_participation_at;
+        private String last_participation_at;
         private String status_title;
-        private Object mill;
-        private List<?> change_game_participation_list;
+        private WinMemberBean win_member;
+        private MillBean mill;
+        private List<ChangeGameParticipationListBean> change_game_participation_list;
 
         public String getId() {
             return id;
@@ -88,12 +92,20 @@ public class JoinDetailModel implements Serializable {
             this.win_num = win_num;
         }
 
-        public Object getWin_at() {
+        public String getWin_at() {
             return win_at;
         }
 
-        public void setWin_at(Object win_at) {
+        public void setWin_at(String win_at) {
             this.win_at = win_at;
+        }
+
+        public String getWin_member_id() {
+            return win_member_id;
+        }
+
+        public void setWin_member_id(String win_member_id) {
+            this.win_member_id = win_member_id;
         }
 
         public int getStatus() {
@@ -104,11 +116,11 @@ public class JoinDetailModel implements Serializable {
             this.status = status;
         }
 
-        public Object getLast_participation_at() {
+        public String getLast_participation_at() {
             return last_participation_at;
         }
 
-        public void setLast_participation_at(Object last_participation_at) {
+        public void setLast_participation_at(String last_participation_at) {
             this.last_participation_at = last_participation_at;
         }
 
@@ -120,20 +132,165 @@ public class JoinDetailModel implements Serializable {
             this.status_title = status_title;
         }
 
-        public Object getMill() {
+        public WinMemberBean getWin_member() {
+            return win_member;
+        }
+
+        public void setWin_member(WinMemberBean win_member) {
+            this.win_member = win_member;
+        }
+
+        public MillBean getMill() {
             return mill;
         }
 
-        public void setMill(Object mill) {
+        public void setMill(MillBean mill) {
             this.mill = mill;
         }
 
-        public List<?> getChange_game_participation_list() {
+        public List<ChangeGameParticipationListBean> getChange_game_participation_list() {
             return change_game_participation_list;
         }
 
-        public void setChange_game_participation_list(List<?> change_game_participation_list) {
+        public void setChange_game_participation_list(List<ChangeGameParticipationListBean> change_game_participation_list) {
             this.change_game_participation_list = change_game_participation_list;
+        }
+
+        public static class WinMemberBean {
+            /**
+             * head : /head/606.png
+             * nickname : FIL_pour广告费
+             */
+
+            private String head;
+            private String nickname;
+            private String index;
+
+            public String getIndex() {
+                return index;
+            }
+
+            public void setIndex(String index) {
+                this.index = index;
+            }
+
+            public String getHead() {
+                return head;
+            }
+
+            public void setHead(String head) {
+                this.head = head;
+            }
+
+            public String getNickname() {
+                return nickname;
+            }
+
+            public void setNickname(String nickname) {
+                this.nickname = nickname;
+            }
+        }
+
+        public static class MillBean {
+            /**
+             * id : b6a39b54e0bc799b0617b1f3d258e8c2
+             * hashrate : 10
+             * mining_cycle : 360
+             * production_value_fil_money : 10.0000
+             * computer_position : 中国福州
+             */
+
+            private String id;
+            private int hashrate;
+            private int mining_cycle;
+            private String production_value_fil_money;
+            private String computer_position;
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
+
+            public int getHashrate() {
+                return hashrate;
+            }
+
+            public void setHashrate(int hashrate) {
+                this.hashrate = hashrate;
+            }
+
+            public int getMining_cycle() {
+                return mining_cycle;
+            }
+
+            public void setMining_cycle(int mining_cycle) {
+                this.mining_cycle = mining_cycle;
+            }
+
+            public String getProduction_value_fil_money() {
+                return production_value_fil_money;
+            }
+
+            public void setProduction_value_fil_money(String production_value_fil_money) {
+                this.production_value_fil_money = production_value_fil_money;
+            }
+
+            public String getComputer_position() {
+                return computer_position;
+            }
+
+            public void setComputer_position(String computer_position) {
+                this.computer_position = computer_position;
+            }
+        }
+
+        public static class ChangeGameParticipationListBean {
+            /**
+             * change_game_id : 5ac8dbdf0b28b9a2ad429f16ee00b379
+             * member_head : /head/606.png
+             * member_nickname : FIL_pour广告费
+             * index : 0
+             */
+
+            private String change_game_id;
+            private String member_head;
+            private String member_nickname;
+            private String index;
+
+            public String getChange_game_id() {
+                return change_game_id;
+            }
+
+            public void setChange_game_id(String change_game_id) {
+                this.change_game_id = change_game_id;
+            }
+
+            public String getMember_head() {
+                return member_head;
+            }
+
+            public void setMember_head(String member_head) {
+                this.member_head = member_head;
+            }
+
+            public String getMember_nickname() {
+                return member_nickname;
+            }
+
+            public void setMember_nickname(String member_nickname) {
+                this.member_nickname = member_nickname;
+            }
+
+            public String getIndex() {
+                return index;
+            }
+
+            public void setIndex(String index) {
+                this.index = index;
+            }
         }
     }
 }

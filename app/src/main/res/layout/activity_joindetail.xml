@@ -300,7 +300,7 @@
                             android:layout_width="42dp"
                             android:layout_height="42dp"
                             android:layout_gravity="center_horizontal"
-                            android:background="@mipmap/headimg" />
+                            android:src="@mipmap/ic_wenhao_gray2" />
 
                         <View
                             android:layout_width="20dp"
@@ -329,7 +329,7 @@
                                     android:id="@+id/imageView2"
                                     android:layout_width="29dp"
                                     android:layout_height="29dp"
-                                    android:background="@mipmap/headimg" />
+                                    android:src="@mipmap/ic_wenhao_gray2" />
 
                                 <TextView
                                     android:id="@+id/textView8"
@@ -387,7 +387,8 @@
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recyclerView"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent"
+                                android:paddingBottom="20dp"/>
 
 
                         </com.fone.fone.view.LoadingLayout>
@@ -401,6 +402,7 @@
                             android:background="@drawable/btn_img1"
                             android:gravity="center"
                             android:onClick="onClick"
+                            android:visibility="gone"
                             android:text="@string/fragment1_h42"
                             android:textColor="@color/white"
                             android:textSize="15sp" />

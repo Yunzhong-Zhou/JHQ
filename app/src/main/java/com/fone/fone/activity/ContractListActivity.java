@@ -2,8 +2,8 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.ContractListModel;
@@ -16,8 +16,6 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -33,10 +31,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ContractListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<ContractListModel> list = new ArrayList<>();
-    CommonAdapter<ContractListModel> mAdapter;
+    List<ContractListModel.InvoiceListBean> list = new ArrayList<>();
+    CommonAdapter<ContractListModel.InvoiceListBean> mAdapter;
 
     int page = 1;
+    TextView textView1,textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +76,8 @@ public class ContractListActivity extends BaseActivity {
                 RequestMyInvestmentListMore(string);
             }
         });
+        textView1= findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
     }
 
     @Override
@@ -85,7 +86,7 @@ public class ContractListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<ContractListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -96,45 +97,38 @@ public class ContractListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ContractListModel response) {
                 showContentPage();
                 onHttpResult();
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), ContractListModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<ContractListModel>
-                                (ContractListActivity.this, R.layout.item_contractlist, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, ContractListModel model, int position) {
-                                holder.setText(R.id.textView1, model.getCreated_at());//时间
-                                holder.setText(R.id.textView2, "¥"+model.getCny_money());//金额
-                                holder.setText(R.id.textView3, model.getType_title());
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                textView1.setText(response.getInvoice_money());
+                textView2.setText(response.getResidue_invoice_cny_money());
+                list = response.getInvoice_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<ContractListModel.InvoiceListBean>
+                            (ContractListActivity.this, R.layout.item_contractlist, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, ContractListModel.InvoiceListBean model, int position) {
+                            holder.setText(R.id.textView1, model.getCreated_at());//时间
+                            holder.setText(R.id.textView2, "¥"+model.getCny_money());//金额
+                            holder.setText(R.id.textView3, model.getType_title());
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(HuiGouListActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                            }
+                        }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });
                 }
             }
         });
@@ -142,7 +136,7 @@ public class ContractListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<ContractListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -154,26 +148,18 @@ public class ContractListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(ContractListModel response) {
                 showContentPage();
                 onHttpResult();
                 JSONObject jObj;
-                List<ContractListModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), ContractListModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<ContractListModel.InvoiceListBean> list1 = new ArrayList<>();
+                list1 = response.getInvoice_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FONE</string>
+    <string name="app_name">FileOne</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -360,10 +360,10 @@
     <string name="fragment1_h50">矿机详情</string>
     <string name="fragment1_h51">USDT支付成功</string>
     <string name="fragment1_h52">付款姓名</string>
-    <string name="fragment1_h53">请输入姓名</string>
+    <string name="fragment1_h53">请输入付款姓名</string>
     <string name="fragment1_h54">支付宝付款订单号</string>
-    <string name="fragment1_h55">请输入订单号</string>
-    <string name="fragment1_h56">我已确认转载</string>
+    <string name="fragment1_h55">请输入银行付款单号</string>
+    <string name="fragment1_h56">我已确认转账</string>
     <string name="fragment1_h57">复制</string>
     <string name="fragment1_h58">转账方式</string>
     <string name="fragment1_h59">支付宝转账</string>
@@ -374,9 +374,9 @@
     <string name="fragment1_h64">银行卡户名</string>
     <string name="fragment1_h65">银行卡帐号</string>
     <string name="fragment1_h66">银行付款订单号</string>
-    <string name="fragment1_h67"></string>
-    <string name="fragment1_h68"></string>
-    <string name="fragment1_h69"></string>
+    <string name="fragment1_h67">银行名称</string>
+    <string name="fragment1_h68">您已确认转账吗？</string>
+    <string name="fragment1_h69">提交成功</string>
     <string name="fragment1_h70"></string>
     <string name="fragment1_h71"></string>
 
@@ -429,10 +429,10 @@
     <string name="fragment3_h27">拼团列表</string>
     <string name="fragment3_h28">拼中</string>
     <string name="fragment3_h29">矿机</string>
-    <string name="fragment3_h30"></string>
-    <string name="fragment3_h31"></string>
-    <string name="fragment3_h32"></string>
-    <string name="fragment3_h33"></string>
+    <string name="fragment3_h30">待加入</string>
+    <string name="fragment3_h31">FileCoin主网矿机云计算力</string>
+    <string name="fragment3_h32">处理中</string>
+    <string name="fragment3_h33">FileCoin主网矿机算力1TB</string>
     <string name="fragment3_h34"></string>
     <string name="fragment3_h35"></string>
     <string name="fragment3_h36"></string>

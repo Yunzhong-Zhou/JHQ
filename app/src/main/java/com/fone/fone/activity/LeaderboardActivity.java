@@ -124,7 +124,8 @@ public class LeaderboardActivity extends BaseActivity {
                     }*/
                 if (response.getRank_list().size() > 0) {
                     showContentPage();
-                    mAdapter = new CommonAdapter<LeaderboardModel.RankListBean>(LeaderboardActivity.this, R.layout.item_leaderboard, list) {
+                    mAdapter = new CommonAdapter<LeaderboardModel.RankListBean>(LeaderboardActivity.this,
+                            R.layout.item_leaderboard, list) {
                         @Override
                         protected void convert(ViewHolder holder, final LeaderboardModel.RankListBean model, int position) {
                             TextView tv_num = holder.getView(R.id.tv_num);

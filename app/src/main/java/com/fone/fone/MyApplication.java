@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.fone.fone.activity.WebContentActivity;
+import com.fone.fone.base.ScreenAdaptation;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.TraceServiceImpl;
 import com.fone.fone.utils.changelanguage.LanguageUtil;
@@ -236,7 +237,7 @@ public class MyApplication extends Application {
             LanguageUtil.changeAppLanguage(mContext, language);
         }
 
-//        new ScreenAdaptation(this, 828, 1792).register();
+        new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this, 1125, 2436).register();
 //        new ScreenAdaptation(this,720,1280).register();
 

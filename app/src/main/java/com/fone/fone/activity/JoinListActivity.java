@@ -2,7 +2,10 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.JoinListModel;
@@ -90,19 +93,35 @@ public class JoinListActivity extends BaseActivity {
                             protected void convert(ViewHolder holder, JoinListModel.ChangeGameListBean model, int position) {
                                 holder.setText(R.id.tv_num, model.getPeriod());//期次号
                                 holder.setText(R.id.tv_time, model.getCreated_at() + "");//时间
-                                holder.setText(R.id.tv_title, model.getStatus_title());//标题
-//                                holder.setText(R.id.tv_money, model.get);//金额
-//                                holder.setText(R.id.tv_name, model.get);//name
-//                                holder.setText(R.id.tv_type, model.get);//name
+//                                holder.setText(R.id.tv_title, model.get);//标题
 
-                                /*ImageView imageView = holder.getView(R.id.imageView1);
-                                Glide.with(JoinListActivity.this)
-                                        .load(OkHttpClientManager.IMGHOST + model.getWin_member().)
-                                        .centerCrop()
-                                        .placeholder(R.mipmap.loading)//加载站位图
-                                        .error(R.mipmap.headimg)//加载失败
-                                        .into(imageView);//加载图片*/
-
+                                TextView tv_money = holder.getView(R.id.tv_money);
+                                TextView tv_name = holder.getView(R.id.tv_name);
+                                ImageView iv_head = holder.getView(R.id.iv_head);
+                                ImageView ic_fil = holder.getView(R.id.ic_fil);
+                                if (model.getWin_member() != null) {
+                                    tv_name.setText(model.getWin_member().getNickname());
+                                    Glide.with(JoinListActivity.this)
+                                            .load(OkHttpClientManager.IMGHOST + model.getWin_member().getHead())
+                                            .centerCrop()
+                                            .placeholder(R.mipmap.loading)//加载站位图
+                                            .error(R.mipmap.headimg)//加载失败
+                                            .into(iv_head);//加载图片
+                                    holder.setText(R.id.tv_type, getString(R.string.fragment3_h20));
+                                } else {
+                                    tv_name.setText(getString(R.string.fragment3_h32));
+                                    iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
+                                    holder.setText(R.id.tv_type, getString(R.string.fragment3_h32));
+                                }
+                                if (model.getMill() != null) {
+                                    tv_money.setText(model.getMill().getProduction_value_fil_money());//金额
+                                    ic_fil.setImageResource(R.mipmap.ic_fragment3_fil_1);
+                                    tv_money.setTextColor(getResources().getColor(R.color.green_1));
+                                }else {
+                                    tv_money.setText("???");//金额
+                                    ic_fil.setImageResource(R.mipmap.ic_fil_gray);
+                                    tv_money.setTextColor(getResources().getColor(R.color.black3));
+                                }
 
                             }
                         };
@@ -110,7 +129,7 @@ public class JoinListActivity extends BaseActivity {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("id", list.get(position).getPeriod());
+                                bundle.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(JoinListActivity.this, JoinDetailActivity.class, bundle, false);
                             }
 

@@ -53,1325 +53,1340 @@
 
         </LinearLayout>
 
-        <com.lijiankun24.shadowlayout.ShadowLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            app:shadowColor="#21555555"
-            app:shadowDx="0dp"
-            app:shadowDy="5dp"
-            app:shadowRadius="5dp"
-            app:shadowShape="rectangle"
-            app:shadowSide="all">
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:onClick="onClick"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/yuanjiao_10_baise"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="17dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_contract1" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_moeny"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="@color/green"
-                        android:textSize="26sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/contract_h2"
-                        android:textColor="@color/black3"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_next_black" />
-
-            </LinearLayout>
-        </com.lijiankun24.shadowlayout.ShadowLayout>
-
-        <com.lijiankun24.shadowlayout.ShadowLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="-15dp"
-            android:layout_marginRight="10dp"
-            app:shadowColor="#21555555"
-            app:shadowDx="0dp"
-            app:shadowDy="5dp"
-            app:shadowRadius="5dp"
-            app:shadowShape="rectangle"
-            app:shadowSide="all">
-
-            <LinearLayout
-                android:id="@+id/pop_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/yuanjiao_10_baise"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="onClick"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="14dp"
-                        android:text="@string/contract_h3"
-                        android:textColor="@color/green"
-                        android:textSize="14sp" />
-
-                    <View
-                        android:id="@+id/view1"
-                        android:layout_width="66dp"
-                        android:layout_height="3dp"
-                        android:background="@drawable/yuanjiao_5_lvse" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="27dp"
-                    android:background="@color/xian" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="onClick"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="14dp"
-                        android:text="@string/contract_h4"
-                        android:textColor="@color/black1"
-                        android:textSize="14sp" />
-
-                    <View
-                        android:id="@+id/view2"
-                        android:layout_width="66dp"
-                        android:layout_height="3dp"
-                        android:background="@drawable/yuanjiao_5_lvse"
-                        android:visibility="invisible" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="27dp"
-                    android:background="@color/xian" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="onClick"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="14dp"
-                        android:text="@string/contract_h5"
-                        android:textColor="@color/black1"
-                        android:textSize="14sp" />
-
-                    <View
-                        android:id="@+id/view3"
-                        android:layout_width="66dp"
-                        android:layout_height="3dp"
-                        android:background="@drawable/yuanjiao_5_lvse"
-                        android:visibility="invisible" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.lijiankun24.shadowlayout.ShadowLayout>
         <!--只需要刷新只写header-->
         <com.liaoinstan.springview.widget.SpringView
             android:id="@+id/springView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.core.widget.NestedScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fillViewport="true"
-                android:scrollbars="none">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <com.lijiankun24.shadowlayout.ShadowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:shadowColor="#21555555"
+                    app:shadowDx="0dp"
+                    app:shadowDy="5dp"
+                    app:shadowRadius="5dp"
+                    app:shadowShape="rectangle"
+                    app:shadowSide="all">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yuanjiao_10_baise"
+                        android:gravity="center_vertical"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        android:padding="17dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_contract1" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_moeny"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/green"
+                                android:textSize="26sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/contract_h2"
+                                android:textColor="@color/black3"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_next_black" />
+
+                    </LinearLayout>
+                </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                <com.lijiankun24.shadowlayout.ShadowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="-15dp"
+                    android:layout_marginRight="10dp"
+                    app:shadowColor="#21555555"
+                    app:shadowDx="0dp"
+                    app:shadowDy="5dp"
+                    app:shadowRadius="5dp"
+                    app:shadowShape="rectangle"
+                    app:shadowSide="all">
+
+                    <LinearLayout
+                        android:id="@+id/pop_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yuanjiao_10_baise"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="14dp"
+                                android:text="@string/contract_h3"
+                                android:textColor="@color/green"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:id="@+id/view1"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="27dp"
+                            android:background="@color/xian" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="14dp"
+                                android:text="@string/contract_h4"
+                                android:textColor="@color/black1"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="27dp"
+                            android:background="@color/xian" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="onClick"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="14dp"
+                                android:text="@string/contract_h5"
+                                android:textColor="@color/black1"
+                                android:textSize="14sp" />
+
+                            <View
+                                android:id="@+id/view3"
+                                android:layout_width="66dp"
+                                android:layout_height="3dp"
+                                android:background="@drawable/yuanjiao_5_lvse"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.lijiankun24.shadowlayout.ShadowLayout>
+
+
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:fillViewport="true"
+                    android:scrollbars="none">
 
                     <LinearLayout
-                        android:id="@+id/linearLayout_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="-10dp"
-                        android:orientation="vertical"
-                        android:visibility="visible">
-
-                        <com.lijiankun24.shadowlayout.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
-
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h6"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingTop="10dp"
-                                    android:paddingRight="24dp"
-                                    android:paddingBottom="14dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:text="@string/contract_h7"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <RelativeLayout
-                                        android:id="@+id/rl_geren"
-                                        android:onClick="onClick"
-                                        android:layout_width="60dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="30dp">
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="27dp"
-                                            android:layout_marginTop="8dp"
-                                            android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
-                                            android:gravity="center"
-                                            android:text="@string/contract_h8"
-                                            android:textColor="@color/green"
-                                            android:textSize="12sp" />
-
-                                        <ImageView
-                                            android:id="@+id/iv_geren"
-                                            android:layout_width="18dp"
-                                            android:layout_height="18dp"
-                                            android:layout_alignParentRight="true"
-                                            android:src="@mipmap/ic_xuanzhong" />
-
-                                    </RelativeLayout>
-
-                                    <RelativeLayout
-                                        android:id="@+id/rl_qiye"
-                                        android:onClick="onClick"
-                                        android:layout_width="60dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp">
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="27dp"
-                                            android:layout_marginTop="8dp"
-                                            android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
-                                            android:gravity="center"
-                                            android:text="@string/contract_h9"
-                                            android:textColor="@color/green"
-                                            android:textSize="12sp" />
-
-                                        <ImageView
-                                            android:id="@+id/iv_qiye"
-                                            android:layout_width="18dp"
-                                            android:layout_height="18dp"
-                                            android:layout_alignParentRight="true"
-                                            android:src="@mipmap/ic_xuanzhong"
-                                            android:visibility="invisible" />
-
-                                    </RelativeLayout>
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:layout_marginLeft="25dp"
-                                    android:layout_marginRight="25dp"
-                                    android:background="@color/xian" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:id="@+id/tv_title_1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h10"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText1_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h11"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:id="@+id/tv_num_1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h12"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText2_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h13"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginLeft="24dp"
-                                    android:layout_marginRight="24dp"
-                                    android:paddingTop="14dp"
-                                    android:paddingBottom="14dp"
-                                    android:text="@string/contract_h14"
-                                    android:textColor="@color/black3"
-                                    android:textSize="11sp" />
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-
-                        <com.lijiankun24.shadowlayout.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="-15dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
-
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h15"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h10"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText3_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h11"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h20"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText4_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h21"
-                                        android:inputType="phone"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h16"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText5_1"
-                                        android:onClick="onClick"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:drawableRight="@mipmap/ic_next_black"
-                                        android:drawablePadding="10dp"
-                                        android:focusable="false"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h17"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="20dp"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h18"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText6_1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h19"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-                        <TextView
-                            android:id="@+id/tv_confirm_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="30dp"
-                            android:background="@drawable/btn_img1"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:text="@string/app_confirm"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="-10dp"
-                        android:visibility="gone"
                         android:orientation="vertical">
 
-                        <com.lijiankun24.shadowlayout.ShadowLayout
+                        <LinearLayout
+                            android:id="@+id/linearLayout_1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-10dp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
 
-                            <LinearLayout
+                            <com.lijiankun24.shadowlayout.ShadowLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:drawableTop="@mipmap/ic_contract2"
-                                    android:gravity="center"
-                                    android:paddingTop="50dp"
-                                    android:drawablePadding="25dp"
-                                    android:text="@string/contract_h22"
-                                    android:textColor="@color/green"
-                                    android:textSize="18sp"
-                                    android:paddingBottom="15dp"
-                                    android:textStyle="bold" />
-                                <TextView
-                                    android:id="@+id/tv_dianzi"
-                                    android:onClick="onClick"
-                                    android:layout_width="120dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginBottom="20dp"
-                                    android:background="@drawable/yuanjiaobiankuang_10_huise"
-                                    android:gravity="center"
-                                    android:paddingTop="5dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="@string/contract_h23"
-                                    android:textColor="@color/black3"
-                                    android:textSize="13sp" />
-
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-
-                        <com.lijiankun24.shadowlayout.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="-15dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
 
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h24"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h10"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText1_2"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h11"
-                                        android:inputType="none"
-                                        android:focusable="false"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h20"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
 
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText2_2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h21"
-                                        android:focusable="false"
-                                        android:inputType="phone"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h18"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText3_2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:focusable="false"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h17"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-
-                                </RelativeLayout>
-
-                                <TextView
-                                    android:id="@+id/tv_zhizhi"
-                                    android:onClick="onClick"
-                                    android:layout_width="120dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="25dp"
-                                    android:background="@drawable/yuanjiaobiankuang_10_huise"
-                                    android:gravity="center"
-                                    android:paddingTop="5dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="@string/contract_h25"
-                                    android:textColor="@color/black3"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/linearLayout_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="-10dp"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <com.lijiankun24.shadowlayout.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
-
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h26"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:id="@+id/tv_title_3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h27"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText1_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:focusable="false"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h36"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp"
-                                    android:layout_marginBottom="20dp">
-
-                                    <TextView
-                                        android:id="@+id/tv_num_3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h28"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText2_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:focusable="false"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h37"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-
-                        <com.lijiankun24.shadowlayout.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="-15dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
-
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h29"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h30"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText3_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h31"
-                                        android:inputType="numberDecimal"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h32"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText4_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h38"
-                                        android:text="¥ 0"
-                                        android:inputType="phone"
-                                        android:focusable="false"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingTop="10dp"
-                                    android:paddingRight="24dp"
-                                    android:paddingBottom="14dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:layout_marginTop="3dp"
-                                        android:text="@string/contract_h33"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <RelativeLayout
-                                        android:id="@+id/rl_dianzi"
-                                        android:onClick="onClick"
-                                        android:layout_width="60dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="30dp">
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
 
                                         <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="27dp"
-                                            android:layout_marginTop="8dp"
-                                            android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
-                                            android:gravity="center"
-                                            android:text="@string/contract_h34"
-                                            android:textColor="@color/green"
-                                            android:textSize="12sp" />
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h6"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_dianzi"
-                                            android:layout_width="18dp"
-                                            android:layout_height="18dp"
-                                            android:layout_alignParentRight="true"
-                                            android:src="@mipmap/ic_xuanzhong" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingTop="10dp"
+                                        android:paddingRight="24dp"
+                                        android:paddingBottom="14dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@string/contract_h7"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_geren"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="30dp"
+                                            android:onClick="onClick">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="27dp"
+                                                android:layout_marginTop="8dp"
+                                                android:layout_marginRight="5dp"
+                                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                                android:gravity="center"
+                                                android:text="@string/contract_h8"
+                                                android:textColor="@color/green"
+                                                android:textSize="12sp" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_geren"
+                                                android:layout_width="18dp"
+                                                android:layout_height="18dp"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@mipmap/ic_xuanzhong" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_qiye"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:onClick="onClick">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="27dp"
+                                                android:layout_marginTop="8dp"
+                                                android:layout_marginRight="5dp"
+                                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                                android:gravity="center"
+                                                android:text="@string/contract_h9"
+                                                android:textColor="@color/green"
+                                                android:textSize="12sp" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_qiye"
+                                                android:layout_width="18dp"
+                                                android:layout_height="18dp"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@mipmap/ic_xuanzhong"
+                                                android:visibility="invisible" />
+
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:id="@+id/tv_title_1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h10"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText1_1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h11"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:id="@+id/tv_num_1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h12"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText2_1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h13"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="24dp"
+                                        android:layout_marginRight="24dp"
+                                        android:paddingTop="14dp"
+                                        android:paddingBottom="14dp"
+                                        android:text="@string/contract_h14"
+                                        android:textColor="@color/black3"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                            <com.lijiankun24.shadowlayout.ShadowLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="-15dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
+
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h15"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h10"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText3_1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h11"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h20"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText4_1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h21"
+                                            android:inputType="phone"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h16"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText5_1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:drawableRight="@mipmap/ic_next_black"
+                                            android:drawablePadding="10dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h17"
+                                            android:inputType="none"
+                                            android:onClick="onClick"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
 
                                     </RelativeLayout>
 
                                     <RelativeLayout
-                                        android:id="@+id/rl_zhizhi"
-                                        android:onClick="onClick"
-                                        android:layout_width="60dp"
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp">
+                                        android:layout_marginBottom="20dp"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
 
                                         <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h18"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText6_1"
                                             android:layout_width="match_parent"
-                                            android:layout_height="27dp"
-                                            android:layout_marginTop="8dp"
-                                            android:layout_marginRight="5dp"
-                                            android:background="@drawable/yuanjiaobiankuang_5_lvse"
-                                            android:gravity="center"
-                                            android:text="@string/contract_h35"
-                                            android:textColor="@color/green"
-                                            android:textSize="12sp" />
-
-                                        <ImageView
-                                            android:id="@+id/iv_zhizhi"
-                                            android:layout_width="18dp"
-                                            android:layout_height="18dp"
-                                            android:layout_alignParentRight="true"
-                                            android:src="@mipmap/ic_xuanzhong"
-                                            android:visibility="invisible" />
-
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h19"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
                                     </RelativeLayout>
-
                                 </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
-                        <com.lijiankun24.shadowlayout.ShadowLayout
+                            <TextView
+                                android:id="@+id/tv_confirm_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginBottom="30dp"
+                                android:background="@drawable/btn_img1"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:text="@string/app_confirm"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="-15dp"
-                            android:layout_marginRight="10dp"
-                            app:shadowColor="#21555555"
-                            app:shadowDx="0dp"
-                            app:shadowDy="5dp"
-                            app:shadowRadius="5dp"
-                            app:shadowShape="rectangle"
-                            app:shadowSide="all">
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
-                            <LinearLayout
+                            <com.lijiankun24.shadowlayout.ShadowLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_10_baise"
-                                android:orientation="vertical">
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
-
-                                    <View
-                                        android:layout_width="2.5dp"
-                                        android:layout_height="16dp"
-                                        android:background="@color/green" />
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:paddingTop="20dp"
-                                        android:paddingBottom="20dp"
-                                        android:text="@string/contract_h24"
-                                        android:textColor="@color/black1"
-                                        android:textSize="15sp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:drawableTop="@mipmap/ic_contract2"
+                                        android:drawablePadding="25dp"
+                                        android:gravity="center"
+                                        android:paddingTop="50dp"
+                                        android:paddingBottom="15dp"
+                                        android:text="@string/contract_h22"
+                                        android:textColor="@color/green"
+                                        android:textSize="18sp"
                                         android:textStyle="bold" />
 
+                                    <TextView
+                                        android:id="@+id/tv_dianzi"
+                                        android:layout_width="120dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/yuanjiaobiankuang_10_huise"
+                                        android:gravity="center"
+                                        android:onClick="onClick"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="@string/contract_h23"
+                                        android:textColor="@color/black3"
+                                        android:textSize="13sp" />
+
                                 </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="@color/xian" />
+                            <com.lijiankun24.shadowlayout.ShadowLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="-15dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
 
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h10"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText5_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h11"
-                                        android:inputType="none"
-                                        android:focusable="false"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
-
-                                <RelativeLayout
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp">
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
+
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h24"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h10"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText1_2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h11"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h20"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText2_2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h21"
+                                            android:inputType="phone"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h18"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText3_2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h17"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+
+                                    </RelativeLayout>
 
                                     <TextView
-                                        android:layout_width="wrap_content"
+                                        android:id="@+id/tv_zhizhi"
+                                        android:layout_width="120dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h20"
-                                        android:textColor="@color/black1"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_marginBottom="25dp"
+                                        android:background="@drawable/yuanjiaobiankuang_10_huise"
+                                        android:gravity="center"
+                                        android:onClick="onClick"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="@string/contract_h25"
+                                        android:textColor="@color/black3"
                                         android:textSize="13sp" />
+                                </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
+                        </LinearLayout>
 
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText6_3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h21"
-                                        android:inputType="phone"
-                                        android:focusable="false"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
-                                </RelativeLayout>
+                        <LinearLayout
+                            android:id="@+id/linearLayout_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
-                                <RelativeLayout
+                            <com.lijiankun24.shadowlayout.ShadowLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
+
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:paddingLeft="22dp"
-                                    android:paddingRight="22dp"
-                                    android:layout_marginBottom="20dp">
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginLeft="5dp"
-                                        android:text="@string/contract_h18"
-                                        android:textColor="@color/black1"
-                                        android:textSize="13sp" />
-
-                                    <androidx.appcompat.widget.AppCompatEditText
-                                        android:id="@+id/editText7_3"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:focusable="false"
-                                        android:gravity="center_vertical|right"
-                                        android:hint="@string/contract_h17"
-                                        android:inputType="none"
-                                        android:paddingLeft="100dp"
-                                        android:paddingRight="10dp"
-                                        android:textColor="@color/black1"
-                                        android:textColorHint="@color/black3"
-                                        android:textSize="13sp"
-                                        android:theme="@style/MyEditText" />
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
 
-                                </RelativeLayout>
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
 
-                            </LinearLayout>
-                        </com.lijiankun24.shadowlayout.ShadowLayout>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h26"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tv_confirm_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginBottom="30dp"
-                            android:background="@drawable/btn_img1"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:text="@string/app_confirm"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:id="@+id/tv_title_3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h27"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText1_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h36"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:id="@+id/tv_num_3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h28"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText2_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h37"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                            <com.lijiankun24.shadowlayout.ShadowLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="-15dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
+
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h29"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h30"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText3_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h31"
+                                            android:inputType="numberDecimal"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h32"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText4_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h38"
+                                            android:inputType="phone"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:text="¥ 0"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingTop="10dp"
+                                        android:paddingRight="24dp"
+                                        android:paddingBottom="14dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:layout_weight="1"
+                                            android:text="@string/contract_h33"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_dianzi"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="30dp"
+                                            android:onClick="onClick">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="27dp"
+                                                android:layout_marginTop="8dp"
+                                                android:layout_marginRight="5dp"
+                                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                                android:gravity="center"
+                                                android:text="@string/contract_h34"
+                                                android:textColor="@color/green"
+                                                android:textSize="12sp" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_dianzi"
+                                                android:layout_width="18dp"
+                                                android:layout_height="18dp"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@mipmap/ic_xuanzhong" />
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/rl_zhizhi"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:onClick="onClick">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="27dp"
+                                                android:layout_marginTop="8dp"
+                                                android:layout_marginRight="5dp"
+                                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                                android:gravity="center"
+                                                android:text="@string/contract_h35"
+                                                android:textColor="@color/green"
+                                                android:textSize="12sp" />
+
+                                            <ImageView
+                                                android:id="@+id/iv_zhizhi"
+                                                android:layout_width="18dp"
+                                                android:layout_height="18dp"
+                                                android:layout_alignParentRight="true"
+                                                android:src="@mipmap/ic_xuanzhong"
+                                                android:visibility="invisible" />
+
+                                        </RelativeLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                            <com.lijiankun24.shadowlayout.ShadowLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="-15dp"
+                                android:layout_marginRight="10dp"
+                                app:shadowColor="#21555555"
+                                app:shadowDx="0dp"
+                                app:shadowDy="5dp"
+                                app:shadowRadius="5dp"
+                                app:shadowShape="rectangle"
+                                app:shadowSide="all">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/yuanjiao_10_baise"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="24dp"
+                                        android:paddingRight="24dp">
+
+                                        <View
+                                            android:layout_width="2.5dp"
+                                            android:layout_height="16dp"
+                                            android:background="@color/green" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="20dp"
+                                            android:paddingBottom="20dp"
+                                            android:text="@string/contract_h24"
+                                            android:textColor="@color/black1"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/xian" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h10"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText5_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h11"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h20"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText6_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h21"
+                                            android:inputType="phone"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:orientation="horizontal"
+                                        android:paddingLeft="22dp"
+                                        android:paddingRight="22dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="@string/contract_h18"
+                                            android:textColor="@color/black1"
+                                            android:textSize="13sp" />
+
+                                        <androidx.appcompat.widget.AppCompatEditText
+                                            android:id="@+id/editText7_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="60dp"
+                                            android:focusable="false"
+                                            android:gravity="center_vertical|right"
+                                            android:hint="@string/contract_h17"
+                                            android:inputType="none"
+                                            android:paddingLeft="100dp"
+                                            android:paddingRight="10dp"
+                                            android:textColor="@color/black1"
+                                            android:textColorHint="@color/black3"
+                                            android:textSize="13sp"
+                                            android:theme="@style/MyEditText" />
+
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+                            </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                            <TextView
+                                android:id="@+id/tv_confirm_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginBottom="30dp"
+                                android:background="@drawable/btn_img1"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:text="@string/app_confirm"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
-                </LinearLayout>
-
-            </androidx.core.widget.NestedScrollView>
+                </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
         </com.liaoinstan.springview.widget.SpringView>
+
+
     </LinearLayout>
 
 </RelativeLayout>
