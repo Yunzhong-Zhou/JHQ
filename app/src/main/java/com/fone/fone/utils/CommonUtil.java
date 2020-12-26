@@ -501,7 +501,7 @@ public class CommonUtil {
     /**
      * 判断是否存在光传感器来判断是否为模拟器 部分真机也不存在温度和压力传感器。其余传感器模拟器也存在。
      *
-     * @return  false 为模拟器
+     * @return false 为模拟器
      */
     public static boolean notHasLightSensorManager(Context context) {
         SensorManager sensorManager = (SensorManager) context
@@ -588,6 +588,7 @@ public class CommonUtil {
         return times;
 
     }
+
     /**
      * 调用此方法输入所要转换的时间戳输入例如（1402733340）输出（"2014-06-14 16:09:00"）
      *
@@ -746,6 +747,8 @@ public class CommonUtil {
             }
             if (minute > 0) {
                 sb.append(String.format("%02d", minute) + ":");//分
+            } else {
+                sb.append("00:");//分
             }
 //            if (second > 0) {
             sb.append(String.format("%02d", second) + "s");//秒
