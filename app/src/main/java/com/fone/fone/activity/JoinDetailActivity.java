@@ -24,6 +24,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,8 +42,6 @@ public class JoinDetailActivity extends BaseActivity {
     private RecyclerView recyclerView;
     List<JoinDetailModel.ChangeGameBean.ChangeGameParticipationListBean> list = new ArrayList<>();
     CommonAdapter<JoinDetailModel.ChangeGameBean.ChangeGameParticipationListBean> mAdapter;
-
-    TimeCount time1 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +142,13 @@ public class JoinDetailActivity extends BaseActivity {
 //                    textView6.setText(response.getChange_game().getMill().getHashrate() + "TB");//算团大小
                     textView7.setText(response.getChange_game().getMill().getMining_cycle() + getString(R.string.app_tian));//挖矿周期
                 }
-                textView1.setText(response.getChange_game().getWin_num());//fil价格
+
+                if (!response.getChange_game().getWin_num().equals("")){
+                    textView1.setText(response.getChange_game().getWin_num());//fil价格
+                }else {
+                    textView1.setText("???");//fil价格
+                }
+
                 textView3.setText(response.getChange_game().getStatus_title());//拼团状态
                 textView4.setText(response.getChange_game().getWin_at());//结束时间
                 textView5.setText(response.getChange_game().getPeriod());//拼团单号
@@ -177,7 +182,7 @@ public class JoinDetailActivity extends BaseActivity {
 
 
                 list = response.getChange_game().getChange_game_participation_list();
-//                Collections.reverse(list);//倒序
+                Collections.reverse(list);//倒序
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
@@ -216,6 +221,7 @@ public class JoinDetailActivity extends BaseActivity {
 
     }
 
+    TimeCount time1 = null;
     private void showTime() {
         MyLogger.i(">>>>>>" + (model.getCount_down() * 1000));
         if (time1 != null) {

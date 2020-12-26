@@ -258,14 +258,17 @@ public class Fragment3Model implements Serializable {
     public static class ChangeGameListBean {
 
         /**
-         * id : c6765f9c57d39780a62cd8e556d7e5a2
+         * id : d4929ae2d24ea744750649b3ea8014df
          * mill_id : 3505db76debb8ef52d5267b8ae87acef
-         * period : 202012252123
-         * win_member_id : ef5849eae33c2d8e0d18bbfd02f5f7a1
+         * period : 202012261129
+         * win_member_id : bb4e48d2c569beae0f9068f77b0a261d
+         * win_num : 24.06670000
+         * win_at : 2020-12-26 11:29:00
          * status : 3
-         * created_at : 2020-12-25 15:36:44
-         * status_title : 已结束
-         * win_member : {"id":"ef5849eae33c2d8e0d18bbfd02f5f7a1","head":"/head/400.png","nickname":"FIL_tbjr"}
+         * created_at : 2020-12-25 21:21:31
+         * count_down : 0
+         * status_title : 已处理
+         * win_member : {"id":"bb4e48d2c569beae0f9068f77b0a261d","head":"/head/233.png","nickname":"FIL_mnbj"}
          * mill : {"id":"3505db76debb8ef52d5267b8ae87acef","hashrate":192,"computer_position":"福州 - 中国移动","production_value_fil_money":"100.0000","mining_cycle":540}
          */
 
@@ -273,8 +276,11 @@ public class Fragment3Model implements Serializable {
         private String mill_id;
         private String period;
         private String win_member_id;
+        private String win_num;
+        private String win_at;
         private int status;
         private String created_at;
+        private int count_down;
         private String status_title;
         private WinMemberBean win_member;
         private MillBean mill;
@@ -311,6 +317,22 @@ public class Fragment3Model implements Serializable {
             this.win_member_id = win_member_id;
         }
 
+        public String getWin_num() {
+            return win_num;
+        }
+
+        public void setWin_num(String win_num) {
+            this.win_num = win_num;
+        }
+
+        public String getWin_at() {
+            return win_at;
+        }
+
+        public void setWin_at(String win_at) {
+            this.win_at = win_at;
+        }
+
         public int getStatus() {
             return status;
         }
@@ -325,6 +347,14 @@ public class Fragment3Model implements Serializable {
 
         public void setCreated_at(String created_at) {
             this.created_at = created_at;
+        }
+
+        public int getCount_down() {
+            return count_down;
+        }
+
+        public void setCount_down(int count_down) {
+            this.count_down = count_down;
         }
 
         public String getStatus_title() {
@@ -353,9 +383,9 @@ public class Fragment3Model implements Serializable {
 
         public static class WinMemberBean {
             /**
-             * id : ef5849eae33c2d8e0d18bbfd02f5f7a1
-             * head : /head/400.png
-             * nickname : FIL_tbjr
+             * id : bb4e48d2c569beae0f9068f77b0a261d
+             * head : /head/233.png
+             * nickname : FIL_mnbj
              */
 
             private String id;
@@ -397,10 +427,10 @@ public class Fragment3Model implements Serializable {
              */
 
             private String id;
-            private int hashrate;
+            private String hashrate;
             private String computer_position;
             private String production_value_fil_money;
-            private int mining_cycle;
+            private String mining_cycle;
 
             public String getId() {
                 return id;
@@ -410,11 +440,11 @@ public class Fragment3Model implements Serializable {
                 this.id = id;
             }
 
-            public int getHashrate() {
+            public String getHashrate() {
                 return hashrate;
             }
 
-            public void setHashrate(int hashrate) {
+            public void setHashrate(String hashrate) {
                 this.hashrate = hashrate;
             }
 
@@ -434,11 +464,11 @@ public class Fragment3Model implements Serializable {
                 this.production_value_fil_money = production_value_fil_money;
             }
 
-            public int getMining_cycle() {
+            public String getMining_cycle() {
                 return mining_cycle;
             }
 
-            public void setMining_cycle(int mining_cycle) {
+            public void setMining_cycle(String mining_cycle) {
                 this.mining_cycle = mining_cycle;
             }
         }

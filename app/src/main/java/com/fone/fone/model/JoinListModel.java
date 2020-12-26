@@ -18,24 +18,31 @@ public class JoinListModel implements Serializable {
     }
 
     public static class ChangeGameListBean {
+
         /**
-         * id : ef347f2c756ea6bd86d697106fa93f3a
-         * period : 202011010130
-         * win_member_id :
-         * last_participation_at : null
-         * status : 2
-         * created_at : 2020-11-01 01:30:15
-         * status_title : 待开奖
-         * win_member : {"head":"/head/606.png","nickname":"FIL_pour广告费"}
-         * mill : {"id":"b6a39b54e0bc799b0617b1f3d258e8c2","hashrate":10,"mining_cycle":360,"production_value_fil_money":"10.0000","computer_position":"中国福州"}
+         * id : d4929ae2d24ea744750649b3ea8014df
+         * mill_id : 3505db76debb8ef52d5267b8ae87acef
+         * period : 202012261129
+         * win_member_id : bb4e48d2c569beae0f9068f77b0a261d
+         * win_num : 24.06670000
+         * win_at : 2020-12-26 11:29:00
+         * status : 3
+         * created_at : 2020-12-25 21:21:31
+         * count_down : 0
+         * status_title : 已处理
+         * win_member : {"id":"bb4e48d2c569beae0f9068f77b0a261d","head":"/head/233.png","nickname":"FIL_mnbj"}
+         * mill : {"id":"3505db76debb8ef52d5267b8ae87acef","hashrate":192,"computer_position":"福州 - 中国移动","production_value_fil_money":"100.0000","mining_cycle":540}
          */
 
         private String id;
+        private String mill_id;
         private String period;
         private String win_member_id;
-        private String last_participation_at;
+        private String win_num;
+        private String win_at;
         private int status;
         private String created_at;
+        private int count_down;
         private String status_title;
         private WinMemberBean win_member;
         private MillBean mill;
@@ -46,6 +53,14 @@ public class JoinListModel implements Serializable {
 
         public void setId(String id) {
             this.id = id;
+        }
+
+        public String getMill_id() {
+            return mill_id;
+        }
+
+        public void setMill_id(String mill_id) {
+            this.mill_id = mill_id;
         }
 
         public String getPeriod() {
@@ -64,12 +79,20 @@ public class JoinListModel implements Serializable {
             this.win_member_id = win_member_id;
         }
 
-        public String getLast_participation_at() {
-            return last_participation_at;
+        public String getWin_num() {
+            return win_num;
         }
 
-        public void setLast_participation_at(String last_participation_at) {
-            this.last_participation_at = last_participation_at;
+        public void setWin_num(String win_num) {
+            this.win_num = win_num;
+        }
+
+        public String getWin_at() {
+            return win_at;
+        }
+
+        public void setWin_at(String win_at) {
+            this.win_at = win_at;
         }
 
         public int getStatus() {
@@ -86,6 +109,14 @@ public class JoinListModel implements Serializable {
 
         public void setCreated_at(String created_at) {
             this.created_at = created_at;
+        }
+
+        public int getCount_down() {
+            return count_down;
+        }
+
+        public void setCount_down(int count_down) {
+            this.count_down = count_down;
         }
 
         public String getStatus_title() {
@@ -114,12 +145,22 @@ public class JoinListModel implements Serializable {
 
         public static class WinMemberBean {
             /**
-             * head : /head/606.png
-             * nickname : FIL_pour广告费
+             * id : bb4e48d2c569beae0f9068f77b0a261d
+             * head : /head/233.png
+             * nickname : FIL_mnbj
              */
 
+            private String id;
             private String head;
             private String nickname;
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
 
             public String getHead() {
                 return head;
@@ -140,18 +181,18 @@ public class JoinListModel implements Serializable {
 
         public static class MillBean {
             /**
-             * id : b6a39b54e0bc799b0617b1f3d258e8c2
-             * hashrate : 10
-             * mining_cycle : 360
-             * production_value_fil_money : 10.0000
-             * computer_position : 中国福州
+             * id : 3505db76debb8ef52d5267b8ae87acef
+             * hashrate : 192
+             * computer_position : 福州 - 中国移动
+             * production_value_fil_money : 100.0000
+             * mining_cycle : 540
              */
 
             private String id;
             private String hashrate;
-            private String mining_cycle;
-            private String production_value_fil_money;
             private String computer_position;
+            private String production_value_fil_money;
+            private String mining_cycle;
 
             public String getId() {
                 return id;
@@ -169,12 +210,12 @@ public class JoinListModel implements Serializable {
                 this.hashrate = hashrate;
             }
 
-            public String getMining_cycle() {
-                return mining_cycle;
+            public String getComputer_position() {
+                return computer_position;
             }
 
-            public void setMining_cycle(String mining_cycle) {
-                this.mining_cycle = mining_cycle;
+            public void setComputer_position(String computer_position) {
+                this.computer_position = computer_position;
             }
 
             public String getProduction_value_fil_money() {
@@ -185,12 +226,12 @@ public class JoinListModel implements Serializable {
                 this.production_value_fil_money = production_value_fil_money;
             }
 
-            public String getComputer_position() {
-                return computer_position;
+            public String getMining_cycle() {
+                return mining_cycle;
             }
 
-            public void setComputer_position(String computer_position) {
-                this.computer_position = computer_position;
+            public void setMining_cycle(String mining_cycle) {
+                this.mining_cycle = mining_cycle;
             }
         }
     }

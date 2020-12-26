@@ -2,6 +2,7 @@ package com.fone.fone.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -311,32 +312,40 @@ public class Fragment3 extends BaseFragment {
 
                             TextView tv_money = holder.getView(R.id.tv_money);
                             TextView tv_name = holder.getView(R.id.tv_name);
+                            TextView tv_type = holder.getView(R.id.tv_type);
                             ImageView iv_head = holder.getView(R.id.iv_head);
                             ImageView ic_fil = holder.getView(R.id.ic_fil);
-                            if (model.getWin_member() != null) {
-                                tv_name.setText(model.getWin_member().getNickname());
-                                Glide.with(getActivity())
-                                        .load(OkHttpClientManager.IMGHOST + model.getWin_member().getHead())
-                                        .centerCrop()
-                                        .placeholder(R.mipmap.loading)//加载站位图
-                                        .error(R.mipmap.headimg)//加载失败
-                                        .into(iv_head);//加载图片
-                                holder.setText(R.id.tv_type, getString(R.string.fragment3_h20));
-                            } else {
-                                tv_name.setText(model.getStatus_title());
-                                iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
-                                holder.setText(R.id.tv_type, model.getStatus_title());
-                            }
-                            if (model.getMill() != null) {
-                                tv_money.setText(model.getMill().getProduction_value_fil_money());//金额
-                                ic_fil.setImageResource(R.mipmap.ic_fragment3_fil_1);
-                                tv_money.setTextColor(getResources().getColor(R.color.green_1));
-                            } else {
-                                tv_money.setText("???");//金额
-                                ic_fil.setImageResource(R.mipmap.ic_fil_gray);
-                                tv_money.setTextColor(getResources().getColor(R.color.black3));
-                            }
+                            switch (model.getStatus()) {//状态（1.进行中 2.待开奖 3.已结束）
+                                case 3:
+                                    if (model.getWin_member() != null) {
+                                        tv_name.setText(model.getWin_member().getNickname());
+                                        Glide.with(getActivity())
+                                                .load(OkHttpClientManager.IMGHOST + model.getWin_member().getHead())
+                                                .centerCrop()
+                                                .placeholder(R.mipmap.loading)//加载站位图
+                                                .error(R.mipmap.headimg)//加载失败
+                                                .into(iv_head);//加载图片
+                                        tv_type.setText(getString(R.string.fragment3_h20));
+                                    }
 
+                                    tv_money.setText(model.getWin_num());//金额
+                                    ic_fil.setImageResource(R.mipmap.ic_fragment3_fil_1);
+                                    tv_money.setTextColor(getResources().getColor(R.color.green_1));
+                                    break;
+                                default:
+                                    tv_name.setText(model.getStatus_title());
+                                    iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
+//                                    holder.setText(R.id.tv_type, model.getStatus_title());
+                                    if (model.getCount_down() > 0) {
+                                        showTime(model.getCount_down(),tv_type);
+                                    } else {
+                                        tv_type.setText("00:00");
+                                    }
+                                    tv_money.setText("???");//金额
+                                    ic_fil.setImageResource(R.mipmap.ic_fil_gray);
+                                    tv_money.setTextColor(getResources().getColor(R.color.black3));
+                                    break;
+                            }
 
                         }
                     };
@@ -547,6 +556,49 @@ public class Fragment3 extends BaseFragment {
             }
         });
 
+    }
+
+    TimeCount time1 = null;
+    private void showTime(int count_down,TextView tv) {
+        MyLogger.i(">>>>>>" + (count_down * 1000));
+        if (time1 != null) {
+            time1.cancel();
+        }
+        time1 = new TimeCount(count_down * 1000, 1000, tv);//构造CountDownTimer对象
+        time1.start();//开始计时
+    }
+
+    class TimeCount extends CountDownTimer {
+        TextView textView;
+
+        public TimeCount(long millisInFuture, long countDownInterval, TextView textView) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+            this.textView = textView;
+
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+//            textView.setText(getString(R.string.fragment3_h54));
+            textView.setText("00:00");
+            requestServer();
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+//            textView.setText(CommonUtil.timedate3(millisUntilFinished) + "s");//秒计时
+            textView.setText(CommonUtil.timedate4(millisUntilFinished, getActivity()));//时分秒倒计时
+
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (time1 != null) {
+            time1.cancel();
+        }
     }
 
     @Override
