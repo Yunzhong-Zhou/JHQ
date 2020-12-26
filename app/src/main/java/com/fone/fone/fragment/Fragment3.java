@@ -545,7 +545,7 @@ public class Fragment3 extends BaseFragment {
             public void onClick(View v) {
                 dialog.dismiss();
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("id", model.getChange_game().getId());
+                bundle1.putString("id", bean.getId());
                 CommonUtil.gotoActivityWithData(getActivity(), JoinDetailActivity.class, bundle1, false);
             }
         });
