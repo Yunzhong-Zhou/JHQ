@@ -58,7 +58,7 @@ public class HelpAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.textView1.setText((position+1)+"、"+list.get(position).getTitle());
+//        holder.textView1.setText((position+1)+"、"+list.get(position).getTitle());
         /*if (selectIndex == position) {
             holder.textView1.setSelected(true);
             holder.textView1.setPressed(true);

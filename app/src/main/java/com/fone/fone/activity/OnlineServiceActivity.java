@@ -10,21 +10,16 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.fone.fone.R;
-import com.fone.fone.adapter.HelpAdapter;
 import com.fone.fone.adapter.OnlineServiceAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.HelpModel;
 import com.fone.fone.model.OnlineServiceModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -32,12 +27,9 @@ import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.FileUtil;
 import com.fone.fone.utils.MyChooseImages;
 import com.fone.fone.utils.MyLogger;
-import com.cy.dialog.BaseDialog;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -173,7 +165,7 @@ public class OnlineServiceActivity extends BaseActivity {
 //        RequestHelpList("?token=" + localUserInfo.getToken());
     }
 
-    private void RequestHelpList(String string) {
+    /*private void RequestHelpList(String string) {
         OkHttpClientManager.getAsyn(OnlineServiceActivity.this, URLs.Help + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -238,7 +230,7 @@ public class OnlineServiceActivity extends BaseActivity {
 
             }
         });
-    }
+    }*/
 
 
     //对话列表

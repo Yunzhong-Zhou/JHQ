@@ -123,12 +123,6 @@ public class JoinDetailActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 model = response;
-                //倒计时
-                //                textView2.setText(response.getChange_game().get);//加入时间
-                if (response.getCount_down() > 0) {
-                    showTime();
-                }
-
                 //是我中奖
                 if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
                     //显示中奖
@@ -138,20 +132,29 @@ public class JoinDetailActivity extends BaseActivity {
 //                 showLose(response.getWin_prompt());
                 }
 
+                //fil价格
+                if (response.getChange_game().getStatus() == 3) {//已结束
+                    textView1.setText(response.getChange_game().getWin_num());//fil价格
+                } else {
+                    textView1.setText("???");//fil价格
+                }
+                textView2.setText(response.getChange_game().getWin_at());//FIL价格时间
+
+                if (response.getChange_game().getStatus() == 2){//处理中
+                    //显示倒计时
+                    if (response.getCount_down() > 0) {
+                        showTime();
+                    }
+                }else {
+                    textView3.setText(response.getChange_game().getStatus_title());//拼团状态
+                }
+
+                textView4.setText(response.getChange_game().getLast_participation_at());//结束时间
+                textView5.setText(response.getChange_game().getPeriod());//拼团单号
                 if (response.getChange_game().getMill() != null) {
 //                    textView6.setText(response.getChange_game().getMill().getHashrate() + "TB");//算团大小
                     textView7.setText(response.getChange_game().getMill().getMining_cycle() + getString(R.string.app_tian));//挖矿周期
                 }
-
-                if (!response.getChange_game().getWin_num().equals("")){
-                    textView1.setText(response.getChange_game().getWin_num());//fil价格
-                }else {
-                    textView1.setText("???");//fil价格
-                }
-
-                textView3.setText(response.getChange_game().getStatus_title());//拼团状态
-                textView4.setText(response.getChange_game().getWin_at());//结束时间
-                textView5.setText(response.getChange_game().getPeriod());//拼团单号
 
                 if (response.getChange_game().getWin_member() != null) {
                     textView8.setVisibility(View.VISIBLE);
@@ -222,12 +225,13 @@ public class JoinDetailActivity extends BaseActivity {
     }
 
     TimeCount time1 = null;
+
     private void showTime() {
         MyLogger.i(">>>>>>" + (model.getCount_down() * 1000));
         if (time1 != null) {
             time1.cancel();
         }
-        time1 = new TimeCount(model.getCount_down() * 1000, 1000, textView2);//构造CountDownTimer对象
+        time1 = new TimeCount(model.getCount_down() * 1000, 1000, textView3);//构造CountDownTimer对象
         time1.start();//开始计时
     }
 
