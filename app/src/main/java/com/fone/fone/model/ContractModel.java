@@ -17,6 +17,7 @@ public class ContractModel implements Serializable {
      * residue_invoice_cny_money : 120600.00
      */
 
+    private String id;
     private String type;
     private String type_title;
     private String title;
@@ -26,6 +27,14 @@ public class ContractModel implements Serializable {
     private String addr;
     private String url;
     private String residue_invoice_cny_money;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUrl() {
         return url;

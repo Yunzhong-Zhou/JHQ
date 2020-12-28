@@ -472,7 +472,6 @@
                             android:layout_marginLeft="35dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginRight="35dp"
-                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <TextView
@@ -522,7 +521,6 @@
                             android:layout_marginLeft="35dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="35dp"
-                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <TextView

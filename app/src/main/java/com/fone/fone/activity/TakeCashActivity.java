@@ -32,8 +32,8 @@ import java.util.Map;
 
 public class TakeCashActivity extends BaseActivity {
     int money_type = 1;
-    ImageView imageView1,imageView2;
-    TextView tv_title,textView1, textView2, textView3, textView4, textView5, textView6,tv_confirm;
+    ImageView imageView1, imageView2;
+    TextView tv_title, textView1, textView2, textView3, textView4, textView5, textView6, tv_confirm;
     EditText editText1, editText2, editText3;
 
     String input_money = "", password = "", code = "";
@@ -149,15 +149,15 @@ public class TakeCashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        money_type = getIntent().getIntExtra("money_type",1);
-        if (money_type ==1){
+        money_type = getIntent().getIntExtra("money_type", 1);
+        if (money_type == 1) {
             //usdt
             tv_title.setText(getString(R.string.takecash_h15));
             textView1.setText(getString(R.string.takecash_h3));
             imageView1.setImageResource(R.mipmap.ic_usdt_white1);
             imageView2.setImageResource(R.mipmap.ic_usdt_black1);
 //            textView4.setText("3"+getString(R.string.app_type_usdt));
-        }else {
+        } else {
             tv_title.setText(getString(R.string.takecash_h1));
             textView1.setText(getString(R.string.takecash_h37));
             imageView1.setImageResource(R.mipmap.ic_fil_white);
@@ -178,18 +178,18 @@ public class TakeCashActivity extends BaseActivity {
                     params.put("code", code);
                     params.put("trade_password", password);//交易密码（不能小于6位数）
                     params.put("input_money", input_money);//提现金额
-                    params.put("money_type", money_type+"");
+                    params.put("money_type", money_type + "");
                     params.put("token", localUserInfo.getToken());
                     params.put("hk", model.getHk());
                     RequestTakeCash(params);//提现
                 }
                 break;
             case R.id.textView3:
-                Bundle bundle= new Bundle();
-                if (money_type ==1){
+                Bundle bundle = new Bundle();
+                if (money_type == 1) {
                     bundle.putInt("type", 1);
                     CommonUtil.gotoActivityWithData(this, SetAddressActivity.class, bundle, false);
-                }else {
+                } else {
                     bundle.putInt("type", 2);
                     CommonUtil.gotoActivityWithData(this, SetAddressActivity.class, bundle, false);
                 }
@@ -231,14 +231,14 @@ public class TakeCashActivity extends BaseActivity {
                     showToast(getString(R.string.address_h26),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                            Bundle bundle = new Bundle();
-                            bundle.putInt("type", money_type);
-                            CommonUtil.gotoActivityWithData(TakeCashActivity.this, SetAddressActivity.class, bundle, false);
-                        }
-                    }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    Bundle bundle = new Bundle();
+                                    bundle.putInt("type", money_type);
+                                    CommonUtil.gotoActivityWithData(TakeCashActivity.this, SetAddressActivity.class, bundle, false);
+                                }
+                            }, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     dialog.dismiss();
@@ -249,9 +249,9 @@ public class TakeCashActivity extends BaseActivity {
 
                 textView2.setText(response.getUsable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8));//请输入提币个数
-                if (money_type ==1){
+                if (money_type == 1) {
                     textView4.setText(response.getWithdrawal_service_charge() + getString(R.string.app_type_usdt));//手续费
-                }else {
+                } else {
                     textView4.setText(response.getWithdrawal_service_charge() + getString(R.string.app_type_fil));//手续费
                 }
 
@@ -409,6 +409,10 @@ public class TakeCashActivity extends BaseActivity {
         code = editText3.getText().toString().trim();
         if (TextUtils.isEmpty(code)) {
             myToast(getString(R.string.login_h12));
+            return false;
+        }
+        if (Double.valueOf(input_money) < Double.valueOf(model.getMin_withdrawal_money())) {
+            myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money());
             return false;
         }
         return true;

@@ -272,7 +272,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         protected void convert(ViewHolder holder, JoinModel model, int position) {
 //                            holder.setText(R.id.textView1, model.getIndex());
-                            holder.setText(R.id.textView1, position + 1 + "");
+                            holder.setText(R.id.textView1, position + "");
                             TextView tv2 = holder.getView(R.id.textView2);
                             if (!model.getMember_nickname().equals("")) {
                                 tv2.setTextColor(getResources().getColor(R.color.black2));
@@ -522,6 +522,7 @@ public class Fragment3 extends BaseFragment {
             public void onResponse(String response) {
                 hideProgress();
                 myToast(getString(R.string.fragment3_h25));
+
                 requestServer();
             }
         }, true);

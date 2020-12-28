@@ -166,7 +166,7 @@
     <!--底部栏-->
     <string name="fragment1">矿机</string>
     <string name="fragment2">算力</string>
-    <string name="fragment3">拼团</string>
+    <string name="fragment3">拼购</string>
     <string name="fragment4">钱包</string>
     <string name="fragment5">我的</string>
 
@@ -404,36 +404,36 @@
     <string name="fragment3_h2">挖矿周期</string>
     <string name="fragment3_h3">预计产值(FIL)</string>
     <string name="fragment3_h4">矿机机房</string>
-    <string name="fragment3_h5">加入拼团</string>
-    <string name="fragment3_h6">完成拼团</string>
+    <string name="fragment3_h5">加入拼购</string>
+    <string name="fragment3_h6">完成拼购</string>
     <string name="fragment3_h7">算力排行</string>
     <string name="fragment3_h8">拼中用户</string>
-    <string name="fragment3_h9">拼团成功</string>
+    <string name="fragment3_h9">拼购成功</string>
     <string name="fragment3_h10">已获得</string>
     <string name="fragment3_h11">算力</string>
     <string name="fragment3_h12">立即查看</string>
     <string name="fragment3_h13">FIL价格</string>
     <string name="fragment3_h14">FIL价格时间</string>
-    <string name="fragment3_h15">拼团状态</string>
+    <string name="fragment3_h15">拼购状态</string>
     <string name="fragment3_h16">结束时间</string>
-    <string name="fragment3_h17">拼团单号</string>
+    <string name="fragment3_h17">拼购单号</string>
     <string name="fragment3_h18">算团大小</string>
     <string name="fragment3_h19">挖矿周期</string>
     <string name="fragment3_h20">拼中用户</string>
-    <string name="fragment3_h21">拼团详情</string>
+    <string name="fragment3_h21">拼购详情</string>
     <string name="fragment3_h22">算力排行榜</string>
     <string name="fragment3_h23">我的排名</string>
-    <string name="fragment3_h24">确认加入拼团吗？</string>
-    <string name="fragment3_h25">加入拼团成功</string>
+    <string name="fragment3_h24">确认加入拼购吗？</string>
+    <string name="fragment3_h25">加入拼购成功</string>
     <string name="fragment3_h26">查看更多</string>
-    <string name="fragment3_h27">拼团列表</string>
+    <string name="fragment3_h27">拼购列表</string>
     <string name="fragment3_h28">拼中</string>
     <string name="fragment3_h29">矿机</string>
     <string name="fragment3_h30">待加入</string>
     <string name="fragment3_h31">FileCoin主网矿机云计算力</string>
     <string name="fragment3_h32">处理中</string>
     <string name="fragment3_h33">FileCoin主网矿机算力1TB</string>
-    <string name="fragment3_h34">已加入拼团</string>
+    <string name="fragment3_h34">已加入拼购</string>
     <string name="fragment3_h35"></string>
     <string name="fragment3_h36"></string>
     <string name="fragment3_h37"></string>
@@ -450,7 +450,7 @@
 
     <!--fragment4-->
     <string name="fragment4_h1">可用USDT</string>
-    <string name="fragment4_h2">拼团收益</string>
+    <string name="fragment4_h2">拼购收益</string>
     <string name="fragment4_h3">累计佣金</string>
     <string name="fragment4_h4">充值</string>
     <string name="fragment4_h5">提币</string>
@@ -465,7 +465,7 @@
     <string name="fragment4_h14">下一步</string>
     <string name="fragment4_h15">USDT钱包</string>
     <string name="fragment4_h16">收入明细</string>
-    <string name="fragment4_h17">充币、佣金、拼团收益等</string>
+    <string name="fragment4_h17">充币、佣金、拼购收益等</string>
     <string name="fragment4_h18">已产FIL</string>
     <string name="fragment4_h19">预估产值</string>
     <string name="fragment4_h20">支出明细</string>
@@ -505,7 +505,7 @@
     <string name="fragment5_h27">中国移动提供托管机房</string>
     <string name="fragment5_h28">阿里云服务商提供支持</string>
     <string name="fragment5_h29">矿机一机一码真实可查</string>
-    <string name="fragment5_h30">需要参与5次拼团即可达到V1</string>
+    <string name="fragment5_h30">你尚未达到条件</string>
 
 
     <!--个人资料-->
@@ -613,18 +613,18 @@
     <!--推广-->
     <string name="share_h1">团队</string>
     <string name="share_h2">邀请码：</string>
-    <string name="share_h3">拼团分成</string>
+    <string name="share_h3">拼购分成</string>
     <string name="share_h4">累计佣金</string>
     <string name="share_h5">销售分成</string>
     <string name="share_h6">距离下个等级还差</string>
-    <string name="share_h7">拼团业绩</string>
+    <string name="share_h7">拼购业绩</string>
     <string name="share_h8">同级分成</string>
     <string name="share_h9">累计直推有效</string>
     <string name="share_h10"></string>
     <string name="share_h11">等级考核</string>
     <string name="share_h12">考核期：</string>
     <string name="share_h13">新增业绩</string>
-    <string name="share_h14">新增有效</string>
+    <string name="share_h14">新增团队</string>
     <string name="share_h15">目标</string>
     <string name="share_h16">直推有效</string>
     <string name="share_h17">否则被降一级</string>
@@ -632,7 +632,7 @@
     <string name="share_h19">查看直推</string>
     <string name="share_h20">直推人数</string>
     <string name="share_h26">团队人数</string>
-    <string name="share_h30">拼团业绩</string>
+    <string name="share_h30">拼购业绩</string>
     <string name="share_h31">直推业绩</string>
     <string name="share_h32">团队业绩</string>
     <string name="share_h33">算力业绩</string>
@@ -646,7 +646,7 @@
     <string name="share_h57">等级</string>
     <string name="share_h58">用户</string>
     <string name="share_h59">总业绩</string>
-    <string name="share_h60">拼团：</string>
+    <string name="share_h60">拼购：</string>
     <string name="share_h61">算力：</string>
     <string name="share_h62">矿机：</string>
 
@@ -711,6 +711,7 @@
     <string name="takecash_h35"><u>币地址暂未设置，点此跳转设置</u></string>
     <string name="takecash_h36">确认提币</string>
     <string name="takecash_h37">可提FIL</string>
+    <string name="takecash_h38">提币个数不能小于</string>
 
 
     <!--资讯-->
@@ -819,5 +820,6 @@
     <string name="contract_h48">确认开票吗？</string>
     <string name="contract_h49">主体信息更新成功</string>
     <string name="contract_h50">开票申请提交成功</string>
-
+    <string name="contract_h51">确认申请纸质合同吗？</string>
+    <string name="contract_h52">申请纸质合同成功</string>
 </resources>

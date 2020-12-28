@@ -124,13 +124,13 @@ public class JoinDetailActivity extends BaseActivity {
                 hideProgress();
                 model = response;
                 //是我中奖
-                if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
+                /*if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
                     //显示中奖
                     showWin(response.getChange_game());
                 } else {
                     //没有中奖
 //                 showLose(response.getWin_prompt());
-                }
+                }*/
 
                 //fil价格
                 if (response.getChange_game().getStatus() == 3) {//已结束
@@ -195,7 +195,7 @@ public class JoinDetailActivity extends BaseActivity {
                         protected void convert(ViewHolder holder, JoinDetailModel.ChangeGameBean.ChangeGameParticipationListBean model, int position) {
                             holder.setText(R.id.textView1, model.getMember_nickname());
                             holder.setText(R.id.textView2, model.getCreated_at());//时间
-                            holder.setText(R.id.textView3, model.getIndex() + 1 + "");
+                            holder.setText(R.id.textView3, model.getIndex() + "");
                             ImageView imageView = holder.getView(R.id.imageView);
                             Glide.with(JoinDetailActivity.this)
                                     .load(OkHttpClientManager.IMGHOST + model.getMember_head())

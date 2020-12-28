@@ -69,6 +69,13 @@ public class ContractActivity extends BaseActivity {
 
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();//获取数据
+    }
+
     @Override
     protected void initView() {
         setSpringViewMore(false);//需要加载更多
@@ -209,7 +216,7 @@ public class ContractActivity extends BaseActivity {
 //                    double service_money = Double.valueOf(model.getWithdrawal_service_charge());
 //                    MyLogger.i(">>>>>手续费>>>>>" + service_money);
                     //实际到账 =  (输入币数 - 手续费)
-                    double real_money = (Double.valueOf(cny_money) *0.03);
+                    double real_money = (Double.valueOf(cny_money) * 0.03);
                     MyLogger.i(">>>>>实际到账>>>>>" + real_money);
 
                     editText4_3.setText("¥ " + String.format("%.2f", real_money));//实际到账
@@ -224,7 +231,7 @@ public class ContractActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();//获取数据
+
     }
 
     private void Request(String string) {
@@ -447,6 +454,28 @@ public class ContractActivity extends BaseActivity {
             case R.id.tv_zhizhi:
                 //申请纸质合同
                 if (!model.getType().equals("0")) {
+                    showToast(getString(R.string.contract_h51)
+                            , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    String string = "?token=" + localUserInfo.getToken()
+                                            + "&id=" + model.getId();
+                                    RequestUpData2(string);
+                                    /*HashMap<String, String> params = new HashMap<>();
+                                    params.put("id", model.getId());
+                                    params.put("token", localUserInfo.getToken());
+                                    RequestUpData2(params);*/
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+
+                                }
+                            });
 
                 } else {
                     myToast(getString(R.string.contract_h46));
@@ -617,6 +646,27 @@ public class ContractActivity extends BaseActivity {
             }
         }, true);
     }
+
+    private void RequestUpData2(String params) {
+        OkHttpClientManager.getAsyn(ContractActivity.this, URLs.ContractShenQing+params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.contract_h52));
+                requestServer();
+            }
+        });
+    }
+
     private void RequestUpData3(Map<String, String> params) {
         OkHttpClientManager.postAsyn(ContractActivity.this, URLs.InvoiceCreate, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -635,6 +685,8 @@ public class ContractActivity extends BaseActivity {
                 editText3_3.setText("");
                 editText4_3.setText("");
                 showToast(getString(R.string.contract_h50));
+//                requestServer();
+                CommonUtil.gotoActivity(ContractActivity.this, ContractListActivity.class);
             }
         }, true);
     }

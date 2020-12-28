@@ -219,7 +219,7 @@
                                         android:drawablePadding="10dp"
                                         android:paddingLeft="10dp"
                                         android:paddingRight="10dp"
-                                        android:text="@string/fragment4_h6"
+                                        android:text="@string/fragment4_h21"
                                         android:textColor="@color/black2"
                                         android:textSize="17sp" />
                                 </LinearLayout>

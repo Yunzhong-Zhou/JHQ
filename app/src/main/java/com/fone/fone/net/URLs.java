@@ -156,6 +156,8 @@ public class URLs {
     public static final String Contract = "/api/contract/index";
     //合同-创建主体
     public static final String ContractCreate = "/api/contract/create";
+    //合同-申请纸质合同
+    public static final String ContractShenQing = "/api/contract/apply-paper";
     //合同-创建开票
     public static final String InvoiceCreate = "/api/invoice/create";
     //合同列表

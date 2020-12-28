@@ -15,9 +15,18 @@ public class AvailableAmountModel implements Serializable {
      */
 
     private String usable_money;
+    private String min_withdrawal_money;
     private String money_wallet_addr;
     private String withdrawal_service_charge;
     private String hk;
+
+    public String getMin_withdrawal_money() {
+        return min_withdrawal_money;
+    }
+
+    public void setMin_withdrawal_money(String min_withdrawal_money) {
+        this.min_withdrawal_money = min_withdrawal_money;
+    }
 
     public String getUsable_money() {
         return usable_money;

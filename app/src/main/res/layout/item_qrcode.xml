@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/zxing_h33"
-            android:textColor="@color/black3"
+            android:textColor="@color/black1"
             android:textSize="11sp" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/zxing_h34"
-            android:textColor="@color/black3"
+            android:textColor="@color/black1"
             android:textSize="11sp" />
 
         <LinearLayout
@@ -47,7 +47,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="@string/zxing_h35"
-                android:textColor="@color/black3"
+                android:textColor="@color/black1"
                 android:textSize="11sp" />
         </LinearLayout>
 

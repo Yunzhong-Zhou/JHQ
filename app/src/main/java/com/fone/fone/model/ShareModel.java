@@ -79,6 +79,24 @@ public class ShareModel implements Serializable {
     private String direct_performance_all_invest_money;
     private String team_performance_all_invest_money;
     private GradeCountListBean grade_count_list;
+    private String tips_hold;
+    private String tips_upgrade;
+
+    public String getTips_hold() {
+        return tips_hold;
+    }
+
+    public void setTips_hold(String tips_hold) {
+        this.tips_hold = tips_hold;
+    }
+
+    public String getTips_upgrade() {
+        return tips_upgrade;
+    }
+
+    public void setTips_upgrade(String tips_upgrade) {
+        this.tips_upgrade = tips_upgrade;
+    }
 
     public String getHead() {
         return head;

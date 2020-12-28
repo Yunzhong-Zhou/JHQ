@@ -34,12 +34,12 @@ public class ShareActivity extends BaseActivity {
     ImageView imageView1;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
             textView10, textView11, textView12, textView13, textView14, textView15, textView16, textView17,
-            textView18,textView19,textView20,textView21;
+            textView18, textView19, textView20, textView21;
     ProgressBar prograssBar1, prograssBar2;
     TextView tv_haicha, tv_tixing,
-           tv_v1, tv_v2, tv_v3,
+            tv_v1, tv_v2, tv_v3,
             tv_num0, tv_num1, tv_num2, tv_num3;
-    View view_1,view_2;
+    View view_1, view_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,13 +150,13 @@ public class ShareActivity extends BaseActivity {
                 textView2.setText(getString(R.string.share_h2) + response.getInvite_code());//邀请码
                 textView3.setText(response.getCommission_running_proportion() + "%");//拼团分成
                 textView4.setText(response.getCommission_sell_proportion() + "");//累计佣金
-                textView5.setText(response.getCommission_money()+ "%");//销售分成
+                textView5.setText(response.getCommission_money() + "%");//销售分成
                 textView6.setText(response.getCommission_same_level_proportion() + "%");//同级分成
                 textView7.setText(response.getValid_direct_recommend());//累计直推有效人数
                 textView8.setText(getString(R.string.share_h12) + response.getHold_start_at()
                         + "-" + response.getHold_end_at());//考核期：
-                textView9.setText(response.getHold_current_money() + "/");//新增业绩
-                textView10.setText(getString(R.string.share_h15) + response.getHold_target_money()+ "");//目标
+                textView9.setText(response.getHold_current_money() + getString(R.string.app_type_usdt) + "/");//新增业绩
+                textView10.setText(getString(R.string.share_h15) + response.getHold_target_money() + getString(R.string.app_type_usdt) + "");//目标
                 if (response.getHold_current_money() != null && !response.getHold_current_money().equals("")
                         && response.getHold_target_money() != null && !response.getHold_target_money().equals("")) {
                     double max = Double.valueOf(response.getHold_target_money());
@@ -164,8 +164,9 @@ public class ShareActivity extends BaseActivity {
                     double progress = Double.valueOf(response.getHold_current_money());
                     prograssBar1.setProgress((int) progress);
                 }
-                textView11.setText(response.getHold_current_money_count() + getString(R.string.app_ren) + "/");//直推有效
-                textView12.setText(getString(R.string.share_h15) + response.getHold_target_money_count()+ getString(R.string.app_ren) + "");//目标
+
+                textView11.setText(response.getHold_current_money_count() + getString(R.string.app_ge) + "/");//新增团队
+                textView12.setText(getString(R.string.share_h15) + response.getHold_target_money_count() + getString(R.string.app_ge) + "");//目标
                 if (response.getHold_current_money_count() != null && !response.getHold_current_money_count().equals("")
                         && response.getHold_target_money_count() != null && !response.getHold_target_money_count().equals("")) {
                     double max = Double.valueOf(response.getHold_target_money_count());
@@ -181,13 +182,16 @@ public class ShareActivity extends BaseActivity {
                 textView18.setText(response.getDirect_performance_buy_invest_money() + "");//直推算力
                 textView19.setText(response.getTeam_performance_buy_invest_money() + "");//团队算力
                 textView20.setText(response.getDirect_performance_all_invest_money() + "");//直推矿机
-                textView21.setText(response.getTeam_performance_all_invest_money()+ "");// 团队矿机
-                tv_haicha.setText(getString(R.string.share_h6) + response.getTips_upgrade_money()
-                        +getString(R.string.app_type_usdt)
+                textView21.setText(response.getTeam_performance_all_invest_money() + "");// 团队矿机
+
+                /*tv_haicha.setText(getString(R.string.share_h6) + response.getTips_upgrade_money()
+                        + getString(R.string.app_type_usdt)
                         + getString(R.string.share_h7));
-                tv_tixing.setText(getString(R.string.share_h13) + response.getTips_hold_target_money()+"，"
-                        + getString(R.string.share_h14) + response.getTips_hold_target_money_count() + getString(R.string.app_ren)+"，"
-                        +getString(R.string.share_h17));
+                tv_tixing.setText(getString(R.string.share_h13) + response.getTips_hold_target_money() + "，"
+                        + getString(R.string.share_h14) + response.getTips_hold_target_money_count() + getString(R.string.app_ren) + "，"
+                        + getString(R.string.share_h17));*/
+                tv_haicha.setText(response.getTips_upgrade());
+                tv_tixing.setText(response.getTips_hold());
 
                 switch (response.getGrade()) {
                     case 1:

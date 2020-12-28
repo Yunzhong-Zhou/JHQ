@@ -20,7 +20,6 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.InvitationRewardModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
-import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.ZxingUtils;
 import com.liaoinstan.springview.widget.SpringView;
@@ -65,12 +64,19 @@ public class SharePosterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shareposter);
+        mImmersionBar.reset()
+                .fitsSystemWindows(true)
+//                .keyboardEnable(true)  //解决软键盘与底部输入框冲突问题
+                .statusBarColor(R.color.white)
+                .statusBarDarkFont(true, 0.2f) //原理：如果当前设备支持状态栏字体变色，会设置状态栏字体为黑色，如果当前设备不支持状态栏字体变色，会使当前状态栏加上透明度，否则不执行透明度
+//                .addTag("common")
+                .init();
     }
 
     @Override
     protected void initView() {
-//        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
-        CommonUtil.setMargins(findViewByID_My(R.id.headView), 0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        findViewByID_My(R.id.scrollView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        CommonUtil.setMargins(findViewByID_My(R.id.headView), 0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
