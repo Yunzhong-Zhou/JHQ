@@ -309,11 +309,11 @@
 
     <!--fragment1-->
     <string name="fragment1_h1">矿机优势</string>
-    <string name="fragment1_h2">机房稳定</string>
-    <string name="fragment1_h3">DELL机房</string>
-    <string name="fragment1_h4">中国移动</string>
-    <string name="fragment1_h5">产值更多</string>
-    <string name="fragment1_h6">打开查看查看机房</string>
+    <string name="fragment1_h2">无需质押</string>
+    <string name="fragment1_h3">永久产权</string>
+    <string name="fragment1_h4">移动机房</string>
+    <string name="fragment1_h5">快速产出</string>
+    <string name="fragment1_h6"></string>
     <string name="fragment1_h7">税前价格</string>
     <string name="fragment1_h8">不包含增值税发票</string>
     <string name="fragment1_h9">税后价格</string>
@@ -377,23 +377,26 @@
     <string name="fragment1_h67">银行名称</string>
     <string name="fragment1_h68">您已确认转账吗？</string>
     <string name="fragment1_h69">提交成功</string>
-    <string name="fragment1_h70"></string>
-    <string name="fragment1_h71"></string>
+    <string name="fragment1_h70">无需另行购买质押币</string>
+    <string name="fragment1_h71">矿机产权归属用户</string>
+    <string name="fragment1_h72">高级稳定T3级机房</string>
+    <string name="fragment1_h73">封装期亦可分币</string>
+    <string name="fragment1_h74"></string>
 
 
     <!--fragment2-->
-    <string name="fragment2_h1">矿机可查</string>
-    <string name="fragment2_h2">矿机托管于\n中国移动和DELL机房</string>
-    <string name="fragment2_h3">无封装期</string>
-    <string name="fragment2_h4">由平台提前封装\n购买即可挖矿产值</string>
-    <string name="fragment2_h5">产值稳定</string>
-    <string name="fragment2_h6">由平台回填\n挖矿衰减产币稳定</string>
+    <string name="fragment2_h1">可靠托管</string>
+    <string name="fragment2_h2">矿机托管于\nT3+高级别IDC机房</string>
+    <string name="fragment2_h3">稳定产出</string>
+    <string name="fragment2_h4">专业运维\n算力输出长期稳定</string>
+    <string name="fragment2_h5">算力可查</string>
+    <string name="fragment2_h6">算力来源\n矿机标签全公开</string>
     <string name="fragment2_h7">选择算力</string>
     <string name="fragment2_h8">最小:</string>
     <string name="fragment2_h9">最大:</string>
     <string name="fragment2_h10">矿机编号</string>
     <string name="fragment2_h11">挖矿周期</string>
-    <string name="fragment2_h12">算力费用</string>
+    <string name="fragment2_h12">算力总价</string>
     <string name="fragment2_h13">预计产值</string>
     <string name="fragment2_h14">立即购买</string>
     <string name="fragment2_h15">购买成功</string>
@@ -402,7 +405,7 @@
     <!--fragment3-->
     <string name="fragment3_h1">算力大小</string>
     <string name="fragment3_h2">挖矿周期</string>
-    <string name="fragment3_h3">预计产值(FIL)</string>
+    <string name="fragment3_h3">产出形式</string>
     <string name="fragment3_h4">矿机机房</string>
     <string name="fragment3_h5">加入拼购</string>
     <string name="fragment3_h6">完成拼购</string>
@@ -430,7 +433,7 @@
     <string name="fragment3_h28">拼中</string>
     <string name="fragment3_h29">矿机</string>
     <string name="fragment3_h30">待加入</string>
-    <string name="fragment3_h31">FileCoin主网矿机云计算力</string>
+    <string name="fragment3_h31">Filecoin众智汇算力包</string>
     <string name="fragment3_h32">处理中</string>
     <string name="fragment3_h33">FileCoin主网矿机算力1TB</string>
     <string name="fragment3_h34">已加入拼购</string>

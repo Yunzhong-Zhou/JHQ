@@ -38,6 +38,8 @@ public class Fragment1 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
             textView, tv_confirm;
 
+    LinearLayout ll_yincang, ll_chanzhi, ll_bianhao, ll_bishu;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -113,6 +115,11 @@ public class Fragment1 extends BaseFragment {
         textView8 = findViewByID_My(R.id.textView8);
         textView9 = findViewByID_My(R.id.textView9);
 
+        ll_yincang = findViewByID_My(R.id.ll_yincang);
+        ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
+        ll_bianhao = findViewByID_My(R.id.ll_bianhao);
+        ll_bishu = findViewByID_My(R.id.ll_bishu);
+
     }
 
     @Override
@@ -152,13 +159,37 @@ public class Fragment1 extends BaseFragment {
                 textView1.setText(response.getUsable_hashrate() + "TB");//矿机算力
                 textView2.setText(response.getMill_package_cycle() + getString(R.string.app_tian));//封装期
                 textView3.setText(response.getMill_computer_position());//机房位置
-                textView4.setText(response.getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//矿机产值
-                textView5.setText(response.getMill_node_number());//节点编号
-                textView6.setText(response.getMill_pledge_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//质押币数
+
                 textView7.setText(response.getMill_mining_cycle() + getString(R.string.app_tian));//挖矿周期
                 textView8.setText(response.getMill_number());//矿机编号
                 textView9.setText(getString(R.string.fragment1_h60));//残值归属
 
+
+                if (Double.valueOf(response.getMill_production_value_fil_money()) == 0
+                        && (response.getMill_node_number() == null || response.getMill_node_number().equals(""))
+                        && Double.valueOf(response.getMill_pledge_fil_money()) == 0) {
+                    ll_yincang.setVisibility(View.GONE);
+                } else {
+                    ll_yincang.setVisibility(View.VISIBLE);
+                    if (response.getMill_production_value_fil_money() != null && !response.getMill_production_value_fil_money().equals("")) {
+                        ll_chanzhi.setVisibility(View.VISIBLE);
+                        textView4.setText(response.getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//矿机产值
+                    } else {
+                        ll_chanzhi.setVisibility(View.INVISIBLE);
+                    }
+                    if (Double.valueOf(response.getMill_production_value_fil_money()) != 0) {
+                        ll_bianhao.setVisibility(View.VISIBLE);
+                        textView5.setText(response.getMill_node_number());//节点编号
+                    } else {
+                        ll_bianhao.setVisibility(View.INVISIBLE);
+                    }
+                    if (Double.valueOf(response.getMill_pledge_fil_money()) != 0) {
+                        ll_bishu.setVisibility(View.VISIBLE);
+                        textView6.setText(response.getMill_pledge_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//质押币数
+                    } else {
+                        ll_bishu.setVisibility(View.INVISIBLE);
+                    }
+                }
                 MainActivity.isOver = true;
 
             }
@@ -271,9 +302,11 @@ public class Fragment1 extends BaseFragment {
                 break;
             case R.id.textView:
                 //详情
-                Bundle bundle = new Bundle();
-                bundle.putString("url", model.getUrl());
-                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                if (model != null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("url", model.getUrl());
+                    CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                }
                 break;
         }
     }

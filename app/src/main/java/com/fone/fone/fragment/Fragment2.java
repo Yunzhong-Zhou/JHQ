@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -35,6 +36,9 @@ public class Fragment2 extends BaseFragment {
     ImageView imageView1, imageView2;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, tv_confirm;
     SeekBar seekBar;
+
+    LinearLayout ll_chanzhi;
+    View view_chanzhi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -137,6 +141,9 @@ public class Fragment2 extends BaseFragment {
 
             }
         });
+
+        ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
+        view_chanzhi = findViewByID_My(R.id.view_chanzhi);
     }
 
     @Override
@@ -162,33 +169,38 @@ public class Fragment2 extends BaseFragment {
                 break;
             case R.id.imageView2:
                 //加
-                if (num < Integer.valueOf(model.getUsable_hashrate())) {
-                    num++;
+                if (model != null) {
+                    if (num < Integer.valueOf(model.getUsable_hashrate())) {
+                        num++;
+                    }
+                    calculate();
                 }
-                calculate();
+
                 break;
             case R.id.tv_confirm:
                 //加入拼团
-                showToast(getString(R.string.fragment2_h16)
-                        , getString(R.string.app_confirm)
-                        , getString(R.string.app_cancel), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                showProgress(true, getString(R.string.app_loading1));
-                                HashMap<String, String> params = new HashMap<>();
-                                params.put("hk", model.getHk());
-                                params.put("mill_id", model.getMill_id());
-                                params.put("token", localUserInfo.getToken());
-                                params.put("hashrate", num + "");
-                                RequestBuy(params);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
+                if (model != null) {
+                    showToast(getString(R.string.fragment2_h16)
+                            , getString(R.string.app_confirm)
+                            , getString(R.string.app_cancel), new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("hk", model.getHk());
+                                    params.put("mill_id", model.getMill_id());
+                                    params.put("token", localUserInfo.getToken());
+                                    params.put("hashrate", num + "");
+                                    RequestBuy(params);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                }
                 break;
         }
     }
@@ -197,12 +209,19 @@ public class Fragment2 extends BaseFragment {
     private void calculate() {
         seekBar.setProgress(num);
         textView2.setText(num + "TB");
-        textView7.setText(String.format("%.2f",
-                num * Double.valueOf(model.getHashrate_price()))
-                + getString(R.string.app_type_usdt));//算力费用
-        textView8.setText(String.format("%.2f",
-                num * Double.valueOf(model.getMill_production_value_fil_money()))
-                + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预计产值
+
+        if (model != null) {
+            textView7.setText(String.format("%.2f",
+                    num * Double.valueOf(model.getHashrate_price()))
+                    + getString(R.string.app_type_usdt));//算力费用
+        }
+
+        /*if (Double.valueOf(model.getMill_production_value_fil_money()) != 0) {
+            textView8.setText(String.format("%.2f",
+                    num * Double.valueOf(model.getMill_production_value_fil_money()))
+                    + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预计产值
+        }*/
+
     }
 
     @Override
@@ -242,6 +261,16 @@ public class Fragment2 extends BaseFragment {
 //                textView8.setText(response.getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预计产值
                 hideProgress();
                 MainActivity.isOver = true;
+
+                //是否返回预计产值
+                /*if (Double.valueOf(model.getMill_production_value_fil_money()) != 0) {
+                    ll_chanzhi.setVisibility(View.VISIBLE);
+                    view_chanzhi.setVisibility(View.VISIBLE);
+                } else {
+                    ll_chanzhi.setVisibility(View.GONE);
+                    view_chanzhi.setVisibility(View.GONE);
+                }*/
+
             }
         });
     }

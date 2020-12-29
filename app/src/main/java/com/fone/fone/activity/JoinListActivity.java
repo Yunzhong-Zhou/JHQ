@@ -172,9 +172,10 @@ public class JoinListActivity extends BaseActivity {
     TimeCount time1 = null;
     private void showTime(int count_down, TextView tv) {
         MyLogger.i(">>>>>>" + (count_down * 1000));
-        if (time1 != null) {
+        /*if (time1 != null) {
             time1.cancel();
-        }
+        }*/
+
         time1 = new TimeCount(count_down * 1000, 1000, tv);//构造CountDownTimer对象
         time1.start();//开始计时
     }
@@ -192,7 +193,10 @@ public class JoinListActivity extends BaseActivity {
         public void onFinish() {//计时完毕时触发
 //            textView.setText(getString(R.string.fragment3_h54));
             textView.setText("00:00");
-            requestServer();
+            if (!isFinishing()) {
+                requestServer();
+            }
+
         }
 
         @Override

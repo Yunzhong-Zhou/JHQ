@@ -112,6 +112,21 @@ public class MyCalculateActivity extends BaseActivity {
                             holder.setText(R.id.tv_suanli, model.getHashrate() + "TB");//算力
                             holder.setText(R.id.tv_chanzhi, model.getInterest_fil_money() + getString(R.string.app_ge));//产值
                             holder.setText(R.id.tv_type2, model.getMill_type_title());//状态
+
+                            TextView tv_type1 = holder.getView(R.id.tv_type1);
+                            if (model.getStatus() == 1)//进行中
+                                tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_lvse_left);
+                            else
+                                tv_type1.setBackgroundResource(R.drawable.yuanjiao_10_huise_left);
+
+
+                            TextView tv_type2 = holder.getView(R.id.tv_type2);
+                            if (model.getMill_type() == 2)//自购
+                                tv_type2.setBackgroundResource(R.drawable.yuanjiao_15_huangse);
+                            else
+                                tv_type2.setBackgroundResource(R.drawable.yuanjiao_15_lvse);
+
+
                         }
                     };
                     recyclerView.setAdapter(mAdapter);

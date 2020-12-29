@@ -223,10 +223,13 @@ public class Fragment3 extends BaseFragment {
                         tv_join.setBackgroundResource(R.drawable.yuanjiao_50_huise);
                     }
 
-                    tv_tab1.setText(response.getChange_game().getMill().getHashrate());
-                    tv_tab2.setText(response.getChange_game().getMill().getMining_cycle());
-                    tv_tab3.setText(response.getChange_game().getMill().getProduction_value_fil_money());
-                    tv_tab4.setText(response.getChange_game().getMill().getComputer_position());
+                    if (response.getChange_game() != null && response.getChange_game().getMill() != null) {
+                        //                    tv_tab1.setText(response.getChange_game().getMill().getHashrate());
+                        tv_tab2.setText(response.getChange_game().getMill().getMining_cycle());
+//                    tv_tab3.setText(response.getChange_game().getMill().getProduction_value_fil_money());
+                        tv_tab4.setText(response.getChange_game().getMill().getComputer_position());
+                    }
+
                     //是否参与
                     if (response.getWin_prompt() != null && !response.getWin_prompt().getWin_member_id().equals("")) {
                         //是我中奖
@@ -241,62 +244,65 @@ public class Fragment3 extends BaseFragment {
                             }
                         } else {
                             //没有中奖
-                            if (localUserInfo.getLosenum().equals("") || !localUserInfo.getLosenum().equals(response.getWin_prompt().getWin_member_id() + response.getWin_prompt().getPeriod())) {
-                                //显示未中奖
+//                            if (localUserInfo.getLosenum().equals("") || !localUserInfo.getLosenum().equals(response.getWin_prompt().getWin_member_id() + response.getWin_prompt().getPeriod())) {
+//                                //显示未中奖
 //                                showLose(response.getWin_prompt());
-                            }
+//                            }
                         }
                     }
                     /**
                      * 加入拼团
                      */
 //                    list_join = response.getChange_game().getChange_game_participation_list();
-                    list_join.clear();
-                    for (Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean bean
-                            : response.getChange_game().getChange_game_participation_list()) {
-                        JoinModel m = new JoinModel(bean.getChange_game_id(),
-                                bean.getMember_head(),
-                                bean.getMember_nickname(),
-                                bean.getIndex());
-                        list_join.add(m);
-                    }
-                    for (int i = list_join.size(); i < 10; i++) {
-                        JoinModel m = new JoinModel("",
-                                "",
-                                "",
-                                i + 1 + "");
-                        list_join.add(m);
-                    }
-                    mAdapter_join = new CommonAdapter<JoinModel>
-                            (getActivity(), R.layout.item_fragment3_join, list_join) {
-                        @Override
-                        protected void convert(ViewHolder holder, JoinModel model, int position) {
-//                            holder.setText(R.id.textView1, model.getIndex());
-                            holder.setText(R.id.textView1, position + "");
-                            TextView tv2 = holder.getView(R.id.textView2);
-                            if (!model.getMember_nickname().equals("")) {
-                                tv2.setTextColor(getResources().getColor(R.color.black2));
-                                tv2.setText(model.getMember_nickname());
-                            } else {
-                                tv2.setTextColor(getResources().getColor(R.color.black3));
-                                tv2.setText(getString(R.string.fragment3_h30));
-                            }
-
-
-                            ImageView iv = holder.getView(R.id.imageView1);
-                            if (!model.getMember_head().equals("")) {
-                                Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
-                                        .centerCrop()
-                                        .placeholder(R.mipmap.loading)//加载站位图
-                                        .error(R.mipmap.headimg)//加载失败
-                                        .into(iv);//加载图片
-                            } else {
-                                iv.setImageResource(R.mipmap.ic_wenhao_gray2);
-                            }
-
+                    if(response.getChange_game() != null ){
+                        list_join.clear();
+                        for (Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean bean
+                                : response.getChange_game().getChange_game_participation_list()) {
+                            JoinModel m = new JoinModel(bean.getChange_game_id(),
+                                    bean.getMember_head(),
+                                    bean.getMember_nickname(),
+                                    bean.getIndex());
+                            list_join.add(m);
                         }
-                    };
-                    rv_join.setAdapter(mAdapter_join);
+                        for (int i = list_join.size(); i < 10; i++) {
+                            JoinModel m = new JoinModel("",
+                                    "",
+                                    "",
+                                    i + 1 + "");
+                            list_join.add(m);
+                        }
+                        mAdapter_join = new CommonAdapter<JoinModel>
+                                (getActivity(), R.layout.item_fragment3_join, list_join) {
+                            @Override
+                            protected void convert(ViewHolder holder, JoinModel model, int position) {
+//                            holder.setText(R.id.textView1, model.getIndex());
+                                holder.setText(R.id.textView1, position + 1 + "");
+                                TextView tv2 = holder.getView(R.id.textView2);
+                                if (!model.getMember_nickname().equals("")) {
+                                    tv2.setTextColor(getResources().getColor(R.color.black2));
+                                    tv2.setText(model.getMember_nickname());
+                                } else {
+                                    tv2.setTextColor(getResources().getColor(R.color.black3));
+                                    tv2.setText(getString(R.string.fragment3_h30));
+                                }
+
+
+                                ImageView iv = holder.getView(R.id.imageView1);
+                                if (!model.getMember_head().equals("")) {
+                                    Glide.with(getActivity()).load(IMGHOST + model.getMember_head())
+                                            .centerCrop()
+                                            .placeholder(R.mipmap.loading)//加载站位图
+                                            .error(R.mipmap.headimg)//加载失败
+                                            .into(iv);//加载图片
+                                } else {
+                                    iv.setImageResource(R.mipmap.ic_wenhao_gray2);
+                                }
+
+                            }
+                        };
+                        rv_join.setAdapter(mAdapter_join);
+                    }
+
 
                     /**
                      * 完成拼团
@@ -337,7 +343,7 @@ public class Fragment3 extends BaseFragment {
                                     iv_head.setImageResource(R.mipmap.ic_wenhao_gray2);
 //                                    holder.setText(R.id.tv_type, model.getStatus_title());
                                     if (model.getCount_down() > 0) {
-                                        showTime(model.getCount_down(),tv_type);
+                                        showTime(model.getCount_down(), tv_type);
                                     } else {
                                         tv_type.setText("00:00");
                                     }
@@ -442,26 +448,28 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.tv_join:
                 //加入拼团
-                showToast(getString(R.string.fragment3_h24)
-                        , getString(R.string.app_confirm)
-                        , getString(R.string.app_cancel), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                showProgress(true, getString(R.string.app_loading1));
-                                HashMap<String, String> params = new HashMap<>();
-                                params.put("hk", model.getHk());//金额
-                                params.put("change_game_id", model.getChange_game().getId());
-                                params.put("token", localUserInfo.getToken());
+                if (model.getChange_game() !=null){
+                    showToast(getString(R.string.fragment3_h24)
+                            , getString(R.string.app_confirm)
+                            , getString(R.string.app_cancel), new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("hk", model.getHk());//金额
+                                    params.put("change_game_id", model.getChange_game().getId());
+                                    params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
-                                RequestJoin(params);
-                            }
-                        }, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                            }
-                        });
+                                    RequestJoin(params);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                }
                 break;
 
         }
@@ -560,11 +568,12 @@ public class Fragment3 extends BaseFragment {
     }
 
     TimeCount time1 = null;
-    private void showTime(int count_down,TextView tv) {
+
+    private void showTime(int count_down, TextView tv) {
         MyLogger.i(">>>>>>" + (count_down * 1000));
-        if (time1 != null) {
+        /*if (time1 != null) {
             time1.cancel();
-        }
+        }*/
         time1 = new TimeCount(count_down * 1000, 1000, tv);//构造CountDownTimer对象
         time1.start();//开始计时
     }
@@ -582,7 +591,10 @@ public class Fragment3 extends BaseFragment {
         public void onFinish() {//计时完毕时触发
 //            textView.setText(getString(R.string.fragment3_h54));
             textView.setText("00:00");
-            requestServer();
+            if (MainActivity.item == 2 && getUserVisibleHint()) {
+                requestServer();
+            }
+
         }
 
         @Override

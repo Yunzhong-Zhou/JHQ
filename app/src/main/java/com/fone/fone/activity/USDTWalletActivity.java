@@ -156,8 +156,8 @@ public class USDTWalletActivity extends BaseActivity {
                 CommonUtil.gotoActivityWithData(USDTWalletActivity.this, TakeCashActivity.class,bundle,false);
                 break;
             case R.id.tv_transfer:
-                //划转
-                CommonUtil.gotoActivity(USDTWalletActivity.this, TransferActivity.class);
+                //转账
+                CommonUtil.gotoActivity(USDTWalletActivity.this, QRCodeActivity.class);
                 break;
             case R.id.ll_shouru:
                 //收入记录

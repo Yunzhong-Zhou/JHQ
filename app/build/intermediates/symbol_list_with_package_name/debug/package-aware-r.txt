@@ -1565,6 +1565,7 @@ drawable yuanjiao_10_heise4
 drawable yuanjiao_10_huise
 drawable yuanjiao_10_huise_bottom
 drawable yuanjiao_10_huise_bottom1
+drawable yuanjiao_10_huise_left
 drawable yuanjiao_10_huise_left_down
 drawable yuanjiao_10_huise_right
 drawable yuanjiao_10_huisetouming_right
@@ -1580,6 +1581,7 @@ drawable yuanjiao_10_zisejianbian
 drawable yuanjiao_10_zisejianbian1
 drawable yuanjiao_15_baise_left
 drawable yuanjiao_15_bg_top
+drawable yuanjiao_15_huangse
 drawable yuanjiao_15_huise_top
 drawable yuanjiao_15_lanse
 drawable yuanjiao_15_lvse
@@ -1616,6 +1618,7 @@ drawable yuanjiao_5_heise
 drawable yuanjiao_5_heisetouming
 drawable yuanjiao_5_hongse
 drawable yuanjiao_5_huangse
+drawable yuanjiao_5_huangse1
 drawable yuanjiao_5_huangsejianbian
 drawable yuanjiao_5_huise
 drawable yuanjiao_5_huise1
@@ -1979,6 +1982,9 @@ id listView
 id list_item
 id liveness_face_round
 id ll
+id ll_bianhao
+id ll_bishu
+id ll_chanzhi
 id ll_content2
 id ll_fil
 id ll_pay
@@ -1986,6 +1992,7 @@ id ll_shouru
 id ll_title
 id ll_title_background
 id ll_usdt
+id ll_yincang
 id ll_zhichu
 id ll_zhuanzhang
 id loading_layout
@@ -2289,6 +2296,7 @@ id view3
 id viewGroup
 id view_1
 id view_2
+id view_chanzhi
 id view_offset_helper
 id viewfinder_view
 id visible
@@ -2974,6 +2982,8 @@ string contract_h48
 string contract_h49
 string contract_h5
 string contract_h50
+string contract_h51
+string contract_h52
 string contract_h6
 string contract_h7
 string contract_h8
@@ -3110,6 +3120,9 @@ string fragment1_h69
 string fragment1_h7
 string fragment1_h70
 string fragment1_h71
+string fragment1_h72
+string fragment1_h73
+string fragment1_h74
 string fragment1_h8
 string fragment1_h9
 string fragment2
@@ -3531,6 +3544,7 @@ string takecash_h34
 string takecash_h35
 string takecash_h36
 string takecash_h37
+string takecash_h38
 string takecash_h4
 string takecash_h5
 string takecash_h6

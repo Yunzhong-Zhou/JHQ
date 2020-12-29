@@ -24,9 +24,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
-import com.lahm.library.EasyProtectorLib;
-import com.lahm.library.EmulatorCheckCallback;
-import com.maning.updatelibrary.InstallUtils;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.LoginModel;
@@ -39,6 +36,9 @@ import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.permission.PermissionsActivity;
 import com.fone.fone.utils.permission.PermissionsChecker;
+import com.lahm.library.EasyProtectorLib;
+import com.lahm.library.EmulatorCheckCallback;
+import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 
 import java.io.Serializable;

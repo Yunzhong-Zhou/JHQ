@@ -124,13 +124,19 @@ public class JoinDetailActivity extends BaseActivity {
                 hideProgress();
                 model = response;
                 //是我中奖
-                /*if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
+                if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
                     //显示中奖
-                    showWin(response.getChange_game());
+                    if (localUserInfo.getWinnum1().equals("") ||
+                            !localUserInfo.getWinnum1().equals(response.getChange_game().getWin_member_id()
+                                    + response.getChange_game().getPeriod())) {
+                        //显示中奖
+                        showWin(response.getChange_game());
+                    }
+
                 } else {
                     //没有中奖
 //                 showLose(response.getWin_prompt());
-                }*/
+                }
 
                 //fil价格
                 if (response.getChange_game().getStatus() == 3) {//已结束
@@ -144,6 +150,8 @@ public class JoinDetailActivity extends BaseActivity {
                     //显示倒计时
                     if (response.getCount_down() > 0) {
                         showTime();
+                    }else {
+                        textView3.setText(response.getChange_game().getStatus_title());//拼团状态
                     }
                 }else {
                     textView3.setText(response.getChange_game().getStatus_title());//拼团状态
@@ -163,7 +171,7 @@ public class JoinDetailActivity extends BaseActivity {
 
                     textView9.setText(response.getChange_game().getWin_member().getNickname());//拼中用户name
                     textView10.setText(response.getChange_game().getWin_member().getChange_game_participation_created_at());//拼中时间
-                    textView11.setText(response.getChange_game().getWin_member().getChange_game_participation_index() + 1 + "");//拼中排名
+                    textView11.setText(response.getChange_game().getWin_member().getChange_game_participation_index() + "");//拼中排名
                     Glide.with(JoinDetailActivity.this)
                             .load(OkHttpClientManager.IMGHOST + response.getChange_game().getWin_member().getHead())
                             .placeholder(R.mipmap.loading)//加载站位图
@@ -270,6 +278,7 @@ public class JoinDetailActivity extends BaseActivity {
 
     //显示中奖弹框
     private void showWin(JoinDetailModel.ChangeGameBean bean) {
+        localUserInfo.setWinnum1(bean.getWin_member_id() + bean.getPeriod());
         dialog.contentView(R.layout.dialog_fragment3)
                 .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -279,7 +288,7 @@ public class JoinDetailActivity extends BaseActivity {
                 .dimAmount(0.8f)
                 .show();
         TextView textView1 = dialog.findViewById(R.id.textView1);
-        textView1.setText(bean.getWin_num() + "TB");
+//        textView1.setText(bean.get + "TB");
         dialog.findViewById(R.id.textView2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

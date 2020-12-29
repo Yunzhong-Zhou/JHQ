@@ -9,7 +9,7 @@
     <item android:id="@android:id/progress">
         <scale
             android:clipOrientation="horizontal"
-            android:drawable="@drawable/yuanjiao_5_huangse"
+            android:drawable="@drawable/yuanjiao_5_huangse1"
             android:scaleGravity="left"
             android:scaleWidth="100%" />
     </item>

@@ -88,10 +88,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5.0dip"
-                                android:drawableRight="@mipmap/ic_fuzhi_gray"
+                                android:drawableRight="@mipmap/ic_fuzhi_white"
                                 android:text="@string/fragment5_h1"
                                 android:drawablePadding="6dp"
-                                android:textColor="@color/white2"
+                                android:textColor="@color/white1"
                                 android:textIsSelectable="true"
                                 android:textSize="15.0sp" />
                         </LinearLayout>
