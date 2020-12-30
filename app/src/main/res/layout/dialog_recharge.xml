@@ -89,7 +89,7 @@
             android:paddingTop="20dp"
             android:maxLines="1"
             android:paddingBottom="20dp"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:background="@color/transparent"
             android:hint="@string/fragment4_h13"
             android:textColor="@color/black1"

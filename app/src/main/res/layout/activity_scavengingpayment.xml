@@ -79,7 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:hint="@string/scavengingpayment_h8"
-                            android:inputType="numberDecimal"
+                            android:inputType="number"
                             android:paddingLeft="50dp"
                             android:singleLine="true"
                             android:textColor="@color/black1"

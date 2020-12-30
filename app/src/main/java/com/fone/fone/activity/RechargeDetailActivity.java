@@ -235,11 +235,11 @@ public class RechargeDetailActivity extends BaseActivity {
                 } else if (response.getTop_up().getStatus() == 3) {
                     //未通过
 //                    textView7.setVisibility(View.VISIBLE);
-                    imageView2.setImageResource(R.mipmap.ic_rechargedetail4);
+                    imageView2.setImageResource(R.mipmap.ic_rechargedetail5);
                     prograssBar.setProgress(100);
                     textView6.setText(getString(R.string.recharge_h26));
 
-                    textView6.setTextColor(getResources().getColor(R.color.white1));
+                    textView6.setTextColor(getResources().getColor(R.color.shengreen));
                     textView17.setVisibility(View.VISIBLE);
                     textView17.setText(getString(R.string.recharge_h27) + response.getTop_up().getStatus_rejected_cause());
 
