@@ -37,7 +37,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.fone.fone.net.OkHttpClientManager.HOST;
 import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 
@@ -98,9 +97,6 @@ public class RegisteredActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
         switch (localUserInfo.getMobile_State_Code().length()){
@@ -172,9 +168,10 @@ public class RegisteredActivity extends BaseActivity {
     protected void initData() {
         open_id = getIntent().getStringExtra("open_id");
 
-//        request(captchaURL);
-
+        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
+        RequestSmsCodeList(string3);//手机号国家代码集合
     }
+
 
     //手机号国家代码集合
     private void RequestSmsCodeList(String string) {
@@ -193,6 +190,8 @@ public class RegisteredActivity extends BaseActivity {
                 list1 = response.getMobile_state_list();
 //                mobile_state_code = model.getMobile_state_code_list().get(0).getCode() + "";
 //                textView.setText(model.getMobile_state_code_list().get(0).getTitle());
+                register_agreement = response.getUrl();
+
             }
         });
 
@@ -264,7 +263,7 @@ public class RegisteredActivity extends BaseActivity {
                 } else {
                     register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 }*/
-                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
+//                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 if (!register_agreement.equals("")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("url", register_agreement);

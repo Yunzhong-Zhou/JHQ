@@ -11,6 +11,15 @@ import java.util.List;
 public class SmsCodeListModel implements Serializable {
     private List<LangListBean> lang_list;
     private List<MobileStateListBean> mobile_state_list;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public List<LangListBean> getLang_list() {
         return lang_list;

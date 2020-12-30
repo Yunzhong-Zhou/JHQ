@@ -59,9 +59,6 @@ public class ForgetPasswordActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
-
         textView.setText("+" + localUserInfo.getMobile_State_Code());
         switch (localUserInfo.getMobile_State_Code().length()){
             case 2:
@@ -96,6 +93,9 @@ public class ForgetPasswordActivity extends BaseActivity {
     @Override
     protected void initData() {
         time = new TimeCount(60000, 1000);//构造CountDownTimer对象
+
+        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
+        RequestSmsCodeList(string3);//手机号国家代码集合
     }
 
     //手机号国家代码集合

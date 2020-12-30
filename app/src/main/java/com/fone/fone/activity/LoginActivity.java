@@ -197,6 +197,8 @@ public class LoginActivity extends BaseActivity {
     protected void initData() {
         RequestUpgrade("?app_type=" + 1);//检查更新
 
+        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
+        RequestSmsCodeList(string3);//手机号国家代码集合
 
         /*byte[] mBytes = null;
         String mString = "{阿达大as家阿sdf什顿附asd件好久}";
@@ -806,9 +808,6 @@ public class LoginActivity extends BaseActivity {
             startPermissionsActivity();
         }
 
-        String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
-        RequestSmsCodeList(string3);//手机号国家代码集合
-
         textView.setText("+" + localUserInfo.getMobile_State_Code());
         switch (localUserInfo.getMobile_State_Code().length()){
             case 2:
@@ -825,7 +824,6 @@ public class LoginActivity extends BaseActivity {
                 break;
 
         }
-
 
         MyLogger.i(">>>>>" + IMGHOST + localUserInfo.getCountry_IMG());
         if (!localUserInfo.getCountry_IMG().equals(""))

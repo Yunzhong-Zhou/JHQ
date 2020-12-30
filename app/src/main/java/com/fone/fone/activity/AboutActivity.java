@@ -89,12 +89,12 @@ public class AboutActivity extends BaseActivity {
             case R.id.linearLayout1:
                 //官网
                 bundle.putString("url", model.getOfficial_website());
-                CommonUtil.gotoActivityWithData(AboutActivity.this, WebContentActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(AboutActivity.this, WebContentActivity1.class, bundle, false);
                 break;
             case R.id.linearLayout2:
                 //介绍
                 bundle.putString("url", model.getAbout_fil_url());
-                CommonUtil.gotoActivityWithData(AboutActivity.this, WebContentActivity.class, bundle, false);
+                CommonUtil.gotoActivityWithData(AboutActivity.this, WebContentActivity1.class, bundle, false);
                 break;
             case R.id.linearLayout3:
                 //更新
