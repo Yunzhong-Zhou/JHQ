@@ -106,6 +106,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>-->
         </activity>
+        <activity
+            android:name="com.fone.fone.activity.WebContentActivity1"
+            android:label="网页"/>
 
         <activity
             android:name="com.fone.fone.activity.JoinListActivity"

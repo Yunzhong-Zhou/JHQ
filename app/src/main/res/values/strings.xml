@@ -98,7 +98,7 @@
     <string name="app_abfooter_loading">正在加载...</string>
     <string name="app_abfooter_loadno">没有了！</string>
     <string name="app_abfooter_loadnodata">没有数据</string>
-    <string name="app_err">网络状态不佳，刷新试试</string>
+    <string name="app_err">网络状态不佳</string>
     <string name="app_err1">数据出错了！</string>
     <string name="app_refresh">刷新</string>
     <string name="app_refresh1">分钟前</string>
@@ -598,7 +598,7 @@
     <string name="recharge_h18">充币单号</string>
     <string name="recharge_h19">充币状态</string>
     <string name="recharge_h20">充币个数：</string>
-    <string name="recharge_h21">流水号：</string>
+    <string name="recharge_h21"></string>
     <string name="recharge_h22">时间：</string>
     <string name="recharge_h23"></string>
     <string name="recharge_h24"></string>
@@ -764,6 +764,7 @@
     <string name="scavengingpayment_h8">请输入转币数量</string>
     <string name="scavengingpayment_h9">可用余币：</string>
     <string name="scavengingpayment_h10">划转成功</string>
+    <string name="scavengingpayment_h11">划转个数不能小于0.01</string>
 
 
     <!--转账记录-->

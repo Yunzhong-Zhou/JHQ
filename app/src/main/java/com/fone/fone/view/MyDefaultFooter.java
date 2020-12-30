@@ -1,7 +1,6 @@
 package com.fone.fone.view;
 
 import android.content.Context;
-import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,8 @@ import android.widget.TextView;
 
 import com.fone.fone.R;
 import com.liaoinstan.springview.container.BaseFooter;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by Administrator on 2016/3/21.
@@ -21,7 +22,7 @@ public class MyDefaultFooter extends BaseFooter {
     private ProgressBar footerProgressbar;
 
     public MyDefaultFooter(Context context) {
-        this(context, R.drawable.progress_small);
+        this(context, R.drawable.progress_green);
     }
 
     public MyDefaultFooter(Context context, int rotationSrc) {

@@ -239,7 +239,7 @@ public class RechargeDetailActivity extends BaseActivity {
                     prograssBar.setProgress(100);
                     textView6.setText(getString(R.string.recharge_h26));
 
-                    textView6.setTextColor(getResources().getColor(R.color.shengreen));
+                    textView6.setTextColor(getResources().getColor(R.color.white1));
                     textView17.setVisibility(View.VISIBLE);
                     textView17.setText(getString(R.string.recharge_h27) + response.getTop_up().getStatus_rejected_cause());
 

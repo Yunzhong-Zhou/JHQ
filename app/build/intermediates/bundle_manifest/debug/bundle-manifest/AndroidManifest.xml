@@ -145,6 +145,9 @@ Android 10 停用过滤视图，使用旧版存储模式
             -->
         </activity>
         <activity
+            android:name="com.fone.fone.activity.WebContentActivity1"
+            android:label="网页" />
+        <activity
             android:name="com.fone.fone.activity.JoinListActivity"
             android:label="往期列表" />
         <activity

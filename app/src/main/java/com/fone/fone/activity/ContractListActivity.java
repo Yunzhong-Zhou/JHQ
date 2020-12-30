@@ -100,7 +100,7 @@ public class ContractListActivity extends BaseActivity {
             public void onResponse(ContractListModel response) {
                 showContentPage();
                 onHttpResult();
-                textView1.setText(response.getInvoice_money());
+                textView1.setText(response.getInvoice_cny_money());
                 textView2.setText(response.getResidue_invoice_cny_money());
                 list = response.getInvoice_list();
                 if (list.size() == 0) {

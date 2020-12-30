@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.fone.fone.R;
 import com.liaoinstan.springview.container.BaseHeader;
 
+import androidx.core.content.ContextCompat;
+
 /**
  * Created by zyz on 2019/6/15.
  */
@@ -33,7 +35,7 @@ public class MyDefaultHeader extends BaseHeader {
     private ProgressBar headerProgressbar;
 
     public MyDefaultHeader(Context context) {
-        this(context, R.drawable.progress_small, R.drawable.arrow);
+        this(context, R.drawable.progress_green, R.drawable.arrow);
     }
 
     public MyDefaultHeader(Context context, int rotationSrc, int arrowSrc) {
@@ -60,7 +62,7 @@ public class MyDefaultHeader extends BaseHeader {
         headerTime = (TextView) view.findViewById(R.id.default_header_time);
         headerArrow = (ImageView) view.findViewById(R.id.default_header_arrow);
         headerProgressbar = (ProgressBar) view.findViewById(R.id.default_header_progressbar);
-//        headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
+        headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
         headerArrow.setImageResource(arrowSrc);
         return view;
     }

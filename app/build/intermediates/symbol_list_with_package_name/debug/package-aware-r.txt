@@ -1511,6 +1511,7 @@ drawable notify_panel_notification_icon_bg
 drawable oppo_ad_bg
 drawable oval_red
 drawable progress
+drawable progress_green
 drawable progress_small
 drawable progressbar_bg_lansejianbian
 drawable progressbar_bg_lvse
@@ -1543,6 +1544,7 @@ drawable wheel_bg
 drawable wheel_val
 drawable white_radius
 drawable white_shape
+drawable xuanzhuan_yuanhuan_green
 drawable yuanhuan_hongse
 drawable yuanhuan_huise
 drawable yuanhuan_lvse
@@ -3438,6 +3440,7 @@ string registered_h8
 string registered_h9
 string scavengingpayment_h1
 string scavengingpayment_h10
+string scavengingpayment_h11
 string scavengingpayment_h2
 string scavengingpayment_h3
 string scavengingpayment_h4

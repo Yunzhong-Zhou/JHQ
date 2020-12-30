@@ -139,13 +139,18 @@ public class TransferActivity extends BaseActivity {
             case R.id.tv_confirm:
                 //确定
                 if (!editText1.getText().toString().trim().equals("")) {
-                    tv_confirm.setClickable(false);
-                    showProgress(true, getString(R.string.app_loading1));
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("fil_money", editText1.getText().toString().trim());
-                    params.put("token", localUserInfo.getToken());
-                    params.put("hk", model.getHk());
-                    RequestAdd(params);
+                    if (Double.valueOf(editText1.getText().toString().trim()) >=0.01){
+                        tv_confirm.setClickable(false);
+                        showProgress(true, getString(R.string.app_loading1));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("fil_money", editText1.getText().toString().trim());
+                        params.put("token", localUserInfo.getToken());
+                        params.put("hk", model.getHk());
+                        RequestAdd(params);
+                    }else {
+                        myToast(getString(R.string.scavengingpayment_h11));
+                    }
+
                 } else {
                     myToast(getString(R.string.scavengingpayment_h2));
                 }

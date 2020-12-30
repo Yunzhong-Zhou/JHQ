@@ -163,9 +163,9 @@ public class ContractActivity extends BaseActivity {
                 editText5_1.setText(province.getName().toString() +
                         city.getName().toString() +
                         district.getName().toString());
-                address_temp = province.getName().toString() + "#" +
+               /* address_temp = province.getName().toString() + "#" +
                         city.getName().toString() + "#" +
-                        district.getName().toString();
+                        district.getName().toString();*/
             }
 
             @Override
@@ -216,7 +216,8 @@ public class ContractActivity extends BaseActivity {
 //                    double service_money = Double.valueOf(model.getWithdrawal_service_charge());
 //                    MyLogger.i(">>>>>手续费>>>>>" + service_money);
                     //实际到账 =  (输入币数 - 手续费)
-                    double real_money = (Double.valueOf(cny_money) * 0.03);
+//                    double real_money = (Double.valueOf(cny_money) * 0.13 / Double.valueOf(model.getUsdt_cny_price()));
+                    double real_money = (Double.valueOf(cny_money) * 0.13);
                     MyLogger.i(">>>>>实际到账>>>>>" + real_money);
 
                     editText4_3.setText("¥ " + String.format("%.2f", real_money));//实际到账
@@ -446,7 +447,7 @@ public class ContractActivity extends BaseActivity {
                 if (!model.getType().equals("0")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("url", model.getUrl());
-                    CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity.class, bundle, false);
+                    CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
                 } else {
                     myToast(getString(R.string.contract_h46));
                 }
@@ -649,7 +650,7 @@ public class ContractActivity extends BaseActivity {
     }
 
     private void RequestUpData2(String params) {
-        OkHttpClientManager.getAsyn(ContractActivity.this, URLs.ContractShenQing+params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(ContractActivity.this, URLs.ContractShenQing + params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -684,7 +685,7 @@ public class ContractActivity extends BaseActivity {
                 hideProgress();
 //                requestServer();
                 editText3_3.setText("");
-                editText4_3.setText("");
+                editText4_3.setText("¥ 0");//实际到账
                 myToast(getString(R.string.contract_h50));
 //                requestServer();
                 CommonUtil.gotoActivity(ContractActivity.this, ContractListActivity.class);

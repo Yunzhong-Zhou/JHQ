@@ -8,16 +8,16 @@ import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.utils.LocalUserInfo;
 import com.fone.fone.utils.MyLogger;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import java.util.Locale;
 
@@ -74,11 +74,10 @@ public class WebContentActivity1 extends BaseActivity {
     @Override
     protected void initView() {
         this.showProgress(false, getString(R.string.app_loading2));
-        String url = getIntent().getStringExtra("url")
-                +"&lang_type=" + LocalUserInfo.getInstance(this).getLanguage_Type();
+        String url = getIntent().getStringExtra("url");
         MyLogger.i(">>>>>>url" + url);
 
-        webView = (WebView) findViewById(R.id.webView);
+        webView = findViewByID_My(R.id.webView);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);//设置js可以直接打开窗口，如window.open()，默认为false
         webView.getSettings().setJavaScriptEnabled(true);//是否允许执行js，默认为false。设置true时，会提醒可能造成XSS漏洞
         webView.getSettings().setSupportZoom(true);//是否可以缩放，默认true
@@ -99,7 +98,7 @@ public class WebContentActivity1 extends BaseActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 MyLogger.i(">>>>>>" + url);
                 //打开支付宝
-                if (url.startsWith("alipays://platformapi/startApp?")||url.startsWith("alipays://platformapi/startapp?")) {
+                if (url.startsWith("alipays://platformapi/startApp?") || url.startsWith("alipays://platformapi/startapp?")) {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse(url));

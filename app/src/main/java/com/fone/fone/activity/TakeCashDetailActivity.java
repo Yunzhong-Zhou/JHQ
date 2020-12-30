@@ -133,7 +133,7 @@ public class TakeCashDetailActivity extends BaseActivity {
                         imageView2.setImageResource(R.mipmap.ic_rechargedetail4);
                         prograssBar.setProgress(100);
                         textView6.setText(getString(R.string.takecash_h27));
-                        textView6.setTextColor(getResources().getColor(R.color.shengreen));
+                        textView6.setTextColor(getResources().getColor(R.color.white1));
 
                         textView17.setVisibility(View.VISIBLE);
                         textView17.setText(getString(R.string.takecash_h28) + response.getStatus_rejected_cause());

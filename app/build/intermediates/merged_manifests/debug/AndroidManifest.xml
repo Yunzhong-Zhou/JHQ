@@ -50,6 +50,7 @@
     <activity android:name="com.fone.fone.activity.ForgetPasswordActivity" android:label="忘记密码"/>
     <activity android:name="com.fone.fone.activity.RegisteredActivity" android:label="注册"/>
     <activity android:name="com.fone.fone.activity.WebContentActivity" android:label="网页"/>
+    <activity android:name="com.fone.fone.activity.WebContentActivity1" android:label="网页"/>
     <activity android:name="com.fone.fone.activity.JoinListActivity" android:label="往期列表"/>
     <activity android:name="com.fone.fone.activity.LeaderboardActivity" android:label="排行榜"/>
     <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>

@@ -13,16 +13,16 @@ public class ContractListModel implements Serializable {
      * residue_invoice_cny_money : 184600.00
      */
 
-    private String invoice_money;
+    private String invoice_cny_money;
     private String residue_invoice_cny_money;
     private List<InvoiceListBean> invoice_list;
 
-    public String getInvoice_money() {
-        return invoice_money;
+    public String getInvoice_cny_money() {
+        return invoice_cny_money;
     }
 
-    public void setInvoice_money(String invoice_money) {
-        this.invoice_money = invoice_money;
+    public void setInvoice_cny_money(String invoice_cny_money) {
+        this.invoice_cny_money = invoice_cny_money;
     }
 
     public String getResidue_invoice_cny_money() {

@@ -27,6 +27,15 @@ public class ContractModel implements Serializable {
     private String addr;
     private String url;
     private String residue_invoice_cny_money;
+    private String usdt_cny_price;
+
+    public String getUsdt_cny_price() {
+        return usdt_cny_price;
+    }
+
+    public void setUsdt_cny_price(String usdt_cny_price) {
+        this.usdt_cny_price = usdt_cny_price;
+    }
 
     public String getId() {
         return id;
