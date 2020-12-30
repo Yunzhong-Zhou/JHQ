@@ -285,6 +285,7 @@ public class RegisteredActivity extends BaseActivity {
                     params.put("password", password1);//密码（不能小于6位数）
                     params.put("code", code);//手机验证码
 //                    params.put("nickname", nickname);//昵称
+//                    params.put("app_type", "1");//1、Android  2、iOS
                     params.put("invite_code", num);//邀请码
                     params.put("uuid", CommonUtil.getIMEI(RegisteredActivity.this));//IMEI
                     params.put("register_addr", register_addr);//注册地址
@@ -520,7 +521,7 @@ public class RegisteredActivity extends BaseActivity {
 
     //注册
     private void RequestRegistered(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<RegisteredModel>() {
+        OkHttpClientManager.postAsyn_Reg(RegisteredActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<RegisteredModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();

@@ -331,7 +331,57 @@ public class OkHttpClientManager {
         MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
         getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, tag);*/
     }
+    public static void postAsyn_Reg(Context context, String url, Map<String, String> params, final ResultCallback callback, boolean tag) {
+        mContext = context;
+        isFace = false;
+        if (tag == true) {
+            //需要加密
+            isJiaMi = true;
+            try {
+                AES mAes = new AES();
+                //map转json
+                Gson gson = new Gson();
 
+                String jsonStr = gson.toJson(params);
+                //string转byte
+                byte[] mBytes = jsonStr.toString().getBytes("UTF-8");
+                //加密
+                String enString = mAes.encrypt(mBytes);
+                MyLogger.i("加密后：" + enString);
+//                        HttpPostData(enString);
+                Map<String, String> params1 = new HashMap<>();
+//                params1.put("app_type", "1");//验证是否为Android
+                params1.put("param", enString);
+                if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
+                    params1.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+                } else {
+                    params1.put("lang_type", "en");
+                }
+                params1.put("app_type", "1");//1、Android  2、iOS
+                MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params1);
+                getInstance().getPostDelegate().postAsyn(HOST + url, params1, callback, null);
+            } catch (Exception e) {
+                MyLogger.i(">>>>>>>>>>>数据加密失败");
+            }
+        } else {
+            //不需要加密
+            isJiaMi = false;
+            if (LocalUserInfo.getInstance(mContext).getLanguage_Type().equals("zh")) {
+                params.put("lang_type", LocalUserInfo.getInstance(mContext).getLanguage_Type());
+            } else {
+                params.put("lang_type", "en");
+            }
+            params.put("app_type", "1");//1、Android  2、iOS
+            MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
+            getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, null);
+        }
+        /*if (HOST.equals("")) {
+//            HOST = "http://app.zcashplan.com";
+            HOST = "http://192.168.0.188";
+        }
+        MyLogger.i(">>>>post接口：>>" + HOST + url + ">>>>>传入的参数：" + params);
+        getInstance().getPostDelegate().postAsyn(HOST + url, params, callback, tag);*/
+    }
     /*public static void postAsyn(String url, String bodyStr, final ResultCallback callback, Object tag) {
         getInstance().getPostDelegate().postAsyn(url, bodyStr, callback, tag);
     }*/

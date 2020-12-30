@@ -230,9 +230,10 @@ public class Fragment1 extends BaseFragment {
                     ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
 
 
-                    tv_money1.setText(String.format("%.2f", Double.valueOf(model.getUsable_hashrate())
+                    /*tv_money1.setText(String.format("%.2f", Double.valueOf(model.getUsable_hashrate())
                             * Double.valueOf(model.getHashrate_price())
-                            * Double.valueOf(model.getUsdt_cny_price())));//税前价格
+                            * Double.valueOf(model.getUsdt_cny_price())));//税前价格*/
+                    tv_money1.setText(model.getMill_all_cny_price());//税前价格
 //                tv_money2.setText(model.getHashrate_price());//税后价格
 
 

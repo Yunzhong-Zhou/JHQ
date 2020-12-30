@@ -98,7 +98,7 @@
     <string name="app_abfooter_loading">正在加载...</string>
     <string name="app_abfooter_loadno">没有了！</string>
     <string name="app_abfooter_loadnodata">没有数据</string>
-    <string name="app_err">网络开小差了，刷新试试</string>
+    <string name="app_err">网络状态不佳，刷新试试</string>
     <string name="app_err1">数据出错了！</string>
     <string name="app_refresh">刷新</string>
     <string name="app_refresh1">分钟前</string>
@@ -470,7 +470,7 @@
     <string name="fragment4_h16">收入明细</string>
     <string name="fragment4_h17">充币、佣金、拼购收益等</string>
     <string name="fragment4_h18">已产FIL</string>
-    <string name="fragment4_h19">预估产值</string>
+    <string name="fragment4_h19">有效总算力</string>
     <string name="fragment4_h20">支出明细</string>
     <string name="fragment4_h21">转账</string>
     <string name="fragment4_h26">可用余额</string>
@@ -557,7 +557,7 @@
     <string name="qianbao_h45">FIL地址</string>
     <string name="qianbao_h49">请输入FIL地址</string>
     <string name="qianbao_h50">FIL地址设置成功</string>
-    <string name="qianbao_h51">请提供ERC-20格式的FIL地址，否则您的资产将无法找回</string>
+    <string name="qianbao_h51">请提供基于FIL主网的地址，否则您的资产将无法找回</string>
     <!--钱包-->
     <string name="qianbao_h1">USDT钱包</string>
     <string name="qianbao_h2">可用（USDT）</string>
@@ -649,9 +649,9 @@
     <string name="share_h57">等级</string>
     <string name="share_h58">用户</string>
     <string name="share_h59">总业绩</string>
-    <string name="share_h60">拼购：</string>
-    <string name="share_h61">算力：</string>
-    <string name="share_h62">矿机：</string>
+    <string name="share_h60">拼购:</string>
+    <string name="share_h61">算力:</string>
+    <string name="share_h62">矿机:</string>
 
 
     <!--币地址管理-->

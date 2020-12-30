@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
     <!--只需要刷新只写header-->
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="0dp">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:fillViewport="true">
 
             <LinearLayout
@@ -28,13 +28,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:background="@color/black"
                     android:src="@mipmap/bg_shareposter1" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="-15dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginRight="10dp"
                     android:adjustViewBounds="true"
                     android:src="@mipmap/bg_shareposter2" />
@@ -43,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:drawableLeft="@mipmap/bg_shareposter3"
                     android:drawableRight="@mipmap/bg_shareposter4"
                     android:drawablePadding="15dp"
@@ -57,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="14dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="14dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
@@ -131,7 +132,6 @@
         android:id="@+id/headView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginTop="-10dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -140,6 +140,7 @@
             android:layout_height="56dp"
             android:onClick="onClick"
             android:padding="22dp"
+            android:layout_marginTop="-10dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return1" />
 
@@ -159,6 +160,7 @@
             android:layout_height="56dp"
             android:onClick="onClick"
             android:padding="19dp"
+            android:layout_marginTop="-10dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_fenxiang"
             android:visibility="visible" />

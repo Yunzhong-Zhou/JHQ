@@ -256,11 +256,11 @@
                             android:layout_marginLeft="35dp"
                             android:layout_marginRight="35dp">
 
-                           <!-- <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1.5dp"
-                                android:layout_centerVertical="true"
-                                android:background="@color/white" />-->
+                            <!-- <View
+                                 android:layout_width="match_parent"
+                                 android:layout_height="1.5dp"
+                                 android:layout_centerVertical="true"
+                                 android:background="@color/white" />-->
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -282,8 +282,8 @@
                                     android:id="@+id/view_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="1.5dp"
-                                    android:background="@color/white"
-                                    android:layout_weight="1" />
+                                    android:layout_weight="1"
+                                    android:background="@color/white" />
 
                                 <TextView
                                     android:id="@+id/tv_v2"
@@ -299,8 +299,8 @@
                                     android:id="@+id/view_2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="1.5dp"
-                                    android:background="@color/white"
-                                    android:layout_weight="1"  />
+                                    android:layout_weight="1"
+                                    android:background="@color/white" />
 
                                 <TextView
                                     android:id="@+id/tv_v3"
@@ -662,8 +662,8 @@
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:visibility="gone"
-                                            android:src="@mipmap/ic_usdt_black" />
+                                            android:src="@mipmap/ic_usdt_black"
+                                            android:visibility="gone" />
 
                                         <TextView
                                             android:id="@+id/textView14"
@@ -671,7 +671,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -687,6 +687,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h20"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -715,7 +716,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -730,6 +731,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h26"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -783,7 +785,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_marginBottom="25dp"
                                 android:orientation="horizontal">
 
@@ -804,7 +806,7 @@
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
@@ -813,7 +815,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -829,6 +831,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h31"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -850,35 +853,38 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:orientation="horizontal">
+
                                         <ImageView
                                             android:layout_width="20dp"
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
+
                                         <TextView
                                             android:id="@+id/textView17"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/app_ren"
-                                            android:visibility="gone"
                                             android:textColor="@color/black3"
-                                            android:textSize="13sp" />
+                                            android:textSize="13sp"
+                                            android:visibility="gone" />
                                     </LinearLayout>
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h32"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -932,7 +938,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_marginBottom="25dp"
                                 android:orientation="horizontal">
 
@@ -953,7 +959,7 @@
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
@@ -962,7 +968,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -978,6 +984,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h50"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -1005,7 +1012,7 @@
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
@@ -1014,7 +1021,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -1030,6 +1037,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h51"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -1083,7 +1091,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_marginBottom="25dp"
                                 android:orientation="horizontal">
 
@@ -1098,20 +1106,22 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:orientation="horizontal">
+
                                         <ImageView
                                             android:layout_width="20dp"
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
+
                                         <TextView
                                             android:id="@+id/textView20"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -1119,15 +1129,16 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="4dp"
                                             android:text="%"
-                                            android:visibility="gone"
                                             android:textColor="@color/black1"
-                                            android:textSize="16sp" />
+                                            android:textSize="16sp"
+                                            android:visibility="gone" />
                                     </LinearLayout>
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h53"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />
@@ -1155,7 +1166,7 @@
                                             android:layout_height="20dp"
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
-                                            android:layout_marginBottom="10dp"
+                                            android:layout_marginBottom="5dp"
                                             android:src="@mipmap/ic_usdt_green" />
 
                                         <TextView
@@ -1164,7 +1175,7 @@
                                             android:layout_height="wrap_content"
                                             android:text="0"
                                             android:textColor="@color/black1"
-                                            android:textSize="35sp"
+                                            android:textSize="24sp"
                                             android:textStyle="bold" />
 
                                         <TextView
@@ -1180,6 +1191,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="5dp"
                                         android:text="@string/share_h54"
                                         android:textColor="@color/black3"
                                         android:textSize="13sp" />

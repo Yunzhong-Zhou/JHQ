@@ -32,7 +32,7 @@ public class DirectMemberModel implements Serializable {
         private String nickname;
         private String grade_title;
         private String amount_performance_money;
-        private String change_game_invest_money;
+        private String amount_change_game_money;
         private String buy_invest_money;
         private String all_invest_money;
         private String invite_code;
@@ -77,12 +77,12 @@ public class DirectMemberModel implements Serializable {
             this.amount_performance_money = amount_performance_money;
         }
 
-        public String getChange_game_invest_money() {
-            return change_game_invest_money;
+        public String getAmount_change_game_money() {
+            return amount_change_game_money;
         }
 
-        public void setChange_game_invest_money(String change_game_invest_money) {
-            this.change_game_invest_money = change_game_invest_money;
+        public void setAmount_change_game_money(String amount_change_game_money) {
+            this.amount_change_game_money = amount_change_game_money;
         }
 
         public String getBuy_invest_money() {

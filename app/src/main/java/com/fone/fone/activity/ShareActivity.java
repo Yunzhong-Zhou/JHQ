@@ -149,8 +149,8 @@ public class ShareActivity extends BaseActivity {
                 textView1.setText(response.getNickname() + "");//昵称
                 textView2.setText(getString(R.string.share_h2) + response.getInvite_code());//邀请码
                 textView3.setText(response.getCommission_running_proportion() + "%");//拼团分成
-                textView4.setText(response.getCommission_sell_proportion() + "");//累计佣金
-                textView5.setText(response.getCommission_money() + "%");//销售分成
+                textView4.setText(response.getCommission_money() + "");//累计佣金
+                textView5.setText(response.getCommission_sell_proportion()+ "%");//销售分成
                 textView6.setText(response.getCommission_same_level_proportion() + "%");//同级分成
                 textView7.setText(response.getValid_direct_recommend());//累计直推有效人数
                 textView8.setText(getString(R.string.share_h12) + response.getHold_start_at()

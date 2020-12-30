@@ -248,7 +248,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment3_h18"
+                                android:text="@string/fragment3_h1"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 

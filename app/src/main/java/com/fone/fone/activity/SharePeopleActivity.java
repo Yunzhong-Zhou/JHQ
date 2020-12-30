@@ -92,7 +92,7 @@ public class SharePeopleActivity extends BaseActivity {
                                 holder.setText(R.id.tv_name, model.getNickname());
                                 holder.setText(R.id.tv_code, "（"+getString(R.string.fragment5_h1)+model.getInvite_code()+")");
                                 holder.setText(R.id.tv_money, model.getAmount_performance_money());
-                                holder.setText(R.id.tv_pintuan, getString(R.string.share_h60)+model.getChange_game_invest_money());
+                                holder.setText(R.id.tv_pintuan, getString(R.string.share_h60)+model.getAmount_change_game_money());
                                 holder.setText(R.id.tv_suanli, getString(R.string.share_h61)+model.getBuy_invest_money());
                                 holder.setText(R.id.tv_kuangji, getString(R.string.share_h62)+model.getAll_invest_money());
 

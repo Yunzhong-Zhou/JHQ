@@ -510,6 +510,7 @@ public class ContractActivity extends BaseActivity {
                                     params.put("type", type3);
                                     params.put("cny_money", cny_money);
                                     params.put("token", localUserInfo.getToken());
+                                    params.put("contract_id", model.getId());
                                     RequestUpData3(params);
                                 }
                             }, new View.OnClickListener() {
@@ -684,7 +685,7 @@ public class ContractActivity extends BaseActivity {
 //                requestServer();
                 editText3_3.setText("");
                 editText4_3.setText("");
-                showToast(getString(R.string.contract_h50));
+                myToast(getString(R.string.contract_h50));
 //                requestServer();
                 CommonUtil.gotoActivity(ContractActivity.this, ContractListActivity.class);
             }

@@ -449,7 +449,15 @@ public class Fragment3 extends BaseFragment {
             case R.id.tv_join:
                 //加入拼团
                 if (model.getChange_game() !=null){
-                    showToast(getString(R.string.fragment3_h24)
+                    showProgress(true, getString(R.string.app_loading1));
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("hk", model.getHk());//金额
+                    params.put("change_game_id", model.getChange_game().getId());
+                    params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                    RequestJoin(params);
+
+                    /*showToast(getString(R.string.fragment3_h24)
                             , getString(R.string.app_confirm)
                             , getString(R.string.app_cancel), new View.OnClickListener() {
                                 @Override
@@ -468,7 +476,7 @@ public class Fragment3 extends BaseFragment {
                                 public void onClick(View v) {
                                     dialog.dismiss();
                                 }
-                            });
+                            });*/
                 }
                 break;
 

@@ -44,8 +44,17 @@ public class Fragment1Model implements Serializable {
     private String mill_pledge_fil_money;
     private String mill_mining_cycle;
     private String mill_production_value_fil_money;
+    private String mill_all_cny_price;
     private String hk;
     private String url;
+
+    public String getMill_all_cny_price() {
+        return mill_all_cny_price;
+    }
+
+    public void setMill_all_cny_price(String mill_all_cny_price) {
+        this.mill_all_cny_price = mill_all_cny_price;
+    }
 
     public String getUrl() {
         return url;

@@ -412,7 +412,11 @@ public class TakeCashActivity extends BaseActivity {
             return false;
         }
         if (Double.valueOf(input_money) < Double.valueOf(model.getMin_withdrawal_money())) {
-            myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money());
+            if (money_type == 1) {
+                myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money() + getString(R.string.app_type_usdt));
+            } else {
+                myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money() + getString(R.string.app_type_fil));
+            }
             return false;
         }
         return true;

@@ -16,7 +16,7 @@ public class FILWalletModel implements Serializable {
 
     private String usable_fil_money;
     private String fil_money;
-    private String estimate_fil_money;
+    private String hashrate;
     private String in_fil_money;
     private String out_fil_money;
 
@@ -36,12 +36,12 @@ public class FILWalletModel implements Serializable {
         this.fil_money = fil_money;
     }
 
-    public String getEstimate_fil_money() {
-        return estimate_fil_money;
+    public String getHashrate() {
+        return hashrate;
     }
 
-    public void setEstimate_fil_money(String estimate_fil_money) {
-        this.estimate_fil_money = estimate_fil_money;
+    public void setHashrate(String hashrate) {
+        this.hashrate = hashrate;
     }
 
     public String getIn_fil_money() {

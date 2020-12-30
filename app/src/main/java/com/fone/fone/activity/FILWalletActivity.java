@@ -78,8 +78,8 @@ public class FILWalletActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>USDT钱包" + response);
                 tv_keyong.setText(response.getUsable_fil_money());//可用FIL
-                tv_yichan.setText(response.getFil_money());//已产
-                tv_chanzhi.setText(response.getEstimate_fil_money());//产值
+                tv_yichan.setText(response.getFil_money());//已产FIL
+                tv_chanzhi.setText(response.getHashrate()+"TB");//有效算力
                 tv_shouru.setText(response.getIn_fil_money());//收入
                 tv_zhichu.setText(response.getOut_fil_money());//支出
             }
