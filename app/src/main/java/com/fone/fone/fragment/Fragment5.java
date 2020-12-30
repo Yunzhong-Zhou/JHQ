@@ -22,6 +22,7 @@ import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.MyCalculateActivity;
+import com.fone.fone.activity.MyJoinListActivity;
 import com.fone.fone.activity.MyMachineActivity;
 import com.fone.fone.activity.MyProfileActivity;
 import com.fone.fone.activity.MyRechargeActivity;
@@ -288,7 +289,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout3:
                 //拼中次数
-//                CommonUtil.gotoActivity(getActivity(), QRCodeActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
                 break;
             case R.id.linearLayout4:
                 //已产FIL

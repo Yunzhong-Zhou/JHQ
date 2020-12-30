@@ -83,6 +83,8 @@ public class URLs {
     public static final String Join = "/api/change-game-participation/create";
     //拼团详情
     public static final String JoinDetail = "/api/change-game/detail";
+    //我的参与
+    public static final String MyJoinList = "/api/change-game-participation/record";
     /**
      * 账户
      */

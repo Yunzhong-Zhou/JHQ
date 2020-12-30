@@ -170,6 +170,7 @@ public class JoinListActivity extends BaseActivity {
     }
 
     TimeCount time1 = null;
+
     private void showTime(int count_down, TextView tv) {
         MyLogger.i(">>>>>>" + (count_down * 1000));
         /*if (time1 != null) {
@@ -219,5 +220,11 @@ public class JoinListActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setTitle(getString(R.string.fragment3_h27));
+        titleView.showRightTextview(getString(R.string.fragment3_h35), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonUtil.gotoActivity(JoinListActivity.this, MyJoinListActivity.class, false);
+            }
+        });
     }
 }

@@ -51,7 +51,7 @@
     <activity android:name="com.fone.fone.activity.RegisteredActivity" android:label="注册"/>
     <activity android:name="com.fone.fone.activity.WebContentActivity" android:label="网页"/>
     <activity android:name="com.fone.fone.activity.WebContentActivity1" android:label="网页"/>
-    <activity android:name="com.fone.fone.activity.JoinListActivity" android:label="往期列表"/>
+    <activity android:name="com.fone.fone.activity.JoinListActivity" android:label="拼购列表"/>
     <activity android:name="com.fone.fone.activity.LeaderboardActivity" android:label="排行榜"/>
     <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
     <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
@@ -63,7 +63,8 @@
     <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
     <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.MyCalculateActivity" android:label="算力列表"/>
-    <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼团详情"/>
+    <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼购详情"/>
+    <activity android:name="com.fone.fone.activity.MyJoinListActivity" android:label="我的拼购"/>
     <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>
     <activity android:name="com.fone.fone.activity.ContractListActivity" android:label="开票列表"/>
     <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="设置币地址"/>

@@ -78,29 +78,29 @@
 44
 45    <!-- 人脸 -->
 46    <uses-feature
-46-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:303:5-305:36
+46-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:306:5-308:36
 47        android:name="android.hardware.camera"
-47-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:304:9-47
+47-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:307:9-47
 48        android:required="false" />
-48-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:305:9-33
+48-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:308:9-33
 49    <uses-feature
-49-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:306:5-308:36
+49-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:309:5-311:36
 50        android:name="android.hardware.camera.front"
-50-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:307:9-53
+50-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:310:9-53
 51        android:required="false" />
-51-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:308:9-33
+51-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:311:9-33
 52    <uses-feature
-52-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:309:5-311:36
+52-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:312:5-314:36
 53        android:name="android.hardware.camera.autofocus"
-53-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:310:9-57
+53-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:313:9-57
 54        android:required="false" />
-54-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:311:9-33
+54-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:314:9-33
 55    <uses-feature
-55-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:312:5-314:36
+55-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:315:5-317:36
 56        android:name="android.hardware.camera.flash"
-56-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:313:9-53
+56-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:316:9-53
 57        android:required="false" />
-57-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:314:9-33
+57-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:317:9-33
 58
 59    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 59-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:11:5-81
@@ -146,7 +146,7 @@
 77    android:requestLegacyExternalStorage="true"
 78    -->
 79    <application
-79-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:48:5-300:19
+79-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:48:5-303:19
 80        android:name="com.fone.fone.MyApplication"
 80-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:49:9-51
 81        android:allowBackup="true"
@@ -275,7 +275,7 @@
 150-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:113:9-115:36
 151            android:name="com.fone.fone.activity.JoinListActivity"
 151-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:114:13-67
-152            android:label="往期列表" />
+152            android:label="拼购列表" />
 152-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:115:13-33
 153        <activity
 153-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:116:9-118:35
@@ -348,836 +348,842 @@
 187-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:152:9-154:38
 188            android:name="com.fone.fone.activity.JoinDetailActivity"
 188-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:153:13-69
-189            android:label="加入拼团详情" />
+189            android:label="加入拼购详情" />
 189-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:154:13-35
 190        <activity
-190-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:156:9-158:34
-191            android:name="com.fone.fone.activity.ContractActivity"
-191-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:157:13-67
-192            android:label="合同" />
-192-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:158:13-31
+190-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:155:9-157:36
+191            android:name="com.fone.fone.activity.MyJoinListActivity"
+191-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:156:13-69
+192            android:label="我的拼购" />
+192-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:157:13-33
 193        <activity
-193-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:159:9-161:36
-194            android:name="com.fone.fone.activity.ContractListActivity"
-194-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:160:13-71
-195            android:label="开票列表" />
-195-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:161:13-33
+193-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:159:9-161:34
+194            android:name="com.fone.fone.activity.ContractActivity"
+194-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:160:13-67
+195            android:label="合同" />
+195-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:161:13-31
 196        <activity
-196-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:163:9-165:37
-197            android:name="com.fone.fone.activity.SetAddressActivity"
-197-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:164:13-69
-198            android:label="设置币地址" />
-198-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:165:13-34
+196-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:162:9-164:36
+197            android:name="com.fone.fone.activity.ContractListActivity"
+197-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:163:13-71
+198            android:label="开票列表" />
+198-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:164:13-33
 199        <activity
 199-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:166:9-168:37
-200            android:name="com.fone.fone.activity.AddressManagementActivity"
-200-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:167:13-76
-201            android:label="币地址管理" />
+200            android:name="com.fone.fone.activity.SetAddressActivity"
+200-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:167:13-69
+201            android:label="设置币地址" />
 201-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:168:13-34
 202        <activity
-202-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:171:9-173:34
-203            android:name="com.fone.fone.activity.ShareActivity"
-203-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:172:13-64
-204            android:label="推广" />
-204-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:173:13-31
+202-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:169:9-171:37
+203            android:name="com.fone.fone.activity.AddressManagementActivity"
+203-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:170:13-76
+204            android:label="币地址管理" />
+204-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:171:13-34
 205        <activity
-205-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:174:9-176:36
-206            android:name="com.fone.fone.activity.SharePeopleActivity"
-206-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:175:13-70
-207            android:label="推广用户" />
-207-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:176:13-33
+205-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:174:9-176:34
+206            android:name="com.fone.fone.activity.ShareActivity"
+206-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:175:13-64
+207            android:label="推广" />
+207-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:176:13-31
 208        <activity
-208-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:178:9-180:37
-209            android:name="com.fone.fone.activity.FILWalletActivity"
-209-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:179:13-68
-210            android:label="FIL钱包" />
-210-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:180:13-34
+208-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:177:9-179:36
+209            android:name="com.fone.fone.activity.SharePeopleActivity"
+209-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:178:13-70
+210            android:label="推广用户" />
+210-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:179:13-33
 211        <activity
-211-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:181:9-183:38
-212            android:name="com.fone.fone.activity.USDTWalletActivity"
-212-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:182:13-69
-213            android:label="USDT钱包" />
-213-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:183:13-35
+211-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:181:9-183:37
+212            android:name="com.fone.fone.activity.FILWalletActivity"
+212-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:182:13-68
+213            android:label="FIL钱包" />
+213-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:183:13-34
 214        <activity
-214-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:184:9-186:36
-215            android:name="com.fone.fone.activity.ShouRuListActivity"
+214-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:184:9-186:38
+215            android:name="com.fone.fone.activity.USDTWalletActivity"
 215-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:185:13-69
-216            android:label="收入记录" />
-216-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:186:13-33
+216            android:label="USDT钱包" />
+216-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:186:13-35
 217        <activity
 217-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:187:9-189:36
-218            android:name="com.fone.fone.activity.ZhiChuListActivity"
+218            android:name="com.fone.fone.activity.ShouRuListActivity"
 218-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:188:13-69
-219            android:label="支出记录" />
+219            android:label="收入记录" />
 219-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:189:13-33
 220        <activity
-220-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:190:9-192:40
-221            android:name="com.fone.fone.activity.FILShouRuListActivity"
-221-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:191:13-72
-222            android:label="收入记录_FIL" />
-222-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:192:13-37
+220-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:190:9-192:36
+221            android:name="com.fone.fone.activity.ZhiChuListActivity"
+221-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:191:13-69
+222            android:label="支出记录" />
+222-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:192:13-33
 223        <activity
 223-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:193:9-195:40
-224            android:name="com.fone.fone.activity.FILZhiChuListActivity"
+224            android:name="com.fone.fone.activity.FILShouRuListActivity"
 224-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:194:13-72
-225            android:label="支出记录_FIL" />
+225            android:label="收入记录_FIL" />
 225-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:195:13-37
 226        <activity
-226-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:197:9-199:36
-227            android:name="com.fone.fone.activity.MyRechargeActivity"
-227-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:198:13-69
-228            android:label="我的充值" />
-228-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:199:13-33
+226-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:196:9-198:40
+227            android:name="com.fone.fone.activity.FILZhiChuListActivity"
+227-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:197:13-72
+228            android:label="支出记录_FIL" />
+228-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:198:13-37
 229        <activity
 229-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:200:9-202:36
-230            android:name="com.fone.fone.activity.RechargeDetailActivity"
-230-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:201:13-73
-231            android:label="充值详情" />
+230            android:name="com.fone.fone.activity.MyRechargeActivity"
+230-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:201:13-69
+231            android:label="我的充值" />
 231-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:202:13-33
 232        <activity
-232-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:203:9-205:34
-233            android:name="com.fone.fone.activity.TakeCashActivity"
-233-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:204:13-67
-234            android:label="提现" />
-234-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:205:13-31
+232-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:203:9-205:36
+233            android:name="com.fone.fone.activity.RechargeDetailActivity"
+233-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:204:13-73
+234            android:label="充值详情" />
+234-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:205:13-33
 235        <activity
-235-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:206:9-208:36
-236            android:name="com.fone.fone.activity.MyTakeCashActivity"
-236-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:207:13-69
-237            android:label="我的提现" />
-237-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:208:13-33
+235-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:206:9-208:34
+236            android:name="com.fone.fone.activity.TakeCashActivity"
+236-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:207:13-67
+237            android:label="提现" />
+237-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:208:13-31
 238        <activity
 238-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:209:9-211:36
-239            android:name="com.fone.fone.activity.TakeCashDetailActivity"
-239-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:210:13-73
-240            android:label="提现详情" />
+239            android:name="com.fone.fone.activity.MyTakeCashActivity"
+239-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:210:13-69
+240            android:label="我的提现" />
 240-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:211:13-33
 241        <activity
 241-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:212:9-214:36
-242            android:name="com.fone.fone.activity.SharePosterActivity"
-242-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:213:13-70
-243            android:label="有奖邀请" />
+242            android:name="com.fone.fone.activity.TakeCashDetailActivity"
+242-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:213:13-73
+243            android:label="提现详情" />
 243-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:214:13-33
 244        <activity
 244-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:215:9-217:36
-245            android:name="com.fone.fone.activity.OnlineServiceActivity"
-245-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:216:13-72
-246            android:label="在线客服" />
+245            android:name="com.fone.fone.activity.SharePosterActivity"
+245-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:216:13-70
+246            android:label="有奖邀请" />
 246-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:217:13-33
 247        <activity
 247-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:218:9-220:36
-248            android:name="com.fone.fone.activity.InformationActivity"
-248-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:219:13-70
-249            android:label="公告通知" />
+248            android:name="com.fone.fone.activity.OnlineServiceActivity"
+248-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:219:13-72
+249            android:label="在线客服" />
 249-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:220:13-33
 250        <activity
 250-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:221:9-223:36
-251            android:name="com.fone.fone.activity.MyPosterActivity"
-251-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:222:13-67
-252            android:label="我的海报" />
+251            android:name="com.fone.fone.activity.InformationActivity"
+251-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:222:13-70
+252            android:label="公告通知" />
 252-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:223:13-33
 253        <activity
-253-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:224:9-226:39
-254            android:name="com.fone.fone.activity.TransferActivity"
+253-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:224:9-226:36
+254            android:name="com.fone.fone.activity.MyPosterActivity"
 254-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:225:13-67
-255            android:label="划转-创建合约" />
-255-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:226:13-36
+255            android:label="我的海报" />
+255-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:226:13-33
 256        <activity
-256-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:227:9-229:37
-257            android:name="com.fone.fone.activity.QRCodeActivity"
-257-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:228:13-65
-258            android:label="收款二维码" />
-258-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:229:13-34
+256-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:227:9-229:39
+257            android:name="com.fone.fone.activity.TransferActivity"
+257-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:228:13-67
+258            android:label="划转-创建合约" />
+258-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:229:13-36
 259        <activity
-259-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:230:9-232:35
-260            android:name="com.fone.fone.view.zxing.CaptureActivity"
-260-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:231:13-68
-261            android:label="扫一扫" />
-261-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:232:13-32
+259-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:230:9-232:37
+260            android:name="com.fone.fone.activity.QRCodeActivity"
+260-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:231:13-65
+261            android:label="收款二维码" />
+261-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:232:13-34
 262        <activity
-262-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:233:9-235:36
-263            android:name="com.fone.fone.activity.ScavengingPaymentActivity"
-263-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:234:13-76
-264            android:label="扫码转账" />
-264-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:235:13-33
-265
-266        <!-- 全面屏适配 -->
-267        <meta-data
-267-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:239:9-241:35
-268            android:name="design_width_in_dp"
-268-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:240:13-46
-269            android:value="414" />
-269-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:241:13-32
+262-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:233:9-235:35
+263            android:name="com.fone.fone.view.zxing.CaptureActivity"
+263-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:234:13-68
+264            android:label="扫一扫" />
+264-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:235:13-32
+265        <activity
+265-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:236:9-238:36
+266            android:name="com.fone.fone.activity.ScavengingPaymentActivity"
+266-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:237:13-76
+267            android:label="扫码转账" />
+267-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:238:13-33
+268
+269        <!-- 全面屏适配 -->
 270        <meta-data
 270-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:242:9-244:35
-271            android:name="design_height_in_dp"
-271-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:243:13-47
-272            android:value="896" />
+271            android:name="design_width_in_dp"
+271-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:243:13-46
+272            android:value="414" />
 272-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:244:13-32
-273        <!--
-274        <meta-data
-275            android:name="design_width_in_dp"
-276            android:value="562" />
+273        <meta-data
+273-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:245:9-247:35
+274            android:name="design_height_in_dp"
+274-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:246:13-47
+275            android:value="896" />
+275-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:247:13-32
+276        <!--
 277        <meta-data
-278            android:name="design_height_in_dp"
-279            android:value="1218" />
-280        -->
-281
-282        <meta-data
-282-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:252:9-254:35
-283            android:name="android.max_aspect"
-283-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:253:13-46
-284            android:value="2.4" />
-284-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:254:13-32
-285        <!-- 适配华为（huawei）刘海屏 -->
-286        <meta-data
-286-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:256:9-258:36
-287            android:name="android.notch_support"
-287-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:257:13-49
-288            android:value="true" />
-288-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:258:13-33
-289        <!-- 适配小米（xiaomi）刘海屏 -->
-290        <meta-data
-290-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:260:9-262:50
-291            android:name="notch.config"
-291-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:261:13-40
-292            android:value="portrait|landscape" />
-292-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:262:13-47
-293
-294        <!-- 查看mob推送日志 -->
-295        <meta-data
-295-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:265:9-267:33
-296            android:name="com.mob.mobpush.debugLevel"
-296-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:266:13-54
-297            android:value="4" />
-297-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:267:13-30
-298        <!-- 配置华为 -->
-299        <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer" >
-299-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:269:9-277:20
-299-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:269:19-82
-300            <intent-filter>
-300-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:270:13-276:29
-301                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
-301-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:17-86
-301-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:25-83
-302                <action android:name="com.huawei.android.push.intent.RECEIVE" />
-302-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:17-81
-302-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:25-78
-303                <action android:name="com.huawei.android.push.intent.CLICK" />
-303-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:273:17-79
-303-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:273:25-76
-304                <action android:name="com.huawei.intent.action.PUSH_STATE" />
-304-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:17-78
-304-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:25-75
-305                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
-305-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:17-85
-305-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:25-82
-306            </intent-filter>
-307        </receiver>
-308
-309        <!-- 7.0限制-私有目录被限制访问 -->
-310        <!--
-311        exported:要求必须为false，为true则会报安全异常。
-312        grantUriPermissions:true，表示授予 URI 临时访问权限。
-313        -->
-314        <provider
-315            android:name="androidx.core.content.FileProvider"
-315-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:283:13-62
-316            android:authorities="com.fone.fone.fileprovider"
-316-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:284:13-64
-317            android:exported="false"
-317-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:285:13-37
-318            android:grantUriPermissions="true" >
-318-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:13-47
-319            <meta-data
-319-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:287:13-289:57
-320                android:name="android.support.FILE_PROVIDER_PATHS"
-320-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:288:17-67
-321                android:resource="@xml/file_provider" />
-321-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:289:17-54
-322        </provider>
-323
-324        <!-- 9.0 -->
-325        <uses-library
-325-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:293:9-295:40
-326            android:name="org.apache.http.legacy"
-326-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:294:13-50
-327            android:required="false" />
-327-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:295:13-37
-328
-329        <!-- 保活 -->
-330        <service android:name="com.fone.fone.utils.TraceServiceImpl" />
-330-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:298:9-72
-330-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:298:18-69
+278            android:name="design_width_in_dp"
+279            android:value="562" />
+280        <meta-data
+281            android:name="design_height_in_dp"
+282            android:value="1218" />
+283        -->
+284
+285        <meta-data
+285-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:255:9-257:35
+286            android:name="android.max_aspect"
+286-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:256:13-46
+287            android:value="2.4" />
+287-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:257:13-32
+288        <!-- 适配华为（huawei）刘海屏 -->
+289        <meta-data
+289-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:259:9-261:36
+290            android:name="android.notch_support"
+290-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:260:13-49
+291            android:value="true" />
+291-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:261:13-33
+292        <!-- 适配小米（xiaomi）刘海屏 -->
+293        <meta-data
+293-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:263:9-265:50
+294            android:name="notch.config"
+294-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:264:13-40
+295            android:value="portrait|landscape" />
+295-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:265:13-47
+296
+297        <!-- 查看mob推送日志 -->
+298        <meta-data
+298-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:268:9-270:33
+299            android:name="com.mob.mobpush.debugLevel"
+299-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:269:13-54
+300            android:value="4" />
+300-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:270:13-30
+301        <!-- 配置华为 -->
+302        <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer" >
+302-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:9-280:20
+302-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:19-82
+303            <intent-filter>
+303-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:273:13-279:29
+304                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+304-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:17-86
+304-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:25-83
+305                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+305-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:17-81
+305-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:25-78
+306                <action android:name="com.huawei.android.push.intent.CLICK" />
+306-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:276:17-79
+306-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:276:25-76
+307                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+307-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:277:17-78
+307-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:277:25-75
+308                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
+308-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:278:17-85
+308-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:278:25-82
+309            </intent-filter>
+310        </receiver>
+311
+312        <!-- 7.0限制-私有目录被限制访问 -->
+313        <!--
+314        exported:要求必须为false，为true则会报安全异常。
+315        grantUriPermissions:true，表示授予 URI 临时访问权限。
+316        -->
+317        <provider
+318            android:name="androidx.core.content.FileProvider"
+318-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:13-62
+319            android:authorities="com.fone.fone.fileprovider"
+319-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:287:13-64
+320            android:exported="false"
+320-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:288:13-37
+321            android:grantUriPermissions="true" >
+321-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:289:13-47
+322            <meta-data
+322-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:290:13-292:57
+323                android:name="android.support.FILE_PROVIDER_PATHS"
+323-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:291:17-67
+324                android:resource="@xml/file_provider" />
+324-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:292:17-54
+325        </provider>
+326
+327        <!-- 9.0 -->
+328        <uses-library
+328-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:296:9-298:40
+329            android:name="org.apache.http.legacy"
+329-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:297:13-50
+330            android:required="false" />
+330-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:298:13-37
 331
-332        <provider
-332-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
-333            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
-333-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
-334            android:authorities="com.fone.fone.updateFileProvider"
-334-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
-335            android:exported="false"
-335-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
-336            android:grantUriPermissions="true" >
-336-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
-337            <meta-data
-337-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:287:13-289:57
-338                android:name="android.support.FILE_PROVIDER_PATHS"
-338-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:288:17-67
-339                android:resource="@xml/mn_update_file_provider" />
-339-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:289:17-54
-340        </provider>
-341
-342        <activity
-342-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
-343            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
-343-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
-344            android:screenOrientation="portrait"
-344-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
-345            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-345-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
-346        </activity>
-347        <activity
-347-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
-348            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
-348-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
-349            android:screenOrientation="portrait"
-349-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
-350            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-350-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
-351        </activity>
-352        <activity
-352-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
-353            android:name="com.lljjcoder.style.citythreelist.CityActivity"
-353-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
-354            android:screenOrientation="portrait"
-354-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
-355            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-355-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
-356        </activity>
-357        <activity
-357-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
-358            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
-358-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
-359            android:screenOrientation="portrait"
-359-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
-360            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
-360-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
-361        </activity>
-362
-363        <provider
-363-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:12:9-16:43
-364            android:name="me.jessyan.autosize.InitProvider"
-364-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
-365            android:authorities="com.fone.fone.autosize-init-provider"
-365-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:14:13-74
-366            android:exported="false"
-366-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
-367            android:multiprocess="true" />
-367-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:16:13-40
-368
-369        <receiver
-369-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:16:9-25:20
-370            android:name="com.xdandroid.hellodaemon.WakeUpReceiver"
-370-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:17:13-68
-371            android:process=":watch" >
-371-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:18:13-37
-372            <intent-filter>
-372-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:19:13-24:29
-373                <action android:name="android.intent.action.USER_PRESENT" />
-373-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:20:17-77
-373-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:20:25-74
-374                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-374-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:21:17-87
-374-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:21:25-84
-375                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-375-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:22:17-90
-375-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:22:25-87
-376                <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB" />
-376-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:23:17-89
-376-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:23:25-86
-377            </intent-filter>
-378        </receiver>
-379        <receiver
-379-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:26:9-39:20
-380            android:name="com.xdandroid.hellodaemon.WakeUpReceiver$WakeUpAutoStartReceiver"
-380-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:27:13-92
-381            android:process=":watch" >
-381-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:28:13-37
-382            <intent-filter>
-382-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:29:13-32:29
-383                <action android:name="android.intent.action.BOOT_COMPLETED" />
-383-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:30:17-79
-383-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:30:25-76
-384                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-384-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:31:17-79
-384-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:31:25-76
-385            </intent-filter>
-386            <intent-filter>
-386-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:33:13-38:29
-387                <action android:name="android.intent.action.PACKAGE_ADDED" />
-387-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:34:17-78
-387-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:34:25-75
-388                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-388-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:35:17-80
-388-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:35:25-77
-389
-390                <data android:scheme="package" />
-390-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:37:17-50
-390-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:37:23-47
-391            </intent-filter>
-392        </receiver>
-393
-394        <service android:name="com.xdandroid.hellodaemon.AbsWorkService$WorkNotificationService" />
-394-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:41:9-100
-394-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:41:18-97
-395        <service
-395-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:42:9-47:40
-396            android:name="com.xdandroid.hellodaemon.JobSchedulerService"
-396-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:43:13-73
-397            android:enabled="true"
-397-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:44:13-35
-398            android:exported="true"
-398-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:45:13-36
-399            android:permission="android.permission.BIND_JOB_SERVICE"
-399-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:46:13-69
-400            android:process=":watch" />
-400-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:47:13-37
-401        <service
-401-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:48:9-50:40
-402            android:name="com.xdandroid.hellodaemon.WatchDogService"
-402-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:49:13-69
+332        <!-- 保活 -->
+333        <service android:name="com.fone.fone.utils.TraceServiceImpl" />
+333-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:9-72
+333-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:18-69
+334
+335        <provider
+335-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
+336            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
+336-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
+337            android:authorities="com.fone.fone.updateFileProvider"
+337-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
+338            android:exported="false"
+338-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
+339            android:grantUriPermissions="true" >
+339-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc50dcd44bf577bc5181827449389a19/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:23:13-47
+340            <meta-data
+340-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:290:13-292:57
+341                android:name="android.support.FILE_PROVIDER_PATHS"
+341-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:291:17-67
+342                android:resource="@xml/mn_update_file_provider" />
+342-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:292:17-54
+343        </provider>
+344
+345        <activity
+345-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:15:9-19:20
+346            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
+346-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:16:13-79
+347            android:screenOrientation="portrait"
+347-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:17:13-49
+348            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+348-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:18:13-71
+349        </activity>
+350        <activity
+350-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:20:9-24:20
+351            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
+351-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:21:13-78
+352            android:screenOrientation="portrait"
+352-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:22:13-49
+353            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+353-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:23:13-71
+354        </activity>
+355        <activity
+355-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:25:9-29:20
+356            android:name="com.lljjcoder.style.citythreelist.CityActivity"
+356-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:26:13-74
+357            android:screenOrientation="portrait"
+357-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:27:13-49
+358            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+358-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:28:13-71
+359        </activity>
+360        <activity
+360-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:30:9-34:20
+361            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
+361-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:31:13-74
+362            android:screenOrientation="portrait"
+362-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:32:13-49
+363            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+363-->[liji.library.dev:citypickerview:4.1.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dabc65ca67656057a2b90d8005b11bf6/jetified-citypickerview-4.1.1/AndroidManifest.xml:33:13-71
+364        </activity>
+365
+366        <provider
+366-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:12:9-16:43
+367            android:name="me.jessyan.autosize.InitProvider"
+367-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
+368            android:authorities="com.fone.fone.autosize-init-provider"
+368-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:14:13-74
+369            android:exported="false"
+369-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
+370            android:multiprocess="true" />
+370-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:16:13-40
+371
+372        <receiver
+372-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:16:9-25:20
+373            android:name="com.xdandroid.hellodaemon.WakeUpReceiver"
+373-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:17:13-68
+374            android:process=":watch" >
+374-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:18:13-37
+375            <intent-filter>
+375-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:19:13-24:29
+376                <action android:name="android.intent.action.USER_PRESENT" />
+376-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:20:17-77
+376-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:20:25-74
+377                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+377-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:21:17-87
+377-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:21:25-84
+378                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+378-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:22:17-90
+378-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:22:25-87
+379                <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB" />
+379-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:23:17-89
+379-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:23:25-86
+380            </intent-filter>
+381        </receiver>
+382        <receiver
+382-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:26:9-39:20
+383            android:name="com.xdandroid.hellodaemon.WakeUpReceiver$WakeUpAutoStartReceiver"
+383-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:27:13-92
+384            android:process=":watch" >
+384-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:28:13-37
+385            <intent-filter>
+385-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:29:13-32:29
+386                <action android:name="android.intent.action.BOOT_COMPLETED" />
+386-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:30:17-79
+386-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:30:25-76
+387                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+387-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:31:17-79
+387-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:31:25-76
+388            </intent-filter>
+389            <intent-filter>
+389-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:33:13-38:29
+390                <action android:name="android.intent.action.PACKAGE_ADDED" />
+390-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:34:17-78
+390-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:34:25-75
+391                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+391-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:35:17-80
+391-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:35:25-77
+392
+393                <data android:scheme="package" />
+393-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:37:17-50
+393-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:37:23-47
+394            </intent-filter>
+395        </receiver>
+396
+397        <service android:name="com.xdandroid.hellodaemon.AbsWorkService$WorkNotificationService" />
+397-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:41:9-100
+397-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:41:18-97
+398        <service
+398-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:42:9-47:40
+399            android:name="com.xdandroid.hellodaemon.JobSchedulerService"
+399-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:43:13-73
+400            android:enabled="true"
+400-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:44:13-35
+401            android:exported="true"
+401-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:45:13-36
+402            android:permission="android.permission.BIND_JOB_SERVICE"
+402-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:46:13-69
 403            android:process=":watch" />
-403-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:50:13-37
+403-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:47:13-37
 404        <service
-404-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:51:9-53:40
-405            android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
-405-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:52:13-97
+404-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:48:9-50:40
+405            android:name="com.xdandroid.hellodaemon.WatchDogService"
+405-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:49:13-69
 406            android:process=":watch" />
-406-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:53:13-37
-407
-408        <receiver
-408-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:24:9-34:20
-409            android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
-409-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:25:13-75
-410            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
-410-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:26:13-78
-411            <intent-filter>
-411-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:27:13-33:29
-412
-413                <!-- 必须, 用于接收通知栏消息点击事件 -->
-414                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
-414-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:17-85
-414-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:25-82
-415                <!-- 可选，兼容老的华为手机 -->
-416                <action android:name="com.huawei.intent.action.PUSH" />
-416-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:32:17-72
-416-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:32:25-69
-417            </intent-filter>
-418        </receiver>
-419        <receiver
-419-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:35:9-45:20
-420            android:name="com.huawei.hms.support.api.push.PushReceiver"
-420-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:36:13-72
-421            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
-421-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:37:13-78
-422            <intent-filter>
-422-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:38:13-44:29
-423
-424                <!-- 必须,用于接收token -->
-425                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
-425-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:17-86
-425-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:271:25-83
-426                <!-- 必须, 用于接收消息 -->
-427                <action android:name="com.huawei.android.push.intent.RECEIVE" />
-427-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:17-81
-427-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:272:25-78
-428            </intent-filter>
-429        </receiver> <!-- 非华为手机通知栏和透传消息的接收服务定义 -->
-430        <service
-430-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:48:9-57:19
-431            android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
-431-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:49:13-81
-432            android:enabled="true"
-432-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:50:13-35
-433            android:exported="true"
-433-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:51:13-36
-434            android:process=":pushservice" >
-434-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:52:13-43
-435            <intent-filter>
-435-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:53:13-56:29
-436                <action android:name="com.huawei.push.msg.NOTIFY_MSG" />
-436-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:54:17-73
-436-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:54:25-70
-437                <action android:name="com.huawei.push.msg.PASSBY_MSG" />
-437-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:55:17-73
-437-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:55:25-70
-438            </intent-filter>
-439        </service>
-440
-441        <provider
-441-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:59:9-65:89
-442            android:name="com.huawei.hms.support.api.push.PushProvider"
-442-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:60:13-72
-443            android:authorities="com.fone.fone.huawei.push.provider"
-443-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:61:13-72
-444            android:exported="true"
-444-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:62:13-36
-445            android:permission="com.fone.fone.permission.PUSH_PROVIDER"
-445-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:63:13-75
-446            android:readPermission="com.fone.fone.permission.PUSH_PROVIDER"
-446-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:64:13-79
-447            android:writePermission="com.fone.fone.permission.PUSH_WRITE_PROVIDER" />
-447-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:65:13-86
-448
-449        <meta-data
-449-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:67:9-69:46
-450            android:name="com.huawei.hms.client.service.name:push"
-450-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:68:13-67
-451            android:value="push:4.0.2.300" />
-451-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:69:13-43
+406-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:50:13-37
+407        <service
+407-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:51:9-53:40
+408            android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
+408-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:52:13-97
+409            android:process=":watch" />
+409-->[com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:53:13-37
+410
+411        <receiver
+411-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:24:9-34:20
+412            android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
+412-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:25:13-75
+413            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
+413-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:26:13-78
+414            <intent-filter>
+414-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:27:13-33:29
+415
+416                <!-- 必须, 用于接收通知栏消息点击事件 -->
+417                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
+417-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:278:17-85
+417-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:278:25-82
+418                <!-- 可选，兼容老的华为手机 -->
+419                <action android:name="com.huawei.intent.action.PUSH" />
+419-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:32:17-72
+419-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:32:25-69
+420            </intent-filter>
+421        </receiver>
+422        <receiver
+422-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:35:9-45:20
+423            android:name="com.huawei.hms.support.api.push.PushReceiver"
+423-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:36:13-72
+424            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
+424-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:37:13-78
+425            <intent-filter>
+425-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:38:13-44:29
+426
+427                <!-- 必须,用于接收token -->
+428                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+428-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:17-86
+428-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:274:25-83
+429                <!-- 必须, 用于接收消息 -->
+430                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+430-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:17-81
+430-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:275:25-78
+431            </intent-filter>
+432        </receiver> <!-- 非华为手机通知栏和透传消息的接收服务定义 -->
+433        <service
+433-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:48:9-57:19
+434            android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
+434-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:49:13-81
+435            android:enabled="true"
+435-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:50:13-35
+436            android:exported="true"
+436-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:51:13-36
+437            android:process=":pushservice" >
+437-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:52:13-43
+438            <intent-filter>
+438-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:53:13-56:29
+439                <action android:name="com.huawei.push.msg.NOTIFY_MSG" />
+439-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:54:17-73
+439-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:54:25-70
+440                <action android:name="com.huawei.push.msg.PASSBY_MSG" />
+440-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:55:17-73
+440-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:55:25-70
+441            </intent-filter>
+442        </service>
+443
+444        <provider
+444-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:59:9-65:89
+445            android:name="com.huawei.hms.support.api.push.PushProvider"
+445-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:60:13-72
+446            android:authorities="com.fone.fone.huawei.push.provider"
+446-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:61:13-72
+447            android:exported="true"
+447-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:62:13-36
+448            android:permission="com.fone.fone.permission.PUSH_PROVIDER"
+448-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:63:13-75
+449            android:readPermission="com.fone.fone.permission.PUSH_PROVIDER"
+449-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:64:13-79
+450            android:writePermission="com.fone.fone.permission.PUSH_WRITE_PROVIDER" />
+450-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:65:13-86
+451
 452        <meta-data
-452-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:70:9-72:33
-453            android:name="com.huawei.hms.min_api_level:push:push"
-453-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:71:13-66
-454            android:value="1" />
-454-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:72:13-30
-455
-456        <service
-456-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:18:9-20:39
-457            android:name="com.meizu.cloud.pushsdk.NotificationService"
-457-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:19:13-71
-458            android:exported="true" />
-458-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:20:13-36
-459
-460        <receiver
-460-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:22:9-30:20
-461            android:name="com.meizu.cloud.pushsdk.SystemReceiver"
-461-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:23:13-66
-462            android:exported="false" >
-462-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:24:13-37
-463            <intent-filter>
-463-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:25:13-29:29
-464                <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START" />
-464-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:26:17-96
-464-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:26:25-93
-465
-466                <category android:name="android.intent.category.DEFAULT" />
-466-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:17-76
-466-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:27-73
-467            </intent-filter>
-468        </receiver>
-469        <!--
-470             FirebaseMessagingService performs security checks at runtime,
-471             but set to not exported to explicitly avoid allowing another app to call it.
-472        -->
-473        <service
-473-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:28:9-35:19
-474            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-474-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:29:13-82
-475            android:directBootAware="true"
-475-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:30:13-43
-476            android:exported="false" >
-476-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
-477            <intent-filter android:priority="-500" >
-477-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:13-34:29
-477-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:28-51
-478                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-478-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:17-78
-478-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:25-75
-479            </intent-filter>
-480        </service>
-481        <service
-481-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:36:9-42:19
-482            android:name="com.google.firebase.components.ComponentDiscoveryService"
-482-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:37:13-84
-483            android:directBootAware="true"
-483-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
-484            android:exported="false" >
-484-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:38:13-37
-485            <meta-data
-485-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
-486                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-486-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:40:17-119
-487                android:value="com.google.firebase.components.ComponentRegistrar" />
-487-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:41:17-82
+452-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:67:9-69:46
+453            android:name="com.huawei.hms.client.service.name:push"
+453-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:68:13-67
+454            android:value="push:4.0.2.300" />
+454-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:69:13-43
+455        <meta-data
+455-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:70:9-72:33
+456            android:name="com.huawei.hms.min_api_level:push:push"
+456-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:71:13-66
+457            android:value="1" />
+457-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cc3e430088d3607f2710fdb0d97a2fa3/jetified-push-4.0.2.300/AndroidManifest.xml:72:13-30
+458
+459        <service
+459-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:18:9-20:39
+460            android:name="com.meizu.cloud.pushsdk.NotificationService"
+460-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:19:13-71
+461            android:exported="true" />
+461-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:20:13-36
+462
+463        <receiver
+463-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:22:9-30:20
+464            android:name="com.meizu.cloud.pushsdk.SystemReceiver"
+464-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:23:13-66
+465            android:exported="false" >
+465-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:24:13-37
+466            <intent-filter>
+466-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:25:13-29:29
+467                <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START" />
+467-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:26:17-96
+467-->[com.mob.push.plugins:meizu:3.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4b7ca6c92508dbd9489cecbdd2dffa96/jetified-meizu-3.9.0/AndroidManifest.xml:26:25-93
+468
+469                <category android:name="android.intent.category.DEFAULT" />
+469-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:17-76
+469-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:27-73
+470            </intent-filter>
+471        </receiver>
+472        <!--
+473             FirebaseMessagingService performs security checks at runtime,
+474             but set to not exported to explicitly avoid allowing another app to call it.
+475        -->
+476        <service
+476-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:28:9-35:19
+477            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+477-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:29:13-82
+478            android:directBootAware="true"
+478-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:30:13-43
+479            android:exported="false" >
+479-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
+480            <intent-filter android:priority="-500" >
+480-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:13-34:29
+480-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:28-51
+481                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+481-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:17-78
+481-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:25-75
+482            </intent-filter>
+483        </service>
+484        <service
+484-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:36:9-42:19
+485            android:name="com.google.firebase.components.ComponentDiscoveryService"
+485-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:37:13-84
+486            android:directBootAware="true"
+486-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+487            android:exported="false" >
+487-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:38:13-37
 488            <meta-data
-488-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:32:13-34:85
-489                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-489-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:33:17-96
+488-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
+489                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+489-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:40:17-119
 490                android:value="com.google.firebase.components.ComponentRegistrar" />
-490-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:34:17-82
+490-->[com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ac1ba8a003b4bbaa92634da3417739a5/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:41:17-82
 491            <meta-data
-491-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:28:13-30:85
-492                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-492-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:29:17-115
+491-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:32:13-34:85
+492                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+492-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:33:17-96
 493                android:value="com.google.firebase.components.ComponentRegistrar" />
-493-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:30:17-82
+493-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:34:17-82
 494            <meta-data
-494-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
-495                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-495-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+494-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:28:13-30:85
+495                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+495-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:29:17-115
 496                android:value="com.google.firebase.components.ComponentRegistrar" />
-496-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
-497            <!--
-498                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
-499                clients to use it as well, by defining this registrar in their own core/common library.
-500            -->
-501            <meta-data
-501-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
-502                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
-502-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
-503                android:value="com.google.firebase.components.ComponentRegistrar" />
-503-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
-504        </service>
-505        <service
-505-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:10:9-16:19
-506            android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService"
-506-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:11:13-84
-507            android:exported="true" >
-507-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:12:13-36
-508            <intent-filter>
-508-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:13:13-15:29
-509                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-509-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:14:17-80
-509-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:14:25-77
-510            </intent-filter>
-511        </service>
-512        <service
-512-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:17:9-23:19
-513            android:name="com.mob.pushsdk.plugins.huawei.HuaweiPushService"
-513-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:18:13-76
-514            android:exported="false" >
-514-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:19:13-37
-515            <intent-filter>
-515-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:20:13-22:29
-516                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
-516-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:21:17-81
-516-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:21:25-78
-517            </intent-filter>
-518        </service>
-519
-520        <activity
-520-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:10:9-18:20
-521            android:name="com.mob.guard.MobTranPullLockActivity"
-521-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:11:13-65
-522            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-522-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:12:13-83
-523            <intent-filter>
-523-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:13:13-17:29
-524                <action android:name="com.mob.open.app" />
-524-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:14:17-59
-524-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:14:25-56
-525
-526                <category android:name="android.intent.category.DEFAULT" />
-526-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:17-76
-526-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:27-73
-527            </intent-filter>
-528        </activity>
-529
-530        <receiver
-530-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:37:9-44:20
-531            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-531-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:38:13-78
-532            android:exported="true"
-532-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:39:13-36
-533            android:permission="com.google.android.c2dm.permission.SEND" >
-533-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:40:13-73
-534            <intent-filter>
-534-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:41:13-43:29
-535                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-535-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:42:17-81
-535-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:42:25-78
-536            </intent-filter>
-537        </receiver>
-538
-539        <provider
-539-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
-540            android:name="com.google.firebase.provider.FirebaseInitProvider"
-540-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
-541            android:authorities="com.fone.fone.firebaseinitprovider"
-541-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
-542            android:directBootAware="true"
-542-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
-543            android:exported="false"
-543-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
-544            android:initOrder="100" />
-544-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
-545
-546        <activity
-546-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-547            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-547-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-548            android:exported="false"
-548-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-549            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-549-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-550
-551        <meta-data
-551-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-552            android:name="com.google.android.gms.version"
-552-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-553            android:value="@integer/google_play_services_version" />
-553-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-554
-555        <service
-555-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
-556            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-556-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
-557            android:exported="false" >
-557-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
-558            <meta-data
-558-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
-559                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-559-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
-560                android:value="cct" />
-560-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
-561        </service>
-562        <service
-562-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
-563            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-563-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
-564            android:exported="false"
-564-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
-565            android:permission="android.permission.BIND_JOB_SERVICE" >
-565-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
-566        </service>
-567
-568        <receiver
-568-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
-569            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-569-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
-570            android:exported="false" />
-570-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
-571
-572        <provider
-572-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:10:9-13:40
-573            android:name="com.huawei.hms.aaid.InitProvider"
-573-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:11:13-60
-574            android:authorities="com.fone.fone.aaidinitprovider"
-574-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:12:13-68
-575            android:exported="false" />
-575-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:13:13-37
-576
-577        <meta-data
-577-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:15:9-17:52
-578            android:name="com.huawei.hms.client.service.name:opendevice"
-578-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:16:13-73
-579            android:value="opendevice:4.0.1.301" />
-579-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:17:13-49
+496-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9e009bad771e0e56e957dbfa6ea1af7a/jetified-firebase-datatransport-17.0.10/AndroidManifest.xml:30:17-82
+497            <meta-data
+497-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
+498                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+498-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+499                android:value="com.google.firebase.components.ComponentRegistrar" />
+499-->[com.google.firebase:firebase-installations:16.3.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b047d711b5475f9cf1db421b821647a/jetified-firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
+500            <!--
+501                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+502                clients to use it as well, by defining this registrar in their own core/common library.
+503            -->
+504            <meta-data
+504-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
+505                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+505-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
+506                android:value="com.google.firebase.components.ComponentRegistrar" />
+506-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
+507        </service>
+508        <service
+508-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:10:9-16:19
+509            android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService"
+509-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:11:13-84
+510            android:exported="true" >
+510-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:12:13-36
+511            <intent-filter>
+511-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:13:13-15:29
+512                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+512-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:14:17-80
+512-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:14:25-77
+513            </intent-filter>
+514        </service>
+515        <service
+515-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:17:9-23:19
+516            android:name="com.mob.pushsdk.plugins.huawei.HuaweiPushService"
+516-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:18:13-76
+517            android:exported="false" >
+517-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:19:13-37
+518            <intent-filter>
+518-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:20:13-22:29
+519                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+519-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:21:17-81
+519-->[com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a18f60f246ebd5b9b02a449f302b8cb7/jetified-MobPush-3.0.4/AndroidManifest.xml:21:25-78
+520            </intent-filter>
+521        </service>
+522
+523        <activity
+523-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:10:9-18:20
+524            android:name="com.mob.guard.MobTranPullLockActivity"
+524-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:11:13-65
+525            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+525-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:12:13-83
+526            <intent-filter>
+526-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:13:13-17:29
+527                <action android:name="com.mob.open.app" />
+527-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:14:17-59
+527-->[com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39a751680ca516dd97064dc3552ba2bc/jetified-MobGuard-1.3.0/AndroidManifest.xml:14:25-56
+528
+529                <category android:name="android.intent.category.DEFAULT" />
+529-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:17-76
+529-->/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:88:27-73
+530            </intent-filter>
+531        </activity>
+532
+533        <receiver
+533-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:37:9-44:20
+534            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+534-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:38:13-78
+535            android:exported="true"
+535-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:39:13-36
+536            android:permission="com.google.android.c2dm.permission.SEND" >
+536-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:40:13-73
+537            <intent-filter>
+537-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:41:13-43:29
+538                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+538-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:42:17-81
+538-->[com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51c5c7df98ff1b0eaeff5911d50d4244/jetified-firebase-iid-21.0.1/AndroidManifest.xml:42:25-78
+539            </intent-filter>
+540        </receiver>
+541
+542        <provider
+542-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
+543            android:name="com.google.firebase.provider.FirebaseInitProvider"
+543-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
+544            android:authorities="com.fone.fone.firebaseinitprovider"
+544-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
+545            android:directBootAware="true"
+545-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
+546            android:exported="false"
+546-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
+547            android:initOrder="100" />
+547-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3e7f24a9714231bad65deae0c5fb8e0a/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
+548
+549        <activity
+549-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+550            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+550-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+551            android:exported="false"
+551-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+552            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+552-->[com.google.android.gms:play-services-base:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6314dc5e6ecf0d8c201bda72b3b826f5/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+553
+554        <meta-data
+554-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+555            android:name="com.google.android.gms.version"
+555-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+556            android:value="@integer/google_play_services_version" />
+556-->[com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/37a8169b720917c11314d2a4d12a8c3c/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+557
+558        <service
+558-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+559            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+559-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+560            android:exported="false" >
+560-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+561            <meta-data
+561-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+562                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+562-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+563                android:value="cct" />
+563-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8b8031d221ff299df4565c0a80a99cbb/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+564        </service>
+565        <service
+565-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
+566            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+566-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
+567            android:exported="false"
+567-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
+568            android:permission="android.permission.BIND_JOB_SERVICE" >
+568-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
+569        </service>
+570
+571        <receiver
+571-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
+572            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+572-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
+573            android:exported="false" />
+573-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/803b65e8c7c6b495ad5e8ed95b255c31/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
+574
+575        <provider
+575-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:10:9-13:40
+576            android:name="com.huawei.hms.aaid.InitProvider"
+576-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:11:13-60
+577            android:authorities="com.fone.fone.aaidinitprovider"
+577-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:12:13-68
+578            android:exported="false" />
+578-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:13:13-37
+579
 580        <meta-data
-580-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:18:9-20:33
-581            android:name="com.huawei.hms.min_api_level:opendevice:push"
-581-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:19:13-72
-582            android:value="1" />
-582-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:20:13-30
-583        <!--
-584        为后续统计第三方app集成了哪些Kit，因此需要Kit在自己的AndroidManifest.xml文件中定义业务标签元数据，
-585        流水线打包时会替换成HMSVER对应的版本号，不要手动修改
-586        -->
-587        <meta-data
-587-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:26:9-28:46
-588            android:name="com.huawei.hms.client.service.name:base"
-588-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:27:13-67
-589            android:value="base:4.0.2.300" /> <!-- SDK依赖的HMSCore的最低api level元数据 -->
-589-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:28:13-43
+580-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:15:9-17:52
+581            android:name="com.huawei.hms.client.service.name:opendevice"
+581-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:16:13-73
+582            android:value="opendevice:4.0.1.301" />
+582-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:17:13-49
+583        <meta-data
+583-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:18:9-20:33
+584            android:name="com.huawei.hms.min_api_level:opendevice:push"
+584-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:19:13-72
+585            android:value="1" />
+585-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cdb7f0111093920342e40ed25dbdcbd0/jetified-opendevice-4.0.1.301/AndroidManifest.xml:20:13-30
+586        <!--
+587        为后续统计第三方app集成了哪些Kit，因此需要Kit在自己的AndroidManifest.xml文件中定义业务标签元数据，
+588        流水线打包时会替换成HMSVER对应的版本号，不要手动修改
+589        -->
 590        <meta-data
-590-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:31:9-33:33
-591            android:name="com.huawei.hms.min_api_level:base:hmscore"
-591-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:32:13-69
-592            android:value="1" />
-592-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:33:13-30
-593
-594        <activity
-594-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:35:9-45:20
-595            android:name="com.huawei.hms.activity.BridgeActivity"
-595-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:36:13-66
-596            android:configChanges="orientation|locale|layoutDirection|fontScale|screenSize|smallestScreenSize|screenLayout"
-596-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:37:13-124
-597            android:excludeFromRecents="true"
-597-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:38:13-46
-598            android:exported="false"
-598-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:39:13-37
-599            android:hardwareAccelerated="true"
-599-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:40:13-47
-600            android:theme="@android:style/Theme.Translucent" >
-600-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:41:13-61
-601            <meta-data
-601-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
-602                android:name="hwc-theme"
-602-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
-603                android:value="androidhwext:style/Theme.Emui.Translucent" />
-603-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
-604        </activity>
-605        <activity
-605-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:46:9-49:20
-606            android:name="com.huawei.hms.activity.EnableServiceActivity"
-606-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:47:13-73
-607            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout" >
-607-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:48:13-106
-608        </activity>
-609
-610        <provider
-610-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:51:9-56:20
-611            android:name="com.huawei.hms.update.provider.UpdateProvider"
-611-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:52:13-73
-612            android:authorities="com.fone.fone.hms.update.provider"
-612-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:53:13-71
-613            android:exported="false"
-613-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:54:13-37
-614            android:grantUriPermissions="true" >
-614-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:55:13-47
-615        </provider>
-616        <provider
-616-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:10:9-13:40
-617            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
-617-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:11:13-90
-618            android:authorities="com.fone.fone.AGCInitializeProvider"
-618-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:12:13-73
-619            android:exported="false" />
-619-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:13:13-37
-620
-621        <service
-621-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:15:9-17:40
-622            android:name="com.huawei.agconnect.core.ServiceDiscovery"
-622-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:16:13-70
-623            android:exported="false" />
-623-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:17:13-37
-624
-625        <activity
-625-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:21:9-29:20
-626            android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
-626-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:22:13-84
-627            android:configChanges="orientation|screenSize"
-627-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:23:13-59
-628            android:exported="false"
-628-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:24:13-37
-629            android:theme="@style/upsdkDlDialog" >
-629-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:25:13-49
-630            <meta-data
-630-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
-631                android:name="hwc-theme"
-631-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
-632                android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar" />
-632-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
-633        </activity>
-634        <activity
-634-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:30:9-38:20
-635            android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
-635-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:31:13-84
-636            android:configChanges="orientation|keyboardHidden|screenSize"
-636-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:32:13-74
-637            android:exported="false"
-637-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:33:13-37
-638            android:theme="@style/upsdkDlDialog" >
-638-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:34:13-49
-639            <meta-data
-639-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
-640                android:name="hwc-theme"
-640-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
-641                android:value="androidhwext:style/Theme.Emui.Translucent" />
-641-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
-642        </activity>
-643    </application>
-644
-645</manifest>
+590-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:26:9-28:46
+591            android:name="com.huawei.hms.client.service.name:base"
+591-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:27:13-67
+592            android:value="base:4.0.2.300" /> <!-- SDK依赖的HMSCore的最低api level元数据 -->
+592-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:28:13-43
+593        <meta-data
+593-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:31:9-33:33
+594            android:name="com.huawei.hms.min_api_level:base:hmscore"
+594-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:32:13-69
+595            android:value="1" />
+595-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:33:13-30
+596
+597        <activity
+597-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:35:9-45:20
+598            android:name="com.huawei.hms.activity.BridgeActivity"
+598-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:36:13-66
+599            android:configChanges="orientation|locale|layoutDirection|fontScale|screenSize|smallestScreenSize|screenLayout"
+599-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:37:13-124
+600            android:excludeFromRecents="true"
+600-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:38:13-46
+601            android:exported="false"
+601-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:39:13-37
+602            android:hardwareAccelerated="true"
+602-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:40:13-47
+603            android:theme="@android:style/Theme.Translucent" >
+603-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:41:13-61
+604            <meta-data
+604-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
+605                android:name="hwc-theme"
+605-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
+606                android:value="androidhwext:style/Theme.Emui.Translucent" />
+606-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
+607        </activity>
+608        <activity
+608-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:46:9-49:20
+609            android:name="com.huawei.hms.activity.EnableServiceActivity"
+609-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:47:13-73
+610            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout" >
+610-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:48:13-106
+611        </activity>
+612
+613        <provider
+613-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:51:9-56:20
+614            android:name="com.huawei.hms.update.provider.UpdateProvider"
+614-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:52:13-73
+615            android:authorities="com.fone.fone.hms.update.provider"
+615-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:53:13-71
+616            android:exported="false"
+616-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:54:13-37
+617            android:grantUriPermissions="true" >
+617-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:55:13-47
+618        </provider>
+619        <provider
+619-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:10:9-13:40
+620            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
+620-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:11:13-90
+621            android:authorities="com.fone.fone.AGCInitializeProvider"
+621-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:12:13-73
+622            android:exported="false" />
+622-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:13:13-37
+623
+624        <service
+624-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:15:9-17:40
+625            android:name="com.huawei.agconnect.core.ServiceDiscovery"
+625-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:16:13-70
+626            android:exported="false" />
+626-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8c90e0935aaca04411baad723d0f47bc/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:17:13-37
+627
+628        <activity
+628-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:21:9-29:20
+629            android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
+629-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:22:13-84
+630            android:configChanges="orientation|screenSize"
+630-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:23:13-59
+631            android:exported="false"
+631-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:24:13-37
+632            android:theme="@style/upsdkDlDialog" >
+632-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:25:13-49
+633            <meta-data
+633-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
+634                android:name="hwc-theme"
+634-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
+635                android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar" />
+635-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
+636        </activity>
+637        <activity
+637-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:30:9-38:20
+638            android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
+638-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:31:13-84
+639            android:configChanges="orientation|keyboardHidden|screenSize"
+639-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:32:13-74
+640            android:exported="false"
+640-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:33:13-37
+641            android:theme="@style/upsdkDlDialog" >
+641-->[com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:34:13-49
+642            <meta-data
+642-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:42:13-44:77
+643                android:name="hwc-theme"
+643-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:43:17-41
+644                android:value="androidhwext:style/Theme.Emui.Translucent" />
+644-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4d63d732f578a85c5872e0956217e03b/jetified-base-4.0.2.300/AndroidManifest.xml:44:17-74
+645        </activity>
+646    </application>
+647
+648</manifest>
