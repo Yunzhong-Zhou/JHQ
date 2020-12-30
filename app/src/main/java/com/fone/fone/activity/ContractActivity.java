@@ -445,9 +445,14 @@ public class ContractActivity extends BaseActivity {
             case R.id.tv_dianzi:
                 //查阅电子合同
                 if (!model.getType().equals("0")) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("url", model.getUrl());
-                    CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
+                    if (!model.getUrl().equals("")){
+                        Bundle bundle = new Bundle();
+                        bundle.putString("url", model.getUrl());
+                        CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
+                    }else {
+                        myToast(getString(R.string.contract_h53));
+                    }
+
                 } else {
                     myToast(getString(R.string.contract_h46));
                 }

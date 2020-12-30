@@ -1989,6 +1989,7 @@ id ll_bishu
 id ll_chanzhi
 id ll_content2
 id ll_fil
+id ll_jieidan
 id ll_pay
 id ll_shouru
 id ll_title
@@ -2988,6 +2989,7 @@ string contract_h5
 string contract_h50
 string contract_h51
 string contract_h52
+string contract_h53
 string contract_h6
 string contract_h7
 string contract_h8

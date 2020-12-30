@@ -30,11 +30,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, tv_confirm,tv_title;
+            textView9, textView10, textView11, textView12, tv_confirm, tv_title;
     LinearLayout ll_pay;
     private RecyclerView recyclerView;
     List<MachineDetailModel.InvestBean.InterestListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.InvestBean.InterestListBean> mAdapter;
+
+    LinearLayout ll_jieidan, ll_chanzhi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,9 @@ public class MachineDetailActivity extends BaseActivity {
         tv_confirm = findViewByID_My(R.id.tv_confirm);
         tv_title = findViewByID_My(R.id.tv_title);
         ll_pay = findViewByID_My(R.id.ll_pay);
+
+        ll_jieidan = findViewByID_My(R.id.ll_jieidan);
+        ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
     }
 
     @Override
@@ -125,6 +130,19 @@ public class MachineDetailActivity extends BaseActivity {
                 textView10.setText(response.getInvest().getStart_at() + "");//购买时间
                 textView11.setText(response.getInvest().getEnd_at() + "");//结束时间
                 textView12.setText(response.getInvest().getPay_type_title() + "");//支付方式
+
+                //节点编号
+                if (!response.getInvest().getMill_node_number().equals("")) {
+                    ll_jieidan.setVisibility(View.VISIBLE);
+                } else {
+                    ll_jieidan.setVisibility(View.GONE);
+                }
+                //预期产值
+                if (Double.valueOf(response.getInvest().getMill_production_value_fil_money()) > 0) {
+                    ll_chanzhi.setVisibility(View.VISIBLE);
+                } else {
+                    ll_chanzhi.setVisibility(View.GONE);
+                }
 
                 if (response.getInvest().getMill_type() == 3) {
                     tv_title.setText(getString(R.string.fragment1_h50));
@@ -165,7 +183,7 @@ public class MachineDetailActivity extends BaseActivity {
                 }*/
 
                 list = response.getInvest().getInterest_list();
-                if (list.size()>0){
+                if (list.size() > 0) {
                     showContentPage();
                     mAdapter = new CommonAdapter<MachineDetailModel.InvestBean.InterestListBean>
                             (MachineDetailActivity.this, R.layout.item_machinedetail, list) {
@@ -173,11 +191,11 @@ public class MachineDetailActivity extends BaseActivity {
                         protected void convert(ViewHolder holder, MachineDetailModel.InvestBean.InterestListBean model, int position) {
 //                            holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                             holder.setText(R.id.textView2, model.getCreated_at());//时间
-                            holder.setText(R.id.textView3, "+"+model.getFil_money());//时间
+                            holder.setText(R.id.textView3, "+" + model.getFil_money());//时间
                         }
                     };
 
-                }else {
+                } else {
                     showEmptyPage();
                 }
                 recyclerView.setAdapter(mAdapter);
