@@ -467,12 +467,13 @@
                         <com.fone.fone.view.LoadingLayout
                             android:id="@+id/loading_layout"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recyclerView"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:paddingBottom="30dp"/>
 
                         </com.fone.fone.view.LoadingLayout>
