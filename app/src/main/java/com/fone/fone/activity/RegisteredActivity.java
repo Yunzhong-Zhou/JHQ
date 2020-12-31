@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
@@ -572,6 +573,8 @@ public class RegisteredActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
 //                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
                 bundle.putInt("isShowAd", 1);
+
+                ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(RegisteredActivity.this, MainActivity.class, bundle, true);
 
 //                localUserInfo.setTime(System.currentTimeMillis() + "");

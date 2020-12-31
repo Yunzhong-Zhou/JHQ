@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
@@ -99,7 +100,13 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+       /* requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //add by able for soft keyboard show
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);*/
+
         setContentView(R.layout.activity_login);
+
 
 //        mImmersionBar.reset().init();
 
@@ -113,7 +120,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+//        findViewByID_My(R.id.linearLayout).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
 
         title_right = findViewByID_My(R.id.title_right);
         textView = findViewByID_My(R.id.textView);
@@ -176,6 +183,8 @@ public class LoginActivity extends BaseActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     if (match()) {
+//                        KeyboardUtils.hideSoftInput(editText2);//隐藏键盘
+
                         textView3.setClickable(false);
                         LoginActivity.this.showProgress(true, getString(R.string.login_h7));
                         params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
@@ -444,6 +453,7 @@ public class LoginActivity extends BaseActivity {
                     hideProgress();
                     MainActivity.isOver = false;
 
+                    ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
                     CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
 
                 }
@@ -649,7 +659,7 @@ public class LoginActivity extends BaseActivity {
                     //下载APK
                     InstallUtils.with(LoginActivity.this)
                             //必须-下载地址
-                            .setApkUrl(model_up.getUrl())
+                            .setApkUrl(model_up.getDownload_url())
                             //非必须-下载保存的文件的完整路径+/name.apk，使用自定义路径需要获取读写权限
 //                                    .setApkPath(Constants.APK_SAVE_PATH)
                             //非必须-下载回调

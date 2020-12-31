@@ -76,6 +76,9 @@ public abstract class BaseFragment extends Fragment implements IBaseView_Respons
         if (dialog != null) {
             dialog.dismiss();
         }
+        if (pd != null) {
+            pd.dismiss();
+        }
     }
 
     protected void initCommonView() {

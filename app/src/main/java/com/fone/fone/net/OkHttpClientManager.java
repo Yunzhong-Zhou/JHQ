@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.fone.fone.R;
 import com.fone.fone.activity.LoginActivity;
-import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.LocalUserInfo;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.utils.aes.AES;
@@ -78,8 +78,8 @@ public class OkHttpClientManager {
     public static String HOST = "http://svn.fbiv2ray.com";//接口地址
 
     //正式地址
-//    public static String IMGHOST = "https://app.ofcapital.net";//图片地址
-//    public static String HOST = "https://app.ofcapital.net";//接口地址
+//    public static String IMGHOST = "https://app.fileone.org";//图片地址
+//    public static String HOST = "https://app.fileone.org";//接口地址
     public boolean isLogin = false;
     public static boolean isFace = false;
 
@@ -581,7 +581,8 @@ public class OkHttpClientManager {
                                 case 13:
                                     //token失效-重新登录
                                     LocalUserInfo.getInstance(mContext).setUserId("");
-                                    CommonUtil.gotoActivity(mContext, LoginActivity.class);
+
+                                    ActivityUtils.startActivity(LoginActivity.class);
                                     break;
                                 case 100:
                                 case 101:

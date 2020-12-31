@@ -132,6 +132,9 @@ dependencies {
     implementation project(':easynavigation')
 //    implementation 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
 
+    //工具类 https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    implementation 'com.blankj:utilcodex:1.30.5'
+
     //toast提示框
     implementation 'com.hjq:toast:8.8'
 

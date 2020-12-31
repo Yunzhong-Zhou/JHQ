@@ -8,25 +8,16 @@ import java.io.Serializable;
  */
 
 public class UpgradeModel implements Serializable {
+
     /**
-     * title : 2=2.0.2#1=1.0.0
      * version_code : 1
-     * version_title : 1.0.0
-     * url : http://xxx.xxx.xxx
+     * version_title : 1.0
+     * download_url : http://
      */
 
-    private String title;
     private String version_code;
     private String version_title;
-    private String url;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    private String download_url;
 
     public String getVersion_code() {
         return version_code;
@@ -44,11 +35,11 @@ public class UpgradeModel implements Serializable {
         this.version_title = version_title;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDownload_url() {
+        return download_url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDownload_url(String download_url) {
+        this.download_url = download_url;
     }
 }

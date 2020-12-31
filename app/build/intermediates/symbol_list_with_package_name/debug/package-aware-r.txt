@@ -1540,6 +1540,7 @@ drawable upsdk_cancel_normal
 drawable upsdk_cancel_pressed_bg
 drawable upsdk_third_download_bg
 drawable upsdk_update_all_button
+drawable utils_toast_bg
 drawable wheel_bg
 drawable wheel_val
 drawable white_radius
@@ -2290,6 +2291,10 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id utvBottomIconView
+id utvLeftIconView
+id utvRightIconView
+id utvTopIconView
 id version_layout
 id version_textview
 id vertical
@@ -2541,6 +2546,7 @@ layout support_simple_spinner_dropdown_item
 layout swipeback_layout
 layout upsdk_app_dl_progress_dialog
 layout upsdk_ota_update_view
+layout utils_toast_view
 layout view_empty
 layout view_error
 layout view_loading
@@ -3629,6 +3635,7 @@ string zxing_h5
 string zxing_h6
 string zxing_h7
 string zxing_h8
+style ActivityTranslucent
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AlertDialogStyle
@@ -4245,3 +4252,4 @@ styleable WeekView wv_textColor wv_textSize
 xml file_provider
 xml mn_update_file_provider
 xml network_security_config
+xml util_code_provider_paths

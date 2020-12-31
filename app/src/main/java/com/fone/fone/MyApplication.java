@@ -60,7 +60,7 @@ public class MyApplication extends Application {
         myApplication = this;
 
         //腾讯bugly 异常上报初始化-建议在测试阶段建议设置成true，发布时设置为false。
-        CrashReport.initCrashReport(getApplicationContext(), "99e17918b7", false);
+        CrashReport.initCrashReport(getApplicationContext(), "789711ef96", false);
         //非wifi情况下，主动下载x5内核
         QbSdk.setDownloadWithoutWifi(false);
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。

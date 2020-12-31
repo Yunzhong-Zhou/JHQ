@@ -16,10 +16,10 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/Androi
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:286:13-62
 manifest
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
+ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d94e3d390b73baee4de5c3728d02722e/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.lihangleo2:ShadowLayout:3.1.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0747ff0a20a07824421b053503994501/jetified-ShadowLayout-3.1.6/AndroidManifest.xml:2:1-11:12
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -32,6 +32,7 @@ MERGED from [com.google.android.material:material:1.0.0] /Users/YunZhong/.gradle
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/106dc2631f80c89a61d0eadbd1d5d3a1/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ae3c27816ae1b4064021695461026f6/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:2:1-19:12
+MERGED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:2:1-41:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a719e26471b56d8ec5f7ff1f8e13ee4d/jetified-glide-4.9.0/AndroidManifest.xml:2:1-12:12
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.17] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/69f4c38256fe626426169b42499ae8aa/jetified-android-gif-drawable-1.2.17/AndroidManifest.xml:2:1-10:12
 MERGED from [id.zelory:compressor:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1559ce8fd62225659ef721f17d79881a/jetified-compressor-2.1.0/AndroidManifest.xml:2:1-12:12
@@ -114,22 +115,22 @@ MERGED from [com.huawei.hmf:tasks:1.3.3.300] /Users/YunZhong/.gradle/caches/tran
 MERGED from [com.huawei.hms:network-grs:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/4eea00997a02c556aaaf0a47d8b7e851/jetified-network-grs-4.0.2.300/AndroidManifest.xml:2:1-11:12
 MERGED from [com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/206752ea3e59f89892a908a1d8a777ab/jetified-update-2.0.6.300/AndroidManifest.xml:2:1-41:12
 MERGED from [com.huawei.hms:network-common:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1425a26552674ba7f5cc3328caca95fa/jetified-network-common-4.0.2.300/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 	package
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:4:5-28
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-319:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:11-69
@@ -267,6 +268,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ae3c27816ae1b4064021695461026f6/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:11:5-17:19
 MERGED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:11:5-17:19
+MERGED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:9:5-39:19
+MERGED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:9:5-39:19
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a719e26471b56d8ec5f7ff1f8e13ee4d/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a719e26471b56d8ec5f7ff1f8e13ee4d/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/86039e6f833c1eeea3482a1858294f71/jetified-circleimageview-3.1.0/AndroidManifest.xml:9:5-20
@@ -739,30 +742,6 @@ service#com.fone.fone.utils.TraceServiceImpl
 ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:9-72
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:301:18-69
-uses-feature#android.hardware.camera
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:306:5-308:36
-	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:308:9-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:307:9-47
-uses-feature#android.hardware.camera.front
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:309:5-311:36
-	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:311:9-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:310:9-53
-uses-feature#android.hardware.camera.autofocus
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:312:5-314:36
-	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:314:9-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:313:9-57
-uses-feature#android.hardware.camera.flash
-ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:315:5-317:36
-	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:317:9-33
-	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:316:9-53
 uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
@@ -791,6 +770,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ae3c27816ae1b4064021695461026f6/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:7:5-9:41
 MERGED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:7:5-44
+MERGED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:7:5-44
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a719e26471b56d8ec5f7ff1f8e13ee4d/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a719e26471b56d8ec5f7ff1f8e13ee4d/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.17] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/69f4c38256fe626426169b42499ae8aa/jetified-android-gif-drawable-1.2.17/AndroidManifest.xml:6:5-8:41
@@ -1023,6 +1004,56 @@ ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms
 		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
 	android:name
 		ADDED from [me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f92279c218cafabe7b3b8a962576e262/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
+activity#com.blankj.utilcode.util.UtilsTransActivity4MainProcess
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:10:9-14:75
+	android:windowSoftInputMode
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:14:13-72
+	android:configChanges
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:12:13-74
+	android:theme
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:13:13-55
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:11:13-83
+activity#com.blankj.utilcode.util.UtilsTransActivity
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:15:9-20:75
+	android:multiprocess
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:18:13-40
+	android:windowSoftInputMode
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:20:13-72
+	android:configChanges
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:17:13-74
+	android:theme
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:19:13-55
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:16:13-71
+provider#com.blankj.utilcode.util.UtilsFileProvider
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:22:9-30:20
+	android:grantUriPermissions
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:26:13-47
+	android:authorities
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:24:13-69
+	android:exported
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:23:13-70
+service#com.blankj.utilcode.util.MessengerUtils$ServerService
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:32:9-38:19
+	android:exported
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:33:13-81
+intent-filter#action:name:${applicationId}.messenger
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:35:13-37:29
+intent-filter#action:name:com.fone.fone.messenger
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:35:13-37:29
+action#${applicationId}.messenger
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:25-66
+action#com.fone.fone.messenger
+ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9212eaabbd1b565962d46bbb8b0afb74/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:25-66
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
 ADDED from [com.xdandroid:hellodaemon:1.2.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/908e537a663aa522f4bfc35d3ef05764/jetified-hellodaemon-1.2.2/AndroidManifest.xml:11:5-81
 	android:name

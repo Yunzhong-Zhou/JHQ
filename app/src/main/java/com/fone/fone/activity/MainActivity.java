@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
@@ -503,7 +504,9 @@ public class MainActivity extends BaseActivity {
             //退出
 //            AbsWorkService.cancelJobAlarmSub();//取消定时唤醒
             TraceServiceImpl.stopService();//停止服务.
-            finish();
+
+//            ActivityUtils.finishAllActivities();//结束所有 Activity
+            AppUtils.exitApp();//退出APP
         }
     }
 
@@ -615,7 +618,7 @@ public class MainActivity extends BaseActivity {
                     //下载APK
                     InstallUtils.with(MainActivity.this)
                             //必须-下载地址
-                            .setApkUrl(model_up.getUrl())
+                            .setApkUrl(model_up.getDownload_url())
                             //非必须-下载保存的文件的完整路径+/name.apk，使用自定义路径需要获取读写权限
 //                                    .setApkPath(Constants.APK_SAVE_PATH)
                             //非必须-下载回调

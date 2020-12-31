@@ -130,6 +130,9 @@ public class SelectLanguagePopupWindow extends PopupWindow {
     }
 
     private void initData() {
+        if (list.size() ==2){
+            list.remove(1);
+        }
         CommonAdapter<SmsCodeListModel.LangListBean> mAdapter = new CommonAdapter<SmsCodeListModel.LangListBean>(
                 mContext, R.layout.item_selectlanguage, list) {
             @Override

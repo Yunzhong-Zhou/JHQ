@@ -13,7 +13,7 @@ public class URLs {
     /**
      * 更新
      */
-    public static final String Upgrade = "/api/article/sys-upgrade";
+    public static final String Upgrade = "/api/index/sys-upgrade";
     /**
      * 发送验证码
      */

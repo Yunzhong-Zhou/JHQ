@@ -142,6 +142,9 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
         if (dialog != null) {
             dialog.dismiss();
         }
+        if (pd != null) {
+            pd.dismiss();
+        }
     }
 
     @Override
