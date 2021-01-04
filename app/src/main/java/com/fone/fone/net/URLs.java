@@ -71,6 +71,10 @@ public class URLs {
     public static final String Fragment2 = "/api/invest/create-buy";
     //矿机列表
     public static final String MachineList = "/api/invest/record";
+    //回购申请
+    public static final String HuiGou = "/api/invest/buy-back-apply";
+    //取消回购申请
+    public static final String HuiGou_cancel = "/api/invest/cancel-buy-back-apply";
     /**
      * 首页
      */

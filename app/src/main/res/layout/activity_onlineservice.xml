@@ -50,7 +50,7 @@
             android:imeOptions="actionSend"
             android:singleLine="true"
             android:textColor="@color/black1"
-            android:textColorHint="@color/black4"
+            android:textColorHint="@color/black3"
             android:textSize="14sp"
             android:background="@color/transparent" />
 

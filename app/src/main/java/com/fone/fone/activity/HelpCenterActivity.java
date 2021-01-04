@@ -94,7 +94,7 @@ public class HelpCenterActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //联系客服
-//                CommonUtil.gotoActivity(this, OnlineServiceActivity.class, false);
+                CommonUtil.gotoActivity(this, OnlineServiceActivity.class, false);
                 break;
         }
     }

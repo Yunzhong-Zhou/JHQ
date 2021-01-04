@@ -164,8 +164,57 @@ public class MachineDetailActivity extends BaseActivity {
 
                 } else {
                     tv_title.setText(getString(R.string.fragment1_h29));
-                    tv_confirm.setVisibility(View.GONE);
                     ll_pay.setVisibility(View.GONE);
+
+                    switch (response.getButton()){
+                        case 1:
+                            tv_confirm.setVisibility(View.GONE);
+                            break;
+                        case 2:
+                            tv_confirm.setVisibility(View.VISIBLE);
+                            tv_confirm.setText(getString(R.string.fragment1_h74));
+                            showToast(getString(R.string.fragment1_h75),
+                                    getString(R.string.app_confirm),
+                                    getString(R.string.app_cancel),
+                                    new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            showProgress(true, getString(R.string.app_loading1));
+                                            String string = "?token=" + localUserInfo.getToken()
+                                                    + "&id=" + id;
+                                            RequestUpData1(string);
+                                        }
+                                    }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            break;
+                        case 3:
+                            tv_confirm.setVisibility(View.VISIBLE);
+                            tv_confirm.setText(getString(R.string.fragment1_h76));
+                            showToast(getString(R.string.fragment1_h75),
+                                    getString(R.string.app_confirm),
+                                    getString(R.string.app_cancel),
+                                    new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            showProgress(true, getString(R.string.app_loading1));
+                                            String string = "?token=" + localUserInfo.getToken()
+                                                    + "&id=" + id;
+                                            RequestUpData2(string);
+                                        }
+                                    }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            break;
+                    }
                 }
 
                 /*if (response.getInvest().getStatus() == -1) {
@@ -218,5 +267,42 @@ public class MachineDetailActivity extends BaseActivity {
     protected void updateView() {
         titleView.setVisibility(View.GONE);
     }
+    private void RequestUpData1(String params) {
+        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.HuiGou + params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
 
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.fragment1_h78));
+                requestServer();
+            }
+        });
+    }
+    private void RequestUpData2(String params) {
+        OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.HuiGou_cancel + params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.fragment1_h79));
+                requestServer();
+            }
+        });
+    }
 }

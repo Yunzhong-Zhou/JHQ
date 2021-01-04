@@ -11,6 +11,16 @@ public class MachineDetailModel implements Serializable {
      * invest : {"id":"d057d2b8ce0b16c2f253e07106d00a29","sn":"IN1608611906505752","pay_type":2,"mill_type":3,"mill_computer_position":"中国福州","mill_production_value_fil_money":"100.0000","mill_node_number":"0x11111","mill_number":"oxk333","mill_mining_cycle":360,"hashrate":10,"status":1,"interest_fil_money":"0.0000","verify_at":"2020-12-22 12:38:26","buy_back_apply":1,"created_at":"2020-12-22 12:38:26","pay_type_title":"CNY","mill_type_title":"整机","status_title":"进行中","start_at":"2020-12-22","end_at":"1970-12-27","interest_list":[{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:31:19"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:27:07"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:16:21"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:11:10"}]}
      */
 
+    private int button;
+
+    public int getButton() {
+        return button;
+    }
+
+    public void setButton(int button) {
+        this.button = button;
+    }
+
     private InvestBean invest;
 
     public InvestBean getInvest() {

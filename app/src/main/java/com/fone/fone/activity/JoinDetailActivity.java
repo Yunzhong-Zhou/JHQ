@@ -124,7 +124,7 @@ public class JoinDetailActivity extends BaseActivity {
                 hideProgress();
                 model = response;
                 //是我中奖
-                if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
+                /*if (localUserInfo.getUserId().equals(response.getChange_game().getWin_member_id())) {
                     //显示中奖
                     if (localUserInfo.getWinnum1().equals("") ||
                             !localUserInfo.getWinnum1().equals(response.getChange_game().getWin_member_id()
@@ -136,7 +136,7 @@ public class JoinDetailActivity extends BaseActivity {
                 } else {
                     //没有中奖
 //                 showLose(response.getWin_prompt());
-                }
+                }*/
 
                 //fil价格
                 if (response.getChange_game().getStatus() == 3) {//已结束
