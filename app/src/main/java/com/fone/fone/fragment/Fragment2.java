@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.fone.fone.R;
 import com.fone.fone.activity.MachineDetailActivity;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.WebContentActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment2BuyModel;
 import com.fone.fone.model.Fragment2Model;
@@ -33,12 +34,15 @@ import java.util.Map;
 public class Fragment2 extends BaseFragment {
     Fragment2Model model;
     int num = 1;
-    ImageView imageView1, imageView2;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, tv_confirm;
+    ImageView imageView1, imageView2, iv_hetong;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
+            tv_confirm, tv_hetong;
     SeekBar seekBar;
 
     LinearLayout ll_chanzhi;
     View view_chanzhi;
+
+    boolean isgouxuan = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -144,6 +148,11 @@ public class Fragment2 extends BaseFragment {
 
         ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
         view_chanzhi = findViewByID_My(R.id.view_chanzhi);
+
+        iv_hetong = findViewByID_My(R.id.iv_hetong);
+        iv_hetong.setOnClickListener(this);
+        tv_hetong = findViewByID_My(R.id.tv_hetong);
+        tv_hetong.setOnClickListener(this);
     }
 
     @Override
@@ -160,6 +169,14 @@ public class Fragment2 extends BaseFragment {
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
+            case R.id.iv_hetong:
+                //勾选协议
+                isgouxuan = !isgouxuan;
+                if (isgouxuan)
+                    iv_hetong.setImageResource(R.mipmap.ic_xuanzhong);
+                else
+                    iv_hetong.setImageResource(R.drawable.yuanhuan_huise2);
+                break;
             case R.id.imageView1:
                 //减
                 if (num > 1) {
@@ -180,26 +197,39 @@ public class Fragment2 extends BaseFragment {
             case R.id.tv_confirm:
                 //加入拼团
                 if (model != null) {
-                    showToast(getString(R.string.fragment2_h16)
-                            , getString(R.string.app_confirm)
-                            , getString(R.string.app_cancel), new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    showProgress(true, getString(R.string.app_loading1));
-                                    HashMap<String, String> params = new HashMap<>();
-                                    params.put("hk", model.getHk());
-                                    params.put("mill_id", model.getMill_id());
-                                    params.put("token", localUserInfo.getToken());
-                                    params.put("hashrate", num + "");
-                                    RequestBuy(params);
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                }
-                            });
+                    if (isgouxuan){
+                        showToast(getString(R.string.fragment2_h16)
+                                , getString(R.string.app_confirm)
+                                , getString(R.string.app_cancel), new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        showProgress(true, getString(R.string.app_loading1));
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("hk", model.getHk());
+                                        params.put("mill_id", model.getMill_id());
+                                        params.put("token", localUserInfo.getToken());
+                                        params.put("hashrate", num + "");
+                                        RequestBuy(params);
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }else {
+                        myToast(getString(R.string.fragment2_h18));
+                    }
+
+                }
+                break;
+            case R.id.tv_hetong:
+                //合同
+                if (!model.getUrl().equals("")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("url", model.getUrl());
+                    CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
                 }
                 break;
         }

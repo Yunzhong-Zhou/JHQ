@@ -173,46 +173,58 @@ public class MachineDetailActivity extends BaseActivity {
                         case 2:
                             tv_confirm.setVisibility(View.VISIBLE);
                             tv_confirm.setText(getString(R.string.fragment1_h74));
-                            showToast(getString(R.string.fragment1_h75),
-                                    getString(R.string.app_confirm),
-                                    getString(R.string.app_cancel),
-                                    new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.dismiss();
-                                            showProgress(true, getString(R.string.app_loading1));
-                                            String string = "?token=" + localUserInfo.getToken()
-                                                    + "&id=" + id;
-                                            RequestUpData1(string);
-                                        }
-                                    }, new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.dismiss();
-                                        }
-                                    });
+                            tv_confirm.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    showToast(getString(R.string.fragment1_h75),
+                                            getString(R.string.app_confirm),
+                                            getString(R.string.app_cancel),
+                                            new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                    showProgress(true, getString(R.string.app_loading1));
+                                                    String string = "?token=" + localUserInfo.getToken()
+                                                            + "&id=" + id;
+                                                    RequestUpData1(string);
+                                                }
+                                            }, new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                }
+                            });
+
                             break;
                         case 3:
                             tv_confirm.setVisibility(View.VISIBLE);
                             tv_confirm.setText(getString(R.string.fragment1_h76));
-                            showToast(getString(R.string.fragment1_h75),
-                                    getString(R.string.app_confirm),
-                                    getString(R.string.app_cancel),
-                                    new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.dismiss();
-                                            showProgress(true, getString(R.string.app_loading1));
-                                            String string = "?token=" + localUserInfo.getToken()
-                                                    + "&id=" + id;
-                                            RequestUpData2(string);
-                                        }
-                                    }, new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.dismiss();
-                                        }
-                                    });
+                            tv_confirm.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    showToast(getString(R.string.fragment1_h75),
+                                            getString(R.string.app_confirm),
+                                            getString(R.string.app_cancel),
+                                            new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                    showProgress(true, getString(R.string.app_loading1));
+                                                    String string = "?token=" + localUserInfo.getToken()
+                                                            + "&id=" + id;
+                                                    RequestUpData2(string);
+                                                }
+                                            }, new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                }
+                            });
+
                             break;
                     }
                 }

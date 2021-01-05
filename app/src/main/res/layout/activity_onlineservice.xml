@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:cacheColorHint="@color/transparent"
                 android:divider="@color/transparent"
-                android:dividerHeight="1dp"
+                android:dividerHeight="0dp"
                 android:listSelector="@color/transparent"
                 android:paddingBottom="10dp"
                 android:scrollbars="none"></ListView>
@@ -46,13 +46,13 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@color/transparent"
             android:hint="@string/onlineservice_hint"
             android:imeOptions="actionSend"
             android:singleLine="true"
             android:textColor="@color/black1"
             android:textColorHint="@color/black3"
-            android:textSize="14sp"
-            android:background="@color/transparent" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/imageView"

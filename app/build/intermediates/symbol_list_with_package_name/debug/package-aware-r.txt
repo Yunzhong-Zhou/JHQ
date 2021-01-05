@@ -1518,6 +1518,7 @@ drawable progressbar_bg_lvse
 drawable progressbar_bg_lvsejianbian
 drawable progressbar_yellow_black
 drawable sanjiaoxing_left_hongse
+drawable sanjiaoxing_left_huangse
 drawable sanjiaoxing_left_zise
 drawable sanjiaoxing_right_huangse
 drawable sanjiaoxing_right_lvse
@@ -1548,6 +1549,7 @@ drawable white_shape
 drawable xuanzhuan_yuanhuan_green
 drawable yuanhuan_hongse
 drawable yuanhuan_huise
+drawable yuanhuan_huise2
 drawable yuanhuan_lvse
 drawable yuanjiao_0_baiseyinying
 drawable yuanjiao_0_lvse
@@ -1938,6 +1940,7 @@ id iv_dianzi
 id iv_geren
 id iv_head
 id iv_head_bg
+id iv_hetong
 id iv_icon
 id iv_qiye
 id iv_usdt
@@ -2235,6 +2238,7 @@ id tv_fuzhi
 id tv_h1
 id tv_h2
 id tv_haicha
+id tv_hetong
 id tv_join
 id tv_keyong
 id tv_kuangji
@@ -2475,6 +2479,7 @@ layout item_mycalculate
 layout item_mymachine
 layout item_myrecharge
 layout item_onlineservice
+layout item_onlineservice1
 layout item_perioddetail
 layout item_pop_list
 layout item_qrcode
@@ -3135,6 +3140,11 @@ string fragment1_h71
 string fragment1_h72
 string fragment1_h73
 string fragment1_h74
+string fragment1_h75
+string fragment1_h76
+string fragment1_h77
+string fragment1_h78
+string fragment1_h79
 string fragment1_h8
 string fragment1_h9
 string fragment2
@@ -3146,6 +3156,8 @@ string fragment2_h13
 string fragment2_h14
 string fragment2_h15
 string fragment2_h16
+string fragment2_h17
+string fragment2_h18
 string fragment2_h2
 string fragment2_h3
 string fragment2_h4

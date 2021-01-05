@@ -405,7 +405,9 @@
     <string name="fragment2_h13">预计产值</string>
     <string name="fragment2_h14">立即购买</string>
     <string name="fragment2_h15">购买成功</string>
-    <string name="fragment2_h16">确认购买吗？</string>
+    <string name="fragment2_h16">请确认购买算力</string>
+    <string name="fragment2_h17">《算力销售合同》</string>
+    <string name="fragment2_h18">购买请阅读并同意《算力销售合同》</string>
 
     <!--fragment3-->
     <string name="fragment3_h1">算力大小</string>

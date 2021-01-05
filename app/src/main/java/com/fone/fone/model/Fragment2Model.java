@@ -24,6 +24,15 @@ public class Fragment2Model implements Serializable {
     private String mill_mining_cycle;
     private String mill_production_value_fil_money;
     private String hk;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getHashrate_price() {
         return hashrate_price;

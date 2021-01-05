@@ -78,8 +78,8 @@ public class OkHttpClientManager {
     public static String HOST = "http://svn.fbiv2ray.com";//接口地址
 
     //正式地址
-//    public static String IMGHOST = "https://app.fileone.org";//图片地址
-//    public static String HOST = "https://app.fileone.org";//接口地址
+//    public static String IMGHOST = "https://app.fileone.co";//图片地址
+//    public static String HOST = "https://app.fileone.co";//接口地址
     public boolean isLogin = false;
     public static boolean isFace = false;
 
