@@ -28,8 +28,17 @@ public class Fragment3Model implements Serializable {
     private ChangeGameBean change_game;
     private WinPromptBean win_prompt;
     private String hk;
+    private String url;
     private List<ChangeGameListBean> change_game_list;
     private List<MemberListBean> member_list;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public ChangeGameBean getChange_game() {
         return change_game;

@@ -2452,6 +2452,7 @@ layout dialog_base2
 layout dialog_daojishi
 layout dialog_fragment1
 layout dialog_fragment3
+layout dialog_fragment3_join
 layout dialog_help
 layout dialog_loginerror
 layout dialog_recharge
@@ -3198,17 +3199,7 @@ string fragment3_h34
 string fragment3_h35
 string fragment3_h36
 string fragment3_h37
-string fragment3_h38
-string fragment3_h39
 string fragment3_h4
-string fragment3_h40
-string fragment3_h41
-string fragment3_h42
-string fragment3_h43
-string fragment3_h44
-string fragment3_h45
-string fragment3_h46
-string fragment3_h47
 string fragment3_h5
 string fragment3_h6
 string fragment3_h7

@@ -18,6 +18,7 @@ import com.fone.fone.activity.JoinDetailActivity;
 import com.fone.fone.activity.JoinListActivity;
 import com.fone.fone.activity.LeaderboardActivity;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.WebContentActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment3Model;
 import com.fone.fone.model.JoinModel;
@@ -69,6 +70,8 @@ public class Fragment3 extends BaseFragment {
     View view1, view2;
 
     TextView tv_title, tv_tab1, tv_tab2, tv_tab3, tv_tab4, tv_join, tv_more;
+
+    boolean isgouxuan = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -254,7 +257,7 @@ public class Fragment3 extends BaseFragment {
                      * 加入拼团
                      */
 //                    list_join = response.getChange_game().getChange_game_participation_list();
-                    if(response.getChange_game() != null ){
+                    if (response.getChange_game() != null) {
                         list_join.clear();
                         for (Fragment3Model.ChangeGameBean.ChangeGameParticipationListBean bean
                                 : response.getChange_game().getChange_game_participation_list()) {
@@ -448,35 +451,59 @@ public class Fragment3 extends BaseFragment {
                 break;
             case R.id.tv_join:
                 //加入拼团
-                if (model.getChange_game() !=null){
-                    showProgress(true, getString(R.string.app_loading1));
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("hk", model.getHk());//金额
-                    params.put("change_game_id", model.getChange_game().getId());
-                    params.put("token", localUserInfo.getToken());
+                if (model.getChange_game() != null) {
+                    dialog.contentView(R.layout.dialog_fragment3_join)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.CENTER)
+                            .canceledOnTouchOutside(true)
+                            .gravity(Gravity.CENTER)
+                            .dimAmount(0.8f)
+                            .show();
+                    ImageView iv_hetong = dialog.findViewById(R.id.iv_hetong);
+                    /*if (isgouxuan)
+                        iv_hetong.setImageResource(R.mipmap.ic_xuanzhong);
+                    else
+                        iv_hetong.setImageResource(R.drawable.yuanhuan_huise2);*/
+                    isgouxuan = false;
+                    iv_hetong.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            isgouxuan = !isgouxuan;
+                            if (isgouxuan)
+                                iv_hetong.setImageResource(R.mipmap.ic_xuanzhong);
+                            else
+                                iv_hetong.setImageResource(R.drawable.yuanhuan_huise2);
+                        }
+                    });
+                    TextView tv_hetong = dialog.findViewById(R.id.tv_hetong);
+                    tv_hetong.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("url", model.getUrl());
+                            CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                        }
+                    });
+                    TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (isgouxuan) {
+                                dialog.dismiss();
+                                showProgress(true, getString(R.string.app_loading1));
+                                HashMap<String, String> params = new HashMap<>();
+                                params.put("hk", model.getHk());//金额
+                                params.put("change_game_id", model.getChange_game().getId());
+                                params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
-                    RequestJoin(params);
+                                RequestJoin(params);
+                            } else {
+                                myToast(getString(R.string.fragment3_h37));
+                            }
 
-                    /*showToast(getString(R.string.fragment3_h24)
-                            , getString(R.string.app_confirm)
-                            , getString(R.string.app_cancel), new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                    showProgress(true, getString(R.string.app_loading1));
-                                    HashMap<String, String> params = new HashMap<>();
-                                    params.put("hk", model.getHk());//金额
-                                    params.put("change_game_id", model.getChange_game().getId());
-                                    params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                    RequestJoin(params);
-                                }
-                            }, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                }
-                            });*/
+                        }
+                    });
                 }
                 break;
 

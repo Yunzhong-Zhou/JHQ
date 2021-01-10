@@ -165,8 +165,8 @@ public class MachineDetailActivity extends BaseActivity {
                 } else {
                     tv_title.setText(getString(R.string.fragment1_h29));
                     ll_pay.setVisibility(View.GONE);
-
-                    switch (response.getButton()){
+                    tv_confirm.setVisibility(View.GONE);
+                    /*switch (response.getButton()){
                         case 1:
                             tv_confirm.setVisibility(View.GONE);
                             break;
@@ -226,7 +226,7 @@ public class MachineDetailActivity extends BaseActivity {
                             });
 
                             break;
-                    }
+                    }*/
                 }
 
                 /*if (response.getInvest().getStatus() == -1) {
