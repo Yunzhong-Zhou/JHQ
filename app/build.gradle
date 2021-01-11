@@ -4,7 +4,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.fone.fone"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -117,6 +117,9 @@ dependencies {
     //自定义阴影库
     implementation 'com.lijiankun24:shadowlayout:1.1.0'
     implementation 'com.github.lihangleo2:ShadowLayout:3.1.6'
+
+    //TextView颜色渐变
+    implementation 'com.williamyang:gradienttext:1.0.1'
 
     //banner
     implementation 'com.youth.banner:banner:1.4.10'

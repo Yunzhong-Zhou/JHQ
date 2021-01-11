@@ -20,8 +20,8 @@ ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidMa
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:2:1-305:12
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/203bc28b6992b7ef73b5dc58fdc42b87/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.lihangleo2:ShadowLayout:3.1.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b33a96d7a8b55070755be104d289f5ac/jetified-ShadowLayout-3.1.6/AndroidManifest.xml:2:1-11:12
+MERGED from [com.williamyang:gradienttext:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ada0af6511daebe74899da17424f1b8/jetified-gradienttext-1.0.1/AndroidManifest.xml:2:1-12:12
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fc9e10bebe118a3aca1fce92e6bc93ca/jetified-AliHeader-1.5.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04f0949c714b53b2ea0189af08c44ab3/jetified-library-1.5.1/AndroidManifest.xml:2:1-17:12
@@ -56,6 +56,9 @@ MERGED from [com.google.firebase:firebase-messaging:21.0.1] /Users/YunZhong/.gra
 MERGED from [com.mob:MobPush:3.0.4] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/96ced09a3179e4a02b9b184d594ea4cb/jetified-MobPush-3.0.4/AndroidManifest.xml:2:1-26:12
 MERGED from [com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8e31b59d747354247706aa7d363f8829/jetified-MobGuard-1.3.0/AndroidManifest.xml:2:1-21:12
 MERGED from [com.mob:MobApm:1.2.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51b319792935d46b07a8fa0a37d4e146/jetified-MobApm-1.2.3/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d529bc66cd688ab84a1284bcf5529458/jetified-firebase-iid-21.0.1/AndroidManifest.xml:17:1-47:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7cb3e4cee6226e2e52e70e3b95df752f/jetified-play-services-cloud-messaging-16.0.0/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/db3421474f7acaa843ff5c82b8fbc7f9/jetified-play-services-stats-17.0.0/AndroidManifest.xml:2:1-9:12
@@ -70,33 +73,31 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/Y
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1f583a641d1ac465a22f22817a0ae7e9/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/49a154bf2233eb2f1fa2b5e308b0f273/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e46125cc598b5e5d49e176eb2fabbe8/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/19585a5d1fd5ed2e10a9d07d8f299d07/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26874f4b2dd7c153884a700d5746cb5e/jetified-core-ktx-1.3.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/77869b32db206ed2d2d4b28f1b76e41c/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f62a6d614443ea18bd32d8d80efa8318/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b7ca1a34d49886abbed3f109ca87b9f/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04074f2571a01f081013ebbd99e12685/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e3ff49854583d9763de22893362e569/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/19496b00effdb7046c25e75d96c4611e/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/2c76b4d7510b9d4dcbac688723767d83/customview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/645d4e5ee9983837f412732a83216e1d/transition-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/290c6c23f488eed9d34a176b455fd61a/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/952e10d1353a8ad64966df4be8476b45/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:2:1-11:12
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:15:1-38:12
-MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:15:1-23:12
-MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f2dc8bbda8ee6db39cac6fb319dd0aa3/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/affb09cf5264cd6fe93cd84286fd731c/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0da6636d61abe95c004a73672b10bcf7/jetified-transport-runtime-2.2.5/AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3c1d14d949883ef8266e0c9c6c390384/jetified-transport-api-2.2.1/AndroidManifest.xml:15:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/985bd68d2454708e4e5fe92c32758dcf/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/805f6ec3c688cb8ca1efe9f0295a2f3f/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b9caf823504bb484dadb9a120bd704f4/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e6339a3e9f7463f672baa246d98a3df8/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -312,12 +313,12 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/Y
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fcf0947d7b83092d994e7936ba9a9eb4/jetified-firebase-measurement-connector-18.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1f583a641d1ac465a22f22817a0ae7e9/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1f583a641d1ac465a22f22817a0ae7e9/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
+MERGED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f2dc8bbda8ee6db39cac6fb319dd0aa3/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f2dc8bbda8ee6db39cac6fb319dd0aa3/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0da6636d61abe95c004a73672b10bcf7/jetified-transport-runtime-2.2.5/AndroidManifest.xml:25:5-39:19
@@ -345,7 +346,7 @@ MERGED from [com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/tra
 	android:maxAspectRatio
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:55:9-37
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
 		ADDED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml:58:9-35
 	android:label
@@ -746,10 +747,10 @@ uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
 INJECTED from /Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/AndroidManifest.xml
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/203bc28b6992b7ef73b5dc58fdc42b87/multidex-2.0.0/AndroidManifest.xml:20:5-43
-MERGED from [androidx.multidex:multidex:2.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/203bc28b6992b7ef73b5dc58fdc42b87/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [com.github.lihangleo2:ShadowLayout:3.1.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b33a96d7a8b55070755be104d289f5ac/jetified-ShadowLayout-3.1.6/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.lihangleo2:ShadowLayout:3.1.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b33a96d7a8b55070755be104d289f5ac/jetified-ShadowLayout-3.1.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.williamyang:gradienttext:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ada0af6511daebe74899da17424f1b8/jetified-gradienttext-1.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.williamyang:gradienttext:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0ada0af6511daebe74899da17424f1b8/jetified-gradienttext-1.0.1/AndroidManifest.xml:7:5-9:41
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/FONE/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.liaoinstan.springview:AliHeader:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/fc9e10bebe118a3aca1fce92e6bc93ca/jetified-AliHeader-1.5.1/AndroidManifest.xml:7:5-9:41
@@ -818,6 +819,12 @@ MERGED from [com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2
 MERGED from [com.mob:MobGuard:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8e31b59d747354247706aa7d363f8829/jetified-MobGuard-1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.mob:MobApm:1.2.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51b319792935d46b07a8fa0a37d4e146/jetified-MobApm-1.2.3/AndroidManifest.xml:7:5-9:41
 MERGED from [com.mob:MobApm:1.2.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/51b319792935d46b07a8fa0a37d4e146/jetified-MobApm-1.2.3/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d529bc66cd688ab84a1284bcf5529458/jetified-firebase-iid-21.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:21.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d529bc66cd688ab84a1284bcf5529458/jetified-firebase-iid-21.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7cb3e4cee6226e2e52e70e3b95df752f/jetified-play-services-cloud-messaging-16.0.0/AndroidManifest.xml:5:5-44
@@ -846,12 +853,22 @@ MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/tr
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/49a154bf2233eb2f1fa2b5e308b0f273/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e46125cc598b5e5d49e176eb2fabbe8/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1e46125cc598b5e5d49e176eb2fabbe8/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8d284a501aa5b20168994fd42c2de517/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26f7de5ffd39d29e575710cd1a2cb5b2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/19585a5d1fd5ed2e10a9d07d8f299d07/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/19585a5d1fd5ed2e10a9d07d8f299d07/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26874f4b2dd7c153884a700d5746cb5e/jetified-core-ktx-1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/26874f4b2dd7c153884a700d5746cb5e/jetified-core-ktx-1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/77869b32db206ed2d2d4b28f1b76e41c/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/77869b32db206ed2d2d4b28f1b76e41c/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f62a6d614443ea18bd32d8d80efa8318/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
@@ -860,10 +877,6 @@ MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transf
 MERGED from [androidx.loader:loader:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1b7ca1a34d49886abbed3f109ca87b9f/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04074f2571a01f081013ebbd99e12685/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/04074f2571a01f081013ebbd99e12685/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3afd24ba5b606a8abc2aaf457c614bab/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7783f4f66a5491932b15b7e36b8d2a89/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e3ff49854583d9763de22893362e569/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0e3ff49854583d9763de22893362e569/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/19496b00effdb7046c25e75d96c4611e/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -876,18 +889,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZho
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/290c6c23f488eed9d34a176b455fd61a/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/952e10d1353a8ad64966df4be8476b45/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/952e10d1353a8ad64966df4be8476b45/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/222a1aa9f3e28dd62f8f009117461b55/core-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d44c50d08772b7a0ecac1b4ec2aab586/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/857c04a29ee9941a811e7963e6d53954/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/dfd4a484d23e28fdf1e3717cc9fa6152/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/54fd8c68eebd6d8e1000f79a7337a3ed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/66712768bb8b88bec70fa510e450006a/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f2dc8bbda8ee6db39cac6fb319dd0aa3/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f2dc8bbda8ee6db39cac6fb319dd0aa3/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/affb09cf5264cd6fe93cd84286fd731c/cardview-1.0.0/AndroidManifest.xml:20:5-44
@@ -896,10 +899,10 @@ MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] /Users/Yu
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0da6636d61abe95c004a73672b10bcf7/jetified-transport-runtime-2.2.5/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3c1d14d949883ef8266e0c9c6c390384/jetified-transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3c1d14d949883ef8266e0c9c6c390384/jetified-transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/985bd68d2454708e4e5fe92c32758dcf/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/985bd68d2454708e4e5fe92c32758dcf/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/9cac9cb019844afcc6824ce5a00c9d2b/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/805f6ec3c688cb8ca1efe9f0295a2f3f/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/805f6ec3c688cb8ca1efe9f0295a2f3f/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b9caf823504bb484dadb9a120bd704f4/interpolator-1.0.0/AndroidManifest.xml:20:5-44

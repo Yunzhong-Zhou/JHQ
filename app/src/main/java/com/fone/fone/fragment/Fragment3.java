@@ -1,6 +1,9 @@
 package com.fone.fone.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
@@ -504,6 +507,12 @@ public class Fragment3 extends BaseFragment {
 
                         }
                     });
+                    dialog.findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
                 }
                 break;
 
@@ -652,6 +661,18 @@ public class Fragment3 extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 设置textview 的颜色渐变
+     *
+     * @param text
+     */
+
+    public void setTextViewStyles(TextView text) {
+        LinearGradient mLinearGradient = new LinearGradient(0, 0, text.getHeight(), text.getPaint().getTextSize(), Color.parseColor("#2EA9F4"), Color.parseColor("#066CF8"), Shader.TileMode.CLAMP);
+        text.getPaint().setShader(mLinearGradient);
+        text.invalidate();
     }
 
 }

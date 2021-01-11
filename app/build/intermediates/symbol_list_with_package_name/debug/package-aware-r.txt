@@ -372,6 +372,11 @@ attr gifSource
 attr gifViewStyle
 attr give
 attr goIcon
+attr gradient_animate
+attr gradient_direction
+attr gradient_endColor
+attr gradient_speed
+attr gradient_startColor
 attr hasShadow
 attr header
 attr headerLayout
@@ -812,6 +817,8 @@ color activity_bg
 color amber300
 color amber500
 color amber700
+color androidx_core_ripple_material_light
+color androidx_core_secondary_text_default_material_light
 color background
 color background_floating_material_dark
 color background_floating_material_light
@@ -854,6 +861,8 @@ color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color color_03DAC5
+color color_6200EE
 color color_text_01
 color color_text_02
 color color_text_03
@@ -1875,6 +1884,7 @@ id et_usdtmoney
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fast
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1951,6 +1961,7 @@ id largeLabel
 id launch_product_query
 id layout_body
 id left
+id leftToRight
 id left_btn
 id left_btn1
 id left_text
@@ -2131,6 +2142,7 @@ id showHome
 id showTitle
 id sidrbar
 id size_layout
+id slow
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -2213,6 +2225,7 @@ id title_view
 id titleview
 id top
 id topPanel
+id topToBottom
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -4208,6 +4221,7 @@ styleable GifTextureView gifSource isOpaque
 styleable GifView freezesAnimation gif loopCount paused
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GradientTextView gradient_animate gradient_direction gradient_endColor gradient_speed gradient_startColor
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight

@@ -220,10 +220,6 @@
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment4_2.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-xxhdpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-xxhdpi/xuanzhuan_yuanhuan_green.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_usdt_white1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_usdt_white1.png"
     },
@@ -236,12 +232,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/layout/mydefault_footer.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_usdtwallet.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/layout/activity_usdtwallet.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_5_baise_top.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/drawable/yuanjiao_5_baise_top.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_usdtwallet.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/layout/activity_usdtwallet.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_leaderboard.png.flat",
@@ -404,10 +400,6 @@
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_add_yellow.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_xuanzhuan_yuanhuan_green.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-anydpi-v21/xuanzhuan_yuanhuan_green.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_bank_green.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_bank_green.png"
     },
@@ -470,10 +462,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_20_huise.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/drawable/yuanjiao_20_huise.xml"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-ldpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-ldpi/xuanzhuan_yuanhuan_green.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable_sanjiaoxing_top_lvse.xml.flat",
@@ -542,6 +530,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_shaixuan.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_shaixuan.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable_xuanzhuan_yuanhuan_green.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/drawable/xuanzhuan_yuanhuan_green.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_mycalculate.xml.flat",
@@ -638,10 +630,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_next_white.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_next_white.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-xhdpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-xhdpi/xuanzhuan_yuanhuan_green.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_about.xml.flat",
@@ -950,10 +938,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_item_fragment1_1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_item_fragment1_1.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-xxxhdpi/xuanzhuan_yuanhuan_green.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_sharepeople.xml.flat",
@@ -1270,10 +1254,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment1_1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment1_1.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-mdpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-mdpi/xuanzhuan_yuanhuan_green.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_sanjiao_bottom.png.flat",
@@ -1662,10 +1642,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/layout_activity_myposter.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/src/main/res/layout/activity_myposter.xml"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable-hdpi_xuanzhuan_yuanhuan_green.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/generated/res/pngs/debug/drawable-hdpi/xuanzhuan_yuanhuan_green.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiaobiankuang_50_baise.xml.flat",

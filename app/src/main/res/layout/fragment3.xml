@@ -73,9 +73,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
                                 android:background="@color/black4"
                                 android:paddingLeft="15dp"
-                                android:layout_marginTop="10dp"
                                 android:paddingTop="5dp"
                                 android:paddingRight="15dp"
                                 android:paddingBottom="5dp"
@@ -88,9 +88,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:paddingTop="10dp"
                                 android:gravity="center_vertical"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -185,9 +185,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:paddingBottom="10dp"
                                 android:gravity="center_vertical"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:paddingBottom="10dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -213,9 +213,9 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/app_ge"
-                                            android:visibility="gone"
                                             android:textColor="@color/black2"
-                                            android:textSize="10sp" />
+                                            android:textSize="10sp"
+                                            android:visibility="gone" />
                                     </LinearLayout>
 
                                     <TextView
@@ -281,7 +281,7 @@
                         android:id="@+id/rv_join"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"/>
+                        android:paddingBottom="10dp" />
 
                     <TextView
                         android:id="@+id/tv_join"
@@ -290,10 +290,10 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="17dp"
                         android:layout_marginRight="17dp"
-                        android:padding="10dp"
                         android:background="@drawable/btn_img1"
                         android:gravity="center"
                         android:onClick="onClick"
+                        android:padding="10dp"
                         android:text="@string/fragment3_h5"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
@@ -342,6 +342,21 @@
                                     android:text="@string/fragment3_h6"
                                     android:textColor="@color/black1"
                                     android:textSize="14sp" />
+                                <!--<com.william.gradient.GradientTextView
+                                    android:id="@+id/textView1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="5dp"
+                                    android:gravity="center"
+                                    android:text="@string/fragment3_h6"
+                                    android:textColor="@color/black1"
+                                    android:textSize="14sp"
+                                    app:gradient_startColor="@color/black3"
+                                    app:gradient_endColor="@color/green"
+                                    app:gradient_animate="false"
+                                    app:gradient_direction="topToBottom"
+                                    app:gradient_speed="normal" />-->
 
                                 <View
                                     android:id="@+id/view1"
