@@ -168,6 +168,56 @@ public class URLs {
     public static final String InvoiceCreate = "/api/invoice/create";
     //合同列表
     public static final String ContractList = "/api/invoice/record";
+
+
+    /**
+     * USDT交易列表
+     */
+    public static final String USDTJiaoYiList1 = "/api/usdt-deal";
+    /**
+     * USDT交易列表-我的购买
+     */
+    public static final String USDTJiaoYiList2 = "/api/usdt-deal/my-buy";
+    /**
+     * USDT购买-取消
+     */
+    public static final String USDTCancel = "/api/usdt-deal/cancel";
+    /**
+     * USDT出售
+     */
+    public static final String USDTSell = "/api/usdt-deal/sell";
+    /**
+     * USDT购买
+     */
+    public static final String USDTBuy = "/api/usdt-deal/buy";
+    /**
+     * USDT交易列表
+     */
+    public static final String USDTJiaoYiList = "/api/usdt-deal/record";
+    /**
+     * USDT交易详情
+     */
+    public static final String USDTJiaoYiDetail = "/api/usdt-deal/detail";
+    /**
+     * 银行卡设置
+     */
+    public static final String Collection = "/api/member/set-proceeds";
+    /**
+     * 银行卡设置_验证码
+     */
+    public static final String Collection_code = "/api/sms-code/send-code";
+    /**
+     * 申诉
+     */
+    public static final String ShenShu = "/api/usdt-deal/appeal";
+    /**
+     * 确认付款
+     */
+    public static final String ConfirmPay = "/api/usdt-deal/has-pay";
+    /**
+     * 确认收款
+     */
+    public static final String ShouKuan = "/api/usdt-deal/finish";
     /**
      * 拼接请求路径
      *

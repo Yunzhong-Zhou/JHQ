@@ -427,7 +427,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dip"
                                     android:singleLine="true"
-                                    android:text="@string/fragment5_h10"
+                                    android:text="@string/fragment5_h31"
                                     android:textColor="@color/black2"
                                     android:textSize="12sp" />
                             </LinearLayout>

@@ -12,162 +12,6 @@
         android:orientation="vertical">
 
         <!--<View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />-->
-
-        <!--CNY-->
-        <RelativeLayout
-            android:id="@+id/relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="173dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/yuanjiao_5_baise"
-            android:elevation="0dp"
-            android:onClick="onClick"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/ic_yinlian"
-                android:drawablePadding="15dp"
-                android:gravity="center_vertical"
-                android:padding="15dp"
-                android:text="@string/addrmanage_h2"
-                android:textColor="@color/black2"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@mipmap/ic_add_yellow"
-                    android:text="@string/addrmanage_h3"
-                    android:textColor="@color/black1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="14dp"
-                    android:gravity="center"
-                    android:text="@string/addrmanage_h4"
-                    android:textColor="@color/black3"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="173dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/yuanjiao_5_baise"
-            android:elevation="0dp"
-            android:onClick="onClick"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/ic_yinlian"
-                android:drawablePadding="15dp"
-                android:gravity="center_vertical"
-                android:padding="15dp"
-                android:text="@string/takecash_h10"
-                android:textColor="@color/black2"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/type1_tv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="0"
-                android:textColor="@color/black1"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/takecash_h19"
-                android:textColor="@color/black3"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <TextView
-                    android:id="@+id/type1_tv2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="NAME"
-                    android:textColor="@color/black1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/type1_tv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NAME"
-                    android:textColor="@color/black1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/takecash_h20"
-                    android:textColor="@color/black3"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/takecash_h21"
-                    android:textColor="@color/black3"
-                    android:textSize="15sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!--<View
             android:id="@+id/view_1"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -194,7 +38,7 @@
                 android:gravity="center_vertical"
                 android:padding="15dp"
                 android:text="@string/addrmanage_h2"
-                android:textColor="@color/black2"
+                android:textColor="@color/black3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -250,7 +94,7 @@
                 android:gravity="center_vertical"
                 android:padding="15dp"
                 android:text="@string/addrmanage_h2"
-                android:textColor="@color/black2"
+                android:textColor="@color/black3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -284,7 +128,7 @@
              android:layout_height="0dp"
              android:layout_weight="1" />-->
 
-        <!--BWIN-->
+        <!--FIL-->
         <RelativeLayout
             android:id="@+id/relativeLayout3"
             android:layout_width="match_parent"
@@ -305,7 +149,7 @@
                 android:gravity="center_vertical"
                 android:padding="15dp"
                 android:text="@string/addrmanage_h5"
-                android:textColor="@color/black2"
+                android:textColor="@color/black3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -361,7 +205,7 @@
                 android:gravity="center_vertical"
                 android:padding="15dp"
                 android:text="@string/addrmanage_h5"
-                android:textColor="@color/black2"
+                android:textColor="@color/black3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -390,10 +234,170 @@
         </LinearLayout>
 
         <!--<View
+           android:layout_width="0dp"
+           android:layout_height="0dp"
+           android:layout_weight="1" />-->
+
+        <!--银联-->
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/yuanjiao_5_baise"
+            android:elevation="0dp"
+            android:onClick="onClick"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_yinlian"
+                android:drawablePadding="15dp"
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:text="@string/addrmanage_h10"
+                android:textColor="@color/black3"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@mipmap/ic_add_yellow"
+                    android:text="@string/addrmanage_h14"
+                    android:textColor="@color/black1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="14dp"
+                    android:gravity="center"
+                    android:text="@string/addrmanage_h15"
+                    android:textColor="@color/black3"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/yuanjiao_5_baise"
+            android:elevation="0dp"
+            android:onClick="onClick"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_yinlian"
+                android:drawablePadding="15dp"
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:text="@string/addrmanage_h10"
+                android:textColor="@color/black3"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/type1_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="0"
+                android:textColor="@color/black1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/addrmanage_h11"
+                android:textColor="@color/black3"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:id="@+id/type1_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NAME"
+                    android:textColor="@color/black1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/type1_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NAME"
+                    android:textColor="@color/black1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/addrmanage_h12"
+                    android:textColor="@color/black3"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addrmanage_h13"
+                    android:textColor="@color/black3"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<View
             android:id="@+id/view_3"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />-->
+
+
     </LinearLayout>
 
 </ScrollView>

@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AboutActivity;
 import com.fone.fone.activity.AddressManagementActivity;
-import com.fone.fone.activity.ContractActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
@@ -30,6 +29,7 @@ import com.fone.fone.activity.MyTakeCashActivity;
 import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
 import com.fone.fone.activity.SharePosterActivity;
+import com.fone.fone.activity.USDTJiaoYiActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment5Model;
 import com.fone.fone.net.OkHttpClientManager;
@@ -318,7 +318,9 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合同
-                CommonUtil.gotoActivity(getActivity(), ContractActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), ContractActivity.class, false);
+                //USDT
+                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
                 break;
             case R.id.linearLayout10:
                 //币地址管理

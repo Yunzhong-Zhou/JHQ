@@ -55,6 +55,24 @@ public class AddressManagementActivity extends BaseActivity {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
                         model = response;
+                        if (model.getTrade_password().equals("")) {
+                            showToast(getString(R.string.address_h25),
+                                    getString(R.string.password_h5), getString(R.string.password_h6),
+                                    new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            dialog.dismiss();
+                                            CommonUtil.gotoActivity(AddressManagementActivity.this, SetTransactionPasswordActivity.class, false);
+                                        }
+                                    }, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            dialog.dismiss();
+                                            finish();
+                                        }
+                                    });
+                        }
+
                         //是否显示是提币方式
                         /*if (response.getWithdrawal_cny_switch().equals("1")){//关闭
                             relativeLayout1.setVisibility(View.GONE);
@@ -74,24 +92,6 @@ public class AddressManagementActivity extends BaseActivity {
                                 linearLayout1.setVisibility(View.GONE);
                             }
                         }*/
-
-                        if (model.getTrade_password().equals("")) {
-                            showToast(getString(R.string.address_h25),
-                                    getString(R.string.password_h5), getString(R.string.password_h6),
-                                    new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.dismiss();
-                                            CommonUtil.gotoActivity(AddressManagementActivity.this, SetTransactionPasswordActivity.class, false);
-                                        }
-                                    }, new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            dialog.dismiss();
-                                            finish();
-                                        }
-                                    });
-                        }
 
                         if (!model.getUsdt_wallet_addr().equals("")) {
                             relativeLayout2.setVisibility(View.GONE);
@@ -155,7 +155,7 @@ public class AddressManagementActivity extends BaseActivity {
                 } else {
                     CommonUtil.gotoActivity(this, BankCardSettingActivity.class, true);
                 }*/
-//                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
+                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
                 break;
             case R.id.relativeLayout2:
             case R.id.linearLayout2:
