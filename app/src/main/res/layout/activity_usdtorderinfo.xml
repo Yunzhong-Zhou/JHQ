@@ -6,9 +6,9 @@
     android:orientation="vertical">
     <!--标题-->
     <LinearLayout
-        android:id="@+id/title"
+        android:id="@+id/headView"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -17,7 +17,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:onClick="onClick"
-            android:padding="22dp"
+            android:padding="21dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return" />
 
@@ -25,10 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical"
             android:text="@string/qianbao_h162"
             android:textColor="@color/black1"
-            android:textSize="17sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/right_btn"
@@ -45,7 +44,7 @@
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_height="match_parent">
 
         <ScrollView

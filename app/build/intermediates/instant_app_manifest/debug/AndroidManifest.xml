@@ -252,6 +252,21 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
+        <activity
+            android:name="com.fone.fone.activity.USDTJiaoYiActivity"
+            android:label="USDT交易" />
+        <activity
+            android:name="com.fone.fone.activity.USDTSellActivity"
+            android:label="USDT出售" />
+        <activity
+            android:name="com.fone.fone.activity.USDTJiaoyiListActivity"
+            android:label="交易记录" />
+        <activity
+            android:name="com.fone.fone.activity.USDTOrderInfoActivity"
+            android:label="交易详情" />
+        <activity
+            android:name="com.fone.fone.activity.BankCardSettingActivity"
+            android:label="绑定银行卡" />
 
         <!-- 全面屏适配 -->
         <meta-data

@@ -86,6 +86,11 @@
     <activity android:name="com.fone.fone.activity.QRCodeActivity" android:label="收款二维码"/>
     <activity android:name="com.fone.fone.view.zxing.CaptureActivity" android:label="扫一扫"/>
     <activity android:name="com.fone.fone.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
+    <activity android:name="com.fone.fone.activity.USDTJiaoYiActivity" android:label="USDT交易"/>
+    <activity android:name="com.fone.fone.activity.USDTSellActivity" android:label="USDT出售"/>
+    <activity android:name="com.fone.fone.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
+    <activity android:name="com.fone.fone.activity.USDTOrderInfoActivity" android:label="交易详情"/>
+    <activity android:name="com.fone.fone.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>

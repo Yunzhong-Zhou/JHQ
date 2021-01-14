@@ -47,8 +47,8 @@ public class BankCardSettingActivity extends BaseActivity {
 
     BankCardSettingModel model;
     //    String qk = "";
-    EditText editText1, editText2, editText3, editText4;
-    TextView textView1, textView2, textView3, textView4, textView5, tv_banknum, tv_kaihuname, tv_bankname;
+    EditText textView1,textView3,editText1, editText2, editText3, editText4;
+    TextView   textView4, textView5, tv_banknum, tv_kaihuname, tv_bankname;
     private TimeCount time;
     String bank_address = "", bank_card_account = "", bank_card_proceeds_name = "", bank_title = "", code = "", password = "";
 
@@ -104,9 +104,9 @@ public class BankCardSettingActivity extends BaseActivity {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                 //省份province//城市city//地区district
-                textView2.setText(province.getName().toString() +
+               /* textView2.setText(province.getName().toString() +
                         city.getName().toString() +
-                        district.getName().toString());
+                        district.getName().toString());*/
                 bank_address_temp = province.getName().toString() + "#" +
                         city.getName().toString() + "#" +
                         district.getName().toString();
@@ -140,7 +140,7 @@ public class BankCardSettingActivity extends BaseActivity {
 
 
         textView1 = findViewByID_My(R.id.textView1);
-        textView2 = findViewByID_My(R.id.textView2);
+//        textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView3.setText("+" + localUserInfo.getMobile_State_Code() + "  " + localUserInfo.getPhonenumber());
         textView4 = findViewByID_My(R.id.textView4);
@@ -261,10 +261,10 @@ public class BankCardSettingActivity extends BaseActivity {
                     RequestCollectionSetting(params);//
                 }
                 break;
-            case R.id.textView2:
+           /* case R.id.textView2:
                 //开户行地址
                 mPicker.showCityPicker();
-                break;
+                break;*/
 
             case R.id.iv_edit:
                 //编辑银行卡
@@ -280,7 +280,7 @@ public class BankCardSettingActivity extends BaseActivity {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
-                textView2.setClickable(true);
+                textView4.setClickable(true);
                 if (!info.equals("")) {
                     showToast(info);
                 }
@@ -290,6 +290,7 @@ public class BankCardSettingActivity extends BaseActivity {
             public void onResponse(String response) {
                 hideProgress();
                 time.start();
+                textView4.setClickable(true);
                 MyLogger.i(">>>>>>>>>发送验证码" + response);
                 myToast(getString(R.string.app_sendcode_hint));
             }

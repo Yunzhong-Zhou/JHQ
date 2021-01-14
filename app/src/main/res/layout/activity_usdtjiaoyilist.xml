@@ -12,9 +12,9 @@
         android:src="@mipmap/bg_head1" />
     <!--标题-->
     <LinearLayout
-        android:id="@+id/title"
+        android:id="@+id/headView"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -23,7 +23,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:onClick="onClick"
-            android:padding="22dp"
+            android:padding="21dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return1" />
 
@@ -31,10 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical"
             android:text="@string/fragment5_h51"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/right_btn"
@@ -52,8 +51,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/title"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/headView"
         android:background="@drawable/yuanjiao_25_baise_top"
         android:orientation="vertical">
 

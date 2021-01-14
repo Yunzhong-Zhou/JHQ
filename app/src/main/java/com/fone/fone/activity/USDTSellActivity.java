@@ -31,8 +31,8 @@ import java.util.Map;
  * USDT出售
  */
 public class USDTSellActivity extends BaseActivity {
-    EditText editText1, editText2;
-    TextView textView1, textView2, textView3;
+    EditText editText1, editText2,textView1;
+    TextView  textView2, textView3;
     LinearLayout linearLayout;
 
     USDTSellModel model;
@@ -42,7 +42,7 @@ public class USDTSellActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usdtsell);
-        findViewByID_My(R.id.title).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
 
     }
 
@@ -72,28 +72,27 @@ public class USDTSellActivity extends BaseActivity {
 
                 if (!editText1.getText().toString().trim().equals("")) {
                     input_money = editText1.getText().toString().trim();
-                    if (!editText2.getText().toString().trim().equals("")){
+//                    if (!editText2.getText().toString().trim().equals("")){
 
                         if (Double.valueOf(input_money) > 0) {
                             MyLogger.i(">>>>>输入币数>>>>>" + input_money);
                             //实际到账  =  个数  *  汇率
-//                            double real_money = Double.valueOf(input_money) * Double.valueOf(model.getOfc_price());
-                            double real_money = Double.valueOf(input_money) * Double.valueOf(editText2.getText().toString().trim());
+                            double real_money = Double.valueOf(input_money) * Double.valueOf(model.getUsdt_cny_price());
+//                            double real_money = Double.valueOf(input_money) * Double.valueOf(editText2.getText().toString().trim());
                             MyLogger.i(">>>>>实际到账>>>>>" + real_money);
 
                             textView1.setText(String.format("%.2f", real_money) + "");
                         } else {
-                            textView1.setText("0");
+                            textView1.setText("￥0");
                         }
 
-                    }else {
-                        textView1.setText("0");
-//                        myToast(getString(R.string.qianbao_h104));
-                    }
+//                    }else {
+//                        textView1.setText("￥0");
+//                    }
 
 
                 } else {
-                    textView1.setText("0");
+                    textView1.setText("￥0");
                 }
 
             }
@@ -126,16 +125,16 @@ public class USDTSellActivity extends BaseActivity {
 
                             textView1.setText(String.format("%.2f", real_money) + "");
                         } else {
-                            textView1.setText("0");
+                            textView1.setText("￥0");
                         }
 
                     }else {
-                        textView1.setText("0");
+                        textView1.setText("￥0");
 //                        myToast(getString(R.string.qianbao_h104));
                     }
 
                 } else {
-                    textView1.setText("0");
+                    textView1.setText("￥0");
                 }
 
             }
@@ -175,7 +174,7 @@ public class USDTSellActivity extends BaseActivity {
                 drvt_price = response.getUsdt_cny_price();
 
 //                editText2.setHint(getString(R.string.qianbao_h113) + response.getOfc_price());
-                editText2.setText(response.getUsdt_cny_price());
+                editText2.setText("￥"+response.getUsdt_cny_price());
 //                textView2.setText(getString(R.string.qianbao_h106) + "2%");
                 textView3.setText(getString(R.string.fragment5_h54) + response.getCommon_usable_money()+"USDT");
             }
