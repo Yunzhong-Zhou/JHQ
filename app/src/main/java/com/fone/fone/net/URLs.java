@@ -157,7 +157,9 @@ public class URLs {
     //关于
     public static final String About = "/api/index/about";
     //币地址管理
-    public static final String AddressManage = "/api/member/set-wallet-addr";
+    public static final String AddressManage = "/api/withdrawal/type";
+    //币地址管理
+    public static final String SetAddress = "/api/member/set-wallet-addr";
     //合同
     public static final String Contract = "/api/contract/index";
     //合同-创建主体
@@ -173,23 +175,23 @@ public class URLs {
     /**
      * USDT交易列表
      */
-    public static final String USDTJiaoYiList1 = "/api/usdt-deal";
+    public static final String USDTJiaoYiList1 = "/api/usdt-sell";
     /**
-     * USDT交易列表-我的购买
+     * USDT交易列表-我的出售
      */
-    public static final String USDTJiaoYiList2 = "/api/usdt-deal/my-buy";
+    public static final String USDTJiaoYiList2 = "/api/usdt-sell/record";
     /**
      * USDT购买-取消
      */
     public static final String USDTCancel = "/api/usdt-deal/cancel";
     /**
-     * USDT出售
+     * USDT出售-发布
      */
-    public static final String USDTSell = "/api/usdt-deal/sell";
+    public static final String USDTSell = "/api/usdt-sell/create";
     /**
      * USDT购买
      */
-    public static final String USDTBuy = "/api/usdt-deal/buy";
+    public static final String USDTBuy = "/api/usdt-buy/create";
     /**
      * USDT交易列表
      */
@@ -202,10 +204,6 @@ public class URLs {
      * 银行卡设置
      */
     public static final String Collection = "/api/member/set-proceeds";
-    /**
-     * 银行卡设置_验证码
-     */
-    public static final String Collection_code = "/api/sms-code/send-code";
     /**
      * 申诉
      */

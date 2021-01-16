@@ -19,25 +19,28 @@ public class USDTJiaoyiListModel implements Serializable {
 
     public static class DoUsdtDealListBean {
         /**
+         * id : 487328b300d78530b68a188d2ff0e8e4
          * type : buy
          * type_title : 购买
-         * opposite_member_nickname :
-         * usdt_cny_money : null
-         * money : 100.00
-         * status_title : 待匹配
-         * created_at : 2020/11/16/20/24
+         * opposite_member_nickname : FIL_qeby
+         * usdt_cny_price : 6.70
+         * usdt_money : 1.0000
+         * cny_money : null
+         * status : 1
+         * status_title : 待付款
+         * created_at : 2021/01/16 10:43
          */
 
         private String id;
+        private String type;
+        private String type_title;
+        private String opposite_member_nickname;
+        private String usdt_cny_price;
+        private String usdt_money;
+        private Object cny_money;
         private int status;
-
-        public int getStatus() {
-            return status;
-        }
-
-        public void setStatus(int status) {
-            this.status = status;
-        }
+        private String status_title;
+        private String created_at;
 
         public String getId() {
             return id;
@@ -46,14 +49,6 @@ public class USDTJiaoyiListModel implements Serializable {
         public void setId(String id) {
             this.id = id;
         }
-
-        private String type;
-        private String type_title;
-        private String opposite_member_nickname;
-        private String usdt_cny_money;
-        private String money;
-        private String status_title;
-        private String created_at;
 
         public String getType() {
             return type;
@@ -79,20 +74,36 @@ public class USDTJiaoyiListModel implements Serializable {
             this.opposite_member_nickname = opposite_member_nickname;
         }
 
-        public String getUsdt_cny_money() {
-            return usdt_cny_money;
+        public String getUsdt_cny_price() {
+            return usdt_cny_price;
         }
 
-        public void setUsdt_cny_money(String usdt_cny_money) {
-            this.usdt_cny_money = usdt_cny_money;
+        public void setUsdt_cny_price(String usdt_cny_price) {
+            this.usdt_cny_price = usdt_cny_price;
         }
 
-        public String getMoney() {
-            return money;
+        public String getUsdt_money() {
+            return usdt_money;
         }
 
-        public void setMoney(String money) {
-            this.money = money;
+        public void setUsdt_money(String usdt_money) {
+            this.usdt_money = usdt_money;
+        }
+
+        public Object getCny_money() {
+            return cny_money;
+        }
+
+        public void setCny_money(Object cny_money) {
+            this.cny_money = cny_money;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
         }
 
         public String getStatus_title() {

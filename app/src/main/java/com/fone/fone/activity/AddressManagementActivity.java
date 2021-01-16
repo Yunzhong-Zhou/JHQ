@@ -55,7 +55,7 @@ public class AddressManagementActivity extends BaseActivity {
                         MyLogger.i(">>>>>>>>>地址" + response);
                         hideProgress();
                         model = response;
-                        if (model.getTrade_password().equals("")) {
+                        /*if (model.getTrade_password().equals("")) {
                             showToast(getString(R.string.address_h25),
                                     getString(R.string.password_h5), getString(R.string.password_h6),
                                     new View.OnClickListener() {
@@ -71,7 +71,7 @@ public class AddressManagementActivity extends BaseActivity {
                                             finish();
                                         }
                                     });
-                        }
+                        }*/
 
                         //是否显示是提币方式
                         /*if (response.getWithdrawal_cny_switch().equals("1")){//关闭
@@ -92,6 +92,16 @@ public class AddressManagementActivity extends BaseActivity {
                                 linearLayout1.setVisibility(View.GONE);
                             }
                         }*/
+                        if (!model.getMember_bank_card_account().equals("")) {
+                            relativeLayout1.setVisibility(View.GONE);
+                            linearLayout1.setVisibility(View.VISIBLE);
+                            type1_tv1.setText(model.getMember_bank_card_account());//银行卡号
+                            type1_tv2.setText(model.getMember_bank_card_proceeds_name());//银行开户人
+                            type1_tv3.setText(model.getMember_bank_title());//银行名称
+                        } else {
+                            relativeLayout1.setVisibility(View.VISIBLE);
+                            linearLayout1.setVisibility(View.GONE);
+                        }
 
                         if (!model.getUsdt_wallet_addr().equals("")) {
                             relativeLayout2.setVisibility(View.GONE);

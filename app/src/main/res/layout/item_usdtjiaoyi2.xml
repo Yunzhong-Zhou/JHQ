@@ -33,6 +33,7 @@
                 android:drawableRight="@mipmap/ic_next_black"
                 android:gravity="center_vertical"
                 android:text="@string/fragment5_h40"
+                android:drawablePadding="5dp"
                 android:textColor="@color/black2"
                 android:textSize="12sp" />
 
@@ -95,7 +96,7 @@
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/tv_danjia"
+                        android:id="@+id/tv_yishou"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -126,7 +127,7 @@
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/tv_zonge"
+                        android:id="@+id/tv_danjia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

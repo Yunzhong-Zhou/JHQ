@@ -36,6 +36,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/textView1"
+                    android:onClick="onClick"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:gravity="center_vertical|right"
@@ -99,6 +100,7 @@
                     android:hint="@string/fragment5_h67"
                     android:paddingLeft="100dp"
                     android:paddingRight="10dp"
+                    android:inputType="number"
                     android:textColor="@color/black1"
                     android:textColorHint="@color/black3"
                     android:textSize="15sp"
@@ -244,9 +246,9 @@
             android:id="@+id/linearLayout_you"
             android:layout_width="match_parent"
             android:layout_height="173dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/yuanjiao_5_baise"
             android:elevation="2dp"
             android:onClick="onClick"

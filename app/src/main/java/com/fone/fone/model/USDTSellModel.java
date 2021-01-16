@@ -7,12 +7,12 @@ import java.io.Serializable;
  */
 public class USDTSellModel implements Serializable {
     /**
-     * usdt_cny_price : 7
-     * common_usable_money : 9900.00
+     * usdt_cny_price : 6.7
+     * usable_money : 0.0000
      */
 
     private String usdt_cny_price;
-    private String common_usable_money;
+    private String usable_money;
 
     public String getUsdt_cny_price() {
         return usdt_cny_price;
@@ -22,11 +22,11 @@ public class USDTSellModel implements Serializable {
         this.usdt_cny_price = usdt_cny_price;
     }
 
-    public String getCommon_usable_money() {
-        return common_usable_money;
+    public String getUsable_money() {
+        return usable_money;
     }
 
-    public void setCommon_usable_money(String common_usable_money) {
-        this.common_usable_money = common_usable_money;
+    public void setUsable_money(String usable_money) {
+        this.usable_money = usable_money;
     }
 }

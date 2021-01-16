@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.KeyboardUtils;
 import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
@@ -54,10 +55,10 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
  */
 public class USDTJiaoYiActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<USDTListModel1.UsdtDealListBean> list1 = new ArrayList<>();
-    CommonAdapter<USDTListModel1.UsdtDealListBean> mAdapter1;
-    List<USDTListModel2.UsdtDealListBean> list2 = new ArrayList<>();
-    CommonAdapter<USDTListModel2.UsdtDealListBean> mAdapter2;
+    List<USDTListModel1.UsdtSellListBean> list1 = new ArrayList<>();
+    CommonAdapter<USDTListModel1.UsdtSellListBean> mAdapter1;
+    List<USDTListModel2.UsdtSellListBean> list2 = new ArrayList<>();
+    CommonAdapter<USDTListModel2.UsdtSellListBean> mAdapter2;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -178,22 +179,22 @@ public class USDTJiaoYiActivity extends BaseActivity {
             public void onResponse(USDTListModel1 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>USDT交易信息列表列表" + response);
-
-                list1 = response.getUsdt_deal_list();
+                list1 = response.getUsdt_sell_list();
                 if (list1.size() > 0) {
                     showContentPage();
-                    mAdapter1 = new CommonAdapter<USDTListModel1.UsdtDealListBean>
+                    mAdapter1 = new CommonAdapter<USDTListModel1.UsdtSellListBean>
                             (USDTJiaoYiActivity.this, R.layout.item_usdtjiaoyi1, list1) {
                         @Override
-                        protected void convert(ViewHolder holder, USDTListModel1.UsdtDealListBean model, int position) {
-                            holder.setText(R.id.tv_name, model.getBuy_member_nickname());//昵称
-                            holder.setText(R.id.tv_num, model.getMoney() + "");//数量
-                            holder.setText(R.id.tv_price, model.getUsdt_cny_price() + "CNY");//单价
-                            holder.setText(R.id.tv_all, String.format("%.2f", Double.valueOf(model.getMoney()) * Double.valueOf(model.getUsdt_cny_price())) + "");//总量
+                        protected void convert(ViewHolder holder, USDTListModel1.UsdtSellListBean model, int position) {
+                            holder.setText(R.id.tv_name, model.getMember_nickname());//昵称
+                            holder.setText(R.id.tv_num, model.getResidue_money() + "");//数量
+                            holder.setText(R.id.tv_price, "¥ "+model.getUsdt_cny_price() + "");//单价
+//                            holder.setText(R.id.tv_all, String.format("%.2f", Double.valueOf(model.getMoney()) * Double.valueOf(model.getUsdt_cny_price())) + "");//总量
+                            holder.setText(R.id.tv_all,  model.getAmount_money()+ "");//总量
+
                             ImageView imageView1 = holder.getView(R.id.imageView1);
                             Glide.with(USDTJiaoYiActivity.this)
-                                    .load(IMGHOST + model.getBuy_member_head())
+                                    .load(IMGHOST + model.getMember_head())
                                     .centerCrop()
 //                    .placeholder(R.mipmap.headimg)//加载站位图
 //                    .error(R.mipmap.headimg)//加载失败
@@ -202,7 +203,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             holder.getView(R.id.tv_buy).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    ShowBuyDialog();
+                                    ShowBuyDialog(model.getId());
                                 }
                             });
                             holder.getView(R.id.iv_bank).setOnClickListener(new View.OnClickListener() {
@@ -214,8 +215,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                         }
                     };
                     recyclerView.setAdapter(mAdapter1);
-//                    mAdapter1.notifyDataSetChanged();
-                    mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    /*mAdapter1.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                             Bundle bundle = new Bundle();
@@ -228,12 +228,11 @@ public class USDTJiaoYiActivity extends BaseActivity {
                         public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                             return false;
                         }
-                    });
+                    });*/
                 } else {
                     showEmptyPage();
                 }
 
-//                changeUI();
             }
         });
 
@@ -255,10 +254,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
             public void onResponse(USDTListModel1 response) {
                 showContentPage();
                 hideProgress();
-                MyLogger.i(">>>>>>>>>USDT交易信息列表更多" + response);
 
-                List<USDTListModel1.UsdtDealListBean> list_1 = new ArrayList<>();
-                list_1 = response.getUsdt_deal_list();
+                List<USDTListModel1.UsdtSellListBean> list_1 = new ArrayList<>();
+                list_1 = response.getUsdt_sell_list();
                 if (list_1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page1--;
@@ -288,17 +286,18 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>USDT我的购买列表列表" + response);
 
-                list2 = response.getUsdt_deal_list();
+                list2 = response.getUsdt_sell_list();
                 if (list2.size() > 0) {
                     showContentPage();
-                    mAdapter2 = new CommonAdapter<USDTListModel2.UsdtDealListBean>
+                    mAdapter2 = new CommonAdapter<USDTListModel2.UsdtSellListBean>
                             (USDTJiaoYiActivity.this, R.layout.item_usdtjiaoyi2, list2) {
                         @Override
-                        protected void convert(ViewHolder holder, USDTListModel2.UsdtDealListBean model, int position) {
+                        protected void convert(ViewHolder holder, USDTListModel2.UsdtSellListBean model, int position) {
                             holder.setText(R.id.tv_time, model.getCreated_at());//时间
-                            holder.setText(R.id.tv_zongliang, model.getMoney() + "");//总量
-                            holder.setText(R.id.tv_danjia, model.getUsdt_cny_price() + "CNY");//单价
-//                            holder.setText(R.id.tv_zonge, model.getUsdt_money() + "USDT");//总额
+                            holder.setText(R.id.tv_zongliang, model.getAmount_money() + "");//总量
+                            holder.setText(R.id.tv_yishou, model.getCurrent_money() + "");//已售
+                            holder.setText(R.id.tv_danjia, "¥ "+model.getUsdt_cny_price() + "");//单价
+
 //                            holder.setText(R.id.tv_yigou, model.getCurrent_money() + "");//已购
 
                             TextView tv_type = holder.getView(R.id.tv_type);
@@ -348,7 +347,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             holder.getView(R.id.tv_zengjia).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    ShowBuyDialog();
+                                    ShowBuyDialog(model.getId());
                                 }
                             });
                             holder.getView(R.id.tv_quxiao).setOnClickListener(new View.OnClickListener() {
@@ -392,11 +391,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
                         }
                     });
                     recyclerView.setAdapter(mAdapter2);
-//                    mAdapter2.notifyDataSetChanged();
                 } else {
                     showEmptyPage();
                 }
-//                changeUI();
             }
         });
 
@@ -419,8 +416,8 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>USDT我的购买列表更多" + response);
-                List<USDTListModel2.UsdtDealListBean> list_2 = new ArrayList<>();
-                list_2 = response.getUsdt_deal_list();
+                List<USDTListModel2.UsdtSellListBean> list_2 = new ArrayList<>();
+                list_2 = response.getUsdt_sell_list();
                 if (list_2.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page2--;
@@ -452,7 +449,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 try {
                     jObj = new JSONObject(response);
                     String info = jObj.getString("msg");
-                    MyLogger.i(">>>>>>>"+info);
+                    MyLogger.i(">>>>>>>" + info);
                     showToast(info);
 
                     requestServer();
@@ -549,6 +546,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
         }, false);
 
     }
+
     //充值
     private void RequestBuy(Map<String, String> params) {
         OkHttpClientManager.postAsyn(USDTJiaoYiActivity.this, URLs.USDTBuy, params, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
@@ -616,11 +614,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
 //                textView7.setClickable(true);
                 hideProgress();
                 myToast(getString(R.string.fragment5_h47));
-               /* Bundle bundle = new Bundle();
-                bundle.putString("id", response.getId());
-                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, RechargeDetailActivity.class, bundle, false);*/
+                requestServer();
             }
-        },true);
+        }, false);
     }
 
     @Override
@@ -673,7 +669,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
     }
 
     //显示购买弹窗
-    private void ShowBuyDialog() {
+    private void ShowBuyDialog(String usdt_sell_id) {
         dialog.contentView(R.layout.dialog_usdtbuy)
                 .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -687,18 +683,18 @@ public class USDTJiaoYiActivity extends BaseActivity {
         tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!et_usdtmoney.getText().toString().trim().equals("")){
+                if (!et_usdtmoney.getText().toString().trim().equals("")) {
+                    KeyboardUtils.hideSoftInput(et_usdtmoney);//隐藏软键盘
                     dialog.dismiss();
-
                     showProgress(true, getString(R.string.app_loading1));
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("input_money", et_usdtmoney.getText().toString().trim());//金额
-                    params.put("money_type", "1");//类型（1.USDT 2.fil）
+                    params.put("amount_money", et_usdtmoney.getText().toString().trim());//金额
+                    params.put("usdt_sell_id", usdt_sell_id);
                     params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
                     RequestBuy(params);
 
-                }else {
+                } else {
                     myToast(getString(R.string.fragment4_h13));
                 }
 

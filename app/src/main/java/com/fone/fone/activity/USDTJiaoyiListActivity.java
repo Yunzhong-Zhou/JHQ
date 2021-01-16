@@ -125,7 +125,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
                                     tv_title.setTextColor(getResources().getColor(R.color.green_1));
                                 }
 //                                holder.setText(R.id.tv_time, model.getCreated_at());//时间
-                                holder.setText(R.id.tv_jiage, model.getMoney() + "");//价格
+                                holder.setText(R.id.tv_jiage, model.getUsdt_money()+ "");//价格
                                 holder.setText(R.id.tv_zonge, model.getStatus_title() + "");//交易总额
                                 holder.setText(R.id.tv_nickneame, model.getCreated_at());//昵称
 

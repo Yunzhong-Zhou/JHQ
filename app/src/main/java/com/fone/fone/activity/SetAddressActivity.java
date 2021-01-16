@@ -83,7 +83,7 @@ public class SetAddressActivity extends BaseActivity {
     }
 
     private void request(String string) {
-        OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.AddressManage + string,
+        OkHttpClientManager.getAsyn(SetAddressActivity.this, URLs.SetAddress + string,
                 new OkHttpClientManager.ResultCallback<SetAddressModel>() {
                     @Override
                     public void onError(Request request, String info, Exception e) {
@@ -185,7 +185,7 @@ public class SetAddressActivity extends BaseActivity {
 
     //钱包地址设置
     private void RequestSetWalletAddress(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.AddressManage, params, new OkHttpClientManager.ResultCallback<SetAddressModel>() {
+        OkHttpClientManager.postAsyn(SetAddressActivity.this, URLs.SetAddress, params, new OkHttpClientManager.ResultCallback<SetAddressModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 textView4.setClickable(true);

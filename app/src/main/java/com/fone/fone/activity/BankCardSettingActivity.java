@@ -196,8 +196,8 @@ public class BankCardSettingActivity extends BaseActivity {
                 }
                 banklist = response.getBank_list();
                 if (!response.getMember().getBank_card_account().equals("")) {
-                    linearLayout_wu.setVisibility(View.GONE);
-                    linearLayout_you.setVisibility(View.VISIBLE);
+//                    linearLayout_wu.setVisibility(View.GONE);
+//                    linearLayout_you.setVisibility(View.VISIBLE);
                     textView1.setText(response.getMember().getBank_title());//开户行
                     editText1.setText(response.getMember().getBank_card_proceeds_name());//开户名
                     editText2.setText(response.getMember().getBank_card_account());//银行卡号
@@ -206,9 +206,10 @@ public class BankCardSettingActivity extends BaseActivity {
                     tv_kaihuname.setText(response.getMember().getBank_title());//开户行
                     tv_bankname.setText(response.getMember().getBank_card_proceeds_name());//开户名
                 } else {
-                    linearLayout_wu.setVisibility(View.VISIBLE);
-                    linearLayout_you.setVisibility(View.GONE);
+//                    linearLayout_wu.setVisibility(View.VISIBLE);
+//                    linearLayout_you.setVisibility(View.GONE);
                 }
+
 
 
                 //显示开户行
@@ -241,7 +242,7 @@ public class BankCardSettingActivity extends BaseActivity {
                 textView4.setClickable(false);
                 HashMap<String, String> params1 = new HashMap<>();
                 params1.put("mobile", localUserInfo.getPhonenumber());
-                params1.put("type", "7");
+                params1.put("type", "6");
                 params1.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                 RequestCode(params1);//获取验证码
                 break;
@@ -276,7 +277,7 @@ public class BankCardSettingActivity extends BaseActivity {
 
     //发送验证码
     private void RequestCode(HashMap<String, String> params) {
-        OkHttpClientManager.postAsyn(BankCardSettingActivity.this, URLs.Collection_code, params, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(BankCardSettingActivity.this, URLs.Code, params, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
