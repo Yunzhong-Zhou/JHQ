@@ -21,7 +21,7 @@ import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.RechargeDetailModel;
+import com.fone.fone.model.USDTBuyModel;
 import com.fone.fone.model.USDTListModel1;
 import com.fone.fone.model.USDTListModel2;
 import com.fone.fone.net.OkHttpClientManager;
@@ -71,7 +71,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
     private TextView textView_1, textView_2;
 
     private LinearLayout pop_view;
-    String sort = "asc", field = "usdt_cny_price";
+    String usdt_cny_price = "asc", amount_money = "asc";
     int i1 = 0;
     int i2 = 0;
 
@@ -102,16 +102,16 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     page1 = 1;
                     String string = "?page=" + page1//当前页号
                             + "&count=" + "10"//页面行数
-                            + "&sort=" + sort
-                            + "&field=" + field
+                            + "&usdt_cny_price=" + usdt_cny_price
+                            + "&amount_money=" + amount_money
                             + "&token=" + localUserInfo.getToken();
                     RequestDRVTList1(string);
                 } else {
                     page2 = 1;
                     String string = "?page=" + page2//当前页号
                             + "&count=" + "10"//页面行数
-                            + "&sort=" + sort
-                            + "&field=" + field
+                            + "&usdt_cny_price=" + usdt_cny_price
+                            + "&amount_money=" + amount_money
                             + "&token=" + localUserInfo.getToken();
                     RequestDRVTList2(string);
                 }
@@ -125,8 +125,8 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     //加载更多
                     String string = "?page=" + page1//当前页号
                             + "&count=" + "10"//页面行数
-                            + "&sort=" + sort
-                            + "&field=" + field
+                            + "&usdt_cny_price=" + usdt_cny_price
+                            + "&amount_money=" + amount_money
                             + "&token=" + localUserInfo.getToken();
                     RequestDRVTListMore1(string);
                 } else {
@@ -134,8 +134,8 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     //加载更多
                     String string = "?page=" + page2//当前页号
                             + "&count=" + "10"//页面行数
-                            + "&sort=" + sort
-                            + "&field=" + field
+                            + "&usdt_cny_price=" + usdt_cny_price
+                            + "&amount_money=" + amount_money
                             + "&token=" + localUserInfo.getToken();
                     RequestDRVTListMore2(string);
                 }
@@ -188,9 +188,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
                         protected void convert(ViewHolder holder, USDTListModel1.UsdtSellListBean model, int position) {
                             holder.setText(R.id.tv_name, model.getMember_nickname());//昵称
                             holder.setText(R.id.tv_num, model.getResidue_money() + "");//数量
-                            holder.setText(R.id.tv_price, "¥ "+model.getUsdt_cny_price() + "");//单价
+                            holder.setText(R.id.tv_price, "¥ " + model.getUsdt_cny_price() + "");//单价
 //                            holder.setText(R.id.tv_all, String.format("%.2f", Double.valueOf(model.getMoney()) * Double.valueOf(model.getUsdt_cny_price())) + "");//总量
-                            holder.setText(R.id.tv_all,  model.getAmount_money()+ "");//总量
+                            holder.setText(R.id.tv_all, model.getAmount_money() + "");//总量
 
                             ImageView imageView1 = holder.getView(R.id.imageView1);
                             Glide.with(USDTJiaoYiActivity.this)
@@ -209,7 +209,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             holder.getView(R.id.iv_bank).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    CommonUtil.gotoActivity(USDTJiaoYiActivity.this, BankCardSettingActivity.class, false);
+//                                    CommonUtil.gotoActivity(USDTJiaoYiActivity.this, BankCardSettingActivity.class, false);
                                 }
                             });
                         }
@@ -296,7 +296,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             holder.setText(R.id.tv_time, model.getCreated_at());//时间
                             holder.setText(R.id.tv_zongliang, model.getAmount_money() + "");//总量
                             holder.setText(R.id.tv_yishou, model.getCurrent_money() + "");//已售
-                            holder.setText(R.id.tv_danjia, "¥ "+model.getUsdt_cny_price() + "");//单价
+                            holder.setText(R.id.tv_danjia, "¥ " + model.getUsdt_cny_price() + "");//单价
 
 //                            holder.setText(R.id.tv_yigou, model.getCurrent_money() + "");//已购
 
@@ -307,24 +307,20 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             tv_type.setText(model.getStatus_title());
                             tv_type.setVisibility(View.VISIBLE);
                             switch (model.getStatus()) {
-                                //状态（1.待匹配 2.待付款 3.已付款 4.已完成 5.申诉中 6.申诉成功 7.申诉失败 8.取消）
+                                //状态（1.待付款 2.已付款 3.已完成 4.申诉中 5.申诉成功 6.申诉失败 7.取消）
                                 case 1:
-                                    //待匹配
-                                case 2:
                                     //待付款
 //                                    tv_zengjia.setVisibility(View.VISIBLE);
                                     tv_quxiao.setVisibility(View.VISIBLE);
-//                                    tv_type.setText(getString(R.string.app_type_jinxingzhong));
                                     tv_type.setTextColor(getResources().getColor(R.color.orange_1));
                                     break;
-                                case 3:
+                                case 2:
                                     //已付款
-                                case 4:
+                                case 3:
                                     //已完成
 //                                    tv_zengjia.setVisibility(View.GONE);
                                     tv_quxiao.setVisibility(View.GONE);
-//                                    tv_type.setText(getString(R.string.qianbao_h114));
-                                    tv_type.setTextColor(getResources().getColor(R.color.green_1));
+                                    tv_type.setTextColor(getResources().getColor(R.color.green));
                                     break;
                                 default:
                                     tv_quxiao.setVisibility(View.GONE);
@@ -335,12 +331,12 @@ public class USDTJiaoYiActivity extends BaseActivity {
                             holder.getView(R.id.tv_jilu).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    if (model.getStatus() != 1) {
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("id", model.getId());
-//                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
-                                        CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
-                                    }
+//                                    if (model.getStatus() != 1) {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("id", model.getId());
+                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
+//                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
+//                                    }
 
                                 }
                             });
@@ -377,12 +373,12 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                            if (list2.get(i).getStatus() != 1) {
+                            /*if (list2.get(i).getStatus() != 1) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("id", list2.get(i).getId());
 //                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
                                 CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
-                            }
+                            }*/
                         }
 
                         @Override
@@ -431,7 +427,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
     }
 
     private void RequestCancel(String string) {
-        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTCancel + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(USDTJiaoYiActivity.this, URLs.USDTCancel_ChuShou + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -549,7 +545,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
 
     //充值
     private void RequestBuy(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(USDTJiaoYiActivity.this, URLs.USDTBuy, params, new OkHttpClientManager.ResultCallback<RechargeDetailModel>() {
+        OkHttpClientManager.postAsyn(USDTJiaoYiActivity.this, URLs.USDTBuy, params, new OkHttpClientManager.ResultCallback<USDTBuyModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -610,11 +606,14 @@ public class USDTJiaoYiActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(RechargeDetailModel response) {
+            public void onResponse(USDTBuyModel response) {
 //                textView7.setClickable(true);
                 hideProgress();
                 myToast(getString(R.string.fragment5_h47));
-                requestServer();
+//                requestServer();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", response.getUsdt_deal_id());
+                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
             }
         }, false);
     }
@@ -649,7 +648,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 break;
 
             case R.id.linearLayout_1:
-                field = "usdt_cny_price";
+//                usdt_cny_price = "asc";
 //                textView_1.setTextColor(getResources().getColor(R.color.green));
 //                textView_2.setTextColor(getResources().getColor(R.color.black3));
 //                textView_1.setCompoundDrawables(null, null, drawable1, null);
@@ -657,7 +656,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 showPopupWindow1(pop_view);
                 break;
             case R.id.linearLayout_2:
-                field = "money";
+//                amount_money = "asc";
 //                textView_1.setTextColor(getResources().getColor(R.color.black3));
 //                textView_2.setTextColor(getResources().getColor(R.color.green));
 //                textView_1.setCompoundDrawables(null, null, drawable2, null);
@@ -683,7 +682,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
         tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!et_usdtmoney.getText().toString().trim().equals("")) {
+                if (!et_usdtmoney.getText().toString().trim().equals("") && Double.valueOf(et_usdtmoney.getText().toString().trim()) > 0) {
                     KeyboardUtils.hideSoftInput(et_usdtmoney);//隐藏软键盘
                     dialog.dismiss();
                     showProgress(true, getString(R.string.app_loading1));
@@ -695,7 +694,7 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     RequestBuy(params);
 
                 } else {
-                    myToast(getString(R.string.fragment4_h13));
+                    myToast(getString(R.string.fragment5_h50));
                 }
 
             }
@@ -736,16 +735,16 @@ public class USDTJiaoYiActivity extends BaseActivity {
             page1 = 1;
             String string = "?page=" + page1//当前页号
                     + "&count=" + "10"//页面行数
-                    + "&sort=" + sort
-                    + "&field=" + field
+                    + "&usdt_cny_price=" + usdt_cny_price
+                    + "&amount_money=" + amount_money
                     + "&token=" + localUserInfo.getToken();
             RequestDRVTList1(string);
         } else {
             page2 = 1;
             String string = "?page=" + page2//当前页号
                     + "&count=" + "10"//页面行数
-                    + "&sort=" + sort
-                    + "&field=" + field
+                    + "&usdt_cny_price=" + usdt_cny_price
+                    + "&amount_money=" + amount_money
                     + "&token=" + localUserInfo.getToken();
             RequestDRVTList2(string);
         }
@@ -795,9 +794,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
                 i1 = i;
                 if (i == 0) {
-                    sort = "asc";
+                    usdt_cny_price = "asc";
                 } else {
-                    sort = "desc";
+                    usdt_cny_price = "desc";
                 }
 //                textView_1.setText(list.get(i));
                 requestServer();
@@ -863,9 +862,9 @@ public class USDTJiaoYiActivity extends BaseActivity {
                 i2 = i;
                 adapter.notifyDataSetChanged();
                 if (i == 0) {
-                    sort = "asc";
+                    amount_money = "asc";
                 } else {
-                    sort = "desc";
+                    amount_money = "desc";
                 }
                 /*if (i == 0) {
                     field = "usdt_cny_price";

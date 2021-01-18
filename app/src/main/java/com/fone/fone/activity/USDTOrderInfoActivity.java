@@ -118,22 +118,22 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 }
                 textView5.setText(response.getUsdt_deal().getCny_money() + "CNY");//总价
                 textView6.setText(response.getUsdt_deal().getUsdt_cny_price() + "CNY");//单价
-                textView7.setText(response.getUsdt_deal().getMoney());//数量
+                textView7.setText(response.getUsdt_deal().getUsdt_money());//数量
                 textView8.setText(response.getUsdt_deal().getSn());//订单号
-                textView9.setText(response.getUsdt_deal().getMatching_at());//创建时间
+                textView9.setText(response.getUsdt_deal().getCreated_at());//创建时间
                 textView10.setText(response.getUsdt_deal().getOpposite_member_nickname());//卖家昵称
                 textView11.setText(response.getUsdt_deal().getOpposite_member_mobile());//手机号
-                textView12.setText(response.getUsdt_deal().getSell_member_bank_card_proceeds_name());//姓名
-                textView13.setText(response.getUsdt_deal().getSell_member_bank_card_account());//银行卡号
-                textView14.setText(response.getUsdt_deal().getSell_member_bank_title());//银行
+                textView12.setText(response.getUsdt_deal().getUsdt_sell_member_bank_card_proceeds_name());//姓名
+                textView13.setText(response.getUsdt_deal().getUsdt_sell_member_bank_card_account());//银行卡号
+                textView14.setText(response.getUsdt_deal().getUsdt_sell_member_bank_title());//银行
 
 
                 linearLayout1.setVisibility(View.GONE);
                 tv_cancel.setVisibility(View.VISIBLE);
                 tv_confirm.setVisibility(View.VISIBLE);
 
-                switch (response.getUsdt_deal().getStatus()) {
-                    case 2:
+                switch (response.getUsdt_deal().getStatus()) {//状态（1.待付款 2.已付款 3.已完成 4.申诉中 5.申诉成功 6.申诉失败 7.取消）
+                    case 1:
                         //待付款
                         if (response.getUsdt_deal().getMember_type().equals("buy")) {//是买家
                             tv_cancel.setText(getString(R.string.qianbao_h171));
@@ -151,7 +151,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                         ll_nickname.setVisibility(View.VISIBLE);
                         ll_phonenum.setVisibility(View.VISIBLE);
                         break;
-                    case 3:
+                    case 2:
                         //已付款
                         if (response.getUsdt_deal().getMember_type().equals("sell")) {//是卖家
                             tv_cancel.setText(getString(R.string.qianbao_h174));
@@ -169,7 +169,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                         ll_nickname.setVisibility(View.VISIBLE);
                         ll_phonenum.setVisibility(View.VISIBLE);
                         break;
-                    case 5:
+                    case 4:
                         //申述中
                         tv_cancel.setText(getString(R.string.qianbao_h196));
                         tv_confirm.setVisibility(View.GONE);
@@ -248,7 +248,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 break;
             case R.id.tv_cancel:
                 //取消、申述
-                if (model.getUsdt_deal().getStatus() == 2 && model.getUsdt_deal().getMember_type().equals("buy")) {
+                if (model.getUsdt_deal().getStatus() == 1 && model.getUsdt_deal().getMember_type().equals("buy")) {
                     //取消
                     dialog = new BaseDialog(USDTOrderInfoActivity.this);
                     dialog.contentView(R.layout.dialog_usdtorderinfo)
@@ -286,7 +286,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                         }
                     });
 
-                } else if (model.getUsdt_deal().getStatus() == 3 && model.getUsdt_deal().getMember_type().equals("sell")) {
+                } else if (model.getUsdt_deal().getStatus() == 2 && model.getUsdt_deal().getMember_type().equals("sell")) {
                     //申述
                     dialog = new BaseDialog(USDTOrderInfoActivity.this);
                     dialog.contentView(R.layout.dialog_usdtorderinfo)
@@ -330,7 +330,7 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 break;
             case R.id.tv_confirm:
                 //确认
-                if (model.getUsdt_deal().getStatus() == 3 && model.getUsdt_deal().getMember_type().equals("sell")) {
+                if (model.getUsdt_deal().getStatus() == 2 && model.getUsdt_deal().getMember_type().equals("sell")) {
                     //确认收款
                     dialog = new BaseDialog(USDTOrderInfoActivity.this);
                     dialog.contentView(R.layout.dialog_usdtorderinfo)

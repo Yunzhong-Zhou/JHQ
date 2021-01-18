@@ -238,9 +238,6 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.InformationActivity"
             android:label="公告通知" />
         <activity
-            android:name="com.fone.fone.activity.MyPosterActivity"
-            android:label="我的海报" />
-        <activity
             android:name="com.fone.fone.activity.TransferActivity"
             android:label="划转-创建合约" />
         <activity

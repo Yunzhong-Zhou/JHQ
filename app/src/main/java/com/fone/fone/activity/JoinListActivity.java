@@ -220,11 +220,11 @@ public class JoinListActivity extends BaseActivity {
     @Override
     protected void updateView() {
         titleView.setTitle(getString(R.string.fragment3_h27));
-        titleView.showRightTextview(getString(R.string.fragment3_h35), new View.OnClickListener() {
+        /*titleView.showRightTextview(getString(R.string.fragment3_h35), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CommonUtil.gotoActivity(JoinListActivity.this, MyJoinListActivity.class, false);
             }
-        });
+        });*/
     }
 }

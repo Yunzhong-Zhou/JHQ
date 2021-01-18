@@ -17,15 +17,14 @@ import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AboutActivity;
 import com.fone.fone.activity.AddressManagementActivity;
-import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.MyCalculateActivity;
-import com.fone.fone.activity.MyJoinListActivity;
 import com.fone.fone.activity.MyMachineActivity;
 import com.fone.fone.activity.MyProfileActivity;
 import com.fone.fone.activity.MyRechargeActivity;
 import com.fone.fone.activity.MyTakeCashActivity;
+import com.fone.fone.activity.OnlineServiceActivity;
 import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
 import com.fone.fone.activity.SharePosterActivity;
@@ -289,7 +288,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout3:
                 //拼中次数
-                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
                 break;
             case R.id.linearLayout4:
                 //已产FIL
@@ -352,7 +351,8 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout17:
                 //帮助中心
-                CommonUtil.gotoActivity(getActivity(), HelpCenterActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), HelpCenterActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
                 break;
         }
 

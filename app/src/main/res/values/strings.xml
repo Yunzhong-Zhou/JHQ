@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FileOne</string>
+    <string name="app_name">FilTop</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -143,7 +143,7 @@
     <string name="login_h10">正在授权登录...</string>
     <string name="login_h11">授权失败</string>
     <string name="login_h12">请输入验证码</string>
-    <string name="login_h13">该账户尚未激活，请完成人脸识别后进行操作</string>
+    <string name="login_h13">该账户尚未激活</string>
     <string name="login_h14">还没有账号？</string>
     <string name="login_h15">登录授权</string>
     <string name="login_h16">国家/地区</string>
@@ -178,10 +178,10 @@
 
     <!--关于我们-->
     <string name="about_title">关于我们</string>
-    <string name="about_h1">FileOne官网</string>
-    <string name="about_h2">FileOne介绍</string>
-    <string name="about_h3">FileOne更新</string>
-    <string name="about_h4">FileOne版权所有\nCopyright @2020 FileOne\nAll Rights Reserved</string>
+    <string name="about_h1">FilTop官网</string>
+    <string name="about_h2">FilTop介绍</string>
+    <string name="about_h3">FilTop更新</string>
+    <string name="about_h4">FilTop版权所有\nCopyright @2020 FilTop\nAll Rights Reserved</string>
     <string name="about_h5">已经是最新版，无需更新</string>
 
     <!--设置-->
@@ -238,19 +238,12 @@
     <string name="password_h7">实名认证</string>
     <string name="password_h8">您暂未实名认证，是否前往认证？</string>
 
-    <!--签到-->
-    <string name="share_h34">签到</string>
-    <string name="share_h35">今日获得</string>
-    <string name="share_h36">累计获得</string>
-    <string name="share_h37">已签</string>
-    <string name="share_h38">未签</string>
-    <string name="share_h39">签到中...</string>
-    <string name="share_h40">立即分享</string>
-    <string name="share_h41">正在获取分享数据...</string>
+
     <!--分享-->
     <string name="share_h27">分享</string>
-    <string name="share_h28"></string>
     <string name="share_h29">用户名</string>
+    <string name="share_h40">立即分享</string>
+    <string name="share_h41">正在获取分享数据...</string>
 
     <!--fragment1-->
     <string name="fragment1_h1">矿机优势</string>
@@ -258,7 +251,6 @@
     <string name="fragment1_h3">永久产权</string>
     <string name="fragment1_h4">移动机房</string>
     <string name="fragment1_h5">快速产出</string>
-    <string name="fragment1_h6"></string>
     <string name="fragment1_h7">税前价格</string>
     <string name="fragment1_h8">不包含增值税发票</string>
     <string name="fragment1_h9">税后价格</string>
@@ -297,7 +289,7 @@
     <string name="fragment1_h42">立即支付</string>
     <string name="fragment1_h43">支付信息</string>
     <string name="fragment1_h44">1.请向指定的支付宝帐号进行付款（%1$s）</string>
-    <string name="fragment1_h45">转帐时请备注您在FileOne注册的手机号</string>
+    <string name="fragment1_h45">转帐时请备注您在FilTop注册的手机号</string>
     <string name="fragment1_h46">收款方姓名</string>
     <string name="fragment1_h47">支付宝帐号</string>
     <string name="fragment1_h48">转帐金额</string>
@@ -403,7 +395,7 @@
     <string name="fragment4_h8">可用FIL</string>
     <string name="fragment4_h9">充值USDT</string>
     <string name="fragment4_h10">选择主网</string>
-    <string name="fragment4_h11">ERC20</string>
+    <string name="fragment4_h11">TRC20</string>
     <string name="fragment4_h12">USDT充值个数</string>
     <string name="fragment4_h13">请输入充币数量</string>
     <string name="fragment4_h14">下一步</string>
@@ -444,14 +436,14 @@
     <string name="fragment5_h22">算力值</string>
     <string name="fragment5_h23">已产值</string>
     <string name="fragment5_h24">我的算力</string>
-    <string name="fragment5_h25">FILEONE优势</string>
-    <string name="fragment5_h26">国内正规公司可开发票</string>
+    <string name="fragment5_h25">FilTop优势</string>
+    <string name="fragment5_h26">算力拼购会拼就会赚</string>
     <string name="fragment5_h27">中国移动提供托管机房</string>
     <string name="fragment5_h28">阿里云服务商提供支持</string>
     <string name="fragment5_h29">矿机一机一码真实可查</string>
     <string name="fragment5_h30">你尚未达到条件</string>
 
-    <string name="fragment5_h31">USDT</string>
+    <string name="fragment5_h31">交易</string>
     <string name="fragment5_h32">USDT交易</string>
     <string name="fragment5_h33">发布出售</string>
     <string name="fragment5_h34">出售USDT</string>
@@ -479,7 +471,6 @@
     <string name="fragment5_h56">USDT数量</string>
     <string name="fragment5_h57">USDT单价</string>
     <string name="fragment5_h58">应收金额</string>
-    <string name="fragment5_h59"></string>
     <string name="fragment5_h60">还未绑定银行卡，确认前往绑定吗？</string>
     <string name="fragment5_h61">绑定银行卡</string>
     <string name="fragment5_h62">开户行</string>
@@ -490,8 +481,8 @@
     <string name="fragment5_h67">请输入卡号</string>
     <string name="fragment5_h68">重要提示：\n当您出售USDT时，此银行卡将作为收款方式，请确认信息填写准确无误</string>
     <string name="fragment5_h69">设置成功</string>
-    <string name="fragment5_h70">买入</string>
-    <string name="fragment5_h71">卖出</string>
+    <string name="fragment5_h70">购买</string>
+    <string name="fragment5_h71">出售</string>
     <string name="fragment5_h72">待匹配</string>
     <string name="fragment5_h73">待付款</string>
     <string name="fragment5_h74">已付款</string>
@@ -534,7 +525,6 @@
     <string name="qianbao_h192">请仔细检查款项，否则无法追回损失</string>
     <string name="qianbao_h193">我已收款，并放行USDT</string>
     <string name="qianbao_h194">查看详情</string>
-    <string name="qianbao_h195">推广大使</string>
     <string name="qianbao_h196">联系客服</string>
     <string name="qianbao_h197">确认收款时间</string>
     <string name="qianbao_h198">对方手机号</string>
@@ -547,12 +537,9 @@
     <string name="myprofile_h5">邮箱</string>
     <string name="myprofile_h6">请输入邮箱</string>
     <string name="myprofile_h7">修改成功</string>
-    <string name="myprofile_h8"></string>
     <string name="myprofile_h9">退出登录</string>
     <string name="myprofile_h10">个人头像</string>
     <string name="myprofile_h11">确认退出该账号吗？</string>
-
-
 
     <!--地址管理-->
     <string name="address_h1">USDT地址设置</string>
@@ -568,17 +555,10 @@
     <string name="address_h11">USDT地址设置成功</string>
     <string name="address_h12">币地址管理</string>
     <string name="address_h13">暂无币地址\n请添加</string>
-    <string name="address_h14">选择地区</string>
-    <string name="address_h15">中国大陆用户</string>
-    <string name="address_h16">Overseas Users</string>
     <string name="address_h17">资产地址</string>
     <string name="address_h18">资产地址二维码</string>
-    <string name="address_h19">请提供ERC-20格式的USDT地址，否则您的资产将无法找回</string>
+    <string name="address_h19">请提供TRC-20格式的USDT地址，否则您的资产将无法找回</string>
     <string name="address_h20">保存二维码</string>
-    <string name="address_h21">澳洲用户</string>
-    <string name="address_h22">日本用户</string>
-    <string name="address_h23">韩国用户</string>
-    <string name="address_h24">越南用户</string>
     <string name="address_h25">需设置交易密码后才可操作</string>
     <string name="address_h26">需设置币地址后才可操作</string>
     <string name="qianbao_h48">FIL地址设置</string>
@@ -586,14 +566,11 @@
     <string name="qianbao_h49">请输入FIL地址</string>
     <string name="qianbao_h50">FIL地址设置成功</string>
     <string name="qianbao_h51">请提供基于FIL主网的地址，否则您的资产将无法找回</string>
+
     <!--钱包-->
     <string name="qianbao_h1">USDT钱包</string>
     <string name="qianbao_h2">可用（USDT）</string>
-    <string name="qianbao_h3">合约仓位</string>
-    <string name="qianbao_h4">累计盈利</string>
-    <string name="qianbao_h5">累计佣金</string>
     <string name="qianbao_h6">充币</string>
-    <string name="qianbao_h7">建仓</string>
     <string name="qianbao_h8">提币</string>
     <string name="qianbao_h9">收入记录</string>
     <string name="qianbao_h10">支出记录</string>
@@ -601,9 +578,6 @@
     <string name="qianbao_h12">订单号</string>
     <string name="qianbao_h13">时间：</string>
     <string name="qianbao_h14">资产地址</string>
-
-
-
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>
@@ -619,18 +593,11 @@
     <string name="recharge_h11">充币数量</string>
     <string name="recharge_h12">充币成功</string>
     <string name="recharge_h13">充币处理中</string>
-    <string name="recharge_h14">USDT(ERC20)充币地址</string>
-    <string name="recharge_h15">银行电汇SWIFT代码</string>
+    <string name="recharge_h14">USDT(TRC20)充币地址</string>
     <string name="recharge_h16">实际到账</string>
     <string name="recharge_h17">到帐时间</string>
     <string name="recharge_h18">充币单号</string>
     <string name="recharge_h19">充币状态</string>
-    <string name="recharge_h20">充币个数：</string>
-    <string name="recharge_h21">流水号：</string>
-    <string name="recharge_h22">时间：</string>
-    <string name="recharge_h23">银行代码BSB#</string>
-    <string name="recharge_h24">电汇失败</string>
-    <string name="recharge_h25">确定取消电汇？</string>
     <string name="recharge_h26">充币失败</string>
     <string name="recharge_h27">充币失败原因：</string>
     <string name="recharge_h28">取消充币</string>
@@ -651,7 +618,6 @@
     <string name="share_h7">拼购业绩</string>
     <string name="share_h8">同级分成</string>
     <string name="share_h9">累计直推有效</string>
-    <string name="share_h10"></string>
     <string name="share_h11">等级考核</string>
     <string name="share_h12">考核期：</string>
     <string name="share_h13">新增业绩</string>
@@ -681,12 +647,11 @@
     <string name="share_h61">算力:</string>
     <string name="share_h62">矿机:</string>
 
-
     <!--币地址管理-->
     <string name="addrmanage_h1">币地址管理</string>
     <string name="addrmanage_h2">USDT提币</string>
-    <string name="addrmanage_h3">添加USDT(ERC20)地址</string>
-    <string name="addrmanage_h4">请填写USDT的ERC20地址，否则资产损失</string>
+    <string name="addrmanage_h3">添加USDT(TRC20)地址</string>
+    <string name="addrmanage_h4">请填写USDT的TRC20地址，否则资产损失</string>
     <string name="addrmanage_h5">FIL提币</string>
     <string name="addrmanage_h6">添加FIL地址</string>
     <string name="addrmanage_h7">请填写FIL地址，否则资产损失</string>
@@ -699,10 +664,6 @@
     <string name="addrmanage_h14">添加银行卡</string>
     <string name="addrmanage_h15">请填写正确的银行卡信息，否则无法提现</string>
     <string name="addrmanage_h16">银联</string>
-    <string name="addrmanage_h17"></string>
-    <string name="addrmanage_h18"></string>
-    <string name="addrmanage_h19"></string>
-    <string name="addrmanage_h20"></string>
 
     <!--提币-->
     <string name="takecash_h1">FIL提币</string>
@@ -780,7 +741,6 @@
     <string name="zxing_h35">转入数量</string>
     <string name="zxing_h36">转出数量</string>
 
-
     <!--转币-->
     <string name="scavengingpayment_h1">划转</string>
     <string name="scavengingpayment_h2">请输入划转个数</string>
@@ -793,7 +753,6 @@
     <string name="scavengingpayment_h9">可用余币：</string>
     <string name="scavengingpayment_h10">划转成功</string>
     <string name="scavengingpayment_h11">划转个数不能小于0.01</string>
-
 
     <!--转账记录-->
     <string name="transferrecord_h1">转币记录</string>

@@ -81,7 +81,6 @@
     <activity android:name="com.fone.fone.activity.SharePosterActivity" android:label="有奖邀请"/>
     <activity android:name="com.fone.fone.activity.OnlineServiceActivity" android:label="在线客服"/>
     <activity android:name="com.fone.fone.activity.InformationActivity" android:label="公告通知"/>
-    <activity android:name="com.fone.fone.activity.MyPosterActivity" android:label="我的海报"/>
     <activity android:name="com.fone.fone.activity.TransferActivity" android:label="划转-创建合约"/>
     <activity android:name="com.fone.fone.activity.QRCodeActivity" android:label="收款二维码"/>
     <activity android:name="com.fone.fone.view.zxing.CaptureActivity" android:label="扫一扫"/>

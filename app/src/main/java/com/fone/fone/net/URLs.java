@@ -185,6 +185,10 @@ public class URLs {
      */
     public static final String USDTCancel = "/api/usdt-deal/cancel";
     /**
+     * USDT购买-取消
+     */
+    public static final String USDTCancel_ChuShou = "/api/usdt-sell/cancel";
+    /**
      * USDT出售-发布
      */
     public static final String USDTSell = "/api/usdt-sell/create";

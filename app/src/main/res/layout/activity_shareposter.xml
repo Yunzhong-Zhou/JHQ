@@ -67,12 +67,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_marginLeft="14dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:drawableLeft="@mipmap/bg_shareposter5"
                             android:drawablePadding="14dp"
                             android:text="@string/fragment5_h26"
@@ -82,7 +81,6 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:drawableLeft="@mipmap/bg_shareposter5"
                             android:drawablePadding="14dp"
                             android:text="@string/fragment5_h27"
@@ -93,7 +91,6 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:drawableLeft="@mipmap/bg_shareposter5"
                             android:drawablePadding="14dp"
                             android:text="@string/fragment5_h28"
@@ -104,7 +101,6 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:drawableLeft="@mipmap/bg_shareposter5"
                             android:drawablePadding="14dp"
                             android:text="@string/fragment5_h29"
@@ -119,6 +115,7 @@
                         android:layout_width="145dp"
                         android:layout_height="145dp"
                         android:padding="8dp"
+                        android:layout_marginRight="14dp"
                         android:background="@mipmap/bg_shareposter6" />
 
 

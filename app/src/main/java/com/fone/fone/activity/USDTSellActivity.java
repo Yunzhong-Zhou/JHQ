@@ -73,7 +73,6 @@ public class USDTSellActivity extends BaseActivity {
                 if (!editText1.getText().toString().trim().equals("")) {
                     input_money = editText1.getText().toString().trim();
 //                    if (!editText2.getText().toString().trim().equals("")){
-
                         if (Double.valueOf(input_money) > 0) {
                             MyLogger.i(">>>>>输入币数>>>>>" + input_money);
                             //实际到账  =  个数  *  汇率
@@ -206,7 +205,7 @@ public class USDTSellActivity extends BaseActivity {
 
     private boolean match() {
         input_money = editText1.getText().toString().trim();
-        if (TextUtils.isEmpty(input_money)) {
+        if (TextUtils.isEmpty(input_money) ) {
             myToast(getString(R.string.fragment5_h55));
             return false;
         }

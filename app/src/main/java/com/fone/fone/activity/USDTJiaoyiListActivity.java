@@ -61,7 +61,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
             public void onRefresh() {
                 page = 1;
                 String string = "?token=" + localUserInfo.getToken()
-                        + "&drvt_buy_id=" + id
+                        + "&usdt_sell_id=" + id
                         + "&status=" + status
                         + "&type=" + type
                         + "&page=" + page//当前页号
@@ -73,7 +73,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
             public void onLoadmore() {
                 page = page + 1;
                 String string = "?token=" + localUserInfo.getToken()
-                        + "&drvt_buy_id=" + id
+                        + "&usdt_sell_id=" + id
                         + "&status=" + status
                         + "&type=" + type
                         + "&page=" + page//当前页号
@@ -134,11 +134,11 @@ public class USDTJiaoyiListActivity extends BaseActivity {
                         mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                                if (list.get(i).getStatus() != 1) {
+//                                if (list.get(i).getStatus() != 1) {
                                     Bundle bundle = new Bundle();
                                     bundle.putString("id", list.get(i).getId());
                                     CommonUtil.gotoActivityWithData(USDTJiaoyiListActivity.this, USDTOrderInfoActivity.class, bundle, false);
-                                }
+//                                }
                             }
 
                             @Override
@@ -213,7 +213,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
                 list.add(getString(R.string.app_type_quanbu));
                 list.add(getString(R.string.fragment5_h70));
                 list.add(getString(R.string.fragment5_h71));
-                list.add(getString(R.string.fragment5_h72));
+//                list.add(getString(R.string.fragment5_h72));
                 list.add(getString(R.string.fragment5_h73));
                 list.add(getString(R.string.fragment5_h74));
                 list.add(getString(R.string.fragment5_h75));
@@ -274,7 +274,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
         showProgress(true, getString(R.string.app_loading2));
         page = 1;
         String string = "?token=" + localUserInfo.getToken()
-                + "&drvt_buy_id=" + id
+                + "&usdt_sell_id=" + id
                 + "&status=" + status
                 + "&type=" + type
                 + "&page=" + page//当前页号
