@@ -2006,6 +2006,7 @@ id ll_chanzhi
 id ll_content2
 id ll_fil
 id ll_jieidan
+id ll_language
 id ll_nickname
 id ll_pay
 id ll_phonenum
@@ -2265,6 +2266,7 @@ id tv_join
 id tv_kaihuname
 id tv_keyong
 id tv_kuangji
+id tv_language
 id tv_moeny
 id tv_money
 id tv_money1
@@ -2700,7 +2702,8 @@ mipmap ic_gantanhao
 mipmap ic_gou_blue
 mipmap ic_gou_gray
 mipmap ic_gouxuan
-mipmap ic_guoqi
+mipmap ic_guoqi_chinese
+mipmap ic_guoqi_english
 mipmap ic_huigoujilu
 mipmap ic_item_fragment1_1
 mipmap ic_jia

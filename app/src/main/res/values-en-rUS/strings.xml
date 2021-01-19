@@ -182,7 +182,7 @@
     <string name="about_h1">Download app</string>
     <string name="about_h2">About FILTOP</string>
     <string name="about_h3">FILTOP Update</string>
-    <string name="about_h4">FILTOP版权所有\nCopyright @2020 FILTOP\nAll Rights Reserved</string>
+    <string name="about_h4">FILTOP\nCopyright @2020 FILTOP\nAll Rights Reserved</string>
     <string name="about_h5">Already the latest version</string>
 
     <!--设置-->
@@ -684,7 +684,7 @@
     <string name="takecash_h13">Request submitted</string>
     <string name="takecash_h14">Fee</string>
     <string name="takecash_h15">Withdrwa USDT</string>
-    <string name="takecash_h16">History</string>
+    <string name="takecash_h16">Withdrawal History</string>
     <string name="takecash_h17"><u>Address</u></string>
     <string name="takecash_h18">Amount</string>
     <string name="takecash_h19">Withdraw successfully</string>
@@ -722,7 +722,7 @@
     <!--二维码-->
     <string name="zxing_h1">Target the QR code to scan</string>
     <string name="zxing_h2">No freshlight available</string>
-    <string name="zxing_h3">Scan to transfer扫码转帐</string>
+    <string name="zxing_h3">Scan to transfer</string>
     <string name="zxing_h4">Scanning...</string>
     <string name="zxing_h5">Scan to transfer</string>
     <string name="zxing_h6">Save QR code</string>

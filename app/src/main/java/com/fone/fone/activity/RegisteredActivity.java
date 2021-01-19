@@ -120,11 +120,11 @@ public class RegisteredActivity extends BaseActivity {
             Glide.with(RegisteredActivity.this)
                     .load(IMGHOST + localUserInfo.getCountry_IMG())
                     .centerCrop()
-//                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
-//                    .error(R.mipmap.ic_guoqi)//加载失败
+//                    .placeholder(R.mipmap.ic_guoqi_english)//加载站位图
+//                    .error(R.mipmap.ic_guoqi_english)//加载失败
                     .into(title_right);//加载图片
         else
-            title_right.setImageResource(R.mipmap.ic_guoqi);
+            title_right.setImageResource(R.mipmap.ic_guoqi_english);
     }
 
     @Override

@@ -79,6 +79,7 @@ public class Fragment3 extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment3, container, false);
+
         return view;
     }
 
@@ -482,9 +483,12 @@ public class Fragment3 extends BaseFragment {
                     tv_hetong.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("url", model.getUrl());
-                            CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                            if (!model.getUrl().equals("")){
+                                Bundle bundle = new Bundle();
+                                bundle.putString("url", model.getUrl());
+                                CommonUtil.gotoActivityWithData(getActivity(), WebContentActivity.class, bundle, false);
+                            }
+
                         }
                     });
                     TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);

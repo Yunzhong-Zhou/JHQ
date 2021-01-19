@@ -144,11 +144,11 @@ public class SelectLanguagePopupWindow extends PopupWindow {
                     Glide.with(mContext)
                             .load(OkHttpClientManager.IMGHOST + model.getIcon())
                             .centerCrop()
-//                            .placeholder(R.mipmap.ic_guoqi)//加载站位图
-//                            .error(R.mipmap.ic_guoqi)//加载失败
+//                            .placeholder(R.mipmap.ic_guoqi_english)//加载站位图
+//                            .error(R.mipmap.ic_guoqi_english)//加载失败
                             .into(imageView);//加载图片
                 else
-                    imageView.setImageResource(R.mipmap.ic_guoqi);
+                    imageView.setImageResource(R.mipmap.ic_guoqi_chinese);
 
                 ImageView imageView2 = holder.getView(R.id.imageView2);
                 LinearLayout linearLayout = holder.getView(R.id.linearLayout);

@@ -35,7 +35,7 @@
             android:layout_height="56dp"
             android:visibility="invisible"
             android:onClick="onClick"
-            android:src="@mipmap/ic_guoqi" />
+            android:src="@mipmap/ic_guoqi_english" />
     </LinearLayout>
 
     <ScrollView

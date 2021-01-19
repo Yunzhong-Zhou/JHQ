@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ActivityUtils;
-import com.bumptech.glide.Glide;
 import com.cy.dialog.BaseDialog;
+import com.fone.fone.MyApplication;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.LoginModel;
@@ -32,9 +31,12 @@ import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.model.UpgradeModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
-import com.fone.fone.popupwindow.SelectLanguagePopupWindow;
 import com.fone.fone.utils.CommonUtil;
+import com.fone.fone.utils.LocalUserInfo;
 import com.fone.fone.utils.MyLogger;
+import com.fone.fone.utils.changelanguage.LanguageType;
+import com.fone.fone.utils.changelanguage.LanguageUtil;
+import com.fone.fone.utils.changelanguage.SpUtil;
 import com.fone.fone.utils.permission.PermissionsActivity;
 import com.fone.fone.utils.permission.PermissionsChecker;
 import com.lahm.library.EasyProtectorLib;
@@ -50,8 +52,6 @@ import java.util.Map;
 
 import androidx.appcompat.app.AlertDialog;
 
-import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
-
 
 /**
  * Created by fafukeji01 on 2017/4/25.
@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity {
     List<SmsCodeListModel.MobileStateListBean> list1 = new ArrayList<>();
 
     private EditText editText1, editText2;
-    private TextView textView, textView1, textView2, textView3;
+    private TextView textView, textView1, textView2, textView3, tv_language;
     private ImageView imageView1, imageView2, title_right;
 
     private String phonenum = "", password = "";
@@ -100,7 +100,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
        /* requestWindowFeature(Window.FEATURE_NO_TITLE);
         //add by able for soft keyboard show
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);*/
@@ -120,9 +119,11 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-//        findViewByID_My(R.id.linearLayout).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+        findViewByID_My(R.id.ll_language).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
 
         title_right = findViewByID_My(R.id.title_right);
+        tv_language = findViewByID_My(R.id.tv_language);
+
         textView = findViewByID_My(R.id.textView);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
@@ -248,15 +249,47 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.title_right:
+//            case R.id.title_right:
+            case R.id.ll_language:
                 //选择语言
-                if (list.size() > 0) {
+                /*if (list.size() > 0) {
                     SelectLanguagePopupWindow popupwindow = new SelectLanguagePopupWindow(LoginActivity.this, LoginActivity.class, list);
                     popupwindow.showAtLocation(LoginActivity.this.findViewById(R.id.title_right), Gravity.CENTER, 0, 0);
                 } else {
                     String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
                     RequestSmsCodeList(string3);//手机号国家代码集合
+                }*/
+                if (LocalUserInfo.getInstance(this).getLanguage_Type().equals("zh")) {
+                    //保存语言
+                    LocalUserInfo.getInstance(this).setLanguage_Type("en");
+                } else {
+                    LocalUserInfo.getInstance(this).setLanguage_Type("zh");
                 }
+
+                String language = null;
+                switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+                    case "zh":
+                        //设置为中文
+                        language = LanguageType.CHINESE.getLanguage();
+                        title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
+                        tv_language.setText("简体中文");
+                        break;
+                    case "en":
+                        //设置为英文
+                        language = LanguageType.ENGLISH.getLanguage();
+                        title_right.setImageResource(R.mipmap.ic_guoqi_english);
+                        tv_language.setText("English");
+                        break;
+                }
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    LanguageUtil.changeAppLanguage(MyApplication.getContext(), language);
+                }
+                SpUtil.getInstance(this).putString(SpUtil.LANGUAGE, language);
+
+//                ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(intent);
 
                 break;
             case R.id.textView:
@@ -819,32 +852,35 @@ public class LoginActivity extends BaseActivity {
         }
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
-        switch (localUserInfo.getMobile_State_Code().length()){
+        switch (localUserInfo.getMobile_State_Code().length()) {
             case 2:
-                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,60), 0, 0, 0);
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 60), 0, 0, 0);
                 break;
             case 3:
-                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,70), 0, 0, 0);
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 70), 0, 0, 0);
                 break;
             case 4:
-                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,75), 0, 0, 0);
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 75), 0, 0, 0);
                 break;
             case 5:
-                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this,80), 0, 0, 0);
+                editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 80), 0, 0, 0);
                 break;
 
         }
 
-        MyLogger.i(">>>>>" + IMGHOST + localUserInfo.getCountry_IMG());
-        if (!localUserInfo.getCountry_IMG().equals(""))
-            Glide.with(LoginActivity.this)
-                    .load(IMGHOST + localUserInfo.getCountry_IMG())
-                    .centerCrop()
-//                    .placeholder(R.mipmap.ic_guoqi)//加载站位图
-//                    .error(R.mipmap.ic_guoqi)//加载失败
-                    .into(title_right);//加载图片
-        else
-            title_right.setImageResource(R.mipmap.ic_guoqi);
+        switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
+            case "zh":
+                //设置为中文
+                title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
+                tv_language.setText("简体中文");
+                break;
+            case "en":
+                //设置为英文
+                title_right.setImageResource(R.mipmap.ic_guoqi_english);
+                tv_language.setText("English");
+                break;
+        }
+
     }
 
     private void startPermissionsActivity() {
