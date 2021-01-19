@@ -503,8 +503,8 @@ public class Fragment3Model implements Serializable {
 
         private String head;
         private String nickname;
-        private int change_game_win_time;
-        private int hashrate;
+        private String change_game_win_time;
+        private String hashrate;
 
         public String getHead() {
             return head;
@@ -522,19 +522,19 @@ public class Fragment3Model implements Serializable {
             this.nickname = nickname;
         }
 
-        public int getChange_game_win_time() {
+        public String getChange_game_win_time() {
             return change_game_win_time;
         }
 
-        public void setChange_game_win_time(int change_game_win_time) {
+        public void setChange_game_win_time(String change_game_win_time) {
             this.change_game_win_time = change_game_win_time;
         }
 
-        public int getHashrate() {
+        public String getHashrate() {
             return hashrate;
         }
 
-        public void setHashrate(int hashrate) {
+        public void setHashrate(String hashrate) {
             this.hashrate = hashrate;
         }
     }

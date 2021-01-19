@@ -309,7 +309,6 @@ public class Fragment3 extends BaseFragment {
                         rv_join.setAdapter(mAdapter_join);
                     }
 
-
                     /**
                      * 完成拼团
                      */

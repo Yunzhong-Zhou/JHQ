@@ -178,7 +178,7 @@
 
     <!--关于我们-->
     <string name="about_title">关于我们</string>
-    <string name="about_h1">FilTop官网</string>
+    <string name="about_h1">FilTop下载</string>
     <string name="about_h2">FilTop介绍</string>
     <string name="about_h3">FilTop更新</string>
     <string name="about_h4">FilTop版权所有\nCopyright @2020 FilTop\nAll Rights Reserved</string>
@@ -191,7 +191,7 @@
     <string name="setup_h3">语言设置</string>
 
     <!--在线客服-->
-    <string name="onlineservice_title">在线留言</string>
+    <string name="onlineservice_title">联系客服</string>
     <string name="onlineservice_hint">请输入您想要咨询的问题</string>
     <string name="onlineservice_system1">手机厂商：</string>
     <string name="onlineservice_system2">手机型号：</string>
@@ -254,7 +254,7 @@
     <string name="fragment1_h7">税前价格</string>
     <string name="fragment1_h8">不包含增值税发票</string>
     <string name="fragment1_h9">税后价格</string>
-    <string name="fragment1_h10">Miner parameters</string>
+    <string name="fragment1_h10">Miner Specifications</string>
     <string name="fragment1_h11">矿机参数</string>
     <string name="fragment1_h12">详细介绍</string>
     <string name="fragment1_h13">矿机算力</string>
@@ -379,7 +379,7 @@
     <string name="fragment3_h30">待加入</string>
     <string name="fragment3_h31">Filecoin众智汇算力包</string>
     <string name="fragment3_h32">处理中</string>
-    <string name="fragment3_h33">FileCoin主网矿机算力1TB</string>
+    <string name="fragment3_h33">Filecoin主网矿机算力0.1TB</string>
     <string name="fragment3_h34">已加入拼购</string>
     <string name="fragment3_h35">我的拼购</string>
     <string name="fragment3_h36">《拼购销售协议》</string>
@@ -664,6 +664,8 @@
     <string name="addrmanage_h14">添加银行卡</string>
     <string name="addrmanage_h15">请填写正确的银行卡信息，否则无法提现</string>
     <string name="addrmanage_h16">银联</string>
+    <string name="addrmanage_h17">出售USDT需先邦定银行卡</string>
+    <string name="addrmanage_h18">去绑定</string>
 
     <!--提币-->
     <string name="takecash_h1">FIL提币</string>

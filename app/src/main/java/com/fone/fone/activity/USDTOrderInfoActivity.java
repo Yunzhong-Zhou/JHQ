@@ -116,17 +116,17 @@ public class USDTOrderInfoActivity extends BaseActivity {
                 } else {
                     textView4.setText(getString(R.string.qianbao_h180));//买家or卖家
                 }
-                textView5.setText(response.getUsdt_deal().getCny_money() + "CNY");//总价
-                textView6.setText(response.getUsdt_deal().getUsdt_cny_price() + "CNY");//单价
-                textView7.setText(response.getUsdt_deal().getUsdt_money());//数量
+                textView5.setText("¥ "+response.getUsdt_deal().getCny_money() + "");//总价
+                textView6.setText("¥ "+response.getUsdt_deal().getUsdt_cny_price() + "");//单价
+                textView7.setText(response.getUsdt_deal().getUsdt_money()+" USDT");//数量
                 textView8.setText(response.getUsdt_deal().getSn());//订单号
                 textView9.setText(response.getUsdt_deal().getCreated_at());//创建时间
                 textView10.setText(response.getUsdt_deal().getOpposite_member_nickname());//卖家昵称
                 textView11.setText(response.getUsdt_deal().getOpposite_member_mobile());//手机号
+
                 textView12.setText(response.getUsdt_deal().getUsdt_sell_member_bank_card_proceeds_name());//姓名
                 textView13.setText(response.getUsdt_deal().getUsdt_sell_member_bank_card_account());//银行卡号
                 textView14.setText(response.getUsdt_deal().getUsdt_sell_member_bank_title());//银行
-
 
                 linearLayout1.setVisibility(View.GONE);
                 tv_cancel.setVisibility(View.VISIBLE);

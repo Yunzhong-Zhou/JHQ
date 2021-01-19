@@ -373,12 +373,12 @@ public class USDTJiaoYiActivity extends BaseActivity {
                     mAdapter2.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
-                            /*if (list2.get(i).getStatus() != 1) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id", list2.get(i).getId());
-//                                    CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
-                                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
-                            }*/
+//                            if (list2.get(i).getStatus() != 1) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("id", list2.get(i).getId());
+                            CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTJiaoyiListActivity.class, bundle, false);
+//                                CommonUtil.gotoActivityWithData(USDTJiaoYiActivity.this, USDTOrderInfoActivity.class, bundle, false);
+//                            }
                         }
 
                         @Override

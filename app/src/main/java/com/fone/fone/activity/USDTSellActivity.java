@@ -47,6 +47,12 @@ public class USDTSellActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();
+    }
+
+    @Override
     protected void initView() {
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
@@ -141,7 +147,7 @@ public class USDTSellActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();
+
     }
 
     @Override
@@ -169,12 +175,33 @@ public class USDTSellActivity extends BaseActivity {
                 model = response;
                 hideProgress();
 
+                if (response.getBank_card_account().equals("")) {
+                    showToast(getString(R.string.addrmanage_h17),
+                            getString(R.string.addrmanage_h18), getString(R.string.password_h6),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    CommonUtil.gotoActivity(USDTSellActivity.this, BankCardSettingActivity.class, false);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                    finish();
+                                }
+                            });
+                }
+
+
                 drvt_price = response.getUsdt_cny_price();
 
 //                editText2.setHint(getString(R.string.qianbao_h113) + response.getOfc_price());
                 editText2.setText("￥"+response.getUsdt_cny_price());
 //                textView2.setText(getString(R.string.qianbao_h106) + "2%");
                 textView3.setText(getString(R.string.fragment5_h54) + response.getUsable_money()+"USDT");
+
+
             }
         });
 
