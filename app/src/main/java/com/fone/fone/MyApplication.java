@@ -237,6 +237,9 @@ public class MyApplication extends Application {
             LanguageUtil.changeAppLanguage(mContext, language);
         }
 
+
+
+
         new ScreenAdaptation(this, 828, 1792).register();
 //        new ScreenAdaptation(this, 1125, 2436).register();
 //        new ScreenAdaptation(this,720,1280).register();

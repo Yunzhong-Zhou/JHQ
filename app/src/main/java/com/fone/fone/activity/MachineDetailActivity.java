@@ -127,7 +127,7 @@ public class MachineDetailActivity extends BaseActivity {
                 textView7.setText(response.getInvest().getMill_mining_cycle() + getString(R.string.app_tian));//挖矿周期
                 textView8.setText(response.getInvest().getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预期产值
                 textView9.setText(response.getInvest().getMill_type_title() + "");//算力来源
-                textView10.setText(response.getInvest().getStart_at() + "");//购买时间
+                textView10.setText(response.getInvest().getCreated_at() + "");//购买时间
                 textView11.setText(response.getInvest().getEnd_at() + "");//结束时间
                 textView12.setText(response.getInvest().getPay_type_title() + "");//支付方式
 

@@ -64,6 +64,7 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
     @Override
     protected void attachBaseContext(Context newBase) {
         //获取我们存储的语言环境 比如 "en","zh",等等
+
         String language = SpUtil.getInstance(MyApplication.getContext()).getString(SpUtil.LANGUAGE);
         super.attachBaseContext(LanguageUtil.attachBaseContext(newBase, language));
 

@@ -166,7 +166,7 @@
     <string name="registered_h15">Read and agree T&amp;C</string>
 
     <!--忘记密码-->
-   <string name="forgetpassword_h1">Phone number</string>
+    <string name="forgetpassword_h1">Phone number</string>
     <string name="forgetpassword_h2">Enter code</string>
     <string name="forgetpassword_h3">Enter password</string>
     <string name="forgetpassword_h4">Enter password again</string>
@@ -178,7 +178,7 @@
 
 
     <!--关于我们-->
-     <string name="about_title">About Us</string>
+    <string name="about_title">About Us</string>
     <string name="about_h1">Download app</string>
     <string name="about_h2">About FILTOP</string>
     <string name="about_h3">FILTOP Update</string>
@@ -201,10 +201,10 @@
     <string name="onlineservice_h1">FAQ</string>
     <string name="onlineservice_h2">Service on your side</string>
     <string name="onlineservice_h3">Hotline:</string>
-    <string name="onlineservice_h4">Contact Us:</string>
+    <string name="onlineservice_h4">Contact support</string>
 
     <!--修改登录密码-->
-  <string name="changepassword_h1">Change log in password</string>
+    <string name="changepassword_h1">Change log in password</string>
     <string name="changepassword_h2">Old password</string>
     <string name="changepassword_h3">New password</string>
     <string name="changepassword_h4">Confirm new password</string>
@@ -217,7 +217,7 @@
 
 
     <!--修改交易密码-->
-        <string name="settransactionpassword_h1">Enter fund password</string>
+    <string name="settransactionpassword_h1">Enter fund password</string>
     <string name="settransactionpassword_h2">Phone number</string>
     <string name="settransactionpassword_h3">Enter phone no.</string>
     <string name="settransactionpassword_h4">Verification code</string>
@@ -248,14 +248,14 @@
 
     <!--fragment1-->
     <string name="fragment1_h1">Advantages of miner</string>
-    <string name="fragment1_h2">Prepaid pledge</string>
-    <string name="fragment1_h3">Permanent ownership</string>
-    <string name="fragment1_h4">Reliable hosting</string>
-    <string name="fragment1_h5">Rapid yield</string>
+    <string name="fragment1_h2">Prepaid Pledge</string>
+    <string name="fragment1_h3">Permanent Ownership</string>
+    <string name="fragment1_h4">Reliable Hosting</string>
+    <string name="fragment1_h5">Rapid Yield</string>
     <string name="fragment1_h7">Price before tax</string>
     <string name="fragment1_h8">Invoice not included</string>
     <string name="fragment1_h9">Price after tax</string>
-    <string name="fragment1_h10">Miner Specifications</string>
+    <string name="fragment1_h10">Miner parameters</string>
     <string name="fragment1_h11">Specifications</string>
     <string name="fragment1_h12">Details</string>
     <string name="fragment1_h13">Hashpower</string>
@@ -268,7 +268,7 @@
     <string name="fragment1_h20">Miner ID</string>
     <string name="fragment1_h21">Residual value</string>
     <string name="fragment1_h22">Buy now</string>
-   <string name="fragment1_h23">Include invoice</string>
+    <string name="fragment1_h23">Include invoice</string>
     <string name="fragment1_h24">/miner</string>
     <string name="fragment1_h25">Payment method</string>
     <string name="fragment1_h26">USDT Pay</string>
@@ -330,7 +330,7 @@
     <!--fragment2-->
     <string name="fragment2_h1">Reliable hosting</string>
     <string name="fragment2_h2">Hosted by\nT3+ IDC data centers</string>
-    <string name="fragment2_h3">Stable production </string>
+    <string name="fragment2_h3">Stable Production </string>
     <string name="fragment2_h4">Professional maintenance\nStable hashpower</string>
     <string name="fragment2_h5">Transparent</string>
     <string name="fragment2_h6">Source of hashpower\nMiner tag open for checking</string>
@@ -348,7 +348,7 @@
     <string name="fragment2_h18">Read and agree Hashpower Rental Agreement</string>
 
     <!--fragment3-->
-<string name="fragment3_h1">Hashpower</string>
+    <string name="fragment3_h1">Hashpower</string>
     <string name="fragment3_h2">Lifecycle of mining</string>
     <string name="fragment3_h3">Type of production</string>
     <string name="fragment3_h4">Miner hosting</string>
@@ -380,13 +380,13 @@
     <string name="fragment3_h30">Idle</string>
     <string name="fragment3_h31">Hashpower Pack</string>
     <string name="fragment3_h32">Processing</string>
-    <string name="fragment3_h33">Filecoin 0.1Tb Hashpower pack</string>
+    <string name="fragment3_h33">Filecoin 1Tb Hashpower pack</string>
     <string name="fragment3_h34">Joined groupbuy</string>
     <string name="fragment3_h35">My groupbuy</string>
     <string name="fragment3_h36">Groupbuy Agreement</string>
     <string name="fragment3_h37">Read and agree Groupbuy Agreement</string>
     <!--fragment4-->
-   <string name="fragment4_h1">Available(USDT)</string>
+    <string name="fragment4_h1">Available(USDT)</string>
     <string name="fragment4_h2">Earning</string>
     <string name="fragment4_h3">Commission</string>
     <string name="fragment4_h4">Deposit</string>
@@ -423,9 +423,9 @@
     <string name="fragment5_h8">Hashpower</string>
     <string name="fragment5_h9">Miner</string>
     <string name="fragment5_h10">Contract</string>
-    <string name="fragment5_h11">Address management</string>
-    <string name="fragment5_h12">Deposit History</string>
-    <string name="fragment5_h13">Withdrawal History</string>
+    <string name="fragment5_h11">Address</string>
+    <string name="fragment5_h12">Deposit</string>
+    <string name="fragment5_h13">Withdrawal</string>
     <string name="fragment5_h14">Settings</string>
     <string name="fragment5_h15">About us</string>
     <string name="fragment5_h16">Referral</string>
@@ -543,7 +543,7 @@
     <string name="myprofile_h11">Log out?</string>
 
     <!--地址管理-->
-     <string name="address_h1">Set USDT address</string>
+    <string name="address_h1">Set USDT address</string>
     <string name="address_h2">Address</string>
     <string name="address_h3">Enter address</string>
     <string name="address_h4">Enter phone no.</string>
@@ -667,7 +667,6 @@
     <string name="addrmanage_h16">UnionPay</string>
     <string name="addrmanage_h17">You must bind bank card before selling USDT</string>
     <string name="addrmanage_h18">Bind now</string>
-
     <!--提币-->
     <string name="takecash_h1">Withdraw FIL</string>
     <string name="takecash_h2">Withdraw to</string>
@@ -684,7 +683,7 @@
     <string name="takecash_h13">Request submitted</string>
     <string name="takecash_h14">Fee</string>
     <string name="takecash_h15">Withdrwa USDT</string>
-    <string name="takecash_h16">Withdrawal History</string>
+    <string name="takecash_h16">History</string>
     <string name="takecash_h17"><u>Address</u></string>
     <string name="takecash_h18">Amount</string>
     <string name="takecash_h19">Withdraw successfully</string>
