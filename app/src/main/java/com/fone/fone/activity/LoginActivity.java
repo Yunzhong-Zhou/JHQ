@@ -271,16 +271,22 @@ public class LoginActivity extends BaseActivity {
                     case "zh":
                         //设置为中文
                         language = LanguageType.CHINESE.getLanguage();
-                        title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
-                        tv_language.setText("简体中文");
+
+                        //显示与设置相反
+                        title_right.setImageResource(R.mipmap.ic_guoqi_english);
+                        tv_language.setText("English");
                         break;
                     case "en":
                         //设置为英文
                         language = LanguageType.ENGLISH.getLanguage();
-                        title_right.setImageResource(R.mipmap.ic_guoqi_english);
-                        tv_language.setText("English");
+
+                        //显示与设置相反
+                        title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
+                        tv_language.setText("简体中文");
+
                         break;
                 }
+
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                     LanguageUtil.changeAppLanguage(MyApplication.getContext(), language);
                 }
@@ -871,13 +877,18 @@ public class LoginActivity extends BaseActivity {
         switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
             case "zh":
                 //设置为中文
-                title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
-                tv_language.setText("简体中文");
+
+                //显示与设置相反
+                title_right.setImageResource(R.mipmap.ic_guoqi_english);
+                tv_language.setText("English");
                 break;
             case "en":
                 //设置为英文
-                title_right.setImageResource(R.mipmap.ic_guoqi_english);
-                tv_language.setText("English");
+
+                //显示与设置相反
+                title_right.setImageResource(R.mipmap.ic_guoqi_chinese);
+                tv_language.setText("简体中文");
+
                 break;
         }
 
