@@ -26,7 +26,7 @@
   <uses-permission android:name="android.permission.WAKE_LOCK"/>
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA"/>
-  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.fone.fone.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4" xmlns:android="http://schemas.android.com/apk/res/android">
+  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:testOnly="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.fone.fone.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4" xmlns:android="http://schemas.android.com/apk/res/android">
     <activity android:name="com.fone.fone.activity.HelloActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -67,6 +67,7 @@
     <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
     <activity android:name="com.fone.fone.activity.ShareActivity" android:label="推广"/>
     <activity android:name="com.fone.fone.activity.SharePeopleActivity" android:label="推广用户"/>
+    <activity android:name="com.fone.fone.activity.AccountDetailActivity" android:label="钱包"/>
     <activity android:name="com.fone.fone.activity.FILWalletActivity" android:label="FIL钱包"/>
     <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
     <activity android:name="com.fone.fone.activity.ShouRuListActivity" android:label="收入记录"/>
@@ -90,6 +91,9 @@
     <activity android:name="com.fone.fone.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
     <activity android:name="com.fone.fone.activity.USDTOrderInfoActivity" android:label="交易详情"/>
     <activity android:name="com.fone.fone.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
+    <activity android:name="com.fone.fone.activity.CityFriend_NOActivity" android:label="城市合作伙伴-未申请"/>
+    <activity android:name="com.fone.fone.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>
+    <activity android:name="com.fone.fone.activity.CityFriendActivity" android:label="城市合作伙伴"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>

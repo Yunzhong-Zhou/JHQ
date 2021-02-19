@@ -1,7 +1,6 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 
 import com.fone.fone.R;
@@ -9,7 +8,6 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
-import com.fone.fone.popupwindow.SelectLanguagePopupWindow;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.squareup.okhttp.Request;
@@ -64,22 +62,29 @@ public class SetUpActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.textView1:
+                //绑定银行卡
+                CommonUtil.gotoActivity(this, BankCardSettingActivity.class, false);
+                break;
+            case R.id.textView2:
                 //交易密码
                 CommonUtil.gotoActivity(this, SetTransactionPasswordActivity.class, false);
                 break;
-            case R.id.textView2:
+            case R.id.textView3:
                 //登录密码
                 CommonUtil.gotoActivity(this, ChangePasswordActivity.class, false);
                 break;
-            case R.id.textView3:
+            case R.id.textView4:
+                //个人资料
+                CommonUtil.gotoActivity(this, MyProfileActivity.class, false);
+
                 //选择语言
-                if (list.size() > 0) {
+                /*if (list.size() > 0) {
                     SelectLanguagePopupWindow popupwindow = new SelectLanguagePopupWindow(SetUpActivity.this, LoginActivity.class, list);
                     popupwindow.showAtLocation(SetUpActivity.this.findViewById(R.id.textView3), Gravity.CENTER, 0, 0);
                 } else {
                     String string3 = "?lang_type=" + localUserInfo.getLanguage_Type();
                     RequestSmsCodeList(string3);//手机号国家代码集合
-                }
+                }*/
                 break;
         }
     }

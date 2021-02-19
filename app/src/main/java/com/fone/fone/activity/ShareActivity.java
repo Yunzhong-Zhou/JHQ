@@ -284,7 +284,7 @@ public class ShareActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(R.string.share_h1);
+//        titleView.setTitle(R.string.share_h1);
         titleView.setVisibility(View.GONE);
     }
 

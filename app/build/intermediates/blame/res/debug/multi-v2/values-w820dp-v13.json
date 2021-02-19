@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/63fd3aecfedc449e1745d798a02c32b9/jetified-citypickerview-4.1.1/res/values-w820dp-v13/values-w820dp-v13.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/355dd303d35399762c2a746292c0705e/jetified-citypickerview-4.1.1/res/values-w820dp-v13/values-w820dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

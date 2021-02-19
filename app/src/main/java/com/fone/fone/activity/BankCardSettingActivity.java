@@ -196,8 +196,8 @@ public class BankCardSettingActivity extends BaseActivity {
                 }
                 banklist = response.getBank_list();
                 if (!response.getMember().getBank_card_account().equals("")) {
-//                    linearLayout_wu.setVisibility(View.GONE);
-//                    linearLayout_you.setVisibility(View.VISIBLE);
+                    linearLayout_wu.setVisibility(View.GONE);
+                    linearLayout_you.setVisibility(View.VISIBLE);
                     textView1.setText(response.getMember().getBank_title());//开户行
                     editText1.setText(response.getMember().getBank_card_proceeds_name());//开户名
                     editText2.setText(response.getMember().getBank_card_account());//银行卡号
@@ -206,8 +206,8 @@ public class BankCardSettingActivity extends BaseActivity {
                     tv_kaihuname.setText(response.getMember().getBank_title());//开户行
                     tv_bankname.setText(response.getMember().getBank_card_proceeds_name());//开户名
                 } else {
-//                    linearLayout_wu.setVisibility(View.VISIBLE);
-//                    linearLayout_you.setVisibility(View.GONE);
+                    linearLayout_wu.setVisibility(View.VISIBLE);
+                    linearLayout_you.setVisibility(View.GONE);
                 }
 
 

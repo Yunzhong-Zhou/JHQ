@@ -3,7 +3,6 @@ package com.fone.fone.activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
@@ -150,7 +149,7 @@ public class TakeCashActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        money_type = getIntent().getIntExtra("money_type", 1);
+        /*money_type = getIntent().getIntExtra("money_type", 1);
         if (money_type == 1) {
             //usdt
             tv_title.setText(getString(R.string.takecash_h15));
@@ -166,7 +165,7 @@ public class TakeCashActivity extends BaseActivity {
             imageView2.setImageResource(R.mipmap.ic_fil_black);
 //            editText1.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
 //            textView4.setText("3"+getString(R.string.app_type_fil));
-        }
+        }*/
 
     }
 

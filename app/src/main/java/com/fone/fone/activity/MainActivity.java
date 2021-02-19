@@ -23,9 +23,7 @@ import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.fragment.Fragment1;
-import com.fone.fone.fragment.Fragment2;
 import com.fone.fone.fragment.Fragment3;
-import com.fone.fone.fragment.Fragment4;
 import com.fone.fone.fragment.Fragment5;
 import com.fone.fone.model.UpgradeModel;
 import com.fone.fone.net.OkHttpClientManager;
@@ -59,7 +57,7 @@ public class MainActivity extends BaseActivity {
     private List<Fragment> fragments = new ArrayList<>();
 
     public static boolean isOver = false;
-    public static int item = 2;
+    public static int item = 1;
     int isShowAd = 0;//是否显示弹窗
     //更新
     UpgradeModel model_up;
@@ -145,7 +143,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        item = 2;
+        item = 1;
         isOver = false;
     }
 
@@ -153,34 +151,35 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         navigationBar = findViewByID_My(R.id.navigationBar);
 
-        item = getIntent().getIntExtra("item", 2);
+        item = getIntent().getIntExtra("item", 1);
 
         fragments.add(new Fragment1());
-        fragments.add(new Fragment2());
+//        fragments.add(new Fragment2());
         fragments.add(new Fragment3());
-        fragments.add(new Fragment4());
+//        fragments.add(new Fragment4());
         fragments.add(new Fragment5());
         String[] tabText = {getString(R.string.fragment1) + "",
-                getString(R.string.fragment2) + "",
+//                getString(R.string.fragment2) + "",
                 getString(R.string.fragment3) + "",
-                getString(R.string.fragment4) + "",
+//                getString(R.string.fragment4) + "",
                 getString(R.string.fragment5) + ""};
         //未选中icon
-        int[]  normalIcon= {R.mipmap.tab1_1, R.mipmap.tab2_1, R.mipmap.tab3_1, R.mipmap.tab4_1, R.mipmap.tab5_1};
+        int[]  normalIcon= {R.mipmap.tab1_1,  R.mipmap.tab3_1,  R.mipmap.tab5_1};
         //选中时icon
-        int[]  selectIcon= {R.mipmap.tab1_0, R.mipmap.tab2_0, R.mipmap.tab3_0, R.mipmap.tab4_0, R.mipmap.tab5_0};
+        int[]  selectIcon= {R.mipmap.tab1_0,  R.mipmap.tab3_0, R.mipmap.tab5_0};
 
         navigationBar.titleItems(tabText)//文字
                 .normalIconItems(normalIcon)//未选中
                 .selectIconItems(selectIcon)//选中
                 .normalTextColor(getResources().getColor(R.color.green_1))//未选中字体颜色
                 .selectTextColor(getResources().getColor(R.color.white))//选中字体颜色
-                .tabTextTop(4)//Tab文字距Tab图标的距离
-                .tabTextSize(10)//Tab文字大小
+                .tabTextTop(0)//Tab文字距Tab图标的距离
+                .tabTextSize(0)//Tab文字大小
                 .fragmentList(fragments)
                 .anim(null)
                 .addLayoutRule(EasyNavigationBar.RULE_BOTTOM)
-                .navigationBackground(R.drawable.yuanjiao_0_lvsejianbian)
+//                .navigationBackground(R.drawable.yuanjiao_0_lvsejianbian)
+                .navigationBackground(R.mipmap.bg_mainbottom)
                 .addLayoutBottom(0)
                 .addAlignBottom(true)
                 .addAsFragment(true)
@@ -235,8 +234,6 @@ public class MainActivity extends BaseActivity {
                 .canScroll(false)    //Viewpager能否左右滑动
                 .mode(EasyNavigationBar.MODE_ADD)
                 .build();
-
-//        item = 2;
         MyLogger.i("》》》》》》》》》" + item);
         navigationBar.selectTab(item);//设置显示的页面
 

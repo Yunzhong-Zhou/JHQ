@@ -16,19 +16,19 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AboutActivity;
-import com.fone.fone.activity.AddressManagementActivity;
+import com.fone.fone.activity.AccountDetailActivity;
+import com.fone.fone.activity.AddCityFriendActivity;
+import com.fone.fone.activity.CityFriend_NOActivity;
+import com.fone.fone.activity.ContractActivity;
+import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
-import com.fone.fone.activity.MyCalculateActivity;
 import com.fone.fone.activity.MyMachineActivity;
 import com.fone.fone.activity.MyProfileActivity;
-import com.fone.fone.activity.MyRechargeActivity;
 import com.fone.fone.activity.MyTakeCashActivity;
-import com.fone.fone.activity.OnlineServiceActivity;
 import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
 import com.fone.fone.activity.SharePosterActivity;
-import com.fone.fone.activity.USDTJiaoYiActivity;
 import com.fone.fone.base.BaseFragment;
 import com.fone.fone.model.Fragment5Model;
 import com.fone.fone.net.OkHttpClientManager;
@@ -77,7 +77,7 @@ public class Fragment5 extends BaseFragment {
     public void onResume() {
         super.onResume();
 //        MyLogger.i(">>>>>>>>onResume");
-        if (MainActivity.item == 4) {
+        if (MainActivity.item == 2) {
             requestServer();
         }
     }
@@ -97,7 +97,7 @@ public class Fragment5 extends BaseFragment {
 //        MyLogger.i(">>>>>>>>setUserVisibleHint>>>" + isVisibleToUser);
         if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-                if (MainActivity.item == 4) {
+                if (MainActivity.item == 2) {
                     requestServer();
                 }
             }
@@ -133,6 +133,7 @@ public class Fragment5 extends BaseFragment {
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
         textView9 = findViewByID_My(R.id.textView9);
+        textView9.setOnClickListener(this);
 
         textView1.setText(localUserInfo.getNickname());
         textView2.setText(getString(R.string.fragment5_h1) + localUserInfo.getInvuteCode());
@@ -147,8 +148,8 @@ public class Fragment5 extends BaseFragment {
         linearLayout1 = findViewByID_My(R.id.linearLayout1);
         linearLayout2 = findViewByID_My(R.id.linearLayout2);
         linearLayout3 = findViewByID_My(R.id.linearLayout3);
-        linearLayout4 = findViewByID_My(R.id.linearLayout4);
-        linearLayout5 = findViewByID_My(R.id.linearLayout5);
+//        linearLayout4 = findViewByID_My(R.id.linearLayout4);
+//        linearLayout5 = findViewByID_My(R.id.linearLayout5);
         linearLayout6 = findViewByID_My(R.id.linearLayout6);
         linearLayout7 = findViewByID_My(R.id.linearLayout7);
         linearLayout8 = findViewByID_My(R.id.linearLayout8);
@@ -165,8 +166,8 @@ public class Fragment5 extends BaseFragment {
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
         linearLayout3.setOnClickListener(this);
-        linearLayout4.setOnClickListener(this);
-        linearLayout5.setOnClickListener(this);
+//        linearLayout4.setOnClickListener(this);
+//        linearLayout5.setOnClickListener(this);
         linearLayout6.setOnClickListener(this);
         linearLayout7.setOnClickListener(this);
         linearLayout8.setOnClickListener(this);
@@ -235,9 +236,7 @@ public class Fragment5 extends BaseFragment {
                     textView5.setText("" + response.getUsable_money());//余额
                     textView6.setText("" + response.getCommission_money());//佣金
                     textView7.setText("" + response.getChange_game_win_time());//次数
-                    textView8.setText("" + response.getFil_money());//已产FIL
-                    textView9.setText("" + response.getHashrate() + "TB");//总算力
-
+                    textView8.setText("" + response.getFil_money()+getString(R.string.app_tai));//已产FIL
 
 //                    localUserInfo.setPhoneNumber(response.getMobile());
                     localUserInfo.setNickname(response.getNickname());
@@ -274,64 +273,55 @@ public class Fragment5 extends BaseFragment {
                 //个人资料
                 CommonUtil.gotoActivity(getActivity(), MyProfileActivity.class, false);
                 break;
-           /* case R.id.textView4:
-                //签到
-                CommonUtil.gotoActivity(getActivity(), NewcomerRewardActivity.class, false);
-                break;*/
             case R.id.linearLayout1:
                 //余额
 //                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
                 break;
             case R.id.linearLayout2:
-                //累计佣金
+                //销售分成
 //                CommonUtil.gotoActivity(getActivity(), TransferActivity.class, false);
                 break;
             case R.id.linearLayout3:
-                //拼中次数
+                //利益分成
 //                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
                 break;
-            case R.id.linearLayout4:
-                //已产FIL
-//                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
-//                break;
-            case R.id.linearLayout5:
-                //总算力
-                CommonUtil.gotoActivity(getActivity(), MyCalculateActivity.class, false);
+            case R.id.textView9:
+                //查看设备
+//                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
                 break;
+
             case R.id.linearLayout6:
-                //团队- 需要参与5次拼团即可达到V1
+                //钱包
+                CommonUtil.gotoActivity(getActivity(), AccountDetailActivity.class, false);
+                break;
+            case R.id.linearLayout7:
+                //团队
 //                if (model.getGrade()>1){
-                    CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), ShareActivity.class, false);
                /* }else {
                     myToast(getString(R.string.fragment5_h30));
                 }*/
-
-                break;
-            case R.id.linearLayout7:
-                //算力
-                CommonUtil.gotoActivity(getActivity(), MyCalculateActivity.class, false);
                 break;
             case R.id.linearLayout8:
-                //矿机
-                CommonUtil.gotoActivity(getActivity(), MyMachineActivity.class, false);
+                //合同
+                CommonUtil.gotoActivity(getActivity(), ContractActivity.class, false);
                 break;
             case R.id.linearLayout9:
-                //合同
-//                CommonUtil.gotoActivity(getActivity(), ContractActivity.class, false);
-                //USDT
-                CommonUtil.gotoActivity(getActivity(), USDTJiaoYiActivity.class, false);
+                //合作
+                CommonUtil.gotoActivity(getActivity(), AddCityFriendActivity.class, false);
                 break;
             case R.id.linearLayout10:
-                //币地址管理
-                CommonUtil.gotoActivity(getActivity(), AddressManagementActivity.class, false);
+                //我的设备
+                CommonUtil.gotoActivity(getActivity(), MyMachineActivity.class, false);
                 break;
             case R.id.linearLayout11:
-                //充币记录
-                CommonUtil.gotoActivity(getActivity(), MyRechargeActivity.class, false);
+                //提现记录
+                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
                 break;
             case R.id.linearLayout12:
-                //提币记录
-                CommonUtil.gotoActivity(getActivity(), MyTakeCashActivity.class, false);
+                //城市伙伴
+//                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
                 break;
             case R.id.linearLayout13:
                 //设置中心
@@ -351,8 +341,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout17:
                 //帮助中心
-//                CommonUtil.gotoActivity(getActivity(), HelpCenterActivity.class, false);
-                CommonUtil.gotoActivity(getActivity(), OnlineServiceActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), HelpCenterActivity.class, false);
                 break;
         }
 

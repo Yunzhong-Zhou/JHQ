@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/YunZhong/AndroidStudioProject/FONE/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/647d19ecd6c5f46aa33f51c80f4af24c/appcompat-1.1.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b8c19992b752dda6f187f6652f4b18e6/appcompat-1.1.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/3a708cf2d749a91a0227ce2de401bbb8/core-1.3.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/230ba6c67324483ec7b251130173d779/core-1.3.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

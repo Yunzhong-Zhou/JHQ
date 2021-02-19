@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#03ad90</color><!--标题栏颜色-->
     <color name="colorAccent">#02B399</color><!--默认主题颜色-->
 
-    <color name="background">#F5F4F9</color>
+    <color name="background">#FCFBFD</color>
     <color name="title_bg">#253e5d</color>
     <color name="btn_bg">#6380a4</color>
 
@@ -27,7 +27,7 @@
     <color name="bg_gray">#E6EAEC</color>
 
     <color name="yellow">#F6CC4A</color>
-    <color name="yellow_1">#D1C396</color>
+    <color name="yellow_1">#E8D3A8</color>
     <color name="grey">#DDE1E2</color>
     <color name="blue">#2128C1</color>
     <color name="qianblue">#44C7ED</color>
@@ -46,7 +46,7 @@
     <color name="black">#111111</color>
     <color name="black1">#333333</color>
     <color name="black2">#555555</color>
-    <color name="black3">#BFBFBF</color>
+    <color name="black3">#999999</color>
     <color name="black4">#F2F2F2</color>
     <color name="black5">#FAFAFA</color>
 

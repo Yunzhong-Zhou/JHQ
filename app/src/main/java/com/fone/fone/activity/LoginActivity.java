@@ -321,9 +321,10 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //注册
-                Bundle bundle1 = new Bundle();
+
+                /*Bundle bundle1 = new Bundle();
                 bundle1.putString("open_id", "");
-                CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle1, false);
+                CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle1, false);*/
                 break;
             case R.id.textView3:
                 //确认登录

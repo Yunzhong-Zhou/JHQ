@@ -98,7 +98,7 @@ public class Fragment3 extends BaseFragment {
     public void onResume() {
         super.onResume();
         MyLogger.i(">>>>>>>>onResume");
-        if (MainActivity.item == 2) {
+        if (MainActivity.item == 1) {
             requestServer();
         }
     }
@@ -119,7 +119,7 @@ public class Fragment3 extends BaseFragment {
         MyLogger.i(">>>>>>>>getUserVisibleHint()>>>" + getUserVisibleHint());
         if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
-                if (MainActivity.item == 2) {
+                if (MainActivity.item == 1) {
                     requestServer();
                 }
             }

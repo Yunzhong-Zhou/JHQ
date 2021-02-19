@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/fragment5_h19"
+                android:text="@string/myprofile_h37"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -70,6 +70,80 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="￥"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="30sp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/myprofile_h38"
+                        android:textColor="@color/white1"
+                        android:textSize="13sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/myprofile_h39"
+                            android:layout_marginLeft="30dp"
+                            android:textSize="13sp"
+                            android:textColor="@color/white1" />
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/myprofile_h40"
+                            android:textSize="13sp"
+                            android:textColor="@color/white1" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="15sp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
                     <com.lijiankun24.shadowlayout.ShadowLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -85,7 +159,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/yuanjiao_10_lvsejianbian1"
+                            android:background="@drawable/yuanjiao_10_baise"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -94,24 +168,24 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:paddingTop="40dp"
-                                android:paddingBottom="35dp">
+                                android:paddingTop="20dp"
+                                android:paddingBottom="15dp">
 
                                 <TextView
-                                    android:id="@+id/textView1"
+                                    android:id="@+id/textView4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="0TB"
-                                    android:textColor="@color/white"
-                                    android:textSize="30sp"
+                                    android:text="0"
+                                    android:textColor="@color/black1"
+                                    android:textSize="23sp"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
-                                    android:text="@string/fragment5_h20"
-                                    android:textColor="@color/white"
+                                    android:text="@string/myprofile_h41"
+                                    android:textColor="@color/black2"
                                     android:textSize="13sp" />
                             </LinearLayout>
 
@@ -121,24 +195,50 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:paddingTop="40dp"
-                                android:paddingBottom="35dp">
+                                android:paddingTop="20dp"
+                                android:paddingBottom="15dp">
 
                                 <TextView
-                                    android:id="@+id/textView2"
+                                    android:id="@+id/textView5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="0"
-                                    android:textColor="@color/white"
-                                    android:textSize="30sp"
+                                    android:textColor="@color/black1"
+                                    android:textSize="23sp"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
-                                    android:text="@string/fragment5_h21"
-                                    android:textColor="@color/white"
+                                    android:text="@string/myprofile_h42"
+                                    android:textColor="@color/black2"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="15dp">
+
+                                <TextView
+                                    android:id="@+id/textView6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/black1"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/myprofile_h43"
+                                    android:textColor="@color/black2"
                                     android:textSize="13sp" />
                             </LinearLayout>
                         </LinearLayout>

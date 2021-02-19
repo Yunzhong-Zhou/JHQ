@@ -170,8 +170,10 @@ public class URLs {
     public static final String InvoiceCreate = "/api/invoice/create";
     //合同列表
     public static final String ContractList = "/api/invoice/record";
-
-
+    //账户详情
+    public static final String AccountDetail = "/api/member/account";
+    //申请城市合作伙伴
+    public static final String AddCityFriend = "/api/service-center/index";
     /**
      * USDT交易列表
      */

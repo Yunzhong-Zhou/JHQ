@@ -148,6 +148,12 @@
     <string name="login_h15">登录授权</string>
     <string name="login_h16">国家/地区</string>
     <string name="login_h17">请使用真机登录</string>
+    <string name="login_h18"></string>
+    <string name="login_h19"></string>
+    <string name="login_h20"></string>
+    <string name="login_h21"></string>
+    <string name="login_h22"></string>
+
     <!--注册-->
     <string name="registered_h1">请输入手机号码</string>
     <string name="registered_h2">请输入验证码</string>
@@ -188,7 +194,8 @@
     <string name="setup_title">设置</string>
     <string name="setup_h1">交易密码设置</string>
     <string name="setup_h2">登录密码设置</string>
-    <string name="setup_h3">语言设置</string>
+    <string name="setup_h3">绑定银行卡</string>
+    <string name="setup_h4">设置个人资料</string>
 
     <!--在线客服-->
     <string name="onlineservice_title">联系客服</string>
@@ -246,11 +253,13 @@
     <string name="share_h41">正在获取分享数据...</string>
 
     <!--fragment1-->
-    <string name="fragment1_h1">矿机优势</string>
-    <string name="fragment1_h2">无需质押</string>
-    <string name="fragment1_h3">永久产权</string>
-    <string name="fragment1_h4">移动机房</string>
-    <string name="fragment1_h5">快速产出</string>
+    <string name="fragment1_h1">安装数量</string>
+    <string name="fragment1_h2">合作品牌</string>
+    <string name="fragment1_h3">合作门店</string>
+    <string name="fragment1_h4">查看更多</string>
+    <string name="fragment1_h5">安装数量</string>
+
+
     <string name="fragment1_h7">税前价格</string>
     <string name="fragment1_h8">不包含增值税发票</string>
     <string name="fragment1_h9">税后价格</string>
@@ -414,21 +423,21 @@
     <!--fragment5-->
     <string name="fragment5_h1">邀请码：</string>
     <string name="fragment5_h2">可用余额</string>
-    <string name="fragment5_h3">累计佣金</string>
-    <string name="fragment5_h4">拼中次数</string>
-    <string name="fragment5_h5">已产FIL</string>
-    <string name="fragment5_h6">总算力</string>
-    <string name="fragment5_h7">团队</string>
-    <string name="fragment5_h8">算力</string>
-    <string name="fragment5_h9">矿机</string>
-    <string name="fragment5_h10">合同</string>
-    <string name="fragment5_h11">币地址管理</string>
-    <string name="fragment5_h12">充币记录</string>
-    <string name="fragment5_h13">提币记录</string>
+    <string name="fragment5_h3">销售分成</string>
+    <string name="fragment5_h4">收益分成</string>
+    <string name="fragment5_h5">设备总数</string>
+    <string name="fragment5_h6">查看设备</string>
+    <string name="fragment5_h7">钱包</string>
+    <string name="fragment5_h8">团队</string>
+    <string name="fragment5_h9">合同</string>
+    <string name="fragment5_h10">合作</string>
+    <string name="fragment5_h11">我的设备</string>
+    <string name="fragment5_h12">提现记录</string>
+    <string name="fragment5_h13">城市伙伴</string>
     <string name="fragment5_h14">设置中心</string>
     <string name="fragment5_h15">关于我们</string>
     <string name="fragment5_h16">分享海报</string>
-    <string name="fragment5_h17">消息快讯</string>
+    <string name="fragment5_h17">通知公告</string>
     <string name="fragment5_h18">帮助中心</string>
     <string name="fragment5_h19">我的矿机</string>
     <string name="fragment5_h20">总算力（有效)</string>
@@ -540,6 +549,75 @@
     <string name="myprofile_h9">退出登录</string>
     <string name="myprofile_h10">个人头像</string>
     <string name="myprofile_h11">确认退出该账号吗？</string>
+    <string name="myprofile_h12">办公室面积：</string>
+    <string name="myprofile_h13">选择市区</string>
+    <string name="myprofile_h14">省</string>
+    <string name="myprofile_h15">市</string>
+    <string name="myprofile_h16">区</string>
+    <string name="myprofile_h17">详细地址</string>
+    <string name="myprofile_h18">办公室图片</string>
+    <string name="myprofile_h19">申请城市合作伙伴</string>
+    <string name="myprofile_h20">平方米</string>
+    <string name="myprofile_h21">请输入办公室面积</string>
+    <string name="myprofile_h22">请输入详细地址</string>
+    <string name="myprofile_h23">请选择市区</string>
+    <string name="myprofile_h24">伙伴代码：</string>
+    <string name="myprofile_h25">绑定人数</string>
+    <string name="myprofile_h26">销售设备</string>
+    <string name="myprofile_h27">收益分成</string>
+    <string name="myprofile_h28">设备销售分成：</string>
+    <string name="myprofile_h29">销售分成25%</string>
+    <string name="myprofile_h30">收益分成5%</string>
+    <string name="myprofile_h31">市场区域保护</string>
+    <string name="myprofile_h32">平台线上引流</string>
+    <string name="myprofile_h33">全国已成功申请</string>
+    <string name="myprofile_h34">家城市合作伙伴</string>
+    <string name="myprofile_h35">城市合作伙伴</string>
+    <string name="myprofile_h36">办公面积</string>
+    <string name="myprofile_h37">我的设备</string>
+    <string name="myprofile_h38">总收益</string>
+    <string name="myprofile_h39">已安装</string>
+    <string name="myprofile_h40">分成比</string>
+    <string name="myprofile_h41">总数量(台)</string>
+    <string name="myprofile_h42">代运营(台)</string>
+    <string name="myprofile_h43">自运营(台)</string>
+    <string name="myprofile_h44">临时转让</string>
+    <string name="myprofile_h45">设备收益</string>
+    <string name="myprofile_h46">已安装</string>
+    <string name="myprofile_h47">安装中</string>
+    <string name="myprofile_h48">自营</string>
+    <string name="myprofile_h49">代营</string>
+    <string name="myprofile_h50">0元抢占市场风口\t\t\t赠送1亿营销资源</string>
+    <string name="myprofile_h51">01\t\t\t5%设备租用分成</string>
+    <string name="myprofile_h52">凡是城市伙伴旗下所有用户销售设备产生的扫码收益均可获得5%收益分成</string>
+    <string name="myprofile_h53">02\t\t\t25%设备销售分成</string>
+    <string name="myprofile_h54">凡是城市伙伴旗下所有用户销售设备后可获得最高25%的设备销售分成</string>
+    <string name="myprofile_h55">03\t\t\t享受城市区域保护</string>
+    <string name="myprofile_h56">享受城市区域市场保护，省会城市仅三名合作伙伴，其他城市仅一名合作伙伴</string>
+    <string name="myprofile_h57">04\t\t\t平台线上推广引流</string>
+    <string name="myprofile_h58">平台通过线上推广为各城市合作伙伴引流客户且销售分成全归城市伙伴所有</string>
+    <string name="myprofile_h59">申请条件：</string>
+    <string name="myprofile_h60">1、 申请人级别必须是区域代理以上可申请\n2、 所在城市需提供150平以上办公场所\n3、 需保证累计年销售量300台以上\n4、 需缴纳20万保证金达到300台销量后可退</string>
+    <string name="myprofile_h61">申请城市伙伴</string>
+    <string name="myprofile_h62"></string>
+    <string name="myprofile_h63"></string>
+    <string name="myprofile_h64"></string>
+    <string name="myprofile_h65"></string>
+    <string name="myprofile_h66"></string>
+    <string name="myprofile_h67"></string>
+    <string name="myprofile_h68"></string>
+    <string name="myprofile_h69"></string>
+    <string name="myprofile_h70"></string>
+    <string name="myprofile_h71"></string>
+    <string name="myprofile_h72"></string>
+    <string name="myprofile_h73"></string>
+    <string name="myprofile_h74"></string>
+    <string name="myprofile_h75"></string>
+    <string name="myprofile_h76"></string>
+    <string name="myprofile_h77"></string>
+    <string name="myprofile_h78"></string>
+    <string name="myprofile_h79"></string>
+    <string name="myprofile_h80"></string>
 
     <!--地址管理-->
     <string name="address_h1">USDT地址设置</string>
@@ -568,16 +646,19 @@
     <string name="qianbao_h51">请提供基于FIL主网的地址，否则您的资产将无法找回</string>
 
     <!--钱包-->
-    <string name="qianbao_h1">USDT钱包</string>
-    <string name="qianbao_h2">可用（USDT）</string>
-    <string name="qianbao_h6">充币</string>
-    <string name="qianbao_h8">提币</string>
+    <string name="qianbao_h1">钱包</string>
+    <string name="qianbao_h2">可用余额</string>
+    <string name="qianbao_h3">设备收益</string>
+    <string name="qianbao_h4">销售分成</string>
+    <string name="qianbao_h5">收益分成</string>
+    <string name="qianbao_h6">提现</string>
+    <string name="qianbao_h7">设备</string>
     <string name="qianbao_h9">收入记录</string>
     <string name="qianbao_h10">支出记录</string>
-    <string name="qianbao_h11">充币个数：</string>
-    <string name="qianbao_h12">订单号</string>
-    <string name="qianbao_h13">时间：</string>
-    <string name="qianbao_h14">资产地址</string>
+    <string name="qianbao_h11">提现金额</string>
+    <string name="qianbao_h12">请输入提现金额</string>
+    <string name="qianbao_h13">银行卡暂未设置，点此跳转设置</string>
+    <string name="qianbao_h14">确认提现</string>
 
     <!--充币-->
     <string name="recharge_h1">充币记录</string>

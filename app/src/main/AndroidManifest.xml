@@ -180,6 +180,9 @@
             android:label="推广用户" />
 
         <activity
+            android:name="com.fone.fone.activity.AccountDetailActivity"
+            android:label="钱包" />
+        <activity
             android:name="com.fone.fone.activity.FILWalletActivity"
             android:label="FIL钱包" />
         <activity
@@ -251,6 +254,15 @@
             android:name="com.fone.fone.activity.BankCardSettingActivity"
             android:label="绑定银行卡" />
 
+        <activity
+            android:name="com.fone.fone.activity.CityFriend_NOActivity"
+            android:label="城市合作伙伴-未申请" />
+        <activity
+            android:name="com.fone.fone.activity.AddCityFriendActivity"
+            android:label="申请城市合作伙伴" />
+        <activity
+            android:name="com.fone.fone.activity.CityFriendActivity"
+            android:label="城市合作伙伴" />
 
         <!--全面屏适配-->
         <meta-data

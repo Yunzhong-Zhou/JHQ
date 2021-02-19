@@ -342,21 +342,6 @@
                                     android:text="@string/fragment3_h6"
                                     android:textColor="@color/black1"
                                     android:textSize="14sp" />
-                                <!--<com.william.gradient.GradientTextView
-                                    android:id="@+id/textView1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:drawablePadding="5dp"
-                                    android:gravity="center"
-                                    android:text="@string/fragment3_h6"
-                                    android:textColor="@color/black1"
-                                    android:textSize="14sp"
-                                    app:gradient_startColor="@color/black3"
-                                    app:gradient_endColor="@color/green"
-                                    app:gradient_animate="false"
-                                    app:gradient_direction="topToBottom"
-                                    app:gradient_speed="normal" />-->
 
                                 <View
                                     android:id="@+id/view1"

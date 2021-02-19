@@ -74,12 +74,12 @@ public class OkHttpClientManager {
 //    public static String HOST = "http://192.168.0.200";
 
     //测试地址
-//    public static String IMGHOST = "http://svn.fbiv2ray.com";//图片地址
-//    public static String HOST = "http://svn.fbiv2ray.com";//接口地址
+    public static String IMGHOST = "http://svn.fbiv2ray.com";//图片地址
+    public static String HOST = "http://svn.fbiv2ray.com";//接口地址
 
     //正式地址
-    public static String IMGHOST = "https://app.filtop.io";//图片地址
-    public static String HOST = "https://app.filtop.io";//接口地址
+//    public static String IMGHOST = "https://app.filtop.io";//图片地址
+//    public static String HOST = "https://app.filtop.io";//接口地址
     public boolean isLogin = false;
     public static boolean isFace = false;
 

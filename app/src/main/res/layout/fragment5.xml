@@ -47,11 +47,37 @@
                         android:layout_marginRight="20dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout"
+                            android:layout_width="68.0dip"
+                            android:layout_height="68.0dip">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="68.0dip"
+                                android:layout_height="68.0dip"
+                                android:background="@mipmap/headimg"
+                                />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="5dp"
+                                android:background="@mipmap/ic_fragment5_edit"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="13.0sp" />
+                        </RelativeLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="19dp"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -96,32 +122,6 @@
                                 android:textSize="15.0sp" />
                         </LinearLayout>
 
-                        <RelativeLayout
-                            android:id="@+id/relativeLayout"
-                            android:layout_width="68.0dip"
-                            android:layout_height="68.0dip">
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/imageView1"
-                                android:layout_width="68.0dip"
-                                android:layout_height="68.0dip"
-                                android:background="@mipmap/headimg"
-                                />
-
-                            <TextView
-                                android:id="@+id/textView4"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginRight="5dp"
-                                android:background="@mipmap/ic_fragment5_edit"
-                                android:gravity="center"
-                                android:text=""
-                                android:textColor="@color/white"
-                                android:textSize="13.0sp" />
-                        </RelativeLayout>
-
                     </LinearLayout>
                     <View
                         android:layout_width="0dp"
@@ -150,7 +150,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="23sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -183,7 +183,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="23sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -216,7 +216,7 @@
                                 android:singleLine="true"
                                 android:text="0"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
+                                android:textSize="23sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -245,69 +245,42 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_marginTop="-10dp"
-                    android:paddingTop="10dp"
-                    android:background="@drawable/yuanjiao_10_lvsejianbian">
-                    <LinearLayout
-                        android:id="@+id/linearLayout4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                    android:paddingTop="20dp"
+                    android:background="@drawable/yuanjiao_25_tusejianbian">
 
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="0"
-                            android:textColor="@color/white"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dip"
-                            android:singleLine="true"
-                            android:text="@string/fragment5_h5"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="0"
-                            android:textColor="@color/white"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dip"
-                            android:singleLine="true"
-                            android:text="@string/fragment5_h6"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_next_double_white"
-                        android:layout_marginTop="15dp"
-                        android:padding="10dp"/>
+                        android:layout_marginLeft="28dp"
+                        android:singleLine="true"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="14dp"
+                        android:drawableLeft="@mipmap/ic_fragment5_13"
+                        android:text="@string/fragment5_h5"
+                        android:textColor="@color/yellow_1"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:layout_marginLeft="13dp"
+                        android:text="0"
+                        android:textColor="@color/yellow_1"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="110dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="30dp"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:background="@drawable/yuanjiao_15_huangse"
+                        android:text="@string/fragment5_h6"
+                        android:textColor="@color/black1"
+                        android:textSize="12sp" />
 
 
                 </LinearLayout>
@@ -427,7 +400,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dip"
                                     android:singleLine="true"
-                                    android:text="@string/fragment5_h31"
+                                    android:text="@string/fragment5_h10"
                                     android:textColor="@color/black2"
                                     android:textSize="12sp" />
                             </LinearLayout>

@@ -218,6 +218,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
                 android:paddingBottom="30dp"
+                android:visibility="gone"
                 android:text="@string/fragment5_h68"
                 android:textColor="@color/black3" />
             <View

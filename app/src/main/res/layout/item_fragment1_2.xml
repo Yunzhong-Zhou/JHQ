@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/yuanjiao_10_baise"
+        android:elevation="2dp"
+        android:padding="13dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="104dp"
+            android:layout_height="75dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/bg_yianzhuang"/>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textSize="13sp"
+                        android:textColor="@color/black1"/>
+                    <TextView
+                        android:id="@+id/tv_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="content"
+                        android:layout_marginTop="13dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/black3"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="45dp"
+                    android:background="@color/xian"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-3dp"
+                        android:orientation="horizontal">
+
+                        <com.william.gradient.GradientTextView
+                            android:id="@+id/tv_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            app:gradient_animate="false"
+                            app:gradient_direction="topToBottom"
+                            app:gradient_endColor="#42BB86"
+                            app:gradient_speed="normal"
+                            app:gradient_startColor="#95EAC5" />
+
+                        <com.william.gradient.GradientTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_tai"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:gradient_animate="false"
+                            app:gradient_direction="topToBottom"
+                            app:gradient_endColor="#42BB86"
+                            app:gradient_speed="normal"
+                            app:gradient_startColor="#95EAC5" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment1_h1"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#CCCCCC"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="addr"
+                android:layout_marginTop="13dp"
+                android:textSize="11sp"
+                android:textColor="@color/black3"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
