@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: pl.droidsonroids.relinker:relinker:1.3.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a87bdbd08ac0631d3ef88c9372893b1/jetified-relinker-1.3.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a87bdbd08ac0631d3ef88c9372893b1/jetified-relinker-1.3.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a87bdbd08ac0631d3ef88c9372893b1/jetified-relinker-1.3.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e4c4536f06b4b566cf19e860feff7c07/jetified-relinker-1.3.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e4c4536f06b4b566cf19e860feff7c07/jetified-relinker-1.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e4c4536f06b4b566cf19e860feff7c07/jetified-relinker-1.3.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.droidsonroids.relinker/relinker/1.3.1/8b1017c20dda90018d80803d9ec2942fad51dc73/relinker-1.3.1-javadoc.jar!/" />

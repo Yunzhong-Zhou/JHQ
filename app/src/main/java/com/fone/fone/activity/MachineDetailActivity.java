@@ -31,7 +31,6 @@ public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12, tv_confirm, tv_title;
-    LinearLayout ll_pay;
     private RecyclerView recyclerView;
     List<MachineDetailModel.InvestBean.InterestListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.InvestBean.InterestListBean> mAdapter;
@@ -91,7 +90,6 @@ public class MachineDetailActivity extends BaseActivity {
         textView12 = findViewByID_My(R.id.textView12);
         tv_confirm = findViewByID_My(R.id.tv_confirm);
         tv_title = findViewByID_My(R.id.tv_title);
-        ll_pay = findViewByID_My(R.id.ll_pay);
 
         ll_jieidan = findViewByID_My(R.id.ll_jieidan);
         ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
@@ -146,7 +144,6 @@ public class MachineDetailActivity extends BaseActivity {
 
                 if (response.getInvest().getMill_type() == 3) {
                     tv_title.setText(getString(R.string.fragment1_h50));
-                    ll_pay.setVisibility(View.VISIBLE);
 
                     if (response.getInvest().getStatus() == -1) {
                         tv_confirm.setVisibility(View.VISIBLE);
@@ -164,7 +161,6 @@ public class MachineDetailActivity extends BaseActivity {
 
                 } else {
                     tv_title.setText(getString(R.string.fragment1_h29));
-                    ll_pay.setVisibility(View.GONE);
                     tv_confirm.setVisibility(View.GONE);
                     /*switch (response.getButton()){
                         case 1:

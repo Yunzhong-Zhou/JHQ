@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
+import com.fone.fone.activity.CooperativeShopActivity;
 import com.fone.fone.activity.MachineDetailActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.base.BaseFragment;
@@ -50,6 +51,7 @@ public class Fragment1 extends BaseFragment {
 
     List<Fragment1Model_P> list2 = new ArrayList<>();
     CommonAdapter<Fragment1Model_P> mAdapter2;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -279,12 +281,13 @@ public class Fragment1 extends BaseFragment {
 
                 } else {
                     //门店
-
+                    CommonUtil.gotoActivity(getActivity(), CooperativeShopActivity.class, false);
                 }
                 break;
 
         }
     }
+
     private void changeUI() {
         if (type == 1) {
             textView3.setTextColor(getResources().getColor(R.color.white));

@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="6dp"
-                    android:text="@string/fragment1_h30"
+                    android:text="@string/fragment1_h80"
                     android:textColor="@color/white2"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="6dp"
-                    android:text="@string/fragment1_h31"
+                    android:text="@string/fragment1_h81"
                     android:textColor="@color/white2"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="6dp"
-                    android:text="@string/fragment1_h32"
+                    android:text="@string/fragment1_h82"
                     android:textColor="@color/white2"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -190,7 +190,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h33"
+                                android:text="@string/fragment1_h83"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -218,12 +218,40 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h34"
+                                android:text="@string/fragment1_h84"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/textView5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/black1"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="14dp"
+                            android:paddingRight="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:text="@string/fragment1_h93"
+                                android:textColor="@color/black3"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/textView14"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -247,7 +275,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h35"
+                                android:text="@string/fragment1_h85"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -275,7 +303,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h36"
+                                android:text="@string/fragment1_h86"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -304,7 +332,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h37"
+                                android:text="@string/fragment1_h87"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -331,7 +359,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h38"
+                                android:text="@string/fragment1_h88"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -358,7 +386,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h39"
+                                android:text="@string/fragment1_h89"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -386,7 +414,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h40"
+                                android:text="@string/fragment1_h90"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -401,7 +429,6 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/ll_pay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -415,7 +442,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="4dp"
                                 android:paddingBottom="4dp"
-                                android:text="@string/fragment1_h25"
+                                android:text="@string/fragment1_h91"
                                 android:textColor="@color/black3"
                                 android:textSize="15sp" />
 
@@ -428,7 +455,61 @@
                                 android:textSize="15sp" />
 
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="14dp"
+                            android:paddingRight="20dp">
 
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:text="@string/fragment1_h92"
+                                android:textColor="@color/black3"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/black1"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="14dp"
+                            android:paddingRight="20dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:text="@string/fragment1_h94"
+                                android:textColor="@color/black3"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/textView15"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/black1"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -449,7 +530,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:text="@string/fragment1_h41"
+                                android:text="@string/fragment1_h95"
                                 android:textColor="@color/black1"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -478,17 +559,37 @@
 
                         </com.fone.fone.view.LoadingLayout>
 
-                        <TextView
-                            android:id="@+id/tv_confirm"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="30dp"
-                            android:background="@drawable/btn_img1"
-                            android:gravity="center"
-                            android:onClick="onClick"
-                            android:text="@string/fragment1_h42"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="25dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_zhuanrang"
+                                android:layout_width="135dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/yuanjiaobiankuang_20_lvse"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:layout_marginRight="10dp"
+                                android:text="@string/fragment1_h96"
+                                android:textColor="@color/green"
+                                android:textSize="15sp" />
+                            <TextView
+                                android:id="@+id/tv_shouhou"
+                                android:layout_width="135dp"
+                                android:layout_height="34dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/yuanjiaobiankuang_20_lvse"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:text="@string/fragment1_h97"
+                                android:textColor="@color/green"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
 
                     </LinearLayout>
 

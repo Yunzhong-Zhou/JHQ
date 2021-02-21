@@ -15,15 +15,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
-import com.fone.fone.activity.AboutActivity;
 import com.fone.fone.activity.AccountDetailActivity;
-import com.fone.fone.activity.AddCityFriendActivity;
+import com.fone.fone.activity.CityFriendActivity;
 import com.fone.fone.activity.CityFriend_NOActivity;
 import com.fone.fone.activity.ContractActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
 import com.fone.fone.activity.MainActivity;
 import com.fone.fone.activity.MyMachineActivity;
+import com.fone.fone.activity.MyOrderActivity;
 import com.fone.fone.activity.MyProfileActivity;
 import com.fone.fone.activity.MyTakeCashActivity;
 import com.fone.fone.activity.SetUpActivity;
@@ -287,7 +287,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.textView9:
                 //查看设备
-//                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), MyMachineActivity.class, false);
                 break;
 
             case R.id.linearLayout6:
@@ -308,7 +308,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合作
-                CommonUtil.gotoActivity(getActivity(), AddCityFriendActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
                 break;
             case R.id.linearLayout10:
                 //我的设备
@@ -328,8 +328,8 @@ public class Fragment5 extends BaseFragment {
                 CommonUtil.gotoActivity(getActivity(), SetUpActivity.class, false);
                 break;
             case R.id.linearLayout14:
-                //关于我们
-                CommonUtil.gotoActivity(getActivity(), AboutActivity.class, false);
+                //订单中心
+                CommonUtil.gotoActivity(getActivity(), MyOrderActivity.class, false);
                 break;
             case R.id.linearLayout15:
                 //分享海报

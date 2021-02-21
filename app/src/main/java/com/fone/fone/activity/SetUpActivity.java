@@ -86,6 +86,10 @@ public class SetUpActivity extends BaseActivity {
                     RequestSmsCodeList(string3);//手机号国家代码集合
                 }*/
                 break;
+            case R.id.textView5:
+                //关于我们
+                CommonUtil.gotoActivity(this, AboutActivity.class, false);
+                break;
         }
     }
 

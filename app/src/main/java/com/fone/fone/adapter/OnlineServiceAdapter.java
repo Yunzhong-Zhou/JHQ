@@ -10,16 +10,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.model.OnlineServiceModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.popupwindow.ZoomIMGPopupWindow;
 import com.fone.fone.utils.LocalUserInfo;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
-
-
 
 
 /**

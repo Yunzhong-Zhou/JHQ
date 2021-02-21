@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@mipmap/bg_cityfriend1">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_head_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@mipmap/bg_fragment3_head" />
+        android:src="@mipmap/bg_cityfriend1" />-->
 
     <LinearLayout
         android:id="@+id/headView"
@@ -67,21 +68,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="500dp"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="27dp"
                     android:layout_marginRight="18dp"
-                    android:background="@drawable/yuanjiao_10_baise"
+                    android:background="@mipmap/bg_cityfriend2"
                     android:orientation="vertical">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="65dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:orientation="horizontal">
@@ -132,15 +129,12 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
+                        android:layout_marginTop="50dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -223,17 +217,13 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="2" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-50dp"
+                    android:layout_marginTop="-210dp"
                     android:layout_weight="1"
                     android:background="@mipmap/bg_servicecenter8"
                     android:orientation="vertical">
@@ -260,7 +250,6 @@
                             android:textSize="17sp" />
                     </com.lijiankun24.shadowlayout.ShadowLayout>
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
@@ -271,8 +260,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:drawableTop="@mipmap/ic_contract1"
-                            android:drawablePadding="20dp"
+                            android:drawableTop="@mipmap/ic_cityfriend1"
+                            android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="@string/myprofile_h29"
                             android:textColor="@color/black1"
@@ -282,8 +271,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:drawableTop="@mipmap/ic_contract1"
-                            android:drawablePadding="20dp"
+                            android:drawableTop="@mipmap/ic_cityfriend2"
+                            android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="@string/myprofile_h30"
                             android:textColor="@color/black1"
@@ -293,8 +282,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:drawableTop="@mipmap/ic_contract1"
-                            android:drawablePadding="20dp"
+                            android:drawableTop="@mipmap/ic_cityfriend3"
+                            android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="@string/myprofile_h31"
                             android:textColor="@color/black1"
@@ -304,8 +293,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:drawableTop="@mipmap/ic_contract1"
-                            android:drawablePadding="20dp"
+                            android:drawableTop="@mipmap/ic_cityfriend4"
+                            android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="@string/myprofile_h32"
                             android:textColor="@color/black1"

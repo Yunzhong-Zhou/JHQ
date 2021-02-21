@@ -196,6 +196,7 @@
     <string name="setup_h2">登录密码设置</string>
     <string name="setup_h3">绑定银行卡</string>
     <string name="setup_h4">设置个人资料</string>
+    <string name="setup_h5">关于我们</string>
 
     <!--在线客服-->
     <string name="onlineservice_title">联系客服</string>
@@ -278,7 +279,7 @@
     <string name="fragment1_h22">立即抢购</string>
     <string name="fragment1_h23">包含增值税发票</string>
     <string name="fragment1_h24">/台</string>
-    <string name="fragment1_h25">支付方式</string>
+    <string name="fragment1_h25">选择支付方式：</string>
     <string name="fragment1_h26">在线USDT支付</string>
     <string name="fragment1_h27">对公帐户转款</string>
     <string name="fragment1_h28">提交订单</string>
@@ -333,6 +334,38 @@
     <string name="fragment1_h77">确认取消回购申请吗？</string>
     <string name="fragment1_h78">回购申请成功</string>
     <string name="fragment1_h79">取消回购申请成功</string>
+
+    <string name="fragment1_h80">已产收益</string>
+    <string name="fragment1_h81">收益分成</string>
+    <string name="fragment1_h82">安装状态</string>
+    <string name="fragment1_h83">设备ID</string>
+    <string name="fragment1_h84">运营方式</string>
+    <string name="fragment1_h85">设备行业</string>
+    <string name="fragment1_h86">设备品牌</string>
+    <string name="fragment1_h87">设备门店</string>
+    <string name="fragment1_h88">设备位置</string>
+    <string name="fragment1_h89">购买时间</string>
+    <string name="fragment1_h90">安装时间</string>
+    <string name="fragment1_h91">回购状态</string>
+    <string name="fragment1_h92">购买价格</string>
+    <string name="fragment1_h93">转让类型</string>
+    <string name="fragment1_h94">回购状态</string>
+    <string name="fragment1_h95">收益记录</string>
+    <string name="fragment1_h96">转让</string>
+    <string name="fragment1_h97">售后</string>
+    <string name="fragment1_h98">合作门店</string>
+    <string name="fragment1_h99">区域</string>
+    <string name="fragment1_h100">行业</string>
+    <string name="fragment1_h101">状态</string>
+    <string name="fragment1_h102">等级</string>
+    <string name="fragment1_h103"></string>
+    <string name="fragment1_h104"></string>
+    <string name="fragment1_h105"></string>
+    <string name="fragment1_h106"></string>
+    <string name="fragment1_h107"></string>
+    <string name="fragment1_h108"></string>
+    <string name="fragment1_h109"></string>
+    <string name="fragment1_h110"></string>
 
 
     <!--fragment2-->
@@ -435,7 +468,7 @@
     <string name="fragment5_h12">提现记录</string>
     <string name="fragment5_h13">城市伙伴</string>
     <string name="fragment5_h14">设置中心</string>
-    <string name="fragment5_h15">关于我们</string>
+    <string name="fragment5_h15">订单中心</string>
     <string name="fragment5_h16">分享海报</string>
     <string name="fragment5_h17">通知公告</string>
     <string name="fragment5_h18">帮助中心</string>
@@ -500,6 +533,28 @@
     <string name="fragment5_h77">申诉成功</string>
     <string name="fragment5_h78">申诉失败</string>
     <string name="fragment5_h79">已取消</string>
+
+    <string name="fragment5_h80">订单中心</string>
+    <string name="fragment5_h81">订单号:</string>
+    <string name="fragment5_h82">数量(台)</string>
+    <string name="fragment5_h83">运营方式</string>
+    <string name="fragment5_h84">订单金额</string>
+    <string name="fragment5_h85">立即支付</string>
+    <string name="fragment5_h86">确认支付</string>
+    <string name="fragment5_h87">零钱</string>
+    <string name="fragment5_h88">剩余</string>
+    <string name="fragment5_h89">支付宝</string>
+    <string name="fragment5_h90">微信转账</string>
+    <string name="fragment5_h91">实付款：</string>
+    <string name="fragment5_h92"></string>
+    <string name="fragment5_h93"></string>
+    <string name="fragment5_h94"></string>
+    <string name="fragment5_h95"></string>
+    <string name="fragment5_h96"></string>
+    <string name="fragment5_h97"></string>
+    <string name="fragment5_h98"></string>
+    <string name="fragment5_h99"></string>
+    <string name="fragment5_h100"></string>
 
     <string name="qianbao_h162">订单信息</string>
     <string name="qianbao_h163">剩余付款时间</string>
@@ -599,7 +654,7 @@
     <string name="myprofile_h59">申请条件：</string>
     <string name="myprofile_h60">1、 申请人级别必须是区域代理以上可申请\n2、 所在城市需提供150平以上办公场所\n3、 需保证累计年销售量300台以上\n4、 需缴纳20万保证金达到300台销量后可退</string>
     <string name="myprofile_h61">申请城市伙伴</string>
-    <string name="myprofile_h62"></string>
+    <string name="myprofile_h62">全国合作伙伴</string>
     <string name="myprofile_h63"></string>
     <string name="myprofile_h64"></string>
     <string name="myprofile_h65"></string>

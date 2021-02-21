@@ -196,6 +196,12 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
+            android:name="com.fone.fone.activity.CooperativeShopActivity"
+            android:label="合作门店" />
+        <activity
+            android:name="com.fone.fone.activity.MyOrderActivity"
+            android:label="订单中心" />
+        <activity
             android:name="com.fone.fone.activity.AccountDetailActivity"
             android:label="钱包" />
         <activity

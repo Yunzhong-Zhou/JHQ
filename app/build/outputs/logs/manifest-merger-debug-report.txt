@@ -5,21 +5,21 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/A
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:88:25-69
 provider#androidx.core.content.FileProvider
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:311:9-319:20
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:319:9-327:20
 	android:grantUriPermissions
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:315:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:323:13-47
 	android:authorities
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:313:13-64
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:321:13-64
 	android:exported
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:314:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:322:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:312:13-62
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:320:13-62
 manifest
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
 MERGED from [com.github.lihangleo2:ShadowLayout:3.1.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/39343255edf73f989001e2759d11feb8/jetified-ShadowLayout-3.1.6/AndroidManifest.xml:2:1-11:12
 MERGED from [com.williamyang:gradienttext:1.0.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/b0bae7eebcb02c6f628cb299a9761c8e/jetified-gradienttext-1.0.1/AndroidManifest.xml:2:1-12:12
 MERGED from [:easynavigation] /Users/YunZhong/AndroidStudioProject/净化器/FONE/easynavigation/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -44,7 +44,7 @@ MERGED from [com.gyf.immersionbar:immersionbar:3.0.0] /Users/YunZhong/.gradle/ca
 MERGED from [com.hjq:toast:8.8] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/bd178b3285017085c8313085b552ba27/jetified-toast-8.8/AndroidManifest.xml:2:1-9:12
 MERGED from [me.imid.swipebacklayout.lib:library:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7b9c13e1b7b7ef5746a5aecf5384c7ba/jetified-library-1.3.0/AndroidManifest.xml:2:1-15:12
 MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a2314036306df97c2cfdfafd31df3c02/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:2:1-12:12
-MERGED from [com.tencent.bugly:crashreport:3.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e8559ba95ad62f4aa66548ab2c78d1cc/jetified-crashreport-3.3.3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.tencent.bugly:crashreport:3.3.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e577ebdd70f6ec1e48d4a069ec48f0f0/jetified-crashreport-3.3.6/AndroidManifest.xml:2:1-9:12
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3bf133c5a1e45b24d8705fcd5370421/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb8320744f802335cb2e5ca28187cf90/jetified-sdk-43697/AndroidManifest.xml:2:1-11:12
 MERGED from [com.lahm.library:easy-protector-release:1.1.2] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/910c006cbe65e844315ae184084a1037/jetified-easy-protector-release-1.1.2/AndroidManifest.xml:2:1-11:12
@@ -116,22 +116,22 @@ MERGED from [com.huawei.hmf:tasks:1.3.3.300] /Users/YunZhong/.gradle/caches/tran
 MERGED from [com.huawei.hms:network-grs:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/cfaaaa50245172e0af3dc7c1f4072929/jetified-network-grs-4.0.2.300/AndroidManifest.xml:2:1-11:12
 MERGED from [com.huawei.hms:update:2.0.6.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0de2ae131a15232de66182b1203ee294/jetified-update-2.0.6.300/AndroidManifest.xml:2:1-41:12
 MERGED from [com.huawei.hms:network-common:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d3e927a2f7b9e22154473174645d7502/jetified-network-common-4.0.2.300/AndroidManifest.xml:2:1-11:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
-INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
+INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
 	package
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:4:5-28
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-331:12
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:1-339:12
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:2:11-69
@@ -254,7 +254,7 @@ ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/Andr
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:42:22-63
 application
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:48:5-329:19
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:48:5-337:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/355374635251b54a197af1698737bc50/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.liaoinstan.springview:library:1.5.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/355374635251b54a197af1698737bc50/jetified-library-1.5.1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/958353a7f509872620391da50bb2e758/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:15:5-28:19
@@ -557,240 +557,252 @@ ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/Andr
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:180:13-33
 	android:name
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:179:13-70
+activity#com.fone.fone.activity.CooperativeShopActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:182:9-184:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:184:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:183:13-74
+activity#com.fone.fone.activity.MyOrderActivity
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:186:9-188:36
+	android:label
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:188:13-33
+	android:name
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:187:13-66
 activity#com.fone.fone.activity.AccountDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:182:9-184:34
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:190:9-192:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:184:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:192:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:183:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:191:13-72
 activity#com.fone.fone.activity.FILWalletActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:185:9-187:37
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:193:9-195:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:187:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:195:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:186:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:194:13-68
 activity#com.fone.fone.activity.USDTWalletActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:188:9-190:38
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:196:9-198:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:190:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:198:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:189:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:197:13-69
 activity#com.fone.fone.activity.ShouRuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:191:9-193:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:199:9-201:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:193:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:201:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:192:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:200:13-69
 activity#com.fone.fone.activity.ZhiChuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:194:9-196:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:202:9-204:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:196:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:204:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:195:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:203:13-69
 activity#com.fone.fone.activity.FILShouRuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:197:9-199:40
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:205:9-207:40
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:199:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:207:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:198:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:206:13-72
 activity#com.fone.fone.activity.FILZhiChuListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:200:9-202:40
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:208:9-210:40
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:202:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:210:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:201:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:209:13-72
 activity#com.fone.fone.activity.MyRechargeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:204:9-206:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:212:9-214:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:206:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:214:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:205:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:213:13-69
 activity#com.fone.fone.activity.RechargeDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:207:9-209:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:215:9-217:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:209:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:217:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:208:13-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:216:13-73
 activity#com.fone.fone.activity.TakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:210:9-212:34
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:218:9-220:34
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:212:13-31
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:220:13-31
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:211:13-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:219:13-67
 activity#com.fone.fone.activity.MyTakeCashActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:213:9-215:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:221:9-223:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:215:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:223:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:214:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:222:13-69
 activity#com.fone.fone.activity.TakeCashDetailActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:216:9-218:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:224:9-226:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:218:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:226:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:217:13-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:225:13-73
 activity#com.fone.fone.activity.SharePosterActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:219:9-221:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:227:9-229:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:221:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:229:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:220:13-70
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:228:13-70
 activity#com.fone.fone.activity.OnlineServiceActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:222:9-224:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:230:9-232:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:224:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:232:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:223:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:231:13-72
 activity#com.fone.fone.activity.InformationActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:225:9-227:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:233:9-235:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:227:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:235:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:226:13-70
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:234:13-70
 activity#com.fone.fone.activity.TransferActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:228:9-230:39
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:236:9-238:39
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:230:13-36
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:238:13-36
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:229:13-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:237:13-67
 activity#com.fone.fone.activity.QRCodeActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:231:9-233:37
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:239:9-241:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:233:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:241:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:232:13-65
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:240:13-65
 activity#com.fone.fone.view.zxing.CaptureActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:234:9-236:35
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:242:9-244:35
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:236:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:244:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:235:13-68
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:243:13-68
 activity#com.fone.fone.activity.ScavengingPaymentActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:237:9-239:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:245:9-247:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:239:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:247:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:238:13-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:246:13-76
 activity#com.fone.fone.activity.USDTJiaoYiActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:241:9-243:38
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:249:9-251:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:243:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:251:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:242:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:250:13-69
 activity#com.fone.fone.activity.USDTSellActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:244:9-246:38
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:252:9-254:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:246:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:254:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:245:13-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:253:13-67
 activity#com.fone.fone.activity.USDTJiaoyiListActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:247:9-249:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:255:9-257:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:249:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:257:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:248:13-73
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:256:13-73
 activity#com.fone.fone.activity.USDTOrderInfoActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:250:9-252:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:258:9-260:36
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:252:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:260:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:251:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:259:13-72
 activity#com.fone.fone.activity.BankCardSettingActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:253:9-255:37
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:261:9-263:37
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:255:13-34
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:263:13-34
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:254:13-74
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:262:13-74
 activity#com.fone.fone.activity.CityFriend_NOActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:257:9-259:42
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:265:9-267:42
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:259:13-39
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:267:13-39
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:258:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:266:13-72
 activity#com.fone.fone.activity.AddCityFriendActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:260:9-262:40
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:268:9-270:40
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:262:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:270:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:261:13-72
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:269:13-72
 activity#com.fone.fone.activity.CityFriendActivity
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:263:9-265:38
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:271:9-273:38
 	android:label
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:265:13-35
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:273:13-35
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:264:13-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:272:13-69
 meta-data#design_width_in_dp
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:268:9-270:35
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:276:9-278:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:270:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:278:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:269:13-46
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:277:13-46
 meta-data#design_height_in_dp
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:271:9-273:35
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:279:9-281:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:273:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:281:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:272:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:280:13-47
 meta-data#android.max_aspect
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:281:9-283:35
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:289:9-291:35
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:283:13-32
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:291:13-32
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:282:13-46
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:290:13-46
 meta-data#android.notch_support
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:285:9-287:36
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:293:9-295:36
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:287:13-33
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:295:13-33
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:286:13-49
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:294:13-49
 meta-data#notch.config
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:289:9-291:50
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:297:9-299:50
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:291:13-47
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:299:13-47
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:290:13-40
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:298:13-40
 meta-data#com.mob.mobpush.debugLevel
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:294:9-296:33
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:302:9-304:33
 	android:value
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:296:13-30
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:304:13-30
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:295:13-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:303:13-54
 receiver#com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:298:9-306:20
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:306:9-314:20
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:298:19-82
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:306:19-82
 intent-filter#action:name:com.huawei.android.push.intent.CLICK+action:name:com.huawei.android.push.intent.RECEIVE+action:name:com.huawei.android.push.intent.REGISTRATION+action:name:com.huawei.intent.action.PUSH_DELAY_NOTIFY+action:name:com.huawei.intent.action.PUSH_STATE
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:299:13-305:29
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:307:13-313:29
 action#com.huawei.android.push.intent.REGISTRATION
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:300:17-86
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:308:17-86
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:300:25-83
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:308:25-83
 action#com.huawei.android.push.intent.RECEIVE
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:301:17-81
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:309:17-81
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:301:25-78
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:309:25-78
 action#com.huawei.android.push.intent.CLICK
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:302:17-79
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:310:17-79
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:302:25-76
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:310:25-76
 action#com.huawei.intent.action.PUSH_STATE
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:303:17-78
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:311:17-78
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:303:25-75
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:311:25-75
 action#com.huawei.intent.action.PUSH_DELAY_NOTIFY
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:304:17-85
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:312:17-85
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:304:25-82
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:312:25-82
 uses-library#org.apache.http.legacy
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:322:9-324:40
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:330:9-332:40
 	android:required
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:324:13-37
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:332:13-37
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:323:13-50
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:331:13-50
 service#com.fone.fone.utils.TraceServiceImpl
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:327:9-72
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:335:9-72
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:327:18-69
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:335:18-69
 uses-sdk
 INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
@@ -843,8 +855,8 @@ MERGED from [me.imid.swipebacklayout.lib:library:1.3.0] /Users/YunZhong/.gradle/
 MERGED from [me.imid.swipebacklayout.lib:library:1.3.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/7b9c13e1b7b7ef5746a5aecf5384c7ba/jetified-library-1.3.0/AndroidManifest.xml:9:5-11:41
 MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a2314036306df97c2cfdfafd31df3c02/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
 MERGED from [com.zhy:base-rvadapter:3.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/a2314036306df97c2cfdfafd31df3c02/jetified-base-rvadapter-3.0.3/AndroidManifest.xml:8:5-10:41
-MERGED from [com.tencent.bugly:crashreport:3.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e8559ba95ad62f4aa66548ab2c78d1cc/jetified-crashreport-3.3.3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.tencent.bugly:crashreport:3.3.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e8559ba95ad62f4aa66548ab2c78d1cc/jetified-crashreport-3.3.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:crashreport:3.3.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e577ebdd70f6ec1e48d4a069ec48f0f0/jetified-crashreport-3.3.6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.tencent.bugly:crashreport:3.3.6] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/e577ebdd70f6ec1e48d4a069ec48f0f0/jetified-crashreport-3.3.6/AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3bf133c5a1e45b24d8705fcd5370421/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f3bf133c5a1e45b24d8705fcd5370421/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [com.tencent.tbs.tbssdk:sdk:43697] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/eb8320744f802335cb2e5ca28187cf90/jetified-sdk-43697/AndroidManifest.xml:7:5-9:41
@@ -998,11 +1010,11 @@ INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/A
 		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:316:13-318:57
+ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:324:13-326:57
 	android:resource
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:318:17-54
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:326:17-54
 	android:name
-		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:317:17-67
+		ADDED from /Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:325:17-67
 provider#com.maning.updatelibrary.MNUpdateApkFileProvider
 ADDED from [com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/958353a7f509872620391da50bb2e758/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 	android:grantUriPermissions

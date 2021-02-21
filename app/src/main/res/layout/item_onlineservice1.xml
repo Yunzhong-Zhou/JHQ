@@ -65,7 +65,7 @@
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:src="@drawable/sanjiaoxing_right_huangse" />
+                        android:src="@drawable/sanjiaoxing_right_kefu" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -137,7 +137,7 @@
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:src="@drawable/sanjiaoxing_left_zise" />
+                        android:src="@drawable/sanjiaoxing_left_kefu" />
 
                     <TextView
                         android:id="@+id/textView2_2"
