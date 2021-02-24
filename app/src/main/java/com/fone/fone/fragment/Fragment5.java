@@ -234,9 +234,9 @@ public class Fragment5 extends BaseFragment {
                             .into(imageView1);//加载图片
 
                     textView5.setText("" + response.getUsable_money());//余额
-                    textView6.setText("" + response.getCommission_money());//佣金
-                    textView7.setText("" + response.getChange_game_win_time());//次数
-                    textView8.setText("" + response.getFil_money()+getString(R.string.app_tai));//已产FIL
+                    textView6.setText("" + response.getEarning_money());//销售分成
+                    textView7.setText("" + response.getCommission_money());//收益分成
+                    textView8.setText("" + response.getOrder_goods_count()+getString(R.string.app_tai));//台数
 
 //                    localUserInfo.setPhoneNumber(response.getMobile());
                     localUserInfo.setNickname(response.getNickname());

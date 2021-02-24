@@ -180,6 +180,9 @@
             android:label="推广用户" />
 
         <activity
+            android:name="com.fone.fone.activity.CooperativeBrandActivity"
+            android:label="合作品牌" />
+        <activity
             android:name="com.fone.fone.activity.CooperativeShopActivity"
             android:label="合作门店" />
 

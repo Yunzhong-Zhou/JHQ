@@ -8,24 +8,67 @@ import java.io.Serializable;
 
 public class AvailableAmountModel implements Serializable {
     /**
+     * bank_card_account :
+     * bank_card_proceeds_name :
+     * bank_title :
+     * bank_address :
      * usable_money : 0.0000
-     * money_wallet_addr : 1234567890
+     * min_withdrawal_money : 100
+     * max_withdrawal_money : 10000
      * withdrawal_service_charge : 3
-     * hk : 585cb220e7a0562152da942ed0b2458b
+     * hk : 491384de48cbcf514fc205590e868ef3
      */
 
+    private String bank_icon;
+
+    public String getBank_icon() {
+        return bank_icon;
+    }
+
+    public void setBank_icon(String bank_icon) {
+        this.bank_icon = bank_icon;
+    }
+
+    private String bank_card_account;
+    private String bank_card_proceeds_name;
+    private String bank_title;
+    private String bank_address;
     private String usable_money;
     private String min_withdrawal_money;
-    private String money_wallet_addr;
+    private String max_withdrawal_money;
     private String withdrawal_service_charge;
     private String hk;
 
-    public String getMin_withdrawal_money() {
-        return min_withdrawal_money;
+    public String getBank_card_account() {
+        return bank_card_account;
     }
 
-    public void setMin_withdrawal_money(String min_withdrawal_money) {
-        this.min_withdrawal_money = min_withdrawal_money;
+    public void setBank_card_account(String bank_card_account) {
+        this.bank_card_account = bank_card_account;
+    }
+
+    public String getBank_card_proceeds_name() {
+        return bank_card_proceeds_name;
+    }
+
+    public void setBank_card_proceeds_name(String bank_card_proceeds_name) {
+        this.bank_card_proceeds_name = bank_card_proceeds_name;
+    }
+
+    public String getBank_title() {
+        return bank_title;
+    }
+
+    public void setBank_title(String bank_title) {
+        this.bank_title = bank_title;
+    }
+
+    public String getBank_address() {
+        return bank_address;
+    }
+
+    public void setBank_address(String bank_address) {
+        this.bank_address = bank_address;
     }
 
     public String getUsable_money() {
@@ -36,12 +79,20 @@ public class AvailableAmountModel implements Serializable {
         this.usable_money = usable_money;
     }
 
-    public String getMoney_wallet_addr() {
-        return money_wallet_addr;
+    public String getMin_withdrawal_money() {
+        return min_withdrawal_money;
     }
 
-    public void setMoney_wallet_addr(String money_wallet_addr) {
-        this.money_wallet_addr = money_wallet_addr;
+    public void setMin_withdrawal_money(String min_withdrawal_money) {
+        this.min_withdrawal_money = min_withdrawal_money;
+    }
+
+    public String getMax_withdrawal_money() {
+        return max_withdrawal_money;
+    }
+
+    public void setMax_withdrawal_money(String max_withdrawal_money) {
+        this.max_withdrawal_money = max_withdrawal_money;
     }
 
     public String getWithdrawal_service_charge() {

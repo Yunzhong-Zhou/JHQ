@@ -78,7 +78,7 @@ public class URLs {
     /**
      * 首页
      */
-    public static final String Fragment3 = "/api/change-game/index";
+    public static final String Fragment3 = "/api/index/index";
     //往期列表
     public static final String JoinList = "/api/change-game/record";
     //排行榜

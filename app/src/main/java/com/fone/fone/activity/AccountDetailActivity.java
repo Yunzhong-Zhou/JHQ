@@ -33,11 +33,11 @@ public class AccountDetailActivity extends BaseActivity {
     int type = 1;
     AccountDetailModel model1;
     private RecyclerView recyclerView;
-    List<AccountDetailModel.EarningListBean> list1 = new ArrayList<>();
-    CommonAdapter<AccountDetailModel.EarningListBean> mAdapter1;
+    List<AccountDetailModel.InMoneyListBean> list1 = new ArrayList<>();
+    CommonAdapter<AccountDetailModel.InMoneyListBean> mAdapter1;
 
-    List<AccountDetailModel.ExpenditureListBean> list2 = new ArrayList<>();
-    CommonAdapter<AccountDetailModel.ExpenditureListBean> mAdapter2;
+    List<AccountDetailModel.OutMoneyListBean> list2 = new ArrayList<>();
+    CommonAdapter<AccountDetailModel.OutMoneyListBean> mAdapter2;
     //头部一
 //    View headerView1;
     RelativeLayout head1_relativeLayout;
@@ -60,7 +60,7 @@ public class AccountDetailActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        requestServer();
+        requestServer();
     }
 
     @Override
@@ -148,16 +148,16 @@ public class AccountDetailActivity extends BaseActivity {
                     head1_textView5.setVisibility(View.GONE);
                 }*/
 
-                head1_textView1.setText(response.getCommon_usable_money());
-                head1_textView2.setText(response.getContract_money());
-                head1_textView3.setText(response.getProfit_money());
+                head1_textView1.setText(response.getUsable_money());
+                head1_textView2.setText(response.getCommission_money());
+                head1_textView3.setText(response.getEarning_money());
                 head1_textView4.setText(response.getCommission_money());
 
-                list1 = response.getEarning_list();
-                mAdapter1 = new CommonAdapter<AccountDetailModel.EarningListBean>
+                list1 = response.getIn_money_list();
+                mAdapter1 = new CommonAdapter<AccountDetailModel.InMoneyListBean>
                         (AccountDetailActivity.this, R.layout.item_accountdetail, list1) {
                     @Override
-                    protected void convert(ViewHolder holder, final AccountDetailModel.EarningListBean model, int position) {
+                    protected void convert(ViewHolder holder, final AccountDetailModel.InMoneyListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle() + "：+" + model.getMoney());//标题
 //                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.get);//流水号
                         holder.setText(R.id.textView3, model.getCreated_at());//时间
@@ -165,11 +165,11 @@ public class AccountDetailActivity extends BaseActivity {
                     }
                 };
 
-                list2 = response.getExpenditure_list();
-                mAdapter2 = new CommonAdapter<AccountDetailModel.ExpenditureListBean>
+                list2 = response.getOut_money_list();
+                mAdapter2 = new CommonAdapter<AccountDetailModel.OutMoneyListBean>
                         (AccountDetailActivity.this, R.layout.item_accountdetail, list2) {
                     @Override
-                    protected void convert(ViewHolder holder, final AccountDetailModel.ExpenditureListBean model, int position) {
+                    protected void convert(ViewHolder holder, final AccountDetailModel.OutMoneyListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle() + "：-" + model.getMoney());//标题
 //                        holder.setText(R.id.textView2, getString(R.string.recharge_h21) + model.getId());//流水号
                         holder.setText(R.id.textView3, model.getCreated_at());//时间

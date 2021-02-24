@@ -15,9 +15,9 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +27,7 @@ import com.fone.fone.MyApplication;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.LoginModel;
+import com.fone.fone.model.RegisteredModel;
 import com.fone.fone.model.SmsCodeListModel;
 import com.fone.fone.model.UpgradeModel;
 import com.fone.fone.net.OkHttpClientManager;
@@ -58,15 +59,24 @@ import androidx.appcompat.app.AlertDialog;
  * 登录
  */
 public class LoginActivity extends BaseActivity {
+    int type = 1;
+    LinearLayout linearLayout1, linearLayout2;
+    View view1, view2;
+    LinearLayout linearLayout_1, linearLayout_2, linearLayout_3, linearLayout_4, linearLayout_5, linearLayout_6;
+
     List<SmsCodeListModel.LangListBean> list = new ArrayList<>();
     List<SmsCodeListModel.MobileStateListBean> list1 = new ArrayList<>();
 
-    private EditText editText1, editText2;
-    private TextView textView, textView1, textView2, textView3, tv_language;
+    private EditText editText1, editText2, editText3, editText4;
+    private TextView textView, textView1, textView2, textView3,textView4, tv_language;
     private ImageView imageView1, imageView2, title_right;
 
-    private String phonenum = "", password = "";
+    private String phonenum = "", password = "",code = "", num = "";
     private TimeCount time = null;
+
+    boolean isgouxuan = true;
+    ImageView imageView3;
+    String register_agreement = "";
 
     //更新
     UpgradeModel model_up;
@@ -109,7 +119,6 @@ public class LoginActivity extends BaseActivity {
 
 //        mImmersionBar.reset().init();
 
-
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
         mPermissionsChecker = new PermissionsChecker(this);
@@ -119,7 +128,19 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        findViewByID_My(R.id.ll_language).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+//        findViewByID_My(R.id.ll_language).setPadding(0, (int) CommonUtil.getStatusBarHeight(LoginActivity.this), 0, 0);
+
+        linearLayout1 = findViewByID_My(R.id.linearLayout1);
+        linearLayout2 = findViewByID_My(R.id.linearLayout2);
+        view1 = findViewByID_My(R.id.view1);
+        view2 = findViewByID_My(R.id.view2);
+        linearLayout_1 = findViewByID_My(R.id.linearLayout_1);
+        linearLayout_2 = findViewByID_My(R.id.linearLayout_2);
+        linearLayout_3 = findViewByID_My(R.id.linearLayout_3);
+        linearLayout_4 = findViewByID_My(R.id.linearLayout_4);
+        linearLayout_5 = findViewByID_My(R.id.linearLayout_5);
+        linearLayout_6 = findViewByID_My(R.id.linearLayout_6);
+
 
         title_right = findViewByID_My(R.id.title_right);
         tv_language = findViewByID_My(R.id.tv_language);
@@ -127,12 +148,17 @@ public class LoginActivity extends BaseActivity {
         textView = findViewByID_My(R.id.textView);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+        editText3 = findViewByID_My(R.id.editText3);
+        editText4 = findViewByID_My(R.id.editText4);
+
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
 
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        imageView3 = findViewByID_My(R.id.imageView3);
 
 
         //对et的输入状态进行监听
@@ -179,10 +205,10 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
-        editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        /*editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (actionId == EditorInfo.IME_ACTION_DONE && type == 1) {
                     if (match()) {
 //                        KeyboardUtils.hideSoftInput(editText2);//隐藏键盘
 
@@ -197,7 +223,9 @@ public class LoginActivity extends BaseActivity {
                 }
                 return true;
             }
-        });
+        });*/
+
+        changeUI();
         /*View view1 = findViewByID_My(R.id.view1);
         ViewGroup.LayoutParams lp = view1.getLayoutParams();
         lp.height = (int) CommonUtil.getScreenHeight(this) / 5;*/
@@ -241,6 +269,8 @@ public class LoginActivity extends BaseActivity {
                 list1 = response.getMobile_state_list();
 //                mobile_state_code = model.getMobile_state_code_list().get(0).getCode() + "";
 //                textView.setText(model.getMobile_state_code_list().get(0).getTitle());
+
+                register_agreement = response.getUrl();
             }
         });
 
@@ -250,6 +280,14 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
 //            case R.id.title_right:
+            case R.id.linearLayout1:
+                type = 1;
+                changeUI();
+                break;
+            case R.id.linearLayout2:
+                type = 2;
+                changeUI();
+                break;
             case R.id.ll_language:
                 //选择语言
                 /*if (list.size() > 0) {
@@ -321,22 +359,43 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.textView2:
                 //注册
-
+                type = 2;
+                changeUI();
                 /*Bundle bundle1 = new Bundle();
                 bundle1.putString("open_id", "");
                 CommonUtil.gotoActivityWithData(LoginActivity.this, RegisteredActivity.class, bundle1, false);*/
                 break;
             case R.id.textView3:
                 //确认登录
-                if (match()) {
-                    textView3.setClickable(false);
-                    this.showProgress(true, getString(R.string.login_h7));
-                    params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
-                    params.put("mobile", phonenum);
-                    params.put("password", password);
-                    params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
-                    RequestLogin(params);//登录
+                if (type == 1) {
+                    if (match()) {
+                        textView3.setClickable(false);
+                        this.showProgress(true, getString(R.string.login_h7));
+                        params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
+                        params.put("mobile", phonenum);
+                        params.put("password", password);
+                        params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                        RequestLogin(params);//登录
+                    }
+                } else {
+                    if (match2()) {
+                        textView3.setClickable(false);
+                        showProgress(true, getString(R.string.registered_h14));
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("thirdparty_open_id", "");//授权
+                        params.put("mobile", phonenum);//手机号
+                        params.put("password", password);//密码（不能小于6位数）
+                        params.put("code", code);//手机验证码
+//                    params.put("nickname", nickname);//昵称
+//                    params.put("app_type", "1");//1、Android  2、iOS
+                        params.put("invite_code", num);//邀请码
+                        params.put("uuid", CommonUtil.getIMEI(LoginActivity.this));//IMEI
+                        params.put("register_addr", "");//注册地址
+                        params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                        RequestRegistered(params);//注册
+                    }
                 }
+
 //                CommonUtil.gotoActivity(LoginActivity.this, MainActivity.class, true);
                 break;
             case R.id.imageView1:
@@ -346,6 +405,75 @@ public class LoginActivity extends BaseActivity {
             case R.id.imageView2:
                 editText2.setText("");
                 imageView2.setVisibility(View.GONE);
+                break;
+            case R.id.textView4:
+                //发送验证码
+                phonenum = editText1.getText().toString().trim();
+
+                if (TextUtils.isEmpty(phonenum)) {
+                    myToast(getString(R.string.registered_h1));
+                } else {
+//                    customVerity();//极验
+
+                    /*showProgress(true, "正在生成图形验证码...");
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("mobile", phonenum);
+                    params.put("type", "1");
+                    RequestPicCode(params);*/
+                    showProgress(true, getString(R.string.app_sendcode_hint1));
+                    HashMap<String, String> params1 = new HashMap<>();
+                    params1.put("mobile_state_code", localUserInfo.getMobile_State_Code());
+                    params1.put("mobile", phonenum);
+                    params1.put("type", "1");
+                    RequestCode(params1,textView4);//获取验证码
+                }
+                break;
+            case R.id.textView5:
+                //用户注册协议
+                /*if (LocalUserInfo.getInstance(this).getLanguage_Type().equals("1")) {
+                    //英文
+                    register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
+                } else {
+                    register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
+                }*/
+//                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
+                if (!register_agreement.equals("")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("url", register_agreement);
+                    CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
+                }
+                break;
+            case R.id.imageView3:
+                //勾选协议
+                isgouxuan = !isgouxuan;
+                if (isgouxuan)
+                    imageView3.setImageResource(R.mipmap.ic_xuanze);
+                else
+                    imageView3.setImageResource(R.mipmap.ic_weigouxuan);
+                break;
+        }
+    }
+
+    private void changeUI() {
+        switch (type) {
+            case 1:
+                view1.setVisibility(View.VISIBLE);
+                view2.setVisibility(View.INVISIBLE);
+                linearLayout_2.setVisibility(View.GONE);
+                linearLayout_4.setVisibility(View.GONE);
+                linearLayout_6.setVisibility(View.GONE);
+
+                textView3.setText(getString(R.string.login_h5));
+                break;
+            case 2:
+                view1.setVisibility(View.INVISIBLE);
+                view2.setVisibility(View.VISIBLE);
+
+                linearLayout_2.setVisibility(View.VISIBLE);
+                linearLayout_4.setVisibility(View.VISIBLE);
+                linearLayout_6.setVisibility(View.VISIBLE);
+
+                textView3.setText(getString(R.string.registered_h9));
                 break;
         }
     }
@@ -378,11 +506,6 @@ public class LoginActivity extends BaseActivity {
                             @Override
                             public void onClick(View v) {
                                 //发送验证码
-                                if (time != null) {
-                                    time.cancel();
-                                }
-                                time = new TimeCount(60000, 1000, tv2);//构造CountDownTimer对象
-
                                 LoginActivity.this.showProgress(true, getString(R.string.app_sendcode_hint1));
                                 tv2.setClickable(false);
                                 /*String string = "?mobile=" + phonenum +
@@ -501,6 +624,68 @@ public class LoginActivity extends BaseActivity {
         }, true);
 
     }
+    //注册
+    private void RequestRegistered(Map<String, String> params) {
+        OkHttpClientManager.postAsyn_Reg(LoginActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<RegisteredModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                textView3.setClickable(true);
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(RegisteredModel response) {
+                MyLogger.i(">>>>>>>>>注册" + response);
+                textView3.setClickable(true);
+                hideProgress();
+
+                //保存Token
+                localUserInfo.setToken(response.getFresh_token());
+                //保存id
+                localUserInfo.setUserId(response.getId());
+                //保存邀请码
+                localUserInfo.setInvuteCode(response.getInvite_code());
+                //保存电话号码
+                localUserInfo.setPhoneNumber(response.getMobile());
+                //保存用户昵称
+                localUserInfo.setNickname(response.getNickname());
+                //保存头像
+                localUserInfo.setUserImage(response.getHead());
+                //保存地区代码
+                localUserInfo.setMobile_State_Code(response.getMobile_state_code());
+
+
+                //是否为商户
+//                    localUserInfo.setMerchant(response.getMerchant() + "");
+                //是否开通支付
+//                    localUserInfo.setPay(response.getPay() + "");
+                //是否开通收款
+//                    localUserInfo.setGather(response.getGather() + "");
+                //保存钱包地址
+//                        localUserInfo.setWalletaddr(walletaddr);
+                //保存邮箱
+//                        localUserInfo.setEmail(email);
+                //保存姓名
+//                    localUserInfo.setUserName(jObj1.getString("name"));
+
+
+                hideProgress();
+                MainActivity.isOver = false;
+
+                Bundle bundle = new Bundle();
+//                    bundle.putInt("isShowAd", jObj1.getInt("experience"));
+                bundle.putInt("isShowAd", 1);
+
+                ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
+                CommonUtil.gotoActivityWithFinishOtherAllAndData(LoginActivity.this, MainActivity.class, bundle, true);
+
+            }
+        }, true);
+
+    }
 
     //获取验证码
     private void RequestCode(HashMap<String, String> params, final TextView tv) {
@@ -519,6 +704,12 @@ public class LoginActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>验证码" + response);
                 tv.setClickable(true);
+
+                if (time != null) {
+                    time.cancel();
+                }
+                time = new TimeCount(60000, 1000, tv);//构造CountDownTimer对象
+
                 time.start();//开始计时
                 myToast(getString(R.string.app_sendcode_hint));
             }
@@ -577,6 +768,103 @@ public class LoginActivity extends BaseActivity {
             myToast(getString(R.string.login_h17));
             return false;
         }
+
+        return true;
+    }
+
+    private boolean match2() {
+        phonenum = editText1.getText().toString().trim();
+        if (TextUtils.isEmpty(phonenum)) {
+            myToast(getString(R.string.registered_h1));
+            return false;
+        }
+        code = editText3.getText().toString().trim();
+        if (TextUtils.isEmpty(code)) {
+            myToast(getString(R.string.registered_h2));
+            return false;
+        }
+        password= editText2.getText().toString().trim();
+        if (TextUtils.isEmpty(password)) {
+            myToast(getString(R.string.registered_h3));
+            return false;
+        }
+        /*password2 = editText4.getText().toString().trim();
+        if (TextUtils.isEmpty(password2)) {
+            myToast(getString(R.string.registered_h4));
+            return false;
+        }
+        if (!password1.equals(password2)) {
+            myToast(getString(R.string.registered_h12));
+            return false;
+        }*/
+        num = editText4.getText().toString().trim();
+        if (TextUtils.isEmpty(num)) {
+            myToast(getString(R.string.registered_h5));
+            return false;
+        }
+
+        /*nickname = editText6.getText().toString().trim();
+        if (TextUtils.isEmpty(nickname)) {
+            myToast(getString(R.string.registered_h11));
+            return false;
+        }*/
+
+        if (!isgouxuan) {
+            myToast(getString(R.string.registered_h15));
+            return false;
+        }
+
+        /*boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+            @Override
+            public void findEmulator(String emulatorInfo) {
+                MyLogger.i("设备信息", emulatorInfo);
+            }
+        });
+        if (isMoNiQi == true) {//是模拟器
+            myToast(getString(R.string.login_h17));
+            return false;
+        }*/
+
+        /*if (isNickName==false){
+            myToast("昵称不可用");
+            return false;
+        }*/
+        /*if (register_addr.equals("")) {
+            showToast(getString(R.string.registered_position_hint),
+                    getString(R.string.app_confirm),
+                    getString(R.string.app_cancel), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    }, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            register_addr = getString(R.string.registered_noposition) +"";
+                            dialog.dismiss();
+                        }
+                    });
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisteredActivity.this);
+            builder.setMessage(getString(R.string.registered_position_hint));
+            builder.setTitle(getString(R.string.app_prompt));
+            builder.setPositiveButton(getString(R.string.app_confirm), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    dialog.dismiss();
+                }
+            });
+            builder.setNegativeButton(getString(R.string.app_cancel), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    register_addr = getString(R.string.registered_noposition);
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+            return false;
+        }*/
 
         return true;
     }
@@ -859,7 +1147,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
-        switch (localUserInfo.getMobile_State_Code().length()) {
+       /* switch (localUserInfo.getMobile_State_Code().length()) {
             case 2:
                 editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 60), 0, 0, 0);
                 break;
@@ -873,7 +1161,7 @@ public class LoginActivity extends BaseActivity {
                 editText1.setPadding(CommonUtil.dip2px(LoginActivity.this, 80), 0, 0, 0);
                 break;
 
-        }
+        }*/
 
         switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
             case "zh":

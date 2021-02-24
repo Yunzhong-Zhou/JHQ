@@ -33,12 +33,10 @@ public class ShareActivity extends BaseActivity {
     ShareModel model;
     ImageView imageView1;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9,
-            textView10, textView11, textView12, textView13, textView14, textView15, textView16, textView17,
-            textView18, textView19, textView20, textView21;
-    ProgressBar prograssBar1, prograssBar2;
+            textView10, textView13, textView14, textView15, textView16, textView17;
+    ProgressBar prograssBar1;
     TextView tv_haicha, tv_tixing,
-            tv_v1, tv_v2, tv_v3,
-            tv_num0, tv_num1, tv_num2, tv_num3;
+            tv_v1, tv_v2, tv_v3;
     View view_1, view_2;
 
     @Override
@@ -80,20 +78,14 @@ public class ShareActivity extends BaseActivity {
         textView8 = findViewByID_My(R.id.textView8);
         textView9 = findViewByID_My(R.id.textView9);
         textView10 = findViewByID_My(R.id.textView10);
-        textView11 = findViewByID_My(R.id.textView11);
-        textView12 = findViewByID_My(R.id.textView12);
+
         textView13 = findViewByID_My(R.id.textView13);
         textView14 = findViewByID_My(R.id.textView14);
         textView15 = findViewByID_My(R.id.textView15);
         textView16 = findViewByID_My(R.id.textView16);
         textView17 = findViewByID_My(R.id.textView17);
-        textView18 = findViewByID_My(R.id.textView18);
-        textView19 = findViewByID_My(R.id.textView19);
-        textView20 = findViewByID_My(R.id.textView20);
-        textView21 = findViewByID_My(R.id.textView21);
 
         prograssBar1 = findViewByID_My(R.id.prograssBar1);
-        prograssBar2 = findViewByID_My(R.id.prograssBar2);
 
         tv_haicha = findViewByID_My(R.id.tv_haicha);
         tv_tixing = findViewByID_My(R.id.tv_tixing);
@@ -103,11 +95,6 @@ public class ShareActivity extends BaseActivity {
         tv_v3 = findViewByID_My(R.id.tv_v3);
         view_1 = findViewByID_My(R.id.view_1);
         view_2 = findViewByID_My(R.id.view_1);
-
-        tv_num0 = findViewByID_My(R.id.tv_num0);
-        tv_num1 = findViewByID_My(R.id.tv_num1);
-        tv_num2 = findViewByID_My(R.id.tv_num2);
-        tv_num3 = findViewByID_My(R.id.tv_num3);
 
 
         /*imageView = findViewByID_My(R.id.imageView);
@@ -155,34 +142,21 @@ public class ShareActivity extends BaseActivity {
                 textView7.setText(response.getValid_direct_recommend());//累计直推有效人数
                 textView8.setText(getString(R.string.share_h12) + response.getHold_start_at()
                         + "-" + response.getHold_end_at());//考核期：
-                textView9.setText(response.getHold_current_money() + getString(R.string.app_type_usdt) + "/");//新增业绩
-                textView10.setText(getString(R.string.share_h15) + response.getHold_target_money() + getString(R.string.app_type_usdt) + "");//目标
-                if (response.getHold_current_money() != null && !response.getHold_current_money().equals("")
-                        && response.getHold_target_money() != null && !response.getHold_target_money().equals("")) {
-                    double max = Double.valueOf(response.getHold_target_money());
+                textView9.setText(response.getHold_current_num() + "/");//新增业绩
+                textView10.setText(getString(R.string.share_h15) + response.getHold_target_num() + "");//目标
+                if (response.getHold_current_num() != null && !response.getHold_current_num().equals("")
+                        && response.getHold_target_num() != null && !response.getHold_target_num().equals("")) {
+                    double max = Double.valueOf(response.getHold_target_num());
                     prograssBar1.setMax((int) max);
-                    double progress = Double.valueOf(response.getHold_current_money());
+                    double progress = Double.valueOf(response.getHold_current_num());
                     prograssBar1.setProgress((int) progress);
                 }
 
-                textView11.setText(response.getHold_current_money_count() + getString(R.string.app_ge) + "/");//新增团队
-                textView12.setText(getString(R.string.share_h15) + response.getHold_target_money_count() + getString(R.string.app_ge) + "");//目标
-                if (response.getHold_current_money_count() != null && !response.getHold_current_money_count().equals("")
-                        && response.getHold_target_money_count() != null && !response.getHold_target_money_count().equals("")) {
-                    double max = Double.valueOf(response.getHold_target_money_count());
-                    prograssBar2.setMax((int) max);
-                    double progress = Double.valueOf(response.getHold_current_money_count());
-                    prograssBar2.setProgress((int) progress);
-                }
 //                textView13.setText(response.get + "");//查看直推
                 textView14.setText(response.getDirect_recommend() + "");//直推人数
                 textView15.setText(response.getTeam_recommend() + "");//团队人数
-                textView16.setText(response.getDirect_performance_money() + "");//直推业绩
-                textView17.setText(response.getTeam_performance_money() + "");//团队业绩
-                textView18.setText(response.getDirect_performance_buy_invest_money() + "");//直推算力
-                textView19.setText(response.getTeam_performance_buy_invest_money() + "");//团队算力
-                textView20.setText(response.getDirect_performance_all_invest_money() + "");//直推矿机
-                textView21.setText(response.getTeam_performance_all_invest_money() + "");// 团队矿机
+                textView16.setText(response.getDirect_performance_num() + "");//直推业绩
+                textView17.setText(response.getTeam_performance_num() + "");//团队业绩
 
                 /*tv_haicha.setText(getString(R.string.share_h6) + response.getTips_upgrade_money()
                         + getString(R.string.app_type_usdt)
@@ -242,10 +216,6 @@ public class ShareActivity extends BaseActivity {
                         break;
 
                 }
-                tv_num0.setText(response.getGrade_count_list().getGrade_1());
-                tv_num1.setText(response.getGrade_count_list().getGrade_2());
-                tv_num2.setText(response.getGrade_count_list().getGrade_3());
-                tv_num3.setText(response.getGrade_count_list().getGrade_4());
 
             }
 

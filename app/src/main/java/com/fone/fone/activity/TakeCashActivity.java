@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.AvailableAmountModel;
@@ -24,6 +25,8 @@ import com.squareup.okhttp.Request;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
+
 
 /**
  * Created by zyz on 2017/9/4.
@@ -32,7 +35,7 @@ import java.util.Map;
 
 public class TakeCashActivity extends BaseActivity {
     int money_type = 1;
-    ImageView imageView1, imageView2;
+    ImageView imageView1, imageView2,imageView3;
     TextView tv_title, textView1, textView2, textView3, textView4, textView5, textView6, tv_confirm;
     EditText editText1, editText2, editText3;
 
@@ -79,6 +82,7 @@ public class TakeCashActivity extends BaseActivity {
         });
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
+        imageView3 = findViewByID_My(R.id.imageView3);
         tv_title = findViewByID_My(R.id.tv_title);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -188,13 +192,15 @@ public class TakeCashActivity extends BaseActivity {
                 break;
             case R.id.textView3:
                 Bundle bundle = new Bundle();
-                if (money_type == 1) {
+                CommonUtil.gotoActivityWithData(this, BankCardSettingActivity.class, bundle, false);
+
+               /* if (money_type == 1) {
                     bundle.putInt("type", 1);
                     CommonUtil.gotoActivityWithData(this, SetAddressActivity.class, bundle, false);
                 } else {
                     bundle.putInt("type", 2);
                     CommonUtil.gotoActivityWithData(this, SetAddressActivity.class, bundle, false);
-                }
+                }*/
 
                 break;
             case R.id.textView5:
@@ -226,8 +232,14 @@ public class TakeCashActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>可用余额" + response);
                 model = response;
 
-                if (model.getMoney_wallet_addr() != null && !model.getMoney_wallet_addr().equals("")) {
-                    textView3.setText(response.getMoney_wallet_addr());//地址
+                if (model.getBank_card_account() != null && !model.getBank_card_account().equals("")) {
+                    Glide.with(TakeCashActivity.this)
+                            .load(IMGHOST + response.getBank_icon())
+                            .centerCrop()
+                            .placeholder(R.mipmap.ic_bank_blue)//加载站位图
+                            .error(R.mipmap.ic_bank_blue)//加载失败
+                            .into(imageView3);//加载图片
+                    textView3.setText(response.getBank_card_account());//地址
                 } else {
                     textView3.setText(getString(R.string.takecash_h35));
                     showToast(getString(R.string.address_h26),
@@ -238,7 +250,7 @@ public class TakeCashActivity extends BaseActivity {
                                     dialog.dismiss();
                                     Bundle bundle = new Bundle();
                                     bundle.putInt("type", money_type);
-                                    CommonUtil.gotoActivityWithData(TakeCashActivity.this, SetAddressActivity.class, bundle, false);
+                                    CommonUtil.gotoActivityWithData(TakeCashActivity.this, BankCardSettingActivity.class, bundle, false);
                                 }
                             }, new View.OnClickListener() {
                                 @Override
@@ -251,11 +263,12 @@ public class TakeCashActivity extends BaseActivity {
 
                 textView2.setText(response.getUsable_money());//可用余额
                 editText1.setHint(getString(R.string.takecash_h8));//请输入提币个数
-                if (money_type == 1) {
+                textView4.setText("¥ "+response.getWithdrawal_service_charge());//手续费
+                /*if (money_type == 1) {
                     textView4.setText(response.getWithdrawal_service_charge() + getString(R.string.app_type_usdt));//手续费
                 } else {
                     textView4.setText(response.getWithdrawal_service_charge() + getString(R.string.app_type_fil));//手续费
-                }
+                }*/
 
             }
         });
@@ -346,13 +359,13 @@ public class TakeCashActivity extends BaseActivity {
                                 }
                             });
                 } else if (response.getCode() == 2) {
-                    showToast(getString(R.string.password_h4),
+                    showToast(getString(R.string.password_h9),
                             getString(R.string.password_h5), getString(R.string.password_h6),
                             new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
-                                    CommonUtil.gotoActivity(TakeCashActivity.this, AddressManagementActivity.class, false);
+                                    CommonUtil.gotoActivity(TakeCashActivity.this, BankCardSettingActivity.class, false);
                                 }
                             }, new View.OnClickListener() {
                                 @Override
@@ -414,11 +427,12 @@ public class TakeCashActivity extends BaseActivity {
             return false;
         }
         if (Double.valueOf(input_money) < Double.valueOf(model.getMin_withdrawal_money())) {
-            if (money_type == 1) {
+            myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money());
+            /*if (money_type == 1) {
                 myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money() + getString(R.string.app_type_usdt));
             } else {
                 myToast(getString(R.string.takecash_h38) + model.getMin_withdrawal_money() + getString(R.string.app_type_fil));
-            }
+            }*/
             return false;
         }
         return true;

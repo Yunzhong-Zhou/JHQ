@@ -196,6 +196,9 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.SharePeopleActivity"
             android:label="推广用户" />
         <activity
+            android:name="com.fone.fone.activity.CooperativeBrandActivity"
+            android:label="合作品牌" />
+        <activity
             android:name="com.fone.fone.activity.CooperativeShopActivity"
             android:label="合作门店" />
         <activity
@@ -282,7 +285,9 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.CityFriendActivity"
             android:label="城市合作伙伴" />
-
+        <activity
+            android:name="com.fone.fone.activity.CityFriendListActivity"
+            android:label="全国合作伙伴" />
         <!-- 全面屏适配 -->
         <meta-data
             android:name="design_width_in_dp"

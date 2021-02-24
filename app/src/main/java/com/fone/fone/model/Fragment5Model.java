@@ -8,16 +8,15 @@ import java.io.Serializable;
 
 public class Fragment5Model implements Serializable {
     /**
-     * nickname : FIL_pour广告费
-     * head : /head/606.png
+     * nickname : 空气净化器_tntk
+     * head : /head/795.png
      * grade : 1
-     * grade_title : V0
-     * usable_money : 8220.0000
+     * grade_title : 普通用户
+     * usable_money : 0.0000
      * commission_money : 0.0000
-     * fil_money : 0.0000
-     * hashrate : 1
-     * change_game_win_time : 0
-     * invite_code : pour
+     * earning_money : 0.0000
+     * invite_code : tntk
+     * order_goods_count : 0
      */
 
     private String nickname;
@@ -26,10 +25,9 @@ public class Fragment5Model implements Serializable {
     private String grade_title;
     private String usable_money;
     private String commission_money;
-    private String fil_money;
-    private String hashrate;
-    private String change_game_win_time;
+    private String earning_money;
     private String invite_code;
+    private String order_goods_count;
 
     public String getNickname() {
         return nickname;
@@ -79,28 +77,12 @@ public class Fragment5Model implements Serializable {
         this.commission_money = commission_money;
     }
 
-    public String getFil_money() {
-        return fil_money;
+    public String getEarning_money() {
+        return earning_money;
     }
 
-    public void setFil_money(String fil_money) {
-        this.fil_money = fil_money;
-    }
-
-    public String getHashrate() {
-        return hashrate;
-    }
-
-    public void setHashrate(String hashrate) {
-        this.hashrate = hashrate;
-    }
-
-    public String getChange_game_win_time() {
-        return change_game_win_time;
-    }
-
-    public void setChange_game_win_time(String change_game_win_time) {
-        this.change_game_win_time = change_game_win_time;
+    public void setEarning_money(String earning_money) {
+        this.earning_money = earning_money;
     }
 
     public String getInvite_code() {
@@ -111,4 +93,11 @@ public class Fragment5Model implements Serializable {
         this.invite_code = invite_code;
     }
 
+    public String getOrder_goods_count() {
+        return order_goods_count;
+    }
+
+    public void setOrder_goods_count(String order_goods_count) {
+        this.order_goods_count = order_goods_count;
+    }
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
+import com.fone.fone.activity.CooperativeBrandActivity;
 import com.fone.fone.activity.CooperativeShopActivity;
 import com.fone.fone.activity.MachineDetailActivity;
 import com.fone.fone.activity.MainActivity;
@@ -278,7 +279,7 @@ public class Fragment1 extends BaseFragment {
                 //查看更多
                 if (type == 1) {
                     //品牌
-
+                    CommonUtil.gotoActivity(getActivity(), CooperativeBrandActivity.class, false);
                 } else {
                     //门店
                     CommonUtil.gotoActivity(getActivity(), CooperativeShopActivity.class, false);
