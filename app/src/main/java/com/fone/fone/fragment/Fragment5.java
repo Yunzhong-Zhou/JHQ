@@ -16,8 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AccountDetailActivity;
-import com.fone.fone.activity.CityFriendActivity;
-import com.fone.fone.activity.CityFriend_NOActivity;
+import com.fone.fone.activity.CityFriendListActivity;
 import com.fone.fone.activity.ContractActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
@@ -30,6 +29,7 @@ import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
 import com.fone.fone.activity.SharePosterActivity;
 import com.fone.fone.base.BaseFragment;
+import com.fone.fone.model.CityFriendModel;
 import com.fone.fone.model.Fragment5Model;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -236,7 +236,7 @@ public class Fragment5 extends BaseFragment {
                     textView5.setText("" + response.getUsable_money());//余额
                     textView6.setText("" + response.getEarning_money());//销售分成
                     textView7.setText("" + response.getCommission_money());//收益分成
-                    textView8.setText("" + response.getOrder_goods_count()+getString(R.string.app_tai));//台数
+                    textView8.setText("" + response.getOrder_goods_count() + getString(R.string.app_tai));//台数
 
 //                    localUserInfo.setPhoneNumber(response.getMobile());
                     localUserInfo.setNickname(response.getNickname());
@@ -308,7 +308,10 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合作
-                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
+                showProgress(true, getString(R.string.app_loading2));
+                requestCityFriend("?token=" + localUserInfo.getToken());
                 break;
             case R.id.linearLayout10:
                 //我的设备
@@ -320,8 +323,7 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout12:
                 //城市伙伴
-//                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
-                CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), CityFriendListActivity.class, false);
                 break;
             case R.id.linearLayout13:
                 //设置中心
@@ -345,6 +347,25 @@ public class Fragment5 extends BaseFragment {
                 break;
         }
 
+    }
+
+    private void requestCityFriend(String string) {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.CityFriend + string, new OkHttpClientManager.ResultCallback<CityFriendModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    myToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(CityFriendModel response) {
+                MyLogger.i(">>>>>>>>>城市伙伴" + response);
+                hideProgress();
+
+            }
+        });
     }
 
     @Override

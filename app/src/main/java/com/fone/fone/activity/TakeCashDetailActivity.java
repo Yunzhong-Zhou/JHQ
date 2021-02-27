@@ -23,9 +23,9 @@ import com.squareup.okhttp.Request;
 public class TakeCashDetailActivity extends BaseActivity {
     String id = "";
     ProgressBar prograssBar;
-    ImageView imageView1, imageView2,imageView3;
-    TextView textView,textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView14, textView15, textView16,textView17;
+    ImageView imageView1, imageView2, imageView3, imageView4;
+    TextView textView, textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
+            textView14, textView15, textView16, textView17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class TakeCashDetailActivity extends BaseActivity {
         imageView1 = findViewByID_My(R.id.imageView1);
         imageView2 = findViewByID_My(R.id.imageView2);
         imageView3 = findViewByID_My(R.id.imageView3);
-
+        imageView4 = findViewByID_My(R.id.imageView4);
         textView = findViewByID_My(R.id.textView);
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
@@ -101,20 +101,27 @@ public class TakeCashDetailActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>提现详情" + response);
                 hideProgress();
                 if (response != null) {
-                    textView2.setText("" + response.getMoney());//提现个数
+                    textView2.setText("¥ " + response.getMoney());//提现个数
 //                    textView5.setText("" + response.getShow_created_at());//提现处理中时间
 //                    textView7.setText("" + response.getShow_updated_at());//提现完成时间
 
-                    textView8.setText(response.getMoney_wallet_addr());//提现地址
+                    /*Glide.with(TakeCashDetailActivity.this)
+                            .load(IMGHOST + response.getBank_icon())
+                            .centerCrop()
+                            .placeholder(R.mipmap.ic_bank_blue)//加载站位图
+                            .error(R.mipmap.ic_bank_blue)//加载失败
+                            .into(imageView3);//加载图片*/
+                    textView8.setText(response.getMember_bank_card_proceeds_name() +" "+ response.getMember_bank_card_account());//提现地址
 
+                    textView16.setText("¥ " + response.getService_charge_money());//手续费
                     textView.setText(response.getSn());//单号
-                    if (response.getMoney_type() ==1){
+                    /*if (response.getMoney_type() == 1) {
                         imageView3.setImageResource(R.mipmap.ic_usdt_green);
                         textView16.setText(response.getService_charge_money() + getString(R.string.app_type_usdt));//手续费
-                    }else {
+                    } else {
                         imageView3.setImageResource(R.mipmap.ic_fil_green);
                         textView16.setText(response.getService_charge_money() + getString(R.string.app_type_fil));//手续费
-                    }
+                    }*/
 
                     textView1.setText(response.getCreated_at());//提现时间
                     textView14.setText(response.getVerify_at());//到账时间

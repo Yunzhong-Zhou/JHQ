@@ -298,13 +298,13 @@
     <string name="fragment1_h40">结束时间</string>
     <string name="fragment1_h41">产值记录</string>
     <string name="fragment1_h42">立即支付</string>
-    <string name="fragment1_h43">支付信息</string>
+    <string name="fragment1_h43">对公转账</string>
     <string name="fragment1_h44">1.请向指定的支付宝帐号进行付款（%1$s）</string>
     <string name="fragment1_h45">转帐时请备注您在FilTop注册的手机号</string>
     <string name="fragment1_h46">收款方姓名</string>
     <string name="fragment1_h47">支付宝帐号</string>
     <string name="fragment1_h48">转帐金额</string>
-    <string name="fragment1_h49">2.请勿备注含有IPFS云矿机，算力，挖矿，BTC，USDT以及其他的数字资产名称等信息，防止汇款被拦截，银行卡被冻结等问题；\n\n3.周未充值到帐速度较慢，若未到帐，则顺延至工作日处理；\n\n4.如果有任何疑问，您可联系客服进行处理（请在工作日9:00~21:00之间完成汇款）；</string>
+    <string name="fragment1_h49">2.周未转帐到帐速度较慢，若未到帐，则顺延至工作日处理；\n\n3.如果有任何疑问，您可以联系客服进行处理（请在工作日9:00-21:00之间完成汇款）；</string>
     <string name="fragment1_h50">矿机详情</string>
     <string name="fragment1_h51">USDT支付成功</string>
     <string name="fragment1_h52">付款姓名</string>
@@ -319,10 +319,10 @@
     <string name="fragment1_h61">订单提交成功</string>
     <string name="fragment1_h62">银行卡转账</string>
     <string name="fragment1_h63">1.请向指定的银行卡帐号进行付款（%1$s）</string>
-    <string name="fragment1_h64">银行卡户名</string>
-    <string name="fragment1_h65">银行卡帐号</string>
+    <string name="fragment1_h64">公司帐号</string>
+    <string name="fragment1_h65">收款方姓名</string>
     <string name="fragment1_h66">银行付款订单号</string>
-    <string name="fragment1_h67">银行名称</string>
+    <string name="fragment1_h67">开户银行</string>
     <string name="fragment1_h68">您已确认转账吗？</string>
     <string name="fragment1_h69">提交成功</string>
     <string name="fragment1_h70">无需另行购买质押币</string>
@@ -386,7 +386,7 @@
     <string name="fragment2_h4">专业运维\n算力输出长期稳定</string>
     <string name="fragment2_h5">算力可查</string>
     <string name="fragment2_h6">算力来源\n矿机标签全公开</string>
-    <string name="fragment2_h7">选择算力</string>
+    <string name="fragment2_h7">选择数量</string>
     <string name="fragment2_h8">最小:</string>
     <string name="fragment2_h9">最大:</string>
     <string name="fragment2_h10">矿机编号</string>
@@ -453,21 +453,31 @@
     <string name="fragment3_h50">立即购买</string>
     <string name="fragment3_h51">新冠疫情提高了全民的健康和防护意识，公共空间存在诸多健康隐患如：空气细菌病毒、二手烟、装修污染等；通过大数据分析发现人们对空气质量高度重视</string>
     <string name="fragment3_h52">用户痛点分析</string>
-    <string name="fragment3_h53"></string>
-    <string name="fragment3_h54"></string>
-    <string name="fragment3_h55"></string>
-    <string name="fragment3_h56"></string>
-    <string name="fragment3_h57"></string>
-    <string name="fragment3_h58"></string>
-    <string name="fragment3_h59"></string>
-    <string name="fragment3_h60"></string>
+    <string name="fragment3_h53">市场现状分析</string>
+    <string name="fragment3_h54">项目竞争优势</string>
+    <string name="fragment3_h55">双央企品牌助力，空气净化器由中国航天研发设计生产项目由国海众科集团负责市场运营</string>
+    <string name="fragment3_h56">收益风险分析</string>
+    <string name="fragment3_h57">预期收益：每台设备一年平均每天使用3小时，按10元/小时计费：</string>
+    <string name="fragment3_h58">含税价：</string>
+    <string name="fragment3_h59">运营方式：</string>
+    <string name="fragment3_h60">代运营</string>
+    <string name="fragment3_h61">自运营</string>
+    <string name="fragment3_h62">余额不足</string>
+    <string name="fragment3_h63">购买提交成功</string>
+    <string name="fragment3_h64">永久转让</string>
+    <string name="fragment3_h65">临时转让</string>
+    <string name="fragment3_h66"></string>
+    <string name="fragment3_h67"></string>
+    <string name="fragment3_h68"></string>
+    <string name="fragment3_h69"></string>
+    <string name="fragment3_h70"></string>
 
     <!--fragment4-->
     <string name="fragment4_h1">可用USDT</string>
     <string name="fragment4_h2">拼购收益</string>
     <string name="fragment4_h3">累计佣金</string>
     <string name="fragment4_h4">充值</string>
-    <string name="fragment4_h5">提币</string>
+    <string name="fragment4_h5">提现</string>
     <string name="fragment4_h6">划转</string>
     <string name="fragment4_h7">FIL钱包</string>
     <string name="fragment4_h8">可用FIL</string>
@@ -757,7 +767,7 @@
     <string name="recharge_h3">不包括交易所手续费</string>
     <string name="recharge_h4">提交时间</string>
     <string name="recharge_h5">充币</string>
-    <string name="recharge_h6">提币</string>
+    <string name="recharge_h6">提现</string>
     <string name="recharge_h7">银行名称</string>
     <string name="recharge_h8">收款人姓名</string>
     <string name="recharge_h9">收款人帐号</string>
@@ -821,10 +831,10 @@
 
     <!--币地址管理-->
     <string name="addrmanage_h1">币地址管理</string>
-    <string name="addrmanage_h2">USDT提币</string>
+    <string name="addrmanage_h2">USDT提现</string>
     <string name="addrmanage_h3">添加USDT(TRC20)地址</string>
     <string name="addrmanage_h4">请填写USDT的TRC20地址，否则资产损失</string>
-    <string name="addrmanage_h5">FIL提币</string>
+    <string name="addrmanage_h5">FIL提现</string>
     <string name="addrmanage_h6">添加FIL地址</string>
     <string name="addrmanage_h7">请填写FIL地址，否则资产损失</string>
     <string name="addrmanage_h8"><u>USDT地址</u></string>
@@ -839,45 +849,45 @@
     <string name="addrmanage_h17">出售USDT需先邦定银行卡</string>
     <string name="addrmanage_h18">去绑定</string>
 
-    <!--提币-->
-    <string name="takecash_h1">FIL提币</string>
-    <string name="takecash_h2">提币至</string>
+    <!--提现-->
+    <string name="takecash_h1">FIL提现</string>
+    <string name="takecash_h2">提现至</string>
     <string name="takecash_h3">可提USDT</string>
     <string name="takecash_h4">USDT价格：</string>
     <string name="takecash_h5">美元</string>
     <string name="takecash_h6">手机号码</string>
-    <string name="takecash_h7">提币数量</string>
-    <string name="takecash_h8">请输入提币个数</string>
+    <string name="takecash_h7">提现金额</string>
+    <string name="takecash_h8">请输入提现个数</string>
     <string name="takecash_h9">交易密码</string>
     <string name="takecash_h10">请输入交易密码</string>
     <string name="takecash_h11">实际到账</string>
     <string name="takecash_h12">确定</string>
-    <string name="takecash_h13">提币提交成功</string>
+    <string name="takecash_h13">提现提交成功</string>
     <string name="takecash_h14">手续费</string>
-    <string name="takecash_h15">USDT提币</string>
-    <string name="takecash_h16">提币记录</string>
+    <string name="takecash_h15">USDT提现</string>
+    <string name="takecash_h16">提现记录</string>
     <string name="takecash_h17"><u>USDT地址</u></string>
-    <string name="takecash_h18">提币个数(USDT)</string>
-    <string name="takecash_h19">提币成功</string>
-    <string name="takecash_h20">提币处理中</string>
+    <string name="takecash_h18">提现个数(USDT)</string>
+    <string name="takecash_h19">提现成功</string>
+    <string name="takecash_h20">提现处理中</string>
     <string name="takecash_h21">到账时间</string>
-    <string name="takecash_h22">提币地址</string>
+    <string name="takecash_h22">提现地址</string>
     <string name="takecash_h23">USDT地址</string>
-    <string name="takecash_h24">提币个数：</string>
-    <string name="takecash_h25">提币详情</string>
-    <string name="takecash_h26">设置提币地址</string>
-    <string name="takecash_h27">提币失败</string>
-    <string name="takecash_h28">提币失败原因：</string>
+    <string name="takecash_h24">提现个数：</string>
+    <string name="takecash_h25">提现详情</string>
+    <string name="takecash_h26">设置提现地址</string>
+    <string name="takecash_h27">提现失败</string>
+    <string name="takecash_h28">提现失败原因：</string>
     <string name="takecash_h29">手续费</string>
-    <string name="takecash_h30">USDT提币</string>
+    <string name="takecash_h30">USDT提现</string>
     <string name="takecash_h31">验证码已发送至</string>
-    <string name="takecash_h32">提币单号</string>
+    <string name="takecash_h32">提现单号</string>
     <string name="takecash_h33">申请时间</string>
-    <string name="takecash_h34">提币状态</string>
+    <string name="takecash_h34">提现状态</string>
     <string name="takecash_h35"><u>银行卡暂未设置，点此跳转设置</u></string>
-    <string name="takecash_h36">确认提币</string>
+    <string name="takecash_h36">确认提现</string>
     <string name="takecash_h37">可提FIL</string>
-    <string name="takecash_h38">提币个数不能小于</string>
+    <string name="takecash_h38">提现个数不能小于</string>
 
 
     <!--资讯-->
@@ -916,7 +926,7 @@
     <string name="zxing_h36">转出数量</string>
 
     <!--转币-->
-    <string name="scavengingpayment_h1">划转</string>
+    <string name="scavengingpayment_h1">转让</string>
     <string name="scavengingpayment_h2">请输入划转个数</string>
     <string name="scavengingpayment_h3">FIL余币：</string>
     <string name="scavengingpayment_h4">FIL价格：</string>
@@ -927,6 +937,15 @@
     <string name="scavengingpayment_h9">可用余币：</string>
     <string name="scavengingpayment_h10">划转成功</string>
     <string name="scavengingpayment_h11">划转个数不能小于0.01</string>
+    <string name="scavengingpayment_h12">设备ID：</string>
+    <string name="scavengingpayment_h13">设备接收方</string>
+    <string name="scavengingpayment_h14">请输入接收方手机号</string>
+    <string name="scavengingpayment_h15">请再次确认接收方手机号</string>
+    <string name="scavengingpayment_h16">转让方式</string>
+    <string name="scavengingpayment_h17">永久转让</string>
+    <string name="scavengingpayment_h18">临时转让</string>
+    <string name="scavengingpayment_h19">两次输入的手机号不一致</string>
+    <string name="scavengingpayment_h20"></string>
 
     <!--转账记录-->
     <string name="transferrecord_h1">转币记录</string>

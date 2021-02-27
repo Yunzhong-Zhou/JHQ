@@ -3,20 +3,24 @@ package com.fone.fone.activity;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.MyRechargeModel;
+import com.fone.fone.model.Fragment3Model;
+import com.fone.fone.model.MyOrderModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
@@ -33,7 +37,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,8 +51,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyOrderActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<MyRechargeModel> list = new ArrayList<>();
-    CommonAdapter<MyRechargeModel> mAdapter;
+    List<MyOrderModel> list = new ArrayList<>();
+    CommonAdapter<MyOrderModel> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -57,6 +63,8 @@ public class MyOrderActivity extends BaseActivity {
     String sort = "desc", status = "";
     int i1 = 0;
     int i2 = 0;
+
+    int payType = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +128,7 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -139,27 +147,173 @@ public class MyOrderActivity extends BaseActivity {
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
+                    list = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
                     if (list.size() == 0) {
                         showEmptyPage();//空数据
                     } else {
-                        mAdapter = new CommonAdapter<MyRechargeModel>
+                        mAdapter = new CommonAdapter<MyOrderModel>
                                 (MyOrderActivity.this, R.layout.item_myorder, list) {
                             @Override
-                            protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h5));//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, "+"+model.getMoney());//money
-                                holder.setText(R.id.textView4, model.getStatus_title());//状态
+                            protected void convert(ViewHolder holder, MyOrderModel model, int position) {
+                                holder.setText(R.id.textView1, getString(R.string.fragment5_h81) + model.getSn());//订单号
+                                holder.setText(R.id.textView2, model.getStatus_title());//状态
+                                holder.setText(R.id.textView3, "" + model.getNum());//数量
+                                holder.setText(R.id.textView4, model.getOperation_type_title());//运营方式
+                                holder.setText(R.id.textView5, model.getMoney());//金额
+                                holder.setText(R.id.textView6, model.getCreated_at());//时间
+
+                                //立即支付
+                                TextView textView7 = holder.getView(R.id.textView7);
+                                textView7.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.contentView(R.layout.dialog_paytype)
+                                                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                                                .animType(BaseDialog.AnimInType.BOTTOM)
+                                                .canceledOnTouchOutside(true)
+                                                .gravity(Gravity.BOTTOM)
+                                                .dimAmount(0.8f)
+                                                .show();
+                                        //初始化
+                                        payType = 1;
+
+                                        LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
+                                        LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
+                                        LinearLayout ll_weixin = dialog.findViewById(R.id.ll_weixin);
+                                        LinearLayout ll_zhuanzhang = dialog.findViewById(R.id.ll_zhuanzhang);
+                                        ImageView iv_lingqian = dialog.findViewById(R.id.iv_lingqian);
+                                        ImageView iv_zhifubao = dialog.findViewById(R.id.iv_zhifubao);
+                                        ImageView iv_weixin = dialog.findViewById(R.id.iv_weixin);
+                                        ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
+                                        TextView tv_lingqian = dialog.findViewById(R.id.tv_lingqian);
+                                        TextView textView4 = dialog.findViewById(R.id.textView4);
+                                        /*tv_lingqian.setText(getString(R.string.fragment5_h87)
+                                                + "（" + getString(R.string.fragment5_h87) + "¥" + model.getUsable_money() + "）");*/
+                                        textView4.setText(getString(R.string.fragment5_h91) + "¥" + model.getMoney());//实付款
+                                        //零钱
+                                        ll_lingqian.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                payType = 1;
+                                                iv_lingqian.setImageResource(R.mipmap.ic_gouxuan);
+                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+
+                                            }
+                                        });
+                                        //支付宝
+                                        ll_zhifubao.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                payType = 2;
+                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
+                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            }
+                                        });
+                                        //微信
+                                        ll_weixin.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                payType = 3;
+                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
+                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            }
+                                        });
+                                        //转账
+                                        ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                payType = 4;
+                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                                iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
+                                            }
+                                        });
+
+
+                                        TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                                        tv_confirm.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                /*switch (payType) {
+                                                    case 1:
+//                                                        if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+                                                        dialog.dismiss();
+                                                        showProgress(true, getString(R.string.app_loading1));
+                                                        HashMap<String, String> params = new HashMap<>();
+                                                        params.put("goods_id", model.getGoods().getId());
+                                                        params.put("buy_type", buy_type + "");
+                                                        params.put("operation_type", operation_type + "");
+                                                        params.put("pay_type", payType + "");
+                                                        params.put("num", num + "");
+                                                        params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                                        RequestBuy(params);
+//                                                        } else {
+//                                                            myToast(getString(R.string.fragment3_h62));
+//                                                        }
+                                                        break;
+                                                    case 2:
+                                                    case 3:
+                                                    case 4:
+                                                        dialog.dismiss();
+                                                        showProgress(true, getString(R.string.app_loading1));
+                                                        HashMap<String, String> params = new HashMap<>();
+                                                        params.put("goods_id", model.getGoods().getId());
+                                                        params.put("buy_type", buy_type + "");
+                                                        params.put("operation_type", operation_type + "");
+                                                        params.put("pay_type", payType + "");
+                                                        params.put("num", num + "");
+                                                        params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                                        RequestBuy(params);
+                                                        break;
+                                                }*/
+                                                dialog.dismiss();
+                                                showProgress(true, getString(R.string.app_loading1));
+                                                HashMap<String, String> params = new HashMap<>();
+                                                params.put("goods_id", model.getId());
+                                                params.put("pay_type", payType + "");
+                                                params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                                RequestBuy(params);
+
+                                            }
+                                        });
+
+                                    }
+                                });
+                                //取消
+                                TextView textView8 = holder.getView(R.id.textView8);
+                                textView8.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.dismiss();
+                                        showProgress(true, getString(R.string.app_loading1));
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("goods_id", model.getId());
+                                        params.put("pay_type", payType + "");
+                                        params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                        RequestBuyCancel(params);
+                                    }
+                                });
                             }
                         };
                         recyclerView.setAdapter(mAdapter);
                         mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                Bundle bundle1 = new Bundle();
+                                /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(MyOrderActivity.this, RechargeDetailActivity.class, bundle1, false);
+                                CommonUtil.gotoActivityWithData(MyOrderActivity.this, RechargeDetailActivity.class, bundle1, false);*/
                             }
 
                             @Override
@@ -179,7 +333,7 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -196,11 +350,11 @@ public class MyOrderActivity extends BaseActivity {
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
-                List<MyRechargeModel> list1 = new ArrayList<>();
+                List<MyOrderModel> list1 = new ArrayList<>();
                 try {
                     jObj = new JSONObject(response);
                     JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
+                    list1 = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
                     if (list1.size() == 0) {
                         myToast(getString(R.string.app_nomore));
                         page--;
@@ -217,7 +371,55 @@ public class MyOrderActivity extends BaseActivity {
         });
 
     }
+    private void RequestBuy(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.Fragment3Buy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                textView7.setClickable(true);
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
 
+            }
+
+            @Override
+            public void onResponse(Fragment3Model response) {
+//                textView7.setClickable(true);
+                hideProgress();
+                MyLogger.i(">>>>>>>>>购买" + response);
+                myToast(getString(R.string.fragment3_h63));
+                if (payType == 4) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", response.getGoods().getId());
+                    CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
+                }
+
+            }
+        }, true);
+    }
+    private void RequestBuyCancel(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.Fragment3Buy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                textView7.setClickable(true);
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+
+            }
+
+            @Override
+            public void onResponse(Fragment3Model response) {
+//                textView7.setClickable(true);
+                hideProgress();
+                MyLogger.i(">>>>>>>>>购买取消" + response);
+                requestServer();
+
+            }
+        }, true);
+    }
     @Override
     public void onClick(View v) {
         Drawable drawable1 = getResources().getDrawable(R.mipmap.down_green);//选中-蓝色

@@ -27,10 +27,10 @@ import androidx.recyclerview.widget.RecyclerView;
  * 我的矿机
  */
 public class MyMachineActivity extends BaseActivity {
-    TextView textView1, textView2;
+    TextView textView1, textView2,textView3,textView4,textView5,textView6;
     private RecyclerView recyclerView;
-    List<MyMachineModel.InvestListBean> list = new ArrayList<>();
-    CommonAdapter<MyMachineModel.InvestListBean> mAdapter;
+    List<MyMachineModel.OrderGoodsListBean> list = new ArrayList<>();
+    CommonAdapter<MyMachineModel.OrderGoodsListBean> mAdapter;
     int page = 1;
     String mill_type = "3", status = "";//算力：1,2 矿机：3
 
@@ -76,6 +76,12 @@ public class MyMachineActivity extends BaseActivity {
         });
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
+        textView6 = findViewByID_My(R.id.textView6);
+
+
     }
 
     @Override
@@ -98,31 +104,39 @@ public class MyMachineActivity extends BaseActivity {
             public void onResponse(MyMachineModel response) {
                 showContentPage();
                 hideProgress();
-                textView1.setText(response.getHashrate() + "TB");
-                textView2.setText(response.getFil_money() + getString(R.string.app_ge));
-                list = response.getInvest_list();
+                textView1.setText(""+response.getEarning_money());//总收益
+                textView2.setText(response.getHas_run_count() + getString(R.string.app_tai));//已安装
+                textView3.setText(response.getWait_install_count()+"%");//分成比
+                textView4.setText(response.getAmount_count()+"");//总数量
+                textView5.setText(response.getAgency_count()+"");//代运营
+                textView6.setText(response.getSelf_count()+"");//自运营
+                list = response.getOrder_goods_list();
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
-                    mAdapter = new CommonAdapter<MyMachineModel.InvestListBean>
+                    mAdapter = new CommonAdapter<MyMachineModel.OrderGoodsListBean>
                             (MyMachineActivity.this, R.layout.item_mymachine, list) {
                         @Override
-                        protected void convert(ViewHolder holder, MyMachineModel.InvestListBean model, int position) {
-                            holder.setText(R.id.tv_type, model.getStatus_title());//状态
-                            holder.setText(R.id.tv_suanli, model.getHashrate() + "TB");//算力
-                            holder.setText(R.id.tv_chanzhi, model.getInterest_fil_money() + getString(R.string.app_ge));//产值
+                        protected void convert(ViewHolder holder, MyMachineModel.OrderGoodsListBean model, int position) {
+                            TextView tv1 = holder.getView(R.id.tv1);
+                            TextView tv2 = holder.getView(R.id.tv2);
+                            TextView tv3 = holder.getView(R.id.tv3);
+                            TextView tv4 = holder.getView(R.id.tv4);
+                            TextView tv5 = holder.getView(R.id.tv5);
+                            TextView tv6 = holder.getView(R.id.tv6);
+                            TextView tv7 = holder.getView(R.id.tv7);
+                            TextView tv8 = holder.getView(R.id.tv8);
 
-                            TextView tv_type = holder.getView(R.id.tv_type);
-                            if (model.getStatus() == 1)//进行中
-                                tv_type.setBackgroundResource(R.drawable.yuanjiao_10_lvse_left);
-                            else
-                                tv_type.setBackgroundResource(R.drawable.yuanjiao_10_huise_left);
+                            tv1.setText(model.getSource_type_title());
+                            tv2.setText(model.getPut_title());
+                            tv3.setText("￥ "+model.getMoney());
+                            tv4.setText(model.getCreated_at());
+//                            tv5.setText(model.get);
+                            tv6.setText(model.getPut_address());
 
-                            /*TextView tv_type2 = holder.getView(R.id.tv_type2);
-                            if (model.getMill_type() ==2)//自购
-                                tv_type2.setBackgroundResource(R.drawable.yuanjiao_15_huangse);
-                            else
-                                tv_type2.setBackgroundResource(R.drawable.yuanjiao_15_lvse);*/
+                            tv7.setText(model.getStatus_title());
+                            tv8.setText(model.getOperation_type_title());
+
                         }
                     };
                     recyclerView.setAdapter(mAdapter);
@@ -161,8 +175,8 @@ public class MyMachineActivity extends BaseActivity {
             public void onResponse(MyMachineModel response) {
                 showContentPage();
                 hideProgress();
-                List<MyMachineModel.InvestListBean> list1 = new ArrayList<>();
-                list1 = response.getInvest_list();
+                List<MyMachineModel.OrderGoodsListBean> list1 = new ArrayList<>();
+                list1 = response.getOrder_goods_list();
                 if (list1.size() == 0) {
                     myToast(getString(R.string.app_nomore));
                     page--;

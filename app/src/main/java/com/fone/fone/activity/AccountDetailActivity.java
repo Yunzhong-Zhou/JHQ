@@ -204,6 +204,7 @@ public class AccountDetailActivity extends BaseActivity {
                 break;
             case R.id.head1_linearLayout2:
                 //设备
+                CommonUtil.gotoActivity(this, MyMachineActivity.class, false);
                 /*Bundle bundle = new Bundle();
                 bundle.putInt("item", 3);
                 CommonUtil.gotoActivityWithFinishOtherAllAndData(this, MainActivity.class, bundle, true);*/

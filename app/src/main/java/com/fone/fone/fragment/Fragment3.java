@@ -1,13 +1,22 @@
 package com.fone.fone.fragment;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.activity.MainActivity;
+import com.fone.fone.activity.PayDetailActivity;
 import com.fone.fone.base.BaseFragment;
+import com.fone.fone.model.Fragment3BuyModel;
 import com.fone.fone.model.Fragment3Model;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -16,12 +25,18 @@ import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by Mr.Z on 2016/1/6.
  * 拼团
  */
 public class Fragment3 extends BaseFragment {
+    Fragment3Model model;
+    int num = 1, buy_type = 1, payType = 1, operation_type = 1;
+    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -89,6 +104,226 @@ public class Fragment3 extends BaseFragment {
             }
         });
 
+        textView = findViewByID_My(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (model != null) {
+                    dialog.contentView(R.layout.dialog_fragment3_pay)
+                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                            .animType(BaseDialog.AnimInType.BOTTOM)
+                            .canceledOnTouchOutside(true)
+                            .gravity(Gravity.BOTTOM)
+                            .dimAmount(0.8f)
+                            .show();
+                    //初始化
+                    num = 1;
+                    payType = 1;
+                    operation_type = 1;
+
+                    TextView textView1 = dialog.findViewById(R.id.textView1);
+                    TextView textView2 = dialog.findViewById(R.id.textView2);
+                    TextView textView3 = dialog.findViewById(R.id.textView3);
+                    TextView textView4 = dialog.findViewById(R.id.textView4);
+                    ImageView imageView1 = dialog.findViewById(R.id.imageView1);
+                    ImageView imageView2 = dialog.findViewById(R.id.imageView2);
+                    SeekBar seekBar = dialog.findViewById(R.id.seekBar);
+                    RelativeLayout rl_daiyunying = dialog.findViewById(R.id.rl_daiyunying);
+                    RelativeLayout rl_ziyunying = dialog.findViewById(R.id.rl_ziyunying);
+                    ImageView iv_daiyunying = dialog.findViewById(R.id.iv_daiyunying);
+                    ImageView iv_ziyunying = dialog.findViewById(R.id.iv_ziyunying);
+                    LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
+                    LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
+                    LinearLayout ll_weixin = dialog.findViewById(R.id.ll_weixin);
+                    LinearLayout ll_zhuanzhang = dialog.findViewById(R.id.ll_zhuanzhang);
+                    ImageView iv_lingqian = dialog.findViewById(R.id.iv_lingqian);
+                    ImageView iv_zhifubao = dialog.findViewById(R.id.iv_zhifubao);
+                    ImageView iv_weixin = dialog.findViewById(R.id.iv_weixin);
+                    ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
+                    TextView tv_lingqian = dialog.findViewById(R.id.tv_lingqian);
+                    textView1.setText(getString(R.string.fragment2_h7)
+                            + "（" + "¥" + model.getGoods().getCan_buy_back_price() + "）");
+                    textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCan_buy_back_price()
+                            + "/" + getString(R.string.app_tai));
+
+                    tv_lingqian.setText(getString(R.string.fragment5_h87)
+                            + "（" + getString(R.string.fragment5_h87) + "¥" + model.getUsable_money() + "）");
+
+                    calculate(seekBar, textView2, textView4);
+                    //减号
+                    imageView1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (num > 1) {
+                                num--;
+                            }
+                            calculate(seekBar, textView2, textView4);
+                        }
+                    });
+                    //加号
+                    imageView2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (model != null) {
+                                if (num < Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+                                    num++;
+                                }
+                                calculate(seekBar, textView2, textView4);
+                            }
+                        }
+                    });
+                    //拖动条
+                    seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        @Override
+                        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                            if (progress < 1) {
+                                num = 1;
+                            } else {
+                                num = progress;
+                            }
+                            calculate(seekBar, textView2, textView4);
+                        }
+
+                        @Override
+                        public void onStartTrackingTouch(SeekBar seekBar) {
+
+                        }
+
+                        @Override
+                        public void onStopTrackingTouch(SeekBar seekBar) {
+
+                        }
+                    });
+                    //代运营
+                    rl_daiyunying.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            operation_type = 1;
+                            iv_daiyunying.setVisibility(View.VISIBLE);
+                            iv_ziyunying.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    //自运营
+                    rl_ziyunying.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            operation_type = 2;
+                            iv_daiyunying.setVisibility(View.INVISIBLE);
+                            iv_ziyunying.setVisibility(View.VISIBLE);
+                        }
+                    });
+
+                    //零钱
+                    ll_lingqian.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            payType = 1;
+                            iv_lingqian.setImageResource(R.mipmap.ic_gouxuan);
+                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+
+                        }
+                    });
+                    //支付宝
+                    ll_zhifubao.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            payType = 2;
+                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
+                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                        }
+                    });
+                    //微信
+                    ll_weixin.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            payType = 3;
+                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
+                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                        }
+                    });
+                    //转账
+                    ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            payType = 4;
+                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                            iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
+                        }
+                    });
+
+
+                    TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            switch (payType){
+                                case 1:
+                                    if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+                                        dialog.dismiss();
+                                        showProgress(true, getString(R.string.app_loading1));
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("goods_id", model.getGoods().getId());
+                                        params.put("buy_type", buy_type + "");
+                                        params.put("operation_type", operation_type + "");
+                                        params.put("pay_type", payType + "");
+                                        params.put("num", num + "");
+                                        params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                        RequestBuy(params);
+                                    } else {
+                                        myToast(getString(R.string.fragment3_h62));
+                                    }
+                                    break;
+                                case 2:
+                                case 3:
+                                case 4:
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("goods_id", model.getGoods().getId());
+                                    params.put("buy_type", buy_type + "");
+                                    params.put("operation_type", operation_type + "");
+                                    params.put("pay_type", payType + "");
+                                    params.put("num", num + "");
+                                    params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                    RequestBuy(params);
+                                    break;
+                            }
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+    }
+
+    //计算
+    private void calculate(SeekBar seekBar, TextView textView2, TextView textView4) {
+        seekBar.setProgress(num);
+        textView2.setText(num + "");
+
+        if (model != null) {
+            textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                    num * Double.valueOf(model.getGoods().getCan_buy_back_price())));//算力费用
+        }
+
+        /*if (Double.valueOf(model.getMill_production_value_fil_money()) != 0) {
+            textView8.setText(String.format("%.2f",
+                    num * Double.valueOf(model.getMill_production_value_fil_money()))
+                    + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预计产值
+        }*/
 
     }
 
@@ -130,13 +365,41 @@ public class Fragment3 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>首页" + response);
 //                showContentPage();
                 if (response != null) {
-
+                    model = response;
                     hideProgress();
 
                     MainActivity.isOver = true;
                 }
             }
         });
+    }
+
+    private void RequestBuy(Map<String, String> params) {
+        OkHttpClientManager.postAsyn(getActivity(), URLs.Fragment3Buy, params, new OkHttpClientManager.ResultCallback<Fragment3BuyModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+//                textView7.setClickable(true);
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+
+            }
+
+            @Override
+            public void onResponse(Fragment3BuyModel response) {
+//                textView7.setClickable(true);
+                hideProgress();
+                MyLogger.i(">>>>>>>>>购买" + response);
+                myToast(getString(R.string.fragment3_h63));
+                if (payType == 4) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", response.getOrder().getId());
+                    CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
+                }
+
+            }
+        }, true);
     }
 
     @Override

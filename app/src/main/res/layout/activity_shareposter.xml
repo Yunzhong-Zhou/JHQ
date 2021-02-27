@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    >
     <!--只需要刷新只写header-->
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springView"
@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:scrollbars="none"
             android:fillViewport="true">
 
             <LinearLayout
@@ -24,99 +25,294 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:background="@color/black"
-                    android:src="@mipmap/bg_shareposter1" />
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="-30dp"
-                    android:layout_marginRight="10dp"
-                    android:adjustViewBounds="true"
-                    android:src="@mipmap/bg_shareposter2" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:background="@color/black"
+                        android:src="@mipmap/bg_shareposter1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:drawableLeft="@mipmap/bg_shareposter3"
-                    android:drawableRight="@mipmap/bg_shareposter4"
-                    android:drawablePadding="15dp"
-                    android:text="@string/fragment5_h25"
-                    android:textColor="@color/black1"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="70dp"
+                        android:src="@mipmap/bg_shareposter2" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="130dp"
+                        android:src="@mipmap/bg_shareposter3" />
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="-20dp"
+                    android:background="@drawable/yuanjiao_25_baise_top"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="13dp"
+                        android:background="@mipmap/bg_shareposter4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="01"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/ic_shareposter1" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="双央企品牌助力"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:lineSpacingExtra="4dp"
+                                android:text="产品由中国航天设计研发,由国海众科集团负责市场运营；"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="13dp"
+                        android:background="@mipmap/bg_shareposter4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="02"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/ic_shareposter2" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="医用级消毒杀菌"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:lineSpacingExtra="4dp"
+                                android:text="能净化空气病菌、甲醛、PM2.5、二手烟等多种污染源"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="13dp"
+                        android:background="@mipmap/bg_shareposter4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="03"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/ic_shareposter3" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="高收益低风险"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:lineSpacingExtra="4dp"
+                                android:text="60%扫码收益分成，30%折损风险平台支持设备回收"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="13dp"
+                        android:background="@mipmap/bg_shareposter4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="04"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/ic_shareposter4" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="多维运营模式"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:lineSpacingExtra="4dp"
+                                android:text="购买设备后可交由平台代运营，投放场地产生收益"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F7F7F7"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="14dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="18dp"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:paddingBottom="20dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="14dp"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableLeft="@mipmap/bg_shareposter5"
-                            android:drawablePadding="14dp"
-                            android:text="@string/fragment5_h26"
-                            android:textColor="@color/black1"
-                            android:textSize="15sp"
-                            />
+                            android:text="市场分析"
+                            android:textColor="#888888"
+                            android:textSize="15sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:drawableLeft="@mipmap/bg_shareposter5"
-                            android:drawablePadding="14dp"
-                            android:text="@string/fragment5_h27"
-                            android:layout_marginTop="18dp"
-                            android:textColor="@color/black1"
-                            android:textSize="15sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@mipmap/bg_shareposter5"
-                            android:drawablePadding="14dp"
-                            android:text="@string/fragment5_h28"
-                            android:layout_marginTop="18dp"
-                            android:textColor="@color/black1"
-                            android:textSize="15sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@mipmap/bg_shareposter5"
-                            android:drawablePadding="14dp"
-                            android:text="@string/fragment5_h29"
-                            android:layout_marginTop="18dp"
-                            android:textColor="@color/black1"
-                            android:textSize="15sp"
-                            />
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="用户百度搜索指数高达4000，淘宝行业搜索排名第六，日均销量超百万；目前销量90%安装家庭，公共空间占公10%；可投放在高端医院月子中心、产科、星级酒店、美容院等"
+                            android:textColor="#888888"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="145dp"
-                        android:layout_height="145dp"
-                        android:padding="8dp"
-                        android:layout_marginRight="14dp"
-                        android:background="@mipmap/bg_shareposter6" />
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@color/white" />
 
 
                 </LinearLayout>
@@ -135,9 +331,9 @@
             android:id="@+id/left_btn"
             android:layout_width="56dp"
             android:layout_height="56dp"
+            android:layout_marginTop="-10dp"
             android:onClick="onClick"
             android:padding="22dp"
-            android:layout_marginTop="-10dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_return1" />
 
@@ -155,9 +351,9 @@
             android:id="@+id/right_btn"
             android:layout_width="56dp"
             android:layout_height="56dp"
+            android:layout_marginTop="-10dp"
             android:onClick="onClick"
             android:padding="19dp"
-            android:layout_marginTop="-10dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_fenxiang"
             android:visibility="visible" />

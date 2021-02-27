@@ -30,10 +30,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, tv_confirm, tv_title;
+            textView9, textView10, textView11, textView12,textView13,textView14,textView15,
+            tv_zhuanrang,tv_shouhou, tv_title;
     private RecyclerView recyclerView;
-    List<MachineDetailModel.InvestBean.InterestListBean> list = new ArrayList<>();
-    CommonAdapter<MachineDetailModel.InvestBean.InterestListBean> mAdapter;
+    List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
+    CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
 
     LinearLayout ll_jieidan, ll_chanzhi;
 
@@ -88,8 +89,14 @@ public class MachineDetailActivity extends BaseActivity {
         textView10 = findViewByID_My(R.id.textView10);
         textView11 = findViewByID_My(R.id.textView11);
         textView12 = findViewByID_My(R.id.textView12);
-        tv_confirm = findViewByID_My(R.id.tv_confirm);
+        textView13 = findViewByID_My(R.id.textView13);
+        textView14 = findViewByID_My(R.id.textView14);
+        textView15 = findViewByID_My(R.id.textView15);
+
         tv_title = findViewByID_My(R.id.tv_title);
+        tv_zhuanrang = findViewByID_My(R.id.tv_zhuanrang);
+        tv_shouhou = findViewByID_My(R.id.tv_shouhou);
+
 
         ll_jieidan = findViewByID_My(R.id.ll_jieidan);
         ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
@@ -116,139 +123,32 @@ public class MachineDetailActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>详情" + response);
-                textView1.setText(response.getInvest().getHashrate() + "TB");//算力大小
-                textView2.setText(response.getInvest().getInterest_fil_money() + getString(R.string.app_ge));//已产FIL
-                textView3.setText(response.getInvest().getStatus_title() + "");//状态
-                textView4.setText(response.getInvest().getMill_computer_position() + "");//机房位置
-                textView5.setText(response.getInvest().getMill_number() + "");//矿机编号
-                textView6.setText(response.getInvest().getMill_node_number() + "");//节点编号
-                textView7.setText(response.getInvest().getMill_mining_cycle() + getString(R.string.app_tian));//挖矿周期
-                textView8.setText(response.getInvest().getMill_production_value_fil_money() + getString(R.string.app_ge) + getString(R.string.app_type_fil));//预期产值
-                textView9.setText(response.getInvest().getMill_type_title() + "");//算力来源
-                textView10.setText(response.getInvest().getCreated_at() + "");//购买时间
-                textView11.setText(response.getInvest().getEnd_at() + "");//结束时间
-                textView12.setText(response.getInvest().getPay_type_title() + "");//支付方式
+                textView1.setText(response.getTop_up().getEarning_money() + "");//已产收益
+                textView2.setText(response.getTop_up().getEarning_ratio() + "%");//收益分成
+                textView3.setText(response.getTop_up().getStatus_title() + "");//安装状态
+                textView4.setText(response.getTop_up().getGoods_sn()+ "");//设备ID
+                textView5.setText(response.getTop_up().getOperation_type_title() + "");//运营方式
+                textView6.setText(response.getTop_up().getPut_business() + "");//设备行业
+                textView7.setText(response.getTop_up().getPut_business() + "");//设备品牌
+                textView8.setText(response.getTop_up().getPut_address() + "");//设备门店
+                textView9.setText(response.getTop_up().getPut_address() + "");//设备位置
+                textView10.setText(response.getTop_up().getCreated_at() + "");//购买时间
+                textView11.setText(response.getTop_up().getInstall_at() + "");//安装时间
+                textView12.setText(response.getTop_up().getSource_type_title() + "");//回购状态
+                textView13.setText(response.getTop_up().getMoney() + "");//购买价格
+                textView14.setText(response.getTop_up().getSource_type_title() + "");//转让类型
+                textView15.setText(response.getTop_up().getBuy_type_title() + "");//回购状态
 
-                //节点编号
-                if (!response.getInvest().getMill_node_number().equals("")) {
-                    ll_jieidan.setVisibility(View.VISIBLE);
-                } else {
-                    ll_jieidan.setVisibility(View.GONE);
-                }
-                //预期产值
-                if (Double.valueOf(response.getInvest().getMill_production_value_fil_money()) > 0) {
-                    ll_chanzhi.setVisibility(View.VISIBLE);
-                } else {
-                    ll_chanzhi.setVisibility(View.GONE);
-                }
-
-                if (response.getInvest().getMill_type() == 3) {
-                    tv_title.setText(getString(R.string.fragment1_h50));
-
-                    if (response.getInvest().getStatus() == -1) {
-                        tv_confirm.setVisibility(View.VISIBLE);
-                        tv_confirm.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id", response.getInvest().getId());
-                                CommonUtil.gotoActivityWithData(MachineDetailActivity.this, PayDetailActivity.class, bundle);
-                            }
-                        });
-                    } else {
-                        tv_confirm.setVisibility(View.GONE);
-                    }
-
-                } else {
-                    tv_title.setText(getString(R.string.fragment1_h29));
-                    tv_confirm.setVisibility(View.GONE);
-                    /*switch (response.getButton()){
-                        case 1:
-                            tv_confirm.setVisibility(View.GONE);
-                            break;
-                        case 2:
-                            tv_confirm.setVisibility(View.VISIBLE);
-                            tv_confirm.setText(getString(R.string.fragment1_h74));
-                            tv_confirm.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    showToast(getString(R.string.fragment1_h75),
-                                            getString(R.string.app_confirm),
-                                            getString(R.string.app_cancel),
-                                            new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-                                                    showProgress(true, getString(R.string.app_loading1));
-                                                    String string = "?token=" + localUserInfo.getToken()
-                                                            + "&id=" + id;
-                                                    RequestUpData1(string);
-                                                }
-                                            }, new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-                                                }
-                                            });
-                                }
-                            });
-
-                            break;
-                        case 3:
-                            tv_confirm.setVisibility(View.VISIBLE);
-                            tv_confirm.setText(getString(R.string.fragment1_h76));
-                            tv_confirm.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    showToast(getString(R.string.fragment1_h75),
-                                            getString(R.string.app_confirm),
-                                            getString(R.string.app_cancel),
-                                            new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-                                                    showProgress(true, getString(R.string.app_loading1));
-                                                    String string = "?token=" + localUserInfo.getToken()
-                                                            + "&id=" + id;
-                                                    RequestUpData2(string);
-                                                }
-                                            }, new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-                                                }
-                                            });
-                                }
-                            });
-
-                            break;
-                    }*/
-                }
-
-                /*if (response.getInvest().getStatus() == -1) {
-                    tv_confirm.setVisibility(View.VISIBLE);
-                    tv_confirm.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("id", response.getInvest().getId());
-                            CommonUtil.gotoActivityWithData(MachineDetailActivity.this, PayDetailActivity.class, bundle);
-                        }
-                    });
-                } else {
-                    tv_confirm.setVisibility(View.GONE);
-                }*/
-
-                list = response.getInvest().getInterest_list();
+                list = response.getTop_up().getEarning_list();
                 if (list.size() > 0) {
                     showContentPage();
-                    mAdapter = new CommonAdapter<MachineDetailModel.InvestBean.InterestListBean>
+                    mAdapter = new CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean>
                             (MachineDetailActivity.this, R.layout.item_machinedetail, list) {
                         @Override
-                        protected void convert(ViewHolder holder, MachineDetailModel.InvestBean.InterestListBean model, int position) {
+                        protected void convert(ViewHolder holder, MachineDetailModel.TopUpBean.EarningListBean model, int position) {
 //                            holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                             holder.setText(R.id.textView2, model.getCreated_at());//时间
-                            holder.setText(R.id.textView3, "+" + model.getFil_money());//时间
+                            holder.setText(R.id.textView3, "+" + model.getMoney());//金额
                         }
                     };
 
@@ -275,6 +175,24 @@ public class MachineDetailActivity extends BaseActivity {
     protected void updateView() {
         titleView.setVisibility(View.GONE);
     }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.tv_zhuanrang:
+                //转让
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("id", id);
+                CommonUtil.gotoActivityWithData(MachineDetailActivity.this, ZhuanRangActivity.class, bundle1, false);
+                break;
+            case R.id.tv_shouhou:
+                //售后
+
+                break;
+        }
+    }
+
     private void RequestUpData1(String params) {
         OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.HuiGou + params, new OkHttpClientManager.ResultCallback<String>() {
             @Override

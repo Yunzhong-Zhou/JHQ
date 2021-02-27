@@ -7,76 +7,65 @@ import java.util.List;
  * Created by Mr.Z on 2020/12/21.
  */
 public class MachineDetailModel implements Serializable {
+
     /**
-     * invest : {"id":"d057d2b8ce0b16c2f253e07106d00a29","sn":"IN1608611906505752","pay_type":2,"mill_type":3,"mill_computer_position":"中国福州","mill_production_value_fil_money":"100.0000","mill_node_number":"0x11111","mill_number":"oxk333","mill_mining_cycle":360,"hashrate":10,"status":1,"interest_fil_money":"0.0000","verify_at":"2020-12-22 12:38:26","buy_back_apply":1,"created_at":"2020-12-22 12:38:26","pay_type_title":"CNY","mill_type_title":"整机","status_title":"进行中","start_at":"2020-12-22","end_at":"1970-12-27","interest_list":[{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:31:19"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:27:07"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:16:21"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:11:10"}]}
+     * top_up : {"id":"ac29978e56d429088a040a7fa6620c68","buy_type":1,"operation_type":1,"source_type":1,"money":"200.00","status":1,"goods_sn":"","put_business":"","put_title":"","put_address":"","install_at":null,"run_at":null,"earning_money":"0.00","created_at":"2021-02-26 13:23:13","buy_type_title":"不能回购","operation_type_title":"代运营","source_type_title":"购买","status_title":"待发货","earning_ratio":60,"earning_list":[{"id":"c6b892875c10fe3c322a7824","sn":"WI1614312676525597","input_money":"100.0000","money":"97.0000","status":1,"created_at":"2021-02-26 12:11:16","status_title":"待审核"}]}
      */
 
-    private int button;
+    private TopUpBean top_up;
 
-    public int getButton() {
-        return button;
+    public TopUpBean getTop_up() {
+        return top_up;
     }
 
-    public void setButton(int button) {
-        this.button = button;
+    public void setTop_up(TopUpBean top_up) {
+        this.top_up = top_up;
     }
 
-    private InvestBean invest;
-
-    public InvestBean getInvest() {
-        return invest;
-    }
-
-    public void setInvest(InvestBean invest) {
-        this.invest = invest;
-    }
-
-    public static class InvestBean {
+    public static class TopUpBean {
         /**
-         * id : d057d2b8ce0b16c2f253e07106d00a29
-         * sn : IN1608611906505752
-         * pay_type : 2
-         * mill_type : 3
-         * mill_computer_position : 中国福州
-         * mill_production_value_fil_money : 100.0000
-         * mill_node_number : 0x11111
-         * mill_number : oxk333
-         * mill_mining_cycle : 360
-         * hashrate : 10
+         * id : ac29978e56d429088a040a7fa6620c68
+         * buy_type : 1
+         * operation_type : 1
+         * source_type : 1
+         * money : 200.00
          * status : 1
-         * interest_fil_money : 0.0000
-         * verify_at : 2020-12-22 12:38:26
-         * buy_back_apply : 1
-         * created_at : 2020-12-22 12:38:26
-         * pay_type_title : CNY
-         * mill_type_title : 整机
-         * status_title : 进行中
-         * start_at : 2020-12-22
-         * end_at : 1970-12-27
-         * interest_list : [{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:31:19"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:27:07"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:16:21"},{"invest_id":"d057d2b8ce0b16c2f253e07106d00a29","fil_money":"0.0000","created_at":"2020-12-22 15:11:10"}]
+         * goods_sn :
+         * put_business :
+         * put_title :
+         * put_address :
+         * install_at : null
+         * run_at : null
+         * earning_money : 0.00
+         * created_at : 2021-02-26 13:23:13
+         * buy_type_title : 不能回购
+         * operation_type_title : 代运营
+         * source_type_title : 购买
+         * status_title : 待发货
+         * earning_ratio : 60
+         * earning_list : [{"id":"c6b892875c10fe3c322a7824","sn":"WI1614312676525597","input_money":"100.0000","money":"97.0000","status":1,"created_at":"2021-02-26 12:11:16","status_title":"待审核"}]
          */
 
         private String id;
-        private String sn;
-        private int pay_type;
-        private int mill_type;
-        private String mill_computer_position;
-        private String mill_production_value_fil_money;
-        private String mill_node_number;
-        private String mill_number;
-        private String mill_mining_cycle;
-        private String hashrate;
+        private int buy_type;
+        private int operation_type;
+        private int source_type;
+        private String money;
         private int status;
-        private String interest_fil_money;
-        private String verify_at;
-        private String buy_back_apply;
+        private String goods_sn;
+        private String put_business;
+        private String put_title;
+        private String put_address;
+        private String install_at;
+        private String run_at;
+        private String earning_money;
         private String created_at;
-        private String pay_type_title;
-        private String mill_type_title;
+        private String buy_type_title;
+        private String operation_type_title;
+        private String source_type_title;
         private String status_title;
-        private String start_at;
-        private String end_at;
-        private List<InterestListBean> interest_list;
+        private String earning_ratio;
+        private List<EarningListBean> earning_list;
 
         public String getId() {
             return id;
@@ -86,76 +75,36 @@ public class MachineDetailModel implements Serializable {
             this.id = id;
         }
 
-        public String getSn() {
-            return sn;
+        public int getBuy_type() {
+            return buy_type;
         }
 
-        public void setSn(String sn) {
-            this.sn = sn;
+        public void setBuy_type(int buy_type) {
+            this.buy_type = buy_type;
         }
 
-        public int getPay_type() {
-            return pay_type;
+        public int getOperation_type() {
+            return operation_type;
         }
 
-        public void setPay_type(int pay_type) {
-            this.pay_type = pay_type;
+        public void setOperation_type(int operation_type) {
+            this.operation_type = operation_type;
         }
 
-        public int getMill_type() {
-            return mill_type;
+        public int getSource_type() {
+            return source_type;
         }
 
-        public void setMill_type(int mill_type) {
-            this.mill_type = mill_type;
+        public void setSource_type(int source_type) {
+            this.source_type = source_type;
         }
 
-        public String getMill_computer_position() {
-            return mill_computer_position;
+        public String getMoney() {
+            return money;
         }
 
-        public void setMill_computer_position(String mill_computer_position) {
-            this.mill_computer_position = mill_computer_position;
-        }
-
-        public String getMill_production_value_fil_money() {
-            return mill_production_value_fil_money;
-        }
-
-        public void setMill_production_value_fil_money(String mill_production_value_fil_money) {
-            this.mill_production_value_fil_money = mill_production_value_fil_money;
-        }
-
-        public String getMill_node_number() {
-            return mill_node_number;
-        }
-
-        public void setMill_node_number(String mill_node_number) {
-            this.mill_node_number = mill_node_number;
-        }
-
-        public String getMill_number() {
-            return mill_number;
-        }
-
-        public void setMill_number(String mill_number) {
-            this.mill_number = mill_number;
-        }
-
-        public String getMill_mining_cycle() {
-            return mill_mining_cycle;
-        }
-
-        public void setMill_mining_cycle(String mill_mining_cycle) {
-            this.mill_mining_cycle = mill_mining_cycle;
-        }
-
-        public String getHashrate() {
-            return hashrate;
-        }
-
-        public void setHashrate(String hashrate) {
-            this.hashrate = hashrate;
+        public void setMoney(String money) {
+            this.money = money;
         }
 
         public int getStatus() {
@@ -166,28 +115,60 @@ public class MachineDetailModel implements Serializable {
             this.status = status;
         }
 
-        public String getInterest_fil_money() {
-            return interest_fil_money;
+        public String getGoods_sn() {
+            return goods_sn;
         }
 
-        public void setInterest_fil_money(String interest_fil_money) {
-            this.interest_fil_money = interest_fil_money;
+        public void setGoods_sn(String goods_sn) {
+            this.goods_sn = goods_sn;
         }
 
-        public String getVerify_at() {
-            return verify_at;
+        public String getPut_business() {
+            return put_business;
         }
 
-        public void setVerify_at(String verify_at) {
-            this.verify_at = verify_at;
+        public void setPut_business(String put_business) {
+            this.put_business = put_business;
         }
 
-        public String getBuy_back_apply() {
-            return buy_back_apply;
+        public String getPut_title() {
+            return put_title;
         }
 
-        public void setBuy_back_apply(String buy_back_apply) {
-            this.buy_back_apply = buy_back_apply;
+        public void setPut_title(String put_title) {
+            this.put_title = put_title;
+        }
+
+        public String getPut_address() {
+            return put_address;
+        }
+
+        public void setPut_address(String put_address) {
+            this.put_address = put_address;
+        }
+
+        public String getInstall_at() {
+            return install_at;
+        }
+
+        public void setInstall_at(String install_at) {
+            this.install_at = install_at;
+        }
+
+        public String getRun_at() {
+            return run_at;
+        }
+
+        public void setRun_at(String run_at) {
+            this.run_at = run_at;
+        }
+
+        public String getEarning_money() {
+            return earning_money;
+        }
+
+        public void setEarning_money(String earning_money) {
+            this.earning_money = earning_money;
         }
 
         public String getCreated_at() {
@@ -198,20 +179,28 @@ public class MachineDetailModel implements Serializable {
             this.created_at = created_at;
         }
 
-        public String getPay_type_title() {
-            return pay_type_title;
+        public String getBuy_type_title() {
+            return buy_type_title;
         }
 
-        public void setPay_type_title(String pay_type_title) {
-            this.pay_type_title = pay_type_title;
+        public void setBuy_type_title(String buy_type_title) {
+            this.buy_type_title = buy_type_title;
         }
 
-        public String getMill_type_title() {
-            return mill_type_title;
+        public String getOperation_type_title() {
+            return operation_type_title;
         }
 
-        public void setMill_type_title(String mill_type_title) {
-            this.mill_type_title = mill_type_title;
+        public void setOperation_type_title(String operation_type_title) {
+            this.operation_type_title = operation_type_title;
+        }
+
+        public String getSource_type_title() {
+            return source_type_title;
+        }
+
+        public void setSource_type_title(String source_type_title) {
+            this.source_type_title = source_type_title;
         }
 
         public String getStatus_title() {
@@ -222,55 +211,79 @@ public class MachineDetailModel implements Serializable {
             this.status_title = status_title;
         }
 
-        public String getStart_at() {
-            return start_at;
+        public String getEarning_ratio() {
+            return earning_ratio;
         }
 
-        public void setStart_at(String start_at) {
-            this.start_at = start_at;
+        public void setEarning_ratio(String earning_ratio) {
+            this.earning_ratio = earning_ratio;
         }
 
-        public String getEnd_at() {
-            return end_at;
+        public List<EarningListBean> getEarning_list() {
+            return earning_list;
         }
 
-        public void setEnd_at(String end_at) {
-            this.end_at = end_at;
+        public void setEarning_list(List<EarningListBean> earning_list) {
+            this.earning_list = earning_list;
         }
 
-        public List<InterestListBean> getInterest_list() {
-            return interest_list;
-        }
-
-        public void setInterest_list(List<InterestListBean> interest_list) {
-            this.interest_list = interest_list;
-        }
-
-        public static class InterestListBean {
+        public static class EarningListBean {
             /**
-             * invest_id : d057d2b8ce0b16c2f253e07106d00a29
-             * fil_money : 0.0000
-             * created_at : 2020-12-22 15:31:19
+             * id : c6b892875c10fe3c322a7824
+             * sn : WI1614312676525597
+             * input_money : 100.0000
+             * money : 97.0000
+             * status : 1
+             * created_at : 2021-02-26 12:11:16
+             * status_title : 待审核
              */
 
-            private String invest_id;
-            private String fil_money;
+            private String id;
+            private String sn;
+            private String input_money;
+            private String money;
+            private int status;
             private String created_at;
+            private String status_title;
 
-            public String getInvest_id() {
-                return invest_id;
+            public String getId() {
+                return id;
             }
 
-            public void setInvest_id(String invest_id) {
-                this.invest_id = invest_id;
+            public void setId(String id) {
+                this.id = id;
             }
 
-            public String getFil_money() {
-                return fil_money;
+            public String getSn() {
+                return sn;
             }
 
-            public void setFil_money(String fil_money) {
-                this.fil_money = fil_money;
+            public void setSn(String sn) {
+                this.sn = sn;
+            }
+
+            public String getInput_money() {
+                return input_money;
+            }
+
+            public void setInput_money(String input_money) {
+                this.input_money = input_money;
+            }
+
+            public String getMoney() {
+                return money;
+            }
+
+            public void setMoney(String money) {
+                this.money = money;
+            }
+
+            public int getStatus() {
+                return status;
+            }
+
+            public void setStatus(int status) {
+                this.status = status;
             }
 
             public String getCreated_at() {
@@ -279,6 +292,14 @@ public class MachineDetailModel implements Serializable {
 
             public void setCreated_at(String created_at) {
                 this.created_at = created_at;
+            }
+
+            public String getStatus_title() {
+                return status_title;
+            }
+
+            public void setStatus_title(String status_title) {
+                this.status_title = status_title;
             }
         }
     }

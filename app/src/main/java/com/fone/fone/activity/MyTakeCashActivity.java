@@ -142,7 +142,7 @@ public class MyTakeCashActivity extends BaseActivity {
                                 (MyTakeCashActivity.this, R.layout.item_myrecharge, list) {
                             @Override
                             protected void convert(ViewHolder holder, MyTakeCashModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h6));//标题
+                                holder.setText(R.id.textView1,getString(R.string.qianbao_h6));//标题
                                 holder.setText(R.id.textView2, model.getCreated_at());//时间
                                 holder.setText(R.id.textView3, "-"+model.getMoney());//money
                                 holder.setText(R.id.textView4, model.getStatus_title());//状态

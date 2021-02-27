@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:singleLine="true"
-                android:text="@string/fragment1_h41"
+                android:text="@string/fragment1_h95"
                 android:textColor="@color/black1"
                 android:textSize="13sp" />
 

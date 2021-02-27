@@ -62,7 +62,7 @@ public class URLs {
      */
     public static final String Fragment1 = "/api/invest/create-all";
     //矿机详情
-    public static final String MachineDetail = "/api/invest/detail";
+    public static final String MachineDetail = "/api/order-goods/detail";
     //支付详情
     public static final String PayDetail = "/api/invest/cny-pay";
     /**
@@ -70,7 +70,7 @@ public class URLs {
      */
     public static final String Fragment2 = "/api/invest/create-buy";
     //矿机列表
-    public static final String MachineList = "/api/invest/record";
+    public static final String MachineList = "/api/order-goods/record";
     //回购申请
     public static final String HuiGou = "/api/invest/buy-back-apply";
     //取消回购申请
@@ -84,7 +84,7 @@ public class URLs {
     //排行榜
     public static final String Leaderboard = "/api/change-game/rank";
     //加入拼团
-    public static final String Join = "/api/change-game-participation/create";
+    public static final String Fragment3Buy = "/api/order/create";
     //拼团详情
     public static final String JoinDetail = "/api/change-game/detail";
     //我的参与
@@ -117,10 +117,12 @@ public class URLs {
     public static final String MyTakeCash = "/api/withdrawal/record";
     //我的充值
     public static final String MyRecharge = "/api/top-up/record";
+    //我的订单
+    public static final String MyOrder = "/api/order/record";
     //提现详情
     public static final String TakeCashDetail = "/api/withdrawal/detail";
     //创建转币（获取可用金额）
-    public static final String Transfer = "/api/transfer/create";
+    public static final String Transfer = "/api/order-goods/transfer";
     //转账二维码-主页面
     public static final String QRCode = "/api/transfer/index";
     //划转
@@ -130,6 +132,8 @@ public class URLs {
      * 我的主页
      */
     public static final String Center = "/api/member/center";
+    //城市伙伴
+    public static final String CityFriend = "/api/service-center/index";
     //个人信息
     public static final String Info = "/api/member/get-info";
     //修改信息

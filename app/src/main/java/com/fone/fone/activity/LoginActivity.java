@@ -461,6 +461,7 @@ public class LoginActivity extends BaseActivity {
                 view2.setVisibility(View.INVISIBLE);
                 linearLayout_2.setVisibility(View.GONE);
                 linearLayout_4.setVisibility(View.GONE);
+                linearLayout_5.setVisibility(View.VISIBLE);
                 linearLayout_6.setVisibility(View.GONE);
 
                 textView3.setText(getString(R.string.login_h5));
@@ -471,6 +472,7 @@ public class LoginActivity extends BaseActivity {
 
                 linearLayout_2.setVisibility(View.VISIBLE);
                 linearLayout_4.setVisibility(View.VISIBLE);
+                linearLayout_5.setVisibility(View.GONE);
                 linearLayout_6.setVisibility(View.VISIBLE);
 
                 textView3.setText(getString(R.string.registered_h9));

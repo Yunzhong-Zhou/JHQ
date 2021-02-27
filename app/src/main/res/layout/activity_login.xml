@@ -173,7 +173,7 @@
                                 android:layout_height="52dp"
                                 android:onClick="onClick"
                                 android:padding="19dp"
-                                android:src="@mipmap/ic_login3"
+                                android:src="@mipmap/ic_login5"
                                 android:visibility="gone" />
 
                         </LinearLayout>
@@ -247,7 +247,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:src="@mipmap/ic_login2" />
+                            android:src="@mipmap/ic_login3" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -276,7 +276,7 @@
                                 android:layout_height="52dp"
                                 android:onClick="onClick"
                                 android:padding="19dp"
-                                android:src="@mipmap/ic_login3"
+                                android:src="@mipmap/ic_login5"
                                 android:visibility="gone" />
 
                         </LinearLayout>
@@ -298,7 +298,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:src="@mipmap/ic_login2" />
+                            android:src="@mipmap/ic_login4" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

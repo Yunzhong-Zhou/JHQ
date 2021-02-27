@@ -7,25 +7,29 @@ import java.io.Serializable;
  */
 public class TakeCashDetailModel implements Serializable {
     /**
-     * id : a13b63ccaa10a71518066c7a
-     * sn : WI1608439977985010
-     * money_type : 1
-     * money_wallet_addr : asddssdfffefdssaf
+     * id : c6b892875c10fe3c322a7824
+     * sn : WI1614312676525597
+     * member_bank_card_account : 55545448885558
+     * member_bank_card_proceeds_name : 阿斯顿马丁
+     * member_bank_title : 招商银行
+     * member_bank_address :
      * input_money : 100
      * money : 97
      * service_charge_money : 3
      * status : 1
      * status_rejected_cause :
      * verify_at : null
-     * created_at : 2020-12-20 12:52:57
-     * money_type_title : USDT
+     * created_at : 2021-02-26 12:11:16
+     * member_bank_icon :
      * status_title : 待审核
      */
 
     private String id;
     private String sn;
-    private int money_type;
-    private String money_wallet_addr;
+    private String member_bank_card_account;
+    private String member_bank_card_proceeds_name;
+    private String member_bank_title;
+    private String member_bank_address;
     private String input_money;
     private String money;
     private String service_charge_money;
@@ -33,7 +37,7 @@ public class TakeCashDetailModel implements Serializable {
     private String status_rejected_cause;
     private String verify_at;
     private String created_at;
-    private String money_type_title;
+    private String member_bank_icon;
     private String status_title;
 
     public String getId() {
@@ -52,20 +56,36 @@ public class TakeCashDetailModel implements Serializable {
         this.sn = sn;
     }
 
-    public int getMoney_type() {
-        return money_type;
+    public String getMember_bank_card_account() {
+        return member_bank_card_account;
     }
 
-    public void setMoney_type(int money_type) {
-        this.money_type = money_type;
+    public void setMember_bank_card_account(String member_bank_card_account) {
+        this.member_bank_card_account = member_bank_card_account;
     }
 
-    public String getMoney_wallet_addr() {
-        return money_wallet_addr;
+    public String getMember_bank_card_proceeds_name() {
+        return member_bank_card_proceeds_name;
     }
 
-    public void setMoney_wallet_addr(String money_wallet_addr) {
-        this.money_wallet_addr = money_wallet_addr;
+    public void setMember_bank_card_proceeds_name(String member_bank_card_proceeds_name) {
+        this.member_bank_card_proceeds_name = member_bank_card_proceeds_name;
+    }
+
+    public String getMember_bank_title() {
+        return member_bank_title;
+    }
+
+    public void setMember_bank_title(String member_bank_title) {
+        this.member_bank_title = member_bank_title;
+    }
+
+    public String getMember_bank_address() {
+        return member_bank_address;
+    }
+
+    public void setMember_bank_address(String member_bank_address) {
+        this.member_bank_address = member_bank_address;
     }
 
     public String getInput_money() {
@@ -124,12 +144,12 @@ public class TakeCashDetailModel implements Serializable {
         this.created_at = created_at;
     }
 
-    public String getMoney_type_title() {
-        return money_type_title;
+    public String getMember_bank_icon() {
+        return member_bank_icon;
     }
 
-    public void setMoney_type_title(String money_type_title) {
-        this.money_type_title = money_type_title;
+    public void setMember_bank_icon(String member_bank_icon) {
+        this.member_bank_icon = member_bank_icon;
     }
 
     public String getStatus_title() {
