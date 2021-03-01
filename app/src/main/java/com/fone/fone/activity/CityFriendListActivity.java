@@ -8,29 +8,26 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.MyRechargeModel;
+import com.fone.fone.model.CityFriendListModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
-import com.fone.fone.utils.MyLogger;
 import com.fone.fone.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +42,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CityFriendListActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<MyRechargeModel> list = new ArrayList<>();
-    CommonAdapter<MyRechargeModel> mAdapter;
+    List<CityFriendListModel.ServiceCenterListBean> list = new ArrayList<>();
+    CommonAdapter<CityFriendListModel.ServiceCenterListBean> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -120,7 +117,7 @@ public class CityFriendListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<CityFriendListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -131,63 +128,57 @@ public class CityFriendListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(CityFriendListModel response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表" + response);
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<MyRechargeModel>
-                                (CityFriendListActivity.this, R.layout.item_cityfriend, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h5));//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, "+"+model.getMoney());//money
-                                holder.setText(R.id.textView4, model.getStatus_title());//状态
-                                /*Glide.with(getActivity())
-                                .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
-                                .centerCrop()
-                                .apply(RequestOptions.bitmapTransform(new
-                                        RoundedCorners(CommonUtil.dip2px(getActivity(), 10))))
-                                .placeholder(R.mipmap.loading)//加载站位图
-                                .error(R.mipmap.headimg)//加载失败
-                                .into(imageView1);//加载图片*/
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(CityFriendListActivity.this, RechargeDetailActivity.class, bundle1, false);
-                            }
+                list = response.getService_center_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<CityFriendListModel.ServiceCenterListBean>
+                            (CityFriendListActivity.this, R.layout.item_cityfriend, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, CityFriendListModel.ServiceCenterListBean model, int position) {
+                            ImageView imageView1 = holder.getView(R.id.imageView1);
+                            Glide.with(CityFriendListActivity.this)
+                                    .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
+                                    .fitCenter()
+                                    .apply(RequestOptions.bitmapTransform(new
+                                            RoundedCorners(CommonUtil.dip2px(CityFriendListActivity.this, 10))))
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.zanwutupian)//加载失败
+                                    .into(imageView1);//加载图片
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
+                            holder.setText(R.id.tv_name, model.getCode());
+                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
+                            holder.setText(R.id.tv_addr, model.getAddress());
+                            holder.setText(R.id.tv_num, model.getArea() + "㎡");
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                   /* mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            Bundle bundle1 = new Bundle();
+                            bundle1.putString("id", list.get(position).getId());
+                            CommonUtil.gotoActivityWithData(CityFriendListActivity.this, RechargeDetailActivity.class, bundle1, false);
+                        }
+
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });*/
                 }
+
             }
         });
 
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<CityFriendListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -199,27 +190,18 @@ public class CityFriendListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(CityFriendListModel response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
-                JSONObject jObj;
-                List<MyRechargeModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<CityFriendListModel.ServiceCenterListBean> list1 = new ArrayList<>();
+                list1 = response.getService_center_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });

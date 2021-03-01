@@ -62,7 +62,7 @@ public class CooperativeBrandActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cooperativeshop);
+        setContentView(R.layout.activity_cooperativebrand);
     }
 
     @Override
@@ -342,7 +342,7 @@ public class CooperativeBrandActivity extends BaseActivity {
     private void showPopupWindow1(View v) {
         // 一个自定义的布局，作为显示的内容
         final View contentView = LayoutInflater.from(CooperativeBrandActivity.this).inflate(
-                R.layout.pop_list2, null);
+                R.layout.pop_list3, null);
         final FixedPopupWindow popupWindow = new FixedPopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
@@ -409,7 +409,7 @@ public class CooperativeBrandActivity extends BaseActivity {
     private void showPopupWindow2(View v) {
         // 一个自定义的布局，作为显示的内容
         final View contentView = LayoutInflater.from(CooperativeBrandActivity.this).inflate(
-                R.layout.pop_list2, null);
+                R.layout.pop_list3, null);
         final FixedPopupWindow popupWindow = new FixedPopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框

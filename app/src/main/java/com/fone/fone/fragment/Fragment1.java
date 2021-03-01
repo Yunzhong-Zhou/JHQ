@@ -247,11 +247,11 @@ public class Fragment1 extends BaseFragment {
                         ImageView imageView1 = holder.getView(R.id.imageView1);
                         Glide.with(getActivity())
                                 .load(OkHttpClientManager.IMGHOST + model.getCover())
-                                .centerCrop()
+                                .fitCenter()
                                 .apply(RequestOptions.bitmapTransform(new
                                         RoundedCorners(CommonUtil.dip2px(getActivity(), 10))))
                                 .placeholder(R.mipmap.loading)//加载站位图
-                                .error(R.mipmap.headimg)//加载失败
+                                .error(R.mipmap.zanwutupian)//加载失败
                                 .into(imageView1);//加载图片
                         ImageView imageView2 = holder.getView(R.id.imageView2);
                         if (model.getStatus() == 1){
@@ -269,6 +269,9 @@ public class Fragment1 extends BaseFragment {
                     }
                 };
                 changeUI();
+                textView1.setText(list1.size()+"");
+                textView2.setText(list2.size()+"");
+
 
                 MainActivity.isOver = true;
 

@@ -2089,6 +2089,7 @@ id pop_layout
 id pop_listView
 id pop_listView1
 id pop_listView2
+id pop_listView3
 id pop_view
 id pressed
 id prograssBar
@@ -2450,6 +2451,7 @@ layout activity_cityfriendlist
 layout activity_citylist
 layout activity_contract
 layout activity_contractlist
+layout activity_cooperativebrand
 layout activity_cooperativeshop
 layout activity_endisable_service
 layout activity_filtwallet
@@ -2625,6 +2627,7 @@ layout pop_citypicker
 layout pop_jdcitypicker
 layout pop_jdcitypicker_item
 layout pop_list2
+layout pop_list3
 layout pop_list_1
 layout pop_selectlanguage
 layout pop_zoomimg

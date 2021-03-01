@@ -310,10 +310,10 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合作
-                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+//                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
 //                CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
-//                showProgress(true, getString(R.string.app_loading2));
-//                requestCityFriend("?token=" + localUserInfo.getToken());
+                showProgress(true, getString(R.string.app_loading2));
+                requestCityFriend("?token=" + localUserInfo.getToken());
                 break;
             case R.id.linearLayout10:
                 //我的设备

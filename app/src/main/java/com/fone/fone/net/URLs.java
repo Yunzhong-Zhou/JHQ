@@ -61,6 +61,9 @@ public class URLs {
      * 矿机
      */
     public static final String Fragment1 = "/api/index/consociation";
+    public static final String Fragment1_Brand = "/api/index/consociation-brand";
+    public static final String Fragment1_Shop = "/api/index/consociation-shop";
+
     //矿机详情
     public static final String MachineDetail = "/api/order-goods/detail";
     //支付详情
@@ -183,7 +186,7 @@ public class URLs {
     //申请城市合作伙伴
     public static final String AddCityFriend = "/api/service-center/create";
     //全国合作伙伴
-    public static final String CityFriendList = "/api/index/consociation";
+    public static final String CityFriendList = "/api/service-center/record";
     /**
      * USDT交易列表
      */

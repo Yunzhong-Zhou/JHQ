@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/pop_view"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/black4"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableRight="@mipmap/down_black"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/fragment1_h99"
+                android:textColor="@color/black1"
+                android:textSize="13sp" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="66dp"
+                android:layout_height="3dp"
+                android:visibility="gone"
+                android:background="@drawable/yuanjiao_5_lvse" />
+        </LinearLayout>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/black3"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableRight="@mipmap/down_black"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/fragment1_h100"
+                android:textColor="@color/black1"
+                android:textSize="13sp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="66dp"
+                android:layout_height="3dp"
+                android:background="@drawable/yuanjiao_5_lvse"
+                android:visibility="gone" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableRight="@mipmap/down_black"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/fragment1_h101"
+                android:textColor="@color/black1"
+                android:textSize="13sp" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="66dp"
+                android:layout_height="3dp"
+                android:background="@drawable/yuanjiao_5_lvse"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/xian" />
+
+    <com.fone.fone.view.LoadingLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.liaoinstan.springview.widget.SpringView
+            android:id="@+id/springView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.liaoinstan.springview.widget.SpringView>
+
+    </com.fone.fone.view.LoadingLayout>
+</LinearLayout>

@@ -136,11 +136,11 @@ public class CityFriendActivity extends BaseActivity {
                             ImageView imageView1 = holder.getView(R.id.imageView1);
                             Glide.with(CityFriendActivity.this)
                                     .load(OkHttpClientManager.IMGHOST + model.getPic1())
-                                    .centerCrop()
+                                    .fitCenter()
                                     .apply(RequestOptions.bitmapTransform(new
                                             RoundedCorners(CommonUtil.dip2px(CityFriendActivity.this, 10))))
                                     .placeholder(R.mipmap.loading)//加载站位图
-                                    .error(R.mipmap.headimg)//加载失败
+                                    .error(R.mipmap.zanwutupian)//加载失败
                                     .into(imageView1);//加载图片
 
                             holder.setText(R.id.tv_name, model.getCode());
