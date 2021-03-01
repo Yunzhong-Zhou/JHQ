@@ -39,6 +39,8 @@ anim dialog_scale_in
 anim dialog_scale_out
 anim dialog_top_in
 anim dialog_top_out
+anim elp_dialog_down
+anim elp_dialog_up
 anim pop_enter_anim
 anim pop_exit_anim
 anim push_bottom_in
@@ -1485,6 +1487,11 @@ drawable dialog_bg
 drawable edittext_bg
 drawable edittext_focused
 drawable edittext_normal
+drawable elp_close
+drawable elp_close_white
+drawable elp_gray_bg
+drawable elp_msg_bg
+drawable elp_white_close
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gray_radius
@@ -1962,7 +1969,12 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id ivBanner
+id ivClose
 id ivIcon
+id ivImg
+id ivImg2
+id ivImg3
+id ivImg4
 id iv_bank
 id iv_daiyunying
 id iv_dianzi
@@ -1971,6 +1983,8 @@ id iv_geren
 id iv_head
 id iv_head_bg
 id iv_hetong
+id iv_huigou
+id iv_huigou_not
 id iv_icon
 id iv_lingqian
 id iv_linshi
@@ -2027,6 +2041,7 @@ id listMode
 id listView
 id list_item
 id ll
+id llView
 id ll_chanzhi
 id ll_content2
 id ll_fil
@@ -2130,6 +2145,8 @@ id ripple
 id rl_daiyunying
 id rl_dianzi
 id rl_geren
+id rl_huigou
+id rl_huigou_not
 id rl_linshi
 id rl_qiye
 id rl_title
@@ -2322,6 +2339,7 @@ id tv_recharge2
 id tv_save
 id tv_scan
 id tv_sell
+id tv_shouhui
 id tv_shouru
 id tv_shouyi
 id tv_suanli
@@ -2486,6 +2504,7 @@ layout activity_settransactionpassword
 layout activity_share
 layout activity_sharepeople
 layout activity_shareposter
+layout activity_shouhui
 layout activity_shourulist
 layout activity_takecash
 layout activity_takecashdetail
@@ -2539,6 +2558,18 @@ layout dialog_shaixuan
 layout dialog_upgrade
 layout dialog_usdtbuy
 layout dialog_usdtorderinfo
+layout elp_in_app_msg_banner
+layout elp_in_app_msg_card
+layout elp_in_app_msg_nativ
+layout elp_in_app_msg_window
+layout elp_notify_banner
+layout elp_notify_banner_no_padding
+layout elp_notify_card
+layout elp_notify_card_no_padding
+layout elp_notify_nativ
+layout elp_notify_nativ_no_padding
+layout elp_notify_window
+layout elp_notify_window_no_padding
 layout fragment1
 layout fragment2
 layout fragment3
@@ -4179,6 +4210,8 @@ style BottomDialog
 style CardView
 style CardView_Dark
 style CardView_Light
+style ELPDialogAnim
+style ELPDialogStyle
 style MyEditText
 style MyEditText1
 style Platform_AppCompat

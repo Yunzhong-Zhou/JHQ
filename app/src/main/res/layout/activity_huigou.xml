@@ -42,6 +42,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
                         android:text="@string/scavengingpayment_h12"
+                        android:drawablePadding="10dp"
                         android:drawableRight="@mipmap/ic_next_black"
                         android:textColor="@color/black1"
                         android:textSize="15sp" />
@@ -82,6 +83,7 @@
                             android:layout_height="70dp"
                             android:hint="@string/scavengingpayment_h20"
                             android:inputType="phone"
+                            android:focusable="false"
                             android:singleLine="true"
                             android:textColor="@color/black1"
                             android:textColorHint="@color/black3"
@@ -105,6 +107,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="horizontal">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -205,7 +208,7 @@
                                 android:onClick="onClick">
 
                                 <TextView
-                                    android:id="@+id/tv_moeny"
+                                    android:id="@+id/tv_money"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
                                     android:layout_marginTop="8dp"

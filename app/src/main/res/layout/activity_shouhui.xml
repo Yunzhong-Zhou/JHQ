@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDEDED">
+    <!--MATERIAL、CIRCLES、 WATER_DROP、RING and SMARTISAN-->
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="57dp"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:background="@mipmap/ic_mymachine1" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:drawablePadding="10dp"
+                        android:text="@string/scavengingpayment_h12"
+                        android:drawableRight="@mipmap/ic_next_black"
+                        android:textColor="@color/black1"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yuanjiao_10_baise_top"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="30dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scavengingpayment_h13"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="37dp"
+                            android:layout_height="34dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_usdt_black1"
+                            android:visibility="gone"/>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/editText1"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:hint="@string/scavengingpayment_h20"
+                            android:inputType="phone"
+                            android:focusable="false"
+                            android:singleLine="true"
+                            android:textColor="@color/black1"
+                            android:textColorHint="@color/black3"
+                            android:textSize="15sp"
+                            android:theme="@style/MyEditText" />
+
+                    </RelativeLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/editText1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:hint="@string/scavengingpayment_h15"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:textColor="@color/black1"
+                        android:textColorHint="@color/black3"
+                        android:textSize="15sp"
+                        android:theme="@style/MyEditText" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scavengingpayment_h16"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingRight="24dp"
+                        android:paddingBottom="14dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_yongjiu"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:onClick="onClick">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                android:gravity="center"
+                                android:text="@string/fragment3_h64"
+                                android:textColor="@color/green"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:id="@+id/iv_yongjiu"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_alignParentRight="true"
+                                android:src="@mipmap/ic_xuanzhong" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_linshi"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:onClick="onClick">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                                android:gravity="center"
+                                android:text="@string/fragment3_h65"
+                                android:textColor="@color/green"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:id="@+id/iv_linshi"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_alignParentRight="true"
+                                android:src="@mipmap/ic_xuanzhong"
+                                android:visibility="invisible" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@mipmap/bg_transfer" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp"
+                            android:text="@string/settransactionpassword_h6"
+                            android:textColor="@color/black1"
+                            android:visibility="gone" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/editText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:hint="@string/settransactionpassword_h7"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            android:textColor="@color/black1"
+                            android:textColorHint="@color/black3"
+                            android:textSize="15sp"
+                            android:theme="@style/MyEditText" />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/editText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:hint="@string/settransactionpassword_h5"
+                            android:inputType="number"
+                            android:paddingRight="200dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black1"
+                            android:textColorHint="@color/black3"
+                            android:textSize="15sp"
+                            android:theme="@style/MyEditText" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:onClick="onClick"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:singleLine="true"
+                            android:text="@string/app_sendcode"
+                            android:textColor="@color/black1"
+                            android:textSize="13sp" />
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="27dp"
+                            android:layout_toLeftOf="@id/textView3"
+                            android:layout_centerVertical="true"
+                            android:background="@color/xian"/>
+
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:text="@string/takecash_h31"
+                        android:textColor="@color/black3"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tv_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/btn_img1"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:text="@string/settransactionpassword_h12"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </com.liaoinstan.springview.widget.SpringView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,24 +18,25 @@
   <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-  <permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <permission android:name="com.fone.fone.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem"/>
-  <permission android:name="com.fone.fone.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG"/>
-  <uses-permission android:name="com.fone.fone.permission.PUSH_PROVIDER" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.WAKE_LOCK"/>
-  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA"/>
-  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.fone.fone.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4" xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
+  <permission android:name="com.fone.fone.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <permission android:name="com.fone.fone.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
+  <uses-permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <uses-permission android:name="com.fone.fone.permission.PUSH_PROVIDER"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+  <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.fone.fone.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4">
     <activity android:name="com.fone.fone.activity.HelloActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <category android:name="android.intent.category.LAUNCHER" xmlns:android="http://schemas.android.com/apk/res/android"/>
       </intent-filter>
     </activity>
     <activity android:name="com.fone.fone.utils.permission.PermissionsActivity" android:label="权限页"/>
     <activity android:label="引导页" android:name="com.fone.fone.activity.GuideActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-    <activity android:name="com.fone.fone.activity.SelectCountryActivity" android:label="选择国家"/>
+    <activity android:name="com.fone.fone.activity.SelectCountryActivity" android:label="选择国家" xmlns:android="http://schemas.android.com/apk/res/android"/>
     <activity android:name="com.fone.fone.activity.MainActivity" android:label="主页">
       <intent-filter>
         <action android:name="com.fone.fone.default.MAIN"/>
@@ -60,6 +61,7 @@
     <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.ZhuanRangActivity" android:label="转让设备"/>
     <activity android:name="com.fone.fone.activity.HuiGouActivity" android:label="回购设备"/>
+    <activity android:name="com.fone.fone.activity.ShouHuiActivity" android:label="收回设备"/>
     <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼购详情"/>
     <activity android:name="com.fone.fone.activity.MyJoinListActivity" android:label="我的拼购"/>
     <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>
@@ -160,6 +162,29 @@
     <service android:process=":watch" android:enabled="true" android:permission="android.permission.BIND_JOB_SERVICE" android:name="com.xdandroid.hellodaemon.JobSchedulerService" android:exported="true"/>
     <service android:name="com.xdandroid.hellodaemon.WatchDogService" android:process=":watch"/>
     <service android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService" android:process=":watch"/>
+    <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+      <intent-filter>
+        <action android:name="com.mob.open.app_20000"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+      <intent-filter>
+        <action android:name="com.mob.open.app_lk"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
+      </intent-filter>
+    </service>
+    <meta-data android:name="mob_guard_version" android:value="20000"/>
+    <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
+      </intent-filter>
+    </service>
     <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG">
       <intent-filter>
         <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
@@ -210,12 +235,6 @@
         <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
       </intent-filter>
     </service>
-    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-      <intent-filter>
-        <action android:name="com.mob.open.app"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
     <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true">
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
@@ -302,22 +321,6 @@
       </intent-filter>
     </receiver>
     <service android:name="com.mob.pushsdk.impl.PushJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-    <service android:name="com.mob.guard.MobGuardUpService" android:exported="true">
-      <intent-filter>
-        <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
-      </intent-filter>
-    </service>
-    <receiver android:name="com.mob.guard.MobGuardCommonIdBCReceiver" android:enabled="true">
-      <intent-filter>
-        <action android:name="com.mlive.id"/>
-      </intent-filter>
-    </receiver>
-    <activity android:name="com.mob.MobTranUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-      <intent-filter>
-        <action android:name="com.mob.open.app"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
   </application>
   <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
   <uses-permission android:name="com.fone.fone.push.permission.MESSAGE"/>

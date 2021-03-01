@@ -25,6 +25,12 @@ import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
+import com.lljjcoder.Interface.OnCityItemClickListener;
+import com.lljjcoder.bean.CityBean;
+import com.lljjcoder.bean.DistrictBean;
+import com.lljjcoder.bean.ProvinceBean;
+import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -51,10 +57,13 @@ public class CityFriendListActivity extends BaseActivity {
 
     private LinearLayout pop_view;
     int page = 1;
-    String sort = "desc", status = "";
+    String province = "", grade = "";
     int i1 = 0;
     int i2 = 0;
 
+    //省市
+    CityConfig cityConfig = null;
+    CityPickerView mPicker = new CityPickerView();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +87,8 @@ public class CityFriendListActivity extends BaseActivity {
             public void onRefresh() {
                 //刷新
                 page = 1;
-                String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort=" + sort
+                String string = "?province=" + province
+                        + "&grade=" + grade
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -90,8 +99,8 @@ public class CityFriendListActivity extends BaseActivity {
             public void onLoadmore() {
                 page = page + 1;
                 //加载更多
-                String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort=" + sort
+                String string = "?province=" + province
+                        + "&grade=" + grade
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -108,7 +117,59 @@ public class CityFriendListActivity extends BaseActivity {
         view2 = findViewByID_My(R.id.view2);
         pop_view = findViewByID_My(R.id.pop_view);
 
+//预先加载仿iOS滚轮实现的全部数据
+        mPicker.init(this);
+        cityConfig = new CityConfig.Builder()
+                .title(getString(R.string.myprofile_h13))//标题
+                .titleTextSize(18)//标题文字大小
+                .titleTextColor("#585858")//标题文字颜  色
+                .titleBackgroundColor("#eaeaea")//标题栏背景色
+                .confirTextColor("#10A589")//确认按钮文字颜色
+                .confirmText(getString(R.string.app_confirm))//确认按钮文字
+                .confirmTextSize(16)//确认按钮文字大小
+                .cancelTextColor("#10A589")//取消按钮文字颜色
+                .cancelText(getString(R.string.app_cancel))//取消按钮文字
+                .cancelTextSize(16)//取消按钮文字大小
+                .setCityWheelType(CityConfig.WheelType.PRO)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
+                .showBackground(true)//是否显示半透明背景
+                .visibleItemsCount(7)//显示item的数量
+                .province("北京市")//默认显示的省份
+                .city("北京市")//默认显示省份下面的城市
+                .district("朝阳区")//默认显示省市下面的区县数据
+                .provinceCyclic(true)//省份滚轮是否可以循环滚动
+                .cityCyclic(true)//城市滚轮是否可以循环滚动
+                .districtCyclic(true)//区县滚轮是否循环滚动
+                .setCustomItemLayout(R.layout.item_city)//自定义item的布局
+                .setCustomItemTextViewId(R.id.textView1)//自定义item布局里面的textViewid
+                .drawShadows(true)//滚轮不显示模糊效果
+                .setLineColor("#80CDCDCE")//中间横线的颜色
+                .setLineHeigh(1)//中间横线的高度
+                .setShowGAT(true)//是否显示港澳台数据，默认不显示
+                .build();
 
+        //设置自定义的属性配置
+        mPicker.setConfig(cityConfig);
+
+        //监听选择点击事件及返回结果
+        mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
+                //省份province//城市city//地区district
+                province = province1.getName().toString();
+//                city = city1.getName().toString();
+//                district = district1.getName().toString();
+
+                requestServer();
+            }
+
+            @Override
+            public void onCancel() {
+               /* textView1.setText(getString(R.string.myprofile_h14));
+                textView2.setText(getString(R.string.myprofile_h15));
+                textView3.setText(getString(R.string.myprofile_h16));*/
+//                ToastUtils.showLongToast(this, "已取消");
+            }
+        });
     }
 
     @Override
@@ -222,7 +283,8 @@ public class CityFriendListActivity extends BaseActivity {
                 textView2.setCompoundDrawables(null, null, drawable2, null);
 //                view1.setVisibility(View.VISIBLE);
 //                view2.setVisibility(View.INVISIBLE);
-                showPopupWindow1(pop_view);
+//                showPopupWindow1(pop_view);
+                mPicker.showCityPicker();
                 break;
             case R.id.linearLayout2:
                 textView1.setTextColor(getResources().getColor(R.color.black3));
@@ -246,8 +308,8 @@ public class CityFriendListActivity extends BaseActivity {
         super.requestServer();
         this.showLoadingPage();
         page = 1;
-        String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&sort=" + sort
+        String string = "?province=" + province
+                + "&grade=" + grade
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -287,9 +349,10 @@ public class CityFriendListActivity extends BaseActivity {
         ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView1);
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
-//        list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_jiangxu));
-        list.add(getString(R.string.app_type_shengxu));
+        list.add(getString(R.string.app_type_quanbu));
+        list.add("重庆");
+        list.add("上海");
+        list.add("北京");
         final Pop_ListAdapter adapter = new Pop_ListAdapter(CityFriendListActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);
@@ -300,9 +363,9 @@ public class CityFriendListActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
                 i1 = i;
                 if (i == 0) {
-                    sort = "desc";
+                    province = "";
                 } else {
-                    sort = "asc";
+                    province = list.get(i);
                 }
 //                textView1.setText(list.get(i));
                 requestServer();
@@ -356,10 +419,9 @@ public class CityFriendListActivity extends BaseActivity {
         final List<String> list = new ArrayList<String>();
 
         list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_daishenhe));
-        list.add(getString(R.string.app_type_yitongguo));
-        list.add(getString(R.string.app_type_weitongguo));
-        list.add(getString(R.string.app_cancel));
+        list.add("一级");
+        list.add("二级");
+
         final Pop_ListAdapter adapter = new Pop_ListAdapter(CityFriendListActivity.this, list);
         adapter.setSelectItem(i2);
         pop_listView.setAdapter(adapter);
@@ -370,9 +432,9 @@ public class CityFriendListActivity extends BaseActivity {
                 i2 = i;
                 adapter.notifyDataSetChanged();
                 if (i == 0) {
-                    status = "";
+                    grade = "";
                 } else {
-                    status = i + "";
+                    grade = i + "";
                 }
 //                textView2.setText(list.get(i));
                 requestServer();

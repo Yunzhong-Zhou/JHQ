@@ -13,6 +13,15 @@ public class MachineDetailModel implements Serializable {
      */
 
     private TopUpBean top_up;
+    /**
+     * is_transfer : 1
+     * is_buy_back : 1
+     * is_take_back : 1
+     */
+
+    private int is_transfer;
+    private int is_buy_back;
+    private int is_take_back;
 
     public TopUpBean getTop_up() {
         return top_up;
@@ -20,6 +29,30 @@ public class MachineDetailModel implements Serializable {
 
     public void setTop_up(TopUpBean top_up) {
         this.top_up = top_up;
+    }
+
+    public int getIs_transfer() {
+        return is_transfer;
+    }
+
+    public void setIs_transfer(int is_transfer) {
+        this.is_transfer = is_transfer;
+    }
+
+    public int getIs_buy_back() {
+        return is_buy_back;
+    }
+
+    public void setIs_buy_back(int is_buy_back) {
+        this.is_buy_back = is_buy_back;
+    }
+
+    public int getIs_take_back() {
+        return is_take_back;
+    }
+
+    public void setIs_take_back(int is_take_back) {
+        this.is_take_back = is_take_back;
     }
 
     public static class TopUpBean {
@@ -303,4 +336,5 @@ public class MachineDetailModel implements Serializable {
             }
         }
     }
+
 }

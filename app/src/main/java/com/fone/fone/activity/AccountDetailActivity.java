@@ -148,10 +148,10 @@ public class AccountDetailActivity extends BaseActivity {
                     head1_textView5.setVisibility(View.GONE);
                 }*/
 
-                head1_textView1.setText(response.getUsable_money());
-                head1_textView2.setText(response.getCommission_money());
-                head1_textView3.setText(response.getEarning_money());
-                head1_textView4.setText(response.getCommission_money());
+                head1_textView1.setText(response.getUsable_money());//可用余额
+                head1_textView2.setText(response.getCommission_money());//设备收益
+                head1_textView3.setText(response.getEarning_money());//销售分成
+                head1_textView4.setText(response.getCommission_money());//收益分成
 
                 list1 = response.getIn_money_list();
                 mAdapter1 = new CommonAdapter<AccountDetailModel.InMoneyListBean>

@@ -8,9 +8,11 @@ import java.io.Serializable;
 public class PayDetailModel implements Serializable {
     /**
      * bank : {"bank_title":"","bank_card_proceeds_name":"","bank_card_account":""}
+     * money : 200.00
      */
 
     private BankBean bank;
+    private String money;
 
     public BankBean getBank() {
         return bank;
@@ -18,6 +20,14 @@ public class PayDetailModel implements Serializable {
 
     public void setBank(BankBean bank) {
         this.bank = bank;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
     }
 
     public static class BankBean {

@@ -78,6 +78,8 @@ public class URLs {
     public static final String HuiGou = "/api/order-goods/buy-back-apply";
     //取消回购申请
     public static final String HuiGou_cancel = "/api/invest/cancel-buy-back-apply";
+    //收回设备
+    public static final String ShouHui = "/api/order-goods/temp-transfer-out-take-back";
     /**
      * 首页
      */

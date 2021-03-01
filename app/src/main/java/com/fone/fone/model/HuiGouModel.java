@@ -21,6 +21,16 @@ public class HuiGouModel implements Serializable {
     public void setCode(int code) {
         this.code = code;
     }
+    private String mobile;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     private String buy_back_ratio;
     private String buy_back_company;
     private String buy_back_money;

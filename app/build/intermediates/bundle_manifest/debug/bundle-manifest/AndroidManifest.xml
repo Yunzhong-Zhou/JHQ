@@ -42,7 +42,8 @@
     <!-- 振动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" /> <!-- 注意这里.permission.PASSBY_MSG是自身app的包名 + .permission.PROCESS_PUSH_MSG -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 注意这里.permission.PASSBY_MSG是自身app的包名 + .permission.PROCESS_PUSH_MSG -->
     <permission
         android:name="com.fone.fone.permission.PROCESS_PUSH_MSG"
         android:protectionLevel="signatureOrSystem" />
@@ -172,6 +173,9 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.fone.fone.activity.HuiGouActivity"
             android:label="回购设备" />
+        <activity
+            android:name="com.fone.fone.activity.ShouHuiActivity"
+            android:label="收回设备" />
         <activity
             android:name="com.fone.fone.activity.JoinDetailActivity"
             android:label="加入拼购详情" />
@@ -461,6 +465,46 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
             android:process=":watch" />
 
+        <activity
+            android:name="com.mob.guard.MobTranPullUpActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="com.mob.open.app_20000" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mob.guard.MobTranPullLockActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="com.mob.open.app_lk" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.mob.guard.MobGuardPullUpService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.mob.intent.MOB_GUARD_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="mob_guard_version"
+            android:value="20000" />
+
+        <service
+            android:name="com.mob.MobACService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.mob.service.action.MOB_AC_SERVICE" />
+            </intent-filter>
+        </service>
+
         <receiver
             android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
             android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
@@ -572,16 +616,6 @@ Android 10 停用过滤视图，使用旧版存储模式
                 <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <activity
-            android:name="com.mob.guard.MobTranPullLockActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="com.mob.open.app" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"

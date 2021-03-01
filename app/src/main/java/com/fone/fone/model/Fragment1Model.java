@@ -7,8 +7,10 @@ import java.util.List;
  * Created by zyz on 2020/7/6.
  */
 public class Fragment1Model implements Serializable {
+
     private List<CooperationBrandListBean> cooperation_brand_list;
     private List<CooperationShopListBean> cooperation_shop_list;
+    private List<IndustryListBean> industry_list;
 
     public List<CooperationBrandListBean> getCooperation_brand_list() {
         return cooperation_brand_list;
@@ -24,6 +26,14 @@ public class Fragment1Model implements Serializable {
 
     public void setCooperation_shop_list(List<CooperationShopListBean> cooperation_shop_list) {
         this.cooperation_shop_list = cooperation_shop_list;
+    }
+
+    public List<IndustryListBean> getIndustry_list() {
+        return industry_list;
+    }
+
+    public void setIndustry_list(List<IndustryListBean> industry_list) {
+        this.industry_list = industry_list;
     }
 
     public static class CooperationBrandListBean {
@@ -175,6 +185,32 @@ public class Fragment1Model implements Serializable {
 
         public void setStatus_title(String status_title) {
             this.status_title = status_title;
+        }
+    }
+
+    public static class IndustryListBean {
+        /**
+         * code : 1
+         * title : 酒店
+         */
+
+        private int code;
+        private String title;
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
         }
     }
 }

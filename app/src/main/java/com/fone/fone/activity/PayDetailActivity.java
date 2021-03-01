@@ -103,7 +103,7 @@ public class PayDetailActivity extends BaseActivity {
                 textView1.setText(response.getBank().getBank_card_proceeds_name());//银行账号
                 textView2.setText(response.getBank().getBank_card_account());//银行户名
                 textView3.setText(response.getBank().getBank_title());//银行名称
-//                textView4.setText("¥ "+response.getCny_money());//金额
+                textView4.setText("¥ "+response.getMoney());//金额
             }
         });
 
@@ -204,7 +204,7 @@ public class PayDetailActivity extends BaseActivity {
                 myToast(getString(R.string.fragment1_h69));
                 finish();
             }
-        }, true);
+        }, false);
     }
 
     @Override

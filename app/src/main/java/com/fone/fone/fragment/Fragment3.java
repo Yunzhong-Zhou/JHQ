@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class Fragment3 extends BaseFragment {
     Fragment3Model model;
-    int num = 1, buy_type = 1, payType = 1, operation_type = 1;
+    int num = 1, buy_type = 2, payType = 1, operation_type = 1;
     TextView textView;
 
     @Override
@@ -131,8 +131,14 @@ public class Fragment3 extends BaseFragment {
                     SeekBar seekBar = dialog.findViewById(R.id.seekBar);
                     RelativeLayout rl_daiyunying = dialog.findViewById(R.id.rl_daiyunying);
                     RelativeLayout rl_ziyunying = dialog.findViewById(R.id.rl_ziyunying);
+                    RelativeLayout rl_huigou = dialog.findViewById(R.id.rl_huigou);
+                    RelativeLayout rl_huigou_not = dialog.findViewById(R.id.rl_huigou_not);
+
                     ImageView iv_daiyunying = dialog.findViewById(R.id.iv_daiyunying);
                     ImageView iv_ziyunying = dialog.findViewById(R.id.iv_ziyunying);
+                    ImageView iv_huigou = dialog.findViewById(R.id.iv_huigou);
+                    ImageView iv_huigou_not = dialog.findViewById(R.id.iv_huigou_not);
+
                     LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
                     LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
                     LinearLayout ll_weixin = dialog.findViewById(R.id.ll_weixin);
@@ -148,9 +154,10 @@ public class Fragment3 extends BaseFragment {
                             + "/" + getString(R.string.app_tai));
 
                     tv_lingqian.setText(getString(R.string.fragment5_h87)
-                            + "（" + getString(R.string.fragment5_h87) + "¥" + model.getUsable_money() + "）");
+                            + "（" + getString(R.string.fragment5_h88) + "¥" + model.getUsable_money() + "）");
 
                     calculate(seekBar, textView2, textView4);
+
                     //减号
                     imageView1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -214,6 +221,48 @@ public class Fragment3 extends BaseFragment {
                         }
                     });
 
+                    if (!model.getGoods().getCannot_buy_back_price().equals("") || !model.getGoods().getCan_buy_back_price().equals("")) {
+                        rl_huigou.setVisibility(View.VISIBLE);
+                        rl_huigou_not.setVisibility(View.VISIBLE);
+                        buy_type = 2;
+                        iv_huigou.setVisibility(View.VISIBLE);
+                        iv_huigou_not.setVisibility(View.INVISIBLE);
+                    } else {
+                        if (!model.getGoods().getCan_buy_back_price().equals("")) {//能回购
+                            rl_huigou.setVisibility(View.VISIBLE);
+                            rl_huigou_not.setVisibility(View.GONE);
+                            buy_type = 2;
+                            iv_huigou.setVisibility(View.VISIBLE);
+                            iv_huigou_not.setVisibility(View.INVISIBLE);
+                        }
+                        if (!model.getGoods().getCannot_buy_back_price().equals("")) {//不能回购
+                            rl_huigou.setVisibility(View.GONE);
+                            rl_huigou_not.setVisibility(View.VISIBLE);
+                            buy_type = 1;
+                            iv_huigou.setVisibility(View.INVISIBLE);
+                            iv_huigou_not.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    //能回购
+                    rl_huigou.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            buy_type = 2;
+                            iv_huigou.setVisibility(View.VISIBLE);
+                            iv_huigou_not.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                    //不能回购
+                    rl_huigou_not.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            buy_type = 1;
+                            iv_huigou.setVisibility(View.INVISIBLE);
+                            iv_huigou_not.setVisibility(View.VISIBLE);
+                        }
+                    });
+
                     //零钱
                     ll_lingqian.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -265,7 +314,7 @@ public class Fragment3 extends BaseFragment {
                     tv_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            switch (payType){
+                            switch (payType) {
                                 case 1:
                                     if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
                                         dialog.dismiss();

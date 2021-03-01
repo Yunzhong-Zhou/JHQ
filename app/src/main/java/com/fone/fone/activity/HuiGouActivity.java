@@ -290,7 +290,7 @@ public class HuiGouActivity extends BaseActivity {
                 textView3.setClickable(false);
                 HashMap<String, String> params = new HashMap<>();
                 params.put("mobile", localUserInfo.getPhonenumber());
-                params.put("type", "9");
+                params.put("type", "10");
                 params.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                 RequestCode(params, textView3, textView4);//获取验证码
                 break;

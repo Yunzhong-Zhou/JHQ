@@ -31,7 +31,7 @@ public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12,textView13,textView14,textView15,
-            tv_zhuanrang,tv_huigou, tv_title;
+            tv_zhuanrang,tv_huigou,tv_shouhui, tv_title;
     private RecyclerView recyclerView;
     List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
@@ -96,7 +96,7 @@ public class MachineDetailActivity extends BaseActivity {
         tv_title = findViewByID_My(R.id.tv_title);
         tv_zhuanrang = findViewByID_My(R.id.tv_zhuanrang);
         tv_huigou = findViewByID_My(R.id.tv_huigou);
-
+        tv_shouhui = findViewByID_My(R.id.tv_shouhui);
 
         ll_jieidan = findViewByID_My(R.id.ll_jieidan);
         ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
@@ -123,6 +123,22 @@ public class MachineDetailActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>详情" + response);
+                if (response.getIs_transfer() ==1){//不能转让
+                    tv_zhuanrang.setVisibility(View.GONE);
+                }else {
+                    tv_zhuanrang.setVisibility(View.VISIBLE);
+                }
+                if (response.getIs_buy_back() ==1){//不能回购
+                    tv_huigou.setVisibility(View.GONE);
+                }else {
+                    tv_huigou.setVisibility(View.VISIBLE);
+                }
+                if (response.getIs_take_back()==1){//不能收回
+                    tv_shouhui.setVisibility(View.GONE);
+                }else {
+                    tv_shouhui.setVisibility(View.VISIBLE);
+                }
+
                 textView1.setText(response.getTop_up().getEarning_money() + "");//已产收益
                 textView2.setText(response.getTop_up().getEarning_ratio() + "%");//收益分成
                 textView3.setText(response.getTop_up().getStatus_title() + "");//安装状态
@@ -191,6 +207,12 @@ public class MachineDetailActivity extends BaseActivity {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString("id", id);
                 CommonUtil.gotoActivityWithData(MachineDetailActivity.this, HuiGouActivity.class, bundle2, false);
+                break;
+            case R.id.tv_shouhui:
+                //回购
+                Bundle bundle3 = new Bundle();
+                bundle3.putString("id", id);
+                CommonUtil.gotoActivityWithData(MachineDetailActivity.this, ShouHuiActivity.class, bundle3, false);
                 break;
         }
     }

@@ -30,7 +30,7 @@
                 android:drawableRight="@mipmap/down_black"
                 android:drawablePadding="5dp"
                 android:gravity="center"
-                android:text="@string/app_type_bizhong"
+                android:text="@string/app_type_paixu"
                 android:textColor="@color/black3"
                 android:textSize="13sp" />
 

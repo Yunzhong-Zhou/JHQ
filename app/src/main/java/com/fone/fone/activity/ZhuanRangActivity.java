@@ -343,7 +343,7 @@ public class ZhuanRangActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.scavengingpayment_h1));
+        titleView.setTitle(getString(R.string.scavengingpayment_h27));
     }
 
     //获取验证码倒计时

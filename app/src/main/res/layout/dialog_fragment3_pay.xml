@@ -170,6 +170,60 @@
                     android:visibility="invisible" />
 
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_huigou"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                    android:gravity="center"
+                    android:text="@string/fragment3_h66"
+                    android:textColor="@color/green"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_huigou"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_xuanzhong"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_huigou_not"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/yuanjiaobiankuang_5_lvse"
+                    android:gravity="center"
+                    android:text="@string/fragment3_h67"
+                    android:textColor="@color/green"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_huigou_not"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_xuanzhong"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
 
         </LinearLayout>
         <TextView

@@ -600,6 +600,18 @@
                                 android:text="@string/fragment1_h97"
                                 android:textColor="@color/green"
                                 android:textSize="15sp" />
+                            <TextView
+                                android:id="@+id/tv_shouhui"
+                                android:layout_width="135dp"
+                                android:layout_height="34dp"
+                                android:layout_marginLeft="20dp"
+                                android:background="@drawable/yuanjiaobiankuang_20_lvse"
+                                android:gravity="center"
+                                android:onClick="onClick"
+                                android:visibility="gone"
+                                android:text="@string/fragment1_h104"
+                                android:textColor="@color/green"
+                                android:textSize="15sp" />
                         </LinearLayout>
 
 

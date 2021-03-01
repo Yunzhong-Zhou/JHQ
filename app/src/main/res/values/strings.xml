@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FilTop</string>
+    <string name="app_name">净化器</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -305,7 +305,7 @@
     <string name="fragment1_h47">支付宝帐号</string>
     <string name="fragment1_h48">转帐金额</string>
     <string name="fragment1_h49">2.周未转帐到帐速度较慢，若未到帐，则顺延至工作日处理；\n\n3.如果有任何疑问，您可以联系客服进行处理（请在工作日9:00-21:00之间完成汇款）；</string>
-    <string name="fragment1_h50">矿机详情</string>
+    <string name="fragment1_h50">设备详情</string>
     <string name="fragment1_h51">USDT支付成功</string>
     <string name="fragment1_h52">付款姓名</string>
     <string name="fragment1_h53">请输入付款姓名</string>
@@ -360,7 +360,7 @@
     <string name="fragment1_h101">状态</string>
     <string name="fragment1_h102">等级</string>
     <string name="fragment1_h103">申请回购</string>
-    <string name="fragment1_h104"></string>
+    <string name="fragment1_h104">收回</string>
     <string name="fragment1_h105"></string>
     <string name="fragment1_h106"></string>
     <string name="fragment1_h107"></string>
@@ -466,8 +466,8 @@
     <string name="fragment3_h63">购买提交成功</string>
     <string name="fragment3_h64">永久转让</string>
     <string name="fragment3_h65">临时转让</string>
-    <string name="fragment3_h66"></string>
-    <string name="fragment3_h67"></string>
+    <string name="fragment3_h66">能回购</string>
+    <string name="fragment3_h67">不能回购</string>
     <string name="fragment3_h68"></string>
     <string name="fragment3_h69"></string>
     <string name="fragment3_h70"></string>
@@ -950,11 +950,11 @@
     <string name="scavengingpayment_h22">设备折旧</string>
     <string name="scavengingpayment_h23">回购金额</string>
     <string name="scavengingpayment_h24">永久回购</string>
-    <string name="scavengingpayment_h25">回购提交成功</string>
-    <string name="scavengingpayment_h26">转让提交成功</string>
-    <string name="scavengingpayment_h27"></string>
-    <string name="scavengingpayment_h28"></string>
-    <string name="scavengingpayment_h29"></string>
+    <string name="scavengingpayment_h25">回购设备提交成功</string>
+    <string name="scavengingpayment_h26">转让设备提交成功</string>
+    <string name="scavengingpayment_h27">转让设备</string>
+    <string name="scavengingpayment_h28">收回设备</string>
+    <string name="scavengingpayment_h29">收回设备提交成功</string>
     <string name="scavengingpayment_h30"></string>
 
     <!--转账记录-->

@@ -19,7 +19,6 @@ import com.cy.dialog.BaseDialog;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.Fragment3Model;
 import com.fone.fone.model.MyOrderModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -37,9 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -278,12 +275,16 @@ public class MyOrderActivity extends BaseActivity {
                                                 }*/
                                                 dialog.dismiss();
                                                 showProgress(true, getString(R.string.app_loading1));
-                                                HashMap<String, String> params = new HashMap<>();
+                                                /*HashMap<String, String> params = new HashMap<>();
                                                 params.put("id", model.getId());
                                                 params.put("pay_type", payType + "");
                                                 params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
-                                                RequestBuy(params);
+                                                RequestBuy(params);*/
+                                                String string = "?id=" + model.getId()
+                                                        + "&pay_type=" + payType
+                                                        + "&token=" + localUserInfo.getToken();
+                                                RequestBuy(string,model.getId());
 
                                             }
                                         });
@@ -295,16 +296,39 @@ public class MyOrderActivity extends BaseActivity {
                                 textView8.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        dialog.dismiss();
-                                        showProgress(true, getString(R.string.app_loading1));
-                                        HashMap<String, String> params = new HashMap<>();
+                                        showToast("确认取消该订单吗？", "确认", "取消",
+                                                new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        dialog.dismiss();
+                                                        showProgress(true, getString(R.string.app_loading1));
+                                        /*HashMap<String, String> params = new HashMap<>();
                                         params.put("goods_id", model.getId());
                                         params.put("pay_type", payType + "");
                                         params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
-                                        RequestBuyCancel(params);
+                                        RequestBuyCancel(params);*/
+                                                        String string = "?id=" + model.getId()
+                                                                + "&token=" + localUserInfo.getToken();
+                                                        RequestBuyCancel(string);
+                                                    }
+                                                }, new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        dialog.dismiss();
+                                                    }
+                                                });
+
                                     }
                                 });
+
+                                if (model.getStatus() == 1) {
+                                    textView7.setVisibility(View.VISIBLE);
+                                    textView8.setVisibility(View.VISIBLE);
+                                } else {
+                                    textView7.setVisibility(View.GONE);
+                                    textView8.setVisibility(View.GONE);
+                                }
                             }
                         };
                         recyclerView.setAdapter(mAdapter);
@@ -371,8 +395,9 @@ public class MyOrderActivity extends BaseActivity {
         });
 
     }
-    private void RequestBuy(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.MyOrderBuy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+
+    private void RequestBuy(String string,String id) {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderBuy + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -384,22 +409,24 @@ public class MyOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(Fragment3Model response) {
+            public void onResponse(String response) {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
                 myToast(getString(R.string.fragment3_h63));
+                requestServer();
                 if (payType == 4) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("id", response.getGoods().getId());
+                    bundle.putString("id", id);
                     CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
                 }
 
             }
         }, false);
     }
-    private void RequestBuyCancel(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.MyOrderCancel, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+
+    private void RequestBuyCancel(String string) {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderCancel + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -411,7 +438,7 @@ public class MyOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(Fragment3Model response) {
+            public void onResponse(String response) {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买取消" + response);
@@ -421,6 +448,7 @@ public class MyOrderActivity extends BaseActivity {
             }
         }, false);
     }
+
     @Override
     public void onClick(View v) {
         Drawable drawable1 = getResources().getDrawable(R.mipmap.down_green);//选中-蓝色
