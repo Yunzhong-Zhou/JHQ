@@ -60,11 +60,11 @@ public class URLs {
     /**
      * 矿机
      */
-    public static final String Fragment1 = "/api/invest/create-all";
+    public static final String Fragment1 = "/api/index/consociation";
     //矿机详情
     public static final String MachineDetail = "/api/order-goods/detail";
     //支付详情
-    public static final String PayDetail = "/api/invest/cny-pay";
+    public static final String PayDetail = "/api/order/public-transfer";
     /**
      * 算力
      */
@@ -72,7 +72,7 @@ public class URLs {
     //矿机列表
     public static final String MachineList = "/api/order-goods/record";
     //回购申请
-    public static final String HuiGou = "/api/invest/buy-back-apply";
+    public static final String HuiGou = "/api/order-goods/buy-back-apply";
     //取消回购申请
     public static final String HuiGou_cancel = "/api/invest/cancel-buy-back-apply";
     /**
@@ -119,6 +119,10 @@ public class URLs {
     public static final String MyRecharge = "/api/top-up/record";
     //我的订单
     public static final String MyOrder = "/api/order/record";
+    //我的订单-支付
+    public static final String MyOrderBuy = "/api/order/pay";
+    //我的订单-取消
+    public static final String MyOrderCancel = "/api/order/cancel";
     //提现详情
     public static final String TakeCashDetail = "/api/withdrawal/detail";
     //创建转币（获取可用金额）
@@ -127,13 +131,11 @@ public class URLs {
     public static final String QRCode = "/api/transfer/index";
     //划转
     public static final String HuaZhuan = "/api/convert/create";
-
     /**
      * 我的主页
      */
     public static final String Center = "/api/member/center";
-    //城市伙伴
-    public static final String CityFriend = "/api/service-center/index";
+
     //个人信息
     public static final String Info = "/api/member/get-info";
     //修改信息
@@ -176,8 +178,12 @@ public class URLs {
     public static final String ContractList = "/api/invoice/record";
     //账户详情
     public static final String AccountDetail = "/api/member/account";
+    //城市伙伴
+    public static final String CityFriend = "/api/service-center/index";
     //申请城市合作伙伴
-    public static final String AddCityFriend = "/api/service-center/index";
+    public static final String AddCityFriend = "/api/service-center/create";
+    //全国合作伙伴
+    public static final String CityFriendList = "/api/index/consociation";
     /**
      * USDT交易列表
      */

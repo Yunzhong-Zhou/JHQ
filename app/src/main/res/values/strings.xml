@@ -353,13 +353,13 @@
     <string name="fragment1_h94">回购状态</string>
     <string name="fragment1_h95">收益记录</string>
     <string name="fragment1_h96">转让</string>
-    <string name="fragment1_h97">售后</string>
+    <string name="fragment1_h97">回购</string>
     <string name="fragment1_h98">合作门店</string>
     <string name="fragment1_h99">区域</string>
     <string name="fragment1_h100">行业</string>
     <string name="fragment1_h101">状态</string>
     <string name="fragment1_h102">等级</string>
-    <string name="fragment1_h103"></string>
+    <string name="fragment1_h103">申请回购</string>
     <string name="fragment1_h104"></string>
     <string name="fragment1_h105"></string>
     <string name="fragment1_h106"></string>
@@ -701,9 +701,9 @@
     <string name="myprofile_h60">1、 申请人级别必须是区域代理以上可申请\n2、 所在城市需提供150平以上办公场所\n3、 需保证累计年销售量300台以上\n4、 需缴纳20万保证金达到300台销量后可退</string>
     <string name="myprofile_h61">申请城市伙伴</string>
     <string name="myprofile_h62">全国合作伙伴</string>
-    <string name="myprofile_h63"></string>
-    <string name="myprofile_h64"></string>
-    <string name="myprofile_h65"></string>
+    <string name="myprofile_h63">省级代理</string>
+    <string name="myprofile_h64">市级代理</string>
+    <string name="myprofile_h65">区级代理</string>
     <string name="myprofile_h66"></string>
     <string name="myprofile_h67"></string>
     <string name="myprofile_h68"></string>
@@ -945,7 +945,17 @@
     <string name="scavengingpayment_h17">永久转让</string>
     <string name="scavengingpayment_h18">临时转让</string>
     <string name="scavengingpayment_h19">两次输入的手机号不一致</string>
-    <string name="scavengingpayment_h20"></string>
+    <string name="scavengingpayment_h20">请输入接收方</string>
+    <string name="scavengingpayment_h21">回购方式</string>
+    <string name="scavengingpayment_h22">设备折旧</string>
+    <string name="scavengingpayment_h23">回购金额</string>
+    <string name="scavengingpayment_h24">永久回购</string>
+    <string name="scavengingpayment_h25">回购提交成功</string>
+    <string name="scavengingpayment_h26">转让提交成功</string>
+    <string name="scavengingpayment_h27"></string>
+    <string name="scavengingpayment_h28"></string>
+    <string name="scavengingpayment_h29"></string>
+    <string name="scavengingpayment_h30"></string>
 
     <!--转账记录-->
     <string name="transferrecord_h1">转币记录</string>

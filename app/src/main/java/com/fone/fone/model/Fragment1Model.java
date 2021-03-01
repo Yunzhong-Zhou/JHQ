@@ -1,170 +1,180 @@
 package com.fone.fone.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by zyz on 2020/7/6.
  */
 public class Fragment1Model implements Serializable {
-    /**
-     * usdt_cny_price : 6.7
-     * hashrate_price : 500
-     * usable_money : 220.0000
-     * usable_hashrate : 10
-     * mill_id : 4b33bb88f4759318e5f831c01a09f712
-     * mill_package_cycle : 360
-     * mill_computer_position : 中国福州
-     * mill_node_number : 0x11111
-     * mill_number : oxk333
-     * mill_pledge_fil_money : 50.0000
-     * mill_mining_cycle : 360
-     * mill_production_value_fil_money : 100.0000
-     * hk : ab8ec9406bfa6aaf88c66789e8be690d
-     */
+    private List<CooperationBrandListBean> cooperation_brand_list;
+    private List<CooperationShopListBean> cooperation_shop_list;
 
-    private String id;
-
-    public String getId() {
-        return id;
+    public List<CooperationBrandListBean> getCooperation_brand_list() {
+        return cooperation_brand_list;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCooperation_brand_list(List<CooperationBrandListBean> cooperation_brand_list) {
+        this.cooperation_brand_list = cooperation_brand_list;
     }
 
-    private String usdt_cny_price;
-    private String hashrate_price;
-    private String usable_money;
-    private String usable_hashrate;
-    private String mill_id;
-    private String mill_package_cycle;
-    private String mill_computer_position;
-    private String mill_node_number;
-    private String mill_number;
-    private String mill_pledge_fil_money;
-    private String mill_mining_cycle;
-    private String mill_production_value_fil_money;
-    private String mill_all_cny_price;
-    private String hk;
-    private String url;
-
-    public String getMill_all_cny_price() {
-        return mill_all_cny_price;
+    public List<CooperationShopListBean> getCooperation_shop_list() {
+        return cooperation_shop_list;
     }
 
-    public void setMill_all_cny_price(String mill_all_cny_price) {
-        this.mill_all_cny_price = mill_all_cny_price;
+    public void setCooperation_shop_list(List<CooperationShopListBean> cooperation_shop_list) {
+        this.cooperation_shop_list = cooperation_shop_list;
     }
 
-    public String getUrl() {
-        return url;
+    public static class CooperationBrandListBean {
+        /**
+         * title : 品牌1
+         * logo : /upload/brand/2021-02-21/56eec3d3300b192d83e074d09d431840.jpg
+         * created_at : 2021-02-21 12:39:13
+         */
+
+        private String title;
+        private String logo;
+        private String created_at;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getLogo() {
+            return logo;
+        }
+
+        public void setLogo(String logo) {
+            this.logo = logo;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    public static class CooperationShopListBean {
+        /**
+         * title : 哈哈哈
+         * cover : /upload/shop/2021-02-28/27f7b33d0e70bc9f17fa80070d8f8031.png
+         * industry : 1
+         * province : 重庆
+         * city : 重庆
+         * district : 湖西
+         * address : 美丽·阳光家园三期(北门)
+         * status : 1
+         * num : 1
+         * created_at : 2021-02-28 18:34:11
+         * status_title : 待安装
+         */
 
-    public String getUsdt_cny_price() {
-        return usdt_cny_price;
-    }
+        private String title;
+        private String cover;
+        private int industry;
+        private String province;
+        private String city;
+        private String district;
+        private String address;
+        private int status;
+        private int num;
+        private String created_at;
+        private String status_title;
 
-    public void setUsdt_cny_price(String usdt_cny_price) {
-        this.usdt_cny_price = usdt_cny_price;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public String getHashrate_price() {
-        return hashrate_price;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public void setHashrate_price(String hashrate_price) {
-        this.hashrate_price = hashrate_price;
-    }
+        public String getCover() {
+            return cover;
+        }
 
-    public String getUsable_money() {
-        return usable_money;
-    }
+        public void setCover(String cover) {
+            this.cover = cover;
+        }
 
-    public void setUsable_money(String usable_money) {
-        this.usable_money = usable_money;
-    }
+        public int getIndustry() {
+            return industry;
+        }
 
-    public String getUsable_hashrate() {
-        return usable_hashrate;
-    }
+        public void setIndustry(int industry) {
+            this.industry = industry;
+        }
 
-    public void setUsable_hashrate(String usable_hashrate) {
-        this.usable_hashrate = usable_hashrate;
-    }
+        public String getProvince() {
+            return province;
+        }
 
-    public String getMill_id() {
-        return mill_id;
-    }
+        public void setProvince(String province) {
+            this.province = province;
+        }
 
-    public void setMill_id(String mill_id) {
-        this.mill_id = mill_id;
-    }
+        public String getCity() {
+            return city;
+        }
 
-    public String getMill_package_cycle() {
-        return mill_package_cycle;
-    }
+        public void setCity(String city) {
+            this.city = city;
+        }
 
-    public void setMill_package_cycle(String mill_package_cycle) {
-        this.mill_package_cycle = mill_package_cycle;
-    }
+        public String getDistrict() {
+            return district;
+        }
 
-    public String getMill_computer_position() {
-        return mill_computer_position;
-    }
+        public void setDistrict(String district) {
+            this.district = district;
+        }
 
-    public void setMill_computer_position(String mill_computer_position) {
-        this.mill_computer_position = mill_computer_position;
-    }
+        public String getAddress() {
+            return address;
+        }
 
-    public String getMill_node_number() {
-        return mill_node_number;
-    }
+        public void setAddress(String address) {
+            this.address = address;
+        }
 
-    public void setMill_node_number(String mill_node_number) {
-        this.mill_node_number = mill_node_number;
-    }
+        public int getStatus() {
+            return status;
+        }
 
-    public String getMill_number() {
-        return mill_number;
-    }
+        public void setStatus(int status) {
+            this.status = status;
+        }
 
-    public void setMill_number(String mill_number) {
-        this.mill_number = mill_number;
-    }
+        public int getNum() {
+            return num;
+        }
 
-    public String getMill_pledge_fil_money() {
-        return mill_pledge_fil_money;
-    }
+        public void setNum(int num) {
+            this.num = num;
+        }
 
-    public void setMill_pledge_fil_money(String mill_pledge_fil_money) {
-        this.mill_pledge_fil_money = mill_pledge_fil_money;
-    }
+        public String getCreated_at() {
+            return created_at;
+        }
 
-    public String getMill_mining_cycle() {
-        return mill_mining_cycle;
-    }
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
 
-    public void setMill_mining_cycle(String mill_mining_cycle) {
-        this.mill_mining_cycle = mill_mining_cycle;
-    }
+        public String getStatus_title() {
+            return status_title;
+        }
 
-    public String getMill_production_value_fil_money() {
-        return mill_production_value_fil_money;
-    }
-
-    public void setMill_production_value_fil_money(String mill_production_value_fil_money) {
-        this.mill_production_value_fil_money = mill_production_value_fil_money;
-    }
-
-    public String getHk() {
-        return hk;
-    }
-
-    public void setHk(String hk) {
-        this.hk = hk;
+        public void setStatus_title(String status_title) {
+            this.status_title = status_title;
+        }
     }
 }

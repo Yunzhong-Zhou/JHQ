@@ -172,6 +172,9 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="com.fone.fone.activity.ZhuanRangActivity"
             android:label="转让设备" />
         <activity
+            android:name="com.fone.fone.activity.HuiGouActivity"
+            android:label="回购设备" />
+        <activity
             android:name="com.fone.fone.activity.JoinDetailActivity"
             android:label="加入拼购详情" />
         <activity

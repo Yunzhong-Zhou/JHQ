@@ -8,15 +8,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.MyRechargeModel;
+import com.fone.fone.model.Fragment1Model;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
 import com.fone.fone.utils.CommonUtil;
@@ -25,11 +28,8 @@ import com.fone.fone.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CooperativeShopActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<MyRechargeModel> list = new ArrayList<>();
-    CommonAdapter<MyRechargeModel> mAdapter;
+    List<Fragment1Model.CooperationShopListBean> list2 = new ArrayList<>();
+    CommonAdapter<Fragment1Model.CooperationShopListBean> mAdapter2;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -120,7 +120,7 @@ public class CooperativeShopActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(CooperativeShopActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CooperativeShopActivity.this, URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -131,47 +131,46 @@ public class CooperativeShopActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Fragment1Model response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表" + response);
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<MyRechargeModel>
-                                (CooperativeShopActivity.this, R.layout.item_fragment1_2, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h5));//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, "+"+model.getMoney());//money
-                                holder.setText(R.id.textView4, model.getStatus_title());//状态
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(CooperativeShopActivity.this, RechargeDetailActivity.class, bundle1, false);
+
+                list2 = response.getCooperation_shop_list();
+                if (list2.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter2 = new CommonAdapter<Fragment1Model.CooperationShopListBean>
+                            (CooperativeShopActivity.this, R.layout.item_fragment1_2, list2) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment1Model.CooperationShopListBean model, int position) {
+                            ImageView imageView1 = holder.getView(R.id.imageView1);
+                            Glide.with(CooperativeShopActivity.this)
+                                    .load(OkHttpClientManager.IMGHOST + model.getCover())
+                                    .centerCrop()
+                                    .apply(RequestOptions.bitmapTransform(new
+                                            RoundedCorners(CommonUtil.dip2px(CooperativeShopActivity.this, 10))))
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
+                            ImageView imageView2 = holder.getView(R.id.imageView2);
+                            if (model.getStatus() == 1) {
+                                //待安装
+                                imageView2.setImageResource(R.mipmap.bg_anzhuangzhong);
+                            } else {
+                                imageView2.setImageResource(R.mipmap.bg_yianzhuang);
                             }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
+                            holder.setText(R.id.tv_name, model.getTitle());
+                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
+                            holder.setText(R.id.tv_addr, model.getAddress());
+                            holder.setText(R.id.tv_num, model.getNum() + "");
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        }
+                    };
+
+                    showContentPage();
+                    recyclerView.setAdapter(mAdapter2);
+//                mAdapter1.notifyDataSetChanged();
                 }
             }
         });
@@ -179,7 +178,7 @@ public class CooperativeShopActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(CooperativeShopActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CooperativeShopActivity.this, URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -191,27 +190,20 @@ public class CooperativeShopActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Fragment1Model response) {
                 showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
-                List<MyRechargeModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
+                List<Fragment1Model.CooperationShopListBean> list1 = new ArrayList<>();
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                list1 = response.getCooperation_shop_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list2.addAll(list1);
+                    mAdapter2.notifyDataSetChanged();
                 }
             }
         });

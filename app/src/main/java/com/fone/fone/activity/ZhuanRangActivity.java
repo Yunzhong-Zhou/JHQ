@@ -189,7 +189,7 @@ public class ZhuanRangActivity extends BaseActivity {
                 Request("?token=" + localUserInfo.getToken()
                         + "&id=" + id);
                 if (response==null){
-                    showToast(getString(R.string.scavengingpayment_h5),
+                    showToast(getString(R.string.scavengingpayment_h26),
                             new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

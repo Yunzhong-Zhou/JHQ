@@ -31,8 +31,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="@mipmap/bg_yianzhuang"/>
+                android:layout_alignParentBottom="true" />
 
         </RelativeLayout>
         <LinearLayout

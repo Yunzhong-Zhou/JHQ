@@ -120,7 +120,7 @@ public class CityFriendListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -187,7 +187,7 @@ public class CityFriendListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();

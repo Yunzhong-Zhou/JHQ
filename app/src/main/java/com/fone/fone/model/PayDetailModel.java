@@ -7,39 +7,29 @@ import java.io.Serializable;
  */
 public class PayDetailModel implements Serializable {
     /**
-     * invest : {"cny_money":"33500.00","bank_title":"","bank_card_proceeds_name":"","bank_card_account":""}
+     * bank : {"bank_title":"","bank_card_proceeds_name":"","bank_card_account":""}
      */
 
-    private InvestBean invest;
+    private BankBean bank;
 
-    public InvestBean getInvest() {
-        return invest;
+    public BankBean getBank() {
+        return bank;
     }
 
-    public void setInvest(InvestBean invest) {
-        this.invest = invest;
+    public void setBank(BankBean bank) {
+        this.bank = bank;
     }
 
-    public static class InvestBean {
+    public static class BankBean {
         /**
-         * cny_money : 33500.00
          * bank_title :
          * bank_card_proceeds_name :
          * bank_card_account :
          */
 
-        private String cny_money;
         private String bank_title;
         private String bank_card_proceeds_name;
         private String bank_card_account;
-
-        public String getCny_money() {
-            return cny_money;
-        }
-
-        public void setCny_money(String cny_money) {
-            this.cny_money = cny_money;
-        }
 
         public String getBank_title() {
             return bank_title;

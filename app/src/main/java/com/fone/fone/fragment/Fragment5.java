@@ -16,7 +16,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.activity.AccountDetailActivity;
+import com.fone.fone.activity.CityFriendActivity;
 import com.fone.fone.activity.CityFriendListActivity;
+import com.fone.fone.activity.CityFriend_NOActivity;
 import com.fone.fone.activity.ContractActivity;
 import com.fone.fone.activity.HelpCenterActivity;
 import com.fone.fone.activity.InformationActivity;
@@ -29,7 +31,7 @@ import com.fone.fone.activity.SetUpActivity;
 import com.fone.fone.activity.ShareActivity;
 import com.fone.fone.activity.SharePosterActivity;
 import com.fone.fone.base.BaseFragment;
-import com.fone.fone.model.CityFriendModel;
+import com.fone.fone.model.AddCityFriendModel;
 import com.fone.fone.model.Fragment5Model;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
@@ -308,10 +310,10 @@ public class Fragment5 extends BaseFragment {
                 break;
             case R.id.linearLayout9:
                 //合作
-//                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+                CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
 //                CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
-                showProgress(true, getString(R.string.app_loading2));
-                requestCityFriend("?token=" + localUserInfo.getToken());
+//                showProgress(true, getString(R.string.app_loading2));
+//                requestCityFriend("?token=" + localUserInfo.getToken());
                 break;
             case R.id.linearLayout10:
                 //我的设备
@@ -350,7 +352,7 @@ public class Fragment5 extends BaseFragment {
     }
 
     private void requestCityFriend(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.CityFriend + string, new OkHttpClientManager.ResultCallback<CityFriendModel>() {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.AddCityFriend + string, new OkHttpClientManager.ResultCallback<AddCityFriendModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -360,9 +362,15 @@ public class Fragment5 extends BaseFragment {
             }
 
             @Override
-            public void onResponse(CityFriendModel response) {
+            public void onResponse(AddCityFriendModel response) {
                 MyLogger.i(">>>>>>>>>城市伙伴" + response);
                 hideProgress();
+                //1、待申请 2、待审核 3、通过
+                if (response.getStatus() == 3){
+                    CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
+                }else {
+                    CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
+                }
 
             }
         });

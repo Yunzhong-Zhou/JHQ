@@ -100,10 +100,10 @@ public class PayDetailActivity extends BaseActivity {
             public void onResponse(PayDetailModel response) {
                 showContentPage();
                 hideProgress();
-                textView1.setText(response.getInvest().getBank_card_account());//银行账号
-                textView2.setText(response.getInvest().getBank_card_proceeds_name());//银行户名
-                textView3.setText(response.getInvest().getBank_title());//银行名称
-                textView4.setText("¥ "+response.getInvest().getCny_money());//金额
+                textView1.setText(response.getBank().getBank_card_proceeds_name());//银行账号
+                textView2.setText(response.getBank().getBank_card_account());//银行户名
+                textView3.setText(response.getBank().getBank_title());//银行名称
+//                textView4.setText("¥ "+response.getCny_money());//金额
             }
         });
 
@@ -153,6 +153,17 @@ public class PayDetailActivity extends BaseActivity {
             case R.id.tv_fuzhi:
                 //复制
                 if (!textView1.getText().toString().trim().equals("")) {
+                    ClipboardManager cm = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
+                    // 创建普通字符型ClipData
+                    ClipData mClipData = ClipData.newPlainText("Label", textView1.getText().toString().trim());
+                    // 将ClipData内容放到系统剪贴板里。
+                    cm.setPrimaryClip(mClipData);
+                    myToast(getString(R.string.recharge_h34));
+                }
+                break;
+            case R.id.tv_fuzhi2:
+                //复制
+                if (!textView2.getText().toString().trim().equals("")) {
                     ClipboardManager cm = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
                     // 创建普通字符型ClipData
                     ClipData mClipData = ClipData.newPlainText("Label", textView1.getText().toString().trim());

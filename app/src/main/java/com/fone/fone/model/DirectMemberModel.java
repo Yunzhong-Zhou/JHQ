@@ -7,7 +7,51 @@ import java.util.List;
  * Created by zyz on 2018/11/9.
  */
 public class DirectMemberModel implements Serializable {
+    /**
+     * direct_recommend_list : [{"head":"/head/795.png","nickname":"空气净化器_tntk","grade_title":"普通用户","order_goods_count":0}]
+     * grade_1 : 1
+     * grade_2 : 0
+     * grade_3 : 0
+     * grade_4 : 0
+     */
+
+    private String grade_1;
+    private String grade_2;
+    private String grade_3;
+    private String grade_4;
     private List<DirectRecommendListBean> direct_recommend_list;
+
+    public String getGrade_1() {
+        return grade_1;
+    }
+
+    public void setGrade_1(String grade_1) {
+        this.grade_1 = grade_1;
+    }
+
+    public String getGrade_2() {
+        return grade_2;
+    }
+
+    public void setGrade_2(String grade_2) {
+        this.grade_2 = grade_2;
+    }
+
+    public String getGrade_3() {
+        return grade_3;
+    }
+
+    public void setGrade_3(String grade_3) {
+        this.grade_3 = grade_3;
+    }
+
+    public String getGrade_4() {
+        return grade_4;
+    }
+
+    public void setGrade_4(String grade_4) {
+        this.grade_4 = grade_4;
+    }
 
     public List<DirectRecommendListBean> getDirect_recommend_list() {
         return direct_recommend_list;
@@ -19,31 +63,16 @@ public class DirectMemberModel implements Serializable {
 
     public static class DirectRecommendListBean {
         /**
-         * head : /head/645.png
-         * nickname : FIL_adwy
-         * grade_title : V0
-         * amount_performance_money : 0
-         * change_game_invest_money : 0.0000
-         * buy_invest_money : 0.0000
-         * all_invest_money : 0.0000
+         * head : /head/795.png
+         * nickname : 空气净化器_tntk
+         * grade_title : 普通用户
+         * order_goods_count : 0
          */
 
         private String head;
         private String nickname;
         private String grade_title;
-        private String amount_performance_money;
-        private String amount_change_game_money;
-        private String buy_invest_money;
-        private String all_invest_money;
-        private String invite_code;
-
-        public String getInvite_code() {
-            return invite_code;
-        }
-
-        public void setInvite_code(String invite_code) {
-            this.invite_code = invite_code;
-        }
+        private int order_goods_count;
 
         public String getHead() {
             return head;
@@ -69,36 +98,12 @@ public class DirectMemberModel implements Serializable {
             this.grade_title = grade_title;
         }
 
-        public String getAmount_performance_money() {
-            return amount_performance_money;
+        public int getOrder_goods_count() {
+            return order_goods_count;
         }
 
-        public void setAmount_performance_money(String amount_performance_money) {
-            this.amount_performance_money = amount_performance_money;
-        }
-
-        public String getAmount_change_game_money() {
-            return amount_change_game_money;
-        }
-
-        public void setAmount_change_game_money(String amount_change_game_money) {
-            this.amount_change_game_money = amount_change_game_money;
-        }
-
-        public String getBuy_invest_money() {
-            return buy_invest_money;
-        }
-
-        public void setBuy_invest_money(String buy_invest_money) {
-            this.buy_invest_money = buy_invest_money;
-        }
-
-        public String getAll_invest_money() {
-            return all_invest_money;
-        }
-
-        public void setAll_invest_money(String all_invest_money) {
-            this.all_invest_money = all_invest_money;
+        public void setOrder_goods_count(int order_goods_count) {
+            this.order_goods_count = order_goods_count;
         }
     }
 }

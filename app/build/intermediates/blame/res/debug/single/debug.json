@@ -40,6 +40,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/item_qrcode.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_huigou.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_huigou.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment4_1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment4_1.png"
     },
@@ -64,12 +68,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment1_1.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment2_1.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment2_1.png"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_bg_cityfriend.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxxhdpi/bg_cityfriend.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment2_1.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment2_1.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_contract2.png.flat",
@@ -90,6 +94,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_rechargedetail4.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_rechargedetail4.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_3.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_3.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_bg_cityfriend1.png.flat",
@@ -312,6 +320,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxxhdpi/bg_fragment5.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_5.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_5.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_baiseyinying_red.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiao_10_baiseyinying_red.xml"
     },
@@ -436,24 +448,24 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_shareposter1.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_editimg.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xhdpi/ic_editimg.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_takecashdetail.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_takecashdetail.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_16_zisejianbian.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiao_16_zisejianbian.xml"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_takecashdetail.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_takecashdetail.xml"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_yuanjiaobiankuang_lansejianbian.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_yuanjiaobiankuang_lansejianbian.png"
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_editimg.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xhdpi/ic_editimg.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiaobiankuang_10_huise.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiaobiankuang_10_huise.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_yuanjiaobiankuang_lansejianbian.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_yuanjiaobiankuang_lansejianbian.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_edit.png.flat",
@@ -476,12 +488,12 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_accountdetail1.png"
     },
     {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_lvsejianbian.xml.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiao_10_lvsejianbian.xml"
-    },
-    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_item_usdtjiaoyi1.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/item_usdtjiaoyi1.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_10_lvsejianbian.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiao_10_lvsejianbian.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment5_1.png.flat",
@@ -676,6 +688,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_cityfriendlist.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_login_head.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_login_head.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_tab3_1.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/tab3_1.png"
     },
@@ -698,10 +714,6 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_zhuanzhang.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_zhuanzhang.png"
-    },
-    {
-        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_bg_login_head.png.flat",
-        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxxhdpi/bg_login_head.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_webcontent.xml.flat",
@@ -1032,6 +1044,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_rechargedetail.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_2.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_2.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_shareposter2.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_shareposter2.png"
     },
@@ -1110,6 +1126,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_btn_usdt.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_btn_usdt.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_10.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_10.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_myprofile.xml.flat",
@@ -1288,6 +1308,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/item_fragment1_1.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_4.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_4.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_activity_usdtorderinfo.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/activity_usdtorderinfo.xml"
     },
@@ -1414,6 +1438,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_xiexian.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_xiexian.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_6.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_6.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_item_myorder.xml.flat",
@@ -1556,6 +1584,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxxhdpi/background3.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_sharepeople.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_sharepeople.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiao_20_lvse1.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanjiao_20_lvse1.xml"
     },
@@ -1696,6 +1728,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_9.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_9.png"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_item_help.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/item_help.xml"
     },
@@ -1734,6 +1770,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_fragment1_left.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_fragment1_left.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_7.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_7.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanjiaobiankuang_5_hongse.xml.flat",
@@ -2026,6 +2066,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_login5.png.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/ic_login5.png"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_fragment3_8.png.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-xxhdpi/bg_fragment3_8.png"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_bg_shareposter4.png.flat",

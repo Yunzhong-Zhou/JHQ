@@ -8,28 +8,26 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
 import com.fone.fone.R;
 import com.fone.fone.adapter.Pop_ListAdapter;
 import com.fone.fone.base.BaseActivity;
-import com.fone.fone.model.MyRechargeModel;
+import com.fone.fone.model.Fragment1Model;
+import com.fone.fone.model.Fragment1Model_P;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
-import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.fone.fone.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -38,6 +36,8 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
+
 /**
  * Created by zyz on 2017/9/5.
  * 合作品牌
@@ -45,8 +45,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CooperativeBrandActivity extends BaseActivity {
     private RecyclerView recyclerView;
-    List<MyRechargeModel> list = new ArrayList<>();
-    CommonAdapter<MyRechargeModel> mAdapter;
+    List<Fragment1Model.CooperationBrandListBean> list1_tmep = new ArrayList<>();
+    List<Fragment1Model_P> list1 = new ArrayList<>();
+    CommonAdapter<Fragment1Model_P> mAdapter1;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -120,7 +121,7 @@ public class CooperativeBrandActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(CooperativeBrandActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CooperativeBrandActivity.this, URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -131,120 +132,90 @@ public class CooperativeBrandActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Fragment1Model response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表" + response);
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        /*list1.clear();
-                        List<String> img1 = new ArrayList<>();
-                        List<String> img2 = new ArrayList<>();
-                        List<String> img3 = new ArrayList<>();
-                        for (int i = 0; i < 10; i++) {
-                            switch (i % 3) {
-                                case 0:
-                                    img1.add(i + "");
-                                    break;
-                                case 1:
-                                    img2.add(i + "");
-                                    break;
-                                case 2:
-                                    img3.add(i + "");
-                                    break;
-                            }
+                list1_tmep = response.getCooperation_brand_list();
+                if (list1_tmep.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    list1.clear();
+                    List<String> img1 = new ArrayList<>();
+                    List<String> img2 = new ArrayList<>();
+                    List<String> img3 = new ArrayList<>();
+                    for (int i = 0; i < list1_tmep.size(); i++) {
+                        switch (i % 3) {
+                            case 0:
+                                img1.add(list1_tmep.get(i).getLogo());
+                                break;
+                            case 1:
+                                img2.add(list1_tmep.get(i).getLogo());
+                                break;
+                            case 2:
+                                img3.add(list1_tmep.get(i).getLogo());
+                                break;
                         }
+                    }
 
-                        for (int i = 0; i < img1.size(); i++) {
-                            String img_1 = img1.get(i);
-                            String img_2 = "";
-                            if (img2.size() > i) {
-                                img_2 = img2.get(i);
-                            }
-                            String img_3 = "";
-                            if (img3.size() > i) {
-                                img_3 = img3.get(i);
-                            }
-                            list1.add(new Fragment1Model_P(img_1, img_2, img_3));
+                    for (int i = 0; i < img1.size(); i++) {
+                        String img_1 = img1.get(i);
+                        String img_2 = "";
+                        if (img2.size() > i) {
+                            img_2 = img2.get(i);
                         }
+                        String img_3 = "";
+                        if (img3.size() > i) {
+                            img_3 = img3.get(i);
+                        }
+                        list1.add(new Fragment1Model_P(img_1, img_2, img_3));
+                    }
 
-                        MyLogger.i(">>>>>>>>>>" + list1.toString());
+                    MyLogger.i(">>>>>>>>>>" + list1.toString());
 
-                        mAdapter1 = new CommonAdapter<Fragment1Model_P>
-                                (getActivity(), R.layout.item_fragment1_1, list1) {
-                            @Override
-                            protected void convert(ViewHolder holder, Fragment1Model_P model, int position) {
-                                //第一张
-                                ImageView img1 = holder.getView(R.id.img1);
-                                Glide.with(getActivity()).load(IMGHOST + model.getImg1())
+                    mAdapter1 = new CommonAdapter<Fragment1Model_P>
+                            (CooperativeBrandActivity.this, R.layout.item_fragment1_1, list1) {
+                        @Override
+                        protected void convert(ViewHolder holder, Fragment1Model_P model, int position) {
+                            //第一张
+                            ImageView img1 = holder.getView(R.id.img1);
+                            Glide.with(CooperativeBrandActivity.this).load(IMGHOST + model.getImg1())
+                                    .centerCrop()
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.zanwutupian)//加载失败
+                                    .into(img1);//加载图片
+
+                            //第二张
+                            ImageView img2 = holder.getView(R.id.img2);
+                            if (!model.getImg2().equals("")) {
+                                holder.getView(R.id.view1).setVisibility(View.VISIBLE);
+                                Glide.with(CooperativeBrandActivity.this).load(IMGHOST + model.getImg2())
                                         .centerCrop()
                                         .placeholder(R.mipmap.loading)//加载站位图
                                         .error(R.mipmap.zanwutupian)//加载失败
-                                        .into(img1);//加载图片
-
-                                //第二张
-                                ImageView img2 = holder.getView(R.id.img2);
-                                if (!model.getImg2().equals("")) {
-                                    holder.getView(R.id.view1).setVisibility(View.VISIBLE);
-                                    Glide.with(getActivity()).load(IMGHOST + model.getImg2())
-                                            .centerCrop()
-                                            .placeholder(R.mipmap.loading)//加载站位图
-                                            .error(R.mipmap.zanwutupian)//加载失败
-                                            .into(img2);//加载图片
-                                } else {
-                                    holder.getView(R.id.view1).setVisibility(View.GONE);
-                                }
-
-                                //第三张
-                                ImageView img3 = holder.getView(R.id.img3);
-                                if (!model.getImg3().equals("")) {
-                                    holder.getView(R.id.view2).setVisibility(View.VISIBLE);
-                                    Glide.with(getActivity()).load(IMGHOST + model.getImg3())
-                                            .centerCrop()
-                                            .placeholder(R.mipmap.loading)//加载站位图
-                                            .error(R.mipmap.zanwutupian)//加载失败
-                                            .into(img3);//加载图片
-                                } else {
-                                    holder.getView(R.id.view2).setVisibility(View.GONE);
-                                }
-
-                            }
-                        };*/
-                        mAdapter = new CommonAdapter<MyRechargeModel>
-                                (CooperativeBrandActivity.this, R.layout.item_fragment1_1, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, MyRechargeModel model, int position) {
-                                holder.setText(R.id.textView1, model.getMoney_type_title() + getString(R.string.recharge_h5));//标题
-                                holder.setText(R.id.textView2, model.getCreated_at());//时间
-                                holder.setText(R.id.textView3, "+"+model.getMoney());//money
-                                holder.setText(R.id.textView4, model.getStatus_title());//状态
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(CooperativeBrandActivity.this, RechargeDetailActivity.class, bundle1, false);
+                                        .into(img2);//加载图片
+                            } else {
+                                holder.getView(R.id.view1).setVisibility(View.GONE);
                             }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
+                            //第三张
+                            ImageView img3 = holder.getView(R.id.img3);
+                            if (!model.getImg3().equals("")) {
+                                holder.getView(R.id.view2).setVisibility(View.VISIBLE);
+                                Glide.with(CooperativeBrandActivity.this).load(IMGHOST + model.getImg3())
+                                        .centerCrop()
+                                        .placeholder(R.mipmap.loading)//加载站位图
+                                        .error(R.mipmap.zanwutupian)//加载失败
+                                        .into(img3);//加载图片
+                            } else {
+                                holder.getView(R.id.view2).setVisibility(View.GONE);
                             }
-                        });
-                    }
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        }
+                    };
+
+                    showContentPage();
+                    recyclerView.setAdapter(mAdapter1);
+//                mAdapter1.notifyDataSetChanged();
                 }
             }
         });
@@ -252,7 +223,7 @@ public class CooperativeBrandActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(CooperativeBrandActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(CooperativeBrandActivity.this, URLs.Fragment1 + string, new OkHttpClientManager.ResultCallback<Fragment1Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -264,27 +235,52 @@ public class CooperativeBrandActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Fragment1Model response) {
                 showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
-                List<MyRechargeModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyRechargeModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
+                List<Fragment1Model.CooperationBrandListBean> list1_temp1 = new ArrayList<>();
+                list1_temp1 = response.getCooperation_brand_list();
+                if (list1_temp1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list1_tmep.addAll(list1_temp1);
+                    list1.clear();
+                    List<String> img1 = new ArrayList<>();
+                    List<String> img2 = new ArrayList<>();
+                    List<String> img3 = new ArrayList<>();
+                    for (int i = 0; i < list1_tmep.size(); i++) {
+                        switch (i % 3) {
+                            case 0:
+                                img1.add(list1_tmep.get(i).getLogo());
+                                break;
+                            case 1:
+                                img2.add(list1_tmep.get(i).getLogo());
+                                break;
+                            case 2:
+                                img3.add(list1_tmep.get(i).getLogo());
+                                break;
+                        }
                     }
 
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    for (int i = 0; i < img1.size(); i++) {
+                        String img_1 = img1.get(i);
+                        String img_2 = "";
+                        if (img2.size() > i) {
+                            img_2 = img2.get(i);
+                        }
+                        String img_3 = "";
+                        if (img3.size() > i) {
+                            img_3 = img3.get(i);
+                        }
+                        list1.add(new Fragment1Model_P(img_1, img_2, img_3));
+                    }
+
+                    MyLogger.i(">>>>>>>>>>" + list1.toString());
+
+                    mAdapter1.notifyDataSetChanged();
                 }
             }
         });

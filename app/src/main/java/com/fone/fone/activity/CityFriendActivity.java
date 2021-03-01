@@ -2,10 +2,31 @@ package com.fone.fone.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.fone.fone.R;
 import com.fone.fone.base.BaseActivity;
+import com.fone.fone.model.CityFriendModel;
+import com.fone.fone.net.OkHttpClientManager;
+import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
+import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
+import com.squareup.okhttp.Request;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
 
 
 /**
@@ -13,9 +34,11 @@ import com.liaoinstan.springview.widget.SpringView;
  * 城市合作伙伴-已申请
  */
 public class CityFriendActivity extends BaseActivity {
-    /*RelativeLayout relativeLayout;
-    TextView textView1, textView2, textView3, textView4, textView5,textView4_1, textView5_1,textView4_2, textView5_2, textView6, textView7, textView8, textView9, textView10;
-    ImageView imageView1, imageView2;*/
+    RecyclerView recyclerView;
+    List<CityFriendModel.ServiceCenterListBean> list = new ArrayList<>();
+    CommonAdapter<CityFriendModel.ServiceCenterListBean> mAdapter;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6;
+    ImageView imageView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,23 +74,16 @@ public class CityFriendActivity extends BaseActivity {
             }
         });
 
-        /*textView1 = findViewByID_My(R.id.textView1);
+        textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
         textView4 = findViewByID_My(R.id.textView4);
         textView5 = findViewByID_My(R.id.textView5);
-        textView4_1 = findViewByID_My(R.id.textView4_1);
-        textView5_1= findViewByID_My(R.id.textView5_1);
-        textView4_2 = findViewByID_My(R.id.textView4_2);
-        textView5_2= findViewByID_My(R.id.textView5_2);
         textView6 = findViewByID_My(R.id.textView6);
-        textView7 = findViewByID_My(R.id.textView7);
-        textView8 = findViewByID_My(R.id.textView8);
-        textView9 = findViewByID_My(R.id.textView9);
-        textView10 = findViewByID_My(R.id.textView10);
 
         imageView1 = findViewByID_My(R.id.imageView1);
-        imageView2 = findViewByID_My(R.id.imageView2);*/
+        recyclerView = findViewByID_My(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -83,7 +99,7 @@ public class CityFriendActivity extends BaseActivity {
     }
 
     private void request(String string) {
-        /*OkHttpClientManager.getAsyn(ServiceCenter_YesActivity.this, URLs.ServiceCenter + string, new OkHttpClientManager.ResultCallback<ServiceCenterModel>() {
+        OkHttpClientManager.getAsyn(CityFriendActivity.this, URLs.CityFriend + string, new OkHttpClientManager.ResultCallback<CityFriendModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -93,43 +109,55 @@ public class CityFriendActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(ServiceCenterModel response) {
+            public void onResponse(CityFriendModel response) {
                 MyLogger.i(">>>>>>>>>服务中心" + response);
                 hideProgress();
-                if (!response.getHead().equals(""))
-                    Glide.with(ServiceCenter_YesActivity.this).load(IMGHOST + response.getHead())
-                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView1);//加载图片
-                textView1.setText(response.getService_code());//服务码
-                textView2.setText(getString(R.string.myprofile_h53) + response.getNickname());//昵称
-                textView3.setText(response.getService_count());//服务人数
-                textView4.setText(response.getService_performance());//服务业绩
-                textView5.setText(response.getAmount_earning());//累计分红
+                Glide.with(CityFriendActivity.this).load(IMGHOST + response.getHead())
+                        .centerCrop()
+                        .placeholder(R.mipmap.loading)//加载站位图
+                        .error(R.mipmap.zanwutupian)//加载失败
+                        .into(imageView1);//加载图片
 
-                textView4_1.setText(response.getOfc_service_performance());//服务业绩
-                textView5_1.setText(response.getOfc_amount_earning());//累计分红
+                textView1.setText(response.getNickname());//服务码
+                textView2.setText(getString(R.string.myprofile_h24) + response.getService_code());//昵称
+                textView3.setText(response.getService_count());//绑定人数
+                textView4.setText(response.getService_performance_num());//销售设备
+                textView5.setText(response.getEarning_money());//收益分成
+                textView6.setText("¥ " + response.getEarning_money());//销售分成
 
-                textView4_2.setText(response.getDrvt_deal_performance());//交易业绩
-                textView5_2.setText(response.getDrvt_deal_bonus());//交易分红
+                list = response.getService_center_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<CityFriendModel.ServiceCenterListBean>
+                            (CityFriendActivity.this, R.layout.item_cityfriend, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, CityFriendModel.ServiceCenterListBean model, int position) {
+                            ImageView imageView1 = holder.getView(R.id.imageView1);
+                            Glide.with(CityFriendActivity.this)
+                                    .load(OkHttpClientManager.IMGHOST + model.getPic1())
+                                    .centerCrop()
+                                    .apply(RequestOptions.bitmapTransform(new
+                                            RoundedCorners(CommonUtil.dip2px(CityFriendActivity.this, 10))))
+                                    .placeholder(R.mipmap.loading)//加载站位图
+                                    .error(R.mipmap.headimg)//加载失败
+                                    .into(imageView1);//加载图片
 
-                textView6.setText(getString(R.string.myprofile_h37) + response.getService_center().getShow_created_at());//申请时间
+                            holder.setText(R.id.tv_name, model.getCode());
+                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
+                            holder.setText(R.id.tv_addr, model.getAddress());
+                            holder.setText(R.id.tv_num, model.getArea() + "㎡");
 
-                textView8.setText(response.getService_center().getAddr());//地址
-                textView9.setText(response.getService_center().getAddr_detail() + "  "
-                        + response.getService_center().getArea() + "㎡");//地址
-                textView10.setText(response.getService_center().getCode());//代码
+                        }
+                    };
 
-                if (!response.getService_center().getPic1().equals(""))
-                    Glide.with(ServiceCenter_YesActivity.this)
-                            .load(IMGHOST + response.getService_center().getPic1())
-                            .centerCrop()
-//                            .placeholder(R.mipmap.headimg)//加载站位图
-//                            .error(R.mipmap.headimg)//加载失败
-                            .into(imageView2);//加载图片
+                    showContentPage();
+                    recyclerView.setAdapter(mAdapter);
+//                mAdapter1.notifyDataSetChanged();
+                }
+
             }
-        });*/
+        });
     }
 
     @Override

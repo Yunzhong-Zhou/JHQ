@@ -19,6 +19,7 @@
             android:layout_height="30dp"
             android:gravity="center"
             android:text="V0"
+            android:visibility="gone"
             android:textColor="@color/black1"
             android:textSize="11sp" />
 
@@ -56,21 +57,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="code"
+                    android:visibility="gone"
                     android:layout_marginLeft="6dp"
                     android:textColor="@color/black3"
                     android:textSize="11sp" />
                 <ImageView
                     android:layout_width="13dp"
                     android:layout_height="13dp"
+                    android:visibility="gone"
                     android:src="@mipmap/ic_usdt_green"/>
-                <TextView
-                    android:id="@+id/tv_money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/black1"
-                    android:textSize="13sp" />
             </LinearLayout>
 
 
@@ -94,38 +89,16 @@
                     android:textColor="@color/green"
                     android:textSize="10sp" />
 
-                <TextView
-                    android:id="@+id/tv_suanli"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:background="@drawable/yuanjiaobiankuang_10_lvse"
-                    android:gravity="center"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="3dp"
-                    android:text="type"
-                    android:textColor="@color/green"
-                    android:textSize="10sp" />
-                <TextView
-                    android:id="@+id/tv_kuangji"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:background="@drawable/yuanjiaobiankuang_10_lvse"
-                    android:gravity="center"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="3dp"
-                    android:text="type"
-                    android:textColor="@color/green"
-                    android:textSize="10sp" />
-
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black1"
+            android:textSize="13sp" />
     </LinearLayout>
 
     <View

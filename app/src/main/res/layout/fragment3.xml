@@ -45,7 +45,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:background="@color/black"
                         android:src="@mipmap/bg_shareposter1" />
 
                     <ImageView
@@ -324,7 +323,7 @@
                         android:layout_height="wrap_content">
 
                         <com.lihang.ShadowLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="29dp"
@@ -340,17 +339,48 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/yuanjiao_15_baise"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp">
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="49dp"
                                     android:gravity="center"
+                                    android:text="@string/fragment3_h51"
                                     android:textColor="@color/black3"
                                     android:textSize="12sp"
-                                    android:text="@string/fragment3_h51" />
+                                    android:visibility="gone" />
 
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="49dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_10" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_2" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_3" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp"
+                                    android:layout_marginBottom="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_4" />
                             </LinearLayout>
                         </com.lihang.ShadowLayout>
 
@@ -366,12 +396,13 @@
                             android:textSize="12sp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <com.lihang.ShadowLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="12dp"
@@ -387,14 +418,24 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/yuanjiao_15_baise"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="49dp"
-                                    android:gravity="center"
-                                    android:text="@string/fragment3_h51" />
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_5" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp"
+                                    android:layout_marginBottom="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_6" />
 
                             </LinearLayout>
                         </com.lihang.ShadowLayout>
@@ -411,15 +452,16 @@
                             android:textSize="12sp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <com.lihang.ShadowLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="17dp"
+                            android:layout_marginTop="12dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginBottom="10dp"
                             app:hl_cornerRadius="15dp"
@@ -432,14 +474,32 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/yuanjiao_15_baise"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp">
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="49dp"
                                     android:gravity="center"
-                                    android:text="@string/fragment3_h51" />
+                                    android:visibility="gone"
+                                    android:text="@string/fragment3_h55" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="49dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_7" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="40dp"
+                                    android:layout_marginBottom="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_8" />
 
                             </LinearLayout>
                         </com.lihang.ShadowLayout>
@@ -456,17 +516,18 @@
                             android:textSize="12sp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <com.lihang.ShadowLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="17dp"
+                            android:layout_marginTop="12dp"
                             android:layout_marginRight="20dp"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="50dp"
                             app:hl_cornerRadius="15dp"
                             app:hl_shadowColor="#61ADA4A4"
                             app:hl_shadowLimit="5dp"
@@ -477,15 +538,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/yuanjiao_15_baise"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:paddingLeft="14dp"
+                                android:paddingRight="14dp">
 
-                                <TextView
+                                <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="49dp"
-                                    android:gravity="center"
-                                    android:text="@string/fragment3_h51" />
-
+                                    android:layout_marginBottom="40dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@mipmap/bg_fragment3_9" />
                             </LinearLayout>
                         </com.lihang.ShadowLayout>
 

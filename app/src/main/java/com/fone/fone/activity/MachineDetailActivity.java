@@ -31,7 +31,7 @@ public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
             textView9, textView10, textView11, textView12,textView13,textView14,textView15,
-            tv_zhuanrang,tv_shouhou, tv_title;
+            tv_zhuanrang,tv_huigou, tv_title;
     private RecyclerView recyclerView;
     List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
@@ -95,7 +95,7 @@ public class MachineDetailActivity extends BaseActivity {
 
         tv_title = findViewByID_My(R.id.tv_title);
         tv_zhuanrang = findViewByID_My(R.id.tv_zhuanrang);
-        tv_shouhou = findViewByID_My(R.id.tv_shouhou);
+        tv_huigou = findViewByID_My(R.id.tv_huigou);
 
 
         ll_jieidan = findViewByID_My(R.id.ll_jieidan);
@@ -186,9 +186,11 @@ public class MachineDetailActivity extends BaseActivity {
                 bundle1.putString("id", id);
                 CommonUtil.gotoActivityWithData(MachineDetailActivity.this, ZhuanRangActivity.class, bundle1, false);
                 break;
-            case R.id.tv_shouhou:
-                //售后
-
+            case R.id.tv_huigou:
+                //回购
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("id", id);
+                CommonUtil.gotoActivityWithData(MachineDetailActivity.this, HuiGouActivity.class, bundle2, false);
                 break;
         }
     }

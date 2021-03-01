@@ -59,6 +59,7 @@
     <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
     <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
     <activity android:name="com.fone.fone.activity.ZhuanRangActivity" android:label="转让设备"/>
+    <activity android:name="com.fone.fone.activity.HuiGouActivity" android:label="回购设备"/>
     <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼购详情"/>
     <activity android:name="com.fone.fone.activity.MyJoinListActivity" android:label="我的拼购"/>
     <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>

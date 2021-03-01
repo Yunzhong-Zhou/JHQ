@@ -57,7 +57,7 @@ public class AddCityFriendActivity extends BaseActivity {
     TextView textView1, textView2, textView3;
     EditText editText1, editText2;
     ImageView imageView1, imageView2, imageView3;
-    String addr = "", addr_detail = "", area = "";
+    String province = "", city = "", district = "", address = "", area = "";
     //省市
     CityConfig cityConfig = null;
     CityPickerView mPicker = new CityPickerView();
@@ -107,15 +107,15 @@ public class AddCityFriendActivity extends BaseActivity {
         //监听选择点击事件及返回结果
         mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
-            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
                 //省份province//城市city//地区district
-                addr = province.getName().toString() +
-                        city.getName().toString() +
-                        district.getName().toString();
+                province = province1.getName().toString();
+                city = city1.getName().toString();
+                district = district1.getName().toString();
 
-                textView1.setText(province.getName().toString());
-                textView2.setText(city.getName().toString());
-                textView3.setText(district.getName().toString());
+                textView1.setText(province1.getName().toString());
+                textView2.setText(city1.getName().toString());
+                textView3.setText(district1.getName().toString());
             }
 
             @Override
@@ -195,8 +195,10 @@ public class AddCityFriendActivity extends BaseActivity {
                         files = listFiles.toArray(new File[i]);
                     }
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("addr", addr);
-                    params.put("addr_detail", addr_detail);
+                    params.put("province", province);
+                    params.put("city", city);
+                    params.put("district", district);
+                    params.put("address", address);
                     params.put("area", area);
                     params.put("token", localUserInfo.getToken());
                     RequestSet(filenames, files, params);//
@@ -244,13 +246,21 @@ public class AddCityFriendActivity extends BaseActivity {
             myToast(getString(R.string.myprofile_h21));
             return false;
         }
-        addr_detail = editText2.getText().toString().trim();
-        if (TextUtils.isEmpty(addr_detail)) {
+        address = editText2.getText().toString().trim();
+        if (TextUtils.isEmpty(address)) {
             myToast(getString(R.string.myprofile_h22));
             return false;
         }
 
-        if (TextUtils.isEmpty(addr)) {
+        if (TextUtils.isEmpty(province)) {
+            myToast(getString(R.string.myprofile_h23));
+            return false;
+        }
+        if (TextUtils.isEmpty(city)) {
+            myToast(getString(R.string.myprofile_h23));
+            return false;
+        }
+        if (TextUtils.isEmpty(district)) {
             myToast(getString(R.string.myprofile_h23));
             return false;
         }

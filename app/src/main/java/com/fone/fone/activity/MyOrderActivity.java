@@ -279,7 +279,7 @@ public class MyOrderActivity extends BaseActivity {
                                                 dialog.dismiss();
                                                 showProgress(true, getString(R.string.app_loading1));
                                                 HashMap<String, String> params = new HashMap<>();
-                                                params.put("goods_id", model.getId());
+                                                params.put("id", model.getId());
                                                 params.put("pay_type", payType + "");
                                                 params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
@@ -372,7 +372,7 @@ public class MyOrderActivity extends BaseActivity {
 
     }
     private void RequestBuy(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.Fragment3Buy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.MyOrderBuy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -396,10 +396,10 @@ public class MyOrderActivity extends BaseActivity {
                 }
 
             }
-        }, true);
+        }, false);
     }
     private void RequestBuyCancel(Map<String, String> params) {
-        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.Fragment3Buy, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
+        OkHttpClientManager.postAsyn(MyOrderActivity.this, URLs.MyOrderCancel, params, new OkHttpClientManager.ResultCallback<Fragment3Model>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -415,10 +415,11 @@ public class MyOrderActivity extends BaseActivity {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买取消" + response);
+                myToast("取消成功");
                 requestServer();
 
             }
-        }, true);
+        }, false);
     }
     @Override
     public void onClick(View v) {

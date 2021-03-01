@@ -1,7 +1,9 @@
 package com.fone.fone.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fone.fone.R;
@@ -9,6 +11,7 @@ import com.fone.fone.base.BaseActivity;
 import com.fone.fone.model.DirectMemberModel;
 import com.fone.fone.net.OkHttpClientManager;
 import com.fone.fone.net.URLs;
+import com.fone.fone.utils.CommonUtil;
 import com.fone.fone.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -29,6 +32,7 @@ import static com.fone.fone.net.OkHttpClientManager.IMGHOST;
  * 直推会员
  */
 public class SharePeopleActivity extends BaseActivity {
+    TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8;
     private RecyclerView recyclerView;
     List<DirectMemberModel.DirectRecommendListBean> list = new ArrayList<>();
 
@@ -36,6 +40,7 @@ public class SharePeopleActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sharepeople);
+        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
     }
 
     @Override
@@ -58,8 +63,26 @@ public class SharePeopleActivity extends BaseActivity {
         recyclerView = findViewByID_My(R.id.recyclerView);
         final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLinearLayoutManager);
-    }
 
+        textView1 = findViewByID_My(R.id.textView1);
+        textView2 = findViewByID_My(R.id.textView2);
+        textView3 = findViewByID_My(R.id.textView3);
+        textView4 = findViewByID_My(R.id.textView4);
+        textView5 = findViewByID_My(R.id.textView5);
+        textView6 = findViewByID_My(R.id.textView6);
+        textView7 = findViewByID_My(R.id.textView7);
+        textView8 = findViewByID_My(R.id.textView8);
+
+    }
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.left_btn:
+                finish();
+                break;
+        }
+    }
     @Override
     protected void initData() {
         requestServer();
@@ -82,19 +105,22 @@ public class SharePeopleActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>直推会员" + response);
                 if (response != null) {
+                    textView1.setText(response.getGrade_1()+getString(R.string.app_ren));
+                    textView3.setText(response.getGrade_2()+getString(R.string.app_ren));
+                    textView5.setText(response.getGrade_3()+getString(R.string.app_ren));
+                    textView7.setText(response.getGrade_4()+getString(R.string.app_ren));
+
                     list = response.getDirect_recommend_list();
                     if (list.size() > 0) {
                         CommonAdapter<DirectMemberModel.DirectRecommendListBean> mAdapter = new CommonAdapter<DirectMemberModel.DirectRecommendListBean>(
                                 SharePeopleActivity.this, R.layout.item_sharepeople, list) {
                             @Override
                             protected void convert(ViewHolder holder, DirectMemberModel.DirectRecommendListBean model, int position) {
-                                holder.setText(R.id.tv_num, model.getGrade_title());
+//                                holder.setText(R.id.tv_num, model.getGrade_title());
                                 holder.setText(R.id.tv_name, model.getNickname());
-                                holder.setText(R.id.tv_code, "（"+getString(R.string.fragment5_h1)+model.getInvite_code()+")");
-                                holder.setText(R.id.tv_money, model.getAmount_performance_money());
-                                holder.setText(R.id.tv_pintuan, getString(R.string.share_h60)+model.getAmount_change_game_money());
-                                holder.setText(R.id.tv_suanli, getString(R.string.share_h61)+model.getBuy_invest_money());
-                                holder.setText(R.id.tv_kuangji, getString(R.string.share_h62)+model.getAll_invest_money());
+//                                holder.setText(R.id.tv_code, "（"+getString(R.string.fragment5_h1)+model.getInvite_code()+")");
+                                holder.setText(R.id.tv_money, model.getOrder_goods_count()+getString(R.string.app_tai));
+                                holder.setText(R.id.tv_pintuan, model.getGrade_title());
 
                                 ImageView iv_head = holder.getView(R.id.iv_head);
                                 Glide.with(SharePeopleActivity.this)
@@ -129,7 +155,7 @@ public class SharePeopleActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(getString(R.string.share_h56));
-//        titleView.setVisibility(View.GONE);
+//        titleView.setTitle(getString(R.string.share_h56));
+        titleView.setVisibility(View.GONE);
     }
 }
