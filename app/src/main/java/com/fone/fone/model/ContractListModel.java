@@ -7,30 +7,31 @@ import java.util.List;
  * Created by Mr.Z on 2020/12/23.
  */
 public class ContractListModel implements Serializable {
+
     /**
-     * invoice_list : [{"member_id":"ec75507f915cb412b35299b11e672fa5","type":1,"cny_money":"1000.00","created_at":"2020-12-23 18:03:23","type_title":"电子"},{"member_id":"ec75507f915cb412b35299b11e672fa5","type":2,"cny_money":"1000.00","created_at":"2020-12-23 14:54:03","type_title":"纸质"},{"member_id":"ec75507f915cb412b35299b11e672fa5","type":2,"cny_money":"1000.00","created_at":"2020-12-23 14:21:17","type_title":"纸质"}]
-     * invoice_money : 447.7611
-     * residue_invoice_cny_money : 184600.00
+     * invoice_list : [{"member_id":"5304cafc529e02a7838ef07167666600","type":1,"money":"100.0000","created_at":"2021-03-02 20:28:42","type_title":"电子"}]
+     * invoice_money : 100.0000
+     * residue_invoice_money : 100.0000
      */
 
-    private String invoice_cny_money;
-    private String residue_invoice_cny_money;
+    private String invoice_money;
+    private String residue_invoice_money;
     private List<InvoiceListBean> invoice_list;
 
-    public String getInvoice_cny_money() {
-        return invoice_cny_money;
+    public String getInvoice_money() {
+        return invoice_money;
     }
 
-    public void setInvoice_cny_money(String invoice_cny_money) {
-        this.invoice_cny_money = invoice_cny_money;
+    public void setInvoice_money(String invoice_money) {
+        this.invoice_money = invoice_money;
     }
 
-    public String getResidue_invoice_cny_money() {
-        return residue_invoice_cny_money;
+    public String getResidue_invoice_money() {
+        return residue_invoice_money;
     }
 
-    public void setResidue_invoice_cny_money(String residue_invoice_cny_money) {
-        this.residue_invoice_cny_money = residue_invoice_cny_money;
+    public void setResidue_invoice_money(String residue_invoice_money) {
+        this.residue_invoice_money = residue_invoice_money;
     }
 
     public List<InvoiceListBean> getInvoice_list() {
@@ -43,16 +44,16 @@ public class ContractListModel implements Serializable {
 
     public static class InvoiceListBean {
         /**
-         * member_id : ec75507f915cb412b35299b11e672fa5
+         * member_id : 5304cafc529e02a7838ef07167666600
          * type : 1
-         * cny_money : 1000.00
-         * created_at : 2020-12-23 18:03:23
+         * money : 100.0000
+         * created_at : 2021-03-02 20:28:42
          * type_title : 电子
          */
 
         private String member_id;
         private int type;
-        private String cny_money;
+        private String money;
         private String created_at;
         private String type_title;
 
@@ -72,12 +73,12 @@ public class ContractListModel implements Serializable {
             this.type = type;
         }
 
-        public String getCny_money() {
-            return cny_money;
+        public String getMoney() {
+            return money;
         }
 
-        public void setCny_money(String cny_money) {
-            this.cny_money = cny_money;
+        public void setMoney(String money) {
+            this.money = money;
         }
 
         public String getCreated_at() {

@@ -210,7 +210,7 @@ public class CityFriendListActivity extends BaseActivity {
                                     .error(R.mipmap.zanwutupian)//加载失败
                                     .into(imageView1);//加载图片
 
-                            holder.setText(R.id.tv_name, model.getCode());
+                            holder.setText(R.id.tv_name, model.getTitle());
                             holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
                             holder.setText(R.id.tv_addr, model.getAddress());
                             holder.setText(R.id.tv_num, model.getArea() + "㎡");

@@ -7,10 +7,16 @@ import java.util.List;
  * Created by zyz on 2020/7/6.
  */
 public class Fragment1Model implements Serializable {
-
     private List<CooperationBrandListBean> cooperation_brand_list;
     private List<CooperationShopListBean> cooperation_shop_list;
     private List<IndustryListBean> industry_list;
+    /**
+     * brand_count : 0
+     * install_num : 0
+     */
+
+    private String brand_count;
+    private String install_num;
 
     public List<CooperationBrandListBean> getCooperation_brand_list() {
         return cooperation_brand_list;
@@ -34,6 +40,22 @@ public class Fragment1Model implements Serializable {
 
     public void setIndustry_list(List<IndustryListBean> industry_list) {
         this.industry_list = industry_list;
+    }
+
+    public String getBrand_count() {
+        return brand_count;
+    }
+
+    public void setBrand_count(String brand_count) {
+        this.brand_count = brand_count;
+    }
+
+    public String getInstall_num() {
+        return install_num;
+    }
+
+    public void setInstall_num(String install_num) {
+        this.install_num = install_num;
     }
 
     public static class CooperationBrandListBean {

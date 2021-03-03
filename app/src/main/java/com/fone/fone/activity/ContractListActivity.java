@@ -100,8 +100,8 @@ public class ContractListActivity extends BaseActivity {
             public void onResponse(ContractListModel response) {
                 showContentPage();
                 onHttpResult();
-                textView1.setText(response.getInvoice_cny_money());
-                textView2.setText(response.getResidue_invoice_cny_money());
+                textView1.setText(response.getInvoice_money());
+                textView2.setText(response.getResidue_invoice_money());
                 list = response.getInvoice_list();
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
@@ -111,7 +111,7 @@ public class ContractListActivity extends BaseActivity {
                         @Override
                         protected void convert(ViewHolder holder, ContractListModel.InvoiceListBean model, int position) {
                             holder.setText(R.id.textView1, model.getCreated_at());//时间
-                            holder.setText(R.id.textView2, "¥"+model.getCny_money());//金额
+                            holder.setText(R.id.textView2, "¥"+model.getMoney());//金额
                             holder.setText(R.id.textView3, model.getType_title());
                         }
                     };

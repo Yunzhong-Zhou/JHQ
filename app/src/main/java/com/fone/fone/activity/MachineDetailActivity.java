@@ -145,8 +145,8 @@ public class MachineDetailActivity extends BaseActivity {
                 textView4.setText(response.getTop_up().getGoods_sn()+ "");//设备ID
                 textView5.setText(response.getTop_up().getOperation_type_title() + "");//运营方式
                 textView6.setText(response.getTop_up().getPut_business() + "");//设备行业
-                textView7.setText(response.getTop_up().getPut_business() + "");//设备品牌
-                textView8.setText(response.getTop_up().getPut_address() + "");//设备门店
+                textView7.setText(response.getTop_up().getGoods_brand() + "");//设备品牌
+                textView8.setText(response.getTop_up().getPut_title() + "");//设备门店
                 textView9.setText(response.getTop_up().getPut_address() + "");//设备位置
                 textView10.setText(response.getTop_up().getCreated_at() + "");//购买时间
                 textView11.setText(response.getTop_up().getInstall_at() + "");//安装时间

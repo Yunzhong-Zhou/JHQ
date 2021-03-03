@@ -8,13 +8,14 @@ import java.util.List;
  */
 public class CityFriendModel implements Serializable {
     /**
-     * head : /head/160.png
+     * head : /upload/head/2021-03-01/9c62f54b4e0b949b517f18b9fa507bf7.jpg
      * nickname : 空气净化器_bqtu
      * service_code : 567276
      * service_count : 1
      * service_performance_num : 0
-     * earning_money : 100
-     * service_center_list : [{"area":123123,"province":"浙江","city":"舟山","district":"普陀区","address":"123123213","pic1":"/upload/service-center/2021-02-28/6b3b5dae805b37e6bf41e31639ce4605.png","pic2":"/upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png","pic3":"/upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png","code":"567276","created_at":"2021-02-28 00:48:11"}]
+     * use_earning_money : 0
+     * sell_earning_money : 0
+     * service_center_list : [{"title":"","area":100,"province":"重庆市","city":"沙坪坝","district":"没得","address":"是多少多少","pic1":"/upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg","pic2":"/upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg","pic3":"/upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg","code":"252363","created_at":"2021-02-26 10:40:02"},{"title":"","area":123123,"province":"浙江","city":"舟山","district":"普陀区","address":"123123213","pic1":"/upload/service-center/2021-02-28/6b3b5dae805b37e6bf41e31639ce4605.png","pic2":"/upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png","pic3":"/upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png","code":"567276","created_at":"2021-02-28 00:48:11"}]
      */
 
     private String head;
@@ -22,7 +23,8 @@ public class CityFriendModel implements Serializable {
     private String service_code;
     private String service_count;
     private String service_performance_num;
-    private String earning_money;
+    private String use_earning_money;
+    private String sell_earning_money;
     private List<ServiceCenterListBean> service_center_list;
 
     public String getHead() {
@@ -65,12 +67,20 @@ public class CityFriendModel implements Serializable {
         this.service_performance_num = service_performance_num;
     }
 
-    public String getEarning_money() {
-        return earning_money;
+    public String getUse_earning_money() {
+        return use_earning_money;
     }
 
-    public void setEarning_money(String earning_money) {
-        this.earning_money = earning_money;
+    public void setUse_earning_money(String use_earning_money) {
+        this.use_earning_money = use_earning_money;
+    }
+
+    public String getSell_earning_money() {
+        return sell_earning_money;
+    }
+
+    public void setSell_earning_money(String sell_earning_money) {
+        this.sell_earning_money = sell_earning_money;
     }
 
     public List<ServiceCenterListBean> getService_center_list() {
@@ -83,18 +93,20 @@ public class CityFriendModel implements Serializable {
 
     public static class ServiceCenterListBean {
         /**
-         * area : 123123
-         * province : 浙江
-         * city : 舟山
-         * district : 普陀区
-         * address : 123123213
-         * pic1 : /upload/service-center/2021-02-28/6b3b5dae805b37e6bf41e31639ce4605.png
-         * pic2 : /upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png
-         * pic3 : /upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png
-         * code : 567276
-         * created_at : 2021-02-28 00:48:11
+         * title :
+         * area : 100
+         * province : 重庆市
+         * city : 沙坪坝
+         * district : 没得
+         * address : 是多少多少
+         * pic1 : /upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg
+         * pic2 : /upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg
+         * pic3 : /upload/service-center/2021-02-26/bb02d1900c882e43f8ce4e2383f1b8ed.jpg
+         * code : 252363
+         * created_at : 2021-02-26 10:40:02
          */
 
+        private String title;
         private String area;
         private String province;
         private String city;
@@ -105,6 +117,14 @@ public class CityFriendModel implements Serializable {
         private String pic3;
         private String code;
         private String created_at;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
         public String getArea() {
             return area;

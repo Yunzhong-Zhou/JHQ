@@ -128,7 +128,7 @@ public class ShouHuiActivity extends BaseActivity {
                     }*/
 //                    hk = response.getHk();
                     editText1.setText(response.getMobile());
-                    textView1.setText(getString(R.string.scavengingpayment_h12)+response.getBuy_back_ratio());
+                    textView1.setText(getString(R.string.scavengingpayment_h12)+response.getGoods_sn());
 
                 }
             }

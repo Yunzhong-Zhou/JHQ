@@ -9,16 +9,13 @@ import java.util.List;
 public class MachineDetailModel implements Serializable {
 
     /**
-     * top_up : {"id":"ac29978e56d429088a040a7fa6620c68","buy_type":1,"operation_type":1,"source_type":1,"money":"200.00","status":1,"goods_sn":"","put_business":"","put_title":"","put_address":"","install_at":null,"run_at":null,"earning_money":"0.00","created_at":"2021-02-26 13:23:13","buy_type_title":"不能回购","operation_type_title":"代运营","source_type_title":"购买","status_title":"待发货","earning_ratio":60,"earning_list":[{"id":"c6b892875c10fe3c322a7824","sn":"WI1614312676525597","input_money":"100.0000","money":"97.0000","status":1,"created_at":"2021-02-26 12:11:16","status_title":"待审核"}]}
-     */
-
-    private TopUpBean top_up;
-    /**
+     * top_up : {"id":"eeb093f0909d573e22ffa5199410bd72","goods_brand":"万豪酒店","buy_type":2,"operation_type":1,"source_type":1,"money":"100.00","status":6,"goods_sn":"s006","put_business":"餐饮","put_title":"万豪华（国贸店）","put_address":"重庆","install_at":"2021-03-02 22:01:48","run_at":"2021-03-02 22:02:04","earning_money":"120.00","created_at":"2021-03-02 21:56:33","buy_type_title":"能回购","operation_type_title":"代运营","source_type_title":"购买","status_title":"永久转出","earning_ratio":40,"earning_list":[{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:50"},{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:49"},{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:48"}]}
      * is_transfer : 1
      * is_buy_back : 1
      * is_take_back : 1
      */
 
+    private TopUpBean top_up;
     private int is_transfer;
     private int is_buy_back;
     private int is_take_back;
@@ -57,29 +54,31 @@ public class MachineDetailModel implements Serializable {
 
     public static class TopUpBean {
         /**
-         * id : ac29978e56d429088a040a7fa6620c68
-         * buy_type : 1
+         * id : eeb093f0909d573e22ffa5199410bd72
+         * goods_brand : 万豪酒店
+         * buy_type : 2
          * operation_type : 1
          * source_type : 1
-         * money : 200.00
-         * status : 1
-         * goods_sn :
-         * put_business :
-         * put_title :
-         * put_address :
-         * install_at : null
-         * run_at : null
-         * earning_money : 0.00
-         * created_at : 2021-02-26 13:23:13
-         * buy_type_title : 不能回购
+         * money : 100.00
+         * status : 6
+         * goods_sn : s006
+         * put_business : 餐饮
+         * put_title : 万豪华（国贸店）
+         * put_address : 重庆
+         * install_at : 2021-03-02 22:01:48
+         * run_at : 2021-03-02 22:02:04
+         * earning_money : 120.00
+         * created_at : 2021-03-02 21:56:33
+         * buy_type_title : 能回购
          * operation_type_title : 代运营
          * source_type_title : 购买
-         * status_title : 待发货
-         * earning_ratio : 60
-         * earning_list : [{"id":"c6b892875c10fe3c322a7824","sn":"WI1614312676525597","input_money":"100.0000","money":"97.0000","status":1,"created_at":"2021-02-26 12:11:16","status_title":"待审核"}]
+         * status_title : 永久转出
+         * earning_ratio : 40
+         * earning_list : [{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:50"},{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:49"},{"order_goods_id":"eeb093f0909d573e22ffa5199410bd72","money":"100.0000","created_at":"2021-03-02 22:02:48"}]
          */
 
         private String id;
+        private String goods_brand;
         private int buy_type;
         private int operation_type;
         private int source_type;
@@ -97,7 +96,7 @@ public class MachineDetailModel implements Serializable {
         private String operation_type_title;
         private String source_type_title;
         private String status_title;
-        private String earning_ratio;
+        private int earning_ratio;
         private List<EarningListBean> earning_list;
 
         public String getId() {
@@ -106,6 +105,14 @@ public class MachineDetailModel implements Serializable {
 
         public void setId(String id) {
             this.id = id;
+        }
+
+        public String getGoods_brand() {
+            return goods_brand;
+        }
+
+        public void setGoods_brand(String goods_brand) {
+            this.goods_brand = goods_brand;
         }
 
         public int getBuy_type() {
@@ -244,11 +251,11 @@ public class MachineDetailModel implements Serializable {
             this.status_title = status_title;
         }
 
-        public String getEarning_ratio() {
+        public int getEarning_ratio() {
             return earning_ratio;
         }
 
-        public void setEarning_ratio(String earning_ratio) {
+        public void setEarning_ratio(int earning_ratio) {
             this.earning_ratio = earning_ratio;
         }
 
@@ -262,45 +269,21 @@ public class MachineDetailModel implements Serializable {
 
         public static class EarningListBean {
             /**
-             * id : c6b892875c10fe3c322a7824
-             * sn : WI1614312676525597
-             * input_money : 100.0000
-             * money : 97.0000
-             * status : 1
-             * created_at : 2021-02-26 12:11:16
-             * status_title : 待审核
+             * order_goods_id : eeb093f0909d573e22ffa5199410bd72
+             * money : 100.0000
+             * created_at : 2021-03-02 22:02:50
              */
 
-            private String id;
-            private String sn;
-            private String input_money;
+            private String order_goods_id;
             private String money;
-            private int status;
             private String created_at;
-            private String status_title;
 
-            public String getId() {
-                return id;
+            public String getOrder_goods_id() {
+                return order_goods_id;
             }
 
-            public void setId(String id) {
-                this.id = id;
-            }
-
-            public String getSn() {
-                return sn;
-            }
-
-            public void setSn(String sn) {
-                this.sn = sn;
-            }
-
-            public String getInput_money() {
-                return input_money;
-            }
-
-            public void setInput_money(String input_money) {
-                this.input_money = input_money;
+            public void setOrder_goods_id(String order_goods_id) {
+                this.order_goods_id = order_goods_id;
             }
 
             public String getMoney() {
@@ -311,14 +294,6 @@ public class MachineDetailModel implements Serializable {
                 this.money = money;
             }
 
-            public int getStatus() {
-                return status;
-            }
-
-            public void setStatus(int status) {
-                this.status = status;
-            }
-
             public String getCreated_at() {
                 return created_at;
             }
@@ -326,15 +301,6 @@ public class MachineDetailModel implements Serializable {
             public void setCreated_at(String created_at) {
                 this.created_at = created_at;
             }
-
-            public String getStatus_title() {
-                return status_title;
-            }
-
-            public void setStatus_title(String status_title) {
-                this.status_title = status_title;
-            }
         }
     }
-
 }

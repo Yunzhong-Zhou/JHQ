@@ -19,6 +19,7 @@ public class CityFriendListModel implements Serializable {
 
     public static class ServiceCenterListBean {
         /**
+         * title :
          * area : 123123
          * province : 浙江
          * city : 舟山
@@ -28,8 +29,11 @@ public class CityFriendListModel implements Serializable {
          * pic2 : /upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png
          * pic3 : /upload/service-center/2021-02-28/3d9352f8604ee97ae704acc846612398.png
          * code : 567276
+         * grade : 1
+         * grade_title : 一级
          */
 
+        private String title;
         private int area;
         private String province;
         private String city;
@@ -39,6 +43,16 @@ public class CityFriendListModel implements Serializable {
         private String pic2;
         private String pic3;
         private String code;
+        private int grade;
+        private String grade_title;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
         public int getArea() {
             return area;
@@ -110,6 +124,22 @@ public class CityFriendListModel implements Serializable {
 
         public void setCode(String code) {
             this.code = code;
+        }
+
+        public int getGrade() {
+            return grade;
+        }
+
+        public void setGrade(int grade) {
+            this.grade = grade;
+        }
+
+        public String getGrade_title() {
+            return grade_title;
+        }
+
+        public void setGrade_title(String grade_title) {
+            this.grade_title = grade_title;
         }
     }
 }

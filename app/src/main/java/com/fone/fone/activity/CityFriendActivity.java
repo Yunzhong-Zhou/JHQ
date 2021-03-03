@@ -118,12 +118,12 @@ public class CityFriendActivity extends BaseActivity {
                         .error(R.mipmap.zanwutupian)//加载失败
                         .into(imageView1);//加载图片
 
-                textView1.setText(response.getNickname());//服务码
-                textView2.setText(getString(R.string.myprofile_h24) + response.getService_code());//昵称
+                textView1.setText(response.getNickname());//昵称
+                textView2.setText(getString(R.string.myprofile_h24) + response.getService_code());//服务码
                 textView3.setText(response.getService_count());//绑定人数
                 textView4.setText(response.getService_performance_num());//销售设备
-                textView5.setText(response.getEarning_money());//收益分成
-                textView6.setText("¥ " + response.getEarning_money());//销售分成
+                textView5.setText(response.getUse_earning_money());//收益分成
+                textView6.setText("¥ " + response.getSell_earning_money());//销售分成
 
                 list = response.getService_center_list();
                 if (list.size() == 0) {
@@ -143,7 +143,7 @@ public class CityFriendActivity extends BaseActivity {
                                     .error(R.mipmap.zanwutupian)//加载失败
                                     .into(imageView1);//加载图片
 
-                            holder.setText(R.id.tv_name, model.getCode());
+                            holder.setText(R.id.tv_name, model.getTitle());
                             holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
                             holder.setText(R.id.tv_addr, model.getAddress());
                             holder.setText(R.id.tv_num, model.getArea() + "㎡");

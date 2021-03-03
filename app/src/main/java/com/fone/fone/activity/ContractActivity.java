@@ -252,7 +252,7 @@ public class ContractActivity extends BaseActivity {
                         showContentPage();
                         hideProgress();
                         model = response;
-                        tv_moeny.setText("¥" + response.getResidue_invoice_cny_money());
+                        tv_moeny.setText("¥" + response.getResidue_invoice_money());
                         if (!response.getType().equals("0")) {
                             editText1_1.setFocusable(false);
                             editText2_1.setFocusable(false);
@@ -514,7 +514,7 @@ public class ContractActivity extends BaseActivity {
                                     showProgress(true, getString(R.string.app_loading1));
                                     HashMap<String, String> params = new HashMap<>();
                                     params.put("type", type3);
-                                    params.put("cny_money", cny_money);
+                                    params.put("money", cny_money);
                                     params.put("token", localUserInfo.getToken());
                                     params.put("contract_id", model.getId());
                                     RequestUpData3(params);

@@ -129,7 +129,7 @@ public class HuiGouActivity extends BaseActivity {
                     }*/
 //                    hk = response.getHk();
                     editText1.setText(response.getBuy_back_company());
-                    textView1.setText(getString(R.string.scavengingpayment_h12)+response.getBuy_back_ratio());
+                    textView1.setText(getString(R.string.scavengingpayment_h12)+response.getGoods_sn());
                     tv_zhejiu.setText(response.getBuy_back_ratio()+"%");
                     tv_money.setText("¥ "+response.getBuy_back_money());
 

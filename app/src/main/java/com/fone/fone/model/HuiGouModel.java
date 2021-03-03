@@ -35,6 +35,15 @@ public class HuiGouModel implements Serializable {
     private String buy_back_company;
     private String buy_back_money;
     private String trade_password;
+    private String goods_sn;
+
+    public String getGoods_sn() {
+        return goods_sn;
+    }
+
+    public void setGoods_sn(String goods_sn) {
+        this.goods_sn = goods_sn;
+    }
 
     public String getTrade_password() {
         return trade_password;

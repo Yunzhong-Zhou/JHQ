@@ -26,16 +26,7 @@ public class ContractModel implements Serializable {
     private String mobile;
     private String addr;
     private String url;
-    private String residue_invoice_cny_money;
-    private String usdt_cny_price;
-
-    public String getUsdt_cny_price() {
-        return usdt_cny_price;
-    }
-
-    public void setUsdt_cny_price(String usdt_cny_price) {
-        this.usdt_cny_price = usdt_cny_price;
-    }
+    private String residue_invoice_money;
 
     public String getId() {
         return id;
@@ -109,11 +100,11 @@ public class ContractModel implements Serializable {
         this.addr = addr;
     }
 
-    public String getResidue_invoice_cny_money() {
-        return residue_invoice_cny_money;
+    public String getResidue_invoice_money() {
+        return residue_invoice_money;
     }
 
-    public void setResidue_invoice_cny_money(String residue_invoice_cny_money) {
-        this.residue_invoice_cny_money = residue_invoice_cny_money;
+    public void setResidue_invoice_money(String residue_invoice_money) {
+        this.residue_invoice_money = residue_invoice_money;
     }
 }
