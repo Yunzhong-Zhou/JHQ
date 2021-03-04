@@ -388,6 +388,10 @@
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/view_empty.xml"
     },
     {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/layout_item_fragment3_2.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/layout/item_fragment3_2.xml"
     },
@@ -734,6 +738,10 @@
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_yuanhuan_huise.xml.flat",
         "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/drawable/yuanhuan_huise.xml"
+    },
+    {
+        "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/res/merged/debug/drawable_sanjiaoxing_left_hongse.xml.flat",

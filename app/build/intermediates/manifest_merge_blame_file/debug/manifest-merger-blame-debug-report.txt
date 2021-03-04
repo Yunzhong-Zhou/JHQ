@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.fone.fone"
+3    package="com.filter.filter"
 4    android:versionCode="2"
 5    android:versionName="1.0" >
 6
@@ -86,26 +86,26 @@
 46-->[com.mob:MobGuardMC:2021.0222.1114] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/ec45623b04f01046c2c650cff6157202/jetified-MobGuardMC-2021.0222.1114/AndroidManifest.xml:9:20-74
 47    <permission
 47-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:10:5-12:55
-48        android:name="com.fone.fone.permission.PROCESS_PUSH_MSG"
+48        android:name="com.filter.filter.permission.PROCESS_PUSH_MSG"
 48-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:11:9-68
 49        android:protectionLevel="signatureOrSystem" />
 49-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:12:9-52
 50    <permission
 50-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:13:5-15:55
-51        android:name="com.fone.fone.permission.PUSH_PROVIDER"
+51        android:name="com.filter.filter.permission.PUSH_PROVIDER"
 51-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:14:9-65
 52        android:protectionLevel="signatureOrSystem" />
 52-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:15:9-52
 53    <permission
 53-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:16:5-18:55
-54        android:name="com.fone.fone.permission.PUSH_WRITE_PROVIDER"
+54        android:name="com.filter.filter.permission.PUSH_WRITE_PROVIDER"
 54-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:17:9-71
 55        android:protectionLevel="signatureOrSystem" /> <!-- 注意这里.permission.PASSBY_MSG是自身app的包名 + .permission.PROCESS_PUSH_MSG -->
 55-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:18:9-52
-56    <uses-permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" />
+56    <uses-permission android:name="com.filter.filter.permission.PROCESS_PUSH_MSG" />
 56-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:20:5-84
 56-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:20:22-81
-57    <uses-permission android:name="com.fone.fone.permission.PUSH_PROVIDER" />
+57    <uses-permission android:name="com.filter.filter.permission.PUSH_PROVIDER" />
 57-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:21:5-81
 57-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:21:22-78
 58    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
@@ -123,8 +123,8 @@
 64    -->
 65    <application
 65-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:48:5-347:19
-66        android:name="com.fone.fone.MyApplication"
-66-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:49:9-51
+66        android:name="com.filter.filter.MyApplication"
+66-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:49:9-55
 67        android:allowBackup="true"
 67-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:50:9-35
 68        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -156,8 +156,8 @@
 82-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:61:9-44
 83        <activity
 83-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:62:9-70:20
-84            android:name="com.fone.fone.activity.HelloActivity"
-84-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:63:13-64
+84            android:name="com.filter.filter.activity.HelloActivity"
+84-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:63:13-68
 85            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- //全屏 -->
 85-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:64:13-71
 86            <intent-filter>
@@ -173,35 +173,35 @@
 91        </activity>
 92        <activity
 92-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:72:9-74:35
-93            android:name="com.fone.fone.utils.permission.PermissionsActivity"
-93-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:73:13-78
+93            android:name="com.filter.filter.utils.permission.PermissionsActivity"
+93-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:73:13-82
 94            android:label="权限页" />
 94-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:74:13-32
 95        <activity
 95-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:75:9-78:74
-96            android:name="com.fone.fone.activity.GuideActivity"
-96-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:76:13-64
+96            android:name="com.filter.filter.activity.GuideActivity"
+96-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:76:13-68
 97            android:label="引导页"
 97-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:77:13-32
 98            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 98-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:78:13-71
 99        <activity
 99-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:80:9-82:36
-100            android:name="com.fone.fone.activity.SelectCountryActivity"
-100-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:81:13-72
+100            android:name="com.filter.filter.activity.SelectCountryActivity"
+100-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:81:13-76
 101            android:label="选择国家" />
 101-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:82:13-33
 102        <activity
 102-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:83:9-91:20
-103            android:name="com.fone.fone.activity.MainActivity"
-103-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:84:13-63
+103            android:name="com.filter.filter.activity.MainActivity"
+103-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:84:13-67
 104            android:label="主页" >
 104-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:85:13-31
 105
 106            <!-- 点击通知默认打开 -->
 107            <intent-filter>
 107-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:87:13-90:29
-108                <action android:name="com.fone.fone.default.MAIN" />
+108                <action android:name="com.filter.filter.default.MAIN" />
 108-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:88:25-69
 109
 110                <category android:name="android.intent.category.DEFAULT" />
@@ -211,26 +211,26 @@
 112        </activity>
 113        <activity
 113-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:92:9-94:34
-114            android:name="com.fone.fone.activity.LoginActivity"
-114-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:93:13-64
+114            android:name="com.filter.filter.activity.LoginActivity"
+114-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:93:13-68
 115            android:label="登录" />
 115-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:94:13-31
 116        <activity
 116-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:95:9-97:36
-117            android:name="com.fone.fone.activity.ForgetPasswordActivity"
-117-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:96:13-73
+117            android:name="com.filter.filter.activity.ForgetPasswordActivity"
+117-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:96:13-77
 118            android:label="忘记密码" />
 118-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:97:13-33
 119        <activity
 119-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:98:9-100:34
-120            android:name="com.fone.fone.activity.RegisteredActivity"
-120-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:99:13-69
+120            android:name="com.filter.filter.activity.RegisteredActivity"
+120-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:99:13-73
 121            android:label="注册" />
 121-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:100:13-31
 122        <activity
 122-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:101:9-109:20
-123            android:name="com.fone.fone.activity.WebContentActivity"
-123-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:102:13-69
+123            android:name="com.filter.filter.activity.WebContentActivity"
+123-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:102:13-73
 124            android:label="网页" >
 124-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:103:13-31
 125
@@ -244,327 +244,327 @@
 133        </activity>
 134        <activity
 134-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:110:9-112:33
-135            android:name="com.fone.fone.activity.WebContentActivity1"
-135-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:111:13-70
+135            android:name="com.filter.filter.activity.WebContentActivity1"
+135-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:111:13-74
 136            android:label="网页" />
 136-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:112:13-31
 137        <activity
 137-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:114:9-116:36
-138            android:name="com.fone.fone.activity.JoinListActivity"
-138-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:115:13-67
+138            android:name="com.filter.filter.activity.JoinListActivity"
+138-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:115:13-71
 139            android:label="拼购列表" />
 139-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:116:13-33
 140        <activity
 140-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:117:9-119:35
-141            android:name="com.fone.fone.activity.LeaderboardActivity"
-141-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:118:13-70
+141            android:name="com.filter.filter.activity.LeaderboardActivity"
+141-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:118:13-74
 142            android:label="排行榜" />
 142-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:119:13-32
 143        <!-- 我的 -->
 144        <activity
 144-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:121:9-123:36
-145            android:name="com.fone.fone.activity.AboutActivity"
-145-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:122:13-64
+145            android:name="com.filter.filter.activity.AboutActivity"
+145-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:122:13-68
 146            android:label="关于我们" />
 146-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:123:13-33
 147        <activity
 147-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:124:9-126:34
-148            android:name="com.fone.fone.activity.SetUpActivity"
-148-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:125:13-64
+148            android:name="com.filter.filter.activity.SetUpActivity"
+148-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:125:13-68
 149            android:label="设置" />
 149-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:126:13-31
 150        <activity
 150-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:127:9-129:36
-151            android:name="com.fone.fone.activity.HelpCenterActivity"
-151-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:128:13-69
+151            android:name="com.filter.filter.activity.HelpCenterActivity"
+151-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:128:13-73
 152            android:label="帮助中心" />
 152-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:129:13-33
 153        <activity
 153-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:130:9-132:36
-154            android:name="com.fone.fone.activity.MyProfileActivity"
-154-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:131:13-68
+154            android:name="com.filter.filter.activity.MyProfileActivity"
+154-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:131:13-72
 155            android:label="资料管理" />
 155-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:132:13-33
 156        <activity
 156-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:133:9-135:38
-157            android:name="com.fone.fone.activity.SetTransactionPasswordActivity"
-157-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:134:13-81
+157            android:name="com.filter.filter.activity.SetTransactionPasswordActivity"
+157-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:134:13-85
 158            android:label="修改交易密码" />
 158-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:135:13-35
 159        <activity
 159-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:136:9-138:38
-160            android:name="com.fone.fone.activity.ChangePasswordActivity"
-160-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:137:13-73
+160            android:name="com.filter.filter.activity.ChangePasswordActivity"
+160-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:137:13-77
 161            android:label="修改登录密码" />
 161-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:138:13-35
 162        <activity
 162-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:140:9-142:36
-163            android:name="com.fone.fone.activity.MyMachineActivity"
-163-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:141:13-68
+163            android:name="com.filter.filter.activity.MyMachineActivity"
+163-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:141:13-72
 164            android:label="我的矿机" />
 164-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:142:13-33
 165        <activity
 165-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:143:9-145:36
-166            android:name="com.fone.fone.activity.MachineDetailActivity"
-166-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:144:13-72
+166            android:name="com.filter.filter.activity.MachineDetailActivity"
+166-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:144:13-76
 167            android:label="矿机详情" />
 167-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:145:13-33
 168        <activity
 168-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:146:9-148:36
-169            android:name="com.fone.fone.activity.PayDetailActivity"
-169-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:147:13-68
+169            android:name="com.filter.filter.activity.PayDetailActivity"
+169-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:147:13-72
 170            android:label="支付详情" />
 170-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:148:13-33
 171        <activity
 171-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:149:9-151:36
-172            android:name="com.fone.fone.activity.ZhuanRangActivity"
-172-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:150:13-68
+172            android:name="com.filter.filter.activity.ZhuanRangActivity"
+172-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:150:13-72
 173            android:label="转让设备" />
 173-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:151:13-33
 174        <activity
 174-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:152:9-154:36
-175            android:name="com.fone.fone.activity.HuiGouActivity"
-175-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:153:13-65
+175            android:name="com.filter.filter.activity.HuiGouActivity"
+175-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:153:13-69
 176            android:label="回购设备" />
 176-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:154:13-33
 177        <activity
 177-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:155:9-157:36
-178            android:name="com.fone.fone.activity.ShouHuiActivity"
-178-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:156:13-66
+178            android:name="com.filter.filter.activity.ShouHuiActivity"
+178-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:156:13-70
 179            android:label="收回设备" />
 179-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:157:13-33
 180        <activity
 180-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:158:9-160:38
-181            android:name="com.fone.fone.activity.JoinDetailActivity"
-181-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:159:13-69
+181            android:name="com.filter.filter.activity.JoinDetailActivity"
+181-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:159:13-73
 182            android:label="加入拼购详情" />
 182-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:160:13-35
 183        <activity
 183-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:161:9-163:36
-184            android:name="com.fone.fone.activity.MyJoinListActivity"
-184-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:162:13-69
+184            android:name="com.filter.filter.activity.MyJoinListActivity"
+184-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:162:13-73
 185            android:label="我的拼购" />
 185-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:163:13-33
 186        <activity
 186-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:165:9-167:34
-187            android:name="com.fone.fone.activity.ContractActivity"
-187-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:166:13-67
+187            android:name="com.filter.filter.activity.ContractActivity"
+187-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:166:13-71
 188            android:label="合同" />
 188-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:167:13-31
 189        <activity
 189-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:168:9-170:36
-190            android:name="com.fone.fone.activity.ContractListActivity"
-190-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:169:13-71
+190            android:name="com.filter.filter.activity.ContractListActivity"
+190-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:169:13-75
 191            android:label="开票列表" />
 191-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:170:13-33
 192        <activity
 192-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:172:9-174:37
-193            android:name="com.fone.fone.activity.SetAddressActivity"
-193-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:173:13-69
+193            android:name="com.filter.filter.activity.SetAddressActivity"
+193-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:173:13-73
 194            android:label="设置币地址" />
 194-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:174:13-34
 195        <activity
 195-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:175:9-177:37
-196            android:name="com.fone.fone.activity.AddressManagementActivity"
-196-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:176:13-76
+196            android:name="com.filter.filter.activity.AddressManagementActivity"
+196-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:176:13-80
 197            android:label="币地址管理" />
 197-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:177:13-34
 198        <activity
 198-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:180:9-182:34
-199            android:name="com.fone.fone.activity.ShareActivity"
-199-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:181:13-64
+199            android:name="com.filter.filter.activity.ShareActivity"
+199-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:181:13-68
 200            android:label="推广" />
 200-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:182:13-31
 201        <activity
 201-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:183:9-185:36
-202            android:name="com.fone.fone.activity.SharePeopleActivity"
-202-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:184:13-70
+202            android:name="com.filter.filter.activity.SharePeopleActivity"
+202-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:184:13-74
 203            android:label="推广用户" />
 203-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:185:13-33
 204        <activity
 204-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:187:9-189:36
-205            android:name="com.fone.fone.activity.CooperativeBrandActivity"
-205-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:188:13-75
+205            android:name="com.filter.filter.activity.CooperativeBrandActivity"
+205-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:188:13-79
 206            android:label="合作品牌" />
 206-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:189:13-33
 207        <activity
 207-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:190:9-192:36
-208            android:name="com.fone.fone.activity.CooperativeShopActivity"
-208-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:191:13-74
+208            android:name="com.filter.filter.activity.CooperativeShopActivity"
+208-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:191:13-78
 209            android:label="合作门店" />
 209-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:192:13-33
 210        <activity
 210-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:194:9-196:36
-211            android:name="com.fone.fone.activity.MyOrderActivity"
-211-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:195:13-66
+211            android:name="com.filter.filter.activity.MyOrderActivity"
+211-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:195:13-70
 212            android:label="订单中心" />
 212-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:196:13-33
 213        <activity
 213-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:198:9-200:34
-214            android:name="com.fone.fone.activity.AccountDetailActivity"
-214-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:199:13-72
+214            android:name="com.filter.filter.activity.AccountDetailActivity"
+214-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:199:13-76
 215            android:label="钱包" />
 215-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:200:13-31
 216        <activity
 216-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:201:9-203:37
-217            android:name="com.fone.fone.activity.FILWalletActivity"
-217-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:202:13-68
+217            android:name="com.filter.filter.activity.FILWalletActivity"
+217-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:202:13-72
 218            android:label="FIL钱包" />
 218-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:203:13-34
 219        <activity
 219-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:204:9-206:38
-220            android:name="com.fone.fone.activity.USDTWalletActivity"
-220-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:205:13-69
+220            android:name="com.filter.filter.activity.USDTWalletActivity"
+220-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:205:13-73
 221            android:label="USDT钱包" />
 221-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:206:13-35
 222        <activity
 222-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:207:9-209:36
-223            android:name="com.fone.fone.activity.ShouRuListActivity"
-223-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:208:13-69
+223            android:name="com.filter.filter.activity.ShouRuListActivity"
+223-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:208:13-73
 224            android:label="收入记录" />
 224-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:209:13-33
 225        <activity
 225-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:210:9-212:36
-226            android:name="com.fone.fone.activity.ZhiChuListActivity"
-226-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:211:13-69
+226            android:name="com.filter.filter.activity.ZhiChuListActivity"
+226-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:211:13-73
 227            android:label="支出记录" />
 227-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:212:13-33
 228        <activity
 228-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:213:9-215:40
-229            android:name="com.fone.fone.activity.FILShouRuListActivity"
-229-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:214:13-72
+229            android:name="com.filter.filter.activity.FILShouRuListActivity"
+229-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:214:13-76
 230            android:label="收入记录_FIL" />
 230-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:215:13-37
 231        <activity
 231-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:216:9-218:40
-232            android:name="com.fone.fone.activity.FILZhiChuListActivity"
-232-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:217:13-72
+232            android:name="com.filter.filter.activity.FILZhiChuListActivity"
+232-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:217:13-76
 233            android:label="支出记录_FIL" />
 233-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:218:13-37
 234        <activity
 234-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:220:9-222:36
-235            android:name="com.fone.fone.activity.MyRechargeActivity"
-235-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:221:13-69
+235            android:name="com.filter.filter.activity.MyRechargeActivity"
+235-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:221:13-73
 236            android:label="我的充值" />
 236-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:222:13-33
 237        <activity
 237-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:223:9-225:36
-238            android:name="com.fone.fone.activity.RechargeDetailActivity"
-238-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:224:13-73
+238            android:name="com.filter.filter.activity.RechargeDetailActivity"
+238-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:224:13-77
 239            android:label="充值详情" />
 239-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:225:13-33
 240        <activity
 240-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:226:9-228:34
-241            android:name="com.fone.fone.activity.TakeCashActivity"
-241-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:227:13-67
+241            android:name="com.filter.filter.activity.TakeCashActivity"
+241-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:227:13-71
 242            android:label="提现" />
 242-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:228:13-31
 243        <activity
 243-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:229:9-231:36
-244            android:name="com.fone.fone.activity.MyTakeCashActivity"
-244-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:230:13-69
+244            android:name="com.filter.filter.activity.MyTakeCashActivity"
+244-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:230:13-73
 245            android:label="我的提现" />
 245-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:231:13-33
 246        <activity
 246-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:232:9-234:36
-247            android:name="com.fone.fone.activity.TakeCashDetailActivity"
-247-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:233:13-73
+247            android:name="com.filter.filter.activity.TakeCashDetailActivity"
+247-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:233:13-77
 248            android:label="提现详情" />
 248-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:234:13-33
 249        <activity
 249-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:235:9-237:36
-250            android:name="com.fone.fone.activity.SharePosterActivity"
-250-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:236:13-70
+250            android:name="com.filter.filter.activity.SharePosterActivity"
+250-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:236:13-74
 251            android:label="有奖邀请" />
 251-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:237:13-33
 252        <activity
 252-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:238:9-240:36
-253            android:name="com.fone.fone.activity.OnlineServiceActivity"
-253-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:239:13-72
+253            android:name="com.filter.filter.activity.OnlineServiceActivity"
+253-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:239:13-76
 254            android:label="在线客服" />
 254-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:240:13-33
 255        <activity
 255-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:241:9-243:36
-256            android:name="com.fone.fone.activity.InformationActivity"
-256-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:242:13-70
+256            android:name="com.filter.filter.activity.InformationActivity"
+256-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:242:13-74
 257            android:label="公告通知" />
 257-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:243:13-33
 258        <activity
 258-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:244:9-246:39
-259            android:name="com.fone.fone.activity.TransferActivity"
-259-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:245:13-67
+259            android:name="com.filter.filter.activity.TransferActivity"
+259-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:245:13-71
 260            android:label="划转-创建合约" />
 260-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:246:13-36
 261        <activity
 261-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:247:9-249:37
-262            android:name="com.fone.fone.activity.QRCodeActivity"
-262-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:248:13-65
+262            android:name="com.filter.filter.activity.QRCodeActivity"
+262-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:248:13-69
 263            android:label="收款二维码" />
 263-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:249:13-34
 264        <activity
 264-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:250:9-252:35
-265            android:name="com.fone.fone.view.zxing.CaptureActivity"
-265-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:251:13-68
+265            android:name="com.filter.filter.view.zxing.CaptureActivity"
+265-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:251:13-72
 266            android:label="扫一扫" />
 266-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:252:13-32
 267        <activity
 267-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:253:9-255:36
-268            android:name="com.fone.fone.activity.ScavengingPaymentActivity"
-268-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:254:13-76
+268            android:name="com.filter.filter.activity.ScavengingPaymentActivity"
+268-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:254:13-80
 269            android:label="扫码转账" />
 269-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:255:13-33
 270        <activity
 270-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:257:9-259:38
-271            android:name="com.fone.fone.activity.USDTJiaoYiActivity"
-271-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:258:13-69
+271            android:name="com.filter.filter.activity.USDTJiaoYiActivity"
+271-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:258:13-73
 272            android:label="USDT交易" />
 272-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:259:13-35
 273        <activity
 273-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:260:9-262:38
-274            android:name="com.fone.fone.activity.USDTSellActivity"
-274-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:261:13-67
+274            android:name="com.filter.filter.activity.USDTSellActivity"
+274-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:261:13-71
 275            android:label="USDT出售" />
 275-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:262:13-35
 276        <activity
 276-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:263:9-265:36
-277            android:name="com.fone.fone.activity.USDTJiaoyiListActivity"
-277-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:264:13-73
+277            android:name="com.filter.filter.activity.USDTJiaoyiListActivity"
+277-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:264:13-77
 278            android:label="交易记录" />
 278-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:265:13-33
 279        <activity
 279-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:266:9-268:36
-280            android:name="com.fone.fone.activity.USDTOrderInfoActivity"
-280-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:267:13-72
+280            android:name="com.filter.filter.activity.USDTOrderInfoActivity"
+280-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:267:13-76
 281            android:label="交易详情" />
 281-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:268:13-33
 282        <activity
 282-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:269:9-271:37
-283            android:name="com.fone.fone.activity.BankCardSettingActivity"
-283-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:270:13-74
+283            android:name="com.filter.filter.activity.BankCardSettingActivity"
+283-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:270:13-78
 284            android:label="绑定银行卡" />
 284-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:271:13-34
 285        <activity
 285-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:273:9-275:42
-286            android:name="com.fone.fone.activity.CityFriend_NOActivity"
-286-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:274:13-72
+286            android:name="com.filter.filter.activity.CityFriend_NOActivity"
+286-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:274:13-76
 287            android:label="城市合作伙伴-未申请" />
 287-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:275:13-39
 288        <activity
 288-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:276:9-278:40
-289            android:name="com.fone.fone.activity.AddCityFriendActivity"
-289-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:277:13-72
+289            android:name="com.filter.filter.activity.AddCityFriendActivity"
+289-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:277:13-76
 290            android:label="申请城市合作伙伴" />
 290-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:278:13-37
 291        <activity
 291-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:279:9-281:38
-292            android:name="com.fone.fone.activity.CityFriendActivity"
-292-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:280:13-69
+292            android:name="com.filter.filter.activity.CityFriendActivity"
+292-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:280:13-73
 293            android:label="城市合作伙伴" />
 293-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:281:13-35
 294        <activity
 294-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:282:9-284:38
-295            android:name="com.fone.fone.activity.CityFriendListActivity"
-295-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:283:13-73
+295            android:name="com.filter.filter.activity.CityFriendListActivity"
+295-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:283:13-77
 296            android:label="全国合作伙伴" />
 296-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:284:13-35
 297        <!-- 全面屏适配 -->
@@ -649,7 +649,7 @@
 345        <provider
 346            android:name="androidx.core.content.FileProvider"
 346-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:330:13-62
-347            android:authorities="com.fone.fone.fileprovider"
+347            android:authorities="com.filter.filter.fileprovider"
 347-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:331:13-64
 348            android:exported="false"
 348-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:332:13-37
@@ -672,15 +672,15 @@
 358-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:342:13-37
 359
 360        <!-- 保活 -->
-361        <service android:name="com.fone.fone.utils.TraceServiceImpl" />
-361-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:345:9-72
-361-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:345:18-69
+361        <service android:name="com.filter.filter.utils.TraceServiceImpl" />
+361-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:345:9-76
+361-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:345:18-73
 362
 363        <provider
 363-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/263a76dc8a493ec8829c099894b1ed53/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:19:9-27:20
 364            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
 364-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/263a76dc8a493ec8829c099894b1ed53/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:20:13-76
-365            android:authorities="com.fone.fone.updateFileProvider"
+365            android:authorities="com.filter.filter.updateFileProvider"
 365-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/263a76dc8a493ec8829c099894b1ed53/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:21:13-70
 366            android:exported="false"
 366-->[com.github.maning0303:MNUpdateAPK:V2.0.3] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/263a76dc8a493ec8829c099894b1ed53/jetified-MNUpdateAPK-V2.0.3/AndroidManifest.xml:22:13-37
@@ -735,7 +735,7 @@
 394-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/90f84d4d55387a48404bd0ba790bf223/jetified-autosize-1.2.1/AndroidManifest.xml:12:9-16:43
 395            android:name="me.jessyan.autosize.InitProvider"
 395-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/90f84d4d55387a48404bd0ba790bf223/jetified-autosize-1.2.1/AndroidManifest.xml:13:13-60
-396            android:authorities="com.fone.fone.autosize-init-provider"
+396            android:authorities="com.filter.filter.autosize-init-provider"
 396-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/90f84d4d55387a48404bd0ba790bf223/jetified-autosize-1.2.1/AndroidManifest.xml:14:13-74
 397            android:exported="false"
 397-->[me.jessyan:autosize:1.2.1] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/90f84d4d55387a48404bd0ba790bf223/jetified-autosize-1.2.1/AndroidManifest.xml:15:13-37
@@ -769,7 +769,7 @@
 412-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:22:9-30:20
 413            android:name="com.blankj.utilcode.util.UtilsFileProvider"
 413-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:23:13-70
-414            android:authorities="com.fone.fone.utilcode.provider"
+414            android:authorities="com.filter.filter.utilcode.provider"
 414-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:24:13-69
 415            android:exported="false"
 415-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:25:13-37
@@ -791,7 +791,7 @@
 424-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:34:13-37
 425            <intent-filter>
 425-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:35:13-37:29
-426                <action android:name="com.fone.fone.messenger" />
+426                <action android:name="com.filter.filter.messenger" />
 426-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:17-69
 426-->[com.blankj:utilcodex:1.30.5] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/f54847c5f173b55eeadb6db900ecf340/jetified-utilcodex-1.30.5/AndroidManifest.xml:36:25-66
 427            </intent-filter>
@@ -953,7 +953,7 @@
 509-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:24:9-34:20
 510            android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
 510-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:25:13-75
-511            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
+511            android:permission="com.filter.filter.permission.PROCESS_PUSH_MSG" >
 511-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:26:13-78
 512            <intent-filter>
 512-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:27:13-33:29
@@ -972,7 +972,7 @@
 520-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:35:9-45:20
 521            android:name="com.huawei.hms.support.api.push.PushReceiver"
 521-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:36:13-72
-522            android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG" >
+522            android:permission="com.filter.filter.permission.PROCESS_PUSH_MSG" >
 522-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:37:13-78
 523            <intent-filter>
 523-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:38:13-44:29
@@ -1012,15 +1012,15 @@
 542-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:59:9-65:89
 543            android:name="com.huawei.hms.support.api.push.PushProvider"
 543-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:60:13-72
-544            android:authorities="com.fone.fone.huawei.push.provider"
+544            android:authorities="com.filter.filter.huawei.push.provider"
 544-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:61:13-72
 545            android:exported="true"
 545-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:62:13-36
-546            android:permission="com.fone.fone.permission.PUSH_PROVIDER"
+546            android:permission="com.filter.filter.permission.PUSH_PROVIDER"
 546-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:63:13-75
-547            android:readPermission="com.fone.fone.permission.PUSH_PROVIDER"
+547            android:readPermission="com.filter.filter.permission.PUSH_PROVIDER"
 547-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:64:13-79
-548            android:writePermission="com.fone.fone.permission.PUSH_WRITE_PROVIDER" />
+548            android:writePermission="com.filter.filter.permission.PUSH_WRITE_PROVIDER" />
 548-->[com.huawei.hms:push:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/8533c832df0912098a8457fbd8f1ad73/jetified-push-4.0.2.300/AndroidManifest.xml:65:13-86
 549
 550        <meta-data
@@ -1170,7 +1170,7 @@
 630-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6d556f6db41e6d368c7fc80b96208844/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
 631            android:name="com.google.firebase.provider.FirebaseInitProvider"
 631-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6d556f6db41e6d368c7fc80b96208844/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
-632            android:authorities="com.fone.fone.firebaseinitprovider"
+632            android:authorities="com.filter.filter.firebaseinitprovider"
 632-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6d556f6db41e6d368c7fc80b96208844/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
 633            android:directBootAware="true"
 633-->[com.google.firebase:firebase-common:19.5.0] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6d556f6db41e6d368c7fc80b96208844/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
@@ -1229,7 +1229,7 @@
 663-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/927d6dd12167dfffa2194358987b258a/jetified-opendevice-4.0.1.301/AndroidManifest.xml:10:9-13:40
 664            android:name="com.huawei.hms.aaid.InitProvider"
 664-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/927d6dd12167dfffa2194358987b258a/jetified-opendevice-4.0.1.301/AndroidManifest.xml:11:13-60
-665            android:authorities="com.fone.fone.aaidinitprovider"
+665            android:authorities="com.filter.filter.aaidinitprovider"
 665-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/927d6dd12167dfffa2194358987b258a/jetified-opendevice-4.0.1.301/AndroidManifest.xml:12:13-68
 666            android:exported="false" />
 666-->[com.huawei.hms:opendevice:4.0.1.301] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/927d6dd12167dfffa2194358987b258a/jetified-opendevice-4.0.1.301/AndroidManifest.xml:13:13-37
@@ -1296,7 +1296,7 @@
 701-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/503ebf909bfc63abe037e2ea9e316719/jetified-base-4.0.2.300/AndroidManifest.xml:51:9-56:20
 702            android:name="com.huawei.hms.update.provider.UpdateProvider"
 702-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/503ebf909bfc63abe037e2ea9e316719/jetified-base-4.0.2.300/AndroidManifest.xml:52:13-73
-703            android:authorities="com.fone.fone.hms.update.provider"
+703            android:authorities="com.filter.filter.hms.update.provider"
 703-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/503ebf909bfc63abe037e2ea9e316719/jetified-base-4.0.2.300/AndroidManifest.xml:53:13-71
 704            android:exported="false"
 704-->[com.huawei.hms:base:4.0.2.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/503ebf909bfc63abe037e2ea9e316719/jetified-base-4.0.2.300/AndroidManifest.xml:54:13-37
@@ -1307,7 +1307,7 @@
 707-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/38d3c0910ec5d5343e5328ef28add806/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:10:9-13:40
 708            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
 708-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/38d3c0910ec5d5343e5328ef28add806/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:11:13-90
-709            android:authorities="com.fone.fone.AGCInitializeProvider"
+709            android:authorities="com.filter.filter.AGCInitializeProvider"
 709-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/38d3c0910ec5d5343e5328ef28add806/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:12:13-73
 710            android:exported="false" />
 710-->[com.huawei.agconnect:agconnect-core:1.0.0.300] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/38d3c0910ec5d5343e5328ef28add806/jetified-agconnect-core-1.0.0.300/AndroidManifest.xml:13:13-37

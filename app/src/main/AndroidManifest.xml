@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fone.fone">
+    package="com.filter.filter">
 
     <!--网络权限问题-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -46,7 +46,7 @@
     android:requestLegacyExternalStorage="true"
     -->
     <application
-        android:name="com.fone.fone.MyApplication"
+        android:name="com.filter.filter.MyApplication"
         android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/ic_launcher"
@@ -60,7 +60,7 @@
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false">
         <activity
-            android:name="com.fone.fone.activity.HelloActivity"
+            android:name="com.filter.filter.activity.HelloActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"><!--//全屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,18 +70,18 @@
         </activity>
 
         <activity
-            android:name="com.fone.fone.utils.permission.PermissionsActivity"
+            android:name="com.filter.filter.utils.permission.PermissionsActivity"
             android:label="权限页" />
         <activity
-            android:name="com.fone.fone.activity.GuideActivity"
+            android:name="com.filter.filter.activity.GuideActivity"
             android:label="引导页"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name="com.fone.fone.activity.SelectCountryActivity"
+            android:name="com.filter.filter.activity.SelectCountryActivity"
             android:label="选择国家" />
         <activity
-            android:name="com.fone.fone.activity.MainActivity"
+            android:name="com.filter.filter.activity.MainActivity"
             android:label="主页">
             <!--点击通知默认打开-->
             <intent-filter>
@@ -90,16 +90,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.fone.fone.activity.LoginActivity"
+            android:name="com.filter.filter.activity.LoginActivity"
             android:label="登录" />
         <activity
-            android:name="com.fone.fone.activity.ForgetPasswordActivity"
+            android:name="com.filter.filter.activity.ForgetPasswordActivity"
             android:label="忘记密码" />
         <activity
-            android:name="com.fone.fone.activity.RegisteredActivity"
+            android:name="com.filter.filter.activity.RegisteredActivity"
             android:label="注册" />
         <activity
-            android:name="com.fone.fone.activity.WebContentActivity"
+            android:name="com.filter.filter.activity.WebContentActivity"
             android:label="网页">
             <!--点击通知默认打开-->
             <!--<intent-filter>
@@ -108,179 +108,179 @@
             </intent-filter>-->
         </activity>
         <activity
-            android:name="com.fone.fone.activity.WebContentActivity1"
+            android:name="com.filter.filter.activity.WebContentActivity1"
             android:label="网页"/>
 
         <activity
-            android:name="com.fone.fone.activity.JoinListActivity"
+            android:name="com.filter.filter.activity.JoinListActivity"
             android:label="拼购列表" />
         <activity
-            android:name="com.fone.fone.activity.LeaderboardActivity"
+            android:name="com.filter.filter.activity.LeaderboardActivity"
             android:label="排行榜" />
         <!--我的-->
         <activity
-            android:name="com.fone.fone.activity.AboutActivity"
+            android:name="com.filter.filter.activity.AboutActivity"
             android:label="关于我们" />
         <activity
-            android:name="com.fone.fone.activity.SetUpActivity"
+            android:name="com.filter.filter.activity.SetUpActivity"
             android:label="设置" />
         <activity
-            android:name="com.fone.fone.activity.HelpCenterActivity"
+            android:name="com.filter.filter.activity.HelpCenterActivity"
             android:label="帮助中心" />
         <activity
-            android:name="com.fone.fone.activity.MyProfileActivity"
+            android:name="com.filter.filter.activity.MyProfileActivity"
             android:label="资料管理" />
         <activity
-            android:name="com.fone.fone.activity.SetTransactionPasswordActivity"
+            android:name="com.filter.filter.activity.SetTransactionPasswordActivity"
             android:label="修改交易密码" />
         <activity
-            android:name="com.fone.fone.activity.ChangePasswordActivity"
+            android:name="com.filter.filter.activity.ChangePasswordActivity"
             android:label="修改登录密码" />
 
         <activity
-            android:name="com.fone.fone.activity.MyMachineActivity"
+            android:name="com.filter.filter.activity.MyMachineActivity"
             android:label="我的矿机" />
         <activity
-            android:name="com.fone.fone.activity.MachineDetailActivity"
+            android:name="com.filter.filter.activity.MachineDetailActivity"
             android:label="矿机详情" />
         <activity
-            android:name="com.fone.fone.activity.PayDetailActivity"
+            android:name="com.filter.filter.activity.PayDetailActivity"
             android:label="支付详情" />
         <activity
-            android:name="com.fone.fone.activity.ZhuanRangActivity"
+            android:name="com.filter.filter.activity.ZhuanRangActivity"
             android:label="转让设备" />
         <activity
-            android:name="com.fone.fone.activity.HuiGouActivity"
+            android:name="com.filter.filter.activity.HuiGouActivity"
             android:label="回购设备" />
         <activity
-            android:name="com.fone.fone.activity.ShouHuiActivity"
+            android:name="com.filter.filter.activity.ShouHuiActivity"
             android:label="收回设备" />
         <activity
-            android:name="com.fone.fone.activity.JoinDetailActivity"
+            android:name="com.filter.filter.activity.JoinDetailActivity"
             android:label="加入拼购详情" />
         <activity
-            android:name="com.fone.fone.activity.MyJoinListActivity"
+            android:name="com.filter.filter.activity.MyJoinListActivity"
             android:label="我的拼购" />
 
         <activity
-            android:name="com.fone.fone.activity.ContractActivity"
+            android:name="com.filter.filter.activity.ContractActivity"
             android:label="合同" />
         <activity
-            android:name="com.fone.fone.activity.ContractListActivity"
+            android:name="com.filter.filter.activity.ContractListActivity"
             android:label="开票列表" />
 
         <activity
-            android:name="com.fone.fone.activity.SetAddressActivity"
+            android:name="com.filter.filter.activity.SetAddressActivity"
             android:label="设置币地址" />
         <activity
-            android:name="com.fone.fone.activity.AddressManagementActivity"
+            android:name="com.filter.filter.activity.AddressManagementActivity"
             android:label="币地址管理" />
 
 
         <activity
-            android:name="com.fone.fone.activity.ShareActivity"
+            android:name="com.filter.filter.activity.ShareActivity"
             android:label="推广" />
         <activity
-            android:name="com.fone.fone.activity.SharePeopleActivity"
+            android:name="com.filter.filter.activity.SharePeopleActivity"
             android:label="推广用户" />
 
         <activity
-            android:name="com.fone.fone.activity.CooperativeBrandActivity"
+            android:name="com.filter.filter.activity.CooperativeBrandActivity"
             android:label="合作品牌" />
         <activity
-            android:name="com.fone.fone.activity.CooperativeShopActivity"
+            android:name="com.filter.filter.activity.CooperativeShopActivity"
             android:label="合作门店" />
 
         <activity
-            android:name="com.fone.fone.activity.MyOrderActivity"
+            android:name="com.filter.filter.activity.MyOrderActivity"
             android:label="订单中心" />
 
         <activity
-            android:name="com.fone.fone.activity.AccountDetailActivity"
+            android:name="com.filter.filter.activity.AccountDetailActivity"
             android:label="钱包" />
         <activity
-            android:name="com.fone.fone.activity.FILWalletActivity"
+            android:name="com.filter.filter.activity.FILWalletActivity"
             android:label="FIL钱包" />
         <activity
-            android:name="com.fone.fone.activity.USDTWalletActivity"
+            android:name="com.filter.filter.activity.USDTWalletActivity"
             android:label="USDT钱包" />
         <activity
-            android:name="com.fone.fone.activity.ShouRuListActivity"
+            android:name="com.filter.filter.activity.ShouRuListActivity"
             android:label="收入记录" />
         <activity
-            android:name="com.fone.fone.activity.ZhiChuListActivity"
+            android:name="com.filter.filter.activity.ZhiChuListActivity"
             android:label="支出记录" />
         <activity
-            android:name="com.fone.fone.activity.FILShouRuListActivity"
+            android:name="com.filter.filter.activity.FILShouRuListActivity"
             android:label="收入记录_FIL" />
         <activity
-            android:name="com.fone.fone.activity.FILZhiChuListActivity"
+            android:name="com.filter.filter.activity.FILZhiChuListActivity"
             android:label="支出记录_FIL" />
 
         <activity
-            android:name="com.fone.fone.activity.MyRechargeActivity"
+            android:name="com.filter.filter.activity.MyRechargeActivity"
             android:label="我的充值" />
         <activity
-            android:name="com.fone.fone.activity.RechargeDetailActivity"
+            android:name="com.filter.filter.activity.RechargeDetailActivity"
             android:label="充值详情" />
         <activity
-            android:name="com.fone.fone.activity.TakeCashActivity"
+            android:name="com.filter.filter.activity.TakeCashActivity"
             android:label="提现" />
         <activity
-            android:name="com.fone.fone.activity.MyTakeCashActivity"
+            android:name="com.filter.filter.activity.MyTakeCashActivity"
             android:label="我的提现" />
         <activity
-            android:name="com.fone.fone.activity.TakeCashDetailActivity"
+            android:name="com.filter.filter.activity.TakeCashDetailActivity"
             android:label="提现详情" />
         <activity
-            android:name="com.fone.fone.activity.SharePosterActivity"
+            android:name="com.filter.filter.activity.SharePosterActivity"
             android:label="有奖邀请" />
         <activity
-            android:name="com.fone.fone.activity.OnlineServiceActivity"
+            android:name="com.filter.filter.activity.OnlineServiceActivity"
             android:label="在线客服" />
         <activity
-            android:name="com.fone.fone.activity.InformationActivity"
+            android:name="com.filter.filter.activity.InformationActivity"
             android:label="公告通知" />
         <activity
-            android:name="com.fone.fone.activity.TransferActivity"
+            android:name="com.filter.filter.activity.TransferActivity"
             android:label="划转-创建合约" />
         <activity
-            android:name="com.fone.fone.activity.QRCodeActivity"
+            android:name="com.filter.filter.activity.QRCodeActivity"
             android:label="收款二维码" />
         <activity
-            android:name="com.fone.fone.view.zxing.CaptureActivity"
+            android:name="com.filter.filter.view.zxing.CaptureActivity"
             android:label="扫一扫" />
         <activity
-            android:name="com.fone.fone.activity.ScavengingPaymentActivity"
+            android:name="com.filter.filter.activity.ScavengingPaymentActivity"
             android:label="扫码转账" />
 
         <activity
-            android:name="com.fone.fone.activity.USDTJiaoYiActivity"
+            android:name="com.filter.filter.activity.USDTJiaoYiActivity"
             android:label="USDT交易" />
         <activity
-            android:name="com.fone.fone.activity.USDTSellActivity"
+            android:name="com.filter.filter.activity.USDTSellActivity"
             android:label="USDT出售" />
         <activity
-            android:name="com.fone.fone.activity.USDTJiaoyiListActivity"
+            android:name="com.filter.filter.activity.USDTJiaoyiListActivity"
             android:label="交易记录" />
         <activity
-            android:name="com.fone.fone.activity.USDTOrderInfoActivity"
+            android:name="com.filter.filter.activity.USDTOrderInfoActivity"
             android:label="交易详情" />
         <activity
-            android:name="com.fone.fone.activity.BankCardSettingActivity"
+            android:name="com.filter.filter.activity.BankCardSettingActivity"
             android:label="绑定银行卡" />
 
         <activity
-            android:name="com.fone.fone.activity.CityFriend_NOActivity"
+            android:name="com.filter.filter.activity.CityFriend_NOActivity"
             android:label="城市合作伙伴-未申请" />
         <activity
-            android:name="com.fone.fone.activity.AddCityFriendActivity"
+            android:name="com.filter.filter.activity.AddCityFriendActivity"
             android:label="申请城市合作伙伴" />
         <activity
-            android:name="com.fone.fone.activity.CityFriendActivity"
+            android:name="com.filter.filter.activity.CityFriendActivity"
             android:label="城市合作伙伴" />
         <activity
-            android:name="com.fone.fone.activity.CityFriendListActivity"
+            android:name="com.filter.filter.activity.CityFriendListActivity"
             android:label="全国合作伙伴" />
         <!--全面屏适配-->
         <meta-data
@@ -342,7 +342,7 @@
             android:required="false" />
 
         <!--保活-->
-        <service android:name="com.fone.fone.utils.TraceServiceImpl" />
+        <service android:name="com.filter.filter.utils.TraceServiceImpl" />
 
     </application>
 

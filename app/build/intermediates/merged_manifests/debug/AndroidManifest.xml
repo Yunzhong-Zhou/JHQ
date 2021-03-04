@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.fone.fone" android:versionName="1.0" android:versionCode="2">
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.filter.filter" android:versionName="1.0" android:versionCode="2">
   <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="23"/>
   <uses-permission android:name="android.permission.INTERNET" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -19,88 +19,88 @@
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
-  <permission android:name="com.fone.fone.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <permission android:name="com.fone.fone.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
-  <uses-permission android:name="com.fone.fone.permission.PROCESS_PUSH_MSG" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="com.fone.fone.permission.PUSH_PROVIDER"/>
+  <permission android:name="com.filter.filter.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
+  <permission android:name="com.filter.filter.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <permission android:name="com.filter.filter.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
+  <uses-permission android:name="com.filter.filter.permission.PROCESS_PUSH_MSG" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <uses-permission android:name="com.filter.filter.permission.PUSH_PROVIDER"/>
   <uses-permission android:name="android.permission.WAKE_LOCK" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
   <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:testOnly="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.fone.fone.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4">
-    <activity android:name="com.fone.fone.activity.HelloActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:testOnly="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.filter.filter.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4">
+    <activity android:name="com.filter.filter.activity.HelloActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER" xmlns:android="http://schemas.android.com/apk/res/android"/>
       </intent-filter>
     </activity>
-    <activity android:name="com.fone.fone.utils.permission.PermissionsActivity" android:label="权限页"/>
-    <activity android:label="引导页" android:name="com.fone.fone.activity.GuideActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-    <activity android:name="com.fone.fone.activity.SelectCountryActivity" android:label="选择国家" xmlns:android="http://schemas.android.com/apk/res/android"/>
-    <activity android:name="com.fone.fone.activity.MainActivity" android:label="主页">
+    <activity android:name="com.filter.filter.utils.permission.PermissionsActivity" android:label="权限页"/>
+    <activity android:label="引导页" android:name="com.filter.filter.activity.GuideActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    <activity android:name="com.filter.filter.activity.SelectCountryActivity" android:label="选择国家" xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <activity android:name="com.filter.filter.activity.MainActivity" android:label="主页">
       <intent-filter>
-        <action android:name="com.fone.fone.default.MAIN"/>
+        <action android:name="com.filter.filter.default.MAIN"/>
         <category android:name="android.intent.category.DEFAULT"/>
       </intent-filter>
     </activity>
-    <activity android:name="com.fone.fone.activity.LoginActivity" android:label="登录"/>
-    <activity android:name="com.fone.fone.activity.ForgetPasswordActivity" android:label="忘记密码"/>
-    <activity android:name="com.fone.fone.activity.RegisteredActivity" android:label="注册"/>
-    <activity android:name="com.fone.fone.activity.WebContentActivity" android:label="网页"/>
-    <activity android:name="com.fone.fone.activity.WebContentActivity1" android:label="网页"/>
-    <activity android:name="com.fone.fone.activity.JoinListActivity" android:label="拼购列表"/>
-    <activity android:name="com.fone.fone.activity.LeaderboardActivity" android:label="排行榜"/>
-    <activity android:name="com.fone.fone.activity.AboutActivity" android:label="关于我们"/>
-    <activity android:name="com.fone.fone.activity.SetUpActivity" android:label="设置"/>
-    <activity android:name="com.fone.fone.activity.HelpCenterActivity" android:label="帮助中心"/>
-    <activity android:name="com.fone.fone.activity.MyProfileActivity" android:label="资料管理"/>
-    <activity android:name="com.fone.fone.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
-    <activity android:name="com.fone.fone.activity.ChangePasswordActivity" android:label="修改登录密码"/>
-    <activity android:name="com.fone.fone.activity.MyMachineActivity" android:label="我的矿机"/>
-    <activity android:name="com.fone.fone.activity.MachineDetailActivity" android:label="矿机详情"/>
-    <activity android:name="com.fone.fone.activity.PayDetailActivity" android:label="支付详情"/>
-    <activity android:name="com.fone.fone.activity.ZhuanRangActivity" android:label="转让设备"/>
-    <activity android:name="com.fone.fone.activity.HuiGouActivity" android:label="回购设备"/>
-    <activity android:name="com.fone.fone.activity.ShouHuiActivity" android:label="收回设备"/>
-    <activity android:name="com.fone.fone.activity.JoinDetailActivity" android:label="加入拼购详情"/>
-    <activity android:name="com.fone.fone.activity.MyJoinListActivity" android:label="我的拼购"/>
-    <activity android:name="com.fone.fone.activity.ContractActivity" android:label="合同"/>
-    <activity android:name="com.fone.fone.activity.ContractListActivity" android:label="开票列表"/>
-    <activity android:name="com.fone.fone.activity.SetAddressActivity" android:label="设置币地址"/>
-    <activity android:name="com.fone.fone.activity.AddressManagementActivity" android:label="币地址管理"/>
-    <activity android:name="com.fone.fone.activity.ShareActivity" android:label="推广"/>
-    <activity android:name="com.fone.fone.activity.SharePeopleActivity" android:label="推广用户"/>
-    <activity android:name="com.fone.fone.activity.CooperativeBrandActivity" android:label="合作品牌"/>
-    <activity android:name="com.fone.fone.activity.CooperativeShopActivity" android:label="合作门店"/>
-    <activity android:name="com.fone.fone.activity.MyOrderActivity" android:label="订单中心"/>
-    <activity android:name="com.fone.fone.activity.AccountDetailActivity" android:label="钱包"/>
-    <activity android:name="com.fone.fone.activity.FILWalletActivity" android:label="FIL钱包"/>
-    <activity android:name="com.fone.fone.activity.USDTWalletActivity" android:label="USDT钱包"/>
-    <activity android:name="com.fone.fone.activity.ShouRuListActivity" android:label="收入记录"/>
-    <activity android:name="com.fone.fone.activity.ZhiChuListActivity" android:label="支出记录"/>
-    <activity android:name="com.fone.fone.activity.FILShouRuListActivity" android:label="收入记录_FIL"/>
-    <activity android:name="com.fone.fone.activity.FILZhiChuListActivity" android:label="支出记录_FIL"/>
-    <activity android:name="com.fone.fone.activity.MyRechargeActivity" android:label="我的充值"/>
-    <activity android:name="com.fone.fone.activity.RechargeDetailActivity" android:label="充值详情"/>
-    <activity android:name="com.fone.fone.activity.TakeCashActivity" android:label="提现"/>
-    <activity android:name="com.fone.fone.activity.MyTakeCashActivity" android:label="我的提现"/>
-    <activity android:name="com.fone.fone.activity.TakeCashDetailActivity" android:label="提现详情"/>
-    <activity android:name="com.fone.fone.activity.SharePosterActivity" android:label="有奖邀请"/>
-    <activity android:name="com.fone.fone.activity.OnlineServiceActivity" android:label="在线客服"/>
-    <activity android:name="com.fone.fone.activity.InformationActivity" android:label="公告通知"/>
-    <activity android:name="com.fone.fone.activity.TransferActivity" android:label="划转-创建合约"/>
-    <activity android:name="com.fone.fone.activity.QRCodeActivity" android:label="收款二维码"/>
-    <activity android:name="com.fone.fone.view.zxing.CaptureActivity" android:label="扫一扫"/>
-    <activity android:name="com.fone.fone.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
-    <activity android:name="com.fone.fone.activity.USDTJiaoYiActivity" android:label="USDT交易"/>
-    <activity android:name="com.fone.fone.activity.USDTSellActivity" android:label="USDT出售"/>
-    <activity android:name="com.fone.fone.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
-    <activity android:name="com.fone.fone.activity.USDTOrderInfoActivity" android:label="交易详情"/>
-    <activity android:name="com.fone.fone.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
-    <activity android:name="com.fone.fone.activity.CityFriend_NOActivity" android:label="城市合作伙伴-未申请"/>
-    <activity android:name="com.fone.fone.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>
-    <activity android:name="com.fone.fone.activity.CityFriendActivity" android:label="城市合作伙伴"/>
-    <activity android:name="com.fone.fone.activity.CityFriendListActivity" android:label="全国合作伙伴"/>
+    <activity android:name="com.filter.filter.activity.LoginActivity" android:label="登录"/>
+    <activity android:name="com.filter.filter.activity.ForgetPasswordActivity" android:label="忘记密码"/>
+    <activity android:name="com.filter.filter.activity.RegisteredActivity" android:label="注册"/>
+    <activity android:name="com.filter.filter.activity.WebContentActivity" android:label="网页"/>
+    <activity android:name="com.filter.filter.activity.WebContentActivity1" android:label="网页"/>
+    <activity android:name="com.filter.filter.activity.JoinListActivity" android:label="拼购列表"/>
+    <activity android:name="com.filter.filter.activity.LeaderboardActivity" android:label="排行榜"/>
+    <activity android:name="com.filter.filter.activity.AboutActivity" android:label="关于我们"/>
+    <activity android:name="com.filter.filter.activity.SetUpActivity" android:label="设置"/>
+    <activity android:name="com.filter.filter.activity.HelpCenterActivity" android:label="帮助中心"/>
+    <activity android:name="com.filter.filter.activity.MyProfileActivity" android:label="资料管理"/>
+    <activity android:name="com.filter.filter.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
+    <activity android:name="com.filter.filter.activity.ChangePasswordActivity" android:label="修改登录密码"/>
+    <activity android:name="com.filter.filter.activity.MyMachineActivity" android:label="我的矿机"/>
+    <activity android:name="com.filter.filter.activity.MachineDetailActivity" android:label="矿机详情"/>
+    <activity android:name="com.filter.filter.activity.PayDetailActivity" android:label="支付详情"/>
+    <activity android:name="com.filter.filter.activity.ZhuanRangActivity" android:label="转让设备"/>
+    <activity android:name="com.filter.filter.activity.HuiGouActivity" android:label="回购设备"/>
+    <activity android:name="com.filter.filter.activity.ShouHuiActivity" android:label="收回设备"/>
+    <activity android:name="com.filter.filter.activity.JoinDetailActivity" android:label="加入拼购详情"/>
+    <activity android:name="com.filter.filter.activity.MyJoinListActivity" android:label="我的拼购"/>
+    <activity android:name="com.filter.filter.activity.ContractActivity" android:label="合同"/>
+    <activity android:name="com.filter.filter.activity.ContractListActivity" android:label="开票列表"/>
+    <activity android:name="com.filter.filter.activity.SetAddressActivity" android:label="设置币地址"/>
+    <activity android:name="com.filter.filter.activity.AddressManagementActivity" android:label="币地址管理"/>
+    <activity android:name="com.filter.filter.activity.ShareActivity" android:label="推广"/>
+    <activity android:name="com.filter.filter.activity.SharePeopleActivity" android:label="推广用户"/>
+    <activity android:name="com.filter.filter.activity.CooperativeBrandActivity" android:label="合作品牌"/>
+    <activity android:name="com.filter.filter.activity.CooperativeShopActivity" android:label="合作门店"/>
+    <activity android:name="com.filter.filter.activity.MyOrderActivity" android:label="订单中心"/>
+    <activity android:name="com.filter.filter.activity.AccountDetailActivity" android:label="钱包"/>
+    <activity android:name="com.filter.filter.activity.FILWalletActivity" android:label="FIL钱包"/>
+    <activity android:name="com.filter.filter.activity.USDTWalletActivity" android:label="USDT钱包"/>
+    <activity android:name="com.filter.filter.activity.ShouRuListActivity" android:label="收入记录"/>
+    <activity android:name="com.filter.filter.activity.ZhiChuListActivity" android:label="支出记录"/>
+    <activity android:name="com.filter.filter.activity.FILShouRuListActivity" android:label="收入记录_FIL"/>
+    <activity android:name="com.filter.filter.activity.FILZhiChuListActivity" android:label="支出记录_FIL"/>
+    <activity android:name="com.filter.filter.activity.MyRechargeActivity" android:label="我的充值"/>
+    <activity android:name="com.filter.filter.activity.RechargeDetailActivity" android:label="充值详情"/>
+    <activity android:name="com.filter.filter.activity.TakeCashActivity" android:label="提现"/>
+    <activity android:name="com.filter.filter.activity.MyTakeCashActivity" android:label="我的提现"/>
+    <activity android:name="com.filter.filter.activity.TakeCashDetailActivity" android:label="提现详情"/>
+    <activity android:name="com.filter.filter.activity.SharePosterActivity" android:label="有奖邀请"/>
+    <activity android:name="com.filter.filter.activity.OnlineServiceActivity" android:label="在线客服"/>
+    <activity android:name="com.filter.filter.activity.InformationActivity" android:label="公告通知"/>
+    <activity android:name="com.filter.filter.activity.TransferActivity" android:label="划转-创建合约"/>
+    <activity android:name="com.filter.filter.activity.QRCodeActivity" android:label="收款二维码"/>
+    <activity android:name="com.filter.filter.view.zxing.CaptureActivity" android:label="扫一扫"/>
+    <activity android:name="com.filter.filter.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
+    <activity android:name="com.filter.filter.activity.USDTJiaoYiActivity" android:label="USDT交易"/>
+    <activity android:name="com.filter.filter.activity.USDTSellActivity" android:label="USDT出售"/>
+    <activity android:name="com.filter.filter.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
+    <activity android:name="com.filter.filter.activity.USDTOrderInfoActivity" android:label="交易详情"/>
+    <activity android:name="com.filter.filter.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
+    <activity android:name="com.filter.filter.activity.CityFriend_NOActivity" android:label="城市合作伙伴-未申请"/>
+    <activity android:name="com.filter.filter.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>
+    <activity android:name="com.filter.filter.activity.CityFriendActivity" android:label="城市合作伙伴"/>
+    <activity android:name="com.filter.filter.activity.CityFriendListActivity" android:label="全国合作伙伴"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>
@@ -116,27 +116,27 @@
         <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
       </intent-filter>
     </receiver>
-    <provider android:name="androidx.core.content.FileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.fone.fone.fileprovider">
+    <provider android:name="androidx.core.content.FileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.filter.filter.fileprovider">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider"/>
     </provider>
     <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-    <service android:name="com.fone.fone.utils.TraceServiceImpl"/>
-    <provider android:name="com.maning.updatelibrary.MNUpdateApkFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.fone.fone.updateFileProvider">
+    <service android:name="com.filter.filter.utils.TraceServiceImpl"/>
+    <provider android:name="com.maning.updatelibrary.MNUpdateApkFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.filter.filter.updateFileProvider">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mn_update_file_provider"/>
     </provider>
     <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citylist.CityListSelectActivity"/>
     <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"/>
     <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.CityActivity"/>
     <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.AreaActivity"/>
-    <provider android:name="me.jessyan.autosize.InitProvider" android:exported="false" android:authorities="com.fone.fone.autosize-init-provider" android:multiprocess="true"/>
+    <provider android:name="me.jessyan.autosize.InitProvider" android:exported="false" android:authorities="com.filter.filter.autosize-init-provider" android:multiprocess="true"/>
     <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/ActivityTranslucent"/>
     <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.blankj.utilcode.util.UtilsTransActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/ActivityTranslucent" android:multiprocess="true"/>
-    <provider android:name="com.blankj.utilcode.util.UtilsFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.fone.fone.utilcode.provider">
+    <provider android:name="com.blankj.utilcode.util.UtilsFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.filter.filter.utilcode.provider">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
     </provider>
     <service android:name="com.blankj.utilcode.util.MessengerUtils$ServerService" android:exported="false">
       <intent-filter>
-        <action android:name="com.fone.fone.messenger"/>
+        <action android:name="com.filter.filter.messenger"/>
       </intent-filter>
     </service>
     <receiver android:name="com.xdandroid.hellodaemon.WakeUpReceiver" android:process=":watch">
@@ -185,13 +185,13 @@
         <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
       </intent-filter>
     </service>
-    <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG">
+    <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:permission="com.filter.filter.permission.PROCESS_PUSH_MSG">
       <intent-filter>
         <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
         <action android:name="com.huawei.intent.action.PUSH"/>
       </intent-filter>
     </receiver>
-    <receiver android:name="com.huawei.hms.support.api.push.PushReceiver" android:permission="com.fone.fone.permission.PROCESS_PUSH_MSG">
+    <receiver android:name="com.huawei.hms.support.api.push.PushReceiver" android:permission="com.filter.filter.permission.PROCESS_PUSH_MSG">
       <intent-filter>
         <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
         <action android:name="com.huawei.android.push.intent.RECEIVE"/>
@@ -203,7 +203,7 @@
         <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
       </intent-filter>
     </service>
-    <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:exported="true" android:readPermission="com.fone.fone.permission.PUSH_PROVIDER" android:authorities="com.fone.fone.huawei.push.provider" android:writePermission="com.fone.fone.permission.PUSH_WRITE_PROVIDER" android:permission="com.fone.fone.permission.PUSH_PROVIDER"/>
+    <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:exported="true" android:readPermission="com.filter.filter.permission.PUSH_PROVIDER" android:authorities="com.filter.filter.huawei.push.provider" android:writePermission="com.filter.filter.permission.PUSH_WRITE_PROVIDER" android:permission="com.filter.filter.permission.PUSH_PROVIDER"/>
     <meta-data android:name="com.huawei.hms.client.service.name:push" android:value="push:4.0.2.300"/>
     <meta-data android:name="com.huawei.hms.min_api_level:push:push" android:value="1"/>
     <service android:name="com.meizu.cloud.pushsdk.NotificationService" android:exported="true"/>
@@ -240,7 +240,7 @@
         <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
       </intent-filter>
     </receiver>
-    <provider android:initOrder="100" android:directBootAware="true" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.fone.fone.firebaseinitprovider"/>
+    <provider android:initOrder="100" android:directBootAware="true" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.filter.filter.firebaseinitprovider"/>
     <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false"/>
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
     <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
@@ -248,7 +248,7 @@
     </service>
     <service android:permission="android.permission.BIND_JOB_SERVICE" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:exported="false"/>
     <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
-    <provider android:name="com.huawei.hms.aaid.InitProvider" android:exported="false" android:authorities="com.fone.fone.aaidinitprovider"/>
+    <provider android:name="com.huawei.hms.aaid.InitProvider" android:exported="false" android:authorities="com.filter.filter.aaidinitprovider"/>
     <meta-data android:name="com.huawei.hms.client.service.name:opendevice" android:value="opendevice:4.0.1.301"/>
     <meta-data android:name="com.huawei.hms.min_api_level:opendevice:push" android:value="1"/>
     <meta-data android:name="com.huawei.hms.client.service.name:base" android:value="base:4.0.2.300"/>
@@ -257,8 +257,8 @@
       <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
     </activity>
     <activity android:name="com.huawei.hms.activity.EnableServiceActivity" android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"/>
-    <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.fone.fone.hms.update.provider"/>
-    <provider android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider" android:exported="false" android:authorities="com.fone.fone.AGCInitializeProvider"/>
+    <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.filter.filter.hms.update.provider"/>
+    <provider android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider" android:exported="false" android:authorities="com.filter.filter.AGCInitializeProvider"/>
     <service android:name="com.huawei.agconnect.core.ServiceDiscovery" android:exported="false"/>
     <activity android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity" android:configChanges="orientation|screenSize" android:theme="@style/upsdkDlDialog" android:exported="false">
       <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar"/>
@@ -266,7 +266,7 @@
     <activity android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/upsdkDlDialog" android:exported="false">
       <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
     </activity>
-    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.fone.fone.com.mob.MobProvider" android:multiprocess="true"/>
+    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.filter.filter.com.mob.MobProvider" android:multiprocess="true"/>
     <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="" tools:node="merge"/>
     <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="" tools:node="merge"/>
     <activity xmlns:tools="http://schemas.android.com/tools" android:windowSoftInputMode="stateHidden|adjustResize" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:node="merge"/>
@@ -278,7 +278,7 @@
         <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
         <action android:name="com.meizu.c2dm.intent.REGISTRATION" xmlns:tools="http://schemas.android.com/tools"/>
         <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
-        <category android:name="com.fone.fone"/>
+        <category android:name="com.filter.filter"/>
       </intent-filter>
     </receiver>
     <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="com.mob.push.meizu.appid" android:value="\128004"/>
@@ -323,10 +323,10 @@
     <service android:name="com.mob.pushsdk.impl.PushJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
   </application>
   <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
-  <uses-permission android:name="com.fone.fone.push.permission.MESSAGE"/>
+  <uses-permission android:name="com.filter.filter.push.permission.MESSAGE"/>
   <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
-  <uses-permission android:name="com.fone.fone.permission.C2D_MESSAGE"/>
-  <uses-permission android:name="com.fone.fone.permission.MIPUSH_RECEIVE"/>
+  <uses-permission android:name="com.filter.filter.permission.C2D_MESSAGE"/>
+  <uses-permission android:name="com.filter.filter.permission.MIPUSH_RECEIVE"/>
   <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
   <uses-permission android:name="android.permission.READ_APP_BADGE"/>
   <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
@@ -336,7 +336,7 @@
   <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
   <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
   <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
-  <permission android:name="com.fone.fone.push.permission.MESSAGE" android:protectionLevel="signature"/>
-  <permission android:name="com.fone.fone.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
-  <permission android:name="com.fone.fone.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+  <permission android:name="com.filter.filter.push.permission.MESSAGE" android:protectionLevel="signature"/>
+  <permission android:name="com.filter.filter.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+  <permission android:name="com.filter.filter.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
 </manifest>

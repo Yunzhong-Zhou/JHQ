@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "com.fone.fone",
+  "applicationId": "com.filter.filter",
   "variantType": "BASE_APK",
   "elements": [
     {
@@ -19,7 +19,7 @@
       },
       "path": "resources-debug.ap_",
       "properties": {
-        "packageId": "com.fone.fone",
+        "packageId": "com.filter.filter",
         "split": "",
         "minSdkVersion": "23"
       }

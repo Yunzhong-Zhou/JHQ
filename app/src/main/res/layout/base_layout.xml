@@ -11,7 +11,7 @@
         android:adjustViewBounds="true"
         android:src="@mipmap/bg_head" />
 
-    <com.fone.fone.view.TitleView
+    <com.filter.filter.view.TitleView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -24,7 +24,7 @@
 
     </FrameLayout>
 
-    <com.fone.fone.view.LoadingLayout
+    <com.filter.filter.view.LoadingLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,6 +42,6 @@
 
         </com.liaoinstan.springview.widget.SpringView>
 
-    </com.fone.fone.view.LoadingLayout>
+    </com.filter.filter.view.LoadingLayout>
 
 </RelativeLayout>

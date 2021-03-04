@@ -22,7 +22,7 @@
         android:background="@drawable/yuanjiao_10_baise"
         android:orientation="vertical">
 
-        <com.fone.fone.view.LoadingLayout
+        <com.filter.filter.view.LoadingLayout
             android:id="@+id/loading_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -38,7 +38,7 @@
                     android:layout_height="match_parent"
                     android:paddingBottom="10dp"/>
             </com.liaoinstan.springview.widget.SpringView>
-        </com.fone.fone.view.LoadingLayout>
+        </com.filter.filter.view.LoadingLayout>
 
     </LinearLayout>
     </com.lijiankun24.shadowlayout.ShadowLayout>

@@ -3,7 +3,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.fone.fone"
+        applicationId "com.filter.filter"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 2

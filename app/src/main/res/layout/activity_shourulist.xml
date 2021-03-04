@@ -83,7 +83,7 @@
             android:visibility="gone"
             android:background="@color/xian"/>
 
-        <com.fone.fone.view.LoadingLayout
+        <com.filter.filter.view.LoadingLayout
             android:id="@+id/loading_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -100,7 +100,7 @@
 
             </com.liaoinstan.springview.widget.SpringView>
 
-        </com.fone.fone.view.LoadingLayout>
+        </com.filter.filter.view.LoadingLayout>
     </LinearLayout>
 
 
