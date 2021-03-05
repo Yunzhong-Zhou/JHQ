@@ -51,7 +51,7 @@ public class ForgetPasswordActivity extends BaseActivity {
         setContentView(R.layout.activity_forgetpassword);
 
 //        mImmersionBar.reset().init();
-        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
 
     }
 
@@ -60,7 +60,7 @@ public class ForgetPasswordActivity extends BaseActivity {
         super.onResume();
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
-        switch (localUserInfo.getMobile_State_Code().length()){
+        /*switch (localUserInfo.getMobile_State_Code().length()){
             case 2:
                 editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,60), 0, 0, 0);
                 break;
@@ -74,7 +74,7 @@ public class ForgetPasswordActivity extends BaseActivity {
                 editText1.setPadding(CommonUtil.dip2px(ForgetPasswordActivity.this,80), 0, 0, 0);
                 break;
 
-        }
+        }*/
     }
 
     @Override
@@ -252,8 +252,8 @@ public class ForgetPasswordActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-//        titleView.setTitle(getString(R.string.forgetpwd_title));
-        titleView.setVisibility(View.GONE);
+        titleView.setTitle(getString(R.string.forgetpassword_h6));
+//        titleView.setVisibility(View.GONE);
     }
 
     //获取验证码倒计时
