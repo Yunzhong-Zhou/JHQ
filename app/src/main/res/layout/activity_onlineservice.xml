@@ -5,7 +5,7 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <com.filter.filter.view.LoadingLayout
+    <com.ghzk.ghzk.view.LoadingLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +30,7 @@
 
         </com.liaoinstan.springview.widget.SpringView>
 
-    </com.filter.filter.view.LoadingLayout>
+    </com.ghzk.ghzk.view.LoadingLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

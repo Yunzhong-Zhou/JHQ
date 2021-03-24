@@ -333,7 +333,7 @@
                         android:background="@color/xian" />
 
                     <!--列表-->
-                    <com.filter.filter.view.LoadingLayout
+                    <com.ghzk.ghzk.view.LoadingLayout
                         android:id="@+id/loading_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -344,7 +344,7 @@
                             android:layout_height="wrap_content"
                             android:paddingBottom="10dp" />
 
-                    </com.filter.filter.view.LoadingLayout>
+                    </com.ghzk.ghzk.view.LoadingLayout>
 
                 </LinearLayout>
             </LinearLayout>

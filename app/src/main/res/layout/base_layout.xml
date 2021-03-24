@@ -11,7 +11,7 @@
         android:adjustViewBounds="true"
         android:src="@mipmap/bg_head" />
 
-    <com.filter.filter.view.TitleView
+    <com.ghzk.ghzk.view.TitleView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -24,7 +24,7 @@
 
     </FrameLayout>
 
-    <com.filter.filter.view.LoadingLayout
+    <com.ghzk.ghzk.view.LoadingLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,6 +42,6 @@
 
         </com.liaoinstan.springview.widget.SpringView>
 
-    </com.filter.filter.view.LoadingLayout>
+    </com.ghzk.ghzk.view.LoadingLayout>
 
 </RelativeLayout>

@@ -170,7 +170,7 @@
             android:background="#E2FDF8"
             android:orientation="vertical">
             <!--只需要刷新只写header-->
-            <com.filter.filter.view.LoadingLayout
+            <com.ghzk.ghzk.view.LoadingLayout
                 android:id="@+id/loading_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -187,7 +187,7 @@
                         android:paddingBottom="20dp"/>
 
                 </com.liaoinstan.springview.widget.SpringView>
-            </com.filter.filter.view.LoadingLayout>
+            </com.ghzk.ghzk.view.LoadingLayout>
         </LinearLayout>
 
     </LinearLayout>
