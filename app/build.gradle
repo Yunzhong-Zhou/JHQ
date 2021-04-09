@@ -46,9 +46,9 @@ android {
     //签名
     signingConfigs {
         release {
-            keyAlias 'fone'
+            keyAlias 'ghzk'
             keyPassword '123456'
-            storeFile file('/Users/YunZhong/Desktop/FONE/FONE.keystore')
+            storeFile file('/Users/YunZhong/Desktop/净化器-国海众科/ghzk.keystore')
             storePassword '123456'
         }
     }
@@ -206,6 +206,11 @@ dependencies {
 
     //android 保活
     implementation 'com.xdandroid:hellodaemon:+'
+
+    //支付宝
+    implementation (name: 'alipaysdk-15.8.02.210308182128', ext: 'aar')
+    //微信
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 
 }
 apply plugin: 'com.google.gms.google-services'//谷歌服务

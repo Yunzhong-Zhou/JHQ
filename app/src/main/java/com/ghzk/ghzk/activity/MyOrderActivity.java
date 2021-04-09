@@ -1,8 +1,12 @@
 package com.ghzk.ghzk.activity;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,6 +28,7 @@ import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
 import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.MyLogger;
+import com.ghzk.ghzk.utils.alipay.PayResult;
 import com.ghzk.ghzk.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -37,6 +42,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,6 +68,40 @@ public class MyOrderActivity extends BaseActivity {
     int i2 = 0;
 
     int payType = 1;
+
+    private static final int SDK_PAY_FLAG = 1;
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SDK_PAY_FLAG: {
+                    @SuppressWarnings("unchecked")
+                    PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                    /**
+                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    String resultInfo = payResult.getResult();// 同步返回需要验证的信息
+                    String resultStatus = payResult.getResultStatus();
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        MyLogger.i("支付成功" + payResult);
+                        showToast(getString(R.string.app_pay_true));
+
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        MyLogger.i("支付失败" + payResult);
+                        showToast(getString(R.string.app_pay_false));
+                    }
+                    requestServer();
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +179,6 @@ public class MyOrderActivity extends BaseActivity {
             public void onResponse(String response) {
                 showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表" + response);
                 JSONObject jObj;
                 try {
                     jObj = new JSONObject(response);
@@ -204,7 +243,7 @@ public class MyOrderActivity extends BaseActivity {
                                         ll_zhifubao.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                payType = 2;
+                                                payType = 3;
                                                 iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                                                 iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
                                                 iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -215,7 +254,7 @@ public class MyOrderActivity extends BaseActivity {
                                         ll_weixin.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                payType = 3;
+                                                payType = 2;
                                                 iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                                                 iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
                                                 iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
@@ -239,52 +278,20 @@ public class MyOrderActivity extends BaseActivity {
                                         tv_confirm.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                /*switch (payType) {
-                                                    case 1:
-//                                                        if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
-                                                        dialog.dismiss();
-                                                        showProgress(true, getString(R.string.app_loading1));
-                                                        HashMap<String, String> params = new HashMap<>();
-                                                        params.put("goods_id", model.getGoods().getId());
-                                                        params.put("buy_type", buy_type + "");
-                                                        params.put("operation_type", operation_type + "");
-                                                        params.put("pay_type", payType + "");
-                                                        params.put("num", num + "");
-                                                        params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                                        RequestBuy(params);
-//                                                        } else {
-//                                                            myToast(getString(R.string.fragment3_h62));
-//                                                        }
-                                                        break;
-                                                    case 2:
-                                                    case 3:
-                                                    case 4:
-                                                        dialog.dismiss();
-                                                        showProgress(true, getString(R.string.app_loading1));
-                                                        HashMap<String, String> params = new HashMap<>();
-                                                        params.put("goods_id", model.getGoods().getId());
-                                                        params.put("buy_type", buy_type + "");
-                                                        params.put("operation_type", operation_type + "");
-                                                        params.put("pay_type", payType + "");
-                                                        params.put("num", num + "");
-                                                        params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                                        RequestBuy(params);
-                                                        break;
-                                                }*/
                                                 dialog.dismiss();
-                                                showProgress(true, getString(R.string.app_loading1));
-                                                /*HashMap<String, String> params = new HashMap<>();
-                                                params.put("id", model.getId());
-                                                params.put("pay_type", payType + "");
-                                                params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                                RequestBuy(params);*/
-                                                String string = "?id=" + model.getId()
-                                                        + "&pay_type=" + payType
-                                                        + "&token=" + localUserInfo.getToken();
-                                                RequestBuy(string,model.getId());
+
+                                               if (payType ==4){
+                                                   Bundle bundle = new Bundle();
+                                                   bundle.putString("id", model.getId());
+                                                   CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
+                                               }else {
+                                                   showProgress(true, getString(R.string.app_loading1));
+                                                   String string = "?id=" + model.getId()
+                                                           + "&pay_type=" + payType
+                                                           + "&token=" + localUserInfo.getToken();
+                                                   RequestPay(string,model.getId());
+                                               }
+
 
                                             }
                                         });
@@ -360,7 +367,7 @@ public class MyOrderActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -370,9 +377,8 @@ public class MyOrderActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
-                MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
                 List<MyOrderModel> list1 = new ArrayList<>();
                 try {
@@ -396,8 +402,8 @@ public class MyOrderActivity extends BaseActivity {
 
     }
 
-    private void RequestBuy(String string,String id) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderBuy + string, new OkHttpClientManager.ResultCallback<String>() {
+    private void RequestPay(String string, String id) {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -413,13 +419,49 @@ public class MyOrderActivity extends BaseActivity {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
-                myToast(getString(R.string.fragment3_h63));
-                requestServer();
-                if (payType == 4) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("id", id);
-                    CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
+//                myToast(getString(R.string.fragment3_h63));
+                switch (payType){
+                    case 2:
+                        //微信
+                        /*IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
+                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
+                        PayReq req = new PayReq();//PayReq就是订单信息对象
+                        //给req对象赋值
+                        req.appId = response.getWechat().getAppid();//APPID
+                        req.partnerId = response.getWechat().getPartnerid();//    商户号
+                        req.prepayId = response.getWechat().getPrepayid();//  预付款ID
+                        req.nonceStr = response.getWechat().getNoncestr();//随机数
+                        req.timeStamp = response.getWechat().getTimestamp();//时间戳
+                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
+                        req.sign = response.getWechat().getSign();//签名
+                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
+                        break;
+                    case 3:
+                        //支付宝
+                        /*Runnable payRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                PayTask alipay = new PayTask(getActivity());
+                                Map<String, String> result = alipay.payV2(response.getOrderStr(), true);
+                                Message msg = new Message();
+                                msg.what = SDK_PAY_FLAG;
+                                msg.obj = result;
+                                mHandler.sendMessage(msg);
+                            }
+                        };
+                        // 必须异步调用
+                        Thread payThread = new Thread(payRunnable);
+                        payThread.start();*/
+                        break;
+                    case 4:
+                        //转账
+                        /*Bundle bundle = new Bundle();
+                        bundle.putString("id", id);
+                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);*/
+                        break;
                 }
+
+                requestServer();
 
             }
         }, false);

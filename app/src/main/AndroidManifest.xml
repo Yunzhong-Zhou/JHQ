@@ -77,6 +77,7 @@
             android:label="引导页"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
+
         <activity
             android:name="com.ghzk.ghzk.activity.SelectCountryActivity"
             android:label="选择国家" />
@@ -282,6 +283,25 @@
         <activity
             android:name="com.ghzk.ghzk.activity.CityFriendListActivity"
             android:label="全国合作伙伴" />
+
+        <!--微信支付回调-->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxe540385418282fe2" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
         <!--全面屏适配-->
         <meta-data
             android:name="design_width_in_dp"

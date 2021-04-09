@@ -106,9 +106,9 @@ public class SharePeopleActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>直推会员" + response);
                 if (response != null) {
                     textView1.setText(response.getGrade_1()+getString(R.string.app_ren));
-                    textView3.setText(response.getGrade_2()+getString(R.string.app_ren));
-                    textView5.setText(response.getGrade_3()+getString(R.string.app_ren));
-                    textView7.setText(response.getGrade_4()+getString(R.string.app_ren));
+                    textView5.setText(response.getGrade_2()+getString(R.string.app_ren));
+                    textView7.setText(response.getGrade_3()+getString(R.string.app_ren));
+                    textView3.setText(response.getGrade_4()+getString(R.string.app_ren));
 
                     list = response.getDirect_recommend_list();
                     if (list.size() > 0) {

@@ -139,7 +139,7 @@ public class ContractListActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(ContractListActivity.this, URLs.ContractList + string, new OkHttpClientManager.ResultCallback<ContractListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -149,7 +149,7 @@ public class ContractListActivity extends BaseActivity {
 
             @Override
             public void onResponse(ContractListModel response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
                 JSONObject jObj;
                 List<ContractListModel.InvoiceListBean> list1 = new ArrayList<>();

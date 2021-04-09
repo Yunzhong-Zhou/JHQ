@@ -177,7 +177,7 @@ public class MyTakeCashActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(MyTakeCashActivity.this, URLs.MyTakeCash + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -187,7 +187,7 @@ public class MyTakeCashActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>提现记录列表更多" + response);
                 JSONObject jObj;

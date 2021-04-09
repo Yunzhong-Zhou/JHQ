@@ -242,7 +242,7 @@ public class CityFriendListActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(CityFriendListActivity.this, URLs.CityFriendList + string, new OkHttpClientManager.ResultCallback<CityFriendListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -252,7 +252,7 @@ public class CityFriendListActivity extends BaseActivity {
 
             @Override
             public void onResponse(CityFriendListModel response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
 
                 List<CityFriendListModel.ServiceCenterListBean> list1 = new ArrayList<>();

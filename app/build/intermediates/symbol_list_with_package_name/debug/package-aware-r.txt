@@ -176,7 +176,6 @@ attr buttonCompat
 attr buttonGravity
 attr buttonIconDimen
 attr buttonPanelSideLayout
-attr buttonSize
 attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
@@ -214,7 +213,6 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr circleColor
-attr circleCrop
 attr circleWidth
 attr circle_color
 attr circle_width
@@ -253,7 +251,6 @@ attr colorControlNormal
 attr colorError
 attr colorPrimary
 attr colorPrimaryDark
-attr colorScheme
 attr colorSecondary
 attr colorSwitchThumbNormal
 attr commitIcon
@@ -435,8 +432,6 @@ attr iconStartPadding
 attr iconTint
 attr iconTintMode
 attr iconifiedByDefault
-attr imageAspectRatio
-attr imageAspectRatioAdjust
 attr imageButtonStyle
 attr image_scale_type
 attr indeterminateProgressStyle
@@ -617,7 +612,6 @@ attr result_point_color
 attr retryView
 attr reverseLayout
 attr rippleColor
-attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -868,17 +862,6 @@ color color_6200EE
 color color_text_01
 color color_text_02
 color color_text_03
-color common_google_signin_btn_text_dark
-color common_google_signin_btn_text_dark_default
-color common_google_signin_btn_text_dark_disabled
-color common_google_signin_btn_text_dark_focused
-color common_google_signin_btn_text_dark_pressed
-color common_google_signin_btn_text_light
-color common_google_signin_btn_text_light_default
-color common_google_signin_btn_text_light_disabled
-color common_google_signin_btn_text_light_focused
-color common_google_signin_btn_text_light_pressed
-color common_google_signin_btn_tint
 color corner_color
 color cyan300
 color cyan500
@@ -1458,25 +1441,6 @@ drawable btn_yzm_huise
 drawable circle_text
 drawable city_bg_l
 drawable cityitem_click
-drawable common_full_open_on_phone
-drawable common_google_signin_btn_icon_dark
-drawable common_google_signin_btn_icon_dark_focused
-drawable common_google_signin_btn_icon_dark_normal
-drawable common_google_signin_btn_icon_dark_normal_background
-drawable common_google_signin_btn_icon_disabled
-drawable common_google_signin_btn_icon_light
-drawable common_google_signin_btn_icon_light_focused
-drawable common_google_signin_btn_icon_light_normal
-drawable common_google_signin_btn_icon_light_normal_background
-drawable common_google_signin_btn_text_dark
-drawable common_google_signin_btn_text_dark_focused
-drawable common_google_signin_btn_text_dark_normal
-drawable common_google_signin_btn_text_dark_normal_background
-drawable common_google_signin_btn_text_disabled
-drawable common_google_signin_btn_text_light
-drawable common_google_signin_btn_text_light_focused
-drawable common_google_signin_btn_text_light_normal
-drawable common_google_signin_btn_text_light_normal_background
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1492,8 +1456,6 @@ drawable elp_close_white
 drawable elp_gray_bg
 drawable elp_msg_bg
 drawable elp_white_close
-drawable googleg_disabled_color_18
-drawable googleg_standard_color_18
 drawable gray_radius
 drawable huisejianbian
 drawable ic_check
@@ -1766,8 +1728,6 @@ id activity_chooser_view_content
 id add
 id add_rl
 id add_view_ll
-id adjust_height
-id adjust_width
 id alertTitle
 id ali_footer_arrow
 id ali_footer_logo
@@ -1835,7 +1795,6 @@ id currentCity
 id currentCityTag
 id custom
 id customPanel
-id dark
 id decode
 id decode_failed
 id decode_succeeded
@@ -1936,7 +1895,6 @@ id horizontal
 id ic_fil
 id icon
 id icon_group
-id icon_only
 id id_city
 id id_district
 id id_province
@@ -2005,7 +1963,6 @@ id leftToRight
 id left_btn
 id left_btn1
 id left_text
-id light
 id line1
 id line3
 id linearLayout
@@ -2395,7 +2352,6 @@ id view_offset_helper
 id viewfinder_view
 id visible
 id webView
-id wide
 id withText
 id wrap
 id wrap_content
@@ -3024,6 +2980,7 @@ string app_loading
 string app_loading1
 string app_loading2
 string app_loading3
+string app_loading4
 string app_miao
 string app_name
 string app_nian
@@ -3031,6 +2988,8 @@ string app_no
 string app_nodata
 string app_nomore
 string app_out
+string app_pay_false
+string app_pay_true
 string app_prompt
 string app_re_register
 string app_reacquirecode
@@ -3099,24 +3058,7 @@ string changepassword_h8
 string changepassword_h9
 string character_counter_content_description
 string character_counter_pattern
-string common_google_play_services_enable_button
-string common_google_play_services_enable_text
-string common_google_play_services_enable_title
-string common_google_play_services_install_button
-string common_google_play_services_install_text
-string common_google_play_services_install_title
-string common_google_play_services_notification_channel_name
-string common_google_play_services_notification_ticker
 string common_google_play_services_unknown_issue
-string common_google_play_services_unsupported_text
-string common_google_play_services_update_button
-string common_google_play_services_update_text
-string common_google_play_services_update_title
-string common_google_play_services_updating_text
-string common_google_play_services_wear_update_text
-string common_open_on_phone
-string common_signin_button_text
-string common_signin_button_text_long
 string contract_h1
 string contract_h10
 string contract_h11
@@ -4584,7 +4526,6 @@ styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
-styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
 styleable LoadingLayout emptyView errorView loadingView retryView
 styleable MaterialButton android_insetLeft android_insetRight android_insetTop android_insetBottom backgroundTint backgroundTintMode cornerRadius icon iconGravity iconPadding iconSize iconTint iconTintMode rippleColor strokeColor strokeWidth
 styleable MaterialCardView strokeColor strokeWidth
@@ -4601,7 +4542,6 @@ styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable ShadowLayout clickable hl_angle hl_bindTextView hl_centerColor hl_cornerRadius hl_cornerRadius_leftBottom hl_cornerRadius_leftTop hl_cornerRadius_rightBottom hl_cornerRadius_rightTop hl_endColor hl_layoutBackground hl_layoutBackground_clickFalse hl_layoutBackground_true hl_shadowColor hl_shadowHidden hl_shadowHiddenBottom hl_shadowHiddenLeft hl_shadowHiddenRight hl_shadowHiddenTop hl_shadowLimit hl_shadowOffsetX hl_shadowOffsetY hl_shadowSymmetry hl_shapeMode hl_startColor hl_strokeColor hl_strokeColor_true hl_strokeWith hl_text hl_textColor hl_textColor_true hl_text_true shadowColor shadowDx shadowDy shadowRadius shadowShape shadowSide
-styleable SignInButton buttonSize colorScheme scopeUris
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth elevation maxActionInlineWidth
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme

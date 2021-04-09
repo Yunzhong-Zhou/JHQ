@@ -211,7 +211,8 @@ public class InformationActivity extends BaseActivity {
                     @Override
                     protected void convert(ViewHolder holder, InformationModel.ArticleCategory1Bean.ArticleListBean model, int position) {
                         holder.setText(R.id.textView1, model.getTitle());
-                        holder.setText(R.id.textView2, model.getDigest());
+//                        holder.setText(R.id.textView2, model.getDigest());
+                        holder.setText(R.id.textView2, model.getCreated_at());
                         ImageView imageView1 = holder.getView(R.id.imageView1);
                         if (!model.getCover().equals(""))
                             Glide.with(InformationActivity.this)

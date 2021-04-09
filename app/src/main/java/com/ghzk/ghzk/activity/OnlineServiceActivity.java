@@ -280,7 +280,7 @@ public class OnlineServiceActivity extends BaseActivity {
             @Override
             public void onError(Request request, String info, Exception e) {
                 onHttpResult();
-                showErrorPage();
+//                showErrorPage();
                 if (!info.equals("")) {
                     showToast(info);
                 }
@@ -290,7 +290,7 @@ public class OnlineServiceActivity extends BaseActivity {
             @Override
             public void onResponse(OnlineServiceModel response) {
                 onHttpResult();
-                showContentPage();
+//                showContentPage();
                 MyLogger.i(">>>>>>>>>留言板列表" + response);
                 JSONObject jObj;
                 List<OnlineServiceModel.LeaveMessageListBean> list1_1 = new ArrayList<OnlineServiceModel.LeaveMessageListBean>();

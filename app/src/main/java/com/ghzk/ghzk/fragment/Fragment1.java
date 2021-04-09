@@ -37,7 +37,7 @@ import static com.ghzk.ghzk.net.OkHttpClientManager.IMGHOST;
 
 /**
  * Created by Mr.Z on 2016/1/6.
- * 矿机
+ * 合作品牌
  */
 
 public class Fragment1 extends BaseFragment {
@@ -247,7 +247,7 @@ public class Fragment1 extends BaseFragment {
                         ImageView imageView1 = holder.getView(R.id.imageView1);
                         Glide.with(getActivity())
                                 .load(OkHttpClientManager.IMGHOST + model.getCover())
-                                .fitCenter()
+//                                .fitCenter()
                                 .apply(RequestOptions.bitmapTransform(new
                                         RoundedCorners(CommonUtil.dip2px(getActivity(), 10))))
                                 .placeholder(R.mipmap.loading)//加载站位图
@@ -263,6 +263,7 @@ public class Fragment1 extends BaseFragment {
 
                         holder.setText(R.id.tv_name,model.getTitle());
                         holder.setText(R.id.tv_content,model.getProvince()+model.getCity()+model.getDistrict());
+//                        holder.setText(R.id.tv_content,model.get);
                         holder.setText(R.id.tv_addr,model.getAddress());
                         holder.setText(R.id.tv_num,model.getNum()+"");
 

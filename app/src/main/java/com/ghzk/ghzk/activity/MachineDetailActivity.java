@@ -42,13 +42,13 @@ public class MachineDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_machinedetail);
-        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+        /*findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
         findViewByID_My(R.id.left_btn1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
+        });*/
     }
 
     @Override
@@ -189,7 +189,13 @@ public class MachineDetailActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setVisibility(View.GONE);
+        titleView.setTitle(getString(R.string.fragment1_h50));
+        titleView.showRightTextview(getString(R.string.fragment5_h92), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonUtil.gotoActivity(MachineDetailActivity.this, MyOrderActivity.class, false);
+            }
+        });
     }
 
     @Override

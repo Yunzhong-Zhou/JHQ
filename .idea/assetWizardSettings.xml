@@ -73,7 +73,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/净化器启动引导/1024.png" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/icon@3x.png" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -98,7 +98,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$USER_HOME$/Downloads/净化器启动引导/1024.png" />
+                                                <entry key="imagePath" value="$USER_HOME$/Downloads/icon@3x.png" />
                                                 <entry key="scalingPercent" value="67" />
                                               </map>
                                             </option>
@@ -132,7 +132,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="backgroundColor" value="48ff99" />
                                     </map>
                                   </option>
                                 </PersistentState>

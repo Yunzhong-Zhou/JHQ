@@ -162,7 +162,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(this, URLs.USDTJiaoYiList + string, new OkHttpClientManager.ResultCallback<USDTJiaoyiListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -172,7 +172,7 @@ public class USDTJiaoyiListActivity extends BaseActivity {
 
             @Override
             public void onResponse(USDTJiaoyiListModel response) {
-                showContentPage();
+//                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>DRVT列表更多" + response);
                 List<USDTJiaoyiListModel.DoUsdtDealListBean> list_1 = new ArrayList<>();

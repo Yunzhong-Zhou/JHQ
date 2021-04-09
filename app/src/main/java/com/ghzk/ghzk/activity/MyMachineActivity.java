@@ -39,7 +39,7 @@ public class MyMachineActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mymachine);
 
-        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
+//        findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
     }
 
     @Override
@@ -163,7 +163,7 @@ public class MyMachineActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MachineList + string, new OkHttpClientManager.ResultCallback<MyMachineModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
@@ -173,7 +173,7 @@ public class MyMachineActivity extends BaseActivity {
 
             @Override
             public void onResponse(MyMachineModel response) {
-                showContentPage();
+//                showContentPage();
                 hideProgress();
                 List<MyMachineModel.OrderGoodsListBean> list1 = new ArrayList<>();
                 list1 = response.getOrder_goods_list();
@@ -207,14 +207,21 @@ public class MyMachineActivity extends BaseActivity {
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
-            case R.id.left_btn:
+           /* case R.id.left_btn:
                 finish();
-                break;
+                break;*/
         }
     }
 
     @Override
     protected void updateView() {
-        titleView.setVisibility(View.GONE);
+//        titleView.setVisibility(View.GONE);
+        titleView.setTitle(getString(R.string.myprofile_h37));
+        titleView.showRightTextview(getString(R.string.fragment5_h92), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonUtil.gotoActivity(MyMachineActivity.this, MyOrderActivity.class, false);
+            }
+        });
     }
 }

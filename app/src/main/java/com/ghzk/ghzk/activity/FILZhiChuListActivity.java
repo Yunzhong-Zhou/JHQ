@@ -165,7 +165,7 @@ public class FILZhiChuListActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(FILZhiChuListActivity.this, URLs.ZhiChuList_FIL + string, new OkHttpClientManager.ResultCallback<ZhiChuListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -175,7 +175,7 @@ public class FILZhiChuListActivity extends BaseActivity {
 
             @Override
             public void onResponse(ZhiChuListModel response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
 
                 List<ZhiChuListModel.OutMoneyListBean> list1 = new ArrayList<>();

@@ -18,7 +18,7 @@
   <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" xmlns:android="http://schemas.android.com/apk/res/android"/>
+  <supports-screens android:anyDensity="true" android:normalScreens="true" android:smallScreens="true" android:resizeable="true" android:largeScreens="true" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <permission android:name="com.ghzk.ghzk.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
   <permission android:name="com.ghzk.ghzk.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
   <permission android:name="com.ghzk.ghzk.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
@@ -101,6 +101,14 @@
     <activity android:name="com.ghzk.ghzk.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>
     <activity android:name="com.ghzk.ghzk.activity.CityFriendActivity" android:label="城市合作伙伴"/>
     <activity android:name="com.ghzk.ghzk.activity.CityFriendListActivity" android:label="全国合作伙伴"/>
+    <activity android:launchMode="singleTop" android:name="com.ghzk.ghzk.wxapi.WXPayEntryActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="wxe540385418282fe2"/>
+      </intent-filter>
+    </activity>
+    <activity android:launchMode="singleTop" android:name="com.ghzk.ghzk.wxapi.WXEntryActivity" android:exported="true"/>
     <meta-data android:name="design_width_in_dp" android:value="414"/>
     <meta-data android:name="design_height_in_dp" android:value="896"/>
     <meta-data android:name="android.max_aspect" android:value="2.4"/>
@@ -162,6 +170,12 @@
     <service android:process=":watch" android:enabled="true" android:permission="android.permission.BIND_JOB_SERVICE" android:name="com.xdandroid.hellodaemon.JobSchedulerService" android:exported="true"/>
     <service android:name="com.xdandroid.hellodaemon.WatchDogService" android:process=":watch"/>
     <service android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService" android:process=":watch"/>
+    <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.NoTitleBar" android:exported="false"/>
+    <activity android:name="com.alipay.sdk.app.H5AuthActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.NoTitleBar" android:exported="false"/>
+    <activity android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true"/>
+    <activity android:launchMode="singleTask" android:name="com.alipay.sdk.app.AlipayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true"/>
+    <activity android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden" android:name="com.alipay.sdk.app.H5OpenAuthActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:exported="false"/>
+    <activity android:name="com.alipay.sdk.app.APayEntranceActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false"/>
     <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
       <intent-filter>
         <action android:name="com.mob.open.app_20000"/>
@@ -174,12 +188,12 @@
         <category android:name="android.intent.category.DEFAULT"/>
       </intent-filter>
     </activity>
-    <service android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
+    <service android:enabled="true" android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
       <intent-filter>
         <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
       </intent-filter>
     </service>
-    <meta-data android:name="mob_guard_version" android:value="20000"/>
+    <meta-data android:name="mob_guard_version" android:value="20001"/>
     <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
       <intent-filter>
         <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
@@ -213,6 +227,11 @@
         <category android:name="android.intent.category.DEFAULT"/>
       </intent-filter>
     </receiver>
+    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+      </intent-filter>
+    </receiver>
     <service android:directBootAware="true" android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false">
       <intent-filter android:priority="-500">
         <action android:name="com.google.firebase.MESSAGING_EVENT"/>
@@ -235,13 +254,7 @@
         <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
       </intent-filter>
     </service>
-    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true">
-      <intent-filter>
-        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-      </intent-filter>
-    </receiver>
     <provider android:initOrder="100" android:directBootAware="true" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.ghzk.ghzk.firebaseinitprovider"/>
-    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false"/>
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
     <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
       <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>

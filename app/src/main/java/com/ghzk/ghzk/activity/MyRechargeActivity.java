@@ -182,7 +182,7 @@ public class MyRechargeActivity extends BaseActivity {
         OkHttpClientManager.getAsyn(MyRechargeActivity.this, URLs.MyRecharge + string, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                showErrorPage();
+//                showErrorPage();
                 onHttpResult();
                 if (!info.equals("")) {
                     showToast(info);
@@ -192,7 +192,7 @@ public class MyRechargeActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response) {
-                showContentPage();
+//                showContentPage();
                 onHttpResult();
                 MyLogger.i(">>>>>>>>>充值记录列表更多" + response);
                 JSONObject jObj;
