@@ -245,8 +245,8 @@ public class CooperativeShopActivity extends BaseActivity {
                             }
 
                             holder.setText(R.id.tv_name, model.getTitle());
-                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
-//                            holder.setText(R.id.tv_content, model.get);
+//                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
+                            holder.setText(R.id.tv_content, model.getIndustry_title());
                             holder.setText(R.id.tv_addr, model.getAddress());
                             holder.setText(R.id.tv_num, model.getNum() + "");
 

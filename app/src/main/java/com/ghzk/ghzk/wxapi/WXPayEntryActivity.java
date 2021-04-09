@@ -52,6 +52,16 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 			int errCord = resp.errCode;
 			if (errCord == 0) {
 				Toast.makeText(WXPayEntryActivity.this,getString(R.string.app_pay_true),Toast.LENGTH_LONG);
+				Intent resultIntent = new Intent();
+				Bundle bundle = new Bundle();
+                                        /*bundle.putString("carname", model.getBrandInfo().getGroupName()
+                                                + "-" + model.getBrandInfo().getSeriesName());*/
+//                                        bundle.putString("carname", model.getSName());
+				bundle.putInt("errCord", errCord);
+				resultIntent.putExtras(bundle);
+				setResult(RESULT_OK, resultIntent);
+				finish();
+
 			} else {
 				Toast.makeText(WXPayEntryActivity.this,getString(R.string.app_pay_false),Toast.LENGTH_LONG);
 			}

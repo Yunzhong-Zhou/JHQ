@@ -73,6 +73,7 @@
     <activity android:name="com.ghzk.ghzk.activity.CooperativeBrandActivity" android:label="合作品牌"/>
     <activity android:name="com.ghzk.ghzk.activity.CooperativeShopActivity" android:label="合作门店"/>
     <activity android:name="com.ghzk.ghzk.activity.MyOrderActivity" android:label="订单中心"/>
+    <activity android:name="com.ghzk.ghzk.activity.OrderListActivity" android:label="订单记录"/>
     <activity android:name="com.ghzk.ghzk.activity.AccountDetailActivity" android:label="钱包"/>
     <activity android:name="com.ghzk.ghzk.activity.FILWalletActivity" android:label="FIL钱包"/>
     <activity android:name="com.ghzk.ghzk.activity.USDTWalletActivity" android:label="USDT钱包"/>

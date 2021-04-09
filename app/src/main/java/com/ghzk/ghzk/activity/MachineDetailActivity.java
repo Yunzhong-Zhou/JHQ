@@ -2,7 +2,6 @@ package com.ghzk.ghzk.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ghzk.ghzk.R;
@@ -30,13 +29,17 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MachineDetailActivity extends BaseActivity {
     String id = "";
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12,textView13,textView14,textView15,
-            tv_zhuanrang,tv_huigou,tv_shouhui, tv_title;
+            textView9, textView10, textView11, textView12, textView13, textView14, textView15,
+            tv_zhuanrang, tv_huigou, tv_shouhui, tv_title, tv_kay, tv_value;
+
     private RecyclerView recyclerView;
     List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
 
-    LinearLayout ll_jieidan, ll_chanzhi;
+//    LinearLayout ll_jieidan, ll_chanzhi;
+
+    StringBuffer sb_key = new StringBuffer();
+    StringBuffer sb_value = new StringBuffer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +83,7 @@ public class MachineDetailActivity extends BaseActivity {
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
-        textView4 = findViewByID_My(R.id.textView4);
+        /*textView4 = findViewByID_My(R.id.textView4);
         textView5 = findViewByID_My(R.id.textView5);
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
@@ -91,15 +94,19 @@ public class MachineDetailActivity extends BaseActivity {
         textView12 = findViewByID_My(R.id.textView12);
         textView13 = findViewByID_My(R.id.textView13);
         textView14 = findViewByID_My(R.id.textView14);
-        textView15 = findViewByID_My(R.id.textView15);
+        textView15 = findViewByID_My(R.id.textView15);*/
 
         tv_title = findViewByID_My(R.id.tv_title);
         tv_zhuanrang = findViewByID_My(R.id.tv_zhuanrang);
         tv_huigou = findViewByID_My(R.id.tv_huigou);
         tv_shouhui = findViewByID_My(R.id.tv_shouhui);
+        tv_kay = findViewByID_My(R.id.tv_kay);
+        tv_value = findViewByID_My(R.id.tv_value);
 
-        ll_jieidan = findViewByID_My(R.id.ll_jieidan);
-        ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
+//        ll_jieidan = findViewByID_My(R.id.ll_jieidan);
+//        ll_chanzhi = findViewByID_My(R.id.ll_chanzhi);
+
+
     }
 
     @Override
@@ -123,26 +130,26 @@ public class MachineDetailActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>详情" + response);
-                if (response.getIs_transfer() ==1){//不能转让
+                if (response.getIs_transfer() == 1) {//不能转让
                     tv_zhuanrang.setVisibility(View.GONE);
-                }else {
+                } else {
                     tv_zhuanrang.setVisibility(View.VISIBLE);
                 }
-                if (response.getIs_buy_back() ==1){//不能回购
+                if (response.getIs_buy_back() == 1) {//不能回购
                     tv_huigou.setVisibility(View.GONE);
-                }else {
+                } else {
                     tv_huigou.setVisibility(View.VISIBLE);
                 }
-                if (response.getIs_take_back()==1){//不能收回
+                if (response.getIs_take_back() == 1) {//不能收回
                     tv_shouhui.setVisibility(View.GONE);
-                }else {
+                } else {
                     tv_shouhui.setVisibility(View.VISIBLE);
                 }
 
                 textView1.setText(response.getTop_up().getEarning_money() + "");//已产收益
                 textView2.setText(response.getTop_up().getEarning_ratio() + "%");//收益分成
                 textView3.setText(response.getTop_up().getStatus_title() + "");//安装状态
-                textView4.setText(response.getTop_up().getGoods_sn()+ "");//设备ID
+                /*textView4.setText(response.getTop_up().getGoods_sn()+ "");//设备ID
                 textView5.setText(response.getTop_up().getOperation_type_title() + "");//运营方式
                 textView6.setText(response.getTop_up().getPut_business() + "");//设备行业
                 textView7.setText(response.getTop_up().getGoods_brand() + "");//设备品牌
@@ -153,7 +160,75 @@ public class MachineDetailActivity extends BaseActivity {
                 textView12.setText(response.getTop_up().getSource_type_title() + "");//回购状态
                 textView13.setText(response.getTop_up().getMoney() + "");//购买价格
                 textView14.setText(response.getTop_up().getSource_type_title() + "");//转让类型
-                textView15.setText(response.getTop_up().getBuy_type_title() + "");//回购状态
+                textView15.setText(response.getTop_up().getBuy_type_title() + "");//回购状态*/
+
+                sb_key.setLength(0);
+                sb_value.setLength(0);
+                if (!response.getTop_up().getGoods_sn().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h83) + "\n");
+                    sb_value.append(response.getTop_up().getGoods_sn() + "\n");
+                }
+                if (!response.getTop_up().getOperation_type_title().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h84) + "\n");
+                    sb_value.append(response.getTop_up().getOperation_type_title() + "\n");
+                }
+                if (!response.getTop_up().getPut_business().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h85) + "\n");
+                    sb_value.append(response.getTop_up().getPut_business() + "\n");
+                }
+                if (!response.getTop_up().getGoods_brand().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h86) + "\n");
+                    sb_value.append(response.getTop_up().getGoods_brand() + "\n");
+                }
+                if (!response.getTop_up().getPut_title().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h87) + "\n");
+                    sb_value.append(response.getTop_up().getPut_title() + "\n");
+                }
+                if (!response.getTop_up().getPut_address().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h88) + "\n");
+                    sb_value.append(response.getTop_up().getPut_address() + "\n");
+                }
+                if (!response.getTop_up().getCreated_at().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h89) + "\n");
+                    sb_value.append(response.getTop_up().getCreated_at() + "\n");
+                }
+                if (response.getTop_up().getInstall_at() != null && !response.getTop_up().getInstall_at().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h90) + "\n");
+                    sb_value.append(response.getTop_up().getInstall_at() + "\n");
+                }
+                if (!response.getTop_up().getMoney().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h92) + "\n");
+                    sb_value.append(response.getTop_up().getMoney() + "\n");
+                }
+
+
+                if (response.getTop_up().getBuy_back_apply_verify_at() != null && !response.getTop_up().getBuy_back_apply_verify_at().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h105) + "\n");
+                    sb_value.append(response.getTop_up().getBuy_back_apply_verify_at() + "\n");
+                }
+                if (!response.getTop_up().getBuy_type_title().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h94) + "\n");
+                    sb_value.append(response.getTop_up().getBuy_type_title() + "\n");
+                }
+                if (response.getTop_up().getBuy_money() != null &&!response.getTop_up().getBuy_money().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h106) + "\n");
+                    sb_value.append(response.getTop_up().getBuy_money() + "\n");
+                }
+                if (response.getTop_up().getTransfer_out_at()!= null && !response.getTop_up().getTransfer_out_at().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h107) + "\n");
+                    sb_value.append(response.getTop_up().getTransfer_out_at() + "\n");
+                }
+                if (!response.getTop_up().getSource_type_title().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h93) + "\n");
+                    sb_value.append(response.getTop_up().getSource_type_title() + "\n");
+                }
+                if (response.getTop_up().getReturn_at() != null && !response.getTop_up().getReturn_at().equals("")) {
+                    sb_key.append(getString(R.string.fragment1_h108) + "\n");
+                    sb_value.append(response.getTop_up().getReturn_at() + "\n");
+                }
+                tv_kay.setText(sb_key);
+                tv_value.setText(sb_value);
+
 
                 list = response.getTop_up().getEarning_list();
                 if (list.size() > 0) {
@@ -193,7 +268,7 @@ public class MachineDetailActivity extends BaseActivity {
         titleView.showRightTextview(getString(R.string.fragment5_h92), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.gotoActivity(MachineDetailActivity.this, MyOrderActivity.class, false);
+                CommonUtil.gotoActivity(MachineDetailActivity.this, OrderListActivity.class, false);
             }
         });
     }
@@ -201,7 +276,7 @@ public class MachineDetailActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_zhuanrang:
                 //转让
                 Bundle bundle1 = new Bundle();
@@ -242,6 +317,7 @@ public class MachineDetailActivity extends BaseActivity {
             }
         });
     }
+
     private void RequestUpData2(String params) {
         OkHttpClientManager.getAsyn(MachineDetailActivity.this, URLs.HuiGou_cancel + params, new OkHttpClientManager.ResultCallback<String>() {
             @Override

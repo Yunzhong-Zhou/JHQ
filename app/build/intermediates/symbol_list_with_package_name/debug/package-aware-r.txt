@@ -1549,6 +1549,7 @@ drawable yuanjiao_10_heise
 drawable yuanjiao_10_heise1
 drawable yuanjiao_10_heise4
 drawable yuanjiao_10_huise
+drawable yuanjiao_10_huise3
 drawable yuanjiao_10_huise_bottom
 drawable yuanjiao_10_huise_bottom1
 drawable yuanjiao_10_huise_left
@@ -2002,7 +2003,6 @@ id llView
 id ll_chanzhi
 id ll_content2
 id ll_fil
-id ll_jieidan
 id ll_language
 id ll_lingqian
 id ll_nickname
@@ -2274,6 +2274,7 @@ id tv_huigou
 id tv_jiage
 id tv_jilu
 id tv_kaihuname
+id tv_kay
 id tv_keyong
 id tv_kuangji
 id tv_language
@@ -2313,6 +2314,7 @@ id tv_type2
 id tv_v1
 id tv_v2
 id tv_v3
+id tv_value
 id tv_yichan
 id tv_yigou
 id tv_yishou
@@ -2447,6 +2449,7 @@ layout activity_myprofile
 layout activity_myrecharge
 layout activity_mytakecash
 layout activity_onlineservice
+layout activity_orderlist
 layout activity_paydetail
 layout activity_paydetail_alipay
 layout activity_permissions
@@ -2538,6 +2541,7 @@ layout item_cityfriend
 layout item_citylist
 layout item_contractlist
 layout item_fragment1_1
+layout item_fragment1_1_copy
 layout item_fragment1_2
 layout item_fragment3_1
 layout item_fragment3_2
@@ -2554,6 +2558,7 @@ layout item_myorder
 layout item_myrecharge
 layout item_onlineservice
 layout item_onlineservice1
+layout item_orderlist
 layout item_perioddetail
 layout item_pop_list
 layout item_qrcode
@@ -2779,6 +2784,8 @@ mipmap ic_jia_green
 mipmap ic_jian
 mipmap ic_jian_green
 mipmap ic_kefu
+mipmap ic_kuang_false
+mipmap ic_kuang_true
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -3015,6 +3022,18 @@ string app_submit
 string app_submit_true
 string app_tai
 string app_tian
+string app_type1
+string app_type10
+string app_type11
+string app_type12
+string app_type2
+string app_type3
+string app_type4
+string app_type5
+string app_type6
+string app_type7
+string app_type8
+string app_type9
 string app_type_anjine
 string app_type_anshijian
 string app_type_anyingli

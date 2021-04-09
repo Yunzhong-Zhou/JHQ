@@ -195,6 +195,9 @@
         <activity
             android:name="com.ghzk.ghzk.activity.MyOrderActivity"
             android:label="订单中心" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.OrderListActivity"
+            android:label="订单记录" />
 
         <activity
             android:name="com.ghzk.ghzk.activity.AccountDetailActivity"

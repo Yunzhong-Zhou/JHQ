@@ -1,9 +1,13 @@
 package com.ghzk.ghzk.activity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.base.BaseActivity;
 import com.ghzk.ghzk.model.MyMachineModel;
@@ -27,12 +31,12 @@ import androidx.recyclerview.widget.RecyclerView;
  * 我的矿机
  */
 public class MyMachineActivity extends BaseActivity {
-    TextView textView1, textView2,textView3,textView4,textView5,textView6;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6;
     private RecyclerView recyclerView;
     List<MyMachineModel.OrderGoodsListBean> list = new ArrayList<>();
     CommonAdapter<MyMachineModel.OrderGoodsListBean> mAdapter;
     int page = 1;
-    String mill_type = "3", status = "";//算力：1,2 矿机：3
+    String buy_type = "", status = "", operation_type = "", source_type = "";//算力：1,2 矿机：3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class MyMachineActivity extends BaseActivity {
                 //刷新
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&mill_type=" + mill_type
+                        + "&buy_type=" + buy_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -67,7 +71,7 @@ public class MyMachineActivity extends BaseActivity {
                 page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&mill_type=" + mill_type
+                        + "&buy_type=" + buy_type
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -104,12 +108,12 @@ public class MyMachineActivity extends BaseActivity {
             public void onResponse(MyMachineModel response) {
                 showContentPage();
                 hideProgress();
-                textView1.setText(""+response.getEarning_money());//总收益
+                textView1.setText("" + response.getEarning_money());//总收益
                 textView2.setText(response.getHas_run_count() + getString(R.string.app_tai));//已安装
-                textView3.setText(response.getWait_install_count()+"%");//分成比
-                textView4.setText(response.getAmount_count()+"");//总数量
-                textView5.setText(response.getAgency_count()+"");//代运营
-                textView6.setText(response.getSelf_count()+"");//自运营
+                textView3.setText(response.getWait_install_count() + "");//待结算
+                textView4.setText(response.getAmount_count() + "");//总数量
+                textView5.setText(response.getAgency_count() + "");//代运营
+                textView6.setText(response.getSelf_count() + "");//自运营
                 list = response.getOrder_goods_list();
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
@@ -118,6 +122,7 @@ public class MyMachineActivity extends BaseActivity {
                             (MyMachineActivity.this, R.layout.item_mymachine, list) {
                         @Override
                         protected void convert(ViewHolder holder, MyMachineModel.OrderGoodsListBean model, int position) {
+                            LinearLayout linearLayout = holder.getView(R.id.linearLayout);
                             TextView tv1 = holder.getView(R.id.tv1);
                             TextView tv2 = holder.getView(R.id.tv2);
                             TextView tv3 = holder.getView(R.id.tv3);
@@ -128,14 +133,27 @@ public class MyMachineActivity extends BaseActivity {
                             TextView tv8 = holder.getView(R.id.tv8);
 
                             tv1.setText(model.getSource_type_title());
+                            if (model.getSource_type() ==1){
+                                tv1.setVisibility(View.INVISIBLE);
+                            }else {
+                                tv1.setVisibility(View.VISIBLE);
+                            }
+
+                            if (model.getSource_type() ==6 || model.getSource_type() ==9){
+                                linearLayout.setBackgroundResource(R.drawable.yuanjiao_10_huise3);
+                            }else {
+                                linearLayout.setBackgroundResource(R.drawable.yuanjiao_10_baise);
+                            }
+
                             tv2.setText(model.getPut_title());
-                            tv3.setText("￥ "+model.getMoney());
+                            tv3.setText("￥ " + model.getEarning_money());
                             tv4.setText(model.getCreated_at());
 //                            tv5.setText(model.get);
                             tv6.setText(model.getPut_address());
 
                             tv7.setText(model.getStatus_title());
                             tv8.setText(model.getOperation_type_title());
+
 
                         }
                     };
@@ -196,7 +214,7 @@ public class MyMachineActivity extends BaseActivity {
         this.showLoadingPage();
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&mill_type=" + mill_type
+                + "&buy_type=" + buy_type
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -217,10 +235,61 @@ public class MyMachineActivity extends BaseActivity {
     protected void updateView() {
 //        titleView.setVisibility(View.GONE);
         titleView.setTitle(getString(R.string.myprofile_h37));
-        titleView.showRightTextview(getString(R.string.fragment5_h92), new View.OnClickListener() {
+        titleView.setRightBtn(R.mipmap.ic_shaixuan, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.gotoActivity(MyMachineActivity.this, MyOrderActivity.class, false);
+                dialog.contentView(R.layout.dialog_shaixuan)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT))
+                        .animType(BaseDialog.AnimInType.BOTTOM)
+                        .canceledOnTouchOutside(true)
+                        .gravity(Gravity.BOTTOM)
+                        .dimAmount(0.6f)
+                        .show();
+                //标签
+                RecyclerView rv = dialog.findViewById(R.id.rv);
+                rv.setLayoutManager(new LinearLayoutManager(MyMachineActivity.this));
+                List<String> list = new ArrayList<>();
+                list.add(getString(R.string.app_type_quanbu));
+                list.add(getString(R.string.app_type1));
+                list.add(getString(R.string.app_type12));
+                list.add(getString(R.string.app_type2));
+                list.add(getString(R.string.app_type3));
+                list.add(getString(R.string.app_type4));
+                list.add(getString(R.string.app_type5));
+                list.add(getString(R.string.app_type6));
+                list.add(getString(R.string.app_type7));
+                list.add(getString(R.string.app_type8));
+                list.add(getString(R.string.app_type9));
+                list.add(getString(R.string.app_type10));
+                list.add(getString(R.string.app_type11));
+
+                CommonAdapter<String> adapter = new CommonAdapter<String>
+                        (MyMachineActivity.this, R.layout.item_shaixuan, list) {
+                    @Override
+                    protected void convert(ViewHolder holder, String model, int position) {
+                        holder.setText(R.id.tv, model);
+                    }
+                };
+                adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        dialog.dismiss();
+                        if (i == 0){
+                            status = "";
+                        }else {
+                            status = i+"";
+                        }
+
+                        requestServer();
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv.setAdapter(adapter);
             }
         });
     }

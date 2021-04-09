@@ -120,6 +120,15 @@ public class Fragment1Model implements Serializable {
         private int num;
         private String created_at;
         private String status_title;
+        private String industry_title;
+
+        public String getIndustry_title() {
+            return industry_title;
+        }
+
+        public void setIndustry_title(String industry_title) {
+            this.industry_title = industry_title;
+        }
 
         public String getTitle() {
             return title;

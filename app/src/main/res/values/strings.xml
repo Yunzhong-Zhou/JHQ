@@ -81,6 +81,18 @@
     <string name="app_type_dengdaizhong">等待中</string>
     <string name="app_type_jiaoyizhong">交易中</string>
     <string name="app_type_yijieshu">已结束</string>
+    <string name="app_type1">代发货</string>
+    <string name="app_type12">安装中</string>
+    <string name="app_type2">运行中</string>
+    <string name="app_type3">临时转出</string>
+    <string name="app_type4">临时转入</string>
+    <string name="app_type5">永久转出</string>
+    <string name="app_type6">永久转入</string>
+    <string name="app_type7">回购申请待审核</string>
+    <string name="app_type8">回购申请通过</string>
+    <string name="app_type9">回购申请未通过</string>
+    <string name="app_type10">临时转入归还</string>
+    <string name="app_type11">临时转出收回</string>
 
     <!--刷新和加载-->
     <string name="app_loading">正在加载...</string>
@@ -364,10 +376,10 @@
     <string name="fragment1_h102">等级</string>
     <string name="fragment1_h103">申请回购</string>
     <string name="fragment1_h104">收回</string>
-    <string name="fragment1_h105"></string>
-    <string name="fragment1_h106"></string>
-    <string name="fragment1_h107"></string>
-    <string name="fragment1_h108"></string>
+    <string name="fragment1_h105">回购申请时间</string>
+    <string name="fragment1_h106">回购金额</string>
+    <string name="fragment1_h107">转让时间</string>
+    <string name="fragment1_h108">回收时间</string>
     <string name="fragment1_h109"></string>
     <string name="fragment1_h110"></string>
     <string name="fragment1_h111"></string>
@@ -594,10 +606,10 @@
     <string name="fragment5_h88">剩余</string>
     <string name="fragment5_h89">支付宝</string>
     <string name="fragment5_h90">微信转账</string>
-    <string name="fragment5_h91">实付款：</string>
+    <string name="fragment5_h91">实付金额：</string>
     <string name="fragment5_h92">订单记录</string>
-    <string name="fragment5_h93"></string>
-    <string name="fragment5_h94"></string>
+    <string name="fragment5_h93">零钱抵扣：</string>
+    <string name="fragment5_h94">请选择支付方式</string>
     <string name="fragment5_h95"></string>
     <string name="fragment5_h96"></string>
     <string name="fragment5_h97"></string>
@@ -681,7 +693,7 @@
     <string name="myprofile_h37">我的设备</string>
     <string name="myprofile_h38">总收益</string>
     <string name="myprofile_h39">已安装</string>
-    <string name="myprofile_h40">分成比</string>
+    <string name="myprofile_h40">待结算</string>
     <string name="myprofile_h41">总数量(台)</string>
     <string name="myprofile_h42">代运营(台)</string>
     <string name="myprofile_h43">自运营(台)</string>

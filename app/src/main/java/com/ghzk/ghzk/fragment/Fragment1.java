@@ -199,13 +199,13 @@ public class Fragment1 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>>" + list1.toString());
 
                 mAdapter1 = new CommonAdapter<Fragment1Model_P>
-                        (getActivity(), R.layout.item_fragment1_1, list1) {
+                        (getActivity(), R.layout.item_fragment1_1_copy, list1) {
                     @Override
                     protected void convert(ViewHolder holder, Fragment1Model_P model, int position) {
                         //第一张
                         ImageView img1 = holder.getView(R.id.img1);
                         Glide.with(getActivity()).load(IMGHOST + model.getImg1())
-                                .centerCrop()
+//                                .centerCrop()
                                 .placeholder(R.mipmap.loading)//加载站位图
                                 .error(R.mipmap.zanwutupian)//加载失败
                                 .into(img1);//加载图片
@@ -215,7 +215,7 @@ public class Fragment1 extends BaseFragment {
                         if (!model.getImg2().equals("")) {
                             holder.getView(R.id.view1).setVisibility(View.VISIBLE);
                             Glide.with(getActivity()).load(IMGHOST + model.getImg2())
-                                    .centerCrop()
+//                                    .centerCrop()
                                     .placeholder(R.mipmap.loading)//加载站位图
                                     .error(R.mipmap.zanwutupian)//加载失败
                                     .into(img2);//加载图片
@@ -228,7 +228,7 @@ public class Fragment1 extends BaseFragment {
                         if (!model.getImg3().equals("")) {
                             holder.getView(R.id.view2).setVisibility(View.VISIBLE);
                             Glide.with(getActivity()).load(IMGHOST + model.getImg3())
-                                    .centerCrop()
+//                                    .centerCrop()
                                     .placeholder(R.mipmap.loading)//加载站位图
                                     .error(R.mipmap.zanwutupian)//加载失败
                                     .into(img3);//加载图片
@@ -262,8 +262,8 @@ public class Fragment1 extends BaseFragment {
                         }
 
                         holder.setText(R.id.tv_name,model.getTitle());
-                        holder.setText(R.id.tv_content,model.getProvince()+model.getCity()+model.getDistrict());
-//                        holder.setText(R.id.tv_content,model.get);
+//                        holder.setText(R.id.tv_content,model.getProvince()+model.getCity()+model.getDistrict());
+                        holder.setText(R.id.tv_content,model.getIndustry_title());
                         holder.setText(R.id.tv_addr,model.getAddress());
                         holder.setText(R.id.tv_num,model.getNum()+"");
 

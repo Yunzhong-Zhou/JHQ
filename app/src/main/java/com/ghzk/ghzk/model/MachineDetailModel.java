@@ -97,7 +97,44 @@ public class MachineDetailModel implements Serializable {
         private String source_type_title;
         private String status_title;
         private int earning_ratio;
+        private String buy_back_apply_verify_at;
+        private String buy_money;
+        private String return_at;
+        private String transfer_out_at;
+
+        public String getTransfer_out_at() {
+            return transfer_out_at;
+        }
+
+        public void setTransfer_out_at(String transfer_out_at) {
+            this.transfer_out_at = transfer_out_at;
+        }
+
         private List<EarningListBean> earning_list;
+
+        public String getReturn_at() {
+            return return_at;
+        }
+
+        public void setReturn_at(String return_at) {
+            this.return_at = return_at;
+        }
+
+        public String getBuy_money() {
+            return buy_money;
+        }
+
+        public void setBuy_money(String buy_money) {
+            this.buy_money = buy_money;
+        }
+
+        public String getBuy_back_apply_verify_at() {
+            return buy_back_apply_verify_at;
+        }
+
+        public void setBuy_back_apply_verify_at(String buy_back_apply_verify_at) {
+            this.buy_back_apply_verify_at = buy_back_apply_verify_at;
+        }
 
         public String getId() {
             return id;

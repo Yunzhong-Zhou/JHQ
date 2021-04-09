@@ -1,6 +1,7 @@
 package com.ghzk.ghzk.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
+import com.ghzk.ghzk.activity.MachineDetailActivity;
 import com.ghzk.ghzk.activity.MainActivity;
 import com.ghzk.ghzk.activity.PayDetailActivity;
 import com.ghzk.ghzk.base.BaseFragment;
@@ -33,14 +35,19 @@ import com.squareup.okhttp.Request;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.app.Activity.RESULT_OK;
+
 
 /**
  * Created by Mr.Z on 2016/1/6.
  * 拼团
  */
 public class Fragment3 extends BaseFragment {
+    String id = "";
     Fragment3Model model;
     int num = 1, buy_type = 2, payType = 1, operation_type = 1;
+    boolean isSelcet = true;
+
     TextView textView;
 
     private static final int SDK_PAY_FLAG = 1;
@@ -158,12 +165,15 @@ public class Fragment3 extends BaseFragment {
                     //初始化
                     num = 1;
                     payType = 1;
+                    buy_type = 2;
                     operation_type = 1;
 
                     TextView textView1 = dialog.findViewById(R.id.textView1);
                     TextView textView2 = dialog.findViewById(R.id.textView2);
                     TextView textView3 = dialog.findViewById(R.id.textView3);
                     TextView textView4 = dialog.findViewById(R.id.textView4);
+                    TextView textView5 = dialog.findViewById(R.id.textView5);
+
                     ImageView imageView1 = dialog.findViewById(R.id.imageView1);
                     ImageView imageView2 = dialog.findViewById(R.id.imageView2);
                     SeekBar seekBar = dialog.findViewById(R.id.seekBar);
@@ -193,8 +203,18 @@ public class Fragment3 extends BaseFragment {
 
                     tv_lingqian.setText(getString(R.string.fragment5_h87)
                             + "（" + getString(R.string.fragment5_h88) + "¥" + model.getUsable_money() + "）");
+                    if (Double.valueOf(model.getUsable_money()) > 0) {
+                        payType = 1;
+                        isSelcet = true;
+                        iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
 
-                    calculate(seekBar, textView2, textView4);
+                    } else {
+                        payType = -1;
+                        isSelcet = false;
+                        iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
+                    }
+
+                    calculate(seekBar, textView2, textView4,textView5);
 
                     //减号
                     imageView1.setOnClickListener(new View.OnClickListener() {
@@ -203,7 +223,7 @@ public class Fragment3 extends BaseFragment {
                             if (num > 1) {
                                 num--;
                             }
-                            calculate(seekBar, textView2, textView4);
+                            calculate(seekBar, textView2, textView4,textView5);
                         }
                     });
                     //加号
@@ -214,7 +234,7 @@ public class Fragment3 extends BaseFragment {
                                 if (num < Double.valueOf(model.getGoods().getCan_buy_back_price())) {
                                     num++;
                                 }
-                                calculate(seekBar, textView2, textView4);
+                                calculate(seekBar, textView2, textView4,textView5);
                             }
                         }
                     });
@@ -227,7 +247,7 @@ public class Fragment3 extends BaseFragment {
                             } else {
                                 num = progress;
                             }
-                            calculate(seekBar, textView2, textView4);
+                            calculate(seekBar, textView2, textView4,textView5);
                         }
 
                         @Override
@@ -294,7 +314,7 @@ public class Fragment3 extends BaseFragment {
                                     + "（" + "¥" + model.getGoods().getCan_buy_back_price() + "）");
                             textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCan_buy_back_price()
                                     + "/" + getString(R.string.app_tai));
-
+                            calculate(seekBar, textView2, textView4,textView5);
                         }
                     });
                     //不能回购
@@ -309,6 +329,7 @@ public class Fragment3 extends BaseFragment {
                                     + "（" + "¥" + model.getGoods().getCannot_buy_back_price() + "）");
                             textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCannot_buy_back_price()
                                     + "/" + getString(R.string.app_tai));
+                            calculate(seekBar, textView2, textView4,textView5);
                         }
                     });
 
@@ -316,11 +337,21 @@ public class Fragment3 extends BaseFragment {
                     ll_lingqian.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            payType = 1;
-                            iv_lingqian.setImageResource(R.mipmap.ic_gouxuan);
-                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            payType = 1;
+                            if (Double.valueOf(model.getUsable_money()) > 0) {
+                                isSelcet = !isSelcet;
+                                if (isSelcet) {
+                                    iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
+                                } else {
+                                    iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
+                                }
+
+                                calculate(seekBar, textView2, textView4,textView5);
+                            }
+
+//                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
 
                         }
                     });
@@ -329,7 +360,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onClick(View v) {
                             payType = 3;
-                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
                             iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -340,7 +371,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onClick(View v) {
                             payType = 2;
-                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
                             iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -351,7 +382,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onClick(View v) {
                             payType = 4;
-                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+//                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
@@ -363,9 +394,29 @@ public class Fragment3 extends BaseFragment {
                     tv_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            switch (payType) {
-                                case 1:
-                                    if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+
+                            if (payType > 0) {
+                                switch (payType) {
+                                    case 1:
+                                        if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+                                            dialog.dismiss();
+                                            showProgress(true, getString(R.string.app_loading1));
+                                            HashMap<String, String> params = new HashMap<>();
+                                            params.put("goods_id", model.getGoods().getId());
+                                            params.put("buy_type", buy_type + "");
+                                            params.put("operation_type", operation_type + "");
+                                            params.put("pay_type", payType + "");
+                                            params.put("num", num + "");
+                                            params.put("token", localUserInfo.getToken());
+//                            params.put("hk", model.getHk());
+                                            RequestBuy(params);
+                                        } else {
+                                            myToast(getString(R.string.fragment3_h62));
+                                        }
+                                        break;
+                                    case 2:
+                                    case 3:
+                                    case 4:
                                         dialog.dismiss();
                                         showProgress(true, getString(R.string.app_loading1));
                                         HashMap<String, String> params = new HashMap<>();
@@ -377,27 +428,11 @@ public class Fragment3 extends BaseFragment {
                                         params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
                                         RequestBuy(params);
-                                    } else {
-                                        myToast(getString(R.string.fragment3_h62));
-                                    }
-                                    break;
-                                case 2:
-                                case 3:
-                                case 4:
-                                    dialog.dismiss();
-                                    showProgress(true, getString(R.string.app_loading1));
-                                    HashMap<String, String> params = new HashMap<>();
-                                    params.put("goods_id", model.getGoods().getId());
-                                    params.put("buy_type", buy_type + "");
-                                    params.put("operation_type", operation_type + "");
-                                    params.put("pay_type", payType + "");
-                                    params.put("num", num + "");
-                                    params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                    RequestBuy(params);
-                                    break;
+                                        break;
+                                }
+                            } else {
+                                myToast(getString(R.string.fragment5_h94));
                             }
-
                         }
                     });
                 }
@@ -408,13 +443,37 @@ public class Fragment3 extends BaseFragment {
     }
 
     //计算
-    private void calculate(SeekBar seekBar, TextView textView2, TextView textView4) {
+    private void calculate(SeekBar seekBar, TextView textView2, TextView textView4, TextView textView5) {
         seekBar.setProgress(num);
         textView2.setText(num + "");
 
         if (model != null) {
-            textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                    num * Double.valueOf(model.getGoods().getCan_buy_back_price())));//算力费用
+            if (buy_type == 2) {
+                if (isSelcet && Double.valueOf(model.getUsable_money()) > 0) {
+                    textView5.setVisibility(View.VISIBLE);
+                    textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + model.getUsable_money() + "）");
+                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                            num * Double.valueOf(model.getGoods().getCan_buy_back_price()) - Double.valueOf(model.getUsable_money())));//算力费用
+
+                } else {
+                    textView5.setVisibility(View.GONE);
+                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                            num * Double.valueOf(model.getGoods().getCan_buy_back_price())));//算力费用
+                }
+
+            } else {
+                if (isSelcet && Double.valueOf(model.getUsable_money()) > 0) {
+                    textView5.setVisibility(View.VISIBLE);
+                    textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + model.getUsable_money() + "）");
+                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                            num * Double.valueOf(model.getGoods().getCannot_buy_back_price()) - Double.valueOf(model.getUsable_money())));//算力费用
+                } else {
+                    textView5.setVisibility(View.GONE);
+                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                            num * Double.valueOf(model.getGoods().getCannot_buy_back_price())));//算力费用
+                }
+            }
+
         }
 
         /*if (Double.valueOf(model.getMill_production_value_fil_money()) != 0) {
@@ -490,14 +549,15 @@ public class Fragment3 extends BaseFragment {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
                 myToast(getString(R.string.fragment3_h63));
-                switch (payType){
+                id = response.getOrder().getId();
+                switch (payType) {
                     case 1:
                         break;
                     case 2:
                     case 3:
                         //微信、支付宝
                         showProgress(true, getString(R.string.app_loading4));
-                        String string = "?id=" + response.getOrder().getId()
+                        String string = "?id=" + id
                                 + "&pay_type=" + payType
                                 + "&token=" + localUserInfo.getToken();
                         RequestPay(string);
@@ -505,7 +565,7 @@ public class Fragment3 extends BaseFragment {
                     case 4:
                         //转账
                         Bundle bundle = new Bundle();
-                        bundle.putString("id", response.getOrder().getId());
+                        bundle.putString("id", id);
                         CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
                         break;
                 }
@@ -528,7 +588,8 @@ public class Fragment3 extends BaseFragment {
             @Override
             public void onResponse(final String response) {
                 MyLogger.i(">>>>>>>>>支付信息" + response);
-                switch (payType){
+                hideProgress();
+                switch (payType) {
                     case 2:
                         //微信
                         /*IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
@@ -542,6 +603,18 @@ public class Fragment3 extends BaseFragment {
                         req.timeStamp = response.getWechat().getTimestamp();//时间戳
                         req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
                         req.sign = response.getWechat().getSign();//签名
+                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
+                       /* IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
+                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
+                        PayReq req = new PayReq();//PayReq就是订单信息对象
+                        //给req对象赋值
+                        req.appId = "wxe540385418282fe2";//APPID
+                        req.partnerId = "1607729670";//    商户号
+                        req.prepayId = "wx091858410477789885bfc4062a3b940000";//  预付款ID
+                        req.nonceStr = "6070336120ae8";//随机数
+                        req.timeStamp = "1617965921";//时间戳
+                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
+                        req.sign = "B2A84B7B20A55D25FC0E799A706AA547";//签名
                         api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
                         break;
                     case 3:
@@ -569,6 +642,7 @@ public class Fragment3 extends BaseFragment {
             }
         });
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -578,6 +652,24 @@ public class Fragment3 extends BaseFragment {
                 break;
             */
 
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                //获取扫描结果
+                Bundle bundle = data.getExtras();
+                int errCord = bundle.getInt("errCord");
+                MyLogger.i("支付返回》》》", errCord + "");
+                if (errCord == 0) {
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("id", id);
+                    CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle1, false);
+                }
+            }
         }
     }
 

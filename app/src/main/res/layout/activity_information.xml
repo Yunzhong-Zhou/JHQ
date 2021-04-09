@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/yuanjiao_10_bg"
+        android:paddingTop="5dp"
         android:orientation="vertical">
 
 
@@ -93,6 +94,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:visibility="gone"
             android:background="@color/xian"/>
 
         <com.ghzk.ghzk.view.LoadingLayout
