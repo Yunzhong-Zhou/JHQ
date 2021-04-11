@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.base.BaseActivity;
+import com.ghzk.ghzk.model.KeyValueModel;
 import com.ghzk.ghzk.model.MachineDetailModel;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
@@ -28,18 +29,19 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class MachineDetailActivity extends BaseActivity {
     String id = "";
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,
-            textView9, textView10, textView11, textView12, textView13, textView14, textView15,
+    TextView textView1, textView2, textView3,
             tv_zhuanrang, tv_huigou, tv_shouhui, tv_title, tv_kay, tv_value;
 
     private RecyclerView recyclerView;
     List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
     CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
 
-//    LinearLayout ll_jieidan, ll_chanzhi;
+    private RecyclerView rv_info;
+    List<KeyValueModel> list_info = new ArrayList<>();
+    CommonAdapter<KeyValueModel> mAdapter_info;
 
-    StringBuffer sb_key = new StringBuffer();
-    StringBuffer sb_value = new StringBuffer();
+    StringBuilder sb_key = new StringBuilder();
+    StringBuilder sb_value = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class MachineDetailActivity extends BaseActivity {
         recyclerView = findViewByID_My(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
@@ -83,23 +86,14 @@ public class MachineDetailActivity extends BaseActivity {
         textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
         textView3 = findViewByID_My(R.id.textView3);
-        /*textView4 = findViewByID_My(R.id.textView4);
-        textView5 = findViewByID_My(R.id.textView5);
-        textView6 = findViewByID_My(R.id.textView6);
-        textView7 = findViewByID_My(R.id.textView7);
-        textView8 = findViewByID_My(R.id.textView8);
-        textView9 = findViewByID_My(R.id.textView9);
-        textView10 = findViewByID_My(R.id.textView10);
-        textView11 = findViewByID_My(R.id.textView11);
-        textView12 = findViewByID_My(R.id.textView12);
-        textView13 = findViewByID_My(R.id.textView13);
-        textView14 = findViewByID_My(R.id.textView14);
-        textView15 = findViewByID_My(R.id.textView15);*/
 
         tv_title = findViewByID_My(R.id.tv_title);
         tv_zhuanrang = findViewByID_My(R.id.tv_zhuanrang);
         tv_huigou = findViewByID_My(R.id.tv_huigou);
         tv_shouhui = findViewByID_My(R.id.tv_shouhui);
+
+        rv_info = findViewByID_My(R.id.rv_info);
+        rv_info.setLayoutManager(new LinearLayoutManager(this));
         tv_kay = findViewByID_My(R.id.tv_kay);
         tv_value = findViewByID_My(R.id.tv_value);
 
@@ -149,85 +143,120 @@ public class MachineDetailActivity extends BaseActivity {
                 textView1.setText(response.getTop_up().getEarning_money() + "");//已产收益
                 textView2.setText(response.getTop_up().getEarning_ratio() + "%");//收益分成
                 textView3.setText(response.getTop_up().getStatus_title() + "");//安装状态
-                /*textView4.setText(response.getTop_up().getGoods_sn()+ "");//设备ID
-                textView5.setText(response.getTop_up().getOperation_type_title() + "");//运营方式
-                textView6.setText(response.getTop_up().getPut_business() + "");//设备行业
-                textView7.setText(response.getTop_up().getGoods_brand() + "");//设备品牌
-                textView8.setText(response.getTop_up().getPut_title() + "");//设备门店
-                textView9.setText(response.getTop_up().getPut_address() + "");//设备位置
-                textView10.setText(response.getTop_up().getCreated_at() + "");//购买时间
-                textView11.setText(response.getTop_up().getInstall_at() + "");//安装时间
-                textView12.setText(response.getTop_up().getSource_type_title() + "");//回购状态
-                textView13.setText(response.getTop_up().getMoney() + "");//购买价格
-                textView14.setText(response.getTop_up().getSource_type_title() + "");//转让类型
-                textView15.setText(response.getTop_up().getBuy_type_title() + "");//回购状态*/
+
 
                 sb_key.setLength(0);
                 sb_value.setLength(0);
+//                sb_key.clear();
+//                sb_value.clear();
+                list_info.clear();
                 if (!response.getTop_up().getGoods_sn().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h83),response.getTop_up().getGoods_sn()));
                     sb_key.append(getString(R.string.fragment1_h83) + "\n");
                     sb_value.append(response.getTop_up().getGoods_sn() + "\n");
                 }
                 if (!response.getTop_up().getOperation_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h84),response.getTop_up().getOperation_type_title()));
+
                     sb_key.append(getString(R.string.fragment1_h84) + "\n");
                     sb_value.append(response.getTop_up().getOperation_type_title() + "\n");
                 }
                 if (!response.getTop_up().getPut_business().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h85),response.getTop_up().getPut_business()));
+
                     sb_key.append(getString(R.string.fragment1_h85) + "\n");
                     sb_value.append(response.getTop_up().getPut_business() + "\n");
                 }
                 if (!response.getTop_up().getGoods_brand().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h86),response.getTop_up().getGoods_brand()));
+
                     sb_key.append(getString(R.string.fragment1_h86) + "\n");
                     sb_value.append(response.getTop_up().getGoods_brand() + "\n");
                 }
                 if (!response.getTop_up().getPut_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h87),response.getTop_up().getPut_title()));
+
                     sb_key.append(getString(R.string.fragment1_h87) + "\n");
                     sb_value.append(response.getTop_up().getPut_title() + "\n");
                 }
                 if (!response.getTop_up().getPut_address().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h88),response.getTop_up().getPut_address()));
+
                     sb_key.append(getString(R.string.fragment1_h88) + "\n");
                     sb_value.append(response.getTop_up().getPut_address() + "\n");
                 }
                 if (!response.getTop_up().getCreated_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h89),response.getTop_up().getCreated_at()));
+
                     sb_key.append(getString(R.string.fragment1_h89) + "\n");
                     sb_value.append(response.getTop_up().getCreated_at() + "\n");
                 }
                 if (response.getTop_up().getInstall_at() != null && !response.getTop_up().getInstall_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h90),response.getTop_up().getInstall_at()));
+
                     sb_key.append(getString(R.string.fragment1_h90) + "\n");
                     sb_value.append(response.getTop_up().getInstall_at() + "\n");
                 }
                 if (!response.getTop_up().getMoney().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h92),response.getTop_up().getMoney()));
+
                     sb_key.append(getString(R.string.fragment1_h92) + "\n");
                     sb_value.append(response.getTop_up().getMoney() + "\n");
                 }
 
 
                 if (response.getTop_up().getBuy_back_apply_verify_at() != null && !response.getTop_up().getBuy_back_apply_verify_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h105),response.getTop_up().getBuy_back_apply_verify_at()));
+
                     sb_key.append(getString(R.string.fragment1_h105) + "\n");
                     sb_value.append(response.getTop_up().getBuy_back_apply_verify_at() + "\n");
                 }
                 if (!response.getTop_up().getBuy_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h94),response.getTop_up().getBuy_type_title()));
+
                     sb_key.append(getString(R.string.fragment1_h94) + "\n");
                     sb_value.append(response.getTop_up().getBuy_type_title() + "\n");
                 }
                 if (response.getTop_up().getBuy_money() != null &&!response.getTop_up().getBuy_money().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h106),response.getTop_up().getBuy_money()));
+
                     sb_key.append(getString(R.string.fragment1_h106) + "\n");
                     sb_value.append(response.getTop_up().getBuy_money() + "\n");
                 }
                 if (response.getTop_up().getTransfer_out_at()!= null && !response.getTop_up().getTransfer_out_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h107),response.getTop_up().getTransfer_out_at()));
+
                     sb_key.append(getString(R.string.fragment1_h107) + "\n");
                     sb_value.append(response.getTop_up().getTransfer_out_at() + "\n");
                 }
                 if (!response.getTop_up().getSource_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h93),response.getTop_up().getSource_type_title()));
+
                     sb_key.append(getString(R.string.fragment1_h93) + "\n");
                     sb_value.append(response.getTop_up().getSource_type_title() + "\n");
                 }
                 if (response.getTop_up().getReturn_at() != null && !response.getTop_up().getReturn_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h108),response.getTop_up().getReturn_at()));
+
                     sb_key.append(getString(R.string.fragment1_h108) + "\n");
                     sb_value.append(response.getTop_up().getReturn_at() + "\n");
                 }
-                tv_kay.setText(sb_key);
-                tv_value.setText(sb_value);
+
+//                tv_kay.setText(sb_key);
+//                tv_value.setText(sb_value);
+                tv_kay.setText(CommonUtil.setNumColor(sb_key.toString()));
+                tv_value.setText(CommonUtil.setNumColor(sb_value.toString()));
+
+
+                mAdapter_info = new CommonAdapter<KeyValueModel>
+                        (MachineDetailActivity.this, R.layout.item_keyvalue, list_info) {
+                    @Override
+                    protected void convert(ViewHolder holder, KeyValueModel model, int position) {
+                        holder.setText(R.id.tv_kay, model.getKey());
+                        holder.setText(R.id.tv_value, "" + model.getValue());
+                    }
+                };
+                rv_info.setAdapter(mAdapter_info);
 
 
                 list = response.getTop_up().getEarning_list();
@@ -337,4 +366,8 @@ public class MachineDetailActivity extends BaseActivity {
             }
         });
     }
+
+
+
+
 }

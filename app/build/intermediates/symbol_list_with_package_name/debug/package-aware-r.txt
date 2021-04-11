@@ -2111,6 +2111,7 @@ id rl_yongjiu
 id rl_zhizhi
 id rl_ziyunying
 id rv
+id rv_info
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -2550,6 +2551,7 @@ layout item_help
 layout item_information
 layout item_joindetaillist
 layout item_joinlist
+layout item_keyvalue
 layout item_leaderboard
 layout item_machinedetail
 layout item_mycalculate

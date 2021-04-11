@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.PayTask;
 import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.activity.MachineDetailActivity;
@@ -59,6 +60,7 @@ public class Fragment3 extends BaseFragment {
                 case SDK_PAY_FLAG: {
                     @SuppressWarnings("unchecked")
                     PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                    MyLogger.i("payResult"+payResult.toString());
                     /**
                      * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
                      */
@@ -214,7 +216,7 @@ public class Fragment3 extends BaseFragment {
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
                     }
 
-                    calculate(seekBar, textView2, textView4,textView5);
+                    calculate(seekBar, textView2, textView4, textView5);
 
                     //减号
                     imageView1.setOnClickListener(new View.OnClickListener() {
@@ -223,7 +225,7 @@ public class Fragment3 extends BaseFragment {
                             if (num > 1) {
                                 num--;
                             }
-                            calculate(seekBar, textView2, textView4,textView5);
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
                     });
                     //加号
@@ -234,7 +236,7 @@ public class Fragment3 extends BaseFragment {
                                 if (num < Double.valueOf(model.getGoods().getCan_buy_back_price())) {
                                     num++;
                                 }
-                                calculate(seekBar, textView2, textView4,textView5);
+                                calculate(seekBar, textView2, textView4, textView5);
                             }
                         }
                     });
@@ -247,7 +249,7 @@ public class Fragment3 extends BaseFragment {
                             } else {
                                 num = progress;
                             }
-                            calculate(seekBar, textView2, textView4,textView5);
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
 
                         @Override
@@ -314,7 +316,7 @@ public class Fragment3 extends BaseFragment {
                                     + "（" + "¥" + model.getGoods().getCan_buy_back_price() + "）");
                             textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCan_buy_back_price()
                                     + "/" + getString(R.string.app_tai));
-                            calculate(seekBar, textView2, textView4,textView5);
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
                     });
                     //不能回购
@@ -329,7 +331,7 @@ public class Fragment3 extends BaseFragment {
                                     + "（" + "¥" + model.getGoods().getCannot_buy_back_price() + "）");
                             textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCannot_buy_back_price()
                                     + "/" + getString(R.string.app_tai));
-                            calculate(seekBar, textView2, textView4,textView5);
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
                     });
 
@@ -346,7 +348,7 @@ public class Fragment3 extends BaseFragment {
                                     iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
                                 }
 
-                                calculate(seekBar, textView2, textView4,textView5);
+                                calculate(seekBar, textView2, textView4, textView5);
                             }
 
 //                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -394,7 +396,6 @@ public class Fragment3 extends BaseFragment {
                     tv_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
                             if (payType > 0) {
                                 switch (payType) {
                                     case 1:
@@ -569,6 +570,20 @@ public class Fragment3 extends BaseFragment {
                         CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
                         break;
                 }
+                Runnable payRunnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    PayTask alipay = new PayTask(getActivity());
+                                    Map<String, String> result = alipay.payV2(response.getPayParam(), true);
+                                    Message msg = new Message();
+                                    msg.what = SDK_PAY_FLAG;
+                                    msg.obj = result;
+                                    mHandler.sendMessage(msg);
+                                }
+                            };
+                            // 必须异步调用
+                            Thread payThread = new Thread(payRunnable);
+                            payThread.start();
 
             }
         }, true);

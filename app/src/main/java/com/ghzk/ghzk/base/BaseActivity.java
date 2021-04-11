@@ -523,4 +523,7 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
         }
         return false;
     }
+
+
+
 }

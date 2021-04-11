@@ -13,6 +13,9 @@ import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.AbsoluteSizeSpan;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -837,4 +840,24 @@ public class CommonUtil {
         return statusBarHeight;
     }
 
+    /**
+     * 在某些手机上 textview实际显示中，数字比中文小2个字号 - 暂时没找到原因
+     * 筛选文本里面的数字，并设置数字大小
+     *
+     * @param str
+     * @return
+     */
+    public static SpannableStringBuilder setNumColor(String str) {
+        SpannableStringBuilder style = new SpannableStringBuilder(str);
+        for (int i = 0; i < str.length(); i++) {
+            char a = str.charAt(i);
+            if (a >= '0' && a <= '9') {
+//                style.setSpan(new ForegroundColorSpan(Color.RED), i, i + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                style.setSpan(new AbsoluteSizeSpan(17, true), i, i + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+        }
+
+        return style;
+
+    }
 }

@@ -264,6 +264,10 @@ public class MyApplication extends Application {
         super.onConfigurationChanged(newConfig);
     }
 
+    /**
+     * 设置字体不随着手机系统设置而变化
+     * @return
+     */
     @Override
     public Resources getResources() {
         Resources res = super.getResources();

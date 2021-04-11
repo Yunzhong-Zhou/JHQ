@@ -265,4 +265,14 @@ public class Fragment3BuyModel implements Serializable {
             this.deleted_at = deleted_at;
         }
     }
+
+    private String payParam;
+
+    public String getPayParam() {
+        return payParam;
+    }
+
+    public void setPayParam(String payParam) {
+        this.payParam = payParam;
+    }
 }
