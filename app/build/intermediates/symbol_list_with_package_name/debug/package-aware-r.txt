@@ -3040,6 +3040,7 @@ string app_type_anjine
 string app_type_anshijian
 string app_type_anyingli
 string app_type_bizhong
+string app_type_daifukuan
 string app_type_daishenhe
 string app_type_dengdaizhong
 string app_type_fil
@@ -3050,8 +3051,10 @@ string app_type_leixing
 string app_type_paixu
 string app_type_quanbu
 string app_type_shengxu
+string app_type_shiyongzhong
 string app_type_usdt
 string app_type_weitongguo
+string app_type_yifukuan
 string app_type_yiijihuo
 string app_type_yijiangli
 string app_type_yijieshu

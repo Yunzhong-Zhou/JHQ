@@ -81,6 +81,10 @@
     <string name="app_type_dengdaizhong">等待中</string>
     <string name="app_type_jiaoyizhong">交易中</string>
     <string name="app_type_yijieshu">已结束</string>
+    <string name="app_type_shiyongzhong">使用中</string>
+    <string name="app_type_daifukuan">待付款</string>
+    <string name="app_type_yifukuan">已付款</string>
+
     <string name="app_type1">代发货</string>
     <string name="app_type12">安装中</string>
     <string name="app_type2">运行中</string>

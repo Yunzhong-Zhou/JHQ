@@ -12,14 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.adapter.Pop_ListAdapter;
 import com.ghzk.ghzk.base.BaseActivity;
-import com.ghzk.ghzk.model.MyOrderModel;
+import com.ghzk.ghzk.model.OrderListModel;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
-import com.ghzk.ghzk.utils.MyLogger;
 import com.ghzk.ghzk.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
@@ -27,8 +25,6 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -43,9 +39,10 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class OrderListActivity extends BaseActivity {
+    String order_goods_id = "";
     private RecyclerView recyclerView;
-    List<MyOrderModel> list = new ArrayList<>();
-    CommonAdapter<MyOrderModel> mAdapter;
+    List<OrderListModel.GoodsOrderListBean> list = new ArrayList<>();
+    CommonAdapter<OrderListModel.GoodsOrderListBean> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2, linearLayout3;
     private TextView textView1, textView2, textView3;
@@ -53,12 +50,10 @@ public class OrderListActivity extends BaseActivity {
 
     private LinearLayout pop_view;
     int page = 1;
-    String sort = "desc", status = "";
+    String sort = "desc", money_sort = "desc", status = "";
     int i1 = 0;
     int i2 = 0;
     int i3 = 0;
-
-    int payType = 1;
 
 
     @Override
@@ -70,7 +65,7 @@ public class OrderListActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        requestServer();//获取数据
+
     }
 
     @Override
@@ -86,6 +81,8 @@ public class OrderListActivity extends BaseActivity {
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
+                        + "&money_sort=" + money_sort
+                        + "&order_goods_id=" + order_goods_id
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -98,6 +95,8 @@ public class OrderListActivity extends BaseActivity {
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
+                        + "&money_sort=" + money_sort
+                        + "&order_goods_id=" + order_goods_id
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -124,11 +123,12 @@ public class OrderListActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        order_goods_id = getIntent().getStringExtra("order_goods_id");
+        requestServer();//获取数据
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.OrderList + string, new OkHttpClientManager.ResultCallback<OrderListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -139,59 +139,49 @@ public class OrderListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(OrderListModel response) {
                 showContentPage();
                 onHttpResult();
+                list = response.getGoods_order_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<OrderListModel.GoodsOrderListBean>
+                            (OrderListActivity.this, R.layout.item_orderlist, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, OrderListModel.GoodsOrderListBean model, int position) {
+                            TextView tv1 = holder.getView(R.id.tv1);
+                            TextView tv2 = holder.getView(R.id.tv2);
+                            TextView tv3 = holder.getView(R.id.tv3);
+                            TextView tv4 = holder.getView(R.id.tv4);
+                            StringBuffer sb_key = new StringBuffer();
+                            StringBuffer sb_value = new StringBuffer();
 
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<MyOrderModel>
-                                (OrderListActivity.this, R.layout.item_orderlist, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, MyOrderModel model, int position) {
-                                TextView tv1 = holder.getView(R.id.tv1);
-                                TextView tv2 = holder.getView(R.id.tv2);
-                                TextView tv3 = holder.getView(R.id.tv3);
-                                TextView tv4 = holder.getView(R.id.tv4);
-                                StringBuffer sb_key = new StringBuffer();
-                                StringBuffer sb_value = new StringBuffer();
+                            sb_key.append("订单时长" + "\n");
+                            sb_value.append(model.getCreated_at() + "\n");
+                            sb_key.append("订单编号" + "\n");
+                            sb_value.append(model.getCreated_at() + "\n");
+                            sb_key.append("订单时间" + "\n");
+                            sb_value.append(model.getCreated_at() + "\n");
 
-                                sb_key.append("订单时长" + "\n");
-                                sb_value.append(model.getCreated_at() + "\n");
-                                sb_key.append("订单编号" + "\n");
-                                sb_value.append(model.getCreated_at() + "\n");
-                                sb_key.append("订单时间" + "\n");
-                                sb_value.append(model.getCreated_at() + "\n");
-
-                                tv3.setText(sb_key);
-                                tv4.setText(sb_value);
-                            }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            tv3.setText(sb_key);
+                            tv4.setText(sb_value);
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(MyOrderActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                            }
+                        }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });
                 }
             }
         });
@@ -199,7 +189,7 @@ public class OrderListActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.OrderList + string, new OkHttpClientManager.ResultCallback<OrderListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();
@@ -211,119 +201,22 @@ public class OrderListActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(OrderListModel response) {
 //                showContentPage();
                 onHttpResult();
                 JSONObject jObj;
-                List<MyOrderModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<OrderListModel.GoodsOrderListBean> list1 = new ArrayList<>();
+                list1 = response.getGoods_order_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });
 
-    }
-
-    private void RequestPay(String string, String id) {
-        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-//                textView7.setClickable(true);
-                hideProgress();
-                if (!info.equals("")) {
-                    showToast(info);
-                }
-
-            }
-
-            @Override
-            public void onResponse(String response) {
-//                textView7.setClickable(true);
-                hideProgress();
-                MyLogger.i(">>>>>>>>>购买" + response);
-//                myToast(getString(R.string.fragment3_h63));
-                switch (payType) {
-                    case 2:
-                        //微信
-                        /*IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
-                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
-                        PayReq req = new PayReq();//PayReq就是订单信息对象
-                        //给req对象赋值
-                        req.appId = response.getWechat().getAppid();//APPID
-                        req.partnerId = response.getWechat().getPartnerid();//    商户号
-                        req.prepayId = response.getWechat().getPrepayid();//  预付款ID
-                        req.nonceStr = response.getWechat().getNoncestr();//随机数
-                        req.timeStamp = response.getWechat().getTimestamp();//时间戳
-                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = response.getWechat().getSign();//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
-                        break;
-                    case 3:
-                        //支付宝
-                        /*Runnable payRunnable = new Runnable() {
-                            @Override
-                            public void run() {
-                                PayTask alipay = new PayTask(getActivity());
-                                Map<String, String> result = alipay.payV2(response.getOrderStr(), true);
-                                Message msg = new Message();
-                                msg.what = SDK_PAY_FLAG;
-                                msg.obj = result;
-                                mHandler.sendMessage(msg);
-                            }
-                        };
-                        // 必须异步调用
-                        Thread payThread = new Thread(payRunnable);
-                        payThread.start();*/
-                        break;
-                    case 4:
-                        //转账
-                        /*Bundle bundle = new Bundle();
-                        bundle.putString("id", id);
-                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);*/
-                        break;
-                }
-
-                requestServer();
-
-            }
-        }, false);
-    }
-
-    private void RequestBuyCancel(String string) {
-        OkHttpClientManager.getAsyn(OrderListActivity.this, URLs.MyOrderCancel + string, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, String info, Exception e) {
-//                textView7.setClickable(true);
-                hideProgress();
-                if (!info.equals("")) {
-                    showToast(info);
-                }
-
-            }
-
-            @Override
-            public void onResponse(String response) {
-//                textView7.setClickable(true);
-                hideProgress();
-                MyLogger.i(">>>>>>>>>购买取消" + response);
-                myToast("取消成功");
-                requestServer();
-
-            }
-        }, false);
     }
 
     @Override
@@ -387,6 +280,8 @@ public class OrderListActivity extends BaseActivity {
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                 + "&sort=" + sort
+                + "&money_sort=" + money_sort
+                + "&order_goods_id=" + order_goods_id
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -428,8 +323,10 @@ public class OrderListActivity extends BaseActivity {
         contentView.findViewById(R.id.pop_listView3).setVisibility(View.INVISIBLE);
 
         final List<String> list = new ArrayList<String>();
-        list.add(getString(R.string.app_type_jiangxu));
-        list.add(getString(R.string.app_type_shengxu));
+        list.add(getString(R.string.app_type_quanbu));
+        list.add(getString(R.string.app_type_shiyongzhong));
+        list.add(getString(R.string.app_type_daifukuan));
+        list.add(getString(R.string.app_type_yifukuan));
 
         final Pop_ListAdapter adapter = new Pop_ListAdapter(OrderListActivity.this, list);
         adapter.setSelectItem(i1);
@@ -441,9 +338,9 @@ public class OrderListActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
                 i1 = i;
                 if (i == 0) {
-                    sort = "desc";
+                    status = "";
                 } else {
-                    sort = "asc";
+                    status = i + "";
                 }
 //                textView1.setText(list.get(i));
                 requestServer();
@@ -511,9 +408,9 @@ public class OrderListActivity extends BaseActivity {
                 i2 = i;
                 adapter.notifyDataSetChanged();
                 if (i == 0) {
-                    sort = "desc";
+                    money_sort = "desc";
                 } else {
-                    sort = "asc";
+                    money_sort = "asc";
                 }
 //                textView2.setText(list.get(i));
                 requestServer();

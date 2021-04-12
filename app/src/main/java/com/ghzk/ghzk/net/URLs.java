@@ -124,6 +124,8 @@ public class URLs {
     public static final String MyRecharge = "/api/top-up/record";
     //我的订单
     public static final String MyOrder = "/api/order/record";
+    //设备详情-订单列表
+    public static final String OrderList = "/api/goods-order/record";
     //我的订单-支付
     public static final String MyOrderPay = "/api/order/pay";
     //我的订单-取消

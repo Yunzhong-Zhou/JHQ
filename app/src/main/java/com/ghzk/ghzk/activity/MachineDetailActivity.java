@@ -28,13 +28,14 @@ import androidx.recyclerview.widget.RecyclerView;
  * 矿机详情
  */
 public class MachineDetailActivity extends BaseActivity {
+    MachineDetailModel model;
     String id = "";
     TextView textView1, textView2, textView3,
             tv_zhuanrang, tv_huigou, tv_shouhui, tv_title, tv_kay, tv_value;
 
     private RecyclerView recyclerView;
-    List<MachineDetailModel.TopUpBean.EarningListBean> list = new ArrayList<>();
-    CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean> mAdapter;
+    List<MachineDetailModel.OrderGoodsBean.EarningListBean> list = new ArrayList<>();
+    CommonAdapter<MachineDetailModel.OrderGoodsBean.EarningListBean> mAdapter;
 
     private RecyclerView rv_info;
     List<KeyValueModel> list_info = new ArrayList<>();
@@ -124,6 +125,7 @@ public class MachineDetailActivity extends BaseActivity {
 //                showContentPage();
                 hideProgress();
                 MyLogger.i(">>>>>>>>>详情" + response);
+                model = response;
                 if (response.getIs_transfer() == 1) {//不能转让
                     tv_zhuanrang.setVisibility(View.GONE);
                 } else {
@@ -140,9 +142,9 @@ public class MachineDetailActivity extends BaseActivity {
                     tv_shouhui.setVisibility(View.VISIBLE);
                 }
 
-                textView1.setText(response.getTop_up().getEarning_money() + "");//已产收益
-                textView2.setText(response.getTop_up().getEarning_ratio() + "%");//收益分成
-                textView3.setText(response.getTop_up().getStatus_title() + "");//安装状态
+                textView1.setText(response.getOrder_goods().getEarning_money() + "");//已产收益
+                textView2.setText(response.getOrder_goods().getEarning_ratio() + "%");//收益分成
+                textView3.setText(response.getOrder_goods().getStatus_title() + "");//安装状态
 
 
                 sb_key.setLength(0);
@@ -150,96 +152,96 @@ public class MachineDetailActivity extends BaseActivity {
 //                sb_key.clear();
 //                sb_value.clear();
                 list_info.clear();
-                if (!response.getTop_up().getGoods_sn().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h83),response.getTop_up().getGoods_sn()));
+                if (!response.getOrder_goods().getGoods_sn().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h83),response.getOrder_goods().getGoods_sn()));
                     sb_key.append(getString(R.string.fragment1_h83) + "\n");
-                    sb_value.append(response.getTop_up().getGoods_sn() + "\n");
+                    sb_value.append(response.getOrder_goods().getGoods_sn() + "\n");
                 }
-                if (!response.getTop_up().getOperation_type_title().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h84),response.getTop_up().getOperation_type_title()));
+                if (!response.getOrder_goods().getOperation_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h84),response.getOrder_goods().getOperation_type_title()));
 
                     sb_key.append(getString(R.string.fragment1_h84) + "\n");
-                    sb_value.append(response.getTop_up().getOperation_type_title() + "\n");
+                    sb_value.append(response.getOrder_goods().getOperation_type_title() + "\n");
                 }
-                if (!response.getTop_up().getPut_business().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h85),response.getTop_up().getPut_business()));
+                if (!response.getOrder_goods().getPut_business().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h85),response.getOrder_goods().getPut_business()));
 
                     sb_key.append(getString(R.string.fragment1_h85) + "\n");
-                    sb_value.append(response.getTop_up().getPut_business() + "\n");
+                    sb_value.append(response.getOrder_goods().getPut_business() + "\n");
                 }
-                if (!response.getTop_up().getGoods_brand().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h86),response.getTop_up().getGoods_brand()));
+                if (!response.getOrder_goods().getGoods_brand().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h86),response.getOrder_goods().getGoods_brand()));
 
                     sb_key.append(getString(R.string.fragment1_h86) + "\n");
-                    sb_value.append(response.getTop_up().getGoods_brand() + "\n");
+                    sb_value.append(response.getOrder_goods().getGoods_brand() + "\n");
                 }
-                if (!response.getTop_up().getPut_title().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h87),response.getTop_up().getPut_title()));
+                if (!response.getOrder_goods().getPut_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h87),response.getOrder_goods().getPut_title()));
 
                     sb_key.append(getString(R.string.fragment1_h87) + "\n");
-                    sb_value.append(response.getTop_up().getPut_title() + "\n");
+                    sb_value.append(response.getOrder_goods().getPut_title() + "\n");
                 }
-                if (!response.getTop_up().getPut_address().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h88),response.getTop_up().getPut_address()));
+                if (!response.getOrder_goods().getPut_address().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h88),response.getOrder_goods().getPut_address()));
 
                     sb_key.append(getString(R.string.fragment1_h88) + "\n");
-                    sb_value.append(response.getTop_up().getPut_address() + "\n");
+                    sb_value.append(response.getOrder_goods().getPut_address() + "\n");
                 }
-                if (!response.getTop_up().getCreated_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h89),response.getTop_up().getCreated_at()));
+                if (!response.getOrder_goods().getCreated_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h89),response.getOrder_goods().getCreated_at()));
 
                     sb_key.append(getString(R.string.fragment1_h89) + "\n");
-                    sb_value.append(response.getTop_up().getCreated_at() + "\n");
+                    sb_value.append(response.getOrder_goods().getCreated_at() + "\n");
                 }
-                if (response.getTop_up().getInstall_at() != null && !response.getTop_up().getInstall_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h90),response.getTop_up().getInstall_at()));
+                if (response.getOrder_goods().getInstall_at() != null && !response.getOrder_goods().getInstall_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h90),response.getOrder_goods().getInstall_at()));
 
                     sb_key.append(getString(R.string.fragment1_h90) + "\n");
-                    sb_value.append(response.getTop_up().getInstall_at() + "\n");
+                    sb_value.append(response.getOrder_goods().getInstall_at() + "\n");
                 }
-                if (!response.getTop_up().getMoney().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h92),response.getTop_up().getMoney()));
+                if (!response.getOrder_goods().getMoney().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h92),response.getOrder_goods().getMoney()));
 
                     sb_key.append(getString(R.string.fragment1_h92) + "\n");
-                    sb_value.append(response.getTop_up().getMoney() + "\n");
+                    sb_value.append(response.getOrder_goods().getMoney() + "\n");
                 }
 
 
-                if (response.getTop_up().getBuy_back_apply_verify_at() != null && !response.getTop_up().getBuy_back_apply_verify_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h105),response.getTop_up().getBuy_back_apply_verify_at()));
+                if (response.getOrder_goods().getBuy_back_apply_at() != null && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h105),response.getOrder_goods().getBuy_back_apply_at()));
 
                     sb_key.append(getString(R.string.fragment1_h105) + "\n");
-                    sb_value.append(response.getTop_up().getBuy_back_apply_verify_at() + "\n");
+                    sb_value.append(response.getOrder_goods().getBuy_back_apply_at() + "\n");
                 }
-                if (!response.getTop_up().getBuy_type_title().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h94),response.getTop_up().getBuy_type_title()));
+                if (!response.getOrder_goods().getStatus_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h94),response.getOrder_goods().getStatus_title()));
 
                     sb_key.append(getString(R.string.fragment1_h94) + "\n");
-                    sb_value.append(response.getTop_up().getBuy_type_title() + "\n");
+                    sb_value.append(response.getOrder_goods().getStatus_title() + "\n");
                 }
-                if (response.getTop_up().getBuy_money() != null &&!response.getTop_up().getBuy_money().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h106),response.getTop_up().getBuy_money()));
+                if (response.getOrder_goods().getBuy_back_money() != null &&!response.getOrder_goods().getBuy_back_money().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h106),response.getOrder_goods().getBuy_back_money()));
 
                     sb_key.append(getString(R.string.fragment1_h106) + "\n");
-                    sb_value.append(response.getTop_up().getBuy_money() + "\n");
+                    sb_value.append(response.getOrder_goods().getBuy_back_money() + "\n");
                 }
-                if (response.getTop_up().getTransfer_out_at()!= null && !response.getTop_up().getTransfer_out_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h107),response.getTop_up().getTransfer_out_at()));
+                if (response.getOrder_goods().getTransfer_out_at()!= null && !response.getOrder_goods().getTransfer_out_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h107),response.getOrder_goods().getTransfer_out_at()));
 
                     sb_key.append(getString(R.string.fragment1_h107) + "\n");
-                    sb_value.append(response.getTop_up().getTransfer_out_at() + "\n");
+                    sb_value.append(response.getOrder_goods().getTransfer_out_at() + "\n");
                 }
-                if (!response.getTop_up().getSource_type_title().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h93),response.getTop_up().getSource_type_title()));
+                if (!response.getOrder_goods().getSource_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h93),response.getOrder_goods().getSource_type_title()));
 
                     sb_key.append(getString(R.string.fragment1_h93) + "\n");
-                    sb_value.append(response.getTop_up().getSource_type_title() + "\n");
+                    sb_value.append(response.getOrder_goods().getSource_type_title() + "\n");
                 }
-                if (response.getTop_up().getReturn_at() != null && !response.getTop_up().getReturn_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h108),response.getTop_up().getReturn_at()));
+                if (response.getOrder_goods().getReturn_at() != null && !response.getOrder_goods().getReturn_at().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h108),response.getOrder_goods().getReturn_at()));
 
                     sb_key.append(getString(R.string.fragment1_h108) + "\n");
-                    sb_value.append(response.getTop_up().getReturn_at() + "\n");
+                    sb_value.append(response.getOrder_goods().getReturn_at() + "\n");
                 }
 
 //                tv_kay.setText(sb_key);
@@ -259,13 +261,13 @@ public class MachineDetailActivity extends BaseActivity {
                 rv_info.setAdapter(mAdapter_info);
 
 
-                list = response.getTop_up().getEarning_list();
+                list = response.getOrder_goods().getEarning_list();
                 if (list.size() > 0) {
                     showContentPage();
-                    mAdapter = new CommonAdapter<MachineDetailModel.TopUpBean.EarningListBean>
+                    mAdapter = new CommonAdapter<MachineDetailModel.OrderGoodsBean.EarningListBean>
                             (MachineDetailActivity.this, R.layout.item_machinedetail, list) {
                         @Override
-                        protected void convert(ViewHolder holder, MachineDetailModel.TopUpBean.EarningListBean model, int position) {
+                        protected void convert(ViewHolder holder, MachineDetailModel.OrderGoodsBean.EarningListBean model, int position) {
 //                            holder.setText(R.id.textView1, model.getMember_nickname());//昵称
                             holder.setText(R.id.textView2, model.getCreated_at());//时间
                             holder.setText(R.id.textView3, "+" + model.getMoney());//金额
@@ -297,7 +299,9 @@ public class MachineDetailActivity extends BaseActivity {
         titleView.showRightTextview(getString(R.string.fragment5_h92), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.gotoActivity(MachineDetailActivity.this, OrderListActivity.class, false);
+                Bundle bundle = new Bundle();
+                bundle.putString("order_goods_id",model.getOrder_goods().getId());
+                CommonUtil.gotoActivityWithData(MachineDetailActivity.this, OrderListActivity.class, bundle,false);
             }
         });
     }

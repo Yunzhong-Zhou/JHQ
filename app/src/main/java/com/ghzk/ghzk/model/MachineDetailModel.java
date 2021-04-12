@@ -15,17 +15,17 @@ public class MachineDetailModel implements Serializable {
      * is_take_back : 1
      */
 
-    private TopUpBean top_up;
+    private OrderGoodsBean order_goods;
     private int is_transfer;
     private int is_buy_back;
     private int is_take_back;
 
-    public TopUpBean getTop_up() {
-        return top_up;
+    public OrderGoodsBean getOrder_goods() {
+        return order_goods;
     }
 
-    public void setTop_up(TopUpBean top_up) {
-        this.top_up = top_up;
+    public void setOrder_goods(OrderGoodsBean order_goods) {
+        this.order_goods = order_goods;
     }
 
     public int getIs_transfer() {
@@ -52,7 +52,7 @@ public class MachineDetailModel implements Serializable {
         this.is_take_back = is_take_back;
     }
 
-    public static class TopUpBean {
+    public static class OrderGoodsBean {
         /**
          * id : eeb093f0909d573e22ffa5199410bd72
          * goods_brand : 万豪酒店
@@ -97,8 +97,8 @@ public class MachineDetailModel implements Serializable {
         private String source_type_title;
         private String status_title;
         private int earning_ratio;
-        private String buy_back_apply_verify_at;
-        private String buy_money;
+        private String buy_back_apply_at;
+        private String buy_back_money;
         private String return_at;
         private String transfer_out_at;
 
@@ -120,20 +120,20 @@ public class MachineDetailModel implements Serializable {
             this.return_at = return_at;
         }
 
-        public String getBuy_money() {
-            return buy_money;
+        public String getBuy_back_money() {
+            return buy_back_money;
         }
 
-        public void setBuy_money(String buy_money) {
-            this.buy_money = buy_money;
+        public void setBuy_back_money(String buy_back_money) {
+            this.buy_back_money = buy_back_money;
         }
 
-        public String getBuy_back_apply_verify_at() {
-            return buy_back_apply_verify_at;
+        public String getBuy_back_apply_at() {
+            return buy_back_apply_at;
         }
 
-        public void setBuy_back_apply_verify_at(String buy_back_apply_verify_at) {
-            this.buy_back_apply_verify_at = buy_back_apply_verify_at;
+        public void setBuy_back_apply_at(String buy_back_apply_at) {
+            this.buy_back_apply_at = buy_back_apply_at;
         }
 
         public String getId() {

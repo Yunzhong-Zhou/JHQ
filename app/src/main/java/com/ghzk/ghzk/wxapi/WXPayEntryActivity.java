@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.ghzk.ghzk.R;
+import com.ghzk.ghzk.activity.MyMachineActivity;
+import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.MyLogger;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -15,7 +17,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
-	
+	private String id = "";
 	private static final String TAG = "MicroMsg.SDKSample.WXPayEntryActivity";
 	
     private IWXAPI api;
@@ -23,10 +25,12 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_permissions);
+        setContentView(R.layout.activity_permissions);
         
     	api = WXAPIFactory.createWXAPI(this, "wxe540385418282fe2");
         api.handleIntent(getIntent(), this);
+
+		id = getIntent().getStringExtra("id");
     }
 
 	@Override
@@ -52,20 +56,25 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 			int errCord = resp.errCode;
 			if (errCord == 0) {
 				Toast.makeText(WXPayEntryActivity.this,getString(R.string.app_pay_true),Toast.LENGTH_LONG);
-				Intent resultIntent = new Intent();
+				/*Intent resultIntent = new Intent();
 				Bundle bundle = new Bundle();
-                                        /*bundle.putString("carname", model.getBrandInfo().getGroupName()
-                                                + "-" + model.getBrandInfo().getSeriesName());*/
+                                        *//*bundle.putString("carname", model.getBrandInfo().getGroupName()
+                                                + "-" + model.getBrandInfo().getSeriesName());*//*
 //                                        bundle.putString("carname", model.getSName());
 				bundle.putInt("errCord", errCord);
 				resultIntent.putExtras(bundle);
 				setResult(RESULT_OK, resultIntent);
-				finish();
+				finish();*/
+				CommonUtil.gotoActivity(WXPayEntryActivity.this, MyMachineActivity.class, true);
+				/*Bundle bundle1 = new Bundle();
+				bundle1.putString("id", id);
+				CommonUtil.gotoActivityWithData(WXPayEntryActivity.this, MachineDetailActivity.class, bundle1, false);*/
 
 			} else {
 				Toast.makeText(WXPayEntryActivity.this,getString(R.string.app_pay_false),Toast.LENGTH_LONG);
+				finish();
 			}
-			finish();
+
 		}
 	}
 }

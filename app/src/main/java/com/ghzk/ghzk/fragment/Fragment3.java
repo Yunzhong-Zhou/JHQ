@@ -1,7 +1,6 @@
 package com.ghzk.ghzk.fragment;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +24,7 @@ import com.ghzk.ghzk.activity.PayDetailActivity;
 import com.ghzk.ghzk.base.BaseFragment;
 import com.ghzk.ghzk.model.Fragment3BuyModel;
 import com.ghzk.ghzk.model.Fragment3Model;
+import com.ghzk.ghzk.model.PayModel;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
 import com.ghzk.ghzk.utils.CommonUtil;
@@ -32,11 +32,12 @@ import com.ghzk.ghzk.utils.MyLogger;
 import com.ghzk.ghzk.utils.alipay.PayResult;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -44,6 +45,7 @@ import static android.app.Activity.RESULT_OK;
  * 拼团
  */
 public class Fragment3 extends BaseFragment {
+    String resultCode = "";
     String id = "";
     Fragment3Model model;
     int num = 1, buy_type = 2, payType = 1, operation_type = 1;
@@ -71,6 +73,10 @@ public class Fragment3 extends BaseFragment {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         MyLogger.i("支付成功" + payResult);
                         showToast(getString(R.string.app_pay_true));
+
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("id", id);
+                        CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle1, false);
 
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
@@ -109,6 +115,16 @@ public class Fragment3 extends BaseFragment {
         MyLogger.i(">>>>>>>>onResume");
         if (MainActivity.item == 1) {
             requestServer();
+
+           /* resultCode = getActivity().getIntent().getStringExtra("errCord");
+            MyLogger.i(">>>>>>>" + resultCode);
+            if (resultCode != null && !resultCode.equals("")) {
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("id", id);
+                CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle1, false);
+
+                getActivity().getIntent().removeExtra("code");
+            }*/
         }
     }
 
@@ -570,27 +586,13 @@ public class Fragment3 extends BaseFragment {
                         CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
                         break;
                 }
-                Runnable payRunnable = new Runnable() {
-                                @Override
-                                public void run() {
-                                    PayTask alipay = new PayTask(getActivity());
-                                    Map<String, String> result = alipay.payV2(response.getPayParam(), true);
-                                    Message msg = new Message();
-                                    msg.what = SDK_PAY_FLAG;
-                                    msg.obj = result;
-                                    mHandler.sendMessage(msg);
-                                }
-                            };
-                            // 必须异步调用
-                            Thread payThread = new Thread(payRunnable);
-                            payThread.start();
 
             }
         }, true);
     }
 
     private void RequestPay(String string) {
-        OkHttpClientManager.getAsyn(getActivity(), URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(getActivity(), URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<PayModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 hideProgress();
@@ -601,44 +603,36 @@ public class Fragment3 extends BaseFragment {
             }
 
             @Override
-            public void onResponse(final String response) {
+            public void onResponse(PayModel response) {
                 MyLogger.i(">>>>>>>>>支付信息" + response);
                 hideProgress();
                 switch (payType) {
                     case 2:
                         //微信
-                        /*IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
+                        /*Bundle bundle = new Bundle();
+                        bundle.putString("id",id);
+                        CommonUtil.gotoActivityWithData(getActivity(), WXPayEntryActivity.class,bundle);*/
+
+                        IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
                         api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
                         PayReq req = new PayReq();//PayReq就是订单信息对象
                         //给req对象赋值
-                        req.appId = response.getWechat().getAppid();//APPID
-                        req.partnerId = response.getWechat().getPartnerid();//    商户号
-                        req.prepayId = response.getWechat().getPrepayid();//  预付款ID
-                        req.nonceStr = response.getWechat().getNoncestr();//随机数
-                        req.timeStamp = response.getWechat().getTimestamp();//时间戳
+                        req.appId = response.getWecahtPay().getAppid();//APPID
+                        req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
+                        req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
+                        req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
+                        req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
                         req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = response.getWechat().getSign();//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
-                       /* IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
-                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
-                        PayReq req = new PayReq();//PayReq就是订单信息对象
-                        //给req对象赋值
-                        req.appId = "wxe540385418282fe2";//APPID
-                        req.partnerId = "1607729670";//    商户号
-                        req.prepayId = "wx091858410477789885bfc4062a3b940000";//  预付款ID
-                        req.nonceStr = "6070336120ae8";//随机数
-                        req.timeStamp = "1617965921";//时间戳
-                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = "B2A84B7B20A55D25FC0E799A706AA547";//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
+                        req.sign = response.getWecahtPay().getSign();//签名
+                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
                         break;
                     case 3:
                         //支付宝
-                        /*Runnable payRunnable = new Runnable() {
+                        Runnable payRunnable = new Runnable() {
                             @Override
                             public void run() {
                                 PayTask alipay = new PayTask(getActivity());
-                                Map<String, String> result = alipay.payV2(response.getOrderStr(), true);
+                                Map<String, String> result = alipay.payV2(response.getAlipay(), true);
                                 Message msg = new Message();
                                 msg.what = SDK_PAY_FLAG;
                                 msg.obj = result;
@@ -647,7 +641,7 @@ public class Fragment3 extends BaseFragment {
                         };
                         // 必须异步调用
                         Thread payThread = new Thread(payRunnable);
-                        payThread.start();*/
+                        payThread.start();
                         break;
                     case 4:
                         //转账
@@ -667,24 +661,6 @@ public class Fragment3 extends BaseFragment {
                 break;
             */
 
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (data != null) {
-                //获取扫描结果
-                Bundle bundle = data.getExtras();
-                int errCord = bundle.getInt("errCord");
-                MyLogger.i("支付返回》》》", errCord + "");
-                if (errCord == 0) {
-                    Bundle bundle1 = new Bundle();
-                    bundle1.putString("id", id);
-                    CommonUtil.gotoActivityWithData(getActivity(), MachineDetailActivity.class, bundle1, false);
-                }
-            }
         }
     }
 

@@ -19,11 +19,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.alipay.sdk.app.PayTask;
 import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.adapter.Pop_ListAdapter;
 import com.ghzk.ghzk.base.BaseActivity;
 import com.ghzk.ghzk.model.MyOrderModel;
+import com.ghzk.ghzk.model.PayModel;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
 import com.ghzk.ghzk.utils.CommonUtil;
@@ -32,6 +34,9 @@ import com.ghzk.ghzk.utils.alipay.PayResult;
 import com.ghzk.ghzk.view.FixedPopupWindow;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -53,6 +58,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 
 public class MyOrderActivity extends BaseActivity {
+    String id = "";
     private RecyclerView recyclerView;
     List<MyOrderModel> list = new ArrayList<>();
     CommonAdapter<MyOrderModel> mAdapter;
@@ -88,6 +94,9 @@ public class MyOrderActivity extends BaseActivity {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         MyLogger.i("支付成功" + payResult);
                         showToast(getString(R.string.app_pay_true));
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("id", id);
+                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, MachineDetailActivity.class, bundle1, false);
 
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
@@ -203,6 +212,8 @@ public class MyOrderActivity extends BaseActivity {
                                 textView7.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+                                        id = model.getId();
+
                                         dialog.contentView(R.layout.dialog_paytype)
                                                 .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                                         ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -403,7 +414,7 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     private void RequestPay(String string, String id) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrderPay + string, new OkHttpClientManager.ResultCallback<PayModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                textView7.setClickable(true);
@@ -415,7 +426,7 @@ public class MyOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(PayModel response) {
 //                textView7.setClickable(true);
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
@@ -423,26 +434,30 @@ public class MyOrderActivity extends BaseActivity {
                 switch (payType){
                     case 2:
                         //微信
-                        /*IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
+                        /*Bundle bundle = new Bundle();
+                        bundle.putString("id",id);
+                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, WXPayEntryActivity.class,bundle);*/
+
+                        IWXAPI api = WXAPIFactory.createWXAPI(MyOrderActivity.this, "wxe540385418282fe2", false);//填写自己的APPID
                         api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
                         PayReq req = new PayReq();//PayReq就是订单信息对象
                         //给req对象赋值
-                        req.appId = response.getWechat().getAppid();//APPID
-                        req.partnerId = response.getWechat().getPartnerid();//    商户号
-                        req.prepayId = response.getWechat().getPrepayid();//  预付款ID
-                        req.nonceStr = response.getWechat().getNoncestr();//随机数
-                        req.timeStamp = response.getWechat().getTimestamp();//时间戳
+                        req.appId = response.getWecahtPay().getAppid();//APPID
+                        req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
+                        req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
+                        req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
+                        req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
                         req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = response.getWechat().getSign();//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求*/
+                        req.sign = response.getWecahtPay().getSign();//签名
+                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
                         break;
                     case 3:
                         //支付宝
-                        /*Runnable payRunnable = new Runnable() {
+                        Runnable payRunnable = new Runnable() {
                             @Override
                             public void run() {
-                                PayTask alipay = new PayTask(getActivity());
-                                Map<String, String> result = alipay.payV2(response.getOrderStr(), true);
+                                PayTask alipay = new PayTask(MyOrderActivity.this);
+                                Map<String, String> result = alipay.payV2(response.getAlipay(), true);
                                 Message msg = new Message();
                                 msg.what = SDK_PAY_FLAG;
                                 msg.obj = result;
@@ -451,7 +466,7 @@ public class MyOrderActivity extends BaseActivity {
                         };
                         // 必须异步调用
                         Thread payThread = new Thread(payRunnable);
-                        payThread.start();*/
+                        payThread.start();
                         break;
                     case 4:
                         //转账
@@ -461,7 +476,7 @@ public class MyOrderActivity extends BaseActivity {
                         break;
                 }
 
-                requestServer();
+//                requestServer();
 
             }
         }, false);
@@ -679,4 +694,22 @@ public class MyOrderActivity extends BaseActivity {
         // 设置好参数之后再show
         popupWindow.showAsDropDown(v);
     }
+
+/*    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                //获取扫描结果
+                Bundle bundle = data.getExtras();
+                int errCord = bundle.getInt("errCord");
+                MyLogger.i("支付返回》》》", errCord + "");
+                if (errCord == 0) {
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("id", id);
+                    CommonUtil.gotoActivityWithData(MyOrderActivity.this, MachineDetailActivity.class, bundle1, false);
+                }
+            }
+        }
+    }*/
 }
