@@ -15,7 +15,7 @@ public class Fragment1Model implements Serializable {
      * install_num : 0
      */
 
-    private String brand_count;
+    private String cooperation_shop_count;
     private String install_num;
 
     public List<CooperationBrandListBean> getCooperation_brand_list() {
@@ -42,12 +42,12 @@ public class Fragment1Model implements Serializable {
         this.industry_list = industry_list;
     }
 
-    public String getBrand_count() {
-        return brand_count;
+    public String getCooperation_shop_count() {
+        return cooperation_shop_count;
     }
 
-    public void setBrand_count(String brand_count) {
-        this.brand_count = brand_count;
+    public void setCooperation_shop_count(String cooperation_shop_count) {
+        this.cooperation_shop_count = cooperation_shop_count;
     }
 
     public String getInstall_num() {

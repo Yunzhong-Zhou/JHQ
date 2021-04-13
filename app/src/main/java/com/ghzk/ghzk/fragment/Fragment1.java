@@ -254,25 +254,24 @@ public class Fragment1 extends BaseFragment {
                                 .error(R.mipmap.zanwutupian)//加载失败
                                 .into(imageView1);//加载图片
                         ImageView imageView2 = holder.getView(R.id.imageView2);
-                        if (model.getStatus() == 1){
+                        if (model.getStatus() == 1) {
                             //待安装
                             imageView2.setImageResource(R.mipmap.bg_anzhuangzhong);
-                        }else {
+                        } else {
                             imageView2.setImageResource(R.mipmap.bg_yianzhuang);
                         }
 
-                        holder.setText(R.id.tv_name,model.getTitle());
+                        holder.setText(R.id.tv_name, model.getTitle());
 //                        holder.setText(R.id.tv_content,model.getProvince()+model.getCity()+model.getDistrict());
-                        holder.setText(R.id.tv_content,model.getIndustry_title());
-                        holder.setText(R.id.tv_addr,model.getAddress());
-                        holder.setText(R.id.tv_num,model.getNum()+"");
+                        holder.setText(R.id.tv_content, model.getIndustry_title());
+                        holder.setText(R.id.tv_addr, model.getAddress());
+                        holder.setText(R.id.tv_num, model.getNum() + "");
 
                     }
                 };
                 changeUI();
-                textView1.setText(list1.size()+"");
-                textView2.setText(list2.size()+"");
-
+                textView1.setText(response.getInstall_num() + "");
+                textView2.setText(response.getCooperation_shop_count() + "");
 
                 MainActivity.isOver = true;
 

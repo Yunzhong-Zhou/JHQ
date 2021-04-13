@@ -48,7 +48,7 @@ public class Fragment3 extends BaseFragment {
     String resultCode = "";
     String id = "";
     Fragment3Model model;
-    int num = 1, buy_type = 2, payType = 1, operation_type = 1;
+    int num = 1, buy_type = 2, payType = 0, operation_type = 1;
     boolean isSelcet = true;
 
     TextView textView;
@@ -62,7 +62,7 @@ public class Fragment3 extends BaseFragment {
                 case SDK_PAY_FLAG: {
                     @SuppressWarnings("unchecked")
                     PayResult payResult = new PayResult((Map<String, String>) msg.obj);
-                    MyLogger.i("payResult"+payResult.toString());
+                    MyLogger.i("payResult" + payResult.toString());
                     /**
                      * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
                      */
@@ -182,7 +182,7 @@ public class Fragment3 extends BaseFragment {
                             .show();
                     //初始化
                     num = 1;
-                    payType = 1;
+                    payType = 0;
                     buy_type = 2;
                     operation_type = 1;
 
@@ -225,11 +225,13 @@ public class Fragment3 extends BaseFragment {
                         payType = 1;
                         isSelcet = true;
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
+                        ll_lingqian.setVisibility(View.VISIBLE);
 
                     } else {
-                        payType = -1;
+                        payType = 0;
                         isSelcet = false;
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
+                        ll_lingqian.setVisibility(View.GONE);
                     }
 
                     calculate(seekBar, textView2, textView4, textView5);
@@ -377,7 +379,7 @@ public class Fragment3 extends BaseFragment {
                     ll_zhifubao.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            payType = 3;
+                            payType = 2;
 //                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
                             iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -388,7 +390,7 @@ public class Fragment3 extends BaseFragment {
                     ll_weixin.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            payType = 2;
+                            payType = 1;
 //                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
@@ -399,7 +401,7 @@ public class Fragment3 extends BaseFragment {
                     ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            payType = 4;
+                            payType = 3;
 //                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
                             iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
@@ -412,28 +414,9 @@ public class Fragment3 extends BaseFragment {
                     tv_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if (payType > 0) {
-                                switch (payType) {
-                                    case 1:
-                                        if (Double.valueOf(model.getUsable_money()) >= Double.valueOf(model.getGoods().getCan_buy_back_price())) {
-                                            dialog.dismiss();
-                                            showProgress(true, getString(R.string.app_loading1));
-                                            HashMap<String, String> params = new HashMap<>();
-                                            params.put("goods_id", model.getGoods().getId());
-                                            params.put("buy_type", buy_type + "");
-                                            params.put("operation_type", operation_type + "");
-                                            params.put("pay_type", payType + "");
-                                            params.put("num", num + "");
-                                            params.put("token", localUserInfo.getToken());
-//                            params.put("hk", model.getHk());
-                                            RequestBuy(params);
-                                        } else {
-                                            myToast(getString(R.string.fragment3_h62));
-                                        }
-                                        break;
-                                    case 2:
-                                    case 3:
-                                    case 4:
+                            switch (payType) {
+                                case 0:
+                                    if (isSelcet) {
                                         dialog.dismiss();
                                         showProgress(true, getString(R.string.app_loading1));
                                         HashMap<String, String> params = new HashMap<>();
@@ -443,13 +426,39 @@ public class Fragment3 extends BaseFragment {
                                         params.put("pay_type", payType + "");
                                         params.put("num", num + "");
                                         params.put("token", localUserInfo.getToken());
+                                        if (isSelcet) {
+                                            params.put("is_wallet", "2");
+                                        } else {
+                                            params.put("is_wallet", "1");
+                                        }
 //                            params.put("hk", model.getHk());
                                         RequestBuy(params);
-                                        break;
-                                }
-                            } else {
-                                myToast(getString(R.string.fragment5_h94));
+                                    } else {
+                                        myToast(getString(R.string.fragment5_h94));
+                                    }
+                                    break;
+                                case 1:
+                                case 2:
+                                case 3:
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("goods_id", model.getGoods().getId());
+                                    params.put("buy_type", buy_type + "");
+                                    params.put("operation_type", operation_type + "");
+                                    params.put("pay_type", payType + "");
+                                    params.put("num", num + "");
+                                    params.put("token", localUserInfo.getToken());
+                                    if (isSelcet) {
+                                        params.put("is_wallet", "2");
+                                    } else {
+                                        params.put("is_wallet", "1");
+                                    }
+//                            params.put("hk", model.getHk());
+                                    RequestBuy(params);
+                                    break;
                             }
+
                         }
                     });
                 }
@@ -568,18 +577,23 @@ public class Fragment3 extends BaseFragment {
                 myToast(getString(R.string.fragment3_h63));
                 id = response.getOrder().getId();
                 switch (payType) {
-                    case 1:
+                    case 0:
                         break;
+                    case 1:
                     case 2:
-                    case 3:
                         //微信、支付宝
+                        String is_wallet = "1";
+                        if (isSelcet) {
+                            is_wallet = "2";
+                        }
                         showProgress(true, getString(R.string.app_loading4));
                         String string = "?id=" + id
                                 + "&pay_type=" + payType
+                                + "&is_wallet=" + is_wallet
                                 + "&token=" + localUserInfo.getToken();
                         RequestPay(string);
                         break;
-                    case 4:
+                    case 3:
                         //转账
                         Bundle bundle = new Bundle();
                         bundle.putString("id", id);
@@ -606,48 +620,51 @@ public class Fragment3 extends BaseFragment {
             public void onResponse(PayModel response) {
                 MyLogger.i(">>>>>>>>>支付信息" + response);
                 hideProgress();
-                switch (payType) {
-                    case 2:
-                        //微信
+                if (response != null) {
+                    switch (payType) {
+                        case 1:
+                            //微信
                         /*Bundle bundle = new Bundle();
                         bundle.putString("id",id);
                         CommonUtil.gotoActivityWithData(getActivity(), WXPayEntryActivity.class,bundle);*/
 
-                        IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
-                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
-                        PayReq req = new PayReq();//PayReq就是订单信息对象
-                        //给req对象赋值
-                        req.appId = response.getWecahtPay().getAppid();//APPID
-                        req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
-                        req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
-                        req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
-                        req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
-                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = response.getWecahtPay().getSign();//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
-                        break;
-                    case 3:
-                        //支付宝
-                        Runnable payRunnable = new Runnable() {
-                            @Override
-                            public void run() {
-                                PayTask alipay = new PayTask(getActivity());
-                                Map<String, String> result = alipay.payV2(response.getAlipay(), true);
-                                Message msg = new Message();
-                                msg.what = SDK_PAY_FLAG;
-                                msg.obj = result;
-                                mHandler.sendMessage(msg);
-                            }
-                        };
-                        // 必须异步调用
-                        Thread payThread = new Thread(payRunnable);
-                        payThread.start();
-                        break;
-                    case 4:
-                        //转账
+                            IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
+                            api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
+                            PayReq req = new PayReq();//PayReq就是订单信息对象
+                            //给req对象赋值
+                            req.appId = response.getWecahtPay().getAppid();//APPID
+                            req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
+                            req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
+                            req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
+                            req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
+                            req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
+                            req.sign = response.getWecahtPay().getSign();//签名
+                            api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
+                            break;
+                        case 2:
+                            //支付宝
+                            Runnable payRunnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    PayTask alipay = new PayTask(getActivity());
+                                    Map<String, String> result = alipay.payV2(response.getAlipay(), true);
+                                    Message msg = new Message();
+                                    msg.what = SDK_PAY_FLAG;
+                                    msg.obj = result;
+                                    mHandler.sendMessage(msg);
+                                }
+                            };
+                            // 必须异步调用
+                            Thread payThread = new Thread(payRunnable);
+                            payThread.start();
+                            break;
+                        case 3:
+                            //转账
 
-                        break;
+                            break;
+                    }
                 }
+
             }
         });
     }

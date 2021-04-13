@@ -110,7 +110,7 @@ public class MyMachineActivity extends BaseActivity {
                 hideProgress();
                 textView1.setText("" + response.getEarning_money());//总收益
                 textView2.setText(response.getHas_run_count() + getString(R.string.app_tai));//已安装
-                textView3.setText(response.getWait_install_count() + "");//待结算
+                textView3.setText(response.getWait_settle_money() + "");//待结算
                 textView4.setText(response.getAmount_count() + "");//总数量
                 textView5.setText(response.getAgency_count() + "");//代运营
                 textView6.setText(response.getSelf_count() + "");//自运营

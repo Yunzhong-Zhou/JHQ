@@ -100,9 +100,9 @@ public class PayDetailActivity extends BaseActivity {
             public void onResponse(PayDetailModel response) {
                 showContentPage();
                 hideProgress();
-                textView1.setText(response.getBank().getBank_card_proceeds_name());//银行账号
-                textView2.setText(response.getBank().getBank_card_account());//银行户名
-                textView3.setText(response.getBank().getBank_title());//银行名称
+                textView1.setText(response.getBank_card_proceeds_name());//银行账号
+                textView2.setText(response.getBank_card_account());//银行户名
+                textView3.setText(response.getBank_title());//银行名称
                 textView4.setText("¥ "+response.getMoney());//金额
             }
         });

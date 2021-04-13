@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.alipay.sdk.app.PayTask;
 import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
@@ -41,10 +40,6 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -60,8 +55,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyOrderActivity extends BaseActivity {
     String id = "";
     private RecyclerView recyclerView;
-    List<MyOrderModel> list = new ArrayList<>();
-    CommonAdapter<MyOrderModel> mAdapter;
+    List<MyOrderModel.OrderListBean> list = new ArrayList<>();
+    CommonAdapter<MyOrderModel.OrderListBean> mAdapter;
     //筛选
     private LinearLayout linearLayout1, linearLayout2;
     private TextView textView1, textView2;
@@ -73,7 +68,8 @@ public class MyOrderActivity extends BaseActivity {
     int i1 = 0;
     int i2 = 0;
 
-    int payType = 1;
+    int payType = 0;
+    boolean isSelcet = true;
 
     private static final int SDK_PAY_FLAG = 1;
     @SuppressLint("HandlerLeak")
@@ -174,7 +170,7 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentList(String string) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<MyOrderModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 showErrorPage();
@@ -185,189 +181,250 @@ public class MyOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(MyOrderModel response) {
                 showContentPage();
                 onHttpResult();
-                JSONObject jObj;
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
-                    if (list.size() == 0) {
-                        showEmptyPage();//空数据
-                    } else {
-                        mAdapter = new CommonAdapter<MyOrderModel>
-                                (MyOrderActivity.this, R.layout.item_myorder, list) {
-                            @Override
-                            protected void convert(ViewHolder holder, MyOrderModel model, int position) {
-                                holder.setText(R.id.textView1, getString(R.string.fragment5_h81) + model.getSn());//订单号
-                                holder.setText(R.id.textView2, model.getStatus_title());//状态
-                                holder.setText(R.id.textView3, "" + model.getNum());//数量
-                                holder.setText(R.id.textView4, model.getOperation_type_title());//运营方式
-                                holder.setText(R.id.textView5, model.getMoney());//金额
-                                holder.setText(R.id.textView6, model.getCreated_at());//时间
+                list = response.getOrder_list();
+                if (list.size() == 0) {
+                    showEmptyPage();//空数据
+                } else {
+                    mAdapter = new CommonAdapter<MyOrderModel.OrderListBean>
+                            (MyOrderActivity.this, R.layout.item_myorder, list) {
+                        @Override
+                        protected void convert(ViewHolder holder, MyOrderModel.OrderListBean model, int position) {
+                            holder.setText(R.id.textView1, getString(R.string.fragment5_h81) + model.getSn());//订单号
+                            holder.setText(R.id.textView2, model.getStatus_title());//状态
+                            holder.setText(R.id.textView3, "" + model.getNum());//数量
+                            holder.setText(R.id.textView4, model.getOperation_type_title());//运营方式
+                            holder.setText(R.id.textView5, model.getMoney());//金额
+                            holder.setText(R.id.textView6, model.getCreated_at());//时间
 
-                                //立即支付
-                                TextView textView7 = holder.getView(R.id.textView7);
-                                textView7.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        id = model.getId();
+                            //立即支付
+                            TextView textView7 = holder.getView(R.id.textView7);
+                            textView7.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    id = model.getId();
 
-                                        dialog.contentView(R.layout.dialog_paytype)
-                                                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                                        ViewGroup.LayoutParams.WRAP_CONTENT))
-                                                .animType(BaseDialog.AnimInType.BOTTOM)
-                                                .canceledOnTouchOutside(true)
-                                                .gravity(Gravity.BOTTOM)
-                                                .dimAmount(0.8f)
-                                                .show();
-                                        //初始化
+                                    dialog.contentView(R.layout.dialog_paytype)
+                                            .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                                    ViewGroup.LayoutParams.WRAP_CONTENT))
+                                            .animType(BaseDialog.AnimInType.BOTTOM)
+                                            .canceledOnTouchOutside(true)
+                                            .gravity(Gravity.BOTTOM)
+                                            .dimAmount(0.8f)
+                                            .show();
+                                    //初始化
+                                    payType = 0;
+
+                                    LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
+                                    LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
+                                    LinearLayout ll_weixin = dialog.findViewById(R.id.ll_weixin);
+                                    LinearLayout ll_zhuanzhang = dialog.findViewById(R.id.ll_zhuanzhang);
+                                    ImageView iv_lingqian = dialog.findViewById(R.id.iv_lingqian);
+                                    ImageView iv_zhifubao = dialog.findViewById(R.id.iv_zhifubao);
+                                    ImageView iv_weixin = dialog.findViewById(R.id.iv_weixin);
+                                    ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
+                                    TextView tv_lingqian = dialog.findViewById(R.id.tv_lingqian);
+                                    TextView textView4 = dialog.findViewById(R.id.textView4);
+                                    TextView textView5 = dialog.findViewById(R.id.textView5);
+                                    tv_lingqian.setText(getString(R.string.fragment5_h87)
+                                            + "（" + getString(R.string.fragment5_h87) + "¥" + response.getUsable_money() + "）");
+                                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + model.getMoney());//实付款
+
+
+                                    if (Double.valueOf(response.getUsable_money()) > 0) {
                                         payType = 1;
+                                        isSelcet = true;
+                                        iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
+                                        ll_lingqian.setVisibility(View.VISIBLE);
 
-                                        LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
-                                        LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
-                                        LinearLayout ll_weixin = dialog.findViewById(R.id.ll_weixin);
-                                        LinearLayout ll_zhuanzhang = dialog.findViewById(R.id.ll_zhuanzhang);
-                                        ImageView iv_lingqian = dialog.findViewById(R.id.iv_lingqian);
-                                        ImageView iv_zhifubao = dialog.findViewById(R.id.iv_zhifubao);
-                                        ImageView iv_weixin = dialog.findViewById(R.id.iv_weixin);
-                                        ImageView iv_zhuanzhang = dialog.findViewById(R.id.iv_zhuanzhang);
-                                        TextView tv_lingqian = dialog.findViewById(R.id.tv_lingqian);
-                                        TextView textView4 = dialog.findViewById(R.id.textView4);
-                                        /*tv_lingqian.setText(getString(R.string.fragment5_h87)
-                                                + "（" + getString(R.string.fragment5_h87) + "¥" + model.getUsable_money() + "）");*/
-                                        textView4.setText(getString(R.string.fragment5_h91) + "¥" + model.getMoney());//实付款
-                                        //零钱
-                                        ll_lingqian.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                payType = 1;
-                                                iv_lingqian.setImageResource(R.mipmap.ic_gouxuan);
-                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                        if (isSelcet && Double.valueOf(response.getUsable_money()) > 0) {
+                                            textView5.setVisibility(View.VISIBLE);
+                                            textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
+                                            textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                                                    Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
 
-                                            }
-                                        });
-                                        //支付宝
-                                        ll_zhifubao.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                payType = 3;
-                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
-                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                            }
-                                        });
-                                        //微信
-                                        ll_weixin.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                payType = 2;
-                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
-                                                iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                            }
-                                        });
-                                        //转账
-                                        ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                payType = 4;
-                                                iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
-                                                iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
-                                            }
-                                        });
+                                        } else {
+                                            textView5.setVisibility(View.GONE);
+                                            textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                                                    Double.valueOf(model.getMoney())));//算力费用
+                                        }
 
-
-                                        TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
-                                        tv_confirm.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.dismiss();
-
-                                               if (payType ==4){
-                                                   Bundle bundle = new Bundle();
-                                                   bundle.putString("id", model.getId());
-                                                   CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
-                                               }else {
-                                                   showProgress(true, getString(R.string.app_loading1));
-                                                   String string = "?id=" + model.getId()
-                                                           + "&pay_type=" + payType
-                                                           + "&token=" + localUserInfo.getToken();
-                                                   RequestPay(string,model.getId());
-                                               }
-
-
-                                            }
-                                        });
-
+                                    } else {
+                                        payType = 0;
+                                        isSelcet = false;
+                                        iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
+                                        ll_lingqian.setVisibility(View.GONE);
                                     }
-                                });
-                                //取消
-                                TextView textView8 = holder.getView(R.id.textView8);
-                                textView8.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        showToast("确认取消该订单吗？", "确认", "取消",
-                                                new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
+
+                                    //零钱
+                                    ll_lingqian.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+//                                            payType = 0;
+                                            if (Double.valueOf(response.getUsable_money()) > 0) {
+                                                isSelcet = !isSelcet;
+                                                if (isSelcet && Double.valueOf(response.getUsable_money()) > 0) {
+                                                    iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
+
+                                                    textView5.setVisibility(View.VISIBLE);
+                                                    textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
+                                                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                                                            Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
+                                                } else {
+                                                    iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
+
+                                                    textView5.setVisibility(View.GONE);
+                                                    textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
+                                                            Double.valueOf(model.getMoney())));//算力费用
+                                                }
+                                            }
+
+                                        }
+                                    });
+                                    //支付宝
+                                    ll_zhifubao.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            payType = 2;
+//                                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_zhifubao.setImageResource(R.mipmap.ic_gouxuan);
+                                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                        }
+                                    });
+                                    //微信
+                                    ll_weixin.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            payType = 1;
+//                                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_weixin.setImageResource(R.mipmap.ic_gouxuan);
+                                            iv_zhuanzhang.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                        }
+                                    });
+                                    //转账
+                                    ll_zhuanzhang.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            payType = 3;
+//                                            iv_lingqian.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_zhifubao.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_weixin.setImageResource(R.drawable.yuanxingbiankuang_baise);
+                                            iv_zhuanzhang.setImageResource(R.mipmap.ic_gouxuan);
+                                        }
+                                    });
+
+
+                                    TextView tv_confirm = dialog.findViewById(R.id.tv_confirm);
+                                    tv_confirm.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            switch (payType) {
+                                                case 0:
+                                                    if (isSelcet) {
                                                         dialog.dismiss();
                                                         showProgress(true, getString(R.string.app_loading1));
+                                                        String is_wallet = "1";
+                                                        if (isSelcet) {
+                                                            is_wallet = "2";
+                                                        }
+                                                        String string = "?id=" + model.getId()
+                                                                + "&pay_type=" + payType
+                                                                + "&is_wallet=" + is_wallet
+                                                                + "&token=" + localUserInfo.getToken();
+                                                        RequestPay(string, model.getId());
+                                                    } else {
+                                                        myToast(getString(R.string.fragment5_h94));
+                                                    }
+                                                    break;
+                                                case 1:
+                                                case 2:
+                                                    dialog.dismiss();
+                                                    //微信、支付宝
+                                                    showProgress(true, getString(R.string.app_loading1));
+                                                    String is_wallet = "1";
+                                                    if (isSelcet) {
+                                                        is_wallet = "2";
+                                                    }
+                                                    String string = "?id=" + model.getId()
+                                                            + "&pay_type=" + payType
+                                                            + "&is_wallet=" + is_wallet
+                                                            + "&token=" + localUserInfo.getToken();
+                                                    RequestPay(string, model.getId());
+                                                    break;
+                                                case 3:
+                                                    //转账
+                                                    dialog.dismiss();
+                                                    Bundle bundle = new Bundle();
+                                                    bundle.putString("id", model.getId());
+                                                    CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
+                                                    break;
+                                            }
+
+
+
+                                        }
+                                    });
+
+                                }
+                            });
+                            //取消
+                            TextView textView8 = holder.getView(R.id.textView8);
+                            textView8.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    showToast("确认取消该订单吗？", "确认", "取消",
+                                            new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                    showProgress(true, getString(R.string.app_loading1));
                                         /*HashMap<String, String> params = new HashMap<>();
                                         params.put("goods_id", model.getId());
                                         params.put("pay_type", payType + "");
                                         params.put("token", localUserInfo.getToken());
 //                            params.put("hk", model.getHk());
                                         RequestBuyCancel(params);*/
-                                                        String string = "?id=" + model.getId()
-                                                                + "&token=" + localUserInfo.getToken();
-                                                        RequestBuyCancel(string);
-                                                    }
-                                                }, new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        dialog.dismiss();
-                                                    }
-                                                });
+                                                    String string = "?id=" + model.getId()
+                                                            + "&token=" + localUserInfo.getToken();
+                                                    RequestBuyCancel(string);
+                                                }
+                                            }, new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
 
-                                    }
-                                });
-
-                                if (model.getStatus() == 1) {
-                                    textView7.setVisibility(View.VISIBLE);
-                                    textView8.setVisibility(View.VISIBLE);
-                                } else {
-                                    textView7.setVisibility(View.GONE);
-                                    textView8.setVisibility(View.GONE);
                                 }
+                            });
+
+                            if (model.getStatus() == 1) {
+                                textView7.setVisibility(View.VISIBLE);
+                                textView8.setVisibility(View.VISIBLE);
+                            } else {
+                                textView7.setVisibility(View.GONE);
+                                textView8.setVisibility(View.GONE);
                             }
-                        };
-                        recyclerView.setAdapter(mAdapter);
-                        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                        }
+                    };
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                                 /*Bundle bundle1 = new Bundle();
                                 bundle1.putString("id", list.get(position).getId());
                                 CommonUtil.gotoActivityWithData(MyOrderActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                            }
+                        }
 
-                            @Override
-                            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                return false;
-                            }
-                        });
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                        @Override
+                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                            return false;
+                        }
+                    });
                 }
             }
         });
@@ -375,7 +432,7 @@ public class MyOrderActivity extends BaseActivity {
     }
 
     private void RequestMyInvestmentListMore(String string) {
-        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.MyOrder + string, new OkHttpClientManager.ResultCallback<MyOrderModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
 //                showErrorPage();
@@ -387,26 +444,17 @@ public class MyOrderActivity extends BaseActivity {
             }
 
             @Override
-            public void onResponse(String response) {
+            public void onResponse(MyOrderModel response) {
 //                showContentPage();
                 onHttpResult();
-                JSONObject jObj;
-                List<MyOrderModel> list1 = new ArrayList<>();
-                try {
-                    jObj = new JSONObject(response);
-                    JSONArray jsonArray = jObj.getJSONArray("data");
-                    list1 = JSON.parseArray(jsonArray.toString(), MyOrderModel.class);
-                    if (list1.size() == 0) {
-                        myToast(getString(R.string.app_nomore));
-                        page--;
-                    } else {
-                        list.addAll(list1);
-                        mAdapter.notifyDataSetChanged();
-                    }
-
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                List<MyOrderModel.OrderListBean> list1 = new ArrayList<>();
+                list1 = response.getOrder_list();
+                if (list1.size() == 0) {
+                    myToast(getString(R.string.app_nomore));
+                    page--;
+                } else {
+                    list.addAll(list1);
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -431,49 +479,51 @@ public class MyOrderActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
 //                myToast(getString(R.string.fragment3_h63));
-                switch (payType){
-                    case 2:
-                        //微信
+                if (response != null) {
+                    switch (payType) {
+                        case 1:
+                            //微信
                         /*Bundle bundle = new Bundle();
                         bundle.putString("id",id);
                         CommonUtil.gotoActivityWithData(MyOrderActivity.this, WXPayEntryActivity.class,bundle);*/
 
-                        IWXAPI api = WXAPIFactory.createWXAPI(MyOrderActivity.this, "wxe540385418282fe2", false);//填写自己的APPID
-                        api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
-                        PayReq req = new PayReq();//PayReq就是订单信息对象
-                        //给req对象赋值
-                        req.appId = response.getWecahtPay().getAppid();//APPID
-                        req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
-                        req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
-                        req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
-                        req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
-                        req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
-                        req.sign = response.getWecahtPay().getSign();//签名
-                        api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
-                        break;
-                    case 3:
-                        //支付宝
-                        Runnable payRunnable = new Runnable() {
-                            @Override
-                            public void run() {
-                                PayTask alipay = new PayTask(MyOrderActivity.this);
-                                Map<String, String> result = alipay.payV2(response.getAlipay(), true);
-                                Message msg = new Message();
-                                msg.what = SDK_PAY_FLAG;
-                                msg.obj = result;
-                                mHandler.sendMessage(msg);
-                            }
-                        };
-                        // 必须异步调用
-                        Thread payThread = new Thread(payRunnable);
-                        payThread.start();
-                        break;
-                    case 4:
-                        //转账
+                            IWXAPI api = WXAPIFactory.createWXAPI(MyOrderActivity.this, "wxe540385418282fe2", false);//填写自己的APPID
+                            api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
+                            PayReq req = new PayReq();//PayReq就是订单信息对象
+                            //给req对象赋值
+                            req.appId = response.getWecahtPay().getAppid();//APPID
+                            req.partnerId = response.getWecahtPay().getPartnerid();//    商户号
+                            req.prepayId = response.getWecahtPay().getPrepayid();//  预付款ID
+                            req.nonceStr = response.getWecahtPay().getNoncestr();//随机数
+                            req.timeStamp = response.getWecahtPay().getTimestamp();//时间戳
+                            req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
+                            req.sign = response.getWecahtPay().getSign();//签名
+                            api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
+                            break;
+                        case 2:
+                            //支付宝
+                            Runnable payRunnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    PayTask alipay = new PayTask(MyOrderActivity.this);
+                                    Map<String, String> result = alipay.payV2(response.getAlipay(), true);
+                                    Message msg = new Message();
+                                    msg.what = SDK_PAY_FLAG;
+                                    msg.obj = result;
+                                    mHandler.sendMessage(msg);
+                                }
+                            };
+                            // 必须异步调用
+                            Thread payThread = new Thread(payRunnable);
+                            payThread.start();
+                            break;
+                        case 3:
+                            //转账
                         /*Bundle bundle = new Bundle();
                         bundle.putString("id", id);
                         CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);*/
-                        break;
+                            break;
+                    }
                 }
 
 //                requestServer();

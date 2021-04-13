@@ -20,10 +20,19 @@ public class MyMachineModel implements Serializable {
     private String earning_money;
     private String has_run_count;
     private String wait_install_count;
+    private String wait_settle_money;
     private String amount_count;
     private String agency_count;
     private String self_count;
     private List<OrderGoodsListBean> order_goods_list;
+
+    public String getWait_settle_money() {
+        return wait_settle_money;
+    }
+
+    public void setWait_settle_money(String wait_settle_money) {
+        this.wait_settle_money = wait_settle_money;
+    }
 
     public String getEarning_money() {
         return earning_money;
