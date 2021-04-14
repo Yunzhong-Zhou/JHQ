@@ -101,6 +101,42 @@ public class MachineDetailModel implements Serializable {
         private String buy_back_money;
         private String return_at;
         private String transfer_out_at;
+        private String transfer_in_member_id;
+        private String transfer_out_member_id;
+        private String transfer_in_member_mobile;
+        private String transfer_out_member_mobile;
+
+        public String getTransfer_in_member_mobile() {
+            return transfer_in_member_mobile;
+        }
+
+        public void setTransfer_in_member_mobile(String transfer_in_member_mobile) {
+            this.transfer_in_member_mobile = transfer_in_member_mobile;
+        }
+
+        public String getTransfer_out_member_mobile() {
+            return transfer_out_member_mobile;
+        }
+
+        public void setTransfer_out_member_mobile(String transfer_out_member_mobile) {
+            this.transfer_out_member_mobile = transfer_out_member_mobile;
+        }
+
+        public String getTransfer_out_member_id() {
+            return transfer_out_member_id;
+        }
+
+        public void setTransfer_out_member_id(String transfer_out_member_id) {
+            this.transfer_out_member_id = transfer_out_member_id;
+        }
+
+        public String getTransfer_in_member_id() {
+            return transfer_in_member_id;
+        }
+
+        public void setTransfer_in_member_id(String transfer_in_member_id) {
+            this.transfer_in_member_id = transfer_in_member_id;
+        }
 
         public String getTransfer_out_at() {
             return transfer_out_at;

@@ -85,7 +85,7 @@
     <string name="app_type_daifukuan">待付款</string>
     <string name="app_type_yifukuan">已付款</string>
 
-    <string name="app_type1">代发货</string>
+    <string name="app_type1">待发货</string>
     <string name="app_type12">安装中</string>
     <string name="app_type2">运行中</string>
     <string name="app_type3">临时转出</string>
@@ -368,7 +368,7 @@
     <string name="fragment1_h90">安装时间</string>
     <string name="fragment1_h91">回购状态</string>
     <string name="fragment1_h92">购买价格</string>
-    <string name="fragment1_h93">转让类型</string>
+    <string name="fragment1_h93">转入类型</string>
     <string name="fragment1_h94">回购状态</string>
     <string name="fragment1_h95">收益记录</string>
     <string name="fragment1_h96">转让</string>
@@ -382,12 +382,12 @@
     <string name="fragment1_h104">收回</string>
     <string name="fragment1_h105">回购申请时间</string>
     <string name="fragment1_h106">回购金额</string>
-    <string name="fragment1_h107">转让时间</string>
+    <string name="fragment1_h107">转入时间</string>
     <string name="fragment1_h108">回收时间</string>
-    <string name="fragment1_h109"></string>
-    <string name="fragment1_h110"></string>
-    <string name="fragment1_h111"></string>
-    <string name="fragment1_h112"></string>
+    <string name="fragment1_h109">转出时间</string>
+    <string name="fragment1_h110">转出类型</string>
+    <string name="fragment1_h111">转入对象</string>
+    <string name="fragment1_h112">转出对象</string>
     <string name="fragment1_h113"></string>
     <string name="fragment1_h114"></string>
     <string name="fragment1_h115"></string>
