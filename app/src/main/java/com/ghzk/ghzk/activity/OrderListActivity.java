@@ -151,16 +151,33 @@ public class OrderListActivity extends BaseActivity {
                         @Override
                         protected void convert(ViewHolder holder, OrderListModel.GoodsOrderListBean model, int position) {
                             TextView tv1 = holder.getView(R.id.tv1);
+                            tv1.setText(model.getStatus_title());
+                            switch (model.getStatus()){
+                                case 1:
+                                    //使用中
+                                    tv1.setTextColor(getResources().getColor(R.color.black3));
+                                    break;
+                                case 2:
+                                    //待付款
+                                    tv1.setTextColor(getResources().getColor(R.color.red));
+                                    break;
+                                case 3:
+                                    //已付款
+                                    tv1.setTextColor(getResources().getColor(R.color.green));
+                                    break;
+                            }
                             TextView tv2 = holder.getView(R.id.tv2);
+                            tv2.setText("￥"+model.getMoney());
+
                             TextView tv3 = holder.getView(R.id.tv3);
                             TextView tv4 = holder.getView(R.id.tv4);
                             StringBuffer sb_key = new StringBuffer();
                             StringBuffer sb_value = new StringBuffer();
 
                             sb_key.append("订单时长" + "\n");
-                            sb_value.append(model.getCreated_at() + "\n");
+                            sb_value.append(model.getUse_time() + "\n");
                             sb_key.append("订单编号" + "\n");
-                            sb_value.append(model.getCreated_at() + "\n");
+                            sb_value.append(model.getSn() + "\n");
                             sb_key.append("订单时间" + "\n");
                             sb_value.append(model.getCreated_at() + "\n");
 

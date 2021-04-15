@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="10dp"
                     android:text="0"
+                    android:gravity="right"
                     android:textColor="@color/black2"
                     android:textSize="12.5sp"
                     android:textStyle="bold" />

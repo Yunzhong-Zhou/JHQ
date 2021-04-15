@@ -95,23 +95,28 @@ public class Fragment1Model implements Serializable {
     }
 
     public static class CooperationShopListBean {
+
         /**
-         * title : 哈哈哈
-         * cover : /upload/shop/2021-02-28/27f7b33d0e70bc9f17fa80070d8f8031.png
-         * industry : 1
+         * id : 4a8362fba5905af73293541b0e5850db
+         * title : 丽呈東谷酒店(重庆观音桥店)
+         * cover : /upload/shop/2021-03-13/b01cbc58042c804fc769169faf39349e.jpg
+         * industry_id : 1
+         * industry_title :
          * province : 重庆
-         * city : 重庆
-         * district : 湖西
-         * address : 美丽·阳光家园三期(北门)
+         * city : 重庆市
+         * district : 江北区
+         * address : 华唐路2号农垦大厦LG层
          * status : 1
          * num : 1
-         * created_at : 2021-02-28 18:34:11
+         * created_at : 2021-03-13 17:06:41
          * status_title : 待安装
          */
 
+        private String id;
         private String title;
         private String cover;
-        private int industry;
+        private String industry_id;
+        private String industry_title;
         private String province;
         private String city;
         private String district;
@@ -120,14 +125,13 @@ public class Fragment1Model implements Serializable {
         private int num;
         private String created_at;
         private String status_title;
-        private String industry_title;
 
-        public String getIndustry_title() {
-            return industry_title;
+        public String getId() {
+            return id;
         }
 
-        public void setIndustry_title(String industry_title) {
-            this.industry_title = industry_title;
+        public void setId(String id) {
+            this.id = id;
         }
 
         public String getTitle() {
@@ -146,12 +150,20 @@ public class Fragment1Model implements Serializable {
             this.cover = cover;
         }
 
-        public int getIndustry() {
-            return industry;
+        public String getIndustry_id() {
+            return industry_id;
         }
 
-        public void setIndustry(int industry) {
-            this.industry = industry;
+        public void setIndustry_id(String industry_id) {
+            this.industry_id = industry_id;
+        }
+
+        public String getIndustry_title() {
+            return industry_title;
+        }
+
+        public void setIndustry_title(String industry_title) {
+            this.industry_title = industry_title;
         }
 
         public String getProvince() {
@@ -225,15 +237,15 @@ public class Fragment1Model implements Serializable {
          * title : 酒店
          */
 
-        private int code;
+        private String id;
         private String title;
 
-        public int getCode() {
-            return code;
+        public String getId() {
+            return id;
         }
 
-        public void setCode(int code) {
-            this.code = code;
+        public void setId(String id) {
+            this.id = id;
         }
 
         public String getTitle() {

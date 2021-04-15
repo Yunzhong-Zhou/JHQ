@@ -123,6 +123,7 @@
                             android:id="@+id/rl_yongjiu"
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:onClick="onClick">
 
                             <TextView
@@ -169,7 +170,7 @@
                                 android:layout_height="18dp"
                                 android:layout_alignParentRight="true"
                                 android:src="@mipmap/ic_xuanzhong"
-                                android:visibility="invisible" />
+                                android:visibility="visible" />
 
                         </RelativeLayout>
 

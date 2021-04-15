@@ -34,7 +34,7 @@ public class ShouHuiActivity extends BaseActivity {
     EditText editText1,editText1_1, editText2, editText3;
     HuiGouModel model;
     String mobile = "",mobile1="", trade_password = "", code = "";
-    int source_type = 3;//2.临时转让 3.永久转让
+    int source_type = 2;//2.临时转让 3.永久转让
 
     private TimeCount time = null;
 

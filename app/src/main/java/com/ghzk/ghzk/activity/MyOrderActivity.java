@@ -196,7 +196,7 @@ public class MyOrderActivity extends BaseActivity {
                             holder.setText(R.id.textView2, model.getStatus_title());//状态
                             holder.setText(R.id.textView3, "" + model.getNum());//数量
                             holder.setText(R.id.textView4, model.getOperation_type_title());//运营方式
-                            holder.setText(R.id.textView5, model.getMoney());//金额
+                            holder.setText(R.id.textView5, model.getPrice());//金额
                             holder.setText(R.id.textView6, model.getCreated_at());//时间
 
                             //立即支付

@@ -61,7 +61,7 @@ public class CooperativeShopActivity extends BaseActivity {
 
     private LinearLayout pop_view;
     int page = 1;
-    String sort = "desc", status = "", province = "", city = "", district = "", industry = "";
+    String sort = "desc", status = "", province = "", city = "", district = "", industry_id = "";
     int i1 = 0;
     int i2 = 0;
     int i3 = 0;
@@ -95,7 +95,7 @@ public class CooperativeShopActivity extends BaseActivity {
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
-                        + "&industry=" + industry
+                        + "&industry_id=" + industry_id
                         + "&province=" + province
                         + "&city=" + city
                         + "&district=" + district
@@ -111,7 +111,7 @@ public class CooperativeShopActivity extends BaseActivity {
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
-                        + "&industry=" + industry
+                        + "&industry_id=" + industry_id
                         + "&province=" + province
                         + "&city=" + city
                         + "&district=" + district
@@ -355,7 +355,7 @@ public class CooperativeShopActivity extends BaseActivity {
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                 + "&sort=" + sort
-                + "&industry=" + industry
+                + "&industry_id=" + industry_id
                 + "&province=" + province
                 + "&city=" + city
                 + "&district=" + district
@@ -486,9 +486,9 @@ public class CooperativeShopActivity extends BaseActivity {
                 i2 = i;
                 adapter.notifyDataSetChanged();
                 if (i == 0) {
-                    status = "";
+                    industry_id = "";
                 } else {
-                    status = list_hangye.get(i - 1).getCode() + "";
+                    industry_id = list_hangye.get(i - 1).getId() + "";
                 }
 //                textView2.setText(list.get(i));
                 requestServer();

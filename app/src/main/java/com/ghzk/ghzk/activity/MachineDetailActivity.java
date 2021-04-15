@@ -205,6 +205,12 @@ public class MachineDetailActivity extends BaseActivity {
                     sb_key.append(getString(R.string.fragment1_h92) + "\n");
                     sb_value.append(response.getOrder_goods().getMoney() + "\n");
                 }
+                if (!response.getOrder_goods().getSource_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h113), response.getOrder_goods().getSource_type_title()));
+
+                    sb_key.append(getString(R.string.fragment1_h113) + "\n");
+                    sb_value.append(response.getOrder_goods().getSource_type_title() + "\n");
+                }
 
 
                 if (response.getOrder_goods().getBuy_back_apply_at() != null && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
@@ -225,7 +231,8 @@ public class MachineDetailActivity extends BaseActivity {
                     sb_key.append(getString(R.string.fragment1_h106) + "\n");
                     sb_value.append(response.getOrder_goods().getBuy_back_money() + "\n");
                 }
-                if (!response.getOrder_goods().getSource_type_title().equals("")) {
+
+                if (!response.getOrder_goods().getSource_type_title().equals("购买")) {
                     if (response.equals(response.getOrder_goods().getTransfer_in_member_id())) {
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h107), response.getOrder_goods().getTransfer_out_at()));
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h93), response.getOrder_goods().getSource_type_title()));
@@ -325,7 +332,7 @@ public class MachineDetailActivity extends BaseActivity {
                 CommonUtil.gotoActivityWithData(MachineDetailActivity.this, HuiGouActivity.class, bundle2, false);
                 break;
             case R.id.tv_shouhui:
-                //回购
+                //收回
                 Bundle bundle3 = new Bundle();
                 bundle3.putString("id", id);
                 CommonUtil.gotoActivityWithData(MachineDetailActivity.this, ShouHuiActivity.class, bundle3, false);
