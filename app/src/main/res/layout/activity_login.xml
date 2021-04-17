@@ -397,7 +397,7 @@
                             android:onClick="onClick"
                             android:singleLine="true"
                             android:text="@string/registered_h7"
-                            android:textColor="@color/black3"
+                            android:textColor="@color/blue"
                             android:textSize="12sp" />
                     </LinearLayout>
 

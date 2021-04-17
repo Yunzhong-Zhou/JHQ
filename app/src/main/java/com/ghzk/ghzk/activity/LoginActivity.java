@@ -449,7 +449,7 @@ public class LoginActivity extends BaseActivity {
                 if (isgouxuan)
                     imageView3.setImageResource(R.mipmap.ic_xuanze);
                 else
-                    imageView3.setImageResource(R.mipmap.ic_weigouxuan);
+                    imageView3.setImageResource(R.mipmap.ic_weixuanze);
                 break;
         }
     }
