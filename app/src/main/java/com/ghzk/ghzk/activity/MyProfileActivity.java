@@ -58,7 +58,7 @@ public class MyProfileActivity extends BaseActivity {
 
     ImageView imageView1;
     TextView textView1;
-    EditText editText1, editText2;
+    EditText editText1, editText2,editText3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +134,7 @@ public class MyProfileActivity extends BaseActivity {
             }
         });
 
+
     }
 
     @Override
@@ -189,7 +190,8 @@ public class MyProfileActivity extends BaseActivity {
                 editText1.setText(response.getNickname());
                 //邮箱
                 editText2.setText(response.getEmail());
-
+                //分公司码
+                editText3.setText(response.getService_code());
 
                 localUserInfo.setPhoneNumber(response.getMobile());
                 localUserInfo.setNickname(response.getNickname());

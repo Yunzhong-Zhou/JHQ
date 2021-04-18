@@ -726,10 +726,10 @@
     <string name="myprofile_h66">合作伙伴名称</string>
     <string name="myprofile_h67">请输入合作伙伴名称</string>
     <string name="myprofile_h68">省级代理</string>
-    <string name="myprofile_h69"></string>
-    <string name="myprofile_h70"></string>
-    <string name="myprofile_h71"></string>
-    <string name="myprofile_h72"></string>
+    <string name="myprofile_h69">申请审核中</string>
+    <string name="myprofile_h70">分公司码</string>
+    <string name="myprofile_h71">请输入分公司码</string>
+    <string name="myprofile_h72">审核失败原因：</string>
     <string name="myprofile_h73"></string>
     <string name="myprofile_h74"></string>
     <string name="myprofile_h75"></string>
@@ -796,7 +796,7 @@
     <string name="recharge_h13">充币处理中</string>
     <string name="recharge_h14">USDT(TRC20)充币地址</string>
     <string name="recharge_h16">实际到账</string>
-    <string name="recharge_h17">到帐时间</string>
+    <string name="recharge_h17">处理时间</string>
     <string name="recharge_h18">充币单号</string>
     <string name="recharge_h19">充币状态</string>
     <string name="recharge_h26">充币失败</string>
@@ -983,7 +983,7 @@
     <string name="transferrecord_h4">对方昵称：</string>
 
     <!--合同-->
-    <string name="contract_h1">合同</string>
+    <string name="contract_h1">合同管理</string>
     <string name="contract_h2">可开增值税普通发票金额</string>
     <string name="contract_h3">主体信息</string>
     <string name="contract_h4">电子合同</string>
@@ -1036,5 +1036,9 @@
     <string name="contract_h51">确认申请纸质合同吗？</string>
     <string name="contract_h52">申请纸质合同成功</string>
     <string name="contract_h53">电子合同正在上传中</string>
+    <string name="contract_h54">确认提交</string>
+    <string name="contract_h55">确认修改</string>
+    <string name="contract_h56">查看电子合同</string>
+    <string name="contract_h57">申请纸质合同</string>
 
 </resources>

@@ -280,8 +280,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical"
                                     android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
+                                    android:paddingLeft="24dp">
 
                                     <View
                                         android:layout_width="2.5dp"
@@ -291,6 +290,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_weight="1"
                                         android:layout_marginLeft="10dp"
                                         android:paddingTop="20dp"
                                         android:paddingBottom="20dp"
@@ -298,6 +298,14 @@
                                         android:textColor="@color/black1"
                                         android:textSize="15sp"
                                         android:textStyle="bold" />
+                                    <!--<ImageView
+                                        android:id="@+id/iv_edit1"
+                                        android:onClick="onClick"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@mipmap/ic_edit"
+                                        android:padding="15dp"/>-->
+
 
                                 </LinearLayout>
 
@@ -490,8 +498,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical"
                                     android:orientation="horizontal"
-                                    android:paddingLeft="24dp"
-                                    android:paddingRight="24dp">
+                                    android:paddingLeft="24dp">
 
                                     <View
                                         android:layout_width="2.5dp"
@@ -501,6 +508,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_weight="1"
                                         android:layout_marginLeft="10dp"
                                         android:paddingTop="20dp"
                                         android:paddingBottom="20dp"
@@ -508,6 +516,14 @@
                                         android:textColor="@color/black1"
                                         android:textSize="15sp"
                                         android:textStyle="bold" />
+
+                                    <!--<ImageView
+                                        android:id="@+id/iv_edit2"
+                                        android:onClick="onClick"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@mipmap/ic_edit"
+                                        android:padding="15dp"/>-->
 
                                 </LinearLayout>
 
@@ -1100,6 +1116,7 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:paddingLeft="22dp"
+                                    android:visibility="gone"
                                     android:paddingRight="22dp">
 
                                     <TextView

@@ -222,7 +222,7 @@ public class Fragment3 extends BaseFragment {
                     tv_lingqian.setText(getString(R.string.fragment5_h87)
                             + "（" + getString(R.string.fragment5_h88) + "¥" + model.getUsable_money() + "）");
                     if (Double.valueOf(model.getUsable_money()) > 0) {
-                        payType = 1;
+                        payType = 0;
                         isSelcet = true;
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
                         ll_lingqian.setVisibility(View.VISIBLE);

@@ -47,6 +47,12 @@ public class MyMachineActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        requestServer();//获取数据
+    }
+
+    @Override
     protected void initView() {
 
         recyclerView = findViewByID_My(R.id.recyclerView);
@@ -90,7 +96,7 @@ public class MyMachineActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        requestServer();//获取数据
+
     }
 
     private void RequestList(String string) {

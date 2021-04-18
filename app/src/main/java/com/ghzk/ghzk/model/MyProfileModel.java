@@ -20,6 +20,15 @@ public class MyProfileModel implements Serializable {
     private int nickname_update;
     private String head;
     private String email;
+    private String service_code;
+
+    public String getService_code() {
+        return service_code;
+    }
+
+    public void setService_code(String service_code) {
+        this.service_code = service_code;
+    }
 
     public String getMobile() {
         return mobile;

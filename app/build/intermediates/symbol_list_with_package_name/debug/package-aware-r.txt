@@ -2007,6 +2007,7 @@ id ll_language
 id ll_lingqian
 id ll_nickname
 id ll_phonenum
+id ll_sebei
 id ll_shouru
 id ll_title
 id ll_title_background
@@ -2264,6 +2265,7 @@ id tv_d1
 id tv_d2
 id tv_danjia
 id tv_dianzi
+id tv_dianzihetong
 id tv_filmoney
 id tv_fuzhi
 id tv_fuzhi2
@@ -2298,6 +2300,7 @@ id tv_recharge2
 id tv_save
 id tv_scan
 id tv_sell
+id tv_shenheshibai
 id tv_shouhui
 id tv_shouru
 id tv_shouyi
@@ -2324,6 +2327,7 @@ id tv_zengjia
 id tv_zhejiu
 id tv_zhichu
 id tv_zhizhi
+id tv_zhizhihetong
 id tv_zhuanrang
 id tv_zonge
 id tv_zongliang
@@ -2849,6 +2853,7 @@ mipmap ic_usdt_white
 mipmap ic_usdt_white1
 mipmap ic_weigouxuan
 mipmap ic_weixin
+mipmap ic_weixuanze
 mipmap ic_wenhao_gray
 mipmap ic_wenhao_gray2
 mipmap ic_xiexian
@@ -3132,6 +3137,10 @@ string contract_h50
 string contract_h51
 string contract_h52
 string contract_h53
+string contract_h54
+string contract_h55
+string contract_h56
+string contract_h57
 string contract_h6
 string contract_h7
 string contract_h8

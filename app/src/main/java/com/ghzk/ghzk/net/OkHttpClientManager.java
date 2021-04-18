@@ -74,8 +74,8 @@ public class OkHttpClientManager {
 //    public static String HOST = "http://192.168.0.200";
 
     //测试地址
-    public static String IMGHOST = "http://air.fbixfbi.com";//图片地址
-    public static String HOST = "http://air.fbixfbi.com";//接口地址
+    public static String IMGHOST = "http://air.fileone.co";//图片地址
+    public static String HOST = "http://air.fileone.co";//接口地址
 
     //正式地址
 //    public static String IMGHOST = "https://app.filtop.io";//图片地址

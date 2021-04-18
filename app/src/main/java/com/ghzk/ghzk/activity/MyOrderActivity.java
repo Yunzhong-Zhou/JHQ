@@ -232,9 +232,8 @@ public class MyOrderActivity extends BaseActivity {
                                             + "（" + getString(R.string.fragment5_h87) + "¥" + response.getUsable_money() + "）");
                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + model.getMoney());//实付款
 
-
                                     if (Double.valueOf(response.getUsable_money()) > 0) {
-                                        payType = 1;
+                                        payType = 0;
                                         isSelcet = true;
                                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
                                         ll_lingqian.setVisibility(View.VISIBLE);
@@ -243,12 +242,12 @@ public class MyOrderActivity extends BaseActivity {
                                             textView5.setVisibility(View.VISIBLE);
                                             textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
                                             textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                    Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
+                                                    Double.valueOf(model.getPrice()) - Double.valueOf(response.getUsable_money())));//算力费用
 
                                         } else {
                                             textView5.setVisibility(View.GONE);
                                             textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                    Double.valueOf(model.getMoney())));//算力费用
+                                                    Double.valueOf(model.getPrice())));//算力费用
                                         }
 
                                     } else {
@@ -271,13 +270,13 @@ public class MyOrderActivity extends BaseActivity {
                                                     textView5.setVisibility(View.VISIBLE);
                                                     textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
                                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                            Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
+                                                            Double.valueOf(model.getPrice()) - Double.valueOf(response.getUsable_money())));//算力费用
                                                 } else {
                                                     iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
 
                                                     textView5.setVisibility(View.GONE);
                                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                            Double.valueOf(model.getMoney())));//算力费用
+                                                            Double.valueOf(model.getPrice())));//算力费用
                                                 }
                                             }
 
@@ -402,13 +401,44 @@ public class MyOrderActivity extends BaseActivity {
                                 }
                             });
 
-                            if (model.getStatus() == 1) {
-                                textView7.setVisibility(View.VISIBLE);
-                                textView8.setVisibility(View.VISIBLE);
-                            } else {
-                                textView7.setVisibility(View.GONE);
-                                textView8.setVisibility(View.GONE);
+                            //电子合同
+                            TextView tv_dianzihetong = holder.getView(R.id.tv_dianzihetong);
+
+                            //纸质合同
+                            TextView tv_zhizhihetong = holder.getView(R.id.tv_zhizhihetong);
+
+                            switch (model.getStatus()){
+                                case 1:
+                                    //待付款
+                                    textView7.setVisibility(View.VISIBLE);
+                                    textView8.setVisibility(View.VISIBLE);
+                                    tv_dianzihetong.setVisibility(View.GONE);
+                                    tv_zhizhihetong.setVisibility(View.GONE);
+                                    break;
+                                /*case 2:
+                                    //已付款
+                                    textView7.setVisibility(View.GONE);
+                                    textView8.setVisibility(View.GONE);
+                                    tv_dianzihetong.setVisibility(View.GONE);
+                                    tv_zhizhihetong.setVisibility(View.GONE);
+                                    break;*/
+                                case 3:
+                                case 4:
+                                    //待处理、已处理
+                                    textView7.setVisibility(View.GONE);
+                                    textView8.setVisibility(View.GONE);
+                                    tv_dianzihetong.setVisibility(View.VISIBLE);
+                                    tv_zhizhihetong.setVisibility(View.VISIBLE);
+                                    break;
+                                default:
+                                    //取消
+                                    textView7.setVisibility(View.GONE);
+                                    textView8.setVisibility(View.GONE);
+                                    tv_dianzihetong.setVisibility(View.GONE);
+                                    tv_zhizhihetong.setVisibility(View.GONE);
+                                    break;
                             }
+
                         }
                     };
                     recyclerView.setAdapter(mAdapter);
@@ -635,9 +665,12 @@ public class MyOrderActivity extends BaseActivity {
         ListView pop_listView = (ListView) contentView.findViewById(R.id.pop_listView1);
         contentView.findViewById(R.id.pop_listView2).setVisibility(View.INVISIBLE);
         final List<String> list = new ArrayList<String>();
-//        list.add(getString(R.string.app_type_quanbu));
-        list.add(getString(R.string.app_type_jiangxu));
-        list.add(getString(R.string.app_type_shengxu));
+        list.add("默认排序");
+        list.add("时间降序");
+        list.add("时间升序");
+        list.add("金额降序");
+        list.add("金额升序");
+
         final Pop_ListAdapter adapter = new Pop_ListAdapter(MyOrderActivity.this, list);
         adapter.setSelectItem(i1);
         pop_listView.setAdapter(adapter);
@@ -647,11 +680,11 @@ public class MyOrderActivity extends BaseActivity {
                 adapter.setSelectItem(i);
                 adapter.notifyDataSetChanged();
                 i1 = i;
-                if (i == 0) {
+                /*if (i == 0) {
                     sort = "desc";
                 } else {
                     sort = "asc";
-                }
+                }*/
 //                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();

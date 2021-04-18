@@ -338,7 +338,7 @@ public class CooperativeBrandActivity extends BaseActivity {
 
     @Override
     protected void updateView() {
-        titleView.setTitle(R.string.fragment1_h98);
+        titleView.setTitle(R.string.fragment1_h2);
     }
 
     @Override

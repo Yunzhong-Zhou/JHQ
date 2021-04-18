@@ -172,6 +172,32 @@
             android:text="@string/app_cancel"
             android:textColor="@color/black3"
             android:textSize="13sp" />
+        <TextView
+            android:id="@+id/tv_dianzihetong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yuanjiaobiankuang_5_huise"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="14dp"
+            android:layout_marginRight="14dp"
+            android:paddingBottom="5dp"
+            android:text="@string/contract_h56"
+            android:textColor="@color/black3"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/tv_zhizhihetong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yuanjiaobiankuang_5_huise"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="14dp"
+            android:layout_marginRight="14dp"
+            android:paddingBottom="5dp"
+            android:text="@string/contract_h57"
+            android:textColor="@color/black3"
+            android:textSize="13sp" />
     </LinearLayout>
 
     <View

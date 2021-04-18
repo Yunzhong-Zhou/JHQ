@@ -53,7 +53,7 @@ public class Fragment5 extends BaseFragment {
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
     LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5,
             linearLayout6, linearLayout7, linearLayout8, linearLayout9, linearLayout10, linearLayout11,
-            linearLayout12, linearLayout13, linearLayout14, linearLayout15, linearLayout16, linearLayout17;
+            linearLayout12, linearLayout13, linearLayout14, linearLayout15, linearLayout16, linearLayout17, ll_sebei;
     ImageView imageView1;
 
 
@@ -164,6 +164,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout15 = findViewByID_My(R.id.linearLayout15);
         linearLayout16 = findViewByID_My(R.id.linearLayout16);
         linearLayout17 = findViewByID_My(R.id.linearLayout17);
+        ll_sebei = findViewByID_My(R.id.ll_sebei);
 
         linearLayout1.setOnClickListener(this);
         linearLayout2.setOnClickListener(this);
@@ -182,6 +183,7 @@ public class Fragment5 extends BaseFragment {
         linearLayout15.setOnClickListener(this);
         linearLayout16.setOnClickListener(this);
         linearLayout17.setOnClickListener(this);
+        ll_sebei.setOnClickListener(this);
 
         relativeLayout = findViewByID_My(R.id.relativeLayout);
         relativeLayout.setOnClickListener(this);
@@ -288,6 +290,7 @@ public class Fragment5 extends BaseFragment {
 //                CommonUtil.gotoActivity(getActivity(), MyJoinListActivity.class, false);
                 break;
             case R.id.textView9:
+            case R.id.ll_sebei:
                 //查看设备
                 CommonUtil.gotoActivity(getActivity(), MyMachineActivity.class, false);
                 break;
@@ -366,10 +369,12 @@ public class Fragment5 extends BaseFragment {
                 MyLogger.i(">>>>>>>>>城市伙伴" + response);
                 hideProgress();
                 //1、待申请 2、待审核 3、通过
-                if (response.getStatus() == 3){
-                    CommonUtil.gotoActivity(getActivity(), CityFriendActivity.class, false);
-                }else {
-                    CommonUtil.gotoActivity(getActivity(), CityFriend_NOActivity.class, false);
+                Bundle bundle = new Bundle();
+                bundle.putInt("status",response.getStatus());
+                if (response.getStatus() == 3) {
+                    CommonUtil.gotoActivityWithData(getActivity(), CityFriendActivity.class,bundle, false);
+                } else {
+                    CommonUtil.gotoActivityWithData(getActivity(), CityFriend_NOActivity.class,bundle, false);
                 }
 
             }

@@ -239,6 +239,7 @@
 
                 <!--中部-->
                 <LinearLayout
+                    android:id="@+id/ll_sebei"
                     android:layout_width="match_parent"
                     android:layout_height="111dp"
                     android:orientation="horizontal"

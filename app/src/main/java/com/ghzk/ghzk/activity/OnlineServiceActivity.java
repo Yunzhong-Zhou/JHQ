@@ -43,7 +43,6 @@ import id.zelory.compressor.Compressor;
 import static com.ghzk.ghzk.utils.MyChooseImages.REQUEST_CODE_CAPTURE_CAMEIA;
 import static com.ghzk.ghzk.utils.MyChooseImages.REQUEST_CODE_PICK_IMAGE;
 
-
 /**
  * Created by fafukeji01 on 2017/5/11.
  * 在线客服

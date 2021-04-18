@@ -43,7 +43,7 @@ public class ContractActivity extends BaseActivity {
      * 主体信息
      */
     ImageView iv_geren, iv_qiye;
-    TextView tv_title_1, tv_num_1;
+    TextView tv_title_1, tv_num_1, tv_confirm_1;
     EditText editText1_1, editText2_1, editText3_1, editText4_1, editText5_1, editText6_1;
     CityConfig cityConfig = null;
     //开户行控件 申明对象
@@ -66,7 +66,6 @@ public class ContractActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contract);
         findViewById(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(this), 0, 0);
-
     }
 
 
@@ -121,6 +120,7 @@ public class ContractActivity extends BaseActivity {
         editText4_1 = findViewByID_My(R.id.editText4_1);
         editText5_1 = findViewByID_My(R.id.editText5_1);
         editText6_1 = findViewByID_My(R.id.editText6_1);
+        tv_confirm_1 = findViewByID_My(R.id.tv_confirm_1);
 
         //预先加载仿iOS滚轮实现的全部数据
         mPicker.init(this);
@@ -254,12 +254,13 @@ public class ContractActivity extends BaseActivity {
                         model = response;
                         tv_moeny.setText("¥" + response.getResidue_invoice_money());
                         if (!response.getType().equals("0")) {
-                            editText1_1.setFocusable(false);
+                            tv_confirm_1.setText(getString(R.string.contract_h55));
+                            /*editText1_1.setFocusable(false);
                             editText2_1.setFocusable(false);
                             editText3_1.setFocusable(false);
                             editText4_1.setFocusable(false);
 //                            editText5_1.setFocusable(false);
-                            editText6_1.setFocusable(false);
+                            editText6_1.setFocusable(false);*/
 
                             if (response.getType().equals("2")) {//公司
                                 type1 = "2";
@@ -328,12 +329,13 @@ public class ContractActivity extends BaseActivity {
                             editText6_3.setText(response.getMobile());//手机号
                             editText7_3.setText(response.getAddr());//详细地址
                         } else {
-                            editText1_1.setFocusable(true);
+                            tv_confirm_1.setText(getString(R.string.contract_h54));
+                            /*editText1_1.setFocusable(true);
                             editText2_1.setFocusable(true);
                             editText3_1.setFocusable(true);
                             editText4_1.setFocusable(true);
 //                            editText5_1.setFocusable(true);
-                            editText6_1.setFocusable(true);
+                            editText6_1.setFocusable(true);*/
                         }
 
                     }
@@ -365,7 +367,7 @@ public class ContractActivity extends BaseActivity {
              */
             case R.id.rl_geren:
                 //个人
-                if (model.getType().equals("0")) {
+//                if (model.getType().equals("0")) {
                     type1 = "1";//类型（1.个人 2.企业）
                     iv_geren.setVisibility(View.VISIBLE);
                     iv_qiye.setVisibility(View.INVISIBLE);
@@ -379,12 +381,12 @@ public class ContractActivity extends BaseActivity {
                     tv_num_3.setText(getString(R.string.contract_h12));
                     editText1_3.setHint(getResources().getString(R.string.contract_h11));
                     editText2_3.setHint(getResources().getString(R.string.contract_h13));
-                }
+//                }
 
                 break;
             case R.id.rl_qiye:
                 //企业
-                if (model.getType().equals("0")) {
+//                if (model.getType().equals("0")) {
                     type1 = "2";
                     iv_geren.setVisibility(View.INVISIBLE);
                     iv_qiye.setVisibility(View.VISIBLE);
@@ -398,45 +400,45 @@ public class ContractActivity extends BaseActivity {
                     tv_num_3.setText(getString(R.string.contract_h28));
                     editText1_3.setHint(getResources().getString(R.string.contract_h36));
                     editText2_3.setHint(getResources().getString(R.string.contract_h37));
-                }
+//                }
                 break;
             case R.id.editText5_1:
                 //选择地址
-                if (model.getType().equals("0")) {
+//                if (model.getType().equals("0")) {
                     mPicker.showCityPicker();
-                }
+//                }
                 break;
             case R.id.tv_confirm_1:
-                if (model.getType().equals("0")) {
-                    if (match1()) {
-                        showToast(getString(R.string.contract_h45)
-                                , getString(R.string.app_confirm), getString(R.string.app_cancel),
-                                new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        dialog.dismiss();
-                                        showProgress(true, getString(R.string.app_loading1));
-                                        HashMap<String, String> params = new HashMap<>();
-                                        params.put("type", type1);
-                                        params.put("title", title);
-                                        params.put("number", number);
-                                        params.put("name", name);
-                                        params.put("mobile", mobile);
-                                        params.put("addr", address_temp + addr);
-                                        params.put("token", localUserInfo.getToken());
-                                        RequestUpData(params);
-                                    }
-                                }, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        dialog.dismiss();
+//                if (model.getType().equals("0")) {
+                if (match1()) {
+                    showToast(getString(R.string.contract_h45)
+                            , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                    showProgress(true, getString(R.string.app_loading1));
+                                    HashMap<String, String> params = new HashMap<>();
+                                    params.put("type", type1);
+                                    params.put("title", title);
+                                    params.put("number", number);
+                                    params.put("name", name);
+                                    params.put("mobile", mobile);
+                                    params.put("addr", address_temp + addr);
+                                    params.put("token", localUserInfo.getToken());
+                                    RequestUpData(params);
+                                }
+                            }, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
 
-                                    }
-                                });
-                    }
-                } else {
-                    myToast(getString(R.string.contract_h47));
+                                }
+                            });
                 }
+//                } else {
+//                    myToast(getString(R.string.contract_h47));
+//                }
                 break;
 
             /**
@@ -445,11 +447,11 @@ public class ContractActivity extends BaseActivity {
             case R.id.tv_dianzi:
                 //查阅电子合同
                 if (!model.getType().equals("0")) {
-                    if (!model.getUrl().equals("")){
+                    if (!model.getUrl().equals("")) {
                         Bundle bundle = new Bundle();
                         bundle.putString("url", model.getUrl());
                         CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
-                    }else {
+                    } else {
                         myToast(getString(R.string.contract_h53));
                     }
 

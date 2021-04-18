@@ -157,6 +157,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/xian" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:paddingTop="20dp"
+                    android:text="@string/myprofile_h70"
+                    android:textColor="@color/black1"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/myprofile_h71"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="14dp"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
+                    android:paddingBottom="14dp"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black2"
+                    android:textColorHint="@color/black3"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/xian" />
 
                 <View
                     android:layout_width="0dp"

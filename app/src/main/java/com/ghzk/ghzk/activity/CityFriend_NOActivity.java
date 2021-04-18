@@ -2,6 +2,7 @@ package com.ghzk.ghzk.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.base.BaseActivity;
@@ -13,6 +14,8 @@ import com.ghzk.ghzk.utils.CommonUtil;
  * 城市合作伙伴-未申请
  */
 public class CityFriend_NOActivity extends BaseActivity {
+    int status = 1;//1、待申请 2、待审核 3、通过
+    TextView textView,tv_shenheshibai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +49,22 @@ public class CityFriend_NOActivity extends BaseActivity {
 
             }
         });*/
-
+        textView = findViewByID_My(R.id.textView);
+        tv_shenheshibai = findViewByID_My(R.id.tv_shenheshibai);
     }
 
     @Override
     protected void initData() {
 //        requestServer();
+        status = getIntent().getIntExtra("status", 1);
+        tv_shenheshibai.setVisibility(View.GONE);
+        if (status == 1) {
+            textView.setText(getString(R.string.myprofile_h61));
+        } else {
+            textView.setText(getString(R.string.myprofile_h69));
+        }
     }
+
     @Override
     public void requestServer() {
         super.requestServer();
@@ -118,7 +130,12 @@ public class CityFriend_NOActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.textView:
-                CommonUtil.gotoActivity(this, AddCityFriendActivity.class, false);
+                if (status == 1) {
+                    CommonUtil.gotoActivity(this, AddCityFriendActivity.class, false);
+                } else {
+                    myToast(getString(R.string.myprofile_h69));
+                }
+
                 break;
         }
     }
