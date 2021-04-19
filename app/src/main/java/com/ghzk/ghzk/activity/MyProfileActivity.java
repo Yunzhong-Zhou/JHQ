@@ -93,6 +93,7 @@ public class MyProfileActivity extends BaseActivity {
         textView1 = findViewByID_My(R.id.textView1);
         editText1 = findViewByID_My(R.id.editText1);
         editText2 = findViewByID_My(R.id.editText2);
+        editText3 = findViewByID_My(R.id.editText3);
 
         editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

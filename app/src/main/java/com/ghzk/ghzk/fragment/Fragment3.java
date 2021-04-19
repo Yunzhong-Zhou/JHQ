@@ -48,7 +48,7 @@ public class Fragment3 extends BaseFragment {
     String resultCode = "";
     String id = "";
     Fragment3Model model;
-    int num = 1, buy_type = 2, payType = 0, operation_type = 1;
+    int num = 1, buy_type = 2, payType = -1, operation_type = 1;
     boolean isSelcet = true;
 
     TextView textView;
@@ -182,7 +182,7 @@ public class Fragment3 extends BaseFragment {
                             .show();
                     //初始化
                     num = 1;
-                    payType = 0;
+                    payType = -1;
                     buy_type = 2;
                     operation_type = 1;
 
@@ -222,13 +222,13 @@ public class Fragment3 extends BaseFragment {
                     tv_lingqian.setText(getString(R.string.fragment5_h87)
                             + "（" + getString(R.string.fragment5_h88) + "¥" + model.getUsable_money() + "）");
                     if (Double.valueOf(model.getUsable_money()) > 0) {
-                        payType = 0;
+                        payType = -1;
                         isSelcet = true;
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
                         ll_lingqian.setVisibility(View.VISIBLE);
 
                     } else {
-                        payType = 0;
+                        payType = -1;
                         isSelcet = false;
                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
                         ll_lingqian.setVisibility(View.GONE);
@@ -357,7 +357,7 @@ public class Fragment3 extends BaseFragment {
                     ll_lingqian.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-//                            payType = 1;
+//                            payType = -1;
                             if (Double.valueOf(model.getUsable_money()) > 0) {
                                 isSelcet = !isSelcet;
                                 if (isSelcet) {
@@ -415,7 +415,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onClick(View v) {
                             switch (payType) {
-                                case 0:
+                                case -1:
                                     if (isSelcet) {
                                         dialog.dismiss();
                                         showProgress(true, getString(R.string.app_loading1));
@@ -577,11 +577,14 @@ public class Fragment3 extends BaseFragment {
                 myToast(getString(R.string.fragment3_h63));
                 id = response.getOrder().getId();
                 switch (payType) {
-                    case 0:
+                    case -1:
                         break;
                     case 1:
+                        //微信
                     case 2:
-                        //微信、支付宝
+                        //支付宝
+                    case 3:
+                        //转账
                         String is_wallet = "1";
                         if (isSelcet) {
                             is_wallet = "2";
@@ -593,12 +596,12 @@ public class Fragment3 extends BaseFragment {
                                 + "&token=" + localUserInfo.getToken();
                         RequestPay(string);
                         break;
-                    case 3:
+                    /*case 3:
                         //转账
                         Bundle bundle = new Bundle();
                         bundle.putString("id", id);
                         CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
-                        break;
+                        break;*/
                 }
 
             }
@@ -620,14 +623,10 @@ public class Fragment3 extends BaseFragment {
             public void onResponse(PayModel response) {
                 MyLogger.i(">>>>>>>>>支付信息" + response);
                 hideProgress();
-                if (response != null) {
-                    switch (payType) {
-                        case 1:
-                            //微信
-                        /*Bundle bundle = new Bundle();
-                        bundle.putString("id",id);
-                        CommonUtil.gotoActivityWithData(getActivity(), WXPayEntryActivity.class,bundle);*/
-
+                switch (payType) {
+                    case 1:
+                        //微信
+                        if (response != null) {
                             IWXAPI api = WXAPIFactory.createWXAPI(getActivity(), "wxe540385418282fe2", false);//填写自己的APPID
                             api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
                             PayReq req = new PayReq();//PayReq就是订单信息对象
@@ -640,9 +639,11 @@ public class Fragment3 extends BaseFragment {
                             req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
                             req.sign = response.getWecahtPay().getSign();//签名
                             api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
-                            break;
-                        case 2:
-                            //支付宝
+                        }
+                        break;
+                    case 2:
+                        //支付宝
+                        if (response != null) {
                             Runnable payRunnable = new Runnable() {
                                 @Override
                                 public void run() {
@@ -657,12 +658,14 @@ public class Fragment3 extends BaseFragment {
                             // 必须异步调用
                             Thread payThread = new Thread(payRunnable);
                             payThread.start();
-                            break;
-                        case 3:
-                            //转账
-
-                            break;
-                    }
+                        }
+                        break;
+                    case 3:
+                        //转账
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", id);
+                        CommonUtil.gotoActivityWithData(getActivity(), PayDetailActivity.class, bundle);
+                        break;
                 }
 
             }

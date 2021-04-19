@@ -64,11 +64,11 @@ public class MyOrderActivity extends BaseActivity {
 
     private LinearLayout pop_view;
     int page = 1;
-    String sort = "desc", status = "";
+    String sort_index = "", status = "";
     int i1 = 0;
     int i2 = 0;
 
-    int payType = 0;
+    int payType = -1;
     boolean isSelcet = true;
 
     private static final int SDK_PAY_FLAG = 1;
@@ -132,7 +132,7 @@ public class MyOrderActivity extends BaseActivity {
                 //刷新
                 page = 1;
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort=" + sort
+                        + "&sort_index=" + sort_index
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -144,7 +144,7 @@ public class MyOrderActivity extends BaseActivity {
                 page = page + 1;
                 //加载更多
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                        + "&sort=" + sort
+                        + "&sort_index=" + sort_index
                         + "&page=" + page//当前页号
                         + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
@@ -196,7 +196,7 @@ public class MyOrderActivity extends BaseActivity {
                             holder.setText(R.id.textView2, model.getStatus_title());//状态
                             holder.setText(R.id.textView3, "" + model.getNum());//数量
                             holder.setText(R.id.textView4, model.getOperation_type_title());//运营方式
-                            holder.setText(R.id.textView5, model.getPrice());//金额
+                            holder.setText(R.id.textView5, model.getMoney());//金额
                             holder.setText(R.id.textView6, model.getCreated_at());//时间
 
                             //立即支付
@@ -215,7 +215,7 @@ public class MyOrderActivity extends BaseActivity {
                                             .dimAmount(0.8f)
                                             .show();
                                     //初始化
-                                    payType = 0;
+                                    payType = -1;
 
                                     LinearLayout ll_lingqian = dialog.findViewById(R.id.ll_lingqian);
                                     LinearLayout ll_zhifubao = dialog.findViewById(R.id.ll_zhifubao);
@@ -233,7 +233,7 @@ public class MyOrderActivity extends BaseActivity {
                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + model.getMoney());//实付款
 
                                     if (Double.valueOf(response.getUsable_money()) > 0) {
-                                        payType = 0;
+                                        payType = -1;
                                         isSelcet = true;
                                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_true);
                                         ll_lingqian.setVisibility(View.VISIBLE);
@@ -242,16 +242,16 @@ public class MyOrderActivity extends BaseActivity {
                                             textView5.setVisibility(View.VISIBLE);
                                             textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
                                             textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                    Double.valueOf(model.getPrice()) - Double.valueOf(response.getUsable_money())));//算力费用
+                                                    Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
 
                                         } else {
                                             textView5.setVisibility(View.GONE);
                                             textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                    Double.valueOf(model.getPrice())));//算力费用
+                                                    Double.valueOf(model.getMoney())));//算力费用
                                         }
 
                                     } else {
-                                        payType = 0;
+                                        payType = -1;
                                         isSelcet = false;
                                         iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
                                         ll_lingqian.setVisibility(View.GONE);
@@ -261,7 +261,7 @@ public class MyOrderActivity extends BaseActivity {
                                     ll_lingqian.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-//                                            payType = 0;
+//                                            payType = -1;
                                             if (Double.valueOf(response.getUsable_money()) > 0) {
                                                 isSelcet = !isSelcet;
                                                 if (isSelcet && Double.valueOf(response.getUsable_money()) > 0) {
@@ -270,13 +270,13 @@ public class MyOrderActivity extends BaseActivity {
                                                     textView5.setVisibility(View.VISIBLE);
                                                     textView5.setText("（" + getString(R.string.fragment5_h93) + "￥" + response.getUsable_money() + "）");
                                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                            Double.valueOf(model.getPrice()) - Double.valueOf(response.getUsable_money())));//算力费用
+                                                            Double.valueOf(model.getMoney()) - Double.valueOf(response.getUsable_money())));//算力费用
                                                 } else {
                                                     iv_lingqian.setImageResource(R.mipmap.ic_kuang_false);
 
                                                     textView5.setVisibility(View.GONE);
                                                     textView4.setText(getString(R.string.fragment5_h91) + "¥" + String.format("%.2f",
-                                                            Double.valueOf(model.getPrice())));//算力费用
+                                                            Double.valueOf(model.getMoney())));//算力费用
                                                 }
                                             }
 
@@ -322,7 +322,7 @@ public class MyOrderActivity extends BaseActivity {
                                         @Override
                                         public void onClick(View v) {
                                             switch (payType) {
-                                                case 0:
+                                                case -1:
                                                     if (isSelcet) {
                                                         dialog.dismiss();
                                                         showProgress(true, getString(R.string.app_loading1));
@@ -340,9 +340,12 @@ public class MyOrderActivity extends BaseActivity {
                                                     }
                                                     break;
                                                 case 1:
+                                                    //微信
                                                 case 2:
+                                                    //支付宝
+                                                case 3:
+                                                    //转账
                                                     dialog.dismiss();
-                                                    //微信、支付宝
                                                     showProgress(true, getString(R.string.app_loading1));
                                                     String is_wallet = "1";
                                                     if (isSelcet) {
@@ -354,15 +357,14 @@ public class MyOrderActivity extends BaseActivity {
                                                             + "&token=" + localUserInfo.getToken();
                                                     RequestPay(string, model.getId());
                                                     break;
-                                                case 3:
+                                                /*case 3:
                                                     //转账
                                                     dialog.dismiss();
                                                     Bundle bundle = new Bundle();
                                                     bundle.putString("id", model.getId());
                                                     CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
-                                                    break;
+                                                    break;*/
                                             }
-
 
 
                                         }
@@ -407,7 +409,7 @@ public class MyOrderActivity extends BaseActivity {
                             //纸质合同
                             TextView tv_zhizhihetong = holder.getView(R.id.tv_zhizhihetong);
 
-                            switch (model.getStatus()){
+                            switch (model.getStatus()) {
                                 case 1:
                                     //待付款
                                     textView7.setVisibility(View.VISIBLE);
@@ -509,14 +511,13 @@ public class MyOrderActivity extends BaseActivity {
                 hideProgress();
                 MyLogger.i(">>>>>>>>>购买" + response);
 //                myToast(getString(R.string.fragment3_h63));
-                if (response != null) {
-                    switch (payType) {
-                        case 1:
-                            //微信
+                switch (payType) {
+                    case 1:
+                        //微信
                         /*Bundle bundle = new Bundle();
                         bundle.putString("id",id);
                         CommonUtil.gotoActivityWithData(MyOrderActivity.this, WXPayEntryActivity.class,bundle);*/
-
+                        if (response != null) {
                             IWXAPI api = WXAPIFactory.createWXAPI(MyOrderActivity.this, "wxe540385418282fe2", false);//填写自己的APPID
                             api.registerApp("wxe540385418282fe2");//填写自己的APPID，注册本身APP
                             PayReq req = new PayReq();//PayReq就是订单信息对象
@@ -529,9 +530,11 @@ public class MyOrderActivity extends BaseActivity {
                             req.packageValue = "Sign=WXPay";//固定值Sign=WXPay
                             req.sign = response.getWecahtPay().getSign();//签名
                             api.sendReq(req);//将订单信息对象发送给微信服务器，即发送支付请求
-                            break;
-                        case 2:
-                            //支付宝
+                        }
+                        break;
+                    case 2:
+                        //支付宝
+                        if (response != null) {
                             Runnable payRunnable = new Runnable() {
                                 @Override
                                 public void run() {
@@ -546,15 +549,16 @@ public class MyOrderActivity extends BaseActivity {
                             // 必须异步调用
                             Thread payThread = new Thread(payRunnable);
                             payThread.start();
-                            break;
-                        case 3:
-                            //转账
-                        /*Bundle bundle = new Bundle();
+                        }
+                        break;
+                    case 3:
+                        //转账
+                        Bundle bundle = new Bundle();
                         bundle.putString("id", id);
-                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);*/
-                            break;
-                    }
+                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, PayDetailActivity.class, bundle);
+                        break;
                 }
+
 
 //                requestServer();
 
@@ -625,7 +629,7 @@ public class MyOrderActivity extends BaseActivity {
         this.showLoadingPage();
         page = 1;
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
-                + "&sort=" + sort
+                + "&sort_index=" + sort_index
                 + "&page=" + page//当前页号
                 + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
@@ -680,11 +684,11 @@ public class MyOrderActivity extends BaseActivity {
                 adapter.setSelectItem(i);
                 adapter.notifyDataSetChanged();
                 i1 = i;
-                /*if (i == 0) {
-                    sort = "desc";
+                if (i == 0) {
+                    sort_index = "";
                 } else {
-                    sort = "asc";
-                }*/
+                    sort_index = i + "";
+                }
 //                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
