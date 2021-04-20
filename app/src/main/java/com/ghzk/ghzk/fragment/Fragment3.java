@@ -299,21 +299,21 @@ public class Fragment3 extends BaseFragment {
                         }
                     });
 
-                    if (!model.getGoods().getCannot_buy_back_price().equals("") || !model.getGoods().getCan_buy_back_price().equals("")) {
+                    if (Double.valueOf(model.getGoods().getCannot_buy_back_price()) > 0 || Double.valueOf(model.getGoods().getCan_buy_back_price()) > 0 ) {
                         rl_huigou.setVisibility(View.VISIBLE);
                         rl_huigou_not.setVisibility(View.VISIBLE);
                         buy_type = 2;
                         iv_huigou.setVisibility(View.VISIBLE);
                         iv_huigou_not.setVisibility(View.INVISIBLE);
                     } else {
-                        if (!model.getGoods().getCan_buy_back_price().equals("")) {//能回购
+                        if (Double.valueOf(model.getGoods().getCan_buy_back_price()) > 0) {//能回购
                             rl_huigou.setVisibility(View.VISIBLE);
                             rl_huigou_not.setVisibility(View.GONE);
                             buy_type = 2;
                             iv_huigou.setVisibility(View.VISIBLE);
                             iv_huigou_not.setVisibility(View.INVISIBLE);
                         }
-                        if (!model.getGoods().getCannot_buy_back_price().equals("")) {//不能回购
+                        if (Double.valueOf(model.getGoods().getCannot_buy_back_price()) > 0) {//不能回购
                             rl_huigou.setVisibility(View.GONE);
                             rl_huigou_not.setVisibility(View.VISIBLE);
                             buy_type = 1;

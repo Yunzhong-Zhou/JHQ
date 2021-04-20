@@ -12,15 +12,15 @@ public class HelpModel implements Serializable {
      * landline_number : 4008-518-588
      */
 
-    private String landline_number;
+    private String service_hotline;
     private List<ArticleListBean> article_list;
 
-    public String getLandline_number() {
-        return landline_number;
+    public String getService_hotline() {
+        return service_hotline;
     }
 
-    public void setLandline_number(String landline_number) {
-        this.landline_number = landline_number;
+    public void setService_hotline(String service_hotline) {
+        this.service_hotline = service_hotline;
     }
 
     public List<ArticleListBean> getArticle_list() {

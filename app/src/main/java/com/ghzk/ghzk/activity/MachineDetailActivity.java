@@ -116,7 +116,12 @@ public class MachineDetailActivity extends BaseActivity {
                 showErrorPage();
                 hideProgress();
                 if (!info.equals("")) {
-                    showToast(info);
+                    showToast(info, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+                        }
+                    });
                 }
             }
 
@@ -225,11 +230,17 @@ public class MachineDetailActivity extends BaseActivity {
                     sb_key.append(getString(R.string.fragment1_h94) + "\n");
                     sb_value.append(response.getOrder_goods().getStatus_title() + "\n");
                 }
-                if (response.getOrder_goods().getBuy_back_money() != null && !response.getOrder_goods().getBuy_back_money().equals("")) {
+                /*if (response.getOrder_goods().getBuy_back_money() != null && !response.getOrder_goods().getBuy_back_money().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h106), response.getOrder_goods().getBuy_back_money()));
 
                     sb_key.append(getString(R.string.fragment1_h106) + "\n");
                     sb_value.append(response.getOrder_goods().getBuy_back_money() + "\n");
+                }*/
+                if (response.getOrder_goods().getWait_settle_money() != null && !response.getOrder_goods().getWait_settle_money().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), response.getOrder_goods().getWait_settle_money()));
+
+                    sb_key.append(getString(R.string.fragment1_h114) + "\n");
+                    sb_value.append(response.getOrder_goods().getWait_settle_money() + "\n");
                 }
 
                 if (!response.getOrder_goods().getSource_type_title().equals("购买")) {

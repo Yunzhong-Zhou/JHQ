@@ -70,7 +70,7 @@ public class HelpCenterActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.textView1:
                 //拨打电话
-                showToast("确认拨打 " + model.getLandline_number() + " 吗？", "确认", "取消",
+                showToast("确认拨打 " + model.getService_hotline() + " 吗？", "确认", "取消",
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -81,7 +81,7 @@ public class HelpCenterActivity extends BaseActivity {
                                 intent.setAction(Intent.ACTION_CALL);//直接拨出电话
 //                               intent.setAction(Intent.ACTION_DIAL);//只调用拨号界面，不拨出电话
                                 //设置拨打电话的号码
-                                intent.setData(Uri.parse("tel:" + model.getLandline_number()));
+                                intent.setData(Uri.parse("tel:" + model.getService_hotline()));
                                 //开启打电话的意图
                                 startActivity(intent);
                             }
@@ -130,7 +130,7 @@ public class HelpCenterActivity extends BaseActivity {
                 showContentPage();
                 hideProgress();
                 model = response;
-                textView1.setText(getString(R.string.onlineservice_h3) + response.getLandline_number());
+                textView1.setText(getString(R.string.onlineservice_h3) + response.getService_hotline());
                 list = response.getArticle_list();
                 if (list.size() == 0) {
                     showEmptyPage();//空数据

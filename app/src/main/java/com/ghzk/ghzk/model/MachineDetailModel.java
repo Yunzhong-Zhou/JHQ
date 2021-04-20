@@ -105,6 +105,15 @@ public class MachineDetailModel implements Serializable {
         private String transfer_out_member_id;
         private String transfer_in_member_mobile;
         private String transfer_out_member_mobile;
+        private String wait_settle_money;
+
+        public String getWait_settle_money() {
+            return wait_settle_money;
+        }
+
+        public void setWait_settle_money(String wait_settle_money) {
+            this.wait_settle_money = wait_settle_money;
+        }
 
         public String getTransfer_in_member_mobile() {
             return transfer_in_member_mobile;

@@ -998,16 +998,16 @@
 533-->[:alipaysdk-15.8.02.210308182128:] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/6203cbb268f0e59c93468b3055d2b0c8/jetified-alipaysdk-15.8.02.210308182128/AndroidManifest.xml:59:13-72
 534        </activity>
 535        <activity
-535-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:7:5-12:16
+535-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:7:5-12:16
 536            android:name="com.mob.guard.MobTranPullUpActivity"
-536-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:7:15-65
+536-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:7:15-65
 537            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-537-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:7:66-136
+537-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:7:66-136
 538            <intent-filter>
-538-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:8:7-11:23
+538-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:8:7-11:23
 539                <action android:name="com.mob.open.app_20000" />
-539-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:9:9-56
-539-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:9:17-54
+539-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:9:9-56
+539-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:9:17-54
 540
 541                <category android:name="android.intent.category.DEFAULT" />
 541-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:90:17-76
@@ -1015,16 +1015,16 @@
 542            </intent-filter>
 543        </activity>
 544        <activity
-544-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:13:5-18:16
+544-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:13:5-18:16
 545            android:name="com.mob.guard.MobTranPullLockActivity"
-545-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:13:15-67
+545-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:13:15-67
 546            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-546-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:13:68-138
+546-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:13:68-138
 547            <intent-filter>
-547-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:14:7-17:23
+547-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:14:7-17:23
 548                <action android:name="com.mob.open.app_lk" />
-548-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:15:9-53
-548-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:15:17-51
+548-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:15:9-53
+548-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:15:17-51
 549
 550                <category android:name="android.intent.category.DEFAULT" />
 550-->/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/src/main/AndroidManifest.xml:90:17-76
@@ -1033,41 +1033,41 @@
 552        </activity>
 553
 554        <service
-554-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:19:5-23:15
+554-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:19:5-23:15
 555            android:name="com.mob.guard.MobGuardPullUpService"
-555-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:19:37-87
+555-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:19:37-87
 556            android:enabled="true"
-556-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:19:14-36
+556-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:19:14-36
 557            android:exported="true" >
-557-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:19:88-111
+557-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:19:88-111
 558            <intent-filter>
-558-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:20:7-22:23
+558-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:20:7-22:23
 559                <action android:name="com.mob.intent.MOB_GUARD_SERVICE" />
-559-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:21:9-66
-559-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:21:17-64
+559-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:21:9-66
+559-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:21:17-64
 560            </intent-filter>
 561        </service>
 562
 563        <meta-data
-563-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:24:5-72
+563-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:24:5-72
 564            android:name="mob_guard_version"
-564-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:24:16-48
-565            android:value="20001" />
-565-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:24:49-70
+564-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:24:16-48
+565            android:value="20002" />
+565-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:24:49-70
 566
 567        <service
-567-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:25:5-29:15
+567-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:25:5-29:15
 568            android:name="com.mob.MobACService"
-568-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:25:37-72
+568-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:25:37-72
 569            android:enabled="true"
-569-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:25:14-36
+569-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:25:14-36
 570            android:exported="true" >
-570-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:25:73-96
+570-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:25:73-96
 571            <intent-filter>
-571-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:26:7-28:23
+571-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:26:7-28:23
 572                <action android:name="com.mob.service.action.MOB_AC_SERVICE" />
-572-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:27:9-71
-572-->[com.mob:MobGuardMC:2021.0323.1141] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/307eb5264c9799ba75699c309f8fe40c/jetified-MobGuardMC-2021.0323.1141/AndroidManifest.xml:27:17-69
+572-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:27:9-71
+572-->[com.mob:MobGuardMC:2021.0416.1200] /Users/YunZhong/.gradle/caches/transforms-2/files-2.1/aa6f7e8e07484df870a40364153d1913/jetified-MobGuardMC-2021.0416.1200/AndroidManifest.xml:27:17-69
 573            </intent-filter>
 574        </service>
 575

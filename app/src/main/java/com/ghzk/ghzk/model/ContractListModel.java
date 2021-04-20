@@ -55,7 +55,25 @@ public class ContractListModel implements Serializable {
         private int type;
         private String money;
         private String created_at;
+        private String show_created_at;
         private String type_title;
+        private String electronic_url;
+
+        public String getElectronic_url() {
+            return electronic_url;
+        }
+
+        public void setElectronic_url(String electronic_url) {
+            this.electronic_url = electronic_url;
+        }
+
+        public String getShow_created_at() {
+            return show_created_at;
+        }
+
+        public void setShow_created_at(String show_created_at) {
+            this.show_created_at = show_created_at;
+        }
 
         public String getMember_id() {
             return member_id;

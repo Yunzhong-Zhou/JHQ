@@ -562,7 +562,7 @@ Android 10 停用过滤视图，使用旧版存储模式
 
         <meta-data
             android:name="mob_guard_version"
-            android:value="20001" />
+            android:value="20002" />
 
         <service
             android:name="com.mob.MobACService"

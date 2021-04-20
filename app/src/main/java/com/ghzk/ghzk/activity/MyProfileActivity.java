@@ -108,6 +108,7 @@ public class MyProfileActivity extends BaseActivity {
                         params.put("token", localUserInfo.getToken());
                         params.put("nickname", editText1.getText().toString().trim());
                         params.put("email", editText2.getText().toString().trim());
+                        params.put("service_code", editText3.getText().toString().trim());
                         RequestChangeProfile(filenames, files, params);//修改
                     }
                 }
@@ -128,6 +129,27 @@ public class MyProfileActivity extends BaseActivity {
                         params.put("token", localUserInfo.getToken());
                         params.put("nickname", editText1.getText().toString().trim());
                         params.put("email", editText2.getText().toString().trim());
+                        params.put("service_code", editText3.getText().toString().trim());
+                        RequestChangeProfile(filenames, files, params);//修改
+                    }
+                }
+                return true;
+            }
+        });
+        editText3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    MyLogger.i(">>>>>>>>>" + editText3.getText().toString().trim());
+                    if (!editText3.getText().toString().trim().equals("")) {
+                        showProgress(false, getString(R.string.app_loading1));
+                        String[] filenames = new String[]{};
+                        File[] files = new File[]{};
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("token", localUserInfo.getToken());
+                        params.put("nickname", editText1.getText().toString().trim());
+                        params.put("email", editText2.getText().toString().trim());
+                        params.put("service_code", editText3.getText().toString().trim());
                         RequestChangeProfile(filenames, files, params);//修改
                     }
                 }

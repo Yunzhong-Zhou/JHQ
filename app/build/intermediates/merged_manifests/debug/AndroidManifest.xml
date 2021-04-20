@@ -194,7 +194,7 @@
         <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
       </intent-filter>
     </service>
-    <meta-data android:name="mob_guard_version" android:value="20001"/>
+    <meta-data android:name="mob_guard_version" android:value="20002"/>
     <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
       <intent-filter>
         <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
