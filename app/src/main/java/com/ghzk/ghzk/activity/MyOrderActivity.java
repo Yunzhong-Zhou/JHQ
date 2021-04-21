@@ -405,10 +405,46 @@ public class MyOrderActivity extends BaseActivity {
 
                             //电子合同
                             TextView tv_dianzihetong = holder.getView(R.id.tv_dianzihetong);
-
+                            tv_dianzihetong.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if (model.getContract_electronic_url() != null && !model.getContract_electronic_url().equals("")) {
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("url", model.getContract_electronic_url());
+                                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, WebContentActivity1.class, bundle, false);
+                                    } else {
+                                        myToast("暂无合同文件");
+                                    }
+                                }
+                            });
                             //纸质合同
                             TextView tv_zhizhihetong = holder.getView(R.id.tv_zhizhihetong);
-
+                            tv_zhizhihetong.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if (!model.getContract_id().equals("")) {
+                                        showToast(getString(R.string.contract_h51)
+                                                , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                                                new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        dialog.dismiss();
+                                                        showProgress(true, getString(R.string.app_loading1));
+                                                        String string = "?token=" + localUserInfo.getToken()
+                                                                + "&id=" + model.getId();
+                                                        RequestUpData2(string);
+                                                    }
+                                                }, new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        dialog.dismiss();
+                                                    }
+                                                });
+                                    } else {
+                                        myToast("请完善主体信息，平台才可准备合同");
+                                    }
+                                }
+                            });
                             switch (model.getStatus()) {
                                 case 1:
                                     //待付款
@@ -588,6 +624,26 @@ public class MyOrderActivity extends BaseActivity {
 
             }
         }, false);
+    }
+
+    private void RequestUpData2(String params) {
+        OkHttpClientManager.getAsyn(MyOrderActivity.this, URLs.ContractShenQing + params, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+//                requestServer();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                hideProgress();
+                myToast(getString(R.string.contract_h52));
+                requestServer();
+            }
+        });
     }
 
     @Override

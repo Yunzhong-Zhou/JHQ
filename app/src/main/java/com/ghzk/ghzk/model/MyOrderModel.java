@@ -59,6 +59,33 @@ public class MyOrderModel implements Serializable {
         private String buy_type_title;
         private String operation_type_title;
         private String status_title;
+        private String contract_id;
+        private String contract_electronic_url;
+        private int contract_apply_paper;
+
+        public String getContract_id() {
+            return contract_id;
+        }
+
+        public void setContract_id(String contract_id) {
+            this.contract_id = contract_id;
+        }
+
+        public int getContract_apply_paper() {
+            return contract_apply_paper;
+        }
+
+        public void setContract_apply_paper(int contract_apply_paper) {
+            this.contract_apply_paper = contract_apply_paper;
+        }
+
+        public String getContract_electronic_url() {
+            return contract_electronic_url;
+        }
+
+        public void setContract_electronic_url(String contract_electronic_url) {
+            this.contract_electronic_url = contract_electronic_url;
+        }
 
         public String getId() {
             return id;

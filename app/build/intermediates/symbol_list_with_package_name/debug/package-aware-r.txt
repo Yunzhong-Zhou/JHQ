@@ -2546,6 +2546,7 @@ layout item_accountdetail
 layout item_city
 layout item_cityfriend
 layout item_citylist
+layout item_contract
 layout item_contractlist
 layout item_fragment1_1
 layout item_fragment1_1_copy
@@ -2733,6 +2734,7 @@ mipmap ic_delete
 mipmap ic_down_black
 mipmap ic_down_green
 mipmap ic_down_white
+mipmap ic_download_gray
 mipmap ic_edit
 mipmap ic_editimg
 mipmap ic_fenxiang

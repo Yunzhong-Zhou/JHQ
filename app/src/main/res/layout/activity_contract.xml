@@ -290,8 +290,8 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
                                         android:layout_marginLeft="10dp"
+                                        android:layout_weight="1"
                                         android:paddingTop="20dp"
                                         android:paddingBottom="20dp"
                                         android:text="@string/contract_h6"
@@ -508,8 +508,8 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
                                         android:layout_marginLeft="10dp"
+                                        android:layout_weight="1"
                                         android:paddingTop="20dp"
                                         android:paddingBottom="20dp"
                                         android:text="@string/contract_h15"
@@ -692,6 +692,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:visibility="gone"
                             app:shadowColor="#21555555"
                             app:shadowDx="0dp"
                             app:shadowDy="5dp"
@@ -743,6 +744,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="-15dp"
                             android:layout_marginRight="10dp"
+                            android:visibility="gone"
                             app:shadowColor="#21555555"
                             app:shadowDx="0dp"
                             app:shadowDy="5dp"
@@ -901,6 +903,17 @@
                                     android:textSize="13sp" />
                             </LinearLayout>
                         </com.lijiankun24.shadowlayout.ShadowLayout>
+
+                        <com.ghzk.ghzk.view.LoadingLayout
+                            android:id="@+id/loading_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.ghzk.ghzk.view.LoadingLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1116,8 +1129,8 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
                                     android:paddingLeft="22dp"
-                                    android:visibility="gone"
-                                    android:paddingRight="22dp">
+                                    android:paddingRight="22dp"
+                                    android:visibility="gone">
 
                                     <TextView
                                         android:layout_width="wrap_content"
