@@ -97,14 +97,14 @@ public class CooperativeShopActivity extends BaseActivity {
             public void onRefresh() {
                 //刷新
                 page = 1;
-                String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
+                String string = "?goods_status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
                         + "&industry_id=" + industry_id
                         + "&province=" + province
                         + "&city=" + city
                         + "&district=" + district
                         + "&page=" + page//当前页号
-                        + "&count=" + ""//页面行数
+                        + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentList(string);
             }
@@ -113,14 +113,14 @@ public class CooperativeShopActivity extends BaseActivity {
             public void onLoadmore() {
                 page = page + 1;
                 //加载更多
-                String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
+                String string = "?goods_status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
                         + "&industry_id=" + industry_id
                         + "&province=" + province
                         + "&city=" + city
                         + "&district=" + district
                         + "&page=" + page//当前页号
-                        + "&count=" + ""//页面行数
+                        + "&count=" + "10"//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentListMore(string);
             }
@@ -381,14 +381,14 @@ public class CooperativeShopActivity extends BaseActivity {
         super.requestServer();
         this.showLoadingPage();
         page = 1;
-        String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
+        String string = "?goods_status=" + status//状态（1.待审核 2.通过 3.未通过）
                 + "&sort=" + sort
                 + "&industry_id=" + industry_id
                 + "&province=" + province
                 + "&city=" + city
                 + "&district=" + district
                 + "&page=" + page//当前页号
-                + "&count=" + ""//页面行数
+                + "&count=" + "10"//页面行数
                 + "&token=" + localUserInfo.getToken();
         RequestMyInvestmentList(string);
     }

@@ -41,8 +41,8 @@ public class MachineDetailActivity extends BaseActivity {
     List<KeyValueModel> list_info = new ArrayList<>();
     CommonAdapter<KeyValueModel> mAdapter_info;
 
-    StringBuilder sb_key = new StringBuilder();
-    StringBuilder sb_value = new StringBuilder();
+//    StringBuilder sb_key = new StringBuilder();
+//    StringBuilder sb_value = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,128 +152,89 @@ public class MachineDetailActivity extends BaseActivity {
                 textView3.setText(response.getOrder_goods().getStatus_title() + "");//安装状态
 
 
-                sb_key.setLength(0);
-                sb_value.setLength(0);
+//                sb_key.setLength(0);
+//                sb_value.setLength(0);
 //                sb_key.clear();
 //                sb_value.clear();
                 list_info.clear();
                 if (!response.getOrder_goods().getGoods_sn().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h83), response.getOrder_goods().getGoods_sn()));
-                    sb_key.append(getString(R.string.fragment1_h83) + "\n");
-                    sb_value.append(response.getOrder_goods().getGoods_sn() + "\n");
                 }
                 if (!response.getOrder_goods().getOperation_type_title().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h84), response.getOrder_goods().getOperation_type_title()));
-
-                    sb_key.append(getString(R.string.fragment1_h84) + "\n");
-                    sb_value.append(response.getOrder_goods().getOperation_type_title() + "\n");
                 }
                 if (!response.getOrder_goods().getPut_business().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h85), response.getOrder_goods().getPut_business()));
-
-                    sb_key.append(getString(R.string.fragment1_h85) + "\n");
-                    sb_value.append(response.getOrder_goods().getPut_business() + "\n");
                 }
                 if (!response.getOrder_goods().getGoods_brand().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h86), response.getOrder_goods().getGoods_brand()));
-
-                    sb_key.append(getString(R.string.fragment1_h86) + "\n");
-                    sb_value.append(response.getOrder_goods().getGoods_brand() + "\n");
                 }
                 if (!response.getOrder_goods().getPut_title().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h87), response.getOrder_goods().getPut_title()));
-
-                    sb_key.append(getString(R.string.fragment1_h87) + "\n");
-                    sb_value.append(response.getOrder_goods().getPut_title() + "\n");
                 }
                 if (!response.getOrder_goods().getPut_address().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h88), response.getOrder_goods().getPut_address()));
-
-                    sb_key.append(getString(R.string.fragment1_h88) + "\n");
-                    sb_value.append(response.getOrder_goods().getPut_address() + "\n");
                 }
                 if (!response.getOrder_goods().getCreated_at().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h89), response.getOrder_goods().getCreated_at()));
-
-                    sb_key.append(getString(R.string.fragment1_h89) + "\n");
-                    sb_value.append(response.getOrder_goods().getCreated_at() + "\n");
                 }
                 if (response.getOrder_goods().getInstall_at() != null && !response.getOrder_goods().getInstall_at().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h90), response.getOrder_goods().getInstall_at()));
-
-                    sb_key.append(getString(R.string.fragment1_h90) + "\n");
-                    sb_value.append(response.getOrder_goods().getInstall_at() + "\n");
                 }
                 if (!response.getOrder_goods().getBuy_type_title().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h115), response.getOrder_goods().getBuy_type_title()));
-
-                    sb_key.append(getString(R.string.fragment1_h115) + "\n");
-                    sb_value.append(response.getOrder_goods().getBuy_type_title() + "\n");
                 }
                 if (!response.getOrder_goods().getMoney().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h92), response.getOrder_goods().getMoney()));
-
-                    sb_key.append(getString(R.string.fragment1_h92) + "\n");
-                    sb_value.append(response.getOrder_goods().getMoney() + "\n");
                 }
                 if (!response.getOrder_goods().getSource_type_title().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h113), response.getOrder_goods().getSource_type_title()));
-
-                    sb_key.append(getString(R.string.fragment1_h113) + "\n");
-                    sb_value.append(response.getOrder_goods().getSource_type_title() + "\n");
                 }
 
-
-                if (response.getOrder_goods().getBuy_back_apply_at() != null && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h105), response.getOrder_goods().getBuy_back_apply_at()));
-
-                    sb_key.append(getString(R.string.fragment1_h105) + "\n");
-                    sb_value.append(response.getOrder_goods().getBuy_back_apply_at() + "\n");
+                //回购
+                if (response.getOrder_goods().getStatus() == 8 || response.getOrder_goods().getStatus() == 9 || response.getOrder_goods().getStatus() == 10) {
+                    if (response.getOrder_goods().getBuy_back_money() != null && !response.getOrder_goods().getBuy_back_money().equals("")) {
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h106), response.getOrder_goods().getBuy_back_money()));
+                    }
+                    if (response.getOrder_goods().getBuy_back_apply_at() != null && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h105), response.getOrder_goods().getBuy_back_apply_at()));
+                    }
+                    if (response.getOrder_goods().getStatus() == 10) {//显示未通过理由
+                        if (response.getOrder_goods().getStatus_buy_back_apply_rejected_cause() != null && !response.getOrder_goods().getStatus_buy_back_apply_rejected_cause().equals("")) {
+                            list_info.add(new KeyValueModel("回购未通过理由", response.getOrder_goods().getStatus_buy_back_apply_rejected_cause()));
+                        }
+                    }
                 }
+
                 if (!response.getOrder_goods().getStatus_title().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h94), response.getOrder_goods().getStatus_title()));
-
-                    sb_key.append(getString(R.string.fragment1_h94) + "\n");
-                    sb_value.append(response.getOrder_goods().getStatus_title() + "\n");
                 }
-                /*if (response.getOrder_goods().getBuy_back_money() != null && !response.getOrder_goods().getBuy_back_money().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h106), response.getOrder_goods().getBuy_back_money()));
 
-                    sb_key.append(getString(R.string.fragment1_h106) + "\n");
-                    sb_value.append(response.getOrder_goods().getBuy_back_money() + "\n");
-                }*/
                 if (response.getOrder_goods().getWait_settle_money() != null && !response.getOrder_goods().getWait_settle_money().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), response.getOrder_goods().getWait_settle_money()));
-
-                    sb_key.append(getString(R.string.fragment1_h114) + "\n");
-                    sb_value.append(response.getOrder_goods().getWait_settle_money() + "\n");
                 }
 
+                //转入、转出
                 if (!response.getOrder_goods().getSource_type_title().equals("购买")) {
-                    if (response.equals(response.getOrder_goods().getTransfer_in_member_id())) {
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h107), response.getOrder_goods().getTransfer_out_at()));
+                    if (!response.getOrder_goods().getTransfer_in_member_id().equals("")) {//转入id为空，为转入方，显示转出方信息
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h107), response.getOrder_goods().getTransfer_out_at()));//显示转出时间
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h93), response.getOrder_goods().getSource_type_title()));
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h111), response.getOrder_goods().getTransfer_in_member_mobile()));
-                    }else {
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h109), response.getOrder_goods().getTransfer_out_at()));
+                    } else {
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h109), response.getOrder_goods().getCreated_at()));//显示创建时间
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h110), response.getOrder_goods().getSource_type_title()));
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h112), response.getOrder_goods().getTransfer_out_member_mobile()));
                     }
-//                    sb_key.append(getString(R.string.fragment1_h93) + "\n");
-//                    sb_value.append(response.getOrder_goods().getSource_type_title() + "\n");
                 }
 
                 if (response.getOrder_goods().getReturn_at() != null && !response.getOrder_goods().getReturn_at().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h108), response.getOrder_goods().getReturn_at()));
-
-                    sb_key.append(getString(R.string.fragment1_h108) + "\n");
-                    sb_value.append(response.getOrder_goods().getReturn_at() + "\n");
                 }
 
 //                tv_kay.setText(sb_key);
 //                tv_value.setText(sb_value);
-                tv_kay.setText(CommonUtil.setNumColor(sb_key.toString()));
-                tv_value.setText(CommonUtil.setNumColor(sb_value.toString()));
+//                tv_kay.setText(CommonUtil.setNumColor(sb_key.toString()));
+//                tv_value.setText(CommonUtil.setNumColor(sb_value.toString()));
 
 
                 mAdapter_info = new CommonAdapter<KeyValueModel>

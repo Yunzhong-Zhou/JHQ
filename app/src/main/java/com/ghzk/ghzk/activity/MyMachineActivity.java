@@ -124,6 +124,7 @@ public class MyMachineActivity extends BaseActivity {
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
+
                     mAdapter = new CommonAdapter<MyMachineModel.OrderGoodsListBean>
                             (MyMachineActivity.this, R.layout.item_mymachine, list) {
                         @Override
@@ -139,15 +140,16 @@ public class MyMachineActivity extends BaseActivity {
                             TextView tv8 = holder.getView(R.id.tv8);
 
                             tv1.setText(model.getSource_type_title());
-                            if (model.getSource_type() ==1){
+                            if (model.getSource_type() == 1) {
                                 tv1.setVisibility(View.INVISIBLE);
-                            }else {
+                            } else {
                                 tv1.setVisibility(View.VISIBLE);
                             }
 
-                            if (model.getSource_type() ==6 || model.getSource_type() ==9){
+                            //整块变灰
+                            if (model.getStatus() == 6 || model.getStatus() == 9 || model.getStatus() == 11) {
                                 linearLayout.setBackgroundResource(R.drawable.yuanjiao_10_huise3);
-                            }else {
+                            } else {
                                 linearLayout.setBackgroundResource(R.drawable.yuanjiao_10_baise);
                             }
 
@@ -281,10 +283,10 @@ public class MyMachineActivity extends BaseActivity {
                     @Override
                     public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
                         dialog.dismiss();
-                        if (i == 0){
+                        if (i == 0) {
                             status = "";
-                        }else {
-                            status = i+"";
+                        } else {
+                            status = i + "";
                         }
 
                         requestServer();

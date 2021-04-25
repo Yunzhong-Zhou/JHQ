@@ -106,6 +106,15 @@ public class MachineDetailModel implements Serializable {
         private String transfer_in_member_mobile;
         private String transfer_out_member_mobile;
         private String wait_settle_money;
+        private String status_buy_back_apply_rejected_cause;
+
+        public String getStatus_buy_back_apply_rejected_cause() {
+            return status_buy_back_apply_rejected_cause;
+        }
+
+        public void setStatus_buy_back_apply_rejected_cause(String status_buy_back_apply_rejected_cause) {
+            this.status_buy_back_apply_rejected_cause = status_buy_back_apply_rejected_cause;
+        }
 
         public String getWait_settle_money() {
             return wait_settle_money;

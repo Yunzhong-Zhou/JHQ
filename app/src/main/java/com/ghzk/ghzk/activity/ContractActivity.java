@@ -402,7 +402,7 @@ public class ContractActivity extends BaseActivity {
                                                 CommonUtil.gotoActivityWithData(ContractActivity.this, ShowPDFActivity.class, bundle, false);
 //                                                CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
                                             }else {
-                                                myToast("暂无发票文件");
+                                                myToast("暂无合同文件");
                                             }
                                         }
                                     });

@@ -88,7 +88,7 @@ public class CooperativeBrandActivity extends BaseActivity {
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
                         + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
+                        + "&count=" + "20"//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentList(string);
             }
@@ -100,7 +100,7 @@ public class CooperativeBrandActivity extends BaseActivity {
                 String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                         + "&sort=" + sort
                         + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
+                        + "&count=" + "20"//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentListMore(string);
             }
@@ -349,7 +349,7 @@ public class CooperativeBrandActivity extends BaseActivity {
         String string = "?status=" + status//状态（1.待审核 2.通过 3.未通过）
                 + "&sort=" + sort
                 + "&page=" + page//当前页号
-                + "&count=" + "10"//页面行数
+                + "&count=" + "20"//页面行数
                 + "&token=" + localUserInfo.getToken();
         RequestMyInvestmentList(string);
     }
