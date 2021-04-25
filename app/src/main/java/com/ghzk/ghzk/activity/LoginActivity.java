@@ -68,10 +68,10 @@ public class LoginActivity extends BaseActivity {
     List<SmsCodeListModel.MobileStateListBean> list1 = new ArrayList<>();
 
     private EditText editText1, editText2, editText3, editText4;
-    private TextView textView, textView1, textView2, textView3,textView4, tv_language;
+    private TextView textView, textView1, textView2, textView3, textView4, tv_language;
     private ImageView imageView1, imageView2, title_right;
 
-    private String phonenum = "", password = "",code = "", num = "";
+    private String phonenum = "", password = "", code = "", num = "";
     private TimeCount time = null;
 
     boolean isgouxuan = true;
@@ -425,7 +425,7 @@ public class LoginActivity extends BaseActivity {
                     params1.put("mobile_state_code", localUserInfo.getMobile_State_Code());
                     params1.put("mobile", phonenum);
                     params1.put("type", "1");
-                    RequestCode(params1,textView4);//获取验证码
+                    RequestCode(params1, textView4);//获取验证码
                 }
                 break;
             case R.id.textView5:
@@ -437,7 +437,7 @@ public class LoginActivity extends BaseActivity {
                     register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
                 }*/
 //                register_agreement = HOST + "/wechat/article/detail?id=9303693c9e34e02560fe2039f4ddd654";
-                if (!register_agreement.equals("")) {
+                if (register_agreement != null && !register_agreement.equals("")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("url", register_agreement);
                     CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
@@ -626,6 +626,7 @@ public class LoginActivity extends BaseActivity {
         }, true);
 
     }
+
     //注册
     private void RequestRegistered(Map<String, String> params) {
         OkHttpClientManager.postAsyn_Reg(LoginActivity.this, URLs.Registered, params, new OkHttpClientManager.ResultCallback<RegisteredModel>() {
@@ -785,7 +786,7 @@ public class LoginActivity extends BaseActivity {
             myToast(getString(R.string.registered_h2));
             return false;
         }
-        password= editText2.getText().toString().trim();
+        password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             myToast(getString(R.string.registered_h3));
             return false;

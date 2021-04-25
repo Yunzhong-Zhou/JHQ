@@ -301,6 +301,7 @@
                         android:text="@string/myprofile_h60"
                         android:textSize="13sp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/black1"
                         android:lineSpacingExtra="4dp"/>
                     <TextView
@@ -315,13 +316,15 @@
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/btn_img1"
                         android:gravity="center"
                         android:onClick="onClick"
                         android:text="@string/myprofile_h61"
+                        android:padding="15dp"
+                        android:layout_marginBottom="20dp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 

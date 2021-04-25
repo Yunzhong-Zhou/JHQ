@@ -30,6 +30,8 @@ import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.style.cityjd.JDCityConfig;
+import com.lljjcoder.style.cityjd.JDCityPicker;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -69,6 +71,8 @@ public class CooperativeShopActivity extends BaseActivity {
     //省市
     CityConfig cityConfig = null;
     CityPickerView mPicker = new CityPickerView();
+
+    JDCityPicker cityPicker = new JDCityPicker();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,20 +157,20 @@ public class CooperativeShopActivity extends BaseActivity {
                 .cancelText(getString(R.string.app_cancel))//取消按钮文字
                 .cancelTextSize(16)//取消按钮文字大小
                 .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
-                .showBackground(true)//是否显示半透明背景
+                .showBackground(false)//是否显示半透明背景
                 .visibleItemsCount(7)//显示item的数量
                 .province("北京市")//默认显示的省份
                 .city("北京市")//默认显示省份下面的城市
                 .district("朝阳区")//默认显示省市下面的区县数据
-                .provinceCyclic(true)//省份滚轮是否可以循环滚动
-                .cityCyclic(true)//城市滚轮是否可以循环滚动
-                .districtCyclic(true)//区县滚轮是否循环滚动
+                .provinceCyclic(false)//省份滚轮是否可以循环滚动
+                .cityCyclic(false)//城市滚轮是否可以循环滚动
+                .districtCyclic(false)//区县滚轮是否循环滚动
                 .setCustomItemLayout(R.layout.item_city)//自定义item的布局
                 .setCustomItemTextViewId(R.id.textView1)//自定义item布局里面的textViewid
-                .drawShadows(true)//滚轮不显示模糊效果
+                .drawShadows(false)//滚轮不显示模糊效果
                 .setLineColor("#80CDCDCE")//中间横线的颜色
                 .setLineHeigh(1)//中间横线的高度
-                .setShowGAT(true)//是否显示港澳台数据，默认不显示
+                .setShowGAT(false)//是否显示港澳台数据，默认不显示
                 .build();
 
         //设置自定义的属性配置
@@ -193,6 +197,30 @@ public class CooperativeShopActivity extends BaseActivity {
             }
         });
 
+        JDCityConfig jdCityConfig = new JDCityConfig.Builder().build();
+        jdCityConfig.setShowType(JDCityConfig.ShowType.PRO_CITY_DIS);
+        cityPicker.init(this);
+        cityPicker.setConfig(jdCityConfig);
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
+                /*province = province1.getName().toString();
+                city = city1.getName().toString();
+                district = district1.getName().toString();*/
+
+                province = province1.getId();
+                city = city1.getId();
+                district = district1.getId();
+
+                textView1.setText(district1.getName().toString());
+
+                requestServer();
+            }
+
+            @Override
+            public void onCancel() {
+            }
+        });
     }
 
     @Override
@@ -217,7 +245,6 @@ public class CooperativeShopActivity extends BaseActivity {
                 onHttpResult();
 
                 list_hangye = response.getIndustry_list();
-
 
                 list2 = response.getCooperation_shop_list();
                 if (list2.size() == 0) {
@@ -247,7 +274,7 @@ public class CooperativeShopActivity extends BaseActivity {
                             holder.setText(R.id.tv_name, model.getTitle());
 //                            holder.setText(R.id.tv_content, model.getProvince() + model.getCity() + model.getDistrict());
                             holder.setText(R.id.tv_content, model.getIndustry_title());
-                            holder.setText(R.id.tv_addr, model.getAddress());
+                            holder.setText(R.id.tv_addr, model.getProvince() + model.getCity() + model.getDistrict() + model.getAddress());
                             holder.setText(R.id.tv_num, model.getNum() + "");
 
                         }
@@ -312,7 +339,8 @@ public class CooperativeShopActivity extends BaseActivity {
 //                view1.setVisibility(View.VISIBLE);
 //                view2.setVisibility(View.INVISIBLE);
 //                showPopupWindow1(pop_view);
-                mPicker.showCityPicker();
+//                mPicker.showCityPicker();
+                cityPicker.showCityPicker();
                 break;
             case R.id.linearLayout2:
                 textView1.setTextColor(getResources().getColor(R.color.black3));
@@ -484,13 +512,14 @@ public class CooperativeShopActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 adapter.setSelectItem(i);
                 i2 = i;
+
                 adapter.notifyDataSetChanged();
                 if (i == 0) {
                     industry_id = "";
                 } else {
                     industry_id = list_hangye.get(i - 1).getId() + "";
                 }
-//                textView2.setText(list.get(i));
+                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -561,7 +590,7 @@ public class CooperativeShopActivity extends BaseActivity {
                 } else {
                     status = i + "";
                 }
-//                textView2.setText(list.get(i));
+                textView3.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

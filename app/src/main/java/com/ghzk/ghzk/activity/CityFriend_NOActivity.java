@@ -14,7 +14,8 @@ import com.ghzk.ghzk.utils.CommonUtil;
  * 城市合作伙伴-未申请
  */
 public class CityFriend_NOActivity extends BaseActivity {
-    int status = 1;//1、待申请 2、待审核 3、通过
+    int status = 1;//-1、待申请 1、待审核 2、通过 3、未通过
+    String status_rejected_cause="";
     TextView textView,tv_shenheshibai;
 
     @Override
@@ -57,19 +58,31 @@ public class CityFriend_NOActivity extends BaseActivity {
     protected void initData() {
 //        requestServer();
         status = getIntent().getIntExtra("status", 1);
+
         tv_shenheshibai.setVisibility(View.GONE);
-        if (status == 1) {
-            textView.setText(getString(R.string.myprofile_h61));
-        } else {
-            textView.setText(getString(R.string.myprofile_h69));
+        //-1、待申请 1、待审核 2、通过 3、未通过
+        switch (status){
+            case -1:
+
+                break;
+            case 1:
+                textView.setText(getString(R.string.myprofile_h69));
+                textView.setBackgroundResource(R.drawable.yuanjiao_50_huise);
+                break;
+            case 3:
+                status_rejected_cause = getIntent().getStringExtra("status_rejected_cause");
+                tv_shenheshibai.setText(getString(R.string.myprofile_h72)+status_rejected_cause);
+                tv_shenheshibai.setVisibility(View.VISIBLE);
+                break;
         }
+
     }
 
     @Override
     public void requestServer() {
         super.requestServer();
-        showProgress(true, getString(R.string.app_loading2));
-        request("?token=" + localUserInfo.getToken());
+       /* showProgress(true, getString(R.string.app_loading2));
+        request("?token=" + localUserInfo.getToken());*/
     }
 
     private void request(String string) {
@@ -130,8 +143,8 @@ public class CityFriend_NOActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.textView:
-                if (status == 1) {
-                    CommonUtil.gotoActivity(this, AddCityFriendActivity.class, false);
+                if (status == -1) {
+                    CommonUtil.gotoActivity(this, AddCityFriendActivity.class, true);
                 } else {
                     myToast(getString(R.string.myprofile_h69));
                 }

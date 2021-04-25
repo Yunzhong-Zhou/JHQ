@@ -28,6 +28,8 @@ import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.style.cityjd.JDCityConfig;
+import com.lljjcoder.style.cityjd.JDCityPicker;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 
@@ -62,6 +64,8 @@ public class AddCityFriendActivity extends BaseActivity {
     CityConfig cityConfig = null;
     CityPickerView mPicker = new CityPickerView();
 
+    JDCityPicker cityPicker = new JDCityPicker();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,21 +89,22 @@ public class AddCityFriendActivity extends BaseActivity {
                 .cancelText(getString(R.string.app_cancel))//取消按钮文字
                 .cancelTextSize(16)//取消按钮文字大小
                 .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
-                .showBackground(true)//是否显示半透明背景
+                .showBackground(false)//是否显示半透明背景
                 .visibleItemsCount(7)//显示item的数量
                 .province("北京市")//默认显示的省份
                 .city("北京市")//默认显示省份下面的城市
                 .district("朝阳区")//默认显示省市下面的区县数据
-                .provinceCyclic(true)//省份滚轮是否可以循环滚动
-                .cityCyclic(true)//城市滚轮是否可以循环滚动
-                .districtCyclic(true)//区县滚轮是否循环滚动
+                .provinceCyclic(false)//省份滚轮是否可以循环滚动
+                .cityCyclic(false)//城市滚轮是否可以循环滚动
+                .districtCyclic(false)//区县滚轮是否循环滚动
                 .setCustomItemLayout(R.layout.item_city)//自定义item的布局
                 .setCustomItemTextViewId(R.id.textView1)//自定义item布局里面的textViewid
-                .drawShadows(true)//滚轮不显示模糊效果
+                .drawShadows(false)//滚轮不显示模糊效果
                 .setLineColor("#80CDCDCE")//中间横线的颜色
-                .setLineHeigh(1)//中间横线的高度
-                .setShowGAT(true)//是否显示港澳台数据，默认不显示
+                .setLineHeigh(2)//中间横线的高度
+                .setShowGAT(false)//是否显示港澳台数据，默认不显示
                 .build();
+
 
         //设置自定义的属性配置
         mPicker.setConfig(cityConfig);
@@ -120,10 +125,28 @@ public class AddCityFriendActivity extends BaseActivity {
 
             @Override
             public void onCancel() {
-               /* textView1.setText(getString(R.string.myprofile_h14));
-                textView2.setText(getString(R.string.myprofile_h15));
-                textView3.setText(getString(R.string.myprofile_h16));*/
-//                ToastUtils.showLongToast(this, "已取消");
+            }
+        });
+
+
+        JDCityConfig jdCityConfig = new JDCityConfig.Builder().build();
+        jdCityConfig.setShowType(JDCityConfig.ShowType.PRO_CITY_DIS);
+        cityPicker.init(this);
+        cityPicker.setConfig(jdCityConfig);
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
+                province = province1.getName().toString();
+                city = city1.getName().toString();
+                district = district1.getName().toString();
+
+                textView1.setText(province1.getName().toString());
+                textView2.setText(city1.getName().toString());
+                textView3.setText(district1.getName().toString());
+            }
+
+            @Override
+            public void onCancel() {
             }
         });
         textView1 = findViewByID_My(R.id.textView1);
@@ -150,7 +173,8 @@ public class AddCityFriendActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.linearLayout1:
-                mPicker.showCityPicker();
+//                mPicker.showCityPicker();
+                cityPicker.showCityPicker();
                 break;
             case R.id.imageView1:
                 img_type = "pic1";

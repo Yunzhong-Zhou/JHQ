@@ -366,12 +366,12 @@ public class Fragment5 extends BaseFragment {
 
             @Override
             public void onResponse(AddCityFriendModel response) {
-                MyLogger.i(">>>>>>>>>城市伙伴" + response);
                 hideProgress();
-                //1、待申请 2、待审核 3、通过
+                //-1、待申请 1、待审核 2、通过 3、未通过
                 Bundle bundle = new Bundle();
                 bundle.putInt("status",response.getStatus());
-                if (response.getStatus() == 3) {
+                bundle.putString("status_rejected_cause",response.getStatus_rejected_cause());
+                if (response.getStatus() == 2) {
                     CommonUtil.gotoActivityWithData(getActivity(), CityFriendActivity.class,bundle, false);
                 } else {
                     CommonUtil.gotoActivityWithData(getActivity(), CityFriend_NOActivity.class,bundle, false);

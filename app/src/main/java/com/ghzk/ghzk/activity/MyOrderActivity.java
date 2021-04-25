@@ -37,7 +37,6 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -403,6 +402,7 @@ public class MyOrderActivity extends BaseActivity {
                                 }
                             });
 
+
                             //电子合同
                             TextView tv_dianzihetong = holder.getView(R.id.tv_dianzihetong);
                             tv_dianzihetong.setOnClickListener(new View.OnClickListener() {
@@ -445,13 +445,21 @@ public class MyOrderActivity extends BaseActivity {
                                     }
                                 }
                             });
+                            if (model.getContract_electronic_url() != null && !model.getContract_electronic_url().equals("")) {
+                                tv_dianzihetong.setVisibility(View.VISIBLE);
+                                tv_zhizhihetong.setVisibility(View.VISIBLE);
+                            } else {
+                                tv_dianzihetong.setVisibility(View.GONE);
+                                tv_zhizhihetong.setVisibility(View.GONE);
+                            }
+
                             switch (model.getStatus()) {
                                 case 1:
                                     //待付款
                                     textView7.setVisibility(View.VISIBLE);
                                     textView8.setVisibility(View.VISIBLE);
-                                    tv_dianzihetong.setVisibility(View.GONE);
-                                    tv_zhizhihetong.setVisibility(View.GONE);
+//                                    tv_dianzihetong.setVisibility(View.GONE);
+//                                    tv_zhizhihetong.setVisibility(View.GONE);
                                     break;
                                 /*case 2:
                                     //已付款
@@ -460,39 +468,18 @@ public class MyOrderActivity extends BaseActivity {
                                     tv_dianzihetong.setVisibility(View.GONE);
                                     tv_zhizhihetong.setVisibility(View.GONE);
                                     break;*/
-                                case 3:
-                                case 4:
-                                    //待处理、已处理
-                                    textView7.setVisibility(View.GONE);
-                                    textView8.setVisibility(View.GONE);
-                                    tv_dianzihetong.setVisibility(View.VISIBLE);
-                                    tv_zhizhihetong.setVisibility(View.VISIBLE);
-                                    break;
                                 default:
                                     //取消
                                     textView7.setVisibility(View.GONE);
                                     textView8.setVisibility(View.GONE);
-                                    tv_dianzihetong.setVisibility(View.GONE);
-                                    tv_zhizhihetong.setVisibility(View.GONE);
+//                                    tv_dianzihetong.setVisibility(View.GONE);
+//                                    tv_zhizhihetong.setVisibility(View.GONE);
                                     break;
                             }
 
                         }
                     };
                     recyclerView.setAdapter(mAdapter);
-                    mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                                /*Bundle bundle1 = new Bundle();
-                                bundle1.putString("id", list.get(position).getId());
-                                CommonUtil.gotoActivityWithData(MyOrderActivity.this, RechargeDetailActivity.class, bundle1, false);*/
-                        }
-
-                        @Override
-                        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                            return false;
-                        }
-                    });
                 }
             }
         });

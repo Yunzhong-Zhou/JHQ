@@ -23,6 +23,8 @@ import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.style.cityjd.JDCityConfig;
+import com.lljjcoder.style.cityjd.JDCityPicker;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -55,7 +57,10 @@ public class ContractActivity extends BaseActivity {
     CityConfig cityConfig = null;
     //开户行控件 申明对象
     CityPickerView mPicker = new CityPickerView();
-    String address_temp = "", type1 = "1", title = "", number = "", name = "", mobile = "", addr = "";
+    String address_temp = "", type1 = "1", title = "", number = "", name = "", mobile = "",
+            addr = "",province = "", city = "", district = "";
+
+    JDCityPicker cityPicker = new JDCityPicker();
     /**
      * 电子合同
      */
@@ -168,11 +173,14 @@ public class ContractActivity extends BaseActivity {
         //监听选择点击事件及返回结果
         mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
-            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
                 //省份province//城市city//地区district
-                editText5_1.setText(province.getName().toString() +
-                        city.getName().toString() +
-                        district.getName().toString());
+                province = province1.getName().toString();
+                city = city1.getName().toString();
+                district = district1.getName().toString();
+                editText5_1.setText(province1.getName().toString() +
+                        city1.getName().toString() +
+                        district1.getName().toString());
                /* address_temp = province.getName().toString() + "#" +
                         city.getName().toString() + "#" +
                         district.getName().toString();*/
@@ -181,6 +189,26 @@ public class ContractActivity extends BaseActivity {
             @Override
             public void onCancel() {
 //                ToastUtils.showLongToast(this, "已取消");
+            }
+        });
+        JDCityConfig jdCityConfig = new JDCityConfig.Builder().build();
+        jdCityConfig.setShowType(JDCityConfig.ShowType.PRO_CITY_DIS);
+        cityPicker.init(this);
+        cityPicker.setConfig(jdCityConfig);
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
+                province = province1.getName().toString();
+                city = city1.getName().toString();
+                district = district1.getName().toString();
+
+                editText5_1.setText(province1.getName().toString() +
+                        city1.getName().toString() +
+                        district1.getName().toString());
+            }
+
+            @Override
+            public void onCancel() {
             }
         });
 
@@ -312,7 +340,7 @@ public class ContractActivity extends BaseActivity {
                             editText2_1.setText(response.getNumber());//身份证号
                             editText3_1.setText(response.getName());//收件姓名
                             editText4_1.setText(response.getMobile());//手机号
-                            editText5_1.setText(response.getAddr());//省市县
+                            editText5_1.setText(response.getProvince()+response.getCity()+response.getDistrict());//省市县
                      /*//显示省市县
                     String[] strings = response.getMember().getBank_address().split("#");
                     if (strings.length > 2) {
@@ -324,14 +352,14 @@ public class ContractActivity extends BaseActivity {
 //                    editText7.setText("");
                         address_temp = strings[0] + "#" + strings[1];
                     }*/
-                            editText6_1.setText(response.getAddr());//详细地址
+                            editText6_1.setText(response.getAddress());//详细地址
 
                             /**
                              * 电子合同
                              */
                             editText1_2.setText(response.getName());//姓名
                             editText2_2.setText(response.getMobile());//手机号
-                            editText3_2.setText(response.getAddr());//详细地址
+                            editText3_2.setText(response.getProvince()+response.getCity()+response.getDistrict()+response.getAddress());//详细地址
 
                             /**
                              * 申请开票
@@ -340,7 +368,7 @@ public class ContractActivity extends BaseActivity {
                             editText2_3.setText(response.getNumber());//身份证号
                             editText5_3.setText(response.getName());//姓名
                             editText6_3.setText(response.getMobile());//手机号
-                            editText7_3.setText(response.getAddr());//详细地址
+                            editText7_3.setText(response.getProvince()+response.getCity()+response.getDistrict()+response.getAddress());//详细地址
                         } else {
                             tv_confirm_1.setText(getString(R.string.contract_h54));
                             /*editText1_1.setFocusable(true);
@@ -444,7 +472,8 @@ public class ContractActivity extends BaseActivity {
             case R.id.editText5_1:
                 //选择地址
 //                if (model.getType().equals("0")) {
-                mPicker.showCityPicker();
+//                mPicker.showCityPicker();
+                cityPicker.showCityPicker();
 //                }
                 break;
             case R.id.tv_confirm_1:
@@ -463,7 +492,10 @@ public class ContractActivity extends BaseActivity {
                                     params.put("number", number);
                                     params.put("name", name);
                                     params.put("mobile", mobile);
-                                    params.put("addr", address_temp + addr);
+                                    params.put("address", addr);
+                                    params.put("province", province);
+                                    params.put("city", city);
+                                    params.put("district", district);
                                     params.put("token", localUserInfo.getToken());
                                     RequestUpData(params);
                                 }

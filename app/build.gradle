@@ -185,7 +185,7 @@ dependencies {
     implementation 'com.google.zxing:core:3.3.0'
 
     //城市联动选择
-    implementation 'liji.library.dev:citypickerview:4.1.1'
+    implementation 'liji.library.dev:citypickerview:5.2.4'
 
     //折线图
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'

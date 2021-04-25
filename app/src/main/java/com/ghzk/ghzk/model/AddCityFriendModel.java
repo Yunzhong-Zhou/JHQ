@@ -11,6 +11,7 @@ public class AddCityFriendModel implements Serializable {
      */
 
     private int status;
+    private String status_rejected_cause;
 
     public int getStatus() {
         return status;
@@ -18,5 +19,13 @@ public class AddCityFriendModel implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getStatus_rejected_cause() {
+        return status_rejected_cause;
+    }
+
+    public void setStatus_rejected_cause(String status_rejected_cause) {
+        this.status_rejected_cause = status_rejected_cause;
     }
 }

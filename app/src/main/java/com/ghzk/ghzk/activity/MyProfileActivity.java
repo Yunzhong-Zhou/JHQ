@@ -1,6 +1,8 @@
 package com.ghzk.ghzk.activity;
 
+import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -9,9 +11,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.KeyEvent;
+import android.view.Gravity;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +23,7 @@ import com.blankj.utilcode.util.ActivityUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.base.BaseActivity;
 import com.ghzk.ghzk.model.MyProfileModel;
@@ -58,7 +62,7 @@ public class MyProfileActivity extends BaseActivity {
 
     ImageView imageView1;
     TextView textView1;
-    EditText editText1, editText2,editText3;
+    EditText editText1, editText2, editText3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +99,7 @@ public class MyProfileActivity extends BaseActivity {
         editText2 = findViewByID_My(R.id.editText2);
         editText3 = findViewByID_My(R.id.editText3);
 
-        editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+       /* editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -155,7 +159,7 @@ public class MyProfileActivity extends BaseActivity {
                 }
                 return true;
             }
-        });
+        });*/
 
 
     }
@@ -222,9 +226,9 @@ public class MyProfileActivity extends BaseActivity {
                 localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 
-                if (response.getNickname_update()==2){
+                if (response.getNickname_update() == 2) {
                     editText1.setFocusable(false);
-                }else {
+                } else {
                     editText1.setFocusable(true);
                 }
 
@@ -245,6 +249,15 @@ public class MyProfileActivity extends BaseActivity {
                 cm.setPrimaryClip(mClipData);
                 myToast(getString(R.string.recharge_h34));
                 break;*/
+            case R.id.editText1:
+                dialog_edit("修改昵称",getString(R.string.myprofile_h4),editText1);
+                break;
+            case R.id.editText2:
+                dialog_edit("修改邮箱",getString(R.string.myprofile_h6),editText2);
+                break;
+            case R.id.editText3:
+                dialog_edit("修改分公司码",getString(R.string.myprofile_h71),editText3);
+                break;
             case R.id.linearLayout1:
                 //头像
                 MyChooseImages.showPhotoDialog(MyProfileActivity.this);
@@ -432,5 +445,73 @@ public class MyProfileActivity extends BaseActivity {
             }
         }
 
+    }
+
+    private void dialog_edit(String txt,String hint, EditText editText) {
+        dialog.contentView(R.layout.dialog_edit)
+                .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT))
+                .animType(BaseDialog.AnimInType.CENTER)
+                .gravity(Gravity.CENTER)
+                .canceledOnTouchOutside(true)
+                .dimAmount(0.8f)
+                .show();
+        TextView textView1 = dialog.findViewById(R.id.textView1);
+        textView1.setText(txt);
+        EditText textView2 = dialog.findViewById(R.id.textView2);
+        textView2.setHint(hint);
+        TextView textView3 = dialog.findViewById(R.id.textView3);
+        TextView textView4 = dialog.findViewById(R.id.textView4);
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!textView2.getText().toString().trim().equals("")) {
+                    hideSoftKeyboard(textView1,MyProfileActivity.this);
+                    editText.setText(textView2.getText().toString().trim());
+                    dialog.dismiss();
+
+                    showProgress(false, getString(R.string.app_loading1));
+                    String[] filenames = new String[]{};
+                    File[] files = new File[]{};
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("token", localUserInfo.getToken());
+                    params.put("nickname", editText1.getText().toString().trim());
+                    params.put("email", editText2.getText().toString().trim());
+                    params.put("service_code", editText3.getText().toString().trim());
+                    RequestChangeProfile(filenames, files, params);//修改
+                }else {
+                    myToast(hint);
+                }
+            }
+        });
+        textView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideSoftKeyboard(textView1,MyProfileActivity.this);
+                dialog.dismiss();
+            }
+        });
+
+        dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideSoftKeyboard(textView1,MyProfileActivity.this);
+                dialog.dismiss();
+            }
+        });
+    }
+
+    /**
+     * 隐藏软键盘(只适用于Activity，不适用于Fragment)
+     */
+    public static void hideSoftKeyboard(View view,Activity activity) {
+//        View view = activity.getCurrentFocus();
+        if (view != null) {
+//            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
+        }
     }
 }

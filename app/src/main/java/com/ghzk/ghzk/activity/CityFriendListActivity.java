@@ -136,9 +136,9 @@ public class CityFriendListActivity extends BaseActivity {
                 .province("北京市")//默认显示的省份
                 .city("北京市")//默认显示省份下面的城市
                 .district("朝阳区")//默认显示省市下面的区县数据
-                .provinceCyclic(true)//省份滚轮是否可以循环滚动
-                .cityCyclic(true)//城市滚轮是否可以循环滚动
-                .districtCyclic(true)//区县滚轮是否循环滚动
+                .provinceCyclic(false)//省份滚轮是否可以循环滚动
+                .cityCyclic(false)//城市滚轮是否可以循环滚动
+                .districtCyclic(false)//区县滚轮是否循环滚动
                 .setCustomItemLayout(R.layout.item_city)//自定义item的布局
                 .setCustomItemTextViewId(R.id.textView1)//自定义item布局里面的textViewid
                 .drawShadows(true)//滚轮不显示模糊效果
@@ -158,6 +158,8 @@ public class CityFriendListActivity extends BaseActivity {
                 province = province1.getName().toString();
 //                city = city1.getName().toString();
 //                district = district1.getName().toString();
+
+                textView1.setText(province);
 
                 requestServer();
             }
@@ -202,7 +204,7 @@ public class CityFriendListActivity extends BaseActivity {
                         protected void convert(ViewHolder holder, CityFriendListModel.ServiceCenterListBean model, int position) {
                             ImageView imageView1 = holder.getView(R.id.imageView1);
                             Glide.with(CityFriendListActivity.this)
-                                    .load(OkHttpClientManager.IMGHOST + localUserInfo.getUserImage())
+                                    .load(OkHttpClientManager.IMGHOST + model.getPic1())
                                     .fitCenter()
                                     .apply(RequestOptions.bitmapTransform(new
                                             RoundedCorners(CommonUtil.dip2px(CityFriendListActivity.this, 10))))
@@ -436,7 +438,7 @@ public class CityFriendListActivity extends BaseActivity {
                 } else {
                     grade = i + "";
                 }
-//                textView2.setText(list.get(i));
+                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

@@ -123,7 +123,7 @@ public class CityFriendActivity extends BaseActivity {
                 textView3.setText(response.getService_count());//绑定人数
                 textView4.setText(response.getService_performance_num());//销售设备
                 textView5.setText(response.getUse_earning_money());//收益分成
-                textView6.setText("¥ " + response.getSell_earning_money());//销售分成
+                textView6.setText(getString(R.string.myprofile_h28)+"¥ " + response.getSell_earning_money());//销售分成
 
                 list = response.getService_center_list();
                 if (list.size() == 0) {

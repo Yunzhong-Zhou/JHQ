@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:background="@drawable/yuanjiao_5_baise"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:paddingTop="20dp"
+                android:text="@string/app_prompt"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/dismiss"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:padding="10dp"
+                android:src="@mipmap/ic_close_gray"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext_bg"
+            android:text=""
+            android:hint="请输入内容"
+            android:layout_margin="20dp"
+            android:textColor="@color/black1"
+            android:textColorHint="@color/black3"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black5"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao_20_lvsejianbian1"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingTop="8dp"
+                android:paddingRight="40dp"
+                android:paddingBottom="8dp"
+                android:text="@string/app_confirm"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiaobiankuang_20_lvse"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingTop="8dp"
+                android:paddingRight="40dp"
+                android:paddingBottom="8dp"
+                android:text="@string/app_cancel"
+                android:textColor="@color/green"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

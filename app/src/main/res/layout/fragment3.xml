@@ -325,9 +325,9 @@
                         <com.lihang.ShadowLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="24dp"
                             android:layout_marginTop="29dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginRight="24dp"
                             android:layout_marginBottom="10dp"
                             app:hl_cornerRadius="15dp"
                             app:hl_shadowColor="#61ADA4A4"
@@ -393,7 +393,8 @@
                             android:gravity="center"
                             android:text="@string/fragment3_h52"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -404,9 +405,9 @@
                         <com.lihang.ShadowLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="24dp"
                             android:layout_marginTop="12dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginRight="24dp"
                             android:layout_marginBottom="10dp"
                             app:hl_cornerRadius="15dp"
                             app:hl_shadowColor="#61ADA4A4"
@@ -449,7 +450,8 @@
                             android:gravity="center"
                             android:text="@string/fragment3_h53"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -460,9 +462,9 @@
                         <com.lihang.ShadowLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="24dp"
                             android:layout_marginTop="12dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginRight="24dp"
                             android:layout_marginBottom="10dp"
                             app:hl_cornerRadius="15dp"
                             app:hl_shadowColor="#61ADA4A4"
@@ -483,8 +485,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="49dp"
                                     android:gravity="center"
-                                    android:visibility="gone"
-                                    android:text="@string/fragment3_h55" />
+                                    android:text="@string/fragment3_h55"
+                                    android:visibility="gone" />
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -513,57 +515,121 @@
                             android:gravity="center"
                             android:text="@string/fragment3_h54"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_9" />
 
-                        <com.lihang.ShadowLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="50dp"
-                            app:hl_cornerRadius="15dp"
-                            app:hl_shadowColor="#61ADA4A4"
-                            app:hl_shadowLimit="5dp"
-                            app:hl_shadowOffsetX="0dp"
-                            app:hl_shadowOffsetY="5dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_11" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yuanjiao_15_baise"
-                                android:orientation="vertical"
-                                android:paddingLeft="14dp"
-                                android:paddingRight="14dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_12" />
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="49dp"
-                                    android:layout_marginBottom="40dp"
-                                    android:adjustViewBounds="true"
-                                    android:src="@mipmap/bg_fragment3_9" />
-                            </LinearLayout>
-                        </com.lihang.ShadowLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_13" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_14" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_15" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/bg_fragment3_16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="项目咨询热线：4008-511-888"
+                        android:textColor="@color/black1"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            android:background="@mipmap/bg_fragment3_1"
+                            android:layout_gravity="center_horizontal"
                             android:gravity="center"
-                            android:text="@string/fragment3_h54"
-                            android:textColor="@color/white"
+                            android:text="项目官网："
+                            android:textColor="@color/black3"
                             android:textSize="12sp" />
 
-                    </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center"
+                            android:text="www.ghzkgroup.com"
+                            android:textColor="@color/green"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="Copyright@国海众科集团 京ICP备2021010042号—1，公安网备110011302003339号"
+                        android:textColor="@color/black3"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
             </LinearLayout>

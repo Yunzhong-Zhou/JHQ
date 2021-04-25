@@ -28,7 +28,10 @@ public class ContractModel implements Serializable {
     private String number;
     private String name;
     private String mobile;
-    private String addr;
+    private String province;
+    private String city;
+    private String district;
+    private String address;
     private String url;
     private String residue_invoice_money;
     private List<OrderListBean> order_list;
@@ -89,12 +92,36 @@ public class ContractModel implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getAddr() {
-        return addr;
+    public String getProvince() {
+        return province;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUrl() {

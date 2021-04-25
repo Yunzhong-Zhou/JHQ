@@ -1456,10 +1456,13 @@ drawable elp_close_white
 drawable elp_gray_bg
 drawable elp_msg_bg
 drawable elp_white_close
+drawable et_focused
+drawable et_normal
 drawable gray_radius
 drawable huisejianbian
 drawable ic_check
 drawable ic_citypicker_bar_back
+drawable ic_citypicker_custome
 drawable ic_citypicker_ios
 drawable ic_citypicker_jingdong
 drawable ic_citypicker_onecity
@@ -1585,6 +1588,7 @@ drawable yuanjiao_20_huise3
 drawable yuanjiao_20_lvse
 drawable yuanjiao_20_lvse1
 drawable yuanjiao_20_lvsejianbian
+drawable yuanjiao_20_lvsejianbian1
 drawable yuanjiao_25_baise_top
 drawable yuanjiao_25_baise_top1
 drawable yuanjiao_25_huise
@@ -2143,6 +2147,7 @@ id selectImg
 id select_dialog_listview
 id selected
 id selected_line
+id shape
 id shortcut
 id showCustom
 id showHome
@@ -2512,6 +2517,7 @@ layout dialog_alarm_ui
 layout dialog_base1
 layout dialog_base2
 layout dialog_daojishi
+layout dialog_edit
 layout dialog_fragment1
 layout dialog_fragment3
 layout dialog_fragment3_join
@@ -2669,6 +2675,12 @@ mipmap bg_fragment1_xuanze
 mipmap bg_fragment2
 mipmap bg_fragment3_1
 mipmap bg_fragment3_10
+mipmap bg_fragment3_11
+mipmap bg_fragment3_12
+mipmap bg_fragment3_13
+mipmap bg_fragment3_14
+mipmap bg_fragment3_15
+mipmap bg_fragment3_16
 mipmap bg_fragment3_2
 mipmap bg_fragment3_3
 mipmap bg_fragment3_4
@@ -2728,6 +2740,7 @@ mipmap ic_cityfriend2
 mipmap ic_cityfriend3
 mipmap ic_cityfriend4
 mipmap ic_close_black
+mipmap ic_close_gray
 mipmap ic_contract1
 mipmap ic_contract2
 mipmap ic_delete
@@ -4604,4 +4617,5 @@ styleable WeekView wv_textColor wv_textSize
 xml file_provider
 xml mn_update_file_provider
 xml network_security_config
+xml provider_paths
 xml util_code_provider_paths
