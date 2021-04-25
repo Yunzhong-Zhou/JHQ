@@ -254,7 +254,7 @@ public class Fragment1 extends BaseFragment {
                                 .error(R.mipmap.zanwutupian)//加载失败
                                 .into(imageView1);//加载图片
                         ImageView imageView2 = holder.getView(R.id.imageView2);
-                        if (model.getStatus() == 1) {
+                        if (model.getGoods_status() == 1) {
                             //待安装
                             imageView2.setImageResource(R.mipmap.bg_anzhuangzhong);
                         } else {

@@ -154,23 +154,32 @@ public class ContractModel implements Serializable {
          * title : title
          */
 
-        private String url;
-        private String title;
+        private String contract_sn;
+        private String contract_electronic_url;
+        private String created_at;
 
-        public String getUrl() {
-            return url;
+        public String getContract_sn() {
+            return contract_sn;
         }
 
-        public void setUrl(String url) {
-            this.url = url;
+        public void setContract_sn(String contract_sn) {
+            this.contract_sn = contract_sn;
         }
 
-        public String getTitle() {
-            return title;
+        public String getContract_electronic_url() {
+            return contract_electronic_url;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setContract_electronic_url(String contract_electronic_url) {
+            this.contract_electronic_url = contract_electronic_url;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
         }
     }
 }

@@ -313,7 +313,7 @@ public class MyTakeCashActivity extends BaseActivity {
                 } else {
                     sort = "asc";
                 }
-//                textView1.setText(list.get(i));
+                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -383,7 +383,7 @@ public class MyTakeCashActivity extends BaseActivity {
                 } else {
                     status = i + "";
                 }
-//                textView2.setText(list.get(i));
+                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

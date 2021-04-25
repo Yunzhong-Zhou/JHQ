@@ -2,7 +2,6 @@ package com.ghzk.ghzk.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,6 +37,8 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.ghzk.ghzk.net.OkHttpClientManager.HOST;
+
 /**
  * Created by zyz on 2017/9/5.
  * 合同列表
@@ -49,7 +50,7 @@ public class ContractListActivity extends BaseActivity {
     CommonAdapter<ContractListModel.InvoiceListBean> mAdapter;
 
     int page = 1;
-    TextView textView1,textView2;
+    TextView textView1, textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +91,7 @@ public class ContractListActivity extends BaseActivity {
                 RequestMyInvestmentListMore(string);
             }
         });
-        textView1= findViewByID_My(R.id.textView1);
+        textView1 = findViewByID_My(R.id.textView1);
         textView2 = findViewByID_My(R.id.textView2);
     }
 
@@ -125,17 +126,19 @@ public class ContractListActivity extends BaseActivity {
                         @Override
                         protected void convert(ViewHolder holder, ContractListModel.InvoiceListBean model, int position) {
                             holder.setText(R.id.textView1, model.getShow_created_at());//时间
-                            holder.setText(R.id.textView2, "¥"+model.getMoney());//金额
+                            holder.setText(R.id.textView2, "¥" + model.getMoney());//金额
                             holder.setText(R.id.textView3, model.getType_title());
 
+                            String Url = HOST + model.getElectronic_url();
                             holder.getView(R.id.iv_chakan).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     if (!model.getElectronic_url().equals("")) {
                                         Bundle bundle = new Bundle();
-                                        bundle.putString("url", model.getElectronic_url());
-                                        CommonUtil.gotoActivityWithData(ContractListActivity.this, WebContentActivity1.class, bundle, false);
-                                    }else {
+                                        bundle.putString("url", Url);
+                                        CommonUtil.gotoActivityWithData(ContractListActivity.this, ShowPDFActivity.class, bundle, false);
+//                                        CommonUtil.gotoActivityWithData(ContractListActivity.this, WebContentActivity1.class, bundle, false);
+                                    } else {
                                         myToast("暂无发票文件");
                                     }
                                 }
@@ -145,14 +148,14 @@ public class ContractListActivity extends BaseActivity {
                                 public void onClick(View v) {
                                     if (!model.getElectronic_url().equals("")) {
                                         ProgressDialog mProgressDialog;
-                                        if (model.getElectronic_url().substring(model.getElectronic_url().length() - 3).equals("pdf")) {
+                                        if (Url.substring(Url.length() - 3).equals("pdf")) {
                                             //是pdf文件
                                             mProgressDialog = new ProgressDialog(ContractListActivity.this);
                                             mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                                             mProgressDialog.setCancelable(false);
                                             mProgressDialog.show();
                                             //截取最后14位 作为文件名
-                                            String s = model.getElectronic_url().substring(model.getElectronic_url().length() - 14);
+                                            String s = Url.substring(Url.length() - 14);
                                             //文件存储
                                             File file1 = new File(Environment.getExternalStorageDirectory(), getFileName(s));
                                             new Thread() {
@@ -169,7 +172,7 @@ public class ContractListActivity extends BaseActivity {
                                                         return;
                                                     }
 //              本地没有此文件 则从网上下载打开
-                                                    File downloadfile = downLoad(model.getElectronic_url(), file1.getAbsolutePath(), mProgressDialog);
+                                                    File downloadfile = downLoad(Url, file1.getAbsolutePath(), mProgressDialog);
 //              Log.i("Log",file1.getAbsolutePath());
                                                     Message msg = Message.obtain();
                                                     if (downloadfile != null) {
@@ -191,7 +194,7 @@ public class ContractListActivity extends BaseActivity {
                                         intent.setClass(EquipmentDetailActivity.this, ShowSignatureActivity.class);
                                         startActivity(intent);*/
                                         }
-                                    }else {
+                                    } else {
                                         myToast("暂无发票文件");
                                     }
                                 }
@@ -289,7 +292,8 @@ public class ContractListActivity extends BaseActivity {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case 1:
-                    File file = (File) msg.obj;
+
+                    /*File file = (File) msg.obj;
                     Intent intent = new Intent("android.intent.action.VIEW");
                     intent.addCategory("android.intent.category.DEFAULT");
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -298,13 +302,14 @@ public class ContractListActivity extends BaseActivity {
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     }
                     Uri uri = getUriForFile(ContractListActivity.this, file);
+                    MyLogger.i(">>>>>>"+uri.getPath());
                     intent.setDataAndType(uri, "application/pdf");
 //              startActivity(intent);
-                    startActivity(Intent.createChooser(intent, "标题"));
+                    startActivity(Intent.createChooser(intent, "请选择PDF查看器打开"));*/
                     /**
                      * 弹出选择框   把本activity销毁
                      */
-//                    finish();
+                    showToast("已下载完成，请到文件管理根目录查看");
                     break;
                 case 2:
                     showToast("文件加载失败");
@@ -319,7 +324,7 @@ public class ContractListActivity extends BaseActivity {
         }
         Uri uri;
         if (Build.VERSION.SDK_INT >= 24) {
-            uri = FileProvider.getUriForFile(context.getApplicationContext(), context.getPackageName()+".fileprovider", file);
+            uri = FileProvider.getUriForFile(context.getApplicationContext(), context.getPackageName() + ".fileprovider", file);
         } else {
             uri = Uri.fromFile(file);
         }

@@ -122,9 +122,18 @@ public class Fragment1Model implements Serializable {
         private String district;
         private String address;
         private int status;
+        private int goods_status;
         private int num;
         private String created_at;
         private String status_title;
+
+        public int getGoods_status() {
+            return goods_status;
+        }
+
+        public void setGoods_status(int goods_status) {
+            this.goods_status = goods_status;
+        }
 
         public String getId() {
             return id;

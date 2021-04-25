@@ -128,6 +128,7 @@ attr alpha
 attr alphabeticModifiers
 attr arrowHeadLength
 attr arrowShaftLength
+attr assetFileName
 attr autoCompleteTextViewStyle
 attr autoSizeMaxTextSize
 attr autoSizeMinTextSize
@@ -587,6 +588,7 @@ attr passwordToggleEnabled
 attr passwordToggleTint
 attr passwordToggleTintMode
 attr paused
+attr pdfUrl
 attr popupMenuStyle
 attr popupTheme
 attr popupWindowStyle
@@ -612,6 +614,7 @@ attr result_point_color
 attr retryView
 attr reverseLayout
 attr rippleColor
+attr scale
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -991,11 +994,16 @@ color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color notification_material_background_media_default_color
 color orange
 color orange300
 color orange500
 color orange700
 color orange_1
+color pdfViewPager_ab_color
+color pdfViewPager_ab_color_darker
+color pdfViewPager_ab_color_lighter
+color pdfViewPager_background_color
 color pink300
 color pink500
 color pink700
@@ -1321,6 +1329,10 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1458,6 +1470,7 @@ drawable elp_msg_bg
 drawable elp_white_close
 drawable et_focused
 drawable et_normal
+drawable flaticon_pdf_dummy
 drawable gray_radius
 drawable huisejianbian
 drawable ic_check
@@ -1471,6 +1484,7 @@ drawable ic_close
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_pdfviewpager
 drawable icon
 drawable input_close
 drawable line_stroke_huise
@@ -1711,6 +1725,7 @@ id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
 id action
+id action0
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1765,6 +1780,7 @@ id btn_empty_retry
 id btn_error_retry
 id btn_flash
 id buttonPanel
+id cancel_action
 id cancel_bg
 id cancel_imageview
 id catalog
@@ -1856,6 +1872,7 @@ id enable_service_text
 id encode_failed
 id encode_succeeded
 id end
+id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id et_search
@@ -1915,6 +1932,7 @@ id imageView2_1
 id imageView2_2
 id imageView3
 id imageView4
+id imageViewZoom
 id imageView_addr
 id imageView_fuzhi
 id img
@@ -1970,6 +1988,9 @@ id leftToRight
 id left_btn
 id left_btn1
 id left_text
+id legacy_pdf_button
+id legacy_pdf_progressBar
+id legacy_pdf_textView
 id line1
 id line3
 id linearLayout
@@ -2029,6 +2050,7 @@ id localCityTag
 id mViewPager
 id masked
 id matrix
+id media_actions
 id message
 id middle
 id mini
@@ -2062,6 +2084,9 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id pb_bar
+id pdfViewPager
+id pdf_page_container
 id percent
 id pin
 id pop_layout
@@ -2098,6 +2123,7 @@ id relativeLayout
 id relativeLayout1
 id relativeLayout2
 id relativeLayout3
+id remote_pdf_root
 id restart_preview
 id return_scan_result
 id right
@@ -2170,6 +2196,7 @@ id src_in
 id src_over
 id standard
 id start
+id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
@@ -2477,6 +2504,7 @@ layout activity_sharepeople
 layout activity_shareposter
 layout activity_shouhui
 layout activity_shourulist
+layout activity_showpdf
 layout activity_takecash
 layout activity_takecashdetail
 layout activity_transfer
@@ -2626,8 +2654,17 @@ layout mydefault_header
 layout navigation_tab_layout
 layout notification_action
 layout notification_action_tombstone
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout pop_citypicker
@@ -2652,8 +2689,11 @@ layout upsdk_ota_update_view
 layout utils_toast_view
 layout view_empty
 layout view_error
+layout view_legacy_pdf
 layout view_loading
+layout view_pdf_page
 layout view_title
+layout view_zoomable_pdf_page
 layout viewpager_page
 mipmap background
 mipmap background1
@@ -3700,6 +3740,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pdfvp_ready_to_download
 string project_id
 string push_cat_body
 string push_cat_head
@@ -4288,9 +4329,14 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow
@@ -4572,6 +4618,7 @@ styleable GifView freezesAnimation gif loopCount paused
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable GradientTextView gradient_animate gradient_direction gradient_endColor gradient_speed gradient_startColor
+styleable LegacyPDFView
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
@@ -4584,6 +4631,7 @@ styleable MenuGroup android_enabled android_id android_visible android_menuCateg
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconTint itemTextAppearance itemTextColor menu
+styleable PDFViewPager assetFileName pdfUrl scale
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle

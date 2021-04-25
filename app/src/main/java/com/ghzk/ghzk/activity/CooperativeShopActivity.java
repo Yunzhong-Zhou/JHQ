@@ -104,7 +104,7 @@ public class CooperativeShopActivity extends BaseActivity {
                         + "&city=" + city
                         + "&district=" + district
                         + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
+                        + "&count=" + ""//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentList(string);
             }
@@ -120,7 +120,7 @@ public class CooperativeShopActivity extends BaseActivity {
                         + "&city=" + city
                         + "&district=" + district
                         + "&page=" + page//当前页号
-                        + "&count=" + "10"//页面行数
+                        + "&count=" + ""//页面行数
                         + "&token=" + localUserInfo.getToken();
                 RequestMyInvestmentListMore(string);
             }
@@ -264,7 +264,7 @@ public class CooperativeShopActivity extends BaseActivity {
                                     .error(R.mipmap.zanwutupian)//加载失败
                                     .into(imageView1);//加载图片
                             ImageView imageView2 = holder.getView(R.id.imageView2);
-                            if (model.getStatus() == 1) {
+                            if (model.getGoods_status() == 1) {
                                 //待安装
                                 imageView2.setImageResource(R.mipmap.bg_anzhuangzhong);
                             } else {
@@ -388,7 +388,7 @@ public class CooperativeShopActivity extends BaseActivity {
                 + "&city=" + city
                 + "&district=" + district
                 + "&page=" + page//当前页号
-                + "&count=" + "10"//页面行数
+                + "&count=" + ""//页面行数
                 + "&token=" + localUserInfo.getToken();
         RequestMyInvestmentList(string);
     }

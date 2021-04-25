@@ -238,8 +238,8 @@ public class Fragment5 extends BaseFragment {
                             .into(imageView1);//加载图片
 
                     textView5.setText("" + response.getUsable_money());//余额
-                    textView6.setText("" + response.getEarning_money());//销售分成
-                    textView7.setText("" + response.getCommission_money());//收益分成
+                    textView6.setText("" + response.getCommission_money());//销售分成
+                    textView7.setText("" + response.getEarning_money());//收益分成
                     textView8.setText("" + response.getOrder_goods_count() + getString(R.string.app_tai));//台数
 
 //                    localUserInfo.setPhoneNumber(response.getMobile());

@@ -498,9 +498,14 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
             return super.dispatchTouchEvent(ev);
         }
         // 必不可少，否则所有的组件都不会有TouchEvent了
-        if (getWindow().superDispatchTouchEvent(ev)) {
-            return true;
+        try {
+            if (getWindow().superDispatchTouchEvent(ev)) {
+                return true;
+            }
+        } catch (Exception e) {
+
         }
+
         return onTouchEvent(ev);
     }
 
@@ -523,7 +528,5 @@ public abstract class BaseActivity extends SwipeBackActivity implements IBaseVie
         }
         return false;
     }
-
-
 
 }

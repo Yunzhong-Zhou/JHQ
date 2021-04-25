@@ -46,6 +46,8 @@ import java.util.Map;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.ghzk.ghzk.net.OkHttpClientManager.HOST;
+
 /**
  * Created by zyz on 2017/9/5.
  * 订单中心
@@ -410,8 +412,9 @@ public class MyOrderActivity extends BaseActivity {
                                 public void onClick(View v) {
                                     if (model.getContract_electronic_url() != null && !model.getContract_electronic_url().equals("")) {
                                         Bundle bundle = new Bundle();
-                                        bundle.putString("url", model.getContract_electronic_url());
-                                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, WebContentActivity1.class, bundle, false);
+                                        bundle.putString("url", HOST + model.getContract_electronic_url());
+                                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, ShowPDFActivity.class, bundle, false);
+//                                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, WebContentActivity_pdf.class, bundle, false);
                                     } else {
                                         myToast("暂无合同文件");
                                     }
@@ -732,7 +735,7 @@ public class MyOrderActivity extends BaseActivity {
                 } else {
                     sort_index = i + "";
                 }
-//                textView1.setText(list.get(i));
+                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -802,7 +805,7 @@ public class MyOrderActivity extends BaseActivity {
                 } else {
                     status = i + "";
                 }
-//                textView2.setText(list.get(i));
+                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

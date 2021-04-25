@@ -204,6 +204,12 @@ public class MachineDetailActivity extends BaseActivity {
                     sb_key.append(getString(R.string.fragment1_h90) + "\n");
                     sb_value.append(response.getOrder_goods().getInstall_at() + "\n");
                 }
+                if (!response.getOrder_goods().getBuy_type_title().equals("")) {
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h115), response.getOrder_goods().getBuy_type_title()));
+
+                    sb_key.append(getString(R.string.fragment1_h115) + "\n");
+                    sb_value.append(response.getOrder_goods().getBuy_type_title() + "\n");
+                }
                 if (!response.getOrder_goods().getMoney().equals("")) {
                     list_info.add(new KeyValueModel(getString(R.string.fragment1_h92), response.getOrder_goods().getMoney()));
 

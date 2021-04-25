@@ -129,6 +129,7 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-annotations:16.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.mob:MobGUI:2019.0306.1850@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.mob:SDKWrapper:2018.0801.1824@jar" level="project" />
+    <orderEntry type="library" name="Gradle: es.voghdev.pdfviewpager:library:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.AnJiaoDe:BaseDialog:V1.1.8@aar" level="project" />
     <orderEntry type="library" name="Gradle: liji.library.dev:citypickerview:5.2.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
@@ -188,6 +189,8 @@
     <orderEntry type="library" name="Gradle: id.zelory:compressor:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:3.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.bm.photoview:library:1.4.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.xutils:xutils:3.5.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.commit451:PhotoView:1.2.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.lijiankun24:shadowlayout:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.lihangleo2:ShadowLayout:3.1.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.williamyang:gradienttext:1.0.1@aar" level="project" />

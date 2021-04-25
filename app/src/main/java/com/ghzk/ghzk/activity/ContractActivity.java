@@ -38,6 +38,8 @@ import java.util.Map;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.ghzk.ghzk.net.OkHttpClientManager.HOST;
+
 /**
  * Created by Mr.Z on 2020/12/15.
  * 合同
@@ -341,6 +343,9 @@ public class ContractActivity extends BaseActivity {
                             editText3_1.setText(response.getName());//收件姓名
                             editText4_1.setText(response.getMobile());//手机号
                             editText5_1.setText(response.getProvince()+response.getCity()+response.getDistrict());//省市县
+                            province = response.getProvince();
+                            city = response.getCity();
+                            district = response.getDistrict();
                      /*//显示省市县
                     String[] strings = response.getMember().getBank_address().split("#");
                     if (strings.length > 2) {
@@ -387,14 +392,15 @@ public class ContractActivity extends BaseActivity {
                                     (ContractActivity.this, R.layout.item_contract, list) {
                                 @Override
                                 protected void convert(ViewHolder holder, ContractModel.OrderListBean model, int position) {
-                                    holder.setText(R.id.textView1, "《"+model.getTitle()+"》");
+                                    holder.setText(R.id.textView1, "合同编号《"+model.getContract_sn()+"》");
                                     holder.getView(R.id.textView1).setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            if (!model.getUrl().equals("")) {
+                                            if (!model.getContract_electronic_url().equals("")) {
                                                 Bundle bundle = new Bundle();
-                                                bundle.putString("url", model.getUrl());
-                                                CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
+                                                bundle.putString("url", HOST + model.getContract_electronic_url());
+                                                CommonUtil.gotoActivityWithData(ContractActivity.this, ShowPDFActivity.class, bundle, false);
+//                                                CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
                                             }else {
                                                 myToast("暂无发票文件");
                                             }
@@ -596,7 +602,6 @@ public class ContractActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View v) {
                                     dialog.dismiss();
-
                                 }
                             });
                 }

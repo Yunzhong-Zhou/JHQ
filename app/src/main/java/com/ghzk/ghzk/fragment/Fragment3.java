@@ -299,7 +299,7 @@ public class Fragment3 extends BaseFragment {
                         }
                     });
 
-                    if (Double.valueOf(model.getGoods().getCannot_buy_back_price()) > 0 || Double.valueOf(model.getGoods().getCan_buy_back_price()) > 0 ) {
+                    if (Double.valueOf(model.getGoods().getCannot_buy_back_price()) > 0 && Double.valueOf(model.getGoods().getCan_buy_back_price()) > 0 ) {
                         rl_huigou.setVisibility(View.VISIBLE);
                         rl_huigou_not.setVisibility(View.VISIBLE);
                         buy_type = 2;

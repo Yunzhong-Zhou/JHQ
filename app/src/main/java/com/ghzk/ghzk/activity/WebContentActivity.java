@@ -126,6 +126,7 @@ public class WebContentActivity extends BaseActivity {
         webView.getSettings().setBlockNetworkImage(false);//解决图片不显示
         webView.getSettings().setLoadsImagesAutomatically(true); //支持自动加载图片
         webView.getSettings().setDefaultTextEncodingName("utf-8");//设置编码格式
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true); //设置可以访问URL
 
 //        webView.getSettings().setUserAgentString("User-Agent:Android");//设置用户代理，一般不用
         //页面打开

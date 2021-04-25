@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/myprofile_h37"
+                android:text="@string/myprofile_h73"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 

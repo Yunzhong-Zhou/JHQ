@@ -82,6 +82,7 @@ Android 10 停用过滤视图，使用旧版存储模式
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowIsTranslucent="false" >
@@ -139,6 +140,12 @@ Android 10 停用过滤视图，使用旧版存储模式
         <activity
             android:name="com.ghzk.ghzk.activity.WebContentActivity1"
             android:label="网页" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.WebContentActivity_pdf"
+            android:label="网页-打开pdf" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShowPDFActivity"
+            android:label="查看PDF" />
         <activity
             android:name="com.ghzk.ghzk.activity.JoinListActivity"
             android:label="拼购列表" />
@@ -386,6 +393,10 @@ Android 10 停用过滤视图，使用旧版存储模式
 
         <!-- 保活 -->
         <service android:name="com.ghzk.ghzk.utils.TraceServiceImpl" />
+        <service
+            android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
+            android:exported="false" >
+        </service>
 
         <provider
             android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"

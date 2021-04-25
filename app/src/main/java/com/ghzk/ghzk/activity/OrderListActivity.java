@@ -359,7 +359,7 @@ public class OrderListActivity extends BaseActivity {
                 } else {
                     status = i + "";
                 }
-//                textView1.setText(list.get(i));
+                textView1.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -429,7 +429,7 @@ public class OrderListActivity extends BaseActivity {
                 } else {
                     money_sort = "asc";
                 }
-//                textView2.setText(list.get(i));
+                textView2.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }
@@ -499,7 +499,7 @@ public class OrderListActivity extends BaseActivity {
                 } else {
                     sort = "asc";
                 }
-//                textView2.setText(list.get(i));
+                textView3.setText(list.get(i));
                 requestServer();
                 popupWindow.dismiss();
             }

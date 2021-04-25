@@ -111,6 +111,12 @@
         <activity
             android:name="com.ghzk.ghzk.activity.WebContentActivity1"
             android:label="网页"/>
+        <activity
+            android:name="com.ghzk.ghzk.activity.WebContentActivity_pdf"
+            android:label="网页-打开pdf"/>
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShowPDFActivity"
+            android:label="查看PDF"/>
 
         <activity
             android:name="com.ghzk.ghzk.activity.JoinListActivity"
