@@ -166,7 +166,7 @@ public class ContractActivity extends BaseActivity {
                 .drawShadows(true)//滚轮不显示模糊效果
                 .setLineColor("#80CDCDCE")//中间横线的颜色
                 .setLineHeigh(1)//中间横线的高度
-                .setShowGAT(true)//是否显示港澳台数据，默认不显示
+                .setShowGAT(false)//是否显示港澳台数据，默认不显示
                 .build();
 
         //设置自定义的属性配置

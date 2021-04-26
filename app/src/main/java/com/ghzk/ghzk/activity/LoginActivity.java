@@ -254,7 +254,7 @@ public class LoginActivity extends BaseActivity {
 
     //手机号国家代码集合
     private void RequestSmsCodeList(String string) {
-        OkHttpClientManager.getAsyn(LoginActivity.this, URLs.Login + string, new OkHttpClientManager.ResultCallback<SmsCodeListModel>() {
+        OkHttpClientManager.getAsyn(LoginActivity.this, URLs.Registered + string, new OkHttpClientManager.ResultCallback<SmsCodeListModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
                 if (!info.equals("")) {

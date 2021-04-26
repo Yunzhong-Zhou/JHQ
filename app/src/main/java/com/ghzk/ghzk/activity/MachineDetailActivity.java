@@ -192,15 +192,20 @@ public class MachineDetailActivity extends BaseActivity {
                 }
 
                 //回购
-                if (response.getOrder_goods().getStatus() == 8 || response.getOrder_goods().getStatus() == 9 || response.getOrder_goods().getStatus() == 10) {
-                    if (response.getOrder_goods().getBuy_back_money() != null && !response.getOrder_goods().getBuy_back_money().equals("")) {
+                if (response.getOrder_goods().getStatus() == 8
+                        || response.getOrder_goods().getStatus() == 9
+                        || response.getOrder_goods().getStatus() == 10) {
+                    if (response.getOrder_goods().getBuy_back_money() != null
+                            && !response.getOrder_goods().getBuy_back_money().equals("")) {
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h106), response.getOrder_goods().getBuy_back_money()));
                     }
-                    if (response.getOrder_goods().getBuy_back_apply_at() != null && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
+                    if (response.getOrder_goods().getBuy_back_apply_at() != null
+                            && !response.getOrder_goods().getBuy_back_apply_at().equals("")) {
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h105), response.getOrder_goods().getBuy_back_apply_at()));
                     }
                     if (response.getOrder_goods().getStatus() == 10) {//显示未通过理由
-                        if (response.getOrder_goods().getStatus_buy_back_apply_rejected_cause() != null && !response.getOrder_goods().getStatus_buy_back_apply_rejected_cause().equals("")) {
+                        if (response.getOrder_goods().getStatus_buy_back_apply_rejected_cause() != null
+                                && !response.getOrder_goods().getStatus_buy_back_apply_rejected_cause().equals("")) {
                             list_info.add(new KeyValueModel("回购未通过理由", response.getOrder_goods().getStatus_buy_back_apply_rejected_cause()));
                         }
                     }
