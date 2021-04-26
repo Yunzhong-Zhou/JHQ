@@ -407,6 +407,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/fragment5_h91"
                     android:textColor="#00D4A1"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/textView5"

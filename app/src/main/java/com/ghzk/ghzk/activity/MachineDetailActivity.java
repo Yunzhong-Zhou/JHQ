@@ -216,7 +216,7 @@ public class MachineDetailActivity extends BaseActivity {
                 }
 
                 if (response.getOrder_goods().getWait_settle_money() != null && !response.getOrder_goods().getWait_settle_money().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), response.getOrder_goods().getWait_settle_money()));
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), "￥"+response.getOrder_goods().getWait_settle_money()));
                 }
 
                 //转入、转出

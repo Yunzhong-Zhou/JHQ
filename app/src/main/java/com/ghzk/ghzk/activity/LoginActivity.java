@@ -40,8 +40,6 @@ import com.ghzk.ghzk.utils.changelanguage.LanguageUtil;
 import com.ghzk.ghzk.utils.changelanguage.SpUtil;
 import com.ghzk.ghzk.utils.permission.PermissionsActivity;
 import com.ghzk.ghzk.utils.permission.PermissionsChecker;
-import com.lahm.library.EasyProtectorLib;
-import com.lahm.library.EmulatorCheckCallback;
 import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 
@@ -761,7 +759,7 @@ public class LoginActivity extends BaseActivity {
             return false;
         }*/
 
-        boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+        /*boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
             @Override
             public void findEmulator(String emulatorInfo) {
                 MyLogger.i("设备信息", emulatorInfo);
@@ -770,7 +768,7 @@ public class LoginActivity extends BaseActivity {
         if (isMoNiQi == true) {//是模拟器
             myToast(getString(R.string.login_h17));
             return false;
-        }
+        }*/
 
         return true;
     }

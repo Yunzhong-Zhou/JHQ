@@ -467,7 +467,7 @@ public class MyProfileActivity extends BaseActivity {
             public void onClick(View v) {
                 if (!textView2.getText().toString().trim().equals("")) {
                     hideSoftKeyboard(textView1,MyProfileActivity.this);
-                    editText.setText(textView2.getText().toString().trim());
+//                    editText.setText(textView2.getText().toString().trim());
                     dialog.dismiss();
 
                     showProgress(false, getString(R.string.app_loading1));

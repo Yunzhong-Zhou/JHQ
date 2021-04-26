@@ -349,6 +349,7 @@
                         android:layout_marginTop="30dp"
                         android:layout_marginRight="20dp"
                         android:adjustViewBounds="true"
+                        android:visibility="gone"
                         android:src="@mipmap/bg_fragment3_10" />
                     <ImageView
                         android:layout_width="match_parent"

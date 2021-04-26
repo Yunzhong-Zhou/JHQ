@@ -10,12 +10,9 @@ import android.os.Handler;
 import com.ghzk.ghzk.MyApplication;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.utils.LocalUserInfo;
-import com.ghzk.ghzk.utils.MyLogger;
 import com.ghzk.ghzk.utils.changelanguage.LanguageType;
 import com.ghzk.ghzk.utils.changelanguage.LanguageUtil;
 import com.ghzk.ghzk.utils.changelanguage.SpUtil;
-import com.lahm.library.EasyProtectorLib;
-import com.lahm.library.EmulatorCheckCallback;
 
 
 /**
@@ -77,11 +74,7 @@ public class HelloActivity extends Activity {
         Boolean user_first = setting.getBoolean("FIRST", true);
 
         //判断是否为真机
-        /*if (!CommonUtil.notHasLightSensorManager(HelloActivity.this)){
-            finish();
-        }*/
-
-        boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
+       /* boolean isMoNiQi = EasyProtectorLib.checkIsRunningInEmulator(this, new EmulatorCheckCallback() {
             @Override
             public void findEmulator(String emulatorInfo) {
                 MyLogger.i("设备信息", emulatorInfo);
@@ -89,7 +82,7 @@ public class HelloActivity extends Activity {
         });
         if (isMoNiQi == true) {//是模拟器
             finish();
-        }
+        }*/
 
 
         // 如果是第一次启动，则先进入功能引导页
