@@ -312,6 +312,12 @@ public class Fragment3 extends BaseFragment {
                             buy_type = 2;
                             iv_huigou.setVisibility(View.VISIBLE);
                             iv_huigou_not.setVisibility(View.INVISIBLE);
+
+                            textView1.setText(getString(R.string.fragment2_h7)
+                                    + "（" + "¥" + model.getGoods().getCan_buy_back_price() + "）");
+                            textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCan_buy_back_price()
+                                    + "/" + getString(R.string.app_tai));
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
                         if (Double.valueOf(model.getGoods().getCannot_buy_back_price()) > 0) {//不能回购
                             rl_huigou.setVisibility(View.GONE);
@@ -319,6 +325,12 @@ public class Fragment3 extends BaseFragment {
                             buy_type = 1;
                             iv_huigou.setVisibility(View.INVISIBLE);
                             iv_huigou_not.setVisibility(View.VISIBLE);
+
+                            textView1.setText(getString(R.string.fragment2_h7)
+                                    + "（" + "¥" + model.getGoods().getCannot_buy_back_price() + "）");
+                            textView3.setText(getString(R.string.fragment3_h58) + "¥" + model.getGoods().getCannot_buy_back_price()
+                                    + "/" + getString(R.string.app_tai));
+                            calculate(seekBar, textView2, textView4, textView5);
                         }
                     }
 

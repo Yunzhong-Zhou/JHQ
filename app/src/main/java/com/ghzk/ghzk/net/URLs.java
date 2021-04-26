@@ -57,6 +57,10 @@ public class URLs {
      */
     public static final String Verified4 = "https://api.253.com/open/i/witness/face-contrast";
 
+
+    //城市列表
+    public static final String CityList = "/api/region";
+
     /**
      * 矿机
      */

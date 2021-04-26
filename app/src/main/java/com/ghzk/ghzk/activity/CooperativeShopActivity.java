@@ -3,6 +3,7 @@ package com.ghzk.ghzk.activity;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,9 +17,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.R;
 import com.ghzk.ghzk.adapter.Pop_ListAdapter;
 import com.ghzk.ghzk.base.BaseActivity;
+import com.ghzk.ghzk.model.CommonModel;
 import com.ghzk.ghzk.model.Fragment1Model;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
@@ -35,6 +38,7 @@ import com.lljjcoder.style.cityjd.JDCityPicker;
 import com.lljjcoder.style.citypickerview.CityPickerView;
 import com.squareup.okhttp.Request;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import org.json.JSONObject;
@@ -204,13 +208,13 @@ public class CooperativeShopActivity extends BaseActivity {
         cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province1, CityBean city1, DistrictBean district1) {
-                /*province = province1.getName().toString();
+                province = province1.getName().toString();
                 city = city1.getName().toString();
-                district = district1.getName().toString();*/
+                district = district1.getName().toString();
 
-                province = province1.getId();
+                /*province = province1.getId();
                 city = city1.getId();
-                district = district1.getId();
+                district = district1.getId();*/
 
                 textView1.setText(district1.getName().toString());
 
@@ -339,8 +343,14 @@ public class CooperativeShopActivity extends BaseActivity {
 //                view1.setVisibility(View.VISIBLE);
 //                view2.setVisibility(View.INVISIBLE);
 //                showPopupWindow1(pop_view);
+
 //                mPicker.showCityPicker();
-                cityPicker.showCityPicker();
+//                cityPicker.showCityPicker();
+                maxIdex_chengshi = 3;
+                province = "";
+                city = "";
+                district = "";
+                dialogList_chengshi("");
                 break;
             case R.id.linearLayout2:
                 textView1.setTextColor(getResources().getColor(R.color.black3));
@@ -469,6 +479,7 @@ public class CooperativeShopActivity extends BaseActivity {
         // 设置好参数之后再show
         popupWindow.showAsDropDown(v);
     }
+
 
     private void showPopupWindow2(View v) {
         // 一个自定义的布局，作为显示的内容
@@ -611,5 +622,106 @@ public class CooperativeShopActivity extends BaseActivity {
         popupWindow.setBackgroundDrawable(dw);
         // 设置好参数之后再show
         popupWindow.showAsDropDown(v);
+    }
+
+    /**
+     * 选择城市
+     */
+    List<CommonModel.ListBean> list_chengshi = new ArrayList<>();
+    int maxIdex_chengshi = 3;
+
+    //    String string_chengshi = "";
+    private void dialogList_chengshi(String parentId) {
+        showProgress(true, getString(R.string.app_loading2));
+        params.clear();
+        params.put("parentId", parentId);
+        OkHttpClientManager.postAsyn(CooperativeShopActivity.this, URLs.CityList, params, new OkHttpClientManager.ResultCallback<CommonModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+                hideProgress();
+                if (!info.equals("")) {
+                    showToast(info);
+                }
+            }
+
+            @Override
+            public void onResponse(CommonModel response) {
+                hideProgress();
+                list_chengshi = response.getList();
+                dialog.contentView(R.layout.dialog_selectcity)
+                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+//                        .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                                CommonUtil.dip2px(CooperativeShopActivity.this, 400)))
+                        .animType(BaseDialog.AnimInType.BOTTOM)
+                        .canceledOnTouchOutside(true)
+                        .gravity(Gravity.BOTTOM)
+                        .dimAmount(0.5f)
+                        .show();
+                TextView tv1 = dialog.findViewById(R.id.textView1);
+                TextView tv2 = dialog.findViewById(R.id.textView2);
+                TextView tv3 = dialog.findViewById(R.id.textView3);
+
+                if (!province.equals("")) tv1.setText(province);
+                if (!city.equals("")) tv2.setText(city);
+                if (!district.equals("")) tv3.setText(district);
+
+                RecyclerView rv_list = dialog.findViewById(R.id.rv_list);
+                rv_list.setLayoutManager(new LinearLayoutManager(CooperativeShopActivity.this));
+                CommonAdapter<CommonModel.ListBean> adapter = new CommonAdapter<CommonModel.ListBean>
+                        (CooperativeShopActivity.this, R.layout.item_help, list_chengshi) {
+                    @Override
+                    protected void convert(ViewHolder holder, CommonModel.ListBean model, int position) {
+                        TextView tv = holder.getView(R.id.textView1);
+                        tv.setText(model.getName());
+                    }
+                };
+                adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, RecyclerView.ViewHolder viewHolder, int position) {
+                        maxIdex_chengshi--;
+//                        string_chengshi = string_chengshi + list_chengshi.get(position).getName() + "-";
+                        switch (maxIdex_chengshi) {
+                            case 0:
+                                //区
+                                //最后一个，赋值
+//                                if (!string_chengshi.equals("")) {
+//                                    string_chengshi = string_chengshi.substring(0, string_chengshi.length() - 1);
+//                                }
+                                tv3.setText(list_chengshi.get(position).getName());
+                                district = list_chengshi.get(position).getName();
+                                textView1.setText(list_chengshi.get(position).getName());
+                                //初始化
+//                                string_chengshi = "";
+                                maxIdex_chengshi = 3;
+
+                                dialog.dismiss();
+
+                                requestServer();
+                                break;
+                            case 1:
+                                //市
+                                tv2.setText(list_chengshi.get(position).getName());
+                                city = list_chengshi.get(position).getName();
+                                dialogList_chengshi(list_chengshi.get(position).getId());
+                                break;
+                            case 2:
+                                //省
+                                tv1.setText(list_chengshi.get(position).getName());
+                                province = list_chengshi.get(position).getName();
+                                dialogList_chengshi(list_chengshi.get(position).getId());
+                                break;
+                        }
+                        adapter.notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public boolean onItemLongClick(View view, RecyclerView.ViewHolder viewHolder, int i) {
+                        return false;
+                    }
+                });
+                rv_list.setAdapter(adapter);
+            }
+        }, false);
     }
 }

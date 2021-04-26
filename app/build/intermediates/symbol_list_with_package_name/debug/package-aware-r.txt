@@ -2145,6 +2145,7 @@ id rl_zhizhi
 id rl_ziyunying
 id rv
 id rv_info
+id rv_list
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -2554,6 +2555,7 @@ layout dialog_help
 layout dialog_loginerror
 layout dialog_paytype
 layout dialog_recharge
+layout dialog_selectcity
 layout dialog_shaixuan
 layout dialog_upgrade
 layout dialog_usdtbuy

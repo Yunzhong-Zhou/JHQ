@@ -121,6 +121,9 @@ public class MyMachineActivity extends BaseActivity {
                 textView5.setText(response.getAgency_count() + "");//代运营
                 textView6.setText(response.getSelf_count() + "");//自运营
                 list = response.getOrder_goods_list();
+
+                ChangeList();
+
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
@@ -185,6 +188,7 @@ public class MyMachineActivity extends BaseActivity {
 
     }
 
+
     private void RequestListMore(String string) {
         OkHttpClientManager.getAsyn(MyMachineActivity.this, URLs.MachineList + string, new OkHttpClientManager.ResultCallback<MyMachineModel>() {
             @Override
@@ -208,6 +212,7 @@ public class MyMachineActivity extends BaseActivity {
                     page--;
                 } else {
                     list.addAll(list1);
+                    ChangeList();
                     mAdapter.notifyDataSetChanged();
                 }
 
@@ -300,5 +305,18 @@ public class MyMachineActivity extends BaseActivity {
                 rv.setAdapter(adapter);
             }
         });
+    }
+
+    /**
+     * 改变数据位置
+     */
+    private void ChangeList() {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getStatus() == 6 || list.get(i).getStatus() == 9 || list.get(i).getStatus() == 11){
+                MyMachineModel.OrderGoodsListBean bean = list.get(i);
+                list.remove(i) ;
+                list.add(bean) ;
+            }
+        }
     }
 }

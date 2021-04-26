@@ -16,7 +16,8 @@ public class AccountDetailModel implements Serializable {
      */
 
     private String usable_money;
-    private String commission_money;
+    private String sell_commission_money;
+    private String earning_commission_money;
     private String earning_money;
     private List<OutMoneyListBean> out_money_list;
     private List<InMoneyListBean> in_money_list;
@@ -29,12 +30,20 @@ public class AccountDetailModel implements Serializable {
         this.usable_money = usable_money;
     }
 
-    public String getCommission_money() {
-        return commission_money;
+    public String getSell_commission_money() {
+        return sell_commission_money;
     }
 
-    public void setCommission_money(String commission_money) {
-        this.commission_money = commission_money;
+    public void setSell_commission_money(String sell_commission_money) {
+        this.sell_commission_money = sell_commission_money;
+    }
+
+    public String getEarning_commission_money() {
+        return earning_commission_money;
+    }
+
+    public void setEarning_commission_money(String earning_commission_money) {
+        this.earning_commission_money = earning_commission_money;
     }
 
     public String getEarning_money() {

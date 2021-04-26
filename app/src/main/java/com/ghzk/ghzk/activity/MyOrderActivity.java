@@ -186,6 +186,8 @@ public class MyOrderActivity extends BaseActivity {
                 showContentPage();
                 onHttpResult();
                 list = response.getOrder_list();
+
+
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
