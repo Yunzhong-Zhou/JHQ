@@ -12,7 +12,16 @@ public class Fragment3Model implements Serializable {
      */
 
     private String usable_money;
+    private int max_num;
     private GoodsBean goods;
+
+    public int getMax_num() {
+        return max_num;
+    }
+
+    public void setMax_num(int max_num) {
+        this.max_num = max_num;
+    }
 
     public String getUsable_money() {
         return usable_money;

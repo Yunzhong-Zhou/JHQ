@@ -153,7 +153,7 @@ public class Fragment3 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
+//        findViewByID_My(R.id.headView).setPadding(0, (int) CommonUtil.getStatusBarHeight(getActivity()), 0, 0);
         setSpringViewMore(false);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
@@ -195,6 +195,7 @@ public class Fragment3 extends BaseFragment {
                     ImageView imageView1 = dialog.findViewById(R.id.imageView1);
                     ImageView imageView2 = dialog.findViewById(R.id.imageView2);
                     SeekBar seekBar = dialog.findViewById(R.id.seekBar);
+                    seekBar.setMax(model.getMax_num());
                     RelativeLayout rl_daiyunying = dialog.findViewById(R.id.rl_daiyunying);
                     RelativeLayout rl_ziyunying = dialog.findViewById(R.id.rl_ziyunying);
                     RelativeLayout rl_huigou = dialog.findViewById(R.id.rl_huigou);
@@ -251,7 +252,7 @@ public class Fragment3 extends BaseFragment {
                         @Override
                         public void onClick(View v) {
                             if (model != null) {
-                                if (num < Double.valueOf(model.getGoods().getCan_buy_back_price())) {
+                                if (num < model.getMax_num()) {
                                     num++;
                                 }
                                 calculate(seekBar, textView2, textView4, textView5);

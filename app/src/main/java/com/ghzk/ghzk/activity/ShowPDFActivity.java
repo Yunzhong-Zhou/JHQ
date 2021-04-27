@@ -46,7 +46,12 @@ public class ShowPDFActivity extends BaseActivity implements DownloadFile.Listen
 
     @Override
     protected void updateView() {
-        titleView.setTitle("查看PDF");
+       if (getIntent().getIntExtra("type",1) ==1){
+           titleView.setTitle("查看电子合同");
+       }else {
+           titleView.setTitle("查看发票");
+       }
+
     }
 
     /*设置监听*/

@@ -186,8 +186,6 @@ public class MyOrderActivity extends BaseActivity {
                 showContentPage();
                 onHttpResult();
                 list = response.getOrder_list();
-
-
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
@@ -415,6 +413,7 @@ public class MyOrderActivity extends BaseActivity {
                                     if (model.getContract_electronic_url() != null && !model.getContract_electronic_url().equals("")) {
                                         Bundle bundle = new Bundle();
                                         bundle.putString("url", HOST + model.getContract_electronic_url());
+                                        bundle.putInt("type",1);
                                         CommonUtil.gotoActivityWithData(MyOrderActivity.this, ShowPDFActivity.class, bundle, false);
 //                                        CommonUtil.gotoActivityWithData(MyOrderActivity.this, WebContentActivity_pdf.class, bundle, false);
                                     } else {
@@ -428,25 +427,35 @@ public class MyOrderActivity extends BaseActivity {
                                 @Override
                                 public void onClick(View v) {
                                     if (!model.getContract_id().equals("")) {
-                                        showToast(getString(R.string.contract_h51)
-                                                , getString(R.string.app_confirm), getString(R.string.app_cancel),
-                                                new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        dialog.dismiss();
-                                                        showProgress(true, getString(R.string.app_loading1));
-                                                        String string = "?token=" + localUserInfo.getToken()
-                                                                + "&id=" + model.getId();
-                                                        RequestUpData2(string);
-                                                    }
-                                                }, new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        dialog.dismiss();
-                                                    }
-                                                });
+                                        if (model.getContract_apply_paper_status() ==1){
+                                            showToast(getString(R.string.contract_h51)
+                                                    , getString(R.string.app_confirm), getString(R.string.app_cancel),
+                                                    new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            dialog.dismiss();
+                                                            showProgress(true, getString(R.string.app_loading1));
+                                                            String string = "?token=" + localUserInfo.getToken()
+                                                                    + "&id=" + model.getId();
+                                                            RequestUpData2(string);
+                                                        }
+                                                    }, new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            dialog.dismiss();
+                                                        }
+                                                    });
+                                        }else {
+                                            myToast("您已申请过了，无需重复申请");
+                                        }
+
                                     } else {
-                                        myToast("请完善主体信息，平台才可准备合同");
+                                        showToast("请完善主体信息，平台才可准备合同", new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                CommonUtil.gotoActivity(MyOrderActivity.this, ContractActivity.class, false);
+                                            }
+                                        });
                                     }
                                 }
                             });

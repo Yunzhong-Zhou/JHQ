@@ -399,6 +399,7 @@ public class ContractActivity extends BaseActivity {
                                             if (!model.getContract_electronic_url().equals("")) {
                                                 Bundle bundle = new Bundle();
                                                 bundle.putString("url", HOST + model.getContract_electronic_url());
+                                                bundle.putInt("type",1);
                                                 CommonUtil.gotoActivityWithData(ContractActivity.this, ShowPDFActivity.class, bundle, false);
 //                                                CommonUtil.gotoActivityWithData(ContractActivity.this, WebContentActivity1.class, bundle, false);
                                             }else {

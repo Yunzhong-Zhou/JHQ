@@ -226,12 +226,6 @@ public class MyProfileActivity extends BaseActivity {
                 localUserInfo.setEmail(response.getEmail());
                 localUserInfo.setUserImage(response.getHead());
 
-                if (response.getNickname_update() == 2) {
-                    editText1.setFocusable(false);
-                } else {
-                    editText1.setFocusable(true);
-                }
-
                 hideProgress();
             }
         });
@@ -250,13 +244,15 @@ public class MyProfileActivity extends BaseActivity {
                 myToast(getString(R.string.recharge_h34));
                 break;*/
             case R.id.editText1:
-                dialog_edit("修改昵称",getString(R.string.myprofile_h4),editText1);
+                if (model.getNickname_update() == 1) {
+                    dialog_edit("修改昵称", getString(R.string.myprofile_h4), editText1);
+                }
                 break;
             case R.id.editText2:
-                dialog_edit("修改邮箱",getString(R.string.myprofile_h6),editText2);
+                dialog_edit("修改邮箱", getString(R.string.myprofile_h6), editText2);
                 break;
             case R.id.editText3:
-                dialog_edit("修改分公司码",getString(R.string.myprofile_h71),editText3);
+                dialog_edit("修改分公司码", getString(R.string.myprofile_h71), editText3);
                 break;
             case R.id.linearLayout1:
                 //头像
@@ -297,10 +293,11 @@ public class MyProfileActivity extends BaseActivity {
         OkHttpClientManager.postAsyn(MyProfileActivity.this, URLs.ChangeProfile, fileKeys, files, params, new OkHttpClientManager.ResultCallback<MyProfileModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
-                hideProgress();
+//                hideProgress();
                 if (!info.equals("")) {
                     showToast(info);
                 }
+                requestInfo("?token=" + localUserInfo.getToken());
             }
 
             @Override
@@ -308,28 +305,6 @@ public class MyProfileActivity extends BaseActivity {
                 MyLogger.i(">>>>>>>>>修改信息" + response);
                 myToast(getString(R.string.myprofile_h7));
                 requestInfo("?token=" + localUserInfo.getToken());
-
-                /*//头像
-                Glide.with(MyProfileActivity.this)
-                        .load(OkHttpClientManager.IMGHOST + response.getHead())
-                        .centerCrop()
-                            .placeholder(R.mipmap.loading)//加载站位图
-                            .error(R.mipmap.headimg)//加载失败
-                        .into(imageView1);//加载图片
-
-                //昵称
-                editText1.setText(response.getNickname());
-                //邮箱
-                editText2.setText(response.getEmail());
-
-
-                //                localUserInfo.setPhoneNumber(response.getMobile());
-                localUserInfo.setNickname(response.getNickname());
-//                localUserInfo.setInvuteCode(response.getInvite_code());
-                localUserInfo.setEmail(response.getEmail());
-                localUserInfo.setUserImage(response.getHead());
-
-                hideProgress();*/
             }
         });
     }
@@ -436,6 +411,7 @@ public class MyProfileActivity extends BaseActivity {
                     params.put("token", localUserInfo.getToken());
                     params.put("nickname", editText1.getText().toString().trim());
                     params.put("email", editText2.getText().toString().trim());
+                    params.put("service_code", editText3.getText().toString().trim());
                     RequestChangeProfile(filenames, files, params);//修改
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -447,7 +423,7 @@ public class MyProfileActivity extends BaseActivity {
 
     }
 
-    private void dialog_edit(String txt,String hint, EditText editText) {
+    private void dialog_edit(String txt, String hint, EditText editText) {
         dialog.contentView(R.layout.dialog_edit)
                 .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -466,8 +442,8 @@ public class MyProfileActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (!textView2.getText().toString().trim().equals("")) {
-                    hideSoftKeyboard(textView1,MyProfileActivity.this);
-//                    editText.setText(textView2.getText().toString().trim());
+                    hideSoftKeyboard(textView1, MyProfileActivity.this);
+                    editText.setText(textView2.getText().toString().trim());
                     dialog.dismiss();
 
                     showProgress(false, getString(R.string.app_loading1));
@@ -479,7 +455,7 @@ public class MyProfileActivity extends BaseActivity {
                     params.put("email", editText2.getText().toString().trim());
                     params.put("service_code", editText3.getText().toString().trim());
                     RequestChangeProfile(filenames, files, params);//修改
-                }else {
+                } else {
                     myToast(hint);
                 }
             }
@@ -487,7 +463,7 @@ public class MyProfileActivity extends BaseActivity {
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hideSoftKeyboard(textView1,MyProfileActivity.this);
+                hideSoftKeyboard(textView1, MyProfileActivity.this);
                 dialog.dismiss();
             }
         });
@@ -495,7 +471,7 @@ public class MyProfileActivity extends BaseActivity {
         dialog.findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hideSoftKeyboard(textView1,MyProfileActivity.this);
+                hideSoftKeyboard(textView1, MyProfileActivity.this);
                 dialog.dismiss();
             }
         });
@@ -504,13 +480,13 @@ public class MyProfileActivity extends BaseActivity {
     /**
      * 隐藏软键盘(只适用于Activity，不适用于Fragment)
      */
-    public static void hideSoftKeyboard(View view,Activity activity) {
+    public static void hideSoftKeyboard(View view, Activity activity) {
 //        View view = activity.getCurrentFocus();
         if (view != null) {
 //            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
 //            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+            imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
         }
     }
