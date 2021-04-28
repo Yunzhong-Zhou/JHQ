@@ -196,7 +196,7 @@ public class MachineDetailActivity extends BaseActivity {
                         || response.getOrder_goods().getStatus() == 9
                         || response.getOrder_goods().getStatus() == 10) {
                     if (response.getOrder_goods().getBuy_back_money() != null
-                            && !response.getOrder_goods().getBuy_back_money().equals("")) {
+                            && !response.getOrder_goods().getBuy_back_money().equals("") && Double.valueOf(response.getOrder_goods().getBuy_back_money()) != 0) {
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h106), response.getOrder_goods().getBuy_back_money()));
                     }
                     if (response.getOrder_goods().getBuy_back_apply_at() != null
@@ -216,19 +216,19 @@ public class MachineDetailActivity extends BaseActivity {
                 }
 
                 if (response.getOrder_goods().getWait_settle_money() != null && !response.getOrder_goods().getWait_settle_money().equals("")) {
-                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), "￥"+response.getOrder_goods().getWait_settle_money()));
+                    list_info.add(new KeyValueModel(getString(R.string.fragment1_h114), "￥" + response.getOrder_goods().getWait_settle_money()));
                 }
 
                 //转入、转出
                 if (!response.getOrder_goods().getSource_type_title().equals("购买")) {
-                    if (!response.getOrder_goods().getTransfer_in_member_id().equals("")) {//转入id为空，为转入方，显示转出方信息
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h107), response.getOrder_goods().getTransfer_out_at()));//显示转出时间
+                    if (response.getOrder_goods().getTransfer_in_member_id().equals("")) {//转入id为空，为转入方
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h107), response.getOrder_goods().getCreated_at()));//显示转出时间
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h93), response.getOrder_goods().getSource_type_title()));
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h111), response.getOrder_goods().getTransfer_in_member_mobile()));
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h111), response.getOrder_goods().getTransfer_out_member_mobile()));
                     } else {
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h109), response.getOrder_goods().getCreated_at()));//显示创建时间
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h109), response.getOrder_goods().getTransfer_out_at()));//显示创建时间
                         list_info.add(new KeyValueModel(getString(R.string.fragment1_h110), response.getOrder_goods().getSource_type_title()));
-                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h112), response.getOrder_goods().getTransfer_out_member_mobile()));
+                        list_info.add(new KeyValueModel(getString(R.string.fragment1_h112), response.getOrder_goods().getTransfer_in_member_mobile()));
                     }
                 }
 

@@ -116,7 +116,7 @@ public class MyMachineActivity extends BaseActivity {
                 hideProgress();
                 textView1.setText("" + response.getEarning_money());//总收益
                 textView2.setText(response.getHas_run_count() + getString(R.string.app_tai));//已安装
-                textView3.setText("￥"+response.getWait_settle_money() );//待结算
+                textView3.setText("￥" + response.getWait_settle_money());//待结算
                 textView4.setText(response.getAmount_count() + "");//总数量
                 textView5.setText(response.getAgency_count() + "");//代运营
                 textView6.setText(response.getSelf_count() + "");//自运营
@@ -127,7 +127,6 @@ public class MyMachineActivity extends BaseActivity {
                 if (list.size() == 0) {
                     showEmptyPage();//空数据
                 } else {
-
                     mAdapter = new CommonAdapter<MyMachineModel.OrderGoodsListBean>
                             (MyMachineActivity.this, R.layout.item_mymachine, list) {
                         @Override
@@ -311,12 +310,22 @@ public class MyMachineActivity extends BaseActivity {
      * 改变数据位置
      */
     private void ChangeList() {
+        List<MyMachineModel.OrderGoodsListBean> newlist = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getStatus() == 6 || list.get(i).getStatus() == 9 || list.get(i).getStatus() == 11){
+            if (list.get(i).getStatus() == 6 || list.get(i).getStatus() == 9 || list.get(i).getStatus() == 11) {
+                /*//只能移动一个对象到后面
                 MyMachineModel.OrderGoodsListBean bean = list.get(i);
-                list.remove(i) ;
-                list.add(bean) ;
+                list.remove(bean);
+                list.add(bean);*/
+                MyMachineModel.OrderGoodsListBean bean = list.get(i);
+                newlist.add(bean);
             }
+
         }
+        //移除对象
+        for (MyMachineModel.OrderGoodsListBean bean:newlist) {
+            list.remove(bean);
+        }
+        list.addAll(newlist);
     }
 }
