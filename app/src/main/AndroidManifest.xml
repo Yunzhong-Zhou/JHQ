@@ -117,6 +117,9 @@
         <activity
             android:name="com.ghzk.ghzk.activity.ShowPDFActivity"
             android:label="查看PDF"/>
+        <activity
+            android:name="com.ghzk.ghzk.activity.TXTActivity"
+            android:label="隐私条款"/>
 
         <activity
             android:name="com.ghzk.ghzk.activity.JoinListActivity"

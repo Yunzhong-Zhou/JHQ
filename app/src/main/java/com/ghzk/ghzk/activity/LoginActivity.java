@@ -441,6 +441,10 @@ public class LoginActivity extends BaseActivity {
                     CommonUtil.gotoActivityWithData(LoginActivity.this, WebContentActivity.class, bundle, false);
                 }
                 break;
+            case R.id.textView6:
+                //隐私条款
+                CommonUtil.gotoActivity(LoginActivity.this, TXTActivity.class);
+                break;
             case R.id.imageView3:
                 //勾选协议
                 isgouxuan = !isgouxuan;
