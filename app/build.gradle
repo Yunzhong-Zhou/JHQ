@@ -195,7 +195,7 @@ dependencies {
     implementation 'liji.library.dev:citypickerview:5.2.4'
 
     //折线图
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+//    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 //    implementation project(':MPChartLib')
 //    implementation project(':kchartlib')
 

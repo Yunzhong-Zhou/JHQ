@@ -51,7 +51,6 @@
     <activity android:name="com.ghzk.ghzk.activity.WebContentActivity_pdf" android:label="网页-打开pdf"/>
     <activity android:name="com.ghzk.ghzk.activity.ShowPDFActivity" android:label="查看PDF"/>
     <activity android:name="com.ghzk.ghzk.activity.TXTActivity" android:label="隐私条款"/>
-    <activity android:name="com.ghzk.ghzk.activity.JoinListActivity" android:label="拼购列表"/>
     <activity android:name="com.ghzk.ghzk.activity.LeaderboardActivity" android:label="排行榜"/>
     <activity android:name="com.ghzk.ghzk.activity.AboutActivity" android:label="关于我们"/>
     <activity android:name="com.ghzk.ghzk.activity.SetUpActivity" android:label="设置"/>
@@ -65,8 +64,6 @@
     <activity android:name="com.ghzk.ghzk.activity.ZhuanRangActivity" android:label="转让设备"/>
     <activity android:name="com.ghzk.ghzk.activity.HuiGouActivity" android:label="回购设备"/>
     <activity android:name="com.ghzk.ghzk.activity.ShouHuiActivity" android:label="收回设备"/>
-    <activity android:name="com.ghzk.ghzk.activity.JoinDetailActivity" android:label="加入拼购详情"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyJoinListActivity" android:label="我的拼购"/>
     <activity android:name="com.ghzk.ghzk.activity.ContractActivity" android:label="合同"/>
     <activity android:name="com.ghzk.ghzk.activity.ContractListActivity" android:label="开票列表"/>
     <activity android:name="com.ghzk.ghzk.activity.SetAddressActivity" android:label="设置币地址"/>
@@ -78,12 +75,8 @@
     <activity android:name="com.ghzk.ghzk.activity.MyOrderActivity" android:label="订单中心"/>
     <activity android:name="com.ghzk.ghzk.activity.OrderListActivity" android:label="订单记录"/>
     <activity android:name="com.ghzk.ghzk.activity.AccountDetailActivity" android:label="钱包"/>
-    <activity android:name="com.ghzk.ghzk.activity.FILWalletActivity" android:label="FIL钱包"/>
-    <activity android:name="com.ghzk.ghzk.activity.USDTWalletActivity" android:label="USDT钱包"/>
     <activity android:name="com.ghzk.ghzk.activity.ShouRuListActivity" android:label="收入记录"/>
     <activity android:name="com.ghzk.ghzk.activity.ZhiChuListActivity" android:label="支出记录"/>
-    <activity android:name="com.ghzk.ghzk.activity.FILShouRuListActivity" android:label="收入记录_FIL"/>
-    <activity android:name="com.ghzk.ghzk.activity.FILZhiChuListActivity" android:label="支出记录_FIL"/>
     <activity android:name="com.ghzk.ghzk.activity.MyRechargeActivity" android:label="我的充值"/>
     <activity android:name="com.ghzk.ghzk.activity.RechargeDetailActivity" android:label="充值详情"/>
     <activity android:name="com.ghzk.ghzk.activity.TakeCashActivity" android:label="提现"/>
@@ -96,10 +89,6 @@
     <activity android:name="com.ghzk.ghzk.activity.QRCodeActivity" android:label="收款二维码"/>
     <activity android:name="com.ghzk.ghzk.view.zxing.CaptureActivity" android:label="扫一扫"/>
     <activity android:name="com.ghzk.ghzk.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
-    <activity android:name="com.ghzk.ghzk.activity.USDTJiaoYiActivity" android:label="USDT交易"/>
-    <activity android:name="com.ghzk.ghzk.activity.USDTSellActivity" android:label="USDT出售"/>
-    <activity android:name="com.ghzk.ghzk.activity.USDTJiaoyiListActivity" android:label="交易记录"/>
-    <activity android:name="com.ghzk.ghzk.activity.USDTOrderInfoActivity" android:label="交易详情"/>
     <activity android:name="com.ghzk.ghzk.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
     <activity android:name="com.ghzk.ghzk.activity.CityFriend_NOActivity" android:label="城市合作伙伴-未申请"/>
     <activity android:name="com.ghzk.ghzk.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>

@@ -65,7 +65,7 @@
                     android:layout_width="13dp"
                     android:layout_height="13dp"
                     android:visibility="gone"
-                    android:src="@mipmap/ic_usdt_green"/>
+                    android:src="@mipmap/ic_yinlian"/>
             </LinearLayout>
 
 

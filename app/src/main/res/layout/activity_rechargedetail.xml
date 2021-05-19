@@ -222,7 +222,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="10dp"
-                            android:drawableLeft="@mipmap/ic_usdt_green"
+                            android:drawableLeft="@mipmap/ic_yinlian"
                             android:drawablePadding="12dp"
                             android:text="0"
                             android:textColor="@color/black1"

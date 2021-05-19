@@ -43,7 +43,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/ic_usdt_black"
+                android:drawableLeft="@mipmap/ic_yinlian"
                 android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="@string/zxing_h35"

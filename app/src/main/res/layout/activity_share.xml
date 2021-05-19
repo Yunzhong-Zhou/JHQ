@@ -613,7 +613,7 @@
                                             android:layout_gravity="bottom"
                                             android:layout_marginRight="7dp"
                                             android:layout_marginBottom="10dp"
-                                            android:src="@mipmap/ic_usdt_black"
+                                            android:src="@mipmap/ic_yinlian"
                                             android:visibility="gone" />
 
                                         <TextView

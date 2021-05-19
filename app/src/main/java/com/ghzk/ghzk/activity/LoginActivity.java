@@ -38,8 +38,6 @@ import com.ghzk.ghzk.utils.MyLogger;
 import com.ghzk.ghzk.utils.changelanguage.LanguageType;
 import com.ghzk.ghzk.utils.changelanguage.LanguageUtil;
 import com.ghzk.ghzk.utils.changelanguage.SpUtil;
-import com.ghzk.ghzk.utils.permission.PermissionsActivity;
-import com.ghzk.ghzk.utils.permission.PermissionsChecker;
 import com.maning.updatelibrary.InstallUtils;
 import com.squareup.okhttp.Request;
 
@@ -79,32 +77,6 @@ public class LoginActivity extends BaseActivity {
     //更新
     UpgradeModel model_up;
 
-    private int REQUEST_CODE = 0; // 请求码
-    // 所需的全部权限
-    static final String[] PERMISSIONS = new String[]{
-            android.Manifest.permission.CALL_PHONE,
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.READ_PHONE_STATE,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            //定位
-//            android.Manifest.permission.ACCESS_FINE_LOCATION
-//            android.Manifest.permission.ACCESS_COARSE_LOCATION,
-//            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
-
-            /*Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.VIBRATE*/
-
-            /*Manifest.permission.INTERNET,
-            Manifest.permission.ACCESS_NETWORK_STATE,
-            Manifest.permission.WAKE_LOCK,
-            Manifest.permission.CHANGE_WIFI_STATE,
-            Manifest.permission.ACCESS_WIFI_STATE,
-            Manifest.permission.WRITE_SETTINGS,
-            Manifest.permission.VIBRATE*/
-    };
-    private PermissionsChecker mPermissionsChecker; // 权限检测器
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,8 +90,6 @@ public class LoginActivity extends BaseActivity {
 //        mImmersionBar.reset().init();
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
-
-        mPermissionsChecker = new PermissionsChecker(this);
 
     }
 
@@ -1146,10 +1116,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // 缺少权限时, 进入权限配置页面
-        if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
-            startPermissionsActivity();
-        }
 
         textView.setText("+" + localUserInfo.getMobile_State_Code());
        /* switch (localUserInfo.getMobile_State_Code().length()) {
@@ -1186,18 +1152,5 @@ public class LoginActivity extends BaseActivity {
                 break;
         }
 
-    }
-
-    private void startPermissionsActivity() {
-        PermissionsActivity.startActivityForResult(this, REQUEST_CODE, PERMISSIONS);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // 拒绝时, 关闭页面, 缺少主要权限, 无法运行
-        if (requestCode == REQUEST_CODE && resultCode == PermissionsActivity.PERMISSIONS_DENIED) {
-            finish();
-        }
     }
 }
