@@ -198,7 +198,7 @@
         <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
       </intent-filter>
     </service>
-    <meta-data android:name="mob_guard_version" android:value="20002"/>
+    <meta-data android:name="mob_guard_version" android:value="20004"/>
     <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
       <intent-filter>
         <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
@@ -244,10 +244,8 @@
     </service>
     <service android:directBootAware="true" android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
       <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
-      <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
       <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
       <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
-      <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
     </service>
     <service android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService" android:exported="true">
       <intent-filter>

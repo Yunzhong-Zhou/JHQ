@@ -110,6 +110,10 @@ public class AboutActivity extends BaseActivity {
                 bundle.putString("url",model.getDownload_url());
                 CommonUtil.gotoActivityWithData(AboutActivity.this,WebContentActivity.class,bundle,false);*/
                 break;
+            case R.id.linearLayout4:
+                //隐私条款
+                CommonUtil.gotoActivity(AboutActivity.this, TXTActivity.class);
+                break;
         }
     }
 

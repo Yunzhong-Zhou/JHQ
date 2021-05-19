@@ -576,7 +576,7 @@ Android 10 停用过滤视图，使用旧版存储模式
 
         <meta-data
             android:name="mob_guard_version"
-            android:value="20002" />
+            android:value="20004" />
 
         <service
             android:name="com.mob.MobACService"
@@ -676,20 +676,10 @@ Android 10 停用过滤视图，使用旧版存储模式
                 android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <!--
-                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
-                clients to use it as well, by defining this registrar in their own core/common library.
-            -->
-            <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
         <service

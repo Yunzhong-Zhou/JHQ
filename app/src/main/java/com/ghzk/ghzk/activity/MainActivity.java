@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -32,8 +31,6 @@ import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.LocalUserInfo;
 import com.ghzk.ghzk.utils.MyLogger;
 import com.ghzk.ghzk.utils.TraceServiceImpl;
-import com.ghzk.ghzk.utils.permission.PermissionsActivity;
-import com.ghzk.ghzk.utils.permission.PermissionsChecker;
 import com.maning.updatelibrary.InstallUtils;
 import com.mob.pushsdk.MobPush;
 import com.next.easynavigation.view.EasyNavigationBar;
@@ -62,7 +59,7 @@ public class MainActivity extends BaseActivity {
     //更新
     UpgradeModel model_up;
 
-    private int REQUEST_CODE = 0; // 请求码
+    /*private int REQUEST_CODE = 0; // 请求码
     // 所需的全部权限
     static final String[] PERMISSIONS = new String[]{
             android.Manifest.permission.CALL_PHONE,
@@ -75,20 +72,20 @@ public class MainActivity extends BaseActivity {
 //            android.Manifest.permission.ACCESS_COARSE_LOCATION
 //            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
 
-            /*Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.VIBRATE*/
+            *//*Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.VIBRATE*//*
 
-            /*Manifest.permission.INTERNET,
+            *//*Manifest.permission.INTERNET,
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.WAKE_LOCK,
             Manifest.permission.CHANGE_WIFI_STATE,
             Manifest.permission.ACCESS_WIFI_STATE,
             Manifest.permission.WRITE_SETTINGS,
-            Manifest.permission.VIBRATE*/
+            Manifest.permission.VIBRATE*//*
     };
     private PermissionsChecker mPermissionsChecker; // 权限检测器
 
-    private Handler handler;
+    private Handler handler;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,8 +126,42 @@ public class MainActivity extends BaseActivity {
 
         setSwipeBackEnable(false); //主 activity 可以调用该方法，禁止滑动删除
 
-        mPermissionsChecker = new PermissionsChecker(this);
+//        mPermissionsChecker = new PermissionsChecker(this);
+/*FanPermissionUtils.with(MainActivity.this)
+                //添加所有你需要申请的权限
+                .addPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)//写入
+                .addPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)//读取
+                .addPermissions(Manifest.permission.ACCESS_COARSE_LOCATION)//定位
+                .addPermissions(Manifest.permission.ACCESS_FINE_LOCATION)//定位
+                .addPermissions(Manifest.permission.CALL_PHONE)//拨打电话
+                .addPermissions(Manifest.permission.READ_PHONE_STATE)//读取手机状态
+                .addPermissions(Manifest.permission.CAMERA)//相机
 
+                //添加权限申请回调监听 如果申请失败 会返回已申请成功的权限列表，用户拒绝的权限列表和用户点击了不再提醒的永久拒绝的权限列表
+                .setPermissionsCheckListener(new FanPermissionListener() {
+                    @Override
+                    public void permissionRequestSuccess() {
+                        //所有权限授权成功才会回调这里
+                    }
+
+                    @Override
+                    public void permissionRequestFail(String[] grantedPermissions, String[] deniedPermissions, String[] forceDeniedPermissions) {
+                        //当有权限没有被授权就会回调这里
+                        //会返回已申请成功的权限列表（grantedPermissions）
+                        //用户拒绝的权限列表（deniedPermissions）
+                        //用户点击了不再提醒的永久拒绝的权限列表（forceDeniedPermissions）
+                    }
+                })
+                //生成配置
+                .createConfig()
+                //配置是否强制用户授权才可以使用，当设置为true的时候，如果用户拒绝授权，会一直弹出授权框让用户授权
+                .setForceAllPermissionsGranted(false)
+                //配置当用户点击了不再提示的时候，会弹窗指引用户去设置页面授权，这个参数是弹窗里面的提示内容
+                .setForceDeniedPermissionTips("请前往设置->应用->【" + FanPermissionUtils.getAppName(MainActivity.this) + "】->权限中打开相关权限，否则功能无法正常运行！")
+                //构建配置并生效
+                .buildConfig()
+                //开始授权
+                .startCheckPermission();*/
 
         mImmersionBar.reset().statusBarDarkFont(true, 0.2f).init();
     }
@@ -512,12 +543,12 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         isOver = false;
         // 缺少权限时, 进入权限配置页面
-        if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
+        /*if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
             startPermissionsActivity();
-        }
+        }*/
     }
 
-    private void startPermissionsActivity() {
+    /*private void startPermissionsActivity() {
         PermissionsActivity.startActivityForResult(this, REQUEST_CODE, PERMISSIONS);
     }
 
@@ -528,9 +559,7 @@ public class MainActivity extends BaseActivity {
         if (requestCode == REQUEST_CODE && resultCode == PermissionsActivity.PERMISSIONS_DENIED) {
             finish();
         }
-
-
-    }
+    }*/
 
     private void RequestUpgrade(String string) {
         /*OkhttpUtil.okHttpGet(HOST + URLs.Upgrade, new CallBackUtil<UpgradeModel>() {

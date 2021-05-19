@@ -188,6 +188,8 @@ dependencies {
 
     //zxing 二维码框架
     implementation 'com.google.zxing:core:3.3.0'
+    //动态申请权限
+    implementation 'com.github.MZCretin:FanPermission:1.0.0'
 
     //城市联动选择
     implementation 'liji.library.dev:citypickerview:5.2.4'
