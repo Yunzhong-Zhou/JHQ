@@ -6,13 +6,27 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.LinkMovementMethod;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.cy.dialog.BaseDialog;
 import com.ghzk.ghzk.MyApplication;
 import com.ghzk.ghzk.R;
+import com.ghzk.ghzk.model.SmsCodeListModel;
+import com.ghzk.ghzk.net.OkHttpClientManager;
+import com.ghzk.ghzk.net.URLs;
+import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.LocalUserInfo;
 import com.ghzk.ghzk.utils.changelanguage.LanguageType;
 import com.ghzk.ghzk.utils.changelanguage.LanguageUtil;
 import com.ghzk.ghzk.utils.changelanguage.SpUtil;
+import com.squareup.okhttp.Request;
+import com.zyinux.specialstring.relase.SpecialStringBuilder;
+import com.zyinux.specialstring.relase.SpecialStyle;
+import com.zyinux.specialstring.relase.style.ClickableStyle;
 
 
 /**
@@ -23,6 +37,17 @@ import com.ghzk.ghzk.utils.changelanguage.SpUtil;
 public class HelloActivity extends Activity {
     private static final String SHARE_APP_TAG = "HelloActivity";
     String language = null;
+    BaseDialog dialog = null;
+    String register_agreement = "";
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        /*if (mImmersionBar != null)
+            mImmersionBar.destroy();*/
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +62,7 @@ public class HelloActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
+        setContentView(R.layout.activity_hello);
 
         //语言切换
         switch (LocalUserInfo.getInstance(this).getLanguage_Type()) {
@@ -84,13 +110,87 @@ public class HelloActivity extends Activity {
             finish();
         }*/
 
-
         // 如果是第一次启动，则先进入功能引导页
         if (user_first) {
-            setting.edit().putBoolean("FIRST", false).commit();
-            Intent intent = new Intent(this, GuideActivity.class);
-            startActivity(intent);
-            finish();
+            RequestSmsCodeList("?lang_type=zh");//手机号国家代码集合
+            dialog = new BaseDialog(this);
+            dialog.contentView(R.layout.dialog_yinsi)
+                    .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT))
+                    .animType(BaseDialog.AnimInType.BOTTOM)
+                    .canceledOnTouchOutside(true)
+                    .gravity(Gravity.CENTER)
+                    .dimAmount(0.8f)
+                    .show();
+            //颜色变化
+            TextView textView = dialog.findViewById(R.id.textView2);
+
+            //构建SpecialStyle 用来设置样式的核心类
+            SpecialStyle style=new SpecialStyle();
+            SpecialStringBuilder sb=new SpecialStringBuilder();
+
+            //设置文本颜色为黑色。第二个参数save的意思是代表该样式是否应用到下一段文字，如果不传则为true
+            style.setColor(getResources().getColor(R.color.black1),false);
+            //为文字设置样式
+            sb.append(getString(R.string.txt23),style);
+
+            //设置颜色背景和点击事件样式
+            //点击事件默认为不应用于下一段文字
+            style.setColor(getResources().getColor(R.color.green),false)
+                    .setBackgroundColor(getResources().getColor(R.color.white),false)
+                    .setClickable(new ClickableStyle.OnClick() {
+                        @Override
+                        public void onClick(View widget) {
+                            if (register_agreement != null && !register_agreement.equals("")) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("url", register_agreement);
+                                CommonUtil.gotoActivityWithData(HelloActivity.this, WebContentActivity.class, bundle, false);
+                            }
+                        }
+                    });
+            sb.append(getString(R.string.registered_h7),style);
+
+            style.setColor(getResources().getColor(R.color.black1),false);
+            sb.append("和",style);
+
+            style.setColor(getResources().getColor(R.color.green),false)
+                    .setBackgroundColor(getResources().getColor(R.color.white),false)
+
+                    .setClickable(new ClickableStyle.OnClick() {
+                        @Override
+                        public void onClick(View widget) {
+                            widget.setBackgroundResource(R.color.transparent);
+                            CommonUtil.gotoActivity(HelloActivity.this, TXTActivity.class);
+                        }
+                    });
+            sb.append(getString(R.string.registered_h16),style);
+
+            style.setColor(getResources().getColor(R.color.black1),false);
+            sb.append(getString(R.string.txt24),style);
+
+            //为TextView设置刚刚构建的文本
+            textView.setText(sb.getCharSequence());
+            //如果为文字添加了点击事件，请添加这一句，否则点击事件不生效
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+
+            dialog.findViewById(R.id.textView3).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    finish();
+                }
+            });
+            dialog.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    setting.edit().putBoolean("FIRST", false).commit();
+                    Intent intent = new Intent(HelloActivity.this, GuideActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+
         } else {
             // 如果不是第一次启动app，则正常显示启动屏
             setContentView(R.layout.viewpager_page);
@@ -128,4 +228,20 @@ public class HelloActivity extends Activity {
 
     }
 
+    //手机号国家代码集合
+    private void RequestSmsCodeList(String string) {
+        OkHttpClientManager.getAsyn(HelloActivity.this, URLs.Registered + string, new OkHttpClientManager.ResultCallback<SmsCodeListModel>() {
+            @Override
+            public void onError(Request request, String info, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(SmsCodeListModel response) {
+
+                register_agreement = response.getUrl();
+            }
+        });
+
+    }
 }

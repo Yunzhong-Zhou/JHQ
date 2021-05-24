@@ -30,9 +30,7 @@ import com.ghzk.ghzk.net.URLs;
 import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.LocalUserInfo;
 import com.ghzk.ghzk.utils.MyLogger;
-import com.ghzk.ghzk.utils.TraceServiceImpl;
 import com.maning.updatelibrary.InstallUtils;
-import com.mob.pushsdk.MobPush;
 import com.next.easynavigation.view.EasyNavigationBar;
 import com.squareup.okhttp.Request;
 import com.xdandroid.hellodaemon.IntentWrapper;
@@ -339,7 +337,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
 
-        MobPush.setAlias(localUserInfo.getUserId());//设置别名
+//        MobPush.setAlias(localUserInfo.getUserId());//设置别名
 //        MobPush.addTags();//设置标签
         /*//获取设备rid
         MobPush.getRegistrationId(new MobPushCallback<String>() {
@@ -350,7 +348,7 @@ public class MainActivity extends BaseActivity {
             }
         });*/
         //推送
-        MobPush.setShowBadge(true); //默认是关闭的，设置true为打开显示角标，反之则为关闭显示角标
+//        MobPush.setShowBadge(true); //默认是关闭的，设置true为打开显示角标，反之则为关闭显示角标
         /*MobPush.addPushReceiver(new MobPushReceiver() {
             @Override
             public void onCustomMessageReceive(Context context, MobPushCustomMessage message) {
@@ -531,7 +529,7 @@ public class MainActivity extends BaseActivity {
         } else {
             //退出
 //            AbsWorkService.cancelJobAlarmSub();//取消定时唤醒
-            TraceServiceImpl.stopService();//停止服务.
+//            TraceServiceImpl.stopService();//停止服务.
 
 //            ActivityUtils.finishAllActivities();//结束所有 Activity
             AppUtils.exitApp();//退出APP

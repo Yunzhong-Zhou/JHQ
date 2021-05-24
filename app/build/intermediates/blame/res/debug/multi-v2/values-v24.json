@@ -4,17 +4,7 @@
             "outputFile": "/Users/YunZhong/AndroidStudioProject/净化器/FONE/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/101b79d6b76b6e18aa490729e63ccae1/appcompat-1.1.0/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/0f7e58a6cff7aaf5ae9eeb66e2938f8b/media-1.0.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/1352209ffe6d7d5b9f9bddb35648d9f5/media-1.0.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -28,6 +18,16 @@
                         "startOffsets": "347,413,474,540",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "408,469,535,602"
+                    }
+                },
+                {
+                    "source": "/Users/YunZhong/.gradle/caches/transforms-2/files-2.1/d31435c4afe13012f248cb173a0b4b36/appcompat-1.1.0/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]

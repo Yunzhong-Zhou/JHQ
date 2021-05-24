@@ -189,6 +189,7 @@
     <string name="registered_h13">该昵称可用</string>
     <string name="registered_h14">正在注册...</string>
     <string name="registered_h15">注册请阅读并同意《用户使用协议》</string>
+    <string name="registered_h16">《隐私条款》</string>
 
     <!--忘记密码-->
     <string name="forgetpassword_h1">请输入手机号码</string>
@@ -1063,4 +1064,8 @@
     <string name="txt20">我们的隐私政策随时都可能变更。如果我们对本隐私政策进行重大变更，我们将通过电子邮件或在我们的网站公布或通过移动设备通知您</string>
     <string name="txt21">十、 联系我们</string>
     <string name="txt22">如果您对本隐私政策有任何意见或问题，或者您对国海众科集团收集、使用或披露您的个人信息有任何问题，请通过下列地址联系我们：\n国海众科集团有限公司\n北京市顺义区金关北二街3号院3栋6楼\n电子邮箱：info@ghzkgroup.com\n联系电话：4008-511-888\n\n感谢您花时间了解我们的隐私政策</string>
+
+    <string name="txt23">请您务必审慎阅读、充分理解“服务协议”和“隐私政策”各条款，包括但不限于：为了给您提供更准确、更有个性化的服务，我们需要收集你的设备信息等个人信息，你可以在"设置"中查看、变形、删除个人信息并管理你的授权。\n你可以阅读</string>
+    <string name="txt24">了解详细信息，如你同意，请点击“同意”开始接受我们的服务。</string>
+
 </resources>

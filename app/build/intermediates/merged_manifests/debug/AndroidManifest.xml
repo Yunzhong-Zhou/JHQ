@@ -1,347 +1,503 @@
-<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ghzk.ghzk" android:versionName="1.0" android:versionCode="2">
-  <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="23"/>
-  <uses-permission android:name="android.permission.INTERNET" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.READ_PHONE_STATE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.CALL_PHONE"/>
-  <uses-permission android:name="android.permission.CAMERA" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.READ_LOGS"/>
-  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-  <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.VIBRATE"/>
-  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-  <supports-screens android:anyDensity="true" android:normalScreens="true" android:smallScreens="true" android:resizeable="true" android:largeScreens="true" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <permission android:name="com.ghzk.ghzk.permission.PROCESS_PUSH_MSG" android:protectionLevel="signatureOrSystem"/>
-  <permission android:name="com.ghzk.ghzk.permission.PUSH_PROVIDER" android:protectionLevel="signatureOrSystem" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <permission android:name="com.ghzk.ghzk.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signatureOrSystem"/>
-  <uses-permission android:name="com.ghzk.ghzk.permission.PROCESS_PUSH_MSG" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="com.ghzk.ghzk.permission.PUSH_PROVIDER"/>
-  <uses-permission android:name="android.permission.WAKE_LOCK" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-  <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" xmlns:android="http://schemas.android.com/apk/res/android"/>
-  <application android:configChanges="locale" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:largeHeap="true" android:allowBackup="true" android:testOnly="true" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.ghzk.ghzk.MyApplication" android:theme="@style/AppTheme" android:windowIsTranslucent="false" android:networkSecurityConfig="@xml/network_security_config" android:icon="@mipmap/ic_launcher" android:maxAspectRatio="2.4">
-    <activity android:name="com.ghzk.ghzk.activity.HelloActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER" xmlns:android="http://schemas.android.com/apk/res/android"/>
-      </intent-filter>
-    </activity>
-    <activity android:name="com.ghzk.ghzk.utils.permission.PermissionsActivity" android:label="权限页"/>
-    <activity android:label="引导页" android:name="com.ghzk.ghzk.activity.GuideActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-    <activity android:name="com.ghzk.ghzk.activity.SelectCountryActivity" android:label="选择国家" xmlns:android="http://schemas.android.com/apk/res/android"/>
-    <activity android:name="com.ghzk.ghzk.activity.MainActivity" android:label="主页">
-      <intent-filter>
-        <action android:name="com.ghzk.ghzk.default.MAIN"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
-    <activity android:name="com.ghzk.ghzk.activity.LoginActivity" android:label="登录"/>
-    <activity android:name="com.ghzk.ghzk.activity.ForgetPasswordActivity" android:label="忘记密码"/>
-    <activity android:name="com.ghzk.ghzk.activity.RegisteredActivity" android:label="注册"/>
-    <activity android:name="com.ghzk.ghzk.activity.WebContentActivity" android:label="网页"/>
-    <activity android:name="com.ghzk.ghzk.activity.WebContentActivity1" android:label="网页"/>
-    <activity android:name="com.ghzk.ghzk.activity.WebContentActivity_pdf" android:label="网页-打开pdf"/>
-    <activity android:name="com.ghzk.ghzk.activity.ShowPDFActivity" android:label="查看PDF"/>
-    <activity android:name="com.ghzk.ghzk.activity.TXTActivity" android:label="隐私条款"/>
-    <activity android:name="com.ghzk.ghzk.activity.LeaderboardActivity" android:label="排行榜"/>
-    <activity android:name="com.ghzk.ghzk.activity.AboutActivity" android:label="关于我们"/>
-    <activity android:name="com.ghzk.ghzk.activity.SetUpActivity" android:label="设置"/>
-    <activity android:name="com.ghzk.ghzk.activity.HelpCenterActivity" android:label="帮助中心"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyProfileActivity" android:label="资料管理"/>
-    <activity android:name="com.ghzk.ghzk.activity.SetTransactionPasswordActivity" android:label="修改交易密码"/>
-    <activity android:name="com.ghzk.ghzk.activity.ChangePasswordActivity" android:label="修改登录密码"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyMachineActivity" android:label="我的矿机"/>
-    <activity android:name="com.ghzk.ghzk.activity.MachineDetailActivity" android:label="矿机详情"/>
-    <activity android:name="com.ghzk.ghzk.activity.PayDetailActivity" android:label="支付详情"/>
-    <activity android:name="com.ghzk.ghzk.activity.ZhuanRangActivity" android:label="转让设备"/>
-    <activity android:name="com.ghzk.ghzk.activity.HuiGouActivity" android:label="回购设备"/>
-    <activity android:name="com.ghzk.ghzk.activity.ShouHuiActivity" android:label="收回设备"/>
-    <activity android:name="com.ghzk.ghzk.activity.ContractActivity" android:label="合同"/>
-    <activity android:name="com.ghzk.ghzk.activity.ContractListActivity" android:label="开票列表"/>
-    <activity android:name="com.ghzk.ghzk.activity.SetAddressActivity" android:label="设置币地址"/>
-    <activity android:name="com.ghzk.ghzk.activity.AddressManagementActivity" android:label="币地址管理"/>
-    <activity android:name="com.ghzk.ghzk.activity.ShareActivity" android:label="推广"/>
-    <activity android:name="com.ghzk.ghzk.activity.SharePeopleActivity" android:label="推广用户"/>
-    <activity android:name="com.ghzk.ghzk.activity.CooperativeBrandActivity" android:label="合作品牌"/>
-    <activity android:name="com.ghzk.ghzk.activity.CooperativeShopActivity" android:label="合作门店"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyOrderActivity" android:label="订单中心"/>
-    <activity android:name="com.ghzk.ghzk.activity.OrderListActivity" android:label="订单记录"/>
-    <activity android:name="com.ghzk.ghzk.activity.AccountDetailActivity" android:label="钱包"/>
-    <activity android:name="com.ghzk.ghzk.activity.ShouRuListActivity" android:label="收入记录"/>
-    <activity android:name="com.ghzk.ghzk.activity.ZhiChuListActivity" android:label="支出记录"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyRechargeActivity" android:label="我的充值"/>
-    <activity android:name="com.ghzk.ghzk.activity.RechargeDetailActivity" android:label="充值详情"/>
-    <activity android:name="com.ghzk.ghzk.activity.TakeCashActivity" android:label="提现"/>
-    <activity android:name="com.ghzk.ghzk.activity.MyTakeCashActivity" android:label="我的提现"/>
-    <activity android:name="com.ghzk.ghzk.activity.TakeCashDetailActivity" android:label="提现详情"/>
-    <activity android:name="com.ghzk.ghzk.activity.SharePosterActivity" android:label="有奖邀请"/>
-    <activity android:name="com.ghzk.ghzk.activity.OnlineServiceActivity" android:label="在线客服"/>
-    <activity android:name="com.ghzk.ghzk.activity.InformationActivity" android:label="公告通知"/>
-    <activity android:name="com.ghzk.ghzk.activity.TransferActivity" android:label="划转-创建合约"/>
-    <activity android:name="com.ghzk.ghzk.activity.QRCodeActivity" android:label="收款二维码"/>
-    <activity android:name="com.ghzk.ghzk.view.zxing.CaptureActivity" android:label="扫一扫"/>
-    <activity android:name="com.ghzk.ghzk.activity.ScavengingPaymentActivity" android:label="扫码转账"/>
-    <activity android:name="com.ghzk.ghzk.activity.BankCardSettingActivity" android:label="绑定银行卡"/>
-    <activity android:name="com.ghzk.ghzk.activity.CityFriend_NOActivity" android:label="城市合作伙伴-未申请"/>
-    <activity android:name="com.ghzk.ghzk.activity.AddCityFriendActivity" android:label="申请城市合作伙伴"/>
-    <activity android:name="com.ghzk.ghzk.activity.CityFriendActivity" android:label="城市合作伙伴"/>
-    <activity android:name="com.ghzk.ghzk.activity.CityFriendListActivity" android:label="全国合作伙伴"/>
-    <activity android:launchMode="singleTop" android:name="com.ghzk.ghzk.wxapi.WXPayEntryActivity" android:exported="true">
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <data android:scheme="wxe540385418282fe2"/>
-      </intent-filter>
-    </activity>
-    <activity android:launchMode="singleTop" android:name="com.ghzk.ghzk.wxapi.WXEntryActivity" android:exported="true"/>
-    <meta-data android:name="design_width_in_dp" android:value="414"/>
-    <meta-data android:name="design_height_in_dp" android:value="896"/>
-    <meta-data android:name="android.max_aspect" android:value="2.4"/>
-    <meta-data android:name="android.notch_support" android:value="true"/>
-    <meta-data android:name="notch.config" android:value="portrait|landscape"/>
-    <meta-data android:name="com.mob.mobpush.debugLevel" android:value="4"/>
-    <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer">
-      <intent-filter>
-        <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
-        <action android:name="com.huawei.android.push.intent.RECEIVE"/>
-        <action android:name="com.huawei.android.push.intent.CLICK"/>
-        <action android:name="com.huawei.intent.action.PUSH_STATE"/>
-        <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
-      </intent-filter>
-    </receiver>
-    <provider android:name="androidx.core.content.FileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.ghzk.ghzk.fileprovider">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider"/>
-    </provider>
-    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-    <service android:name="com.ghzk.ghzk.utils.TraceServiceImpl"/>
-    <service android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService" android:exported="false"/>
-    <provider android:name="com.maning.updatelibrary.MNUpdateApkFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.ghzk.ghzk.updateFileProvider">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/mn_update_file_provider"/>
-    </provider>
-    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citylist.CityListSelectActivity"/>
-    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"/>
-    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.CityActivity"/>
-    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateUnchanged" android:name="com.lljjcoder.style.citythreelist.AreaActivity"/>
-    <provider android:name="me.jessyan.autosize.InitProvider" android:exported="false" android:authorities="com.ghzk.ghzk.autosize-init-provider" android:multiprocess="true"/>
-    <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/ActivityTranslucent"/>
-    <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.blankj.utilcode.util.UtilsTransActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/ActivityTranslucent" android:multiprocess="true"/>
-    <provider android:name="com.blankj.utilcode.util.UtilsFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.ghzk.ghzk.utilcode.provider">
-      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
-    </provider>
-    <service android:name="com.blankj.utilcode.util.MessengerUtils$ServerService" android:exported="false">
-      <intent-filter>
-        <action android:name="com.ghzk.ghzk.messenger"/>
-      </intent-filter>
-    </service>
-    <receiver android:name="com.xdandroid.hellodaemon.WakeUpReceiver" android:process=":watch">
-      <intent-filter>
-        <action android:name="android.intent.action.USER_PRESENT"/>
-        <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
-        <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.xdandroid.hellodaemon.WakeUpReceiver$WakeUpAutoStartReceiver" android:process=":watch">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-      </intent-filter>
-      <intent-filter>
-        <action android:name="android.intent.action.PACKAGE_ADDED"/>
-        <action android:name="android.intent.action.PACKAGE_REMOVED"/>
-        <data android:scheme="package"/>
-      </intent-filter>
-    </receiver>
-    <service android:name="com.xdandroid.hellodaemon.AbsWorkService$WorkNotificationService"/>
-    <service android:process=":watch" android:enabled="true" android:permission="android.permission.BIND_JOB_SERVICE" android:name="com.xdandroid.hellodaemon.JobSchedulerService" android:exported="true"/>
-    <service android:name="com.xdandroid.hellodaemon.WatchDogService" android:process=":watch"/>
-    <service android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService" android:process=":watch"/>
-    <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.NoTitleBar" android:exported="false"/>
-    <activity android:name="com.alipay.sdk.app.H5AuthActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.NoTitleBar" android:exported="false"/>
-    <activity android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true"/>
-    <activity android:launchMode="singleTask" android:name="com.alipay.sdk.app.AlipayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true"/>
-    <activity android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden" android:name="com.alipay.sdk.app.H5OpenAuthActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:exported="false"/>
-    <activity android:name="com.alipay.sdk.app.APayEntranceActivity" android:configChanges="orientation|keyboardHidden|navigation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false"/>
-    <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-      <intent-filter>
-        <action android:name="com.mob.open.app_20000"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
-    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-      <intent-filter>
-        <action android:name="com.mob.open.app_lk"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
-    <service android:enabled="true" android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
-      <intent-filter>
-        <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
-      </intent-filter>
-    </service>
-    <meta-data android:name="mob_guard_version" android:value="20004"/>
-    <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
-      <intent-filter>
-        <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
-      </intent-filter>
-    </service>
-    <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:permission="com.ghzk.ghzk.permission.PROCESS_PUSH_MSG">
-      <intent-filter>
-        <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
-        <action android:name="com.huawei.intent.action.PUSH"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.huawei.hms.support.api.push.PushReceiver" android:permission="com.ghzk.ghzk.permission.PROCESS_PUSH_MSG">
-      <intent-filter>
-        <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
-        <action android:name="com.huawei.android.push.intent.RECEIVE"/>
-      </intent-filter>
-    </receiver>
-    <service android:process=":pushservice" android:enabled="true" android:name="com.huawei.hms.support.api.push.service.HmsMsgService" android:exported="true">
-      <intent-filter>
-        <action android:name="com.huawei.push.msg.NOTIFY_MSG"/>
-        <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
-      </intent-filter>
-    </service>
-    <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:exported="true" android:readPermission="com.ghzk.ghzk.permission.PUSH_PROVIDER" android:authorities="com.ghzk.ghzk.huawei.push.provider" android:writePermission="com.ghzk.ghzk.permission.PUSH_WRITE_PROVIDER" android:permission="com.ghzk.ghzk.permission.PUSH_PROVIDER"/>
-    <meta-data android:name="com.huawei.hms.client.service.name:push" android:value="push:4.0.2.300"/>
-    <meta-data android:name="com.huawei.hms.min_api_level:push:push" android:value="1"/>
-    <service android:name="com.meizu.cloud.pushsdk.NotificationService" android:exported="true"/>
-    <receiver android:name="com.meizu.cloud.pushsdk.SystemReceiver" android:exported="false">
-      <intent-filter>
-        <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true">
-      <intent-filter>
-        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-      </intent-filter>
-    </receiver>
-    <service android:directBootAware="true" android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false">
-      <intent-filter android:priority="-500">
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-      </intent-filter>
-    </service>
-    <service android:directBootAware="true" android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
-      <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
-      <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
-      <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
-    </service>
-    <service android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseInstanceIdService" android:exported="true">
-      <intent-filter>
-        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-      </intent-filter>
-    </service>
-    <service android:name="com.mob.pushsdk.plugins.huawei.HuaweiPushService" android:exported="false">
-      <intent-filter>
-        <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
-      </intent-filter>
-    </service>
-    <provider android:initOrder="100" android:directBootAware="true" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.ghzk.ghzk.firebaseinitprovider"/>
-    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-    <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
-      <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
-    </service>
-    <service android:permission="android.permission.BIND_JOB_SERVICE" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:exported="false"/>
-    <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
-    <provider android:name="com.huawei.hms.aaid.InitProvider" android:exported="false" android:authorities="com.ghzk.ghzk.aaidinitprovider"/>
-    <meta-data android:name="com.huawei.hms.client.service.name:opendevice" android:value="opendevice:4.0.1.301"/>
-    <meta-data android:name="com.huawei.hms.min_api_level:opendevice:push" android:value="1"/>
-    <meta-data android:name="com.huawei.hms.client.service.name:base" android:value="base:4.0.2.300"/>
-    <meta-data android:name="com.huawei.hms.min_api_level:base:hmscore" android:value="1"/>
-    <activity android:hardwareAccelerated="true" android:name="com.huawei.hms.activity.BridgeActivity" android:configChanges="orientation|locale|layoutDirection|fontScale|screenSize|smallestScreenSize|screenLayout" android:theme="@android:style/Theme.Translucent" android:exported="false" android:excludeFromRecents="true">
-      <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
-    </activity>
-    <activity android:name="com.huawei.hms.activity.EnableServiceActivity" android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"/>
-    <provider android:name="com.huawei.hms.update.provider.UpdateProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.ghzk.ghzk.hms.update.provider"/>
-    <provider android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider" android:exported="false" android:authorities="com.ghzk.ghzk.AGCInitializeProvider"/>
-    <service android:name="com.huawei.agconnect.core.ServiceDiscovery" android:exported="false"/>
-    <activity android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity" android:configChanges="orientation|screenSize" android:theme="@style/upsdkDlDialog" android:exported="false">
-      <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar"/>
-    </activity>
-    <activity android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/upsdkDlDialog" android:exported="false">
-      <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
-    </activity>
-    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.ghzk.ghzk.com.mob.MobProvider" android:multiprocess="true"/>
-    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="" tools:node="merge"/>
-    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="" tools:node="merge"/>
-    <activity xmlns:tools="http://schemas.android.com/tools" android:windowSoftInputMode="stateHidden|adjustResize" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" tools:node="merge"/>
-    <meta-data android:name="com.huawei.hms.client.appid" android:value="\101755535"/>
-    <receiver xmlns:tools="http://schemas.android.com/tools" android:name="com.mob.pushsdk.plugins.meizu.PushMeiZuRevicer">
-      <intent-filter>
-        <action android:name="com.meizu.flyme.push.intent.MESSAGE"/>
-        <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" xmlns:tools="http://schemas.android.com/tools"/>
-        <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
-        <action android:name="com.meizu.c2dm.intent.REGISTRATION" xmlns:tools="http://schemas.android.com/tools"/>
-        <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
-        <category android:name="com.ghzk.ghzk"/>
-      </intent-filter>
-    </receiver>
-    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="com.mob.push.meizu.appid" android:value="\128004"/>
-    <meta-data android:name="com.mob.push.meizu.appkey" android:value="\707d274d6ed542b4864ec545e67aaf8f"/>
-    <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler" android:exported="true"/>
-    <service xmlns:tools="http://schemas.android.com/tools" android:name="com.xiaomi.mipush.sdk.MessageHandleService" android:enabled="true"/>
-    <receiver android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" android:exported="true">
-      <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.mob.pushsdk.plugins.xiaomi.PushXiaoMiRevicer" android:exported="true">
-      <intent-filter>
-        <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
-      </intent-filter>
-      <intent-filter>
-        <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
-      </intent-filter>
-      <intent-filter>
-        <action android:name="com.xiaomi.mipush.ERROR"/>
-      </intent-filter>
-    </receiver>
-    <meta-data android:name="com.mob.push.xiaomi.appid" android:value="\2882303761518324696"/>
-    <meta-data android:name="com.mob.push.xiaomi.appkey" android:value="\5791832489696"/>
-    <service android:name="com.mob.pushsdk.plugins.fcm.FCMFirebaseMessagingService">
-      <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-      </intent-filter>
-    </service>
-    <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_launcher"/>
-    <service xmlns:tools="http://schemas.android.com/tools" android:process=":mobservice" android:name="com.mob.pushsdk.MobService" android:exported="true" tools:node="merge">
-      <intent-filter>
-        <action android:name="com.mob.intent.MOB_SERVICE"/>
-      </intent-filter>
-    </service>
-    <receiver android:name="com.mob.pushsdk.impl.MobPushReceiver">
-      <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-      </intent-filter>
-    </receiver>
-    <service android:name="com.mob.pushsdk.impl.PushJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-  </application>
-  <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
-  <uses-permission android:name="com.ghzk.ghzk.push.permission.MESSAGE"/>
-  <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
-  <uses-permission android:name="com.ghzk.ghzk.permission.C2D_MESSAGE"/>
-  <uses-permission android:name="com.ghzk.ghzk.permission.MIPUSH_RECEIVE"/>
-  <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
-  <uses-permission android:name="android.permission.READ_APP_BADGE"/>
-  <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
-  <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
-  <uses-permission android:name="com.sonyericsson.home.action.UPDATE_BADGE"/>
-  <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
-  <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
-  <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
-  <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
-  <permission android:name="com.ghzk.ghzk.push.permission.MESSAGE" android:protectionLevel="signature"/>
-  <permission android:name="com.ghzk.ghzk.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
-  <permission android:name="com.ghzk.ghzk.permission.MIPUSH_RECEIVE" android:protectionLevel="signature"/>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ghzk.ghzk"
+    android:versionCode="2"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="29" />
+
+    <!-- 网络权限问题 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 8.0安装需要的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 读取手机信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 读取日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 9.0权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Android Q后台定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <!-- 录音权限 -->
+    <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
+
+
+    <!-- 振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+    <!--
+Android 10 停用过滤视图，使用旧版存储模式
+    android:requestLegacyExternalStorage="true"
+    -->
+    <application
+        android:name="com.ghzk.ghzk.MyApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:configChanges="locale"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:maxAspectRatio="2.4"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:windowIsTranslucent="false" >
+        <activity
+            android:name="com.ghzk.ghzk.activity.HelloActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- //全屏 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ghzk.ghzk.utils.permission.PermissionsActivity"
+            android:label="权限页" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.GuideActivity"
+            android:label="引导页"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SelectCountryActivity"
+            android:label="选择国家" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MainActivity"
+            android:label="主页" >
+
+            <!-- 点击通知默认打开 -->
+            <intent-filter>
+                <action android:name="com.ghzk.ghzk.default.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ghzk.ghzk.activity.LoginActivity"
+            android:label="登录" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ForgetPasswordActivity"
+            android:label="忘记密码" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.RegisteredActivity"
+            android:label="注册" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.WebContentActivity"
+            android:label="网页" >
+
+            <!-- 点击通知默认打开 -->
+            <!--
+            <intent-filter>
+                <action android:name="${applicationId}.default.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.ghzk.ghzk.activity.WebContentActivity1"
+            android:label="网页" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.WebContentActivity_pdf"
+            android:label="网页-打开pdf" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShowPDFActivity"
+            android:label="查看PDF" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.TXTActivity"
+            android:label="隐私条款" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.LeaderboardActivity"
+            android:label="排行榜" />
+        <!-- 我的 -->
+        <activity
+            android:name="com.ghzk.ghzk.activity.AboutActivity"
+            android:label="关于我们" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SetUpActivity"
+            android:label="设置" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.HelpCenterActivity"
+            android:label="帮助中心" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MyProfileActivity"
+            android:label="资料管理" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SetTransactionPasswordActivity"
+            android:label="修改交易密码" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ChangePasswordActivity"
+            android:label="修改登录密码" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MyMachineActivity"
+            android:label="我的矿机" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MachineDetailActivity"
+            android:label="矿机详情" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.PayDetailActivity"
+            android:label="支付详情" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ZhuanRangActivity"
+            android:label="转让设备" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.HuiGouActivity"
+            android:label="回购设备" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShouHuiActivity"
+            android:label="收回设备" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ContractActivity"
+            android:label="合同" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ContractListActivity"
+            android:label="开票列表" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SetAddressActivity"
+            android:label="设置币地址" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.AddressManagementActivity"
+            android:label="币地址管理" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShareActivity"
+            android:label="推广" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SharePeopleActivity"
+            android:label="推广用户" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.CooperativeBrandActivity"
+            android:label="合作品牌" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.CooperativeShopActivity"
+            android:label="合作门店" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MyOrderActivity"
+            android:label="订单中心" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.OrderListActivity"
+            android:label="订单记录" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.AccountDetailActivity"
+            android:label="钱包" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ShouRuListActivity"
+            android:label="收入记录" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ZhiChuListActivity"
+            android:label="支出记录" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MyRechargeActivity"
+            android:label="我的充值" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.RechargeDetailActivity"
+            android:label="充值详情" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.TakeCashActivity"
+            android:label="提现" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.MyTakeCashActivity"
+            android:label="我的提现" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.TakeCashDetailActivity"
+            android:label="提现详情" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.SharePosterActivity"
+            android:label="有奖邀请" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.OnlineServiceActivity"
+            android:label="在线客服" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.InformationActivity"
+            android:label="公告通知" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.TransferActivity"
+            android:label="划转-创建合约" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.QRCodeActivity"
+            android:label="收款二维码" />
+        <activity
+            android:name="com.ghzk.ghzk.view.zxing.CaptureActivity"
+            android:label="扫一扫" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.ScavengingPaymentActivity"
+            android:label="扫码转账" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.BankCardSettingActivity"
+            android:label="绑定银行卡" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.CityFriend_NOActivity"
+            android:label="城市合作伙伴-未申请" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.AddCityFriendActivity"
+            android:label="申请城市合作伙伴" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.CityFriendActivity"
+            android:label="城市合作伙伴" />
+        <activity
+            android:name="com.ghzk.ghzk.activity.CityFriendListActivity"
+            android:label="全国合作伙伴" />
+
+        <!-- 微信支付回调 -->
+        <activity
+            android:name="com.ghzk.ghzk.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxe540385418282fe2" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ghzk.ghzk.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
+        <!-- 全面屏适配 -->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="414" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="896" />
+        <!--
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="562" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="1218" />
+        -->
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+        <!-- 适配华为（huawei）刘海屏 -->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <!-- 适配小米（xiaomi）刘海屏 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <!-- 查看mob推送日志 -->
+        <meta-data
+            android:name="com.mob.mobpush.debugLevel"
+            android:value="4" />
+        <!-- 配置华为 -->
+        <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer" >
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 7.0限制-私有目录被限制访问 -->
+        <!--
+        exported:要求必须为false，为true则会报安全异常。
+        grantUriPermissions:true，表示授予 URI 临时访问权限。
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ghzk.ghzk.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider" />
+        </provider>
+
+        <!-- 9.0 -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <!-- 保活 -->
+        <service android:name="com.ghzk.ghzk.utils.TraceServiceImpl" />
+        <service
+            android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
+            android:exported="false" >
+        </service>
+
+        <provider
+            android:name="com.maning.updatelibrary.MNUpdateApkFileProvider"
+            android:authorities="com.ghzk.ghzk.updateFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/mn_update_file_provider" />
+        </provider>
+
+        <activity
+            android:name="com.lljjcoder.style.citylist.CityListSelectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.ProvinceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.CityActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+        <activity
+            android:name="com.lljjcoder.style.citythreelist.AreaActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateUnchanged" >
+        </activity>
+
+        <provider
+            android:name="me.jessyan.autosize.InitProvider"
+            android:authorities="com.ghzk.ghzk.autosize-init-provider"
+            android:exported="false"
+            android:multiprocess="true" />
+
+        <activity
+            android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/ActivityTranslucent"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.blankj.utilcode.util.UtilsTransActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:multiprocess="true"
+            android:theme="@style/ActivityTranslucent"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+
+        <provider
+            android:name="com.blankj.utilcode.util.UtilsFileProvider"
+            android:authorities="com.ghzk.ghzk.utilcode.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/util_code_provider_paths" />
+        </provider>
+
+        <service
+            android:name="com.blankj.utilcode.util.MessengerUtils$ServerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.ghzk.ghzk.messenger" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.xdandroid.hellodaemon.WakeUpReceiver"
+            android:process=":watch" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xdandroid.hellodaemon.WakeUpReceiver$WakeUpAutoStartReceiver"
+            android:process=":watch" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.xdandroid.hellodaemon.AbsWorkService$WorkNotificationService" />
+        <service
+            android:name="com.xdandroid.hellodaemon.JobSchedulerService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":watch" />
+        <service
+            android:name="com.xdandroid.hellodaemon.WatchDogService"
+            android:process=":watch" />
+        <service
+            android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
+            android:process=":watch" />
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.PayResultActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.AlipayResultActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5OpenAuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.APayEntranceActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+    </application>
+
 </manifest>

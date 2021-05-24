@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -849,13 +848,13 @@ public class LoginActivity extends BaseActivity {
         titleView.setVisibility(View.GONE);
     }
 
-    //屏蔽返回键
+   /* //屏蔽返回键
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK)
             return true;//不执行父类点击事件
         return super.onKeyDown(keyCode, event);//继续执行父类其他点击事件
-    }
+    }*/
 
     //获取验证码倒计时
     class TimeCount extends CountDownTimer {
@@ -880,25 +879,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void RequestUpgrade(String string) {
-        /*OkhttpUtil.okHttpGet(HOST + URLs.Upgrade, new CallBackUtil<UpgradeModel>() {
-
-            @Override
-            public UpgradeModel onParseResponse(Call call, Response response) {
-                MyLogger.i(">>>>>>"+response.toString());
-                return null;
-            }
-
-            @Override
-            public void onFailure(Call call, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(UpgradeModel response) {
-                MyLogger.i(">>>>>>"+response.toString());
-            }
-        });*/
-
         OkHttpClientManager.getAsyn(LoginActivity.this, URLs.Upgrade + string, new OkHttpClientManager.ResultCallback<UpgradeModel>() {
             @Override
             public void onError(Request request, String info, Exception e) {
@@ -1095,21 +1075,6 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-
-        /*showToast(getString(R.string.update_hint) + model_up.getVersion_title(),
-                getString(R.string.app_confirm_true),
-                getString(R.string.app_cancel), new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-//                        finish();
-                    }
-                });*/
     }
 
 

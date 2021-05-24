@@ -6,8 +6,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,11 +19,14 @@ import com.ghzk.ghzk.model.PayDetailModel;
 import com.ghzk.ghzk.net.OkHttpClientManager;
 import com.ghzk.ghzk.net.URLs;
 import com.ghzk.ghzk.utils.CommonUtil;
+import com.ghzk.ghzk.utils.MyLogger;
 import com.liaoinstan.springview.widget.SpringView;
 import com.squareup.okhttp.Request;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by Mr.Z on 2020/12/14.
@@ -64,9 +68,21 @@ public class PayDetailActivity extends BaseActivity {
         index[0] = text.indexOf(getString(R.string.fragment1_h45));
 
         SpannableStringBuilder style=new SpannableStringBuilder(text);
-        style.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.green)),
+        style.setSpan(new ClickableSpan() {
+                          @Override
+                          public void onClick(@NonNull View widget) {
+                              MyLogger.i(">>>>>>");
+                          }
+
+                          @Override
+                          public void updateDrawState(@NonNull TextPaint ds) {
+                              super.updateDrawState(ds);
+                              ds.setColor(getResources().getColor(R.color.green));
+//                              new ForegroundColorSpan(getResources().getColor(R.color.green));
+                          }
+                      },
                 index[0],
-                index[0]+getString(R.string.fragment1_h45).length(),
+                index[0] + getString(R.string.fragment1_h45).length(),
                 Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         textView.setText(style);
 

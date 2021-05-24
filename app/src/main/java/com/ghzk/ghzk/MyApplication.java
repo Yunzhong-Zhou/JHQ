@@ -3,29 +3,16 @@ package com.ghzk.ghzk;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 
-import com.ghzk.ghzk.activity.WebContentActivity;
 import com.ghzk.ghzk.base.ScreenAdaptation;
-import com.ghzk.ghzk.utils.MyLogger;
-import com.ghzk.ghzk.utils.TraceServiceImpl;
 import com.ghzk.ghzk.utils.changelanguage.LanguageUtil;
 import com.ghzk.ghzk.utils.changelanguage.SpUtil;
 import com.hjq.toast.ToastUtils;
-import com.mob.MobSDK;
-import com.mob.pushsdk.MobPush;
-import com.mob.pushsdk.MobPushCustomMessage;
-import com.mob.pushsdk.MobPushNotifyMessage;
-import com.mob.pushsdk.MobPushReceiver;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.smtt.sdk.QbSdk;
-import com.xdandroid.hellodaemon.DaemonEnv;
 
 import java.util.List;
 
@@ -52,16 +39,17 @@ public class MyApplication extends Application {
 //        LogcatHelper.getInstance(this).start();//打印log
 
         //保活 需要在 Application 的 onCreate() 中调用一次 DaemonEnv.initialize()
-        DaemonEnv.initialize(this, TraceServiceImpl.class, DaemonEnv.DEFAULT_WAKE_UP_INTERVAL);
+        /*DaemonEnv.initialize(this, TraceServiceImpl.class, DaemonEnv.DEFAULT_WAKE_UP_INTERVAL);
         TraceServiceImpl.sShouldStopService = false;
-        DaemonEnv.startServiceMayBind(TraceServiceImpl.class);
+        DaemonEnv.startServiceMayBind(TraceServiceImpl.class);*/
 
         mContext = this;
         myApplication = this;
 
         //腾讯bugly 异常上报初始化-建议在测试阶段建议设置成true，发布时设置为false。
         CrashReport.initCrashReport(getApplicationContext(), "789711ef96", false);
-        //非wifi情况下，主动下载x5内核
+
+        /*//非wifi情况下，主动下载x5内核
         QbSdk.setDownloadWithoutWifi(false);
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
@@ -77,7 +65,7 @@ public class MyApplication extends Application {
             }
         };
         //x5内核初始化接口
-        QbSdk.initX5Environment(getApplicationContext(), cb);
+        QbSdk.initX5Environment(getApplicationContext(), cb);*/
 
         //toast初始化
         ToastUtils.init(this);
@@ -100,7 +88,7 @@ public class MyApplication extends Application {
                     }
                 });*/
 
-        //推送初始化
+        /*//推送初始化
         MobSDK.init(mContext);
         //防止多进程注册多次  可以在MainActivity或者其他页面注册MobPushReceiver
         String processName = getProcessName(this);
@@ -173,27 +161,16 @@ public class MyApplication extends Application {
                             //订单详情
                             MyLogger.i(">>>>>>>>>symbol:" + msg.obj.toString());
 //                        Intent i2 = new Intent(context, PredictionDetailActivity_MPChart.class);
-                            /*Intent i2 = new Intent(mContext, PredictionDetailActivity.class);
-                            bundle.putString("symbol", msg.obj.toString());
-                            i2.putExtras(bundle);
-                            i2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            mContext.startActivity(i2);*/
+
                             break;
                         default:
                             break;
                     }
-
-                    //当其它dialog未关闭的时候，再次显示dialog，会造成其他dialog无法dismiss的现象，建议使用toast
-//			if(PushDeviceHelper.getInstance().isNotificationEnabled()) {
-//				Toast.makeText(MainActivity.this, "回调信息\n" + (String) msg.OBJ, Toast.LENGTH_SHORT).show();
-//			} else {//当做比通知栏后，toast是无法显示的
-//				new DialogShell(MainActivity.this).autoDismissDialog(0, "回调信息\n" + (String)msg.OBJ, 2);
-//			}
-
                     return false;
                 }
             });
-        }
+        }*/
+
        /* Resources resources = getResources();
         // 获取应用内语言
         final Configuration configuration = resources.getConfiguration();

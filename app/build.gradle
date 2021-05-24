@@ -125,6 +125,7 @@ dependencies {
 
     //TextView颜色渐变
     implementation 'com.williamyang:gradienttext:1.0.1'
+    implementation 'com.zyinux:specialstring:1.0.3'
 
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
@@ -194,17 +195,6 @@ dependencies {
     //城市联动选择
     implementation 'liji.library.dev:citypickerview:5.2.4'
 
-    //折线图
-//    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-//    implementation project(':MPChartLib')
-//    implementation project(':kchartlib')
-
-    //长连接-websocket
-//    implementation "org.java-websocket:Java-WebSocket:1.4.0"
-
-    //人脸识别
-//    implementation(name: 'cllc_sdk_android_v2.0.0', ext: 'aar')
-
     //腾讯X5 WebView
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'
 
@@ -220,7 +210,7 @@ dependencies {
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 
 }
-apply plugin: 'com.google.gms.google-services'//谷歌服务
+/*apply plugin: 'com.google.gms.google-services'//谷歌服务
 apply plugin: 'com.mob.sdk'
 MobSDK {
     appKey ""
@@ -243,15 +233,7 @@ MobSDK {
             FCM {
                 iconRes "@mipmap/ic_launcher"
             }
-            /*OPPO {
-                appKey "OPPO的appKey"
-                appSecret "OPPO的appSecret"
-            }
-            VIVO {
-                appId "VIVO的appId"
-                appKey  "VIVO的appSecret"
-            }*/
         }
     }
-}
+}*/
 
