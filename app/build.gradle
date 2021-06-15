@@ -199,10 +199,10 @@ dependencies {
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'
 
     //检测手机XP/调试/多开/模拟器/root
-    implementation 'com.lahm.library:easy-protector-release:1.1.2'
+//    implementation 'com.lahm.library:easy-protector-release:1.1.2'
 
     //android 保活
-    implementation 'com.xdandroid:hellodaemon:+'
+//    implementation 'com.xdandroid:hellodaemon:+'
 
     //支付宝
     implementation(name: 'alipaysdk-15.8.02.210308182128', ext: 'aar')

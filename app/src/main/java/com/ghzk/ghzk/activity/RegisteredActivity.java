@@ -30,7 +30,6 @@ import com.ghzk.ghzk.popupwindow.SelectLanguagePopupWindow;
 import com.ghzk.ghzk.utils.CommonUtil;
 import com.ghzk.ghzk.utils.MyLogger;
 import com.squareup.okhttp.Request;
-import com.xdandroid.hellodaemon.IntentWrapper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -91,9 +90,9 @@ public class RegisteredActivity extends BaseActivity {
     }
 
     //防止华为机型未加入白名单时按返回键回到桌面再锁屏后几秒钟进程被杀
-    public void onBackPressed() {
-        IntentWrapper.onBackPressed(this);
-    }
+//    public void onBackPressed() {
+//        IntentWrapper.onBackPressed(this);
+//    }
 
     @Override
     protected void onResume() {
@@ -113,7 +112,6 @@ public class RegisteredActivity extends BaseActivity {
             case 5:
                 editText1.setPadding(CommonUtil.dip2px(RegisteredActivity.this,80), 0, 0, 0);
                 break;
-
         }
 
         if (!localUserInfo.getCountry_IMG().equals(""))

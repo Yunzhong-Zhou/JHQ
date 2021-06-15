@@ -118,7 +118,7 @@ public class HelloActivity extends Activity {
                     .layoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT))
                     .animType(BaseDialog.AnimInType.BOTTOM)
-                    .canceledOnTouchOutside(true)
+                    .canceledOnTouchOutside(false)
                     .gravity(Gravity.CENTER)
                     .dimAmount(0.8f)
                     .show();

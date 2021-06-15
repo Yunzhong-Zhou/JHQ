@@ -12,38 +12,41 @@
     <!-- 网络权限问题 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> -->
     <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
     <!-- 8.0安装需要的权限 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!-- 读写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 读取手机信息 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <!-- 打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 相机 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- 读取日志 -->
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--
+        <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    -->
     <!-- 9.0权限 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <!-- Android Q后台定位权限 -->
+    <!--
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+    -->
     <!-- 录音权限 -->
     <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
-
-
     <!-- 振动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <supports-screens
         android:anyDensity="true"
@@ -51,6 +54,10 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--
 Android 10 停用过滤视图，使用旧版存储模式
     android:requestLegacyExternalStorage="true"
@@ -313,21 +320,6 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <!-- 查看mob推送日志 -->
-        <meta-data
-            android:name="com.mob.mobpush.debugLevel"
-            android:value="4" />
-        <!-- 配置华为 -->
-        <receiver android:name="com.mob.pushsdk.plugins.huawei.PushHaiWeiRevicer" >
-            <intent-filter>
-                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
-                <action android:name="com.huawei.android.push.intent.RECEIVE" />
-                <action android:name="com.huawei.android.push.intent.CLICK" />
-                <action android:name="com.huawei.intent.action.PUSH_STATE" />
-                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
-            </intent-filter>
-        </receiver>
-
         <!-- 7.0限制-私有目录被限制访问 -->
         <!--
         exported:要求必须为false，为true则会报安全异常。
@@ -349,7 +341,8 @@ Android 10 停用过滤视图，使用旧版存储模式
             android:required="false" />
 
         <!-- 保活 -->
-        <service android:name="com.ghzk.ghzk.utils.TraceServiceImpl" />
+        <!-- <service android:name="com.ghzk.ghzk.utils.TraceServiceImpl" /> -->
+
         <service
             android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
             android:exported="false" >
@@ -421,45 +414,6 @@ Android 10 停用过滤视图，使用旧版存储模式
                 <action android:name="com.ghzk.ghzk.messenger" />
             </intent-filter>
         </service>
-
-        <receiver
-            android:name="com.xdandroid.hellodaemon.WakeUpReceiver"
-            android:process=":watch" >
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-                <action android:name="com.xdandroid.hellodaemon.CANCEL_JOB_ALARM_SUB" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.xdandroid.hellodaemon.WakeUpReceiver$WakeUpAutoStartReceiver"
-            android:process=":watch" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.xdandroid.hellodaemon.AbsWorkService$WorkNotificationService" />
-        <service
-            android:name="com.xdandroid.hellodaemon.JobSchedulerService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:process=":watch" />
-        <service
-            android:name="com.xdandroid.hellodaemon.WatchDogService"
-            android:process=":watch" />
-        <service
-            android:name="com.xdandroid.hellodaemon.WatchDogService$WatchDogNotificationService"
-            android:process=":watch" />
 
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"

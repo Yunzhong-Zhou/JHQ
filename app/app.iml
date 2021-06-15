@@ -118,15 +118,14 @@
     <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.24@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.9.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.9.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.21@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.open-android:pinyin4j:2.5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: es.voghdev.pdfviewpager:library:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.AnJiaoDe:BaseDialog:V1.1.8@aar" level="project" />
     <orderEntry type="library" name="Gradle: liji.library.dev:citypickerview:5.2.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.xdandroid:hellodaemon:1.2.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:4.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.1.0@aar" level="project" />
@@ -183,8 +182,7 @@
     <orderEntry type="library" name="Gradle: com.github.maning0303:MNUpdateAPK:V2.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.MZCretin:FanPermission:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.tencent.tbs.tbssdk:sdk:43697@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.lahm.library:easy-protector-release:1.1.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: :alipaysdk-15.8.02.210308182128:@aar" level="project" />
     <orderEntry type="module" module-name="easynavigation" />
   </component>
