@@ -379,7 +379,7 @@
                             android:layout_height="30dp"
                             android:onClick="onClick"
                             android:padding="10dp"
-                            android:src="@mipmap/ic_xuanze" />
+                            android:src="@mipmap/ic_weixuanze" />
 
                         <TextView
                             android:layout_width="wrap_content"

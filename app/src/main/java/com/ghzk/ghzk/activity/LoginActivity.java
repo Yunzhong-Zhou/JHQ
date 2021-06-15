@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity {
     private String phonenum = "", password = "", code = "", num = "";
     private TimeCount time = null;
 
-    boolean isgouxuan = true;
+    boolean isgouxuan = false;
     ImageView imageView3;
     String register_agreement = "";
 
